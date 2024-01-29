@@ -1,0 +1,224 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+UI_shared.xsd">
+	<Script file="PartyFrame.lua"/>
+	<Button name="CfPartyMemberFrameTemplate" mixin="CfPartyMemberFrameMixin" hidden="true" virtual="true">
+		<Size x="128" y="53"/>
+		<HitRectInsets>
+			<AbsInset left="7" right="85" top="6" bottom="7"/>
+		</HitRectInsets>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture parentKey="Flash" file="Interface\TargetingFrame\UI-PartyFrame-Flash" hidden="true">
+					<Size x="128" y="64"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="-3" y="2"/>
+					</Anchors>
+				</Texture>
+				<Texture parentKey="Portrait">
+					<Size x="37" y="37"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="7" y="-6"/>
+					</Anchors>
+				</Texture>
+				<Texture name="$parentBackground">
+					<Size x="72" y="20"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="45" y="-11"/>
+					</Anchors>
+					<Color r="0" g="0" b="0" a="0.5"/>
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK">
+				<Texture parentKey="TotalAbsorbBar" inherits="CfTotalAbsorbBarTemplate"/>
+			</Layer>
+			<Layer level="ARTWORK" textureSubLevel="1">
+				<Texture parentKey="TotalAbsorbBarOverlay" inherits="CfTotalAbsorbBarOverlayTemplate"/>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame parentKey="PartyMemberOverlay" setAllPoints="true">
+				<Frames>
+					<Frame parentKey="Info" setAllPoints="true">
+						<Layers>
+							<Layer level="BACKGROUND">
+								<Texture parentKey="MyHealPredictionBar" inherits="CfMyHealPredictionBarTemplate"/>
+								<Texture parentKey="OtherHealPredictionBar" inherits="CfOtherHealPredictionBarTemplate"/>
+								<Texture parentKey="HealAbsorbBar" inherits="CfHealAbsorbBarTemplate"/>
+								<Texture parentKey="HealAbsorbBarLeftShadow" inherits="CfHealAbsorbBarLeftShadowTemplate"/>
+								<Texture parentKey="HealAbsorbBarRightShadow" inherits="CfHealAbsorbBarRightShadowTemplate"/>
+							</Layer>
+							<Layer level="BORDER">
+								<Texture parentKey="Texture" file="Interface\TargetingFrame\UI-PartyFrame">
+									<Size x="128" y="64"/>
+									<Anchors>
+										<Anchor point="TOPLEFT" x="0" y="-2"/>
+									</Anchors>
+								</Texture>
+								<Texture parentKey="VehicleTexture" file="Interface\Vehicles\UI-Vehicles-PartyFrame" hidden="true">
+									<Size x="128" y="64"/>
+									<Anchors>
+										<Anchor point="TOPLEFT" x="-6" y="6"/>
+									</Anchors>
+								</Texture>
+								<FontString parentKey="Name" inherits="GameFontNormalSmall" justifyH="LEFT">
+									<Anchors>
+										<Anchor point="BOTTOMLEFT" x="50" y="43"/>
+									</Anchors>
+								</FontString>
+								<FontString parentKey="HealthBarText" inherits="TextStatusBarText">
+									<Anchors>
+										<Anchor point="CENTER" x="20" y="12"/>
+									</Anchors>
+								</FontString>
+								<FontString parentKey="HealthBarTextLeft" inherits="TextStatusBarText">
+									<Anchors>
+										<Anchor point="LEFT" x="42" y="12"/>
+									</Anchors>
+								</FontString>
+								<FontString parentKey="HealthBarTextRight" inherits="TextStatusBarText">
+									<Anchors>
+										<Anchor point="RIGHT" x="-10" y="12"/>
+									</Anchors>
+								</FontString>
+								<FontString parentKey="ManaBarText" inherits="TextStatusBarText">
+									<Anchors>
+										<Anchor point="CENTER" x="20" y="2"/>
+									</Anchors>
+								</FontString>
+								<FontString parentKey="ManaBarTextLeft" inherits="TextStatusBarText">
+									<Anchors>
+										<Anchor point="LEFT" x="42" y="2"/>
+									</Anchors>
+								</FontString>
+								<FontString parentKey="ManaBarTextRight" inherits="TextStatusBarText">
+									<Anchors>
+										<Anchor point="RIGHT" x="-10" y="2"/>
+									</Anchors>
+								</FontString>
+							</Layer>
+							<Layer level="ARTWORK">
+								<Texture parentKey="Status" file="Interface\Buttons\UI-Debuff-Overlays" hidden="true">
+									<Size x="36" y="36"/>
+									<Anchors>
+										<Anchor point="CENTER" relativeKey="$parent.$parent.$parent.Portrait" x="0" y="0"/>
+									</Anchors>
+									<TexCoords left="0" right="0.2734375" top="0" bottom="0.5625"/>
+								</Texture>
+								<Texture parentKey="OverAbsorbGlow" inherits="CfOverAbsorbGlowTemplate"/>
+								<Texture parentKey="OverHealAbsorbGlow" inherits="CfOverHealAbsorbGlowTemplate"/>
+							</Layer>
+							<Layer level="OVERLAY">
+								<Texture parentKey="LeaderIcon" file="Interface\GroupFrame\UI-Group-LeaderIcon" hidden="true">
+									<Size x="16" y="16"/>
+									<Anchors>
+										<Anchor point="TOPLEFT"/>
+									</Anchors>
+								</Texture>
+								<Texture parentKey="GuideIcon" file="Interface\LFGFrame\UI-LFG-ICON-PORTRAITROLES" hidden="true">
+									<Size x="19" y="19"/>
+									<Anchors>
+										<Anchor point="TOPLEFT"/>
+									</Anchors>
+									<TexCoords left="0" right="0.296875" top="0.015625" bottom="0.3125"/>
+								</Texture>
+								<Texture parentKey="PVPIcon" hidden="true">
+									<Size x="32" y="32"/>
+									<Anchors>
+										<Anchor point="TOPLEFT" x="-9" y="-15"/>
+									</Anchors>
+								</Texture>
+								<Texture parentKey="Disconnect" file="Interface\CharacterFrame\Disconnect-Icon" hidden="true">
+									<Size x="64" y="64"/>
+									<Anchors>
+										<Anchor point="LEFT" x="-7" y="-1"/>
+									</Anchors>
+								</Texture>
+								<Texture parentKey="RoleIcon" file="Interface\LFGFrame\UI-LFG-ICON-PORTRAITROLES" hidden="true">
+									<Size x="19" y="19"/>
+									<Anchors>
+										<Anchor point="TOPLEFT" x="7" y="-33"/>
+									</Anchors>
+								</Texture>
+							</Layer>
+						</Layers>
+					</Frame>
+				</Frames>
+			</Frame>
+			<StatusBar parentKey="HealthBar" inherits="TextStatusBar">
+				<Size x="70" y="8"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" x="47" y="-12"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						TextStatusBar_Initialize(self);
+						self.textLockable = 1;
+						self.cvar = "statusText";
+						self.cvarLabel = "STATUS_TEXT_PARTY";
+					</OnLoad>
+					<OnValueChanged>
+						self:GetParent():PartyMemberHealthCheck(value);
+						CfUnitFrameHealthBar_OnValueChanged(self, value);
+					</OnValueChanged>
+					<OnSizeChanged>
+						CfUnitFrameHealPredictionBars_UpdateSize(self:GetParent());
+					</OnSizeChanged>
+				</Scripts>
+				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+			</StatusBar>
+			<StatusBar parentKey="ManaBar" inherits="TextStatusBar">
+				<Size x="70" y="8"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" x="47" y="-21"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						TextStatusBar_Initialize(self);
+						self.textLockable = 1;
+						self.cvar = "statusText";
+						self.cvarLabel = "STATUS_TEXT_PARTY";
+					</OnLoad>
+				</Scripts>
+				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+				<BarColor r="0" g="0" b="1.0"/>>
+			</StatusBar>
+			<Frame parentKey="ReadyCheck" inherits="ReadyCheckStatusTemplate" hidden="true">
+				<Anchors>
+					<Anchor point="CENTER" relativeKey="$parent.Portrait" relativePoint="CENTER" x="0" y="0"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad>
+						RaiseFrameLevelByTwo(self);
+					</OnLoad>
+				</Scripts>
+			</Frame>
+			<Frame parentKey="NotPresentIcon" ignoreParentAlpha="true" hidden="true">
+				<Size x="25" y="25"/>
+				<Anchors>
+					<Anchor point="LEFT" relativePoint="RIGHT" x="-7" y="5"/>
+				</Anchors>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture parentKey="texture" setAllPoints="true"/>
+					</Layer>
+					<Layer level="OVERLAY">
+						<Texture parentKey="Border" file="Interface\Common\RingBorder" setAllPoints="true"/>
+					</Layer>
+				</Layers>
+			</Frame>
+		</Frames>
+		<Scripts>
+			<OnEvent method="OnEvent"/>
+			<OnUpdate method="OnUpdate"/>
+		</Scripts>
+	</Button>
+	<Frame name="CfPartyFrame" mixin="CfPartyFrameMixin" inherits="VerticalLayoutFrame" frameStrata="LOW" parent="UIParent" toplevel="true">
+		<KeyValues>
+			<KeyValue key="spacing" value="10" type="number"/>
+		</KeyValues>
+		<Scripts>
+			<OnLoad method="OnLoad"/>
+			<OnShow method="OnShow"/>
+		</Scripts>
+	</Frame>
+</Ui>
