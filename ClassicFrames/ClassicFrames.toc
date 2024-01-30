@@ -19,6 +19,7 @@ skins\Bags.lua
 skins\Bank.lua
 skins\Buffs.lua
 skins\Calendar.lua
+skins\CastBar.lua
 skins\Catalyst.lua
 skins\Character.lua
 skins\Chat.lua
