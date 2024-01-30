@@ -1,11 +1,5 @@
 local framesToSyncAndHide =
 {       
-    ["CfPlayerFrame"] =
-        {
-            ["name"] = "PlayerFrame",
-            ["xOffset"] = -19,
-            ["yOffset"] = -4,
-        },
     ["CfTargetFrame"] =
         {
             ["name"] = "TargetFrame",
@@ -74,11 +68,6 @@ PlayerFrame:HookScript("OnEvent", function(self)
         RuneFrame:UnregisterAllEvents()
         RuneFrame:Hide()
     end
-end)
-
-hooksecurefunc(PlayerFrame, "menu", function(self)
-    DropDownList1:ClearAllPoints()
-    DropDownList1:SetPoint("TOPLEFT", self, "BOTTOMLEFT", 86, 22)
 end)
 
 hooksecurefunc(TargetFrame, "menu", function(self)

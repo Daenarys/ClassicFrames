@@ -4,570 +4,170 @@ function CfPlayerFrame_OnLoad(self)
 	PlayerFrameManaBar.LeftText = PlayerFrameManaBarTextLeft;
 	PlayerFrameManaBar.RightText = PlayerFrameManaBarTextRight;
 
-	CfUnitFrame_Initialize(self, "player", CfPlayerName, PlayerPortrait,
-						 PlayerFrameHealthBar, PlayerFrameHealthBarText,
-						 PlayerFrameManaBar, PlayerFrameManaBarText,
-						 PlayerFrameFlash, nil, nil,
-						 CfPlayerFrameMyHealPredictionBar, CfPlayerFrameOtherHealPredictionBar,
-						 CfPlayerFrameTotalAbsorbBar, CfPlayerFrameTotalAbsorbBarOverlay, CfPlayerFrameOverAbsorbGlow,
-						 CfPlayerFrameOverHealAbsorbGlow, CfPlayerFrameHealAbsorbBar, CfPlayerFrameHealAbsorbBarLeftShadow,
-						 CfPlayerFrameHealAbsorbBarRightShadow, CfPlayerFrameManaCostPredictionBar);
+	CfUnitFrame_Initialize(self, "player", nil, nil,
+		PlayerFrameHealthBar, PlayerFrameHealthBarText,
+		PlayerFrameManaBar, PlayerFrameManaBarText,
+		nil, nil, nil,
+		CfPlayerFrameMyHealPredictionBar, CfPlayerFrameOtherHealPredictionBar,
+		CfPlayerFrameTotalAbsorbBar, CfPlayerFrameTotalAbsorbBarOverlay, CfPlayerFrameOverAbsorbGlow,
+		CfPlayerFrameOverHealAbsorbGlow, CfPlayerFrameHealAbsorbBar, CfPlayerFrameHealAbsorbBarLeftShadow,
+		CfPlayerFrameHealAbsorbBarRightShadow);
 
-	self.statusCounter = 0;
-	self.statusSign = -1;
-	CombatFeedback_Initialize(self, PlayerHitIndicator, 30);
-	CfPlayerFrame_Update();
-	self:RegisterEvent("PLAYER_LEVEL_CHANGED");
-	self:RegisterEvent("UNIT_FACTION");
 	self:RegisterEvent("PLAYER_ENTERING_WORLD");
-	self:RegisterEvent("PLAYER_ENTER_COMBAT");
-	self:RegisterEvent("PLAYER_LEAVE_COMBAT");
-	self:RegisterEvent("PLAYER_REGEN_DISABLED");
-	self:RegisterEvent("PLAYER_REGEN_ENABLED");
-	self:RegisterEvent("PLAYER_UPDATE_RESTING");
-	self:RegisterEvent("PARTY_LEADER_CHANGED");
-	self:RegisterEvent("GROUP_ROSTER_UPDATE");
-	self:RegisterEvent("READY_CHECK");
-	self:RegisterEvent("READY_CHECK_CONFIRM");
-	self:RegisterEvent("READY_CHECK_FINISHED");
-	self:RegisterEvent("UNIT_ENTERED_VEHICLE");
-	self:RegisterEvent("UNIT_ENTERING_VEHICLE");
-	self:RegisterEvent("UNIT_EXITING_VEHICLE");
-	self:RegisterEvent("UNIT_EXITED_VEHICLE");
-	self:RegisterEvent("PVP_TIMER_UPDATE");
-	self:RegisterEvent("PLAYER_ROLES_ASSIGNED");
-	self:RegisterEvent("HONOR_LEVEL_UPDATE");
-	self:RegisterEvent("QUEST_SESSION_JOINED");
-	self:RegisterEvent("QUEST_SESSION_LEFT");
-	self:RegisterUnitEvent("UNIT_COMBAT", "player", "vehicle");
-	self:RegisterUnitEvent("UNIT_MAXPOWER", "player", "vehicle");
-
-	PlayerAttackBackground:SetVertexColor(0.8, 0.1, 0.1);
-	PlayerAttackBackground:SetAlpha(0.4);
-
-	self:SetClampRectInsets(20, 0, 0, 0);
-end
-
---This is overwritten in LocalizationPost for different languages.
-function CfPlayerFrame_UpdateLevelTextAnchor(level)
-	if ( level >= 100 ) then
-		CfPlayerLevelText:SetPoint("CENTER", PlayerFrameTexture, "CENTER", -62, -17);
-	else
-		CfPlayerLevelText:SetPoint("CENTER", PlayerFrameTexture, "CENTER", -61, -17);
-	end
-end
-
-function CfPlayerFrame_Update()
-	if ( UnitExists("player") ) then
-		CfPlayerFrame_UpdateLevel();
-		CfPlayerFrame_UpdatePartyLeader();
-		CfPlayerFrame_UpdatePvPStatus();
-		CfPlayerFrame_UpdateStatus();
-	end
-end
-
-function CfPlayerFrame_UpdateLevel()
-	if ( UnitExists("player") ) then
-		local level = UnitLevel(CfPlayerFrame.unit);
-		local effectiveLevel = UnitEffectiveLevel(CfPlayerFrame.unit);
-		if ( effectiveLevel ~= level ) then
-			CfPlayerLevelText:SetVertexColor(0.1, 1.0, 0.1, 1.0);
-		else
-			CfPlayerLevelText:SetVertexColor(1.0, 0.82, 0.0, 1.0);
-		end
-		CfPlayerFrame_UpdateLevelTextAnchor(effectiveLevel);
-		CfPlayerLevelText:SetText(effectiveLevel);
-	end
-end
-
-function CfPlayerFrame_UpdatePartyLeader()
-	if ( UnitIsGroupLeader("player") ) then
-		if ( HasLFGRestrictions() ) then
-			PlayerGuideIcon:Show();
-			PlayerLeaderIcon:Hide();
-		else
-			PlayerLeaderIcon:Show()
-			PlayerGuideIcon:Hide();
-		end
-	else
-		PlayerLeaderIcon:Hide();
-		PlayerGuideIcon:Hide();
-	end
-end
-
-function CfPlayerFrame_CanPlayPVPUpdateSound()
-	return not PlayerPVPIcon:IsShown() and not PlayerPrestigePortrait:IsShown();
-end
-
-function CfPlayerFrame_UpdatePvPStatus()
-	local factionGroup, factionName = UnitFactionGroup("player");
-	if ( UnitIsPVPFreeForAll("player") ) then
-		if ( CfPlayerFrame_CanPlayPVPUpdateSound() ) then
-			PlaySound(SOUNDKIT.IG_PVP_UPDATE);
-		end
-		local honorLevel = UnitHonorLevel("player");
-		local honorRewardInfo = C_PvP.GetHonorRewardInfo(honorLevel);
-		if (honorRewardInfo) then
-			PlayerPrestigePortrait:SetAtlas("honorsystem-portrait-neutral", false);
-			PlayerPrestigeBadge:SetTexture(honorRewardInfo.badgeFileDataID);
-			PlayerPrestigePortrait:Show();
-			PlayerPrestigeBadge:Show();
-			PlayerPVPIcon:Hide();
-		else
-			PlayerPrestigePortrait:Hide();
-			PlayerPrestigeBadge:Hide();
-			PlayerPVPIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-FFA");
-			PlayerPVPIcon:Show();
-		end
-
-		-- Setup newbie tooltip
-		PlayerPVPIconHitArea.tooltipTitle = PVPFFA;
-		PlayerPVPIconHitArea.tooltipText = NEWBIE_TOOLTIP_PVPFFA;
-		PlayerPVPIconHitArea:Show();
-
-		CfPlayerPVPTimerText:Hide();
-		CfPlayerPVPTimerText.timeLeft = nil;
-	elseif ( factionGroup and factionGroup ~= "Neutral" and UnitIsPVP("player") ) then
-		if ( CfPlayerFrame_CanPlayPVPUpdateSound() ) then
-			PlaySound(SOUNDKIT.IG_PVP_UPDATE);
-		end
-
-		local honorLevel = UnitHonorLevel("player");
-		local honorRewardInfo = C_PvP.GetHonorRewardInfo(honorLevel);
-		if (honorRewardInfo) then
-			-- ugly special case handling for mercenary mode
-			if ( UnitIsMercenary("player") ) then
-				if ( factionGroup == "Horde" ) then
-					factionGroup = "Alliance";
-				elseif ( factionGroup == "Alliance" ) then
-					factionGroup = "Horde";
-				end
-			end
-
-			PlayerPrestigePortrait:SetAtlas("honorsystem-portrait-"..factionGroup, false);
-			PlayerPrestigeBadge:SetTexture(honorRewardInfo.badgeFileDataID);
-			PlayerPrestigePortrait:Show();
-			PlayerPrestigeBadge:Show();
-			PlayerPVPIcon:Hide();
-		else
-			PlayerPrestigePortrait:Hide();
-			PlayerPrestigeBadge:Hide();
-			PlayerPVPIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-"..factionGroup);
-
-			-- ugly special case handling for mercenary mode
-			if ( UnitIsMercenary("player") ) then
-				if ( factionGroup == "Horde" ) then
-					PlayerPVPIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-Alliance");
-				elseif ( factionGroup == "Alliance" ) then
-					PlayerPVPIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-Horde");
-				end
-			end
-		end
-
-		PlayerPVPIcon:Show();
-
-		-- Setup newbie tooltip
-		PlayerPVPIconHitArea.tooltipTitle = factionName;
-		PlayerPVPIconHitArea.tooltipText = _G["NEWBIE_TOOLTIP_"..strupper(factionGroup)];
-		PlayerPVPIconHitArea:Show();
-	else
-		PlayerPrestigePortrait:Hide();
-		PlayerPrestigeBadge:Hide();
-		PlayerPVPIcon:Hide();
-		PlayerPVPIconHitArea:Hide();
-		CfPlayerPVPTimerText:Hide();
-		CfPlayerPVPTimerText.timeLeft = nil;
-	end
+	self:EnableMouse(false);
 end
 
 function CfPlayerFrame_OnEvent(self, event, ...)
 	CfUnitFrame_OnEvent(self, event, ...);
 
-	local arg1, arg2, arg3, arg4, arg5 = ...;
-	if ( event == "PLAYER_LEVEL_CHANGED" ) then
-		CfPlayerFrame_Update();
-	elseif ( event == "UNIT_COMBAT" ) then
-		if ( arg1 == self.unit ) then
-			CombatFeedback_OnCombatEvent(self, arg2, arg3, arg4, arg5);
-		end
-	elseif ( event == "UNIT_FACTION" ) then
-		if ( arg1 == "player" ) then
-			CfPlayerFrame_UpdatePvPStatus();
-		end
-	elseif ( event == "PLAYER_ENTERING_WORLD" ) then
+	if ( event == "PLAYER_ENTERING_WORLD" ) then
 		CfUnitFrame_Update(self);
-		CfPlayerFrame_ToPlayerArt(self);
-		self.inCombat = nil;
-		self.onHateList = nil;
-		CfPlayerFrame_Update();
-		CfPlayerFrame_UpdateStatus();
-		CfPlayerFrame_UpdateRolesAssigned();
-
-		if ( IsPVPTimerRunning() ) then
-			CfPlayerPVPTimerText:Show();
-			CfPlayerPVPTimerText.timeLeft = GetPVPTimer();
-		else
-			CfPlayerPVPTimerText:Hide();
-			CfPlayerPVPTimerText.timeLeft = nil;
-		end
-
-		QuestSessionSync.Icon:SetShown(C_QuestSession.HasJoined());
-	elseif ( event == "PLAYER_ENTER_COMBAT" ) then
-		self.inCombat = 1;
-		CfPlayerFrame_UpdateStatus();
-	elseif ( event == "PLAYER_LEAVE_COMBAT" ) then
-		self.inCombat = nil;
-		CfPlayerFrame_UpdateStatus();
-	elseif ( event == "PLAYER_REGEN_DISABLED" ) then
-		self.onHateList = 1;
-		CfPlayerFrame_UpdateStatus();
-	elseif ( event == "PLAYER_REGEN_ENABLED" ) then
-		self.onHateList = nil;
-		CfPlayerFrame_UpdateStatus();
-	elseif ( event == "PLAYER_UPDATE_RESTING" ) then
-		CfPlayerFrame_UpdateStatus();
-	elseif ( event == "PARTY_LEADER_CHANGED" or event == "GROUP_ROSTER_UPDATE" ) then
-		CfPlayerFrame_UpdateGroupIndicator();
-		CfPlayerFrame_UpdatePartyLeader();
-		CfPlayerFrame_UpdateReadyCheck();
-	elseif ( event == "READY_CHECK" or event == "READY_CHECK_CONFIRM" ) then
-		CfPlayerFrame_UpdateReadyCheck();
-	elseif ( event == "READY_CHECK_FINISHED" ) then
-		ReadyCheck_Finish(PlayerFrameReadyCheck, DEFAULT_READY_CHECK_STAY_TIME);
-	elseif ( event == "UNIT_ENTERING_VEHICLE" ) then
-		if ( arg1 == "player" ) then
-			if ( arg2 ) then
-				CfPlayerFrame_AnimateOut(self);
-			else
-				if ( CfPlayerFrame.state == "vehicle" ) then
-					CfPlayerFrame_AnimateOut(self);
-				end
-			end
-		end
-	elseif ( event == "UNIT_ENTERED_VEHICLE" ) then
-		if ( arg1 == "player" ) then
-			self.inSeat = true;
-			CfPlayerFrame_UpdateArt(self);
-		end
-	elseif ( event == "UNIT_EXITING_VEHICLE" ) then
-		if ( arg1 == "player" ) then
-			if ( self.state == "vehicle" ) then
-				CfPlayerFrame_AnimateOut(self);
-			end
-		end
-	elseif ( event == "UNIT_EXITED_VEHICLE" ) then
-		if ( arg1 == "player" ) then
-			self.inSeat = true;
-			CfPlayerFrame_UpdateArt(self);
-		end
-	elseif ( event == "PVP_TIMER_UPDATE" ) then
-		if ( IsPVPTimerRunning() ) then
-			CfPlayerPVPTimerText:Show();
-			CfPlayerPVPTimerText.timeLeft = GetPVPTimer();
-		else
-			CfPlayerPVPTimerText:Hide();
-			CfPlayerPVPTimerText.timeLeft = nil;
-		end
-	elseif ( event == "PLAYER_ROLES_ASSIGNED" ) then
-		CfPlayerFrame_UpdateRolesAssigned();
-	elseif ( event == "HONOR_LEVEL_UPDATE" ) then
-		CfPlayerFrame_UpdatePvPStatus();
-	elseif ( event == "QUEST_SESSION_JOINED" ) then
-		QuestSessionSync.Icon:Show();
-	elseif ( event == "QUEST_SESSION_LEFT" ) then
-		QuestSessionSync.Icon:Hide();
 	end
 end
 
-function CfPlayerFrame_UpdateRolesAssigned()
-	local frame = CfPlayerFrame;
-	local icon = _G[frame:GetName().."RoleIcon"];
-	local role = UnitGroupRolesAssigned("player");
+PlayerFrame.PlayerFrameContainer:SetFrameLevel(4)
+PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:SetFrameLevel(5)
 
-	if ( role == "TANK" or role == "HEALER" or role == "DAMAGER") then
-		icon:SetTexCoord(GetTexCoordsForRoleSmallCircle(role));
-		icon:Show();
-	else
-		icon:Hide();
+PlayerFrame.PlayerFrameContainer.PlayerPortrait:SetSize(64, 64)
+PlayerFrame.PlayerFrameContainer.PlayerPortrait:ClearAllPoints()
+PlayerFrame.PlayerFrameContainer.PlayerPortrait:SetPoint("TOPLEFT", 23, -16)
+PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface/CHARACTERFRAME/TempPortraitAlphaMask", "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")
+
+PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarArea:Hide()
+PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea:Hide()
+
+if (PlayerFrameBackground == nil) then
+	PlayerFrame:CreateTexture("PlayerFrameBackground", "BACKGROUND");
+	PlayerFrameBackground:SetHeight(41)
+	PlayerFrameBackground:SetColorTexture(0, 0, 0, 0.5)
+	PlayerFrameBackground:SetPoint("TOPLEFT", 87, -26);
+end
+
+if (_G.AlternatePowerBar) then
+	AlternatePowerBar:SetSize(104, 12)
+	AlternatePowerBar:ClearAllPoints()
+	AlternatePowerBar:SetPoint("BOTTOMLEFT", 95, 19);
+
+	AlternatePowerBarText:SetPoint("CENTER", 0, -1)
+	AlternatePowerBar.LeftText:SetPoint("LEFT", 0, -1)
+	AlternatePowerBar.RightText:SetPoint("RIGHT", 0, -1)
+
+	if (AlternatePowerBar.Background == nil) then
+		AlternatePowerBar.Background = AlternatePowerBar:CreateTexture(nil, "BACKGROUND");
+		AlternatePowerBar.Background:SetAllPoints()
+		AlternatePowerBar.Background:SetColorTexture(0, 0, 0, 0.5)
 	end
-end
 
-local function CfPlayerFrame_AnimPos(self, fraction)
-	return "TOPLEFT", UIParent, "TOPLEFT", -19, fraction*140-4;
-end
-
-local PlayerFrameAnimTable = {
-	totalTime = 0.3,
-	updateFunc = "SetPoint",
-	getPosFunc = CfPlayerFrame_AnimPos,
-	}
-function CfPlayerFrame_AnimateOut(self)
-	self.inSeat = false;
-	self.animFinished = false;
-	self.inSequence = true;
-	self.isAnimatedOut = true;
-	if ( self:IsUserPlaced() ) then
-		CfPlayerFrame_AnimFinished(CfPlayerFrame);
-	else
-		SetUpAnimation(CfPlayerFrame, PlayerFrameAnimTable, CfPlayerFrame_AnimFinished, false)
+	if (AlternatePowerBar.Border == nil) then
+		AlternatePowerBar.Border = AlternatePowerBar:CreateTexture(nil, "ARTWORK");
+		AlternatePowerBar.Border:SetSize(0, 16)
+		AlternatePowerBar.Border:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
+		AlternatePowerBar.Border:SetTexCoord(0.125, 0.250, 1, 0)
+		AlternatePowerBar.Border:SetPoint("TOPLEFT", 4, 0)
+		AlternatePowerBar.Border:SetPoint("TOPRIGHT", -4, 0)
 	end
-end
 
-function CfPlayerFrame_AnimFinished(self)
-	self.animFinished = true;
-	CfPlayerFrame_UpdateArt(self);
-end
+	if (AlternatePowerBar.LeftBorder == nil) then
+		AlternatePowerBar.LeftBorder = AlternatePowerBar:CreateTexture(nil, "ARTWORK");
+		AlternatePowerBar.LeftBorder:SetSize(16, 16)
+		AlternatePowerBar.LeftBorder:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
+		AlternatePowerBar.LeftBorder:SetTexCoord(0, 0.125, 1, 0)
+		AlternatePowerBar.LeftBorder:SetPoint("RIGHT", AlternatePowerBar.Border, "LEFT")
+	end
 
-function CfPlayerFrame_IsAnimatedOut(self)
-	return self.isAnimatedOut;
-end
+	if (AlternatePowerBar.RightBorder == nil) then
+		AlternatePowerBar.RightBorder = AlternatePowerBar:CreateTexture(nil, "ARTWORK");
+		AlternatePowerBar.RightBorder:SetSize(16, 16)
+		AlternatePowerBar.RightBorder:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
+		AlternatePowerBar.RightBorder:SetTexCoord(0.125, 0, 1, 0)
+		AlternatePowerBar.RightBorder:SetPoint("LEFT", AlternatePowerBar.Border, "RIGHT")
+	end
 
-function CfPlayerFrame_UpdateArt(self)
-	if ( self.inSeat ) then
-		if ( self:IsUserPlaced() ) then
-			CfPlayerFrame_SequenceFinished(CfPlayerFrame);
-		elseif ( self.animFinished and self.inSequence ) then
-			SetUpAnimation(CfPlayerFrame, PlayerFrameAnimTable, CfPlayerFrame_SequenceFinished, true)
+	hooksecurefunc(AlternatePowerBar, "EvaluateUnit", function(self)
+		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar");
+		self:SetStatusBarColor(0, 0, 1);
+
+		if self.PowerBarMask then
+			self.PowerBarMask:Hide()
 		end
-		if ( UnitHasVehiclePlayerFrameUI("player") ) then
-			CfPlayerFrame_ToVehicleArt(self, UnitVehicleSkin("player"));
-		else
-			CfPlayerFrame_ToPlayerArt(self);
-		end
+	end)
+end
+
+if (_G.MonkStaggerBar) then
+	MonkStaggerBar:SetSize(94, 12)
+	MonkStaggerBar:ClearAllPoints()
+	MonkStaggerBar:SetPoint("TOPLEFT", PlayerFrameAlternatePowerBarArea, "TOPLEFT", 98, -70);
+
+	MonkStaggerBar.PowerBarMask:Hide()
+
+	MonkStaggerBarText:SetPoint("CENTER", 0, -1)
+	MonkStaggerBar.LeftText:SetPoint("LEFT", 0, -1)
+	MonkStaggerBar.RightText:SetPoint("RIGHT", 0, -1)
+
+	if (MonkStaggerBar.Background == nil) then
+		MonkStaggerBar.Background = MonkStaggerBar:CreateTexture(nil, "BACKGROUND");
+		MonkStaggerBar.Background:SetSize(128, 16)
+		MonkStaggerBar.Background:SetTexture("Interface\\PlayerFrame\\MonkManaBar")
+		MonkStaggerBar.Background:SetTexCoord(0, 1, 0.5, 1)
+		MonkStaggerBar.Background:SetPoint("TOPLEFT", -17, 0)
 	end
-end
 
-function CfPlayerFrame_SequenceFinished(self)
-	self.isAnimatedOut = false;
-	self.inSequence = false;
-end
-
-function CfPlayerFrame_ToVehicleArt(self, vehicleType)
-	--Swap frame
-
-	CfPlayerFrame.state = "vehicle";
-
-	CfUnitFrame_SetUnit(self, "vehicle", PlayerFrameHealthBar, PlayerFrameManaBar);
-	CfPlayerFrame_Update();
-
-	PlayerFrameTexture:Hide();
-	if ( vehicleType == "Natural" ) then
-		PlayerFrameVehicleTexture:SetTexture("Interface\\Vehicles\\UI-Vehicle-Frame-Organic");
-		PlayerFrameFlash:SetTexture("Interface\\Vehicles\\UI-Vehicle-Frame-Organic-Flash");
-		PlayerFrameFlash:SetTexCoord(-0.02, 1, 0.07, 0.86);
-		PlayerFrameHealthBar:SetWidth(103);
-		PlayerFrameHealthBar:SetPoint("TOPLEFT",116,-41);
-		PlayerFrameManaBar:SetWidth(103);
-		PlayerFrameManaBar:SetPoint("TOPLEFT",116,-52);
-	else
-		PlayerFrameVehicleTexture:SetTexture("Interface\\Vehicles\\UI-Vehicle-Frame");
-		PlayerFrameFlash:SetTexture("Interface\\Vehicles\\UI-Vehicle-Frame-Flash");
-		PlayerFrameFlash:SetTexCoord(-0.02, 1, 0.07, 0.86);
-		PlayerFrameHealthBar:SetWidth(100);
-		PlayerFrameHealthBar:SetPoint("TOPLEFT",119,-41);
-		PlayerFrameManaBar:SetWidth(100);
-		PlayerFrameManaBar:SetPoint("TOPLEFT",119,-52);
+	if (MonkStaggerBar.Border == nil) then
+		MonkStaggerBar.Border = MonkStaggerBar:CreateTexture(nil, "ARTWORK");
+		MonkStaggerBar.Border:SetSize(128, 16)
+		MonkStaggerBar.Border:SetTexture("Interface\\PlayerFrame\\MonkManaBar")
+		MonkStaggerBar.Border:SetTexCoord(0, 1, 0, 0.5)
+		MonkStaggerBar.Border:SetPoint("TOPLEFT", -17, 0)
 	end
-	PlayerFrame_ShowVehicleTexture();
 
-	CfPlayerName:SetPoint("CENTER",50,23);
-	PlayerLeaderIcon:SetPoint("TOPLEFT",40,-12);
-	CfPlayerFrameGroupIndicator:SetPoint("BOTTOMLEFT", CfPlayerFrame, "TOPLEFT", 97, -13);
-
-	PlayerFrameBackground:SetWidth(114);
-	CfPlayerLevelText:Hide();
+	hooksecurefunc(MonkStaggerBar, "EvaluateUnit", function(self)
+		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar");
+		self:SetStatusBarColor(0, 0, 1);
+	end)
 end
 
-function CfPlayerFrame_ToPlayerArt(self)
-	--Unswap frame
+hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
+	self.PlayerFrameContainer.FrameTexture:SetSize(232, 100)
+	self.PlayerFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
+	self.PlayerFrameContainer.FrameTexture:SetTexCoord(1, 0.09375, 0, 0.78125)
+	self.PlayerFrameContainer.FrameTexture:ClearAllPoints()
+	self.PlayerFrameContainer.FrameTexture:SetPoint("TOPLEFT", -19, -4)
 
-	CfPlayerFrame.state = "player";
+	self.PlayerFrameContainer.AlternatePowerFrameTexture:SetSize(232, 100)
+	self.PlayerFrameContainer.AlternatePowerFrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
+	self.PlayerFrameContainer.AlternatePowerFrameTexture:SetTexCoord(1, 0.09375, 0, 0.78125)
+	self.PlayerFrameContainer.AlternatePowerFrameTexture:ClearAllPoints()
+	self.PlayerFrameContainer.AlternatePowerFrameTexture:SetPoint("TOPLEFT", -19, -4)
 
-	CfUnitFrame_SetUnit(self, "player", PlayerFrameHealthBar, PlayerFrameManaBar);
-	CfPlayerFrame_Update();
+	local FrameFlash = self.PlayerFrameContainer.FrameFlash
+	FrameFlash:SetParent(self)
+	FrameFlash:SetSize(242, 93)
+	FrameFlash:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Flash")
+	FrameFlash:SetTexCoord(0.9453125, 0, 0, 0.181640625)
+	FrameFlash:ClearAllPoints()
+	FrameFlash:SetPoint("TOPLEFT", -6, -4)
+	FrameFlash:SetDrawLayer("BACKGROUND", 0)
 
-	PlayerFrameTexture:Show();
-	PlayerFrame_HideVehicleTexture();
-	CfPlayerName:SetPoint("CENTER",50,19);
-	PlayerLeaderIcon:SetPoint("TOPLEFT",40,-12);
-	CfPlayerFrameGroupIndicator:SetPoint("BOTTOMLEFT", CfPlayerFrame, "TOPLEFT", 97, -20);
+	local StatusTexture = self.PlayerFrameContent.PlayerFrameContentMain.StatusTexture
+	StatusTexture:SetParent(self.PlayerFrameContent.PlayerFrameContentContextual)
+	StatusTexture:SetSize(190, 66)
+	StatusTexture:SetTexture("Interface\\CharacterFrame\\UI-Player-Status")
+	StatusTexture:SetTexCoord(0, 0.74609375, 0, 0.53125)
+	StatusTexture:SetBlendMode("ADD")
+	StatusTexture:ClearAllPoints()
+	StatusTexture:SetPoint("TOPLEFT", 16, -12)
+
+	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMRIGHT", self, "TOPLEFT", 161, -25)
+	self.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon:SetPoint("TOPLEFT", 76, -19)
+
 	PlayerFrameHealthBar:SetWidth(119);
 	PlayerFrameHealthBar:SetPoint("TOPLEFT",106,-41);
 	PlayerFrameManaBar:SetWidth(119);
 	PlayerFrameManaBar:SetPoint("TOPLEFT",106,-52);
 	PlayerFrameBackground:SetWidth(119);
-	CfPlayerLevelText:Show();
-	PlayerFrameFlash:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Flash");
-	PlayerFrameFlash:SetTexCoord(0.9453125, 0, 0, 0.181640625);
-end
+	PlayerLevelText:Show()
 
-function CfPlayerFrame_UpdateReadyCheck()
-	local readyCheckStatus = GetReadyCheckStatus("player");
-	if ( readyCheckStatus ) then
-		if ( readyCheckStatus == "ready" ) then
-			ReadyCheck_Confirm(PlayerFrameReadyCheck, 1);
-		elseif ( readyCheckStatus == "notready" ) then
-			ReadyCheck_Confirm(PlayerFrameReadyCheck, 0);
-		else -- "waiting"
-			ReadyCheck_Start(PlayerFrameReadyCheck);
-		end
-	else
-		PlayerFrameReadyCheck:Hide();
-	end
-end
-
-function CfPlayerFrame_OnUpdate(self, elapsed)
-	if ( PlayerStatusTexture:IsShown() ) then
-		local alpha = 255;
-		local counter = self.statusCounter + elapsed;
-		local sign    = self.statusSign;
-
-		if ( counter > 0.5 ) then
-			sign = -sign;
-			self.statusSign = sign;
-		end
-		counter = mod(counter, 0.5);
-		self.statusCounter = counter;
-
-		if ( sign == 1 ) then
-			alpha = (55  + (counter * 400)) / 255;
-		else
-			alpha = (255 - (counter * 400)) / 255;
-		end
-		PlayerStatusTexture:SetAlpha(alpha);
-		PlayerStatusGlow:SetAlpha(alpha);
-	end
-
-	if ( CfPlayerPVPTimerText.timeLeft ) then
-		CfPlayerPVPTimerText.timeLeft = CfPlayerPVPTimerText.timeLeft - elapsed*1000;
-		local timeLeft = CfPlayerPVPTimerText.timeLeft;
-		if ( timeLeft < 0 ) then
-			CfPlayerPVPTimerText:Hide()
-		end
-		CfPlayerPVPTimerText:SetFormattedText(SecondsToTimeAbbrev(floor(timeLeft/1000)));
-	else
-		CfPlayerPVPTimerText:Hide();
-	end
-	CombatFeedback_OnUpdate(self, elapsed);
-end
-
-function CfPlayerFrame_UpdateStatus()
-	if ( UnitHasVehiclePlayerFrameUI("player") ) then
-		PlayerStatusTexture:Hide()
-		PlayerRestIcon:Hide()
-		PlayerAttackIcon:Hide()
-		PlayerRestGlow:Hide()
-		PlayerAttackGlow:Hide()
-		PlayerStatusGlow:Hide()
-		PlayerAttackBackground:Hide()
-	elseif ( IsResting() ) then
-		PlayerStatusTexture:SetVertexColor(1.0, 0.88, 0.25, 1.0);
-		PlayerStatusTexture:Show();
-		PlayerRestIcon:Show();
-		PlayerAttackIcon:Hide();
-		PlayerRestGlow:Show();
-		PlayerAttackGlow:Hide();
-		PlayerStatusGlow:Show();
-		PlayerAttackBackground:Hide();
-	elseif ( CfPlayerFrame.inCombat ) then
-		PlayerStatusTexture:SetVertexColor(1.0, 0.0, 0.0, 1.0);
-		PlayerStatusTexture:Show();
-		PlayerAttackIcon:Show();
-		PlayerRestIcon:Hide();
-		PlayerAttackGlow:Show();
-		PlayerRestGlow:Hide();
-		PlayerStatusGlow:Show();
-		PlayerAttackBackground:Show();
-	elseif ( CfPlayerFrame.onHateList ) then
-		PlayerAttackIcon:Show();
-		PlayerRestIcon:Hide();
-		PlayerStatusGlow:Hide();
-		PlayerAttackBackground:Hide();
-	else
-		PlayerStatusTexture:Hide();
-		PlayerRestIcon:Hide();
-		PlayerAttackIcon:Hide();
-		PlayerStatusGlow:Hide();
-		PlayerAttackBackground:Hide();
-	end
-end
-
-function CfPlayerFrame_UpdateGroupIndicator()
-	CfPlayerFrameGroupIndicator:Hide();
-	local name, rank, subgroup;
-	if ( not IsInRaid() ) then
-		CfPlayerFrameGroupIndicator:Hide();
-		return;
-	end
-	local numGroupMembers = GetNumGroupMembers();
-	for i=1, MAX_RAID_MEMBERS do
-		if ( i <= numGroupMembers ) then
-			name, rank, subgroup = GetRaidRosterInfo(i);
-			-- Set the player's group number indicator
-			if ( name == UnitName("player") ) then
-				CfPlayerFrameGroupIndicatorText:SetText(GROUP.." "..subgroup);
-				CfPlayerFrameGroupIndicator:SetWidth(CfPlayerFrameGroupIndicatorText:GetWidth()+40);
-				CfPlayerFrameGroupIndicator:Show();
-			end
-		end
-	end
-end
-
-function PlayerFrameMultiGroupFrame_OnLoad(self)
-	self:RegisterEvent("GROUP_ROSTER_UPDATE");
-	self:RegisterEvent("UPDATE_CHAT_COLOR");
-	self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
-end
-
-function PlayerFrameMultiGroupFrame_OnEvent(self, event, ...)
-	if ( event == "GROUP_ROSTER_UPDATE" ) then
-		if ( IsInGroup(LE_PARTY_CATEGORY_HOME) and IsInGroup(LE_PARTY_CATEGORY_INSTANCE) ) then
-			self:Show();
-		else
-			self:Hide();
-		end
-	elseif ( event == "UPDATE_CHAT_COLOR" ) then
-		local public = ChatTypeInfo["INSTANCE_CHAT"];
-		local private = ChatTypeInfo["PARTY"];
-		self.HomePartyIcon:SetVertexColor(private.r, private.g, private.b);
-		self.InstancePartyIcon:SetVertexColor(public.r, public.g, public.b);
-	end
-end
-
-function PlayerFrameMultiGroupframe_OnEnter(self)
-	GameTooltip_SetDefaultAnchor(GameTooltip, self);
-	self.homePlayers = GetHomePartyInfo(self.homePlayers);
-
-	if ( IsInRaid(LE_PARTY_CATEGORY_HOME) ) then
-		GameTooltip:SetText(PLAYER_IN_MULTI_GROUP_RAID_MESSAGE, nil, nil, nil, nil, true);
-		GameTooltip:AddLine(format(MEMBER_COUNT_IN_RAID_LIST, #self.homePlayers + 1), 1, 1, 1, true);
-	else
-		GameTooltip:AddLine(PLAYER_IN_MULTI_GROUP_PARTY_MESSAGE, 1, 1, 1, true);
-		local playerList = self.homePlayers[1] or "";
-		for i=2, #self.homePlayers do
-			playerList = playerList..PLAYER_LIST_DELIMITER..self.homePlayers[i];
-		end
-		GameTooltip:AddLine(format(MEMBERS_IN_PARTY_LIST, playerList));
-	end
-	GameTooltip:Show();
-end
-
-function PlayerFrame_ShowVehicleTexture()
-	PlayerFrameVehicleTexture:Show();
-
-	local _, class = UnitClass("player");
-	if ( CfPlayerFrame.CfClassPowerBar ) then
-		CfPlayerFrame.CfClassPowerBar:Hide();
-	elseif ( class == "DEATHKNIGHT" ) then
-		CfRuneFrame:Hide();
-	end
-
-	ComboPointPlayerFrame:Setup();
-	CfEssencePlayerFrame:Setup();
-end
-
-function PlayerFrame_HideVehicleTexture()
-	PlayerFrameVehicleTexture:Hide();
+	CfUnitFrame_SetUnit(CfPlayerFrame, "player", PlayerFrameHealthBar, PlayerFrameManaBar);
 
 	local _, class = UnitClass("player");
 	if ( CfPlayerFrame.CfClassPowerBar ) then
@@ -578,4 +178,249 @@ function PlayerFrame_HideVehicleTexture()
 
 	ComboPointPlayerFrame:Setup();
 	CfEssencePlayerFrame:Setup();
-end
+end)
+
+hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
+	self.PlayerFrameContainer.VehicleFrameTexture:SetSize(240, 120)
+	self.PlayerFrameContainer.VehicleFrameTexture:SetTexture("Interface\\Vehicles\\UI-Vehicle-Frame")
+	self.PlayerFrameContainer.VehicleFrameTexture:ClearAllPoints()
+	self.PlayerFrameContainer.VehicleFrameTexture:SetPoint("TOPLEFT", -3, 6)
+
+	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMRIGHT", self, "TOPLEFT", 161, -25)
+	self.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon:SetPoint("TOPLEFT", 76, -19)
+
+	PlayerName:SetParent(self.PlayerFrameContainer)
+	PlayerName:ClearAllPoints()
+	PlayerName:SetPoint("TOPLEFT", self.PlayerFrameContainer, "TOPLEFT", 97, -25.5)
+
+	PlayerFrameHealthBar:SetWidth(100);
+	PlayerFrameHealthBar:SetPoint("TOPLEFT",119,-41);
+	PlayerFrameManaBar:SetWidth(100);
+	PlayerFrameManaBar:SetPoint("TOPLEFT",119,-52);
+	PlayerFrameBackground:SetWidth(114);
+	PlayerLevelText:Hide()
+
+	CfUnitFrame_SetUnit(CfPlayerFrame, "vehicle", PlayerFrameHealthBar, PlayerFrameManaBar);
+
+	local _, class = UnitClass("player");
+	if ( CfPlayerFrame.CfClassPowerBar ) then
+		CfPlayerFrame.CfClassPowerBar:Hide();
+	elseif ( class == "DEATHKNIGHT" ) then
+		CfRuneFrame:Hide();
+	end
+
+	ComboPointPlayerFrame:Setup();
+	CfEssencePlayerFrame:Setup();
+end)
+
+hooksecurefunc("PlayerFrame_UpdateLevel", function()
+	PlayerLevelText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+	PlayerLevelText:SetDrawLayer("ARTWORK")
+	PlayerLevelText:ClearAllPoints();
+	PlayerLevelText:SetPoint("CENTER", -80, -21)
+end)
+
+hooksecurefunc("PlayerFrame_UpdatePartyLeader", function()
+	local leaderIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.LeaderIcon;
+	leaderIcon:SetSize(16, 16)
+	leaderIcon:SetTexture("Interface\\GroupFrame\\UI-Group-LeaderIcon")
+	leaderIcon:ClearAllPoints()
+	leaderIcon:SetPoint("TOPLEFT", 21, -16)
+
+	local guideIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.GuideIcon;
+	guideIcon:SetSize(19, 19)
+	guideIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
+	guideIcon:SetTexCoord(0, 0.296875, 0.015625, 0.3125)
+	guideIcon:ClearAllPoints()
+	guideIcon:SetPoint("TOPLEFT", 21, -16)
+end)
+
+hooksecurefunc("PlayerFrame_UpdatePlayerNameTextAnchor", function()
+	PlayerName:SetWidth(100)
+	PlayerName:ClearAllPoints()
+	PlayerName:SetPoint("TOPLEFT", 97, -30)
+	PlayerName:SetJustifyH("CENTER")
+end)
+
+hooksecurefunc("PlayerFrame_UpdatePlayerRestLoop", function()
+	local playerRestLoop = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestLoop;
+
+	playerRestLoop:Hide();
+	playerRestLoop.PlayerRestLoopAnim:Stop();
+end)
+
+hooksecurefunc("PlayerFrame_UpdatePvPStatus", function()
+	local factionGroup = UnitFactionGroup("player");
+
+	if (factionGroup == "Alliance") then
+		PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PVPIcon:ClearAllPoints()
+		PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PVPIcon:SetPoint("TOPLEFT", 8, -24)
+	elseif (factionGroup == "Horde") then
+		PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PVPIcon:ClearAllPoints()
+		PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PVPIcon:SetPoint("TOPLEFT", -1, -22)
+	end
+	
+	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PrestigePortrait:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PrestigePortrait:ClearAllPoints()
+	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PrestigePortrait:SetPoint("TOPLEFT", -4, -17)
+	
+	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PvpTimerText:ClearAllPoints()
+	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PvpTimerText:SetPoint("TOPLEFT", 9, -7)
+end)
+
+hooksecurefunc("PlayerFrame_UpdateRolesAssigned", function()
+	local roleIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon;
+	local role =  UnitGroupRolesAssigned("player");
+
+	roleIcon:SetSize(19, 19)
+	roleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
+	
+	if ( role == "TANK" or role == "HEALER" or role == "DAMAGER") then
+		roleIcon:SetTexCoord(GetTexCoordsForRoleSmallCircle(role));
+		roleIcon:Show();
+	else
+		roleIcon:Hide();
+	end
+
+	if (UnitHasVehiclePlayerFrameUI("player")) then
+		PlayerLevelText:Hide()
+	else
+		PlayerLevelText:Show()
+	end
+end)
+
+local PlayerRestIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
+PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestIcon = PlayerRestIcon;
+PlayerRestIcon:SetSize(31, 31)
+PlayerRestIcon:SetTexture("Interface\\CharacterFrame\\UI-StateIcon")
+PlayerRestIcon:SetTexCoord(0, 0.5, 0, 0.421875)
+PlayerRestIcon:ClearAllPoints()
+PlayerRestIcon:SetPoint("TOPLEFT", 20, -54)
+
+local PlayerRestGlow = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
+PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow = PlayerRestGlow;
+PlayerRestGlow:SetSize(32, 32)
+PlayerRestGlow:SetTexture("Interface\\CharacterFrame\\UI-StateIcon")
+PlayerRestGlow:SetTexCoord(0, 0.5, 0.5, 1)
+PlayerRestGlow:SetBlendMode("ADD")
+PlayerRestGlow:ClearAllPoints()
+PlayerRestGlow:SetPoint("TOPLEFT", PlayerRestIcon)
+
+local PlayerAttackIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
+PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackIcon = PlayerAttackIcon;
+PlayerAttackIcon:SetSize(32, 31)
+PlayerAttackIcon:SetTexture("Interface\\CharacterFrame\\UI-StateIcon")
+PlayerAttackIcon:SetTexCoord(0.5, 1.0, 0, 0.484375)
+PlayerAttackIcon:ClearAllPoints()
+PlayerAttackIcon:SetPoint("TOPLEFT", PlayerRestIcon, "TOPLEFT", 1, 1)
+
+local PlayerAttackGlow = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
+PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackGlow = PlayerAttackGlow;
+PlayerAttackGlow:SetSize(32, 32)
+PlayerAttackGlow:SetTexture("Interface\\CharacterFrame\\UI-StateIcon")
+PlayerAttackGlow:SetTexCoord(0.5, 1, 0.5, 1)
+PlayerAttackGlow:SetVertexColor(1, 0, 0)
+PlayerAttackGlow:SetBlendMode("ADD")
+PlayerAttackGlow:ClearAllPoints()
+PlayerAttackGlow:SetPoint("TOPLEFT", PlayerAttackIcon)
+
+local PlayerAttackBackground = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "ARTWORK")
+PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackBackground = PlayerAttackBackground;
+PlayerAttackBackground:SetSize(32, 32)
+PlayerAttackBackground:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-AttackBackground")
+PlayerAttackBackground:SetVertexColor(0.8, 0.1, 0.1)
+PlayerAttackBackground:SetAlpha(0.4)
+PlayerAttackBackground:SetPoint("TOPLEFT", PlayerAttackIcon, "TOPLEFT", -3, -1)
+
+hooksecurefunc("PlayerFrame_UpdateStatus", function()
+	local statusTexture = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.StatusTexture;
+
+	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.AttackIcon:Hide()
+	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerPortraitCornerIcon:Hide()
+	
+	if ( UnitHasVehiclePlayerFrameUI("player") ) then
+		statusTexture:Hide()
+		PlayerAttackIcon:Hide()
+		PlayerAttackGlow:Hide()
+		PlayerRestIcon:Hide()
+		PlayerRestGlow:Hide()
+		PlayerAttackBackground:Hide()
+	elseif ( IsResting() ) then
+		statusTexture:SetVertexColor(1.0, 0.88, 0.25, 1.0)
+		statusTexture:Show()
+		PlayerAttackIcon:Hide()
+		PlayerAttackGlow:Hide()
+		PlayerRestIcon:Show()
+		PlayerRestGlow:Show()
+		PlayerAttackBackground:Hide()
+	elseif ( PlayerFrame.inCombat ) then
+		statusTexture:SetVertexColor(1.0, 0.0, 0.0, 1.0)
+		statusTexture:Show()
+		PlayerAttackIcon:Show()
+		PlayerAttackGlow:Show()
+		PlayerRestIcon:Hide()
+		PlayerRestGlow:Hide()
+		PlayerAttackBackground:Show()
+	elseif ( PlayerFrame.onHateList ) then
+		PlayerAttackIcon:Show();
+		PlayerAttackGlow:Hide()
+		PlayerRestIcon:Hide();
+		PlayerRestGlow:Hide();
+		PlayerAttackBackground:Hide()
+	else
+		statusTexture:Hide()
+		PlayerAttackIcon:Hide()
+		PlayerAttackGlow:Hide()
+		PlayerRestIcon:Hide()
+		PlayerRestGlow:Hide()
+		PlayerAttackBackground:Hide()
+	end
+end)
+
+PlayerFrame:HookScript("OnEvent", function(self)
+    local classPowerBar = self.classPowerBar
+    if (classPowerBar) then
+        classPowerBar:UnregisterAllEvents()
+        classPowerBar:Hide()
+    end
+    if (EssencePlayerFrame) then
+        EssencePlayerFrame:UnregisterAllEvents()
+        EssencePlayerFrame:Hide()
+    end
+    if (RuneFrame) then
+        RuneFrame:UnregisterAllEvents()
+        RuneFrame:Hide()
+    end
+end)
+
+PlayerFrame:HookScript("OnUpdate", function(self)
+	if (self.PlayerFrameContent.PlayerFrameContentMain.StatusTexture:IsShown()) then
+		local alpha = 255;
+		local counter = self.statusCounter;
+		local sign = self.statusSign;
+
+		if (counter > 0.5) then
+			sign = -sign;
+			self.statusSign = sign;
+		end
+		counter = mod(counter, 0.5);
+		self.statusCounter = counter;
+
+		if (sign == 1) then
+			alpha = (55 + (counter * 400)) / 255;
+		else
+			alpha = (255 - (counter * 400)) / 255;
+		end
+		if (self.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackGlow:IsShown()) then
+			self.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackGlow:SetAlpha(alpha);
+		end
+		if (self.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow:IsShown()) then
+			self.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow:SetAlpha(alpha);
+		end
+	end
+end)
+
+hooksecurefunc(PlayerFrame, "menu", function(self)
+    DropDownList1:ClearAllPoints()
+    DropDownList1:SetPoint("TOPLEFT", self, "BOTTOMLEFT", 87, 23)
+end)
