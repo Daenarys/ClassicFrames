@@ -4,9 +4,6 @@ UI_shared.xsd">
 	<Texture name="CfMyHealPredictionBarTemplate" virtual="true" file="Interface\TargetingFrame\UI-StatusBar">
 		<Color r="0.0" g="0.827" b="0.765"/>
 	</Texture>
-	<Texture name="CfMyManaCostPredictionBarTemplate" virtual="true" file="Interface\TargetingFrame\UI-StatusBar">
-		<Color r="0.0" g="0.447" b="1.0"/>
-	</Texture>
 	<Texture name="CfOtherHealPredictionBarTemplate" virtual="true" file="Interface\TargetingFrame\UI-StatusBar">
 		<Color r="0.0" g="0.631" b="0.557"/>
 	</Texture>

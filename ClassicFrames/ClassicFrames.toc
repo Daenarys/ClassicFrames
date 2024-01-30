@@ -93,14 +93,12 @@ skins\Wardrobe.lua
 skins\WeeklyRewards.lua
 skins\WorkOrders.lua
 skins\WorldMap.lua
-skins\unitframes\CastingBarFrame.xml
 skins\unitframes\UnitFrame.xml
 skins\unitframes\PlayerFrame.xml
 skins\unitframes\TargetFrame.xml
 skins\unitframes\BossFrame.lua
 skins\unitframes\PartyFrame.lua
 skins\unitframes\PetFrame.lua
-skins\unitframes\Util.lua
 skins\unitframes\classbars\ClassPowerBar.xml
 skins\unitframes\classbars\Combo.xml
 skins\unitframes\classbars\DK.xml
