@@ -143,15 +143,11 @@ function CfUnitFrame_SetUnit(self, unit, healthbar, manabar)
 			CfUnitFrameManaBar_RegisterDefaultEvents(manabar);
 		end
 		healthbar:RegisterUnitEvent("UNIT_MAXHEALTH", unit);
-		
-		if ( self.CfPlayerFrameHealthBarAnimatedLoss ) then
-			self.CfPlayerFrameHealthBarAnimatedLoss:SetUnitHealthBar(unit, healthbar);
-		end
 	end
 
 	self.unit = unit;
 	CfUnitFrameHealthBar_SetUnit(healthbar, unit)
-	if ( manabar ) then	--Party Pet frames don't have a mana bar.
+	if ( manabar ) then
 		manabar.unit = unit;
 	end
 	self:SetAttribute("unit", unit);
@@ -235,8 +231,6 @@ function CfUnitFrameHealPredictionBars_UpdateSize(self)
 	CfUnitFrameHealPredictionBars_Update(self);
 end
 
---WARNING: This function is very similar to the function CompactCfUnitFrame_UpdateHealPrediction in CompactCfUnitFrame.lua.
---If you are making changes here, it is possible you may want to make changes there as well.
 local MAX_INCOMING_HEAL_OVERFLOW = 1.0;
 function CfUnitFrameHealPredictionBars_Update(frame)
 	if ( not frame.myHealPredictionBar ) then
@@ -256,8 +250,6 @@ function CfUnitFrameHealPredictionBars_Update(frame)
 	local myCurrentHealAbsorb = 0;
 	if ( frame.healAbsorbBar ) then
 		myCurrentHealAbsorb = UnitGetTotalHealAbsorbs(frame.unit) or 0;
-
-		--We don't fill outside the health bar with healAbsorbs.  Instead, an overHealAbsorbGlow is shown.
 		if ( health < myCurrentHealAbsorb ) then
 			frame.overHealAbsorbGlow:Show();
 			myCurrentHealAbsorb = health;
@@ -266,21 +258,18 @@ function CfUnitFrameHealPredictionBars_Update(frame)
 		end
 	end
 
-	--See how far we're going over the health bar and make sure we don't go too far out of the frame.
 	if ( health - myCurrentHealAbsorb + allIncomingHeal > maxHealth * MAX_INCOMING_HEAL_OVERFLOW ) then
 		allIncomingHeal = maxHealth * MAX_INCOMING_HEAL_OVERFLOW - health + myCurrentHealAbsorb;
 	end
 
 	local otherIncomingHeal = 0;
 
-	--Split up incoming heals.
 	if ( allIncomingHeal >= myIncomingHeal ) then
 		otherIncomingHeal = allIncomingHeal - myIncomingHeal;
 	else
 		myIncomingHeal = allIncomingHeal;
 	end
 
-	--We don't fill outside the the health bar with absorbs.  Instead, an overAbsorbGlow is shown.
 	local overAbsorb = false;
 	if ( health - myCurrentHealAbsorb + allIncomingHeal + totalAbsorb >= maxHealth or health + totalAbsorb >= maxHealth ) then
 		if ( totalAbsorb > 0 ) then
@@ -306,17 +295,10 @@ function CfUnitFrameHealPredictionBars_Update(frame)
 
 	if ( frame.healAbsorbBar ) then
 		myCurrentHealAbsorbPercent = myCurrentHealAbsorb / maxHealth;
-
-		--If allIncomingHeal is greater than myCurrentHealAbsorb, then the current
-		--heal absorb will be completely overlayed by the incoming heals so we don't show it.
 		if ( myCurrentHealAbsorb > allIncomingHeal ) then
 			local shownHealAbsorb = myCurrentHealAbsorb - allIncomingHeal;
 			local shownHealAbsorbPercent = shownHealAbsorb / maxHealth;
-
 			healAbsorbTexture = CfUnitFrameUtil_UpdateFillBar(frame, healthTexture, frame.healAbsorbBar, shownHealAbsorb, -shownHealAbsorbPercent);
-
-			--If there are incoming heals the left shadow would be overlayed by the incoming heals
-			--so it isn't shown.
 			if ( allIncomingHeal > 0 ) then
 				frame.healAbsorbBarLeftShadow:Hide();
 			else
@@ -324,8 +306,6 @@ function CfUnitFrameHealPredictionBars_Update(frame)
 				frame.healAbsorbBarLeftShadow:SetPoint("BOTTOMLEFT", healAbsorbTexture, "BOTTOMLEFT", 0, 0);
 				frame.healAbsorbBarLeftShadow:Show();
 			end
-
-			-- The right shadow is only shown if there are absorbs on the health bar.
 			if ( totalAbsorb > 0 ) then
 				frame.healAbsorbBarRightShadow:SetPoint("TOPLEFT", healAbsorbTexture, "TOPRIGHT", -8, 0);
 				frame.healAbsorbBarRightShadow:SetPoint("BOTTOMLEFT", healAbsorbTexture, "BOTTOMRIGHT", -8, 0);
@@ -340,23 +320,17 @@ function CfUnitFrameHealPredictionBars_Update(frame)
 		end
 	end
 
-	--Show myIncomingHeal on the health bar.
 	local incomingHealTexture = CfUnitFrameUtil_UpdateFillBar(frame, healthTexture, frame.myHealPredictionBar, myIncomingHeal, -myCurrentHealAbsorbPercent);
-
-	--Append otherIncomingHeal on the health bar
 	if (myIncomingHeal > 0) then
 		incomingHealTexture = CfUnitFrameUtil_UpdateFillBar(frame, incomingHealTexture, frame.otherHealPredictionBar, otherIncomingHeal);
 	else
 		incomingHealTexture = CfUnitFrameUtil_UpdateFillBar(frame, healthTexture, frame.otherHealPredictionBar, otherIncomingHeal, -myCurrentHealAbsorbPercent);
 	end
 
-	--Append absorbs to the correct section of the health bar.
 	local appendTexture = nil;
 	if ( healAbsorbTexture ) then
-		--If there is a healAbsorb part shown, append the absorb to the end of that.
 		appendTexture = healAbsorbTexture;
 	else
-		--Otherwise, append the absorb to the end of the the incomingHeals part;
 		appendTexture = incomingHealTexture;
 	end
 	CfUnitFrameUtil_UpdateFillBar(frame, appendTexture, frame.totalAbsorbBar, totalAbsorb)
@@ -370,8 +344,8 @@ function CfUnitFrameManaCostPredictionBars_Update(frame, isStarting, startTime, 
 	local cost = 0;
 	if (not isStarting or startTime == endTime) then
         local currentSpellID = select(9, UnitCastingInfo(frame.unit));
-        if(currentSpellID and frame.predictedPowerCost) then --if we're currently casting something with a power cost, then whatever cast
-		    cost = frame.predictedPowerCost;                 --just finished was allowed while casting, don't reset the original cast
+        if(currentSpellID and frame.predictedPowerCost) then
+		    cost = frame.predictedPowerCost;
         else
             frame.predictedPowerCost = nil;
         end
@@ -390,8 +364,6 @@ function CfUnitFrameManaCostPredictionBars_Update(frame, isStarting, startTime, 
 	CfUnitFrameUtil_UpdateManaFillBar(frame, manaBarTexture, frame.myManaCostPredictionBar, cost);
 end
 
---WARNING: This function is very similar to the function CompactCfUnitFrameUtil_UpdateFillBar in CompactCfUnitFrame.lua.
---If you are making changes here, it is possible you may want to make changes there as well.
 function CfUnitFrameUtil_UpdateFillBarBase(frame, realbar, previousTexture, bar, amount, barOffsetXPercent)
 	if ( amount == 0 ) then
 		bar:Hide();
@@ -469,7 +441,6 @@ function CfUnitFrameManaBar_UpdateType(manaBar)
 		end
 	else
 		if ( not altR) then
-			-- couldn't find a power token entry...default to indexing by power type or just mana if we don't have that either
 			info = CfPowerBarColor[powerType] or CfPowerBarColor["MANA"];
 		else
 			if ( not manaBar.lockColor ) then
@@ -486,7 +457,6 @@ function CfUnitFrameManaBar_UpdateType(manaBar)
 		manaBar.currValue = UnitPower("player", powerType);
 	end
 
-	-- Update the manabar text
 	if ( not unitFrame.noTextPrefix ) then
 		SetTextStatusBarTextPrefix(manaBar, prefix);
 	end
@@ -540,140 +510,17 @@ function CfUnitFrameHealthBar_OnEvent(self, event, ...)
 	end
 end
 
-CfAnimatedHealthLossMixin = {};
-
-function CfAnimatedHealthLossMixin:OnLoad()
-	self:SetStatusBarColor(1, 0, 0, 1);
-	self:SetDuration(.25);
-	self:SetStartDelay(.1);
-	self:SetPauseDelay(.05);
-	self:SetPostponeDelay(.05);
-end
-
-function CfAnimatedHealthLossMixin:SetDuration(duration)
-	self.animationDuration = duration or 0;
-end
-
-function CfAnimatedHealthLossMixin:SetStartDelay(delay)
-	self.animationStartDelay = delay or 0;
-end
-
-function CfAnimatedHealthLossMixin:SetPauseDelay(delay)
-	self.animationPauseDelay = delay or 0;
-end
-
-function CfAnimatedHealthLossMixin:SetPostponeDelay(delay)
-	self.animationPostponeDelay = delay or 0;
-end
-
-function CfAnimatedHealthLossMixin:SetUnitHealthBar(unit, healthBar)
-	if self.unit ~= unit then
-		healthBar.AnimatedLossBar = self;
-
-		self.unit = unit;
-		self:SetAllPoints(healthBar);
-		self:UpdateHealthMinMax();
-	end
-end
-
-function CfAnimatedHealthLossMixin:UpdateHealthMinMax()
-	local maxValue = UnitHealthMax(self.unit);
-	self:SetMinMaxValues(0, maxValue);
-end
-
-function CfAnimatedHealthLossMixin:GetHealthLossAnimationData(currentHealth, previousHealth)
-	if self.animationStartTime then
-		local totalElapsedTime = GetTime() - self.animationStartTime;
-		if totalElapsedTime > 0 then
-			local animCompletePercent = totalElapsedTime / self.animationDuration;
-			if animCompletePercent < 1 and previousHealth > currentHealth then
-				local healthDelta = previousHealth - currentHealth;
-				local animatedLossAmount = previousHealth - (animCompletePercent * healthDelta);
-				return animatedLossAmount, animCompletePercent;
-			end
-		else
-			return previousHealth, 0;
-		end
-	end
-	return 0, 1; -- Animated loss amount is 0, and the animation is fully complete.
-end
-
-function CfAnimatedHealthLossMixin:CancelAnimation()
-	self:Hide();
-	self.animationStartTime = nil;
-	self.animationCompletePercent = nil;
-end
-
-function CfAnimatedHealthLossMixin:BeginAnimation(value)
-	self.animationStartValue = value;
-	self.animationStartTime = GetTime() + self.animationStartDelay;
-	self.animationCompletePercent = 0;
-	self:Show();
-	self:SetValue(self.animationStartValue);
-end
-
-function CfAnimatedHealthLossMixin:PostponeStartTime()
-	self.animationStartTime = self.animationStartTime + self.animationPostponeDelay;
-end
-
-function CfAnimatedHealthLossMixin:UpdateHealth(currentHealth, previousHealth)
-	local delta = currentHealth - previousHealth;
-	local hasLoss = delta < 0;
-	local hasBegun = self.animationStartTime ~= nil;
-	local isAnimating = hasBegun and self.animationCompletePercent > 0;
-
-	if hasLoss and not hasBegun then
-		self:BeginAnimation(previousHealth);
-	elseif hasLoss and hasBegun and not isAnimating then
-		self:PostponeStartTime();
-	elseif hasLoss and isAnimating then
-		-- Reset the starting value of the health to what the animated loss bar was when the new incoming damage happened
-		-- and pause briefly when new damage occurs.
-		self.animationStartValue = self:GetHealthLossAnimationData(previousHealth, self.animationStartValue);
-		self.animationStartTime = GetTime() + self.animationPauseDelay;
-	elseif not hasLoss and hasBegun and currentHealth >= self.animationStartValue then
-		self:CancelAnimation();
-	end
-end
-
-function CfAnimatedHealthLossMixin:UpdateLossAnimation(currentHealth)
-	local totalAbsorb = UnitGetTotalAbsorbs(self.unit) or 0;
-	if totalAbsorb > 0 then
-		self:CancelAnimation();
-	end
-
-	if self.animationStartTime then
-		local animationValue, animationCompletePercent = self:GetHealthLossAnimationData(currentHealth, self.animationStartValue);
-		self.animationCompletePercent = animationCompletePercent;
-		if animationCompletePercent >= 1 then
-			self:CancelAnimation();
-		else
-			self:SetValue(animationValue);
-		end
-	end
-end
-
 function CfUnitFrameHealthBar_OnUpdate(self)
 	if ( not self.disconnected and not self.lockValues) then
 		local currValue = UnitHealth(self.unit);
-		local animatedLossBar = self.AnimatedLossBar;
 
 		if ( currValue ~= self.currValue ) then
 			if ( not self.ignoreNoUnit or UnitGUID(self.unit) ) then
-
-				if animatedLossBar then
-					animatedLossBar:UpdateHealth(currValue, self.currValue);
-				end
-
 				self:SetValue(currValue);
 				self.currValue = currValue;
 				TextStatusBar_UpdateTextString(self);
 				CfUnitFrameHealPredictionBars_Update(self:GetParent());
 			end
-		end
-
-		if animatedLossBar then
-			animatedLossBar:UpdateLossAnimation(currValue);
 		end
 	end
 end
@@ -685,8 +532,6 @@ function CfUnitFrameHealthBar_Update(statusbar, unit)
 
 	if ( unit == statusbar.unit ) then
 		local maxValue = UnitHealthMax(unit);
-
-		-- Safety check to make sure we never get an empty bar.
 		statusbar.forceHideText = false;
 		if ( maxValue == 0 ) then
 			maxValue = 1;
@@ -694,10 +539,6 @@ function CfUnitFrameHealthBar_Update(statusbar, unit)
 		end
 
 		statusbar:SetMinMaxValues(0, maxValue);
-
-		if statusbar.AnimatedLossBar then
-			statusbar.AnimatedLossBar:UpdateHealthMinMax();
-		end
 
 		statusbar.disconnected = not UnitIsConnected(unit);
 		if ( statusbar.disconnected ) then
@@ -791,7 +632,6 @@ function CfUnitFrameManaBar_OnUpdate(self)
 			self.forceUpdate = nil;
 			if ( not self.ignoreNoUnit or UnitGUID(self.unit) ) then
 				if ( self.FeedbackFrame and self.FeedbackFrame.maxValue ) then
-					-- Only show anim if change is more than 10%
 					local oldValue = self.currValue or 0;
 					if ( self.FeedbackFrame.maxValue ~= 0 and math.abs(currValue - oldValue) / self.FeedbackFrame.maxValue > 0.1 ) then
 						self.FeedbackFrame:StartFeedbackAnim(oldValue, currValue);
@@ -814,7 +654,6 @@ function CfUnitFrameManaBar_Update(statusbar, unit)
 	end
 
 	if ( unit == statusbar.unit ) then
-		-- be sure to update the power type before grabbing the max power!
 		CfUnitFrameManaBar_UpdateType(statusbar);
 
 		local maxValue = UnitPowerMax(unit, statusbar.powerType);

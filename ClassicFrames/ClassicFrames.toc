@@ -101,7 +101,6 @@ skins\unitframes\BossFrame.lua
 skins\unitframes\PartyFrame.lua
 skins\unitframes\PetFrame.lua
 skins\unitframes\Util.lua
-skins\unitframes\classbars\AlternatePowerBar.xml
 skins\unitframes\classbars\ClassPowerBar.xml
 skins\unitframes\classbars\Combo.xml
 skins\unitframes\classbars\DK.xml
