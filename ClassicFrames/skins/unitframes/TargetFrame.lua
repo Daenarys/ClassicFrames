@@ -60,7 +60,7 @@ local function SkinFrame(frame)
 	contentMain.ReputationColor:SetSize(119, 19)
 	contentMain.ReputationColor:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-LevelBackground")
 	contentMain.ReputationColor:ClearAllPoints()
-	contentMain.ReputationColor:SetPoint("TOPRIGHT", -88, -26)
+	contentMain.ReputationColor:SetPoint("TOPRIGHT", -86, -26)
 
 	hooksecurefunc(frame, "CheckClassification", function(self)
 		local classification = UnitClassification(self.unit);
@@ -99,7 +99,7 @@ local function SkinFrame(frame)
 
 		if ( classification == "rareelite" ) then
 			self.Background:SetSize(119, 41)
-			self.Background:SetPoint("TOPLEFT", 26, -29);
+			self.Background:SetPoint("TOPLEFT", 27, -28);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare-Elite");
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
@@ -114,7 +114,7 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "worldboss" or classification == "elite" ) then
 			self.Background:SetSize(119, 41)
-			self.Background:SetPoint("TOPLEFT", 26, -29);
+			self.Background:SetPoint("TOPLEFT", 27, -28);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Elite");
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
@@ -129,7 +129,7 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "rare" ) then
 			self.Background:SetSize(119, 41)
-			self.Background:SetPoint("TOPLEFT", 26, -29);
+			self.Background:SetPoint("TOPLEFT", 27, -28);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare");
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
@@ -144,7 +144,7 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "minus" ) then
 			self.Background:SetSize(119, 12);
-			self.Background:SetPoint("TOPLEFT", 26, -50);
+			self.Background:SetPoint("TOPLEFT", 27, -49);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Minus");
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
@@ -160,7 +160,7 @@ local function SkinFrame(frame)
 			contentMain.ReputationColor:Hide()
 		else
 			self.Background:SetSize(119, 41)
-			self.Background:SetPoint("TOPLEFT", 26, -29);
+			self.Background:SetPoint("TOPLEFT", 27, -28);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)

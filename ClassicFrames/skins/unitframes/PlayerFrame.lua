@@ -40,7 +40,7 @@ if (PlayerFrameBackground == nil) then
 	PlayerFrame:CreateTexture("PlayerFrameBackground", "BACKGROUND");
 	PlayerFrameBackground:SetHeight(41)
 	PlayerFrameBackground:SetColorTexture(0, 0, 0, 0.5)
-	PlayerFrameBackground:SetPoint("TOPLEFT", 86, -27);
+	PlayerFrameBackground:SetPoint("TOPLEFT", 87, -26);
 end
 
 if (_G.AlternatePowerBar) then

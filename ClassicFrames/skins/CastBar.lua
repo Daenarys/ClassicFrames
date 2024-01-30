@@ -16,7 +16,6 @@ local function AdjustPosition(self)
 end
 
 TargetFrame.spellbar:HookScript("OnEvent", AdjustPosition)
-FocusFrame.spellbar:HookScript("OnEvent", AdjustPosition)
 
 local function SetLook(frame)
     frame.Background:SetColorTexture(0, 0, 0, 0.5)
@@ -117,7 +116,7 @@ local function SkinTargetCastbar(frame)
         end
     end)
 
-    if frame == TargetFrame or FocusFrame then
+    if (frame == TargetFrame) then
         hooksecurefunc(frame, "AdjustPosition", AdjustPosition)
     end
 end
