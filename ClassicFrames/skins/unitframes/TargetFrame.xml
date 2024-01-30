@@ -419,11 +419,13 @@ UI_shared.xsd">
 				self.noTextPrefix = true;
 				self.showLevel = true;
 				self.showPVP = true;
+				self.maxBuffs = 0;
+				self.maxDebuffs = 0;
 				self.showLeader = true;
 				self.showThreat = true;
 				self.showPortrait = true;
 				self.showClassification = true;
-				self.showAuraCount = true;
+				self.showAuraCount = false;
 				TargetFrame_OnLoad(self, "focus");
 				TargetFrame_CreateSpellbar(self, "PLAYER_FOCUS_CHANGED");
 				TargetFrame_CreateTargetofTarget(self, "focus-target");
