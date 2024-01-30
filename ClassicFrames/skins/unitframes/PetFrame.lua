@@ -48,7 +48,7 @@ if class == "WARLOCK" then
 	PetFrameHealthBarText:ClearAllPoints()
 	PetFrameHealthBarText:SetPoint("CENTER", PetFrame, "TOPLEFT", 83, -27)
 	PetFrameHealthBarTextLeft:ClearAllPoints()
-	PetFrameHealthBarTextLeft:SetPoint("LEFT", PetFrame, "TOPLEFT", 47, -27)
+	PetFrameHealthBarTextLeft:SetPoint("LEFT", PetFrame, "TOPLEFT", 46, -27)
 	PetFrameHealthBarTextRight:ClearAllPoints()
 	PetFrameHealthBarTextRight:SetPoint("RIGHT", PetFrame, "TOPLEFT", 113, -27)
 	PetFrameManaBarText:ClearAllPoints()

@@ -1,4 +1,4 @@
-local function AdjustPosition(self)
+local function HookOnEvent(self, event, ...)
     local parentFrame = self:GetParent();
     if (self.boss) then
         self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 45, -6);
@@ -15,7 +15,8 @@ local function AdjustPosition(self)
     end
 end
 
-TargetFrame.spellbar:HookScript("OnEvent", AdjustPosition)
+TargetFrame.spellbar:HookScript("OnEvent", HookOnEvent)
+FocusFrame.spellbar:HookScript("OnEvent", HookOnEvent)
 
 local function SetLook(frame)
     frame.Background:SetColorTexture(0, 0, 0, 0.5)
@@ -38,7 +39,7 @@ local function SetLook(frame)
     frame.Text:SetPoint("TOPRIGHT", 0, 4)
     frame.TextBorder:Hide()
     frame.Icon:ClearAllPoints()
-    frame.Icon:SetPoint("TOPLEFT", -21, 3)
+    frame.Icon:SetPoint("RIGHT", frame, "LEFT", -5, 0)
     frame.Icon:SetSize(16, 16)
 end 
 
@@ -116,8 +117,8 @@ local function SkinTargetCastbar(frame)
         end
     end)
 
-    if (frame == TargetFrame) then
-        hooksecurefunc(frame, "AdjustPosition", AdjustPosition)
+    if frame == TargetFrame or FocusFrame then
+        hooksecurefunc(frame, "AdjustPosition", HookOnEvent)
     end
 end
 
