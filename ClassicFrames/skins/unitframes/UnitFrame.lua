@@ -20,8 +20,7 @@ CfPowerBarColor["AMMOSLOT"] = { r = 0.80, g = 0.60, b = 0.00 };
 CfPowerBarColor["FUEL"] = { r = 0.0, g = 0.55, b = 0.5 };
 CfPowerBarColor["STAGGER"] = { {r = 0.52, g = 1.0, b = 0.52}, {r = 1.0, g = 0.98, b = 0.72}, {r = 1.0, g = 0.42, b = 0.42},};
 
--- these are mostly needed for a fallback case (in case the code tries to index a power token that is missing from the table,
--- it will try to index by power type instead)
+-- these are mostly needed for a fallback case
 CfPowerBarColor[0] = CfPowerBarColor["MANA"];
 CfPowerBarColor[1] = CfPowerBarColor["RAGE"];
 CfPowerBarColor[2] = CfPowerBarColor["FOCUS"];
@@ -168,9 +167,9 @@ function CfUnitFrame_Update(self, isParty)
 			name = self.unit;
 		end
 		if (isParty) then
-			self.name:SetText(GetUnitName(name, true));
+			self.name:SetText(CfGetUnitName(name, true));
 		else
-			self.name:SetText(GetUnitName(name));
+			self.name:SetText(CfGetUnitName(name));
 		end
 	end
 
@@ -195,7 +194,7 @@ function CfUnitFrame_OnEvent(self, event, ...)
 	local unit = self.unit;
 	if ( eventUnit == unit ) then
 		if ( event == "UNIT_NAME_UPDATE" ) then
-			self.name:SetText(GetUnitName(unit));
+			self.name:SetText(CfGetUnitName(unit));
 		elseif ( event == "UNIT_PORTRAIT_UPDATE" ) then
 			CfUnitFramePortrait_Update(self);
 		elseif ( event == "UNIT_DISPLAYPOWER" ) then
@@ -893,7 +892,7 @@ function CfUnitFrame_UpdateThreatIndicator(indicator, numericIndicator, unit)
 			end
 
 			if ( numericIndicator ) then
-				if ( ShowNumericThreat() and not (UnitClassification(indicator.unit) == "minus") ) then
+				if ( CfShowNumericThreat() and not (UnitClassification(indicator.unit) == "minus") ) then
 					local isTanking, status, percentage, rawPercentage = UnitDetailedThreatSituation(indicator.feedbackUnit, indicator.unit);
 					local display = rawPercentage;
 					if ( isTanking ) then
@@ -918,3 +917,72 @@ function CfUnitFrame_UpdateThreatIndicator(indicator, numericIndicator, unit)
 		end
 	end
 end
+
+function CfGetUnitName(unit, showServerName)
+	local name, server = UnitName(unit);
+	local relationship = UnitRealmRelationship(unit);
+	if ( server and server ~= "" ) then
+		if ( showServerName ) then
+			return name.."-"..server;
+		else
+			if (relationship == LE_REALM_RELATION_VIRTUAL) then
+				return name;
+			else
+				return name..FOREIGN_SERVER_LABEL;
+			end
+		end
+	else
+		return name;
+	end
+end
+
+function CfShowNumericThreat()
+	if ( GetCVar("threatShowNumeric") == "1" ) then
+		return true;
+	else
+		return false;
+	end
+end
+
+hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
+	if ( not manaBar ) then
+		return
+	end
+
+	local powerType, powerToken, altR, altG, altB = UnitPowerType(manaBar.unit)
+	local info = CfPowerBarColor[powerToken]
+
+	manaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+
+	if ( info ) then
+		local playerDeadOrGhost = (manaBar.unit == "player" and (UnitIsDead("player") or UnitIsGhost("player")))
+		if ( info.atlas ) then
+			manaBar:SetStatusBarTexture(info.atlas)
+			manaBar:SetStatusBarColor(1, 1, 1)
+			manaBar:GetStatusBarTexture():SetDesaturated(playerDeadOrGhost)
+			manaBar:GetStatusBarTexture():SetAlpha(playerDeadOrGhost and 0.5 or 1)
+		else
+			if ( playerDeadOrGhost ) then
+				manaBar:SetStatusBarColor(0.6, 0.6, 0.6, 0.5)
+			else
+				manaBar:SetStatusBarColor(info.r, info.g, info.b)
+			end
+		end
+		if (manaBar.FeedbackFrame) then
+			if (info.atlas) then
+				manaBar.FeedbackFrame.BarTexture:SetAtlas(info.atlas, false)
+			else
+				manaBar.FeedbackFrame.BarTexture:SetVertexColor(info.r, info.g, info.b)
+			end
+		end
+		if (manaBar.Spark) then
+			manaBar.Spark:SetAlpha(0)
+		end
+	else
+		if ( not altR ) then
+			info = CfPowerBarColor[powerType] or CfPowerBarColor["MANA"]
+		else
+			manaBar:SetStatusBarColor(altR, altG, altB)
+		end
+	end
+end)
