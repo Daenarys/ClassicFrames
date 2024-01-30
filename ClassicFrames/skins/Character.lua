@@ -153,7 +153,6 @@ end)
 _G.CharacterFrame:HookScript("OnHide", function()
 	PlayerFrameHealthBar.showNumeric = nil;
 	PlayerFrameManaBar.showNumeric = nil;
-
 	HideTextStatusBarText(PlayerFrameHealthBar);
 	HideTextStatusBarText(PlayerFrameManaBar);
 end)

@@ -1,23 +1,3 @@
-local function HookOnEvent(self, event, ...)
-    local parentFrame = self:GetParent();
-    if (self.boss) then
-        self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 45, -6);
-    elseif (parentFrame.haveToT) then
-        self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 45, -25);
-    elseif (parentFrame.haveElite) then
-        self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 45, -9);
-    else
-        if (parentFrame.auraRows > 0) then
-            self:SetPoint("TOPLEFT", parentFrame.spellbarAnchor, "BOTTOMLEFT", 20, -15);
-        else
-            self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 45, 3);
-        end
-    end
-end
-
-TargetFrame.spellbar:HookScript("OnEvent", HookOnEvent)
-FocusFrame.spellbar:HookScript("OnEvent", HookOnEvent)
-
 local function SetLook(frame)
     frame.Background:SetColorTexture(0, 0, 0, 0.5)
     frame.Border:SetTexture("Interface\\CastingBar\\UI-CastingBar-Border-Small")
@@ -39,7 +19,7 @@ local function SetLook(frame)
     frame.Text:SetPoint("TOPRIGHT", 0, 4)
     frame.TextBorder:Hide()
     frame.Icon:ClearAllPoints()
-    frame.Icon:SetPoint("RIGHT", frame, "LEFT", -5, 0)
+    frame.Icon:SetPoint("TOPLEFT", -21, 3)
     frame.Icon:SetSize(16, 16)
 end 
 
@@ -116,14 +96,7 @@ local function SkinTargetCastbar(frame)
             self:SetStatusBarColor(1, 0.7, 0)
         end
     end)
-
-    if frame == TargetFrame or FocusFrame then
-        hooksecurefunc(frame, "AdjustPosition", HookOnEvent)
-    end
 end
-
-SkinTargetCastbar(TargetFrame.spellbar)
-SkinTargetCastbar(FocusFrame.spellbar)
 
 for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
     SkinTargetCastbar(frame.spellbar)
