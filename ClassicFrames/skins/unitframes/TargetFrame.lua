@@ -32,17 +32,15 @@ function TargetFrame_OnLoad(self, unit)
 	self.unconsciousText = _G[thisName.."TextureFrameUnconsciousText"];
 	self.petBattleIcon = _G[thisName.."TextureFramePetBattleIcon"];
 	self.TOT_AURA_ROW_WIDTH = TOT_AURA_ROW_WIDTH;
-	-- set simple frame
+
 	if ( not self.showLevel ) then
 		self.highLevelTexture:Hide();
 		self.levelText:Hide();
 	end
-	-- set threat frame
 	local threatFrame;
 	if ( self.showThreat ) then
 		threatFrame = _G[thisName.."Flash"];
 	end
-	-- set portrait frame
 	local portraitFrame;
 	if ( self.showPortrait ) then
 		portraitFrame = _G[thisName.."Portrait"];
@@ -85,18 +83,13 @@ function TargetFrame_OnLoad(self, unit)
 end
 
 function TargetFrame_Update(self)
-	-- This check is here so the frame will hide when the target goes away
-	-- even if some of the functions below are hooked by addons.
 	if ( not (UnitExists(self.unit)) ) then
 		self:Hide();
 	else
 		self:Show();
-
-		-- Moved here to avoid taint from functions below
 		if ( self.totFrame ) then
 			TargetofTarget_Update(self.totFrame);
 		end
-
 		CfUnitFrame_Update(self);
 		if ( self.showLevel ) then
 			TargetFrame_CheckLevel(self);
@@ -138,10 +131,8 @@ function TargetFrame_OnEvent(self, event, ...)
 	if ( event == "PLAYER_ENTERING_WORLD" ) then
 		TargetFrame_Update(self);
 	elseif ( event == "PLAYER_TARGET_CHANGED" ) then
-		-- Moved here to avoid taint from functions below
 		TargetFrame_Update(self);
 		TargetFrame_UpdateRaidTargetIcon(self);
-
 		if ( UnitExists(self.unit) and not C_PlayerInteractionManager.IsReplacingUnit()) then
 			if ( UnitIsEnemy(self.unit, "player") ) then
 				PlaySound(SOUNDKIT.IG_CREATURE_AGGRO_SELECT);
@@ -189,7 +180,6 @@ function TargetFrame_OnEvent(self, event, ...)
 	elseif ( event == "GROUP_ROSTER_UPDATE" ) then
 		if (self.unit == "focus") then
 			TargetFrame_Update(self);
-			-- If this is the focus frame, clear focus if the unit no longer exists
 			if (not UnitExists(self.unit)) then
 				ClearFocus();
 			end
@@ -229,9 +219,7 @@ function TargetFrame_CheckLevel(self)
 		self.levelText:Show();
 		self.highLevelTexture:Hide();
 	elseif ( targetEffectiveLevel > 0 ) then
-		-- Normal level target
 		self.levelText:SetText(targetEffectiveLevel);
-		-- Color level number
 		if ( UnitCanAttack("player", self.unit) ) then
 			local difficulty = C_PlayerInfo.GetContentDifficultyCreatureForPlayer(self.unit)
 			local color = GetDifficultyColor(difficulty);
@@ -239,19 +227,15 @@ function TargetFrame_CheckLevel(self)
 		else
 			self.levelText:SetVertexColor(1.0, 0.82, 0.0);
 		end
-
 		TargetFrame_UpdateLevelTextAnchor(self, targetEffectiveLevel);
-
 		self.levelText:Show();
 		self.highLevelTexture:Hide();
 	else
-		-- Target is too high level to tell
 		self.levelText:Hide();
 		self.highLevelTexture:Show();
 	end
 end
 
---This is overwritten in LocalizationPost for different languages.
 function TargetFrame_UpdateLevelTextAnchor(self, targetLevel)
 	if ( targetLevel >= 100 ) then
 		self.levelText:SetPoint("CENTER", 61, -17);
@@ -543,14 +527,9 @@ function TargetFrame_UpdateAuras(self, unitAuraUpdateInfo)
 	local function UpdateAuraFrame(frame, aura)
 		frame.unit = self.unit;
 		frame.auraInstanceID = aura.auraInstanceID;
-
-		-- disable mouse
 		frame:EnableMouse(false);
-
-		-- set the icon
 		frame.Icon:SetTexture(aura.icon);
 
-		-- set the count
 		local frameCount = frame.Count;
 		if aura.applications > 1 and self.showAuraCount then
 			frameCount:SetText(aura.applications);
@@ -559,11 +538,9 @@ function TargetFrame_UpdateAuras(self, unitAuraUpdateInfo)
 			frameCount:Hide();
 		end
 
-		-- Handle cooldowns
 		CooldownFrame_Set(frame.Cooldown, aura.expirationTime - aura.duration, aura.duration, aura.duration > 0, true);
 
 		if aura.isHarmful then
-			-- set debuff type color
 			local color;
 			if aura.dispelName ~= nil then
 				color = DebuffTypeColor[aura.dispelName];
@@ -572,7 +549,6 @@ function TargetFrame_UpdateAuras(self, unitAuraUpdateInfo)
 			end
 			frame.Border:SetVertexColor(color.r, color.g, color.b);
 		else
-			-- Show stealable frame if the target is not the current player and the buff is stealable.
 			frame.Stealable:SetShown(not playerIsTarget and aura.isStealable);
 		end
 
@@ -597,13 +573,10 @@ function TargetFrame_UpdateAuras(self, unitAuraUpdateInfo)
 	end
 	self.spellbarAnchor = nil;
 	local maxRowWidth;
-	-- update buff positions
 	maxRowWidth = ( haveTargetofTarget and self.TOT_AURA_ROW_WIDTH ) or AURA_ROW_WIDTH;
 	TargetFrame_UpdateAuraFrames(self, self.activeBuffs, numBuffs, numDebuffs, UpdateAuraFrame, CfTargetFrame_UpdateBuffAnchor, maxRowWidth, 3, mirrorAurasVertically);
-	-- update debuff positions
 	maxRowWidth = ( haveTargetofTarget and self.auraRows < NUM_TOT_AURA_ROWS and self.TOT_AURA_ROW_WIDTH ) or AURA_ROW_WIDTH;
 	TargetFrame_UpdateAuraFrames(self, self.activeDebuffs, numDebuffs, numBuffs, UpdateAuraFrame, CfTargetFrame_UpdateDebuffAnchor, maxRowWidth, 4, mirrorAurasVertically);
-	-- update the spell bar position
 	if self.spellbar ~= nil then
 		Target_Spellbar_AdjustPosition(self.spellbar);
 	end
@@ -637,12 +610,8 @@ function TargetFrame_ShouldShowDebuffs(unit, caster, nameplateShowAll, casterIsA
 end
 
 function TargetFrame_UpdateAuraFrames(self, auraList, numAuras, numOppositeAuras, setupFunc, anchorFunc, maxRowWidth, offsetX, mirrorAurasVertically)
-	-- a lot of this complexity is in place to allow the auras to wrap around the target of target frame if it's shown
-	
-	-- Position auras
 	local size;
 	local offsetY = AURA_OFFSET_Y;
-	-- current width of a row, increases as auras are added and resets when a new aura's width exceeds the max row width
 	local rowWidth = 0;
 	local i = 0;
 	local firstIndexOnRow = 1;
@@ -658,7 +627,6 @@ function TargetFrame_UpdateAuraFrames(self, auraList, numAuras, numOppositeAuras
 		local frame = pool:Acquire();
 		setupFunc(frame, aura);
 
-		-- update size and offset info based on large aura status
 		if ShouldAuraBeLarge(aura.sourceUnit) then
 			size = LARGE_AURA_SIZE;
 			offsetY = AURA_OFFSET_Y + AURA_OFFSET_Y;
@@ -666,7 +634,6 @@ function TargetFrame_UpdateAuraFrames(self, auraList, numAuras, numOppositeAuras
 			size = SMALL_AURA_SIZE;
 		end
 
-		-- anchor the current aura
 		if i == 1 then
 			rowWidth = size;
 			self.auraRows = self.auraRows + 1;
@@ -675,32 +642,24 @@ function TargetFrame_UpdateAuraFrames(self, auraList, numAuras, numOppositeAuras
 			rowWidth = rowWidth + size + offsetX;
 		end
 		if rowWidth > maxRowWidth then
-			-- this aura would cause the current row to exceed the max row width, so make this aura
-			-- the start of a new row instead
 			anchorFunc(self, frame, i, numOppositeAuras, firstBuffOnRow, firstIndexOnRow, size, offsetX, offsetY, mirrorAurasVertically);
-
 			rowWidth = size;
 			self.auraRows = self.auraRows + 1;
 			firstIndexOnRow = i;
 			firstBuffOnRow = frame;
 			offsetY = AURA_OFFSET_Y;
-
 			if ( self.auraRows > NUM_TOT_AURA_ROWS ) then
-				-- if we exceed the number of tot rows, then reset the max row width
-				-- note: don't have to check if we have tot because AURA_ROW_WIDTH is the default anyway
 				maxRowWidth = AURA_ROW_WIDTH;
 			end
 		else
 			anchorFunc(self, frame, i, numOppositeAuras, lastBuff, i - 1, size, offsetX, offsetY, mirrorAurasVertically);
 		end
-
 		lastBuff = frame;
 		return false;
 	end);
 end
 
 function CfTargetFrame_UpdateBuffAnchor(self, buff, index, numDebuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
-	--For mirroring vertically
 	local point, relativePoint;
 	local startY, auraOffsetY;
 	if ( mirrorVertically ) then
@@ -721,34 +680,27 @@ function CfTargetFrame_UpdateBuffAnchor(self, buff, index, numDebuffs, anchorBuf
 
 	if ( index == 1 ) then
 		if ( UnitIsFriend("player", self.unit) or numDebuffs == 0 ) then
-			-- unit is friendly or there are no debuffs...buffs start on top
 			buff:SetPoint(point.."LEFT", self, relativePoint.."LEFT", AURA_START_X, startY);
 		else
-			-- unit is not friendly and we have debuffs...buffs start on bottom
 			buff:SetPoint(point.."LEFT", self.debuffs, relativePoint.."LEFT", 0, -offsetY);
 		end
 		self.buffs:SetPoint(point.."LEFT", buff, point.."LEFT", 0, 0);
 		self.buffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
 		self.spellbarAnchor = buff;
 	elseif ( anchorIndex ~= (index-1) ) then
-		-- anchor index is not the previous index...must be a new row
 		buff:SetPoint(point.."LEFT", anchorBuff, relativePoint.."LEFT", 0, -offsetY);
 		self.buffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
 		self.spellbarAnchor = buff;
 	else
-		-- anchor index is the previous index
 		buff:SetPoint(point.."LEFT", anchorBuff, point.."RIGHT", offsetX, 0);
 	end
 
-	-- Resize
 	buff:SetWidth(size);
 	buff:SetHeight(size);
 end
 
 function CfTargetFrame_UpdateDebuffAnchor(self, buff, index, numBuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
 	local isFriend = UnitIsFriend("player", self.unit);
-
-	--For mirroring vertically
 	local point, relativePoint;
 	local startY, auraOffsetY;
 	if ( mirrorVertically ) then
@@ -769,10 +721,8 @@ function CfTargetFrame_UpdateDebuffAnchor(self, buff, index, numBuffs, anchorBuf
 
 	if ( index == 1 ) then
 		if ( isFriend and numBuffs > 0 ) then
-			-- unit is friendly and there are buffs...debuffs start on bottom
 			buff:SetPoint(point.."LEFT", self.buffs, relativePoint.."LEFT", 0, -offsetY);
 		else
-			-- unit is not friendly or there are no buffs...debuffs start on top
 			buff:SetPoint(point.."LEFT", self, relativePoint.."LEFT", AURA_START_X, startY);
 		end
 		self.debuffs:SetPoint(point.."LEFT", buff, point.."LEFT", 0, 0);
@@ -781,18 +731,15 @@ function CfTargetFrame_UpdateDebuffAnchor(self, buff, index, numBuffs, anchorBuf
 			self.spellbarAnchor = buff;
 		end
 	elseif ( anchorIndex ~= (index-1) ) then
-		-- anchor index is not the previous index...must be a new row
 		buff:SetPoint(point.."LEFT", anchorBuff, relativePoint.."LEFT", 0, -offsetY);
 		self.debuffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
 		if ( ( isFriend ) or ( not isFriend and numBuffs == 0) ) then
 			self.spellbarAnchor = buff;
 		end
 	else
-		-- anchor index is the previous index
 		buff:SetPoint(point.."LEFT", anchorBuff, point.."RIGHT", offsetX, 0);
 	end
 
-	-- Resize
 	buff:SetWidth(size);
 	buff:SetHeight(size);
 	local debuffFrame = buff.Border;
@@ -948,7 +895,6 @@ function TargetFrame_CreateSpellbar(self, event)
 		spellbar:RegisterEvent(event);
 	end
 
-	-- check to see if the castbar should be shown
 	if ( GetCVar("showTargetCastbar") == "0") then
 		spellbar.showCastbar = false;
 	end
@@ -957,7 +903,6 @@ end
 function Target_Spellbar_OnEvent(self, event, ...)
 	local arg1 = ...
 
-	--	Check for target specific events
 	if ( (event == "VARIABLES_LOADED") or ((event == "CVAR_UPDATE") and (arg1 == "SHOW_TARGET_CASTBAR")) ) then
 		if ( GetCVar("showTargetCastbar") == "0") then
 			self.showCastbar = false;
@@ -972,7 +917,6 @@ function Target_Spellbar_OnEvent(self, event, ...)
 		end
 		return;
 	elseif ( event == self.updateEvent ) then
-		-- check if the new target is casting a spell
 		local nameChannel  = UnitChannelInfo(self.unit);
 		local nameSpell  = UnitCastingInfo(self.unit);
 		if ( nameChannel ) then
@@ -989,7 +933,6 @@ function Target_Spellbar_OnEvent(self, event, ...)
 			self:Hide();
 			return;
 		end
-		-- The position depends on the classification of the target
 		Target_Spellbar_AdjustPosition(self);
 	end
 	CfCastingBarFrame_OnEvent(self, event, arg1, select(2, ...));
