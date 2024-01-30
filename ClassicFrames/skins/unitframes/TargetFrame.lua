@@ -1,4 +1,3 @@
--- aura positioning constants
 local AURA_START_X = 5;
 local AURA_START_Y = 32;
 local AURA_OFFSET_Y = 3;
@@ -88,7 +87,7 @@ end
 function TargetFrame_Update(self)
 	-- This check is here so the frame will hide when the target goes away
 	-- even if some of the functions below are hooked by addons.
-	if ( not (UnitExists(self.unit) or ShowBossFrameWhenUninteractable(self.unit)) ) then
+	if ( not (UnitExists(self.unit)) ) then
 		self:Hide();
 	else
 		self:Show();
@@ -151,11 +150,6 @@ function TargetFrame_OnEvent(self, event, ...)
 			else
 				PlaySound(SOUNDKIT.IG_CREATURE_NEUTRAL_SELECT);
 			end
-		end
-	elseif ( event == "INSTANCE_ENCOUNTER_ENGAGE_UNIT" ) then
-		for i = 1, MAX_BOSS_FRAMES do
-			TargetFrame_Update(_G["CfBoss"..i.."TargetFrame"]);
-			TargetFrame_UpdateRaidTargetIcon(_G["CfBoss"..i.."TargetFrame"]);
 		end
 	elseif ( event == "UNIT_TARGETABLE_CHANGED" and arg1 == self.unit) then
 		TargetFrame_Update(self);
@@ -246,11 +240,7 @@ function TargetFrame_CheckLevel(self)
 			self.levelText:SetVertexColor(1.0, 0.82, 0.0);
 		end
 
-		if ( self.isBossFrame ) then
-			BossTargetFrame_UpdateLevelTextAnchor(self, targetEffectiveLevel);
-		else
-			TargetFrame_UpdateLevelTextAnchor(self, targetEffectiveLevel);
-		end
+		TargetFrame_UpdateLevelTextAnchor(self, targetEffectiveLevel);
 
 		self.levelText:Show();
 		self.highLevelTexture:Hide();
@@ -267,15 +257,6 @@ function TargetFrame_UpdateLevelTextAnchor(self, targetLevel)
 		self.levelText:SetPoint("CENTER", 61, -17);
 	else
 		self.levelText:SetPoint("CENTER", 62, -17);
-	end
-end
-
---This is overwritten in LocalizationPost for different languages.
-function BossTargetFrame_UpdateLevelTextAnchor(self, targetLevel)
-	if ( targetLevel >= 100 ) then
-		self.levelText:SetPoint("CENTER", 11, -16);
-	else
-		self.levelText:SetPoint("CENTER", 12, -16);
 	end
 end
 
@@ -951,15 +932,10 @@ function CfTargetofTargetHealthCheck(self)
 	end
 end
 
-function TargetFrame_CreateSpellbar(self, event, boss)
+function TargetFrame_CreateSpellbar(self, event)
 	local name = self:GetName().."SpellBar";
 	local spellbar;
-	if ( boss ) then
-		spellbar = CreateFrame("STATUSBAR", name, self, "CfBossSpellBarTemplate");
-	else
-		spellbar = CreateFrame("STATUSBAR", name, self, "CfTargetSpellBarTemplate");
-	end
-	spellbar.boss = boss;
+	spellbar = CreateFrame("STATUSBAR", name, self, "CfTargetSpellBarTemplate");
 	spellbar:SetFrameLevel(_G[self:GetName().."TextureFrame"]:GetFrameLevel() - 1);
 	self.spellbar = spellbar;
 	self.auraRows = 0;
@@ -1021,9 +997,7 @@ end
 
 function Target_Spellbar_AdjustPosition(self)
 	local parentFrame = self:GetParent();
-	if ( self.boss ) then
-		self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 25, 10 );
-	elseif ( parentFrame.haveToT ) then
+	if ( parentFrame.haveToT ) then
 		if ( parentFrame.buffsOnTop or parentFrame.auraRows <= 1 ) then
 			self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 25, -21 );
 		else
@@ -1041,27 +1015,5 @@ function Target_Spellbar_AdjustPosition(self)
 		else
 			self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 25, 7 );
 		end
-	end
-end
-
-function BossTargetFrame_OnLoad(self, unit, event)
-	self.isBossFrame = true;
-	self.noTextPrefix = true;
-	self.showLevel = true;
-	self.showThreat = true;
-	self.maxBuffs = 0;
-	self.maxDebuffs = 0;
-	TargetFrame_OnLoad(self, unit);
-	self:RegisterEvent("UNIT_TARGETABLE_CHANGED");
-	self.borderTexture:SetTexture("Interface\\TargetingFrame\\UI-UnitFrame-Boss");
-	self.levelText:SetPoint("CENTER", 12, -16);
-	self.raidTargetIcon:SetPoint("RIGHT", -90, 0);
-	self.threatNumericIndicator:SetPoint("BOTTOM", self, "TOP", -85, -22);
-	self.threatIndicator:SetTexture("Interface\\TargetingFrame\\UI-UnitFrame-Boss-Flash");
-	self.threatIndicator:SetTexCoord(0.0, 0.945, 0.0, 0.73125);
-	self:SetHitRectInsets(0, 95, 15, 30);
-	self:SetScale(0.75);
-	if ( event ) then
-		self:RegisterEvent(event);
 	end
 end
