@@ -1,99 +1,90 @@
-function PetFrame_OnLoad(self)
-	self.noTextPrefix = true;
+if not _G.PetFrame then return end
 
-	CfPetFrameHealthBar.LeftText = CfPetFrameHealthBarTextLeft;
-	CfPetFrameHealthBar.RightText = CfPetFrameHealthBarTextRight;
-	CfPetFrameManaBar.LeftText = CfPetFrameManaBarTextLeft;
-	CfPetFrameManaBar.RightText = CfPetFrameManaBarTextRight;
+local _, class = UnitClass("player");
 
-	CfUnitFrame_Initialize(self, "pet", CfPetName, CfPetPortrait,
-						 CfPetFrameHealthBar, CfPetFrameHealthBarText, 
-						 CfPetFrameManaBar, CfPetFrameManaBarText,
-						 CfPetFrameFlash, nil, nil,
-						 CfPetFrameMyHealPredictionBar, CfPetFrameOtherHealPredictionBar,
-						 CfPetFrameTotalAbsorbBar, CfPetFrameTotalAbsorbBarOverlay, 
-						 CfPetFrameOverAbsorbGlow, CfPetFrameOverHealAbsorbGlow, CfPetFrameHealAbsorbBar,
-						 CfPetFrameHealAbsorbBarLeftShadow, CfPetFrameHealAbsorbBarRightShadow);
-	self.attackModeCounter = 0;
-	self.attackModeSign = -1;
-	CombatFeedback_Initialize(self, CfPetHitIndicator, 30);
-	PetFrame_Update(self);
-	self:RegisterUnitEvent("UNIT_PET", "player");
-	self:RegisterUnitEvent("UNIT_EXITED_VEHICLE", "player");
-	self:RegisterEvent("PET_ATTACK_START");
-	self:RegisterEvent("PET_ATTACK_STOP");
-	self:RegisterEvent("PET_UI_UPDATE");
-	self:RegisterUnitEvent("UNIT_COMBAT", "pet", "player");
+PetFrame:SetSize(128, 53)
+
+PetPortrait:ClearAllPoints()
+PetPortrait:SetPoint("TOPLEFT", 7, -6)
+
+PetName:SetWidth(0)
+PetName:ClearAllPoints()
+PetName:SetPoint("BOTTOMLEFT", 53, 33)
+
+PetFrameTexture:SetSize(128, 64)
+PetFrameTexture:SetTexture("Interface\\TargetingFrame\\UI-SmallTargetingFrame")
+PetFrameTexture:ClearAllPoints()
+PetFrameTexture:SetPoint("TOPLEFT", 0, -2)
+PetFrameTexture:SetDrawLayer("ARTWORK", 7)
+
+PetFrameFlash:SetSize(128, 64)
+PetFrameFlash:SetTexture("Interface\\TargetingFrame\\UI-PartyFrame-Flash")
+PetFrameFlash:SetPoint("TOPLEFT", -4, 11)
+PetFrameFlash:SetTexCoord(0, 1, 1, 0)
+PetFrameFlash:SetDrawLayer("BACKGROUND", 0)
+
+PetFrameHealthBar:SetSize(69, 8)
+PetFrameHealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+PetFrameHealthBar:SetStatusBarColor(0, 1, 0)
+PetFrameHealthBar:ClearAllPoints()
+PetFrameHealthBar:SetPoint("TOPLEFT", 47, -22)
+PetFrameHealthBar:SetFrameLevel(1)
+PetFrameHealthBarMask:Hide()
+
+PetFrameManaBar:SetSize(69, 8)
+PetFrameManaBar:ClearAllPoints()
+PetFrameManaBar:SetPoint("TOPLEFT", 47, -29)
+PetFrameManaBar:SetFrameLevel(1)
+PetFrameManaBarMask:Hide()
+
+PetFrameHealthBarText:SetParent(PetFrame)
+PetFrameHealthBarTextLeft:SetParent(PetFrame)
+PetFrameHealthBarTextRight:SetParent(PetFrame)
+PetFrameManaBarText:SetParent(PetFrame)
+PetFrameManaBarTextLeft:SetParent(PetFrame)
+PetFrameManaBarTextRight:SetParent(PetFrame)
+
+if class == "WARLOCK" then
+	PetFrameHealthBarText:ClearAllPoints()
+	PetFrameHealthBarText:SetPoint("CENTER", PetFrame, "TOPLEFT", 83, -27)
+	PetFrameHealthBarTextLeft:ClearAllPoints()
+	PetFrameHealthBarTextLeft:SetPoint("LEFT", PetFrame, "TOPLEFT", 47, -27)
+	PetFrameHealthBarTextRight:ClearAllPoints()
+	PetFrameHealthBarTextRight:SetPoint("RIGHT", PetFrame, "TOPLEFT", 113, -27)
+	PetFrameManaBarText:ClearAllPoints()
+	PetFrameManaBarText:SetPoint("CENTER", PetFrame, "TOPLEFT", 83, -36)
+	PetFrameManaBarTextLeft:ClearAllPoints()
+	PetFrameManaBarTextLeft:SetPoint("LEFT", PetFrame, "TOPLEFT", 46, -36)
+	PetFrameManaBarTextRight:ClearAllPoints()
+	PetFrameManaBarTextRight:SetPoint("RIGHT", PetFrame, "TOPLEFT", 113, -36)
+else
+	PetFrameHealthBarText:ClearAllPoints()
+	PetFrameHealthBarText:SetPoint("CENTER", PetFrame, "TOPLEFT", 82, -26)
+	PetFrameHealthBarTextLeft:ClearAllPoints()
+	PetFrameHealthBarTextLeft:SetPoint("LEFT", PetFrame, "TOPLEFT", 47, -26)
+	PetFrameHealthBarTextRight:ClearAllPoints()
+	PetFrameHealthBarTextRight:SetPoint("RIGHT", PetFrame, "TOPLEFT", 113, -26)
+	PetFrameManaBarText:ClearAllPoints()
+	PetFrameManaBarText:SetPoint("CENTER", PetFrame, "TOPLEFT", 82, -35)
+	PetFrameManaBarTextLeft:ClearAllPoints()
+	PetFrameManaBarTextLeft:SetPoint("LEFT", PetFrame, "TOPLEFT", 46, -35)
+	PetFrameManaBarTextRight:ClearAllPoints()
+	PetFrameManaBarTextRight:SetPoint("RIGHT", PetFrame, "TOPLEFT", 113, -35)
 end
 
-function PetFrame_Update(self, override)
-	if ( (not CfPlayerFrame.animating) or (override) ) then
-		if ( UnitIsVisible(self.unit) and PetUsesPetFrame() and not CfPlayerFrame.vehicleHidesPet ) then
-			if ( self:IsShown() ) then
-				CfUnitFrame_Update(self);
-			else
-				self:Show();
-			end
-			if ( UnitPowerMax(self.unit) == 0 ) then
-				CfPetFrameTexture:SetTexture("Interface\\TargetingFrame\\UI-SmallTargetingFrame-NoMana");
-				CfPetFrameManaBarText:Hide();
-			else
-				CfPetFrameTexture:SetTexture("Interface\\TargetingFrame\\UI-SmallTargetingFrame");
-			end
-			CfPetAttackModeTexture:Hide();
-		else
-			self:Hide();
-		end
-	end
-end
+PetFrameOverAbsorbGlow:SetParent(PetFrame)
+PetFrameOverAbsorbGlow:SetDrawLayer("ARTWORK", 7)
 
-function PetFrame_OnEvent(self, event, ...)
-	CfUnitFrame_OnEvent(self, event, ...);
-	local arg1, arg2, arg3, arg4, arg5 = ...;
-	if ( event == "UNIT_PET" or event == "UNIT_EXITED_VEHICLE" or event == "PET_UI_UPDATE" ) then
-		local unit
-		if ( UnitInVehicle("player") ) then
-			if ( UnitHasVehiclePlayerFrameUI("player") ) then
-				unit = "player";
-			else
-				return;
-			end
-		else
-			unit = "pet";
-		end
-		CfUnitFrame_SetUnit(self, unit, CfPetFrameHealthBar, CfPetFrameManaBar);
-		PetFrame_Update(self);
-	elseif ( event == "UNIT_COMBAT" ) then
-		if ( arg1 == self.unit ) then
-			CombatFeedback_OnCombatEvent(self, arg2, arg3, arg4, arg5);
-		end
-	elseif ( event == "PET_ATTACK_START" ) then
-		CfPetAttackModeTexture:SetVertexColor(1.0, 1.0, 1.0, 1.0);
-		CfPetAttackModeTexture:Show();
-	elseif ( event == "PET_ATTACK_STOP" ) then
-		CfPetAttackModeTexture:Hide();
-	end
-end
+PetAttackModeTexture:SetSize(76, 64)
+PetAttackModeTexture:SetTexture("Interface\\TargetingFrame\\UI-Player-AttackStatus")
+PetAttackModeTexture:SetTexCoord(0.703125, 1, 0, 1)
+PetAttackModeTexture:ClearAllPoints()
+PetAttackModeTexture:SetPoint("TOPLEFT", 6, -9)
 
-function PetFrame_OnUpdate(self, elapsed)
-	if ( CfPetAttackModeTexture:IsShown() ) then
-		local alpha = 255;
-		local counter = self.attackModeCounter + elapsed;
-		local sign    = self.attackModeSign;
+PetHitIndicator:ClearAllPoints()
+PetHitIndicator:SetPoint("CENTER", PetFrame, "TOPLEFT", 28, -27)
 
-		if ( counter > 0.5 ) then
-			sign = -sign;
-			self.attackModeSign = sign;
-		end
-		counter = mod(counter, 0.5);
-		self.attackModeCounter = counter;
-
-		if ( sign == 1 ) then
-			alpha = (55  + (counter * 400)) / 255;
-		else
-			alpha = (255 - (counter * 400)) / 255;
-		end
-		CfPetAttackModeTexture:SetVertexColor(1.0, 1.0, 1.0, alpha);
-	end
-	CombatFeedback_OnUpdate(self, elapsed);
-end
+hooksecurefunc(PetFrame, "menu", function(self)
+    DropDownList1:ClearAllPoints()
+    DropDownList1:SetPoint("TOPLEFT", self, "BOTTOMLEFT", 44, 8)
+end)

@@ -146,21 +146,14 @@ end)
 _G.CharacterFrame:HookScript("OnShow", function()
 	PlayerFrameHealthBar.showNumeric = true;
 	PlayerFrameManaBar.showNumeric = true;
-	CfPetFrameHealthBar.showNumeric = true;
-	CfPetFrameManaBar.showNumeric = true;
 	ShowTextStatusBarText(PlayerFrameHealthBar);
 	ShowTextStatusBarText(PlayerFrameManaBar);
-	ShowTextStatusBarText(CfPetFrameHealthBar);
-	ShowTextStatusBarText(CfPetFrameManaBar);
 end)
 
 _G.CharacterFrame:HookScript("OnHide", function()
 	PlayerFrameHealthBar.showNumeric = nil;
 	PlayerFrameManaBar.showNumeric = nil;
-	CfPetFrameHealthBar.showNumeric = nil;
-	CfPetFrameManaBar.showNumeric = nil;
+
 	HideTextStatusBarText(PlayerFrameHealthBar);
 	HideTextStatusBarText(PlayerFrameManaBar);
-	HideTextStatusBarText(CfPetFrameHealthBar);
-	HideTextStatusBarText(CfPetFrameManaBar);
 end)

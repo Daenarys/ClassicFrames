@@ -65,7 +65,6 @@ function WarlockPowerBar_UpdatePower(self)
 
 	local shardPower = WarlockPowerBar_UnitPower(self:GetUnit())
 
-	-- Bug ID: 496542: Destruction is supposed to show partial soulshards, but Affliction and Demonology should only show full ones.
 	if GetSpecialization() ~= SPEC_WARLOCK_DESTRUCTION then
 		shardPower = math.floor(shardPower)
 	end

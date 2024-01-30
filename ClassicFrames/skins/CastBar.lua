@@ -1,20 +1,22 @@
--- Target & Boss
-local function HookOnEvent(self, event, ...)
+local function AdjustPosition(self)
     local parentFrame = self:GetParent();
-    local useSpellbarAnchor = (not parentFrame.buffsOnTop) and ((parentFrame.haveToT and parentFrame.auraRows > 2) or ((not parentFrame.haveToT) and parentFrame.auraRows > 0));
-    local relativeKey = useSpellbarAnchor and parentFrame.spellbarAnchor or parentFrame;
-    local pointX = useSpellbarAnchor and 20 or  (parentFrame.smallSize and 40 or 45);
-    local pointY = useSpellbarAnchor and -15 or (parentFrame.smallSize and 3 or 5);
-
-    if ((not useSpellbarAnchor) and parentFrame.haveToT) then
-        pointY = parentFrame.smallSize and -30 or -28;
+    if (self.boss) then
+        self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 45, -6);
+    elseif (parentFrame.haveToT) then
+        self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 45, -25);
+    elseif (parentFrame.haveElite) then
+        self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 45, -9);
+    else
+        if (parentFrame.auraRows > 0) then
+            self:SetPoint("TOPLEFT", parentFrame.spellbarAnchor, "BOTTOMLEFT", 20, -15);
+        else
+            self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 45, 3);
+        end
     end
-
-    self:SetPoint("TOPLEFT", relativeKey, "BOTTOMLEFT", pointX, pointY);
 end
 
-TargetFrame.spellbar:HookScript("OnEvent", HookOnEvent)
-FocusFrame.spellbar:HookScript("OnEvent", HookOnEvent)
+TargetFrame.spellbar:HookScript("OnEvent", AdjustPosition)
+FocusFrame.spellbar:HookScript("OnEvent", AdjustPosition)
 
 local function SetLook(frame)
     frame.Background:SetColorTexture(0, 0, 0, 0.5)
@@ -42,10 +44,8 @@ local function SetLook(frame)
 end 
 
 local function SkinTargetCastbar(frame)
-    --Skin
     SetLook(frame)
 
-    --Flash
     hooksecurefunc(frame.Flash, "SetAtlas", function(frame)
         local Castbar = frame:GetParent()
         local barType = Castbar.barType 
@@ -77,7 +77,6 @@ local function SkinTargetCastbar(frame)
         end
     end)
 
-    --OnShow
     hooksecurefunc(frame, 'UpdateShownState', function(self)
         self:SetFrameStrata("HIGH")
         self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
@@ -95,18 +94,15 @@ local function SkinTargetCastbar(frame)
         FadeOutAnim:SetToAlpha(0)
     end)
 
-    --Animation Interrupted
     hooksecurefunc(frame, 'PlayInterruptAnims', function(self)
         self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
         self.Spark:Hide()
     end)
 
-    --Animation Finished
     hooksecurefunc(frame, 'PlayFinishAnim', function(self)
         self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
     end)
 
-    --Color
     hooksecurefunc(frame, 'GetTypeInfo', function(self)
         self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
         if ( self.barType == "interrupted") then
@@ -122,7 +118,7 @@ local function SkinTargetCastbar(frame)
     end)
 
     if frame == TargetFrame or FocusFrame then
-        hooksecurefunc(frame, "AdjustPosition", HookOnEvent)
+        hooksecurefunc(frame, "AdjustPosition", AdjustPosition)
     end
 end
 

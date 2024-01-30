@@ -1,4 +1,3 @@
---Readability == win
 local RUNETYPE_BLOOD = 1
 local RUNETYPE_UNHOLY = 2
 local RUNETYPE_FROST = 3
@@ -43,7 +42,6 @@ end
 CfRuneFrameMixin = {}
 
 function CfRuneFrameMixin:OnLoad()
-	-- Disable rune frame if not a death knight.
 	local _, class = UnitClass("player")
 
 	if ( class ~= "DEATHKNIGHT" ) then

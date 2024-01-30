@@ -77,7 +77,6 @@ UI_shared.xsd">
 			<OnLeave function="GameTooltip_Hide"/>
 		</Scripts>
 	</Button>
-	<!-- If you change anything about RuneFrame (specifically anchors), make sure to change the relevant information in UnitFrame_SetUnit -->
 	<Frame name="CfRuneFrame" parent="CfPlayerFrame" frameStrata="LOW" toplevel="true" hidden="false" mixin="CfRuneFrameMixin">
 		<Size x="130" y="24" />
 		<Anchors>

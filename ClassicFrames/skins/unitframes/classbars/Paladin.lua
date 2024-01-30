@@ -7,7 +7,6 @@ function CfPaladinPowerBar:OnLoad()
 	self:SetTooltip(HOLY_POWER, HOLY_POWER_TOOLTIP)
 	self:SetPowerTokens("HOLY_POWER")
 	self.class = "PALADIN"
-	--self.spec = SPEC_PALADIN_RETRIBUTION
 
 	self.glow:SetAlpha(0)
 	self.rune1:SetAlpha(0)
@@ -80,7 +79,6 @@ function CfPaladinPowerBar:UpdatePower()
 		end
 	end
 
-	-- flash the bar if it's full (3 holy power)
 	if numHolyPower >= HOLY_POWER_FULL then
 		self.glow.pulse.stopPulse = false
 		self.glow.pulse:Play()
@@ -88,12 +86,10 @@ function CfPaladinPowerBar:UpdatePower()
 		self.glow.pulse.stopPulse = true
 	end
 
-	-- check whether to show bank slots
 	if ( maxHolyPower ~= self.maxHolyPower ) then
 		if ( maxHolyPower > HOLY_POWER_FULL ) then
 			self.showBankAnim:Play()
 		else
-			-- there is no way to lose the bank slots once you have them, but just in case
 			self.showBankAnim:Stop()
 			self.bankBG:SetAlpha(0)
 		end

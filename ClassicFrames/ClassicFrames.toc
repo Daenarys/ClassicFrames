@@ -3,7 +3,7 @@
 ## Title: Classic Frames
 ## Notes: Restores the pre 10.x UI Frames and Unit Frames
 ## Author: luckfore
-## Version: 1.28
+## Version: 1.29
 ## OptionalDeps: SexyMap
 embeds.xml
 skins\ApplySkin.lua
@@ -95,15 +95,13 @@ skins\WeeklyRewards.lua
 skins\WorkOrders.lua
 skins\WorldMap.lua
 skins\unitframes\UnitFrame.xml
-skins\unitframes\CastingBarFrame.xml
 skins\unitframes\PlayerFrame.xml
 skins\unitframes\TargetFrame.xml
-skins\unitframes\PetFrame.xml
-skins\unitframes\PartyFrame.xml
-skins\unitframes\Util.lua
-skins\unitframes\classbars\AlternatePowerBar.xml
+skins\unitframes\BossFrame.lua
+skins\unitframes\PartyFrame.lua
+skins\unitframes\PetFrame.lua
 skins\unitframes\classbars\ClassPowerBar.xml
-skins\unitframes\classbars\ComboPoint.xml
+skins\unitframes\classbars\Combo.xml
 skins\unitframes\classbars\DK.xml
 skins\unitframes\classbars\Evoker.xml
 skins\unitframes\classbars\Mage.xml

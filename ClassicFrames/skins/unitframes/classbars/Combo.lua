@@ -75,8 +75,6 @@ function ComboPointPowerBar:SetupDruid()
 	return showBar
 end
 
--- Data driven layout tweaks for differing numbers of combo point frames.
--- Indexed by max "usable" combo points (see below)
 local comboPointMaxToLayout = {
 	[5] = {
 		["width"] = 20,
@@ -176,8 +174,6 @@ function ComboPointPowerBar:UpdatePower()
 	local comboPoints = UnitPower(unit, Enum.PowerType.ComboPoints)
 	local maxComboPoints = UnitPowerMax(unit, Enum.PowerType.ComboPoints)
 
-	-- If we had more than self.maxUsablePoints and then used a finishing move, fade out
-	-- the top row of points and then move the remaining points from the bottom up to the top
 	if ( self.lastPower and self.lastPower > self.maxUsablePoints and comboPoints == self.lastPower - self.maxUsablePoints ) then
 		for i = 1, self.maxUsablePoints do
 			self:AnimOut(self.ComboPoints[i])

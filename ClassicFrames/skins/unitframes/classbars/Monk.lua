@@ -58,7 +58,6 @@ function CfMonkPowerBar:UpdatePower()
 end
 
 function CfMonkPowerBar:UpdateMaxPower()
-	-- if max light changed, show/hide the 5th and update anchors
 	local maxLight = UnitPowerMax("player", Enum.PowerType.Chi );
 	if ( self.maxLight ~= maxLight ) then
 		local startX, xOffset, orbOff, lightOrb;
