@@ -6,6 +6,16 @@ GroupLootHistoryFrame.TitleContainer:ClearAllPoints()
 GroupLootHistoryFrame.TitleContainer:SetPoint("TOPLEFT", GroupLootHistoryFrame, "TOPLEFT", 60, -1)
 GroupLootHistoryFrame.TitleContainer:SetPoint("TOPRIGHT", GroupLootHistoryFrame, "TOPRIGHT", -60, 1)
 
+GroupLootHistoryFrameBg:SetAlpha(0)
+
+if (GroupLootHistoryFrame.BG == nil) then
+	GroupLootHistoryFrame.BG = GroupLootHistoryFrame:CreateTexture(nil, "BACKGROUND")
+	GroupLootHistoryFrame.BG:SetTexture("Interface\\FrameGeneral\\UI-Background-Rock", true, true)
+	GroupLootHistoryFrame.BG:ClearAllPoints()
+	GroupLootHistoryFrame.BG:SetPoint("TOPLEFT", 2, -21)
+	GroupLootHistoryFrame.BG:SetPoint("BOTTOMRIGHT", -2, 2)
+end
+
 if (GroupLootHistoryFrame.TopTileStreaks == nil) then
 	GroupLootHistoryFrame.TopTileStreaks = GroupLootHistoryFrame:CreateTexture(nil, "BACKGROUND")
 	GroupLootHistoryFrame.TopTileStreaks:SetSize(256, 37)
@@ -21,8 +31,8 @@ ApplyNineSliceNoPortrait(GroupLootHistoryFrame)
 
 GroupLootHistoryFrame.ScrollBar:SetSize(25, 560)
 GroupLootHistoryFrame.ScrollBar:ClearAllPoints()
-GroupLootHistoryFrame.ScrollBar:SetPoint("TOPLEFT", GroupLootHistoryFrame.ScrollBox, "TOPRIGHT", -4, 3)
-GroupLootHistoryFrame.ScrollBar:SetPoint("BOTTOMLEFT", GroupLootHistoryFrame.ScrollBox, "BOTTOMRIGHT", -1, -1)
+GroupLootHistoryFrame.ScrollBar:SetPoint("TOPLEFT", GroupLootHistoryFrame.ScrollBox, "TOPRIGHT", -6, 3)
+GroupLootHistoryFrame.ScrollBar:SetPoint("BOTTOMLEFT", GroupLootHistoryFrame.ScrollBox, "BOTTOMRIGHT", -3, -1)
 
 if (GroupLootHistoryFrame.ScrollBar.BG == nil) then
 	GroupLootHistoryFrame.ScrollBar.BG = GroupLootHistoryFrame.ScrollBar:CreateTexture(nil, "BACKGROUND");
