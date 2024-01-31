@@ -141,7 +141,7 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "minus" ) then
 			self.Background:SetSize(119, 12);
-			self.Background:SetPoint("TOPLEFT", 27, -49);
+			self.Background:SetPoint("TOPLEFT", 27, -48);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Minus");
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
