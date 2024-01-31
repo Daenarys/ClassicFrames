@@ -84,6 +84,8 @@ local function SkinFrame(frame)
 		questIcon:ClearAllPoints()
 		questIcon:SetPoint("TOP", 32, -16)
 
+		FrameHealthBar:SetAlpha(0)
+		FrameManaBar:SetAlpha(0)
 		contentMain.ReputationColor:Show()
 		contextual.BossIcon:Hide()
 		self.TargetFrameContainer.BossPortraitFrameTexture:Hide()
@@ -91,11 +93,6 @@ local function SkinFrame(frame)
 		self.TargetFrameContainer.Portrait:SetSize(64, 64)
 		self.TargetFrameContainer.Portrait:ClearAllPoints()
 		self.TargetFrameContainer.Portrait:SetPoint("TOPRIGHT", -22, -16)
-
-		if (self == TargetFrame) then
-			FrameHealthBar:SetAlpha(0)
-			FrameManaBar:SetAlpha(0)
-		end
 
 		if ( classification == "rareelite" ) then
 			self.Background:SetSize(119, 41)
@@ -305,16 +302,9 @@ local function SkinFrame(frame)
 			end
 		end
 
-		if (frame == TargetFrame) then
-			frame.totFrame:ClearAllPoints()
-			frame.totFrame:SetPoint("BOTTOMRIGHT", 12, -18)
-		elseif (frame == FocusFrame) then
-			hooksecurefunc(FocusFrame, "SetSmallSize", function()
-				FocusFrame.totFrame:SetScale(0.95)
-				FocusFrame.totFrame:ClearAllPoints()
-				FocusFrame.totFrame:SetPoint("TOPRIGHT", FocusFrame, "BOTTOMRIGHT", 8, 30)
-			end)
-		end
+		frame.totFrame:SetFrameStrata("HIGH")
+		frame.totFrame:ClearAllPoints()
+		frame.totFrame:SetPoint("BOTTOMRIGHT", 12, -18)
 
 		if (frame.totFrame.Background == nil) then
 			frame.totFrame.Background = frame.totFrame.HealthBar:CreateTexture(nil, "BACKGROUND");
@@ -323,8 +313,6 @@ local function SkinFrame(frame)
 			frame.totFrame.Background:ClearAllPoints()
 			frame.totFrame.Background:SetPoint("BOTTOMLEFT", frame.totFrame, "BOTTOMLEFT", 45, 20);
 		end
-
-		frame.totFrame:SetFrameStrata("HIGH")
 		
 		frame.totFrame.FrameTexture:SetSize(93, 45)
 		frame.totFrame.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetofTargetFrame")
@@ -362,5 +350,4 @@ local function SkinFrame(frame)
 	end
 end
 
-SkinFrame(FocusFrame)
 SkinFrame(TargetFrame)
