@@ -122,7 +122,6 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -2, 5)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
-			self.TargetFrameContainer.Flash:Show()
 		elseif ( classification == "rare" ) then
 			self.Background:SetSize(119, 41)
 			self.Background:SetPoint("TOPLEFT", 27, -28);
