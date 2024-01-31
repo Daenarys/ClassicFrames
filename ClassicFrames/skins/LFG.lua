@@ -603,13 +603,15 @@ hooksecurefunc('LFGListGroupDataDisplayEnumerate_Update', function(self, numPlay
 	};
 
 	--Note that icons are numbered from right to left
-	local iconIndex = numPlayers;
-	for i=1, #iconOrder do
-		for j=1, displayData[iconOrder[i]] do
-			self.Icons[iconIndex]:SetAtlas(LFG_LIST_GROUP_DATA_ATLASES[iconOrder[i]], false);
-			iconIndex = iconIndex - 1;
-			if ( iconIndex < 1 ) then
-				return;
+	if iconOrder == LFG_LIST_GROUP_DATA_ROLE_ORDER then
+		local iconIndex = numPlayers;
+		for i=1, #iconOrder do
+			for j=1, displayData[iconOrder[i]] do
+				self.Icons[iconIndex]:SetAtlas(LFG_LIST_GROUP_DATA_ATLASES[iconOrder[i]], false);
+				iconIndex = iconIndex - 1;
+				if ( iconIndex < 1 ) then
+					return;
+				end
 			end
 		end
 	end
