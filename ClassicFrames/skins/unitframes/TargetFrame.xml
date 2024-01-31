@@ -7,6 +7,14 @@ UI_shared.xsd">
 			<Anchor point="TOPLEFT" x="20" y="-4"/>
 		</Anchors>
 		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="TargetFrameBackground">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" x="7" y="35"/>
+					</Anchors>
+					<Color r="0" g="0" b="0" a="0.5"/>
+				</Texture>
+			</Layer>
 			<Layer level="ARTWORK">
 				<Texture name="$parentTotalAbsorbBar" inherits="CfTotalAbsorbBarTemplate"/>
 			</Layer>

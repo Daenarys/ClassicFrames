@@ -46,11 +46,6 @@ local function SkinFrame(frame)
 	nameText:SetPoint("TOPLEFT", 36, -30)
 	nameText:SetJustifyH("CENTER")
 
-	if (frame.Background == nil) then
-		frame.Background = frame:CreateTexture(nil, "BACKGROUND");
-		frame.Background:SetColorTexture(0, 0, 0, 0.5)
-	end
-
 	contextual.NumericalThreat:ClearAllPoints()
 	contextual.NumericalThreat:SetPoint("BOTTOM", contentMain.ReputationColor, "TOP", 2, 0)
 
@@ -95,8 +90,8 @@ local function SkinFrame(frame)
 		self.TargetFrameContainer.Portrait:SetPoint("TOPRIGHT", -22, -16)
 
 		if ( classification == "rareelite" ) then
-			self.Background:SetSize(119, 41)
-			self.Background:SetPoint("TOPLEFT", 27, -28);
+			TargetFrameBackground:SetSize(119, 25)
+			TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare-Elite");
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
@@ -109,8 +104,8 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -2, 5)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "worldboss" or classification == "elite" ) then
-			self.Background:SetSize(119, 41)
-			self.Background:SetPoint("TOPLEFT", 27, -28);
+			TargetFrameBackground:SetSize(119, 25)
+			TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Elite");
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
@@ -123,8 +118,8 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -2, 5)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "rare" ) then
-			self.Background:SetSize(119, 41)
-			self.Background:SetPoint("TOPLEFT", 27, -28);
+			TargetFrameBackground:SetSize(119, 25)
+			TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare");
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
@@ -137,8 +132,8 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -4)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "minus" ) then
-			self.Background:SetSize(119, 12);
-			self.Background:SetPoint("TOPLEFT", 27, -48);
+			TargetFrameBackground:SetSize(119, 12);
+			TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 47);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Minus");
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
@@ -152,8 +147,8 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 			contentMain.ReputationColor:Hide()
 		else
-			self.Background:SetSize(119, 41)
-			self.Background:SetPoint("TOPLEFT", 27, -28);
+			TargetFrameBackground:SetSize(119, 25)
+			TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
