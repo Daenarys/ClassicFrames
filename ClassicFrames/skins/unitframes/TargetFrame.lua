@@ -89,9 +89,10 @@ local function SkinFrame(frame)
 		self.TargetFrameContainer.Portrait:ClearAllPoints()
 		self.TargetFrameContainer.Portrait:SetPoint("TOPRIGHT", -22, -16)
 
+		TargetFrameBackground:SetSize(119, 25)
+		TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35);
+
 		if ( classification == "rareelite" ) then
-			TargetFrameBackground:SetSize(119, 25)
-			TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare-Elite");
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
@@ -104,8 +105,6 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -2, 5)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "worldboss" or classification == "elite" ) then
-			TargetFrameBackground:SetSize(119, 25)
-			TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Elite");
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
@@ -118,8 +117,6 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -2, 5)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "rare" ) then
-			TargetFrameBackground:SetSize(119, 25)
-			TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare");
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
@@ -147,8 +144,6 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 			contentMain.ReputationColor:Hide()
 		else
-			TargetFrameBackground:SetSize(119, 25)
-			TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35);
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
