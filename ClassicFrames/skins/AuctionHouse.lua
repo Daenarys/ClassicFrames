@@ -139,6 +139,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(AuctionHouseFrame.ItemSellList.ScrollBar.Track)
 		ApplyScrollBarThumb(AuctionHouseFrame.ItemSellList.ScrollBar.Track.Thumb)
 
+		ApplyDialogBorder(AuctionHouseFrame.BuyDialog.Border)
+
 		AuctionHouseFrameAuctionsFrame.SummaryList.ScrollBar:SetSize(25, 560)
 		AuctionHouseFrameAuctionsFrame.SummaryList.ScrollBar:ClearAllPoints()
 		AuctionHouseFrameAuctionsFrame.SummaryList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrameAuctionsFrame.SummaryList.ScrollBox, "TOPRIGHT", 1, 0)
