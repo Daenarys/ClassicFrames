@@ -6,25 +6,9 @@ GroupLootHistoryFrame.TitleContainer:ClearAllPoints()
 GroupLootHistoryFrame.TitleContainer:SetPoint("TOPLEFT", GroupLootHistoryFrame, "TOPLEFT", 60, -1)
 GroupLootHistoryFrame.TitleContainer:SetPoint("TOPRIGHT", GroupLootHistoryFrame, "TOPRIGHT", -60, 1)
 
-GroupLootHistoryFrameBg:SetAlpha(0)
-
-if (GroupLootHistoryFrame.BG == nil) then
-	GroupLootHistoryFrame.BG = GroupLootHistoryFrame:CreateTexture(nil, "BACKGROUND")
-	GroupLootHistoryFrame.BG:SetTexture("Interface\\FrameGeneral\\UI-Background-Rock", true, true)
-	GroupLootHistoryFrame.BG:ClearAllPoints()
-	GroupLootHistoryFrame.BG:SetPoint("TOPLEFT", 2, -21)
-	GroupLootHistoryFrame.BG:SetPoint("BOTTOMRIGHT", -2, 2)
-end
-
-if (GroupLootHistoryFrame.TopTileStreaks == nil) then
-	GroupLootHistoryFrame.TopTileStreaks = GroupLootHistoryFrame:CreateTexture(nil, "BACKGROUND")
-	GroupLootHistoryFrame.TopTileStreaks:SetSize(256, 37)
-	GroupLootHistoryFrame.TopTileStreaks:SetAtlas("_UI-Frame-TopTileStreaks")
-	GroupLootHistoryFrame.TopTileStreaks:SetHorizTile(true)
-	GroupLootHistoryFrame.TopTileStreaks:ClearAllPoints()
-	GroupLootHistoryFrame.TopTileStreaks:SetPoint("TOPLEFT", GroupLootHistoryFrame, "TOPLEFT", 0, -21)
-	GroupLootHistoryFrame.TopTileStreaks:SetPoint("TOPRIGHT", GroupLootHistoryFrame, "TOPRIGHT", -2, -21)
-end
+GroupLootHistoryFrameBg:ClearAllPoints()
+GroupLootHistoryFrameBg:SetPoint("TOPLEFT", 2, -21)
+GroupLootHistoryFrameBg:SetPoint("BOTTOMRIGHT", -2, 2)
 
 ApplyTitleBg(GroupLootHistoryFrame)
 ApplyNineSliceNoPortrait(GroupLootHistoryFrame)
