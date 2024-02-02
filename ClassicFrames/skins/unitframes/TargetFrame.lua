@@ -33,18 +33,11 @@ end
 local function SkinFrame(frame)
 	local contextual = frame.TargetFrameContent.TargetFrameContentContextual;
 	local contentMain = frame.TargetFrameContent.TargetFrameContentMain;
-	local nameText = contentMain.Name;
 	local FrameHealthBar = contentMain.HealthBar;
 	local FrameManaBar = contentMain.ManaBar;
 
 	contextual:SetFrameStrata("MEDIUM")
 	frame.TargetFrameContainer:SetFrameStrata("MEDIUM")
-
-	nameText:SetParent(frame.TargetFrameContainer)
-	nameText:SetWidth(100)
-	nameText:ClearAllPoints()
-	nameText:SetPoint("TOPLEFT", 36, -30)
-	nameText:SetJustifyH("CENTER")
 
 	contextual.NumericalThreat:ClearAllPoints()
 	contextual.NumericalThreat:SetPoint("BOTTOM", contentMain.ReputationColor, "TOP", 2, 0)
@@ -52,10 +45,22 @@ local function SkinFrame(frame)
 	contextual.RaidTargetIcon:ClearAllPoints()
 	contextual.RaidTargetIcon:SetPoint("CENTER", frame.TargetFrameContainer.Portrait, "TOP", 2, -2)
 
+	contentMain.Name:SetWidth(100)
+	contentMain.Name:ClearAllPoints()
+	contentMain.Name:SetPoint("TOPLEFT", 36, -30)
+	contentMain.Name:SetJustifyH("CENTER")
+
 	contentMain.ReputationColor:SetSize(119, 19)
 	contentMain.ReputationColor:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-LevelBackground")
 	contentMain.ReputationColor:ClearAllPoints()
 	contentMain.ReputationColor:SetPoint("TOPRIGHT", -86, -26)
+
+	hooksecurefunc(frame, "CheckBattlePet", function(self)
+		local petBattle = contextual.PetBattleIcon;
+
+		petBattle:ClearAllPoints();
+		petBattle:SetPoint("CENTER", self.TargetFrameContainer.FrameTexture, "RIGHT", -44, 10)
+	end)
 
 	hooksecurefunc(frame, "CheckClassification", function(self)
 		local classification = UnitClassification(self.unit);
@@ -191,21 +196,15 @@ local function SkinFrame(frame)
 	hooksecurefunc(frame, "CheckLevel", function(self)
 		local levelText = self.TargetFrameContent.TargetFrameContentMain.LevelText;
 		local highLevelTexture = contextual.HighLevelTexture;
-		local petBattle = contextual.PetBattleIcon;
 
 		levelText:SetParent(contextual)
 		levelText:ClearAllPoints();
 		levelText:SetPoint("CENTER", 82, -21)
 
-		highLevelTexture:SetParent(contextual)
 		highLevelTexture:SetSize(16, 16)
 		highLevelTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Skull")
 		highLevelTexture:ClearAllPoints();
 		highLevelTexture:SetPoint("CENTER", 82, -21)
-		
-		petBattle:SetParent(contextual)
-		petBattle:ClearAllPoints();
-		petBattle:SetPoint("CENTER", 85, -15)
 	end)
 
 	hooksecurefunc(frame, "Update", function(self)
