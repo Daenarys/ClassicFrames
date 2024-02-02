@@ -11,17 +11,17 @@ function CfPlayerFrame_OnLoad(self)
 		CfPlayerFrameMyHealPredictionBar, CfPlayerFrameOtherHealPredictionBar,
 		CfPlayerFrameTotalAbsorbBar, CfPlayerFrameTotalAbsorbBarOverlay, CfPlayerFrameOverAbsorbGlow,
 		CfPlayerFrameOverHealAbsorbGlow, CfPlayerFrameHealAbsorbBar, CfPlayerFrameHealAbsorbBarLeftShadow,
-		CfPlayerFrameHealAbsorbBarRightShadow);
+		CfPlayerFrameHealAbsorbBarRightShadow)
 
-	self:RegisterEvent("PLAYER_ENTERING_WORLD");
-	self:EnableMouse(false);
+	self:RegisterEvent("PLAYER_ENTERING_WORLD")
+	self:EnableMouse(false)
 end
 
 function CfPlayerFrame_OnEvent(self, event, ...)
-	CfUnitFrame_OnEvent(self, event, ...);
+	CfUnitFrame_OnEvent(self, event, ...)
 
 	if ( event == "PLAYER_ENTERING_WORLD" ) then
-		CfUnitFrame_Update(self);
+		CfUnitFrame_Update(self)
 	end
 end
 
@@ -37,29 +37,29 @@ PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarArea:Hide()
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea:Hide()
 
 if (PlayerFrameBackground == nil) then
-	PlayerFrame:CreateTexture("PlayerFrameBackground", "BACKGROUND");
+	PlayerFrame:CreateTexture("PlayerFrameBackground", "BACKGROUND")
 	PlayerFrameBackground:SetHeight(41)
 	PlayerFrameBackground:SetColorTexture(0, 0, 0, 0.5)
-	PlayerFrameBackground:SetPoint("TOPLEFT", 87, -26);
+	PlayerFrameBackground:SetPoint("TOPLEFT", 87, -26)
 end
 
 if (_G.AlternatePowerBar) then
 	AlternatePowerBar:SetSize(104, 12)
 	AlternatePowerBar:ClearAllPoints()
-	AlternatePowerBar:SetPoint("BOTTOMLEFT", 95, 19);
+	AlternatePowerBar:SetPoint("BOTTOMLEFT", 95, 19)
 
 	AlternatePowerBarText:SetPoint("CENTER", 0, -1)
 	AlternatePowerBar.LeftText:SetPoint("LEFT", 0, -1)
 	AlternatePowerBar.RightText:SetPoint("RIGHT", 0, -1)
 
 	if (AlternatePowerBar.Background == nil) then
-		AlternatePowerBar.Background = AlternatePowerBar:CreateTexture(nil, "BACKGROUND");
+		AlternatePowerBar.Background = AlternatePowerBar:CreateTexture(nil, "BACKGROUND")
 		AlternatePowerBar.Background:SetAllPoints()
 		AlternatePowerBar.Background:SetColorTexture(0, 0, 0, 0.5)
 	end
 
 	if (AlternatePowerBar.Border == nil) then
-		AlternatePowerBar.Border = AlternatePowerBar:CreateTexture(nil, "ARTWORK");
+		AlternatePowerBar.Border = AlternatePowerBar:CreateTexture(nil, "ARTWORK")
 		AlternatePowerBar.Border:SetSize(0, 16)
 		AlternatePowerBar.Border:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
 		AlternatePowerBar.Border:SetTexCoord(0.125, 0.250, 1, 0)
@@ -68,7 +68,7 @@ if (_G.AlternatePowerBar) then
 	end
 
 	if (AlternatePowerBar.LeftBorder == nil) then
-		AlternatePowerBar.LeftBorder = AlternatePowerBar:CreateTexture(nil, "ARTWORK");
+		AlternatePowerBar.LeftBorder = AlternatePowerBar:CreateTexture(nil, "ARTWORK")
 		AlternatePowerBar.LeftBorder:SetSize(16, 16)
 		AlternatePowerBar.LeftBorder:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
 		AlternatePowerBar.LeftBorder:SetTexCoord(0, 0.125, 1, 0)
@@ -76,7 +76,7 @@ if (_G.AlternatePowerBar) then
 	end
 
 	if (AlternatePowerBar.RightBorder == nil) then
-		AlternatePowerBar.RightBorder = AlternatePowerBar:CreateTexture(nil, "ARTWORK");
+		AlternatePowerBar.RightBorder = AlternatePowerBar:CreateTexture(nil, "ARTWORK")
 		AlternatePowerBar.RightBorder:SetSize(16, 16)
 		AlternatePowerBar.RightBorder:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
 		AlternatePowerBar.RightBorder:SetTexCoord(0.125, 0, 1, 0)
@@ -84,8 +84,8 @@ if (_G.AlternatePowerBar) then
 	end
 
 	hooksecurefunc(AlternatePowerBar, "EvaluateUnit", function(self)
-		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar");
-		self:SetStatusBarColor(0, 0, 1);
+		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		self:SetStatusBarColor(0, 0, 1)
 
 		if self.PowerBarMask then
 			self.PowerBarMask:Hide()
@@ -96,7 +96,7 @@ end
 if (_G.MonkStaggerBar) then
 	MonkStaggerBar:SetSize(94, 12)
 	MonkStaggerBar:ClearAllPoints()
-	MonkStaggerBar:SetPoint("TOPLEFT", PlayerFrameAlternatePowerBarArea, "TOPLEFT", 98, -70);
+	MonkStaggerBar:SetPoint("TOPLEFT", PlayerFrameAlternatePowerBarArea, "TOPLEFT", 98, -70)
 
 	MonkStaggerBar.PowerBarMask:Hide()
 
@@ -105,7 +105,7 @@ if (_G.MonkStaggerBar) then
 	MonkStaggerBar.RightText:SetPoint("RIGHT", 0, -1)
 
 	if (MonkStaggerBar.Background == nil) then
-		MonkStaggerBar.Background = MonkStaggerBar:CreateTexture(nil, "BACKGROUND");
+		MonkStaggerBar.Background = MonkStaggerBar:CreateTexture(nil, "BACKGROUND")
 		MonkStaggerBar.Background:SetSize(128, 16)
 		MonkStaggerBar.Background:SetTexture("Interface\\PlayerFrame\\MonkManaBar")
 		MonkStaggerBar.Background:SetTexCoord(0, 1, 0.5, 1)
@@ -113,7 +113,7 @@ if (_G.MonkStaggerBar) then
 	end
 
 	if (MonkStaggerBar.Border == nil) then
-		MonkStaggerBar.Border = MonkStaggerBar:CreateTexture(nil, "ARTWORK");
+		MonkStaggerBar.Border = MonkStaggerBar:CreateTexture(nil, "ARTWORK")
 		MonkStaggerBar.Border:SetSize(128, 16)
 		MonkStaggerBar.Border:SetTexture("Interface\\PlayerFrame\\MonkManaBar")
 		MonkStaggerBar.Border:SetTexCoord(0, 1, 0, 0.5)
@@ -121,8 +121,8 @@ if (_G.MonkStaggerBar) then
 	end
 
 	hooksecurefunc(MonkStaggerBar, "EvaluateUnit", function(self)
-		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar");
-		self:SetStatusBarColor(0, 0, 1);
+		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		self:SetStatusBarColor(0, 0, 1)
 	end)
 end
 
@@ -160,24 +160,24 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMRIGHT", self, "TOPLEFT", 161, -25)
 	self.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon:SetPoint("TOPLEFT", 76, -19)
 
-	PlayerFrameHealthBar:SetWidth(119);
-	PlayerFrameHealthBar:SetPoint("TOPLEFT",106,-41);
-	PlayerFrameManaBar:SetWidth(119);
-	PlayerFrameManaBar:SetPoint("TOPLEFT",106,-52);
-	PlayerFrameBackground:SetWidth(119);
+	PlayerFrameHealthBar:SetWidth(119)
+	PlayerFrameHealthBar:SetPoint("TOPLEFT",106,-41)
+	PlayerFrameManaBar:SetWidth(119)
+	PlayerFrameManaBar:SetPoint("TOPLEFT",106,-52)
+	PlayerFrameBackground:SetWidth(119)
 	PlayerLevelText:Show()
 
-	CfUnitFrame_SetUnit(CfPlayerFrame, "player", PlayerFrameHealthBar, PlayerFrameManaBar);
+	CfUnitFrame_SetUnit(CfPlayerFrame, "player", PlayerFrameHealthBar, PlayerFrameManaBar)
 
-	local _, class = UnitClass("player");
+	local _, class = UnitClass("player")
 	if ( CfPlayerFrame.CfClassPowerBar ) then
-		CfPlayerFrame.CfClassPowerBar:Setup();
+		CfPlayerFrame.CfClassPowerBar:Setup()
 	elseif ( class == "DEATHKNIGHT" ) then
-		CfRuneFrame:Show();
+		CfRuneFrame:Show()
 	end
 
-	ComboPointPlayerFrame:Setup();
-	CfEssencePlayerFrame:Setup();
+	ComboPointPlayerFrame:Setup()
+	CfEssencePlayerFrame:Setup()
 end)
 
 hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
@@ -193,30 +193,30 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	PlayerName:ClearAllPoints()
 	PlayerName:SetPoint("TOPLEFT", self.PlayerFrameContainer, "TOPLEFT", 97, -25.5)
 
-	PlayerFrameHealthBar:SetWidth(100);
-	PlayerFrameHealthBar:SetPoint("TOPLEFT",119,-41);
-	PlayerFrameManaBar:SetWidth(100);
-	PlayerFrameManaBar:SetPoint("TOPLEFT",119,-52);
-	PlayerFrameBackground:SetWidth(114);
+	PlayerFrameHealthBar:SetWidth(100)
+	PlayerFrameHealthBar:SetPoint("TOPLEFT",119,-41)
+	PlayerFrameManaBar:SetWidth(100)
+	PlayerFrameManaBar:SetPoint("TOPLEFT",119,-52)
+	PlayerFrameBackground:SetWidth(114)
 	PlayerLevelText:Hide()
 
-	CfUnitFrame_SetUnit(CfPlayerFrame, "vehicle", PlayerFrameHealthBar, PlayerFrameManaBar);
+	CfUnitFrame_SetUnit(CfPlayerFrame, "vehicle", PlayerFrameHealthBar, PlayerFrameManaBar)
 
-	local _, class = UnitClass("player");
+	local _, class = UnitClass("player")
 	if ( CfPlayerFrame.CfClassPowerBar ) then
-		CfPlayerFrame.CfClassPowerBar:Hide();
+		CfPlayerFrame.CfClassPowerBar:Hide()
 	elseif ( class == "DEATHKNIGHT" ) then
-		CfRuneFrame:Hide();
+		CfRuneFrame:Hide()
 	end
 
-	ComboPointPlayerFrame:Setup();
-	CfEssencePlayerFrame:Setup();
+	ComboPointPlayerFrame:Setup()
+	CfEssencePlayerFrame:Setup()
 end)
 
 hooksecurefunc("PlayerFrame_UpdateLevel", function()
 	PlayerLevelText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	PlayerLevelText:SetDrawLayer("ARTWORK")
-	PlayerLevelText:ClearAllPoints();
+	PlayerLevelText:ClearAllPoints()
 	PlayerLevelText:SetPoint("CENTER", -80, -21)
 end)
 
@@ -245,12 +245,12 @@ end)
 hooksecurefunc("PlayerFrame_UpdatePlayerRestLoop", function()
 	local playerRestLoop = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestLoop;
 
-	playerRestLoop:Hide();
-	playerRestLoop.PlayerRestLoopAnim:Stop();
+	playerRestLoop:Hide()
+	playerRestLoop.PlayerRestLoopAnim:Stop()
 end)
 
 hooksecurefunc("PlayerFrame_UpdatePvPStatus", function()
-	local factionGroup = UnitFactionGroup("player");
+	local factionGroup = UnitFactionGroup("player")
 
 	if (factionGroup == "Alliance") then
 		PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PVPIcon:ClearAllPoints()
@@ -270,16 +270,16 @@ end)
 
 hooksecurefunc("PlayerFrame_UpdateRolesAssigned", function()
 	local roleIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon;
-	local role =  UnitGroupRolesAssigned("player");
+	local role =  UnitGroupRolesAssigned("player")
 
 	roleIcon:SetSize(19, 19)
 	roleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
 	
 	if ( role == "TANK" or role == "HEALER" or role == "DAMAGER") then
-		roleIcon:SetTexCoord(GetTexCoordsForRoleSmallCircle(role));
-		roleIcon:Show();
+		roleIcon:SetTexCoord(GetTexCoordsForRoleSmallCircle(role))
+		roleIcon:Show()
 	else
-		roleIcon:Hide();
+		roleIcon:Hide()
 	end
 
 	if (UnitHasVehiclePlayerFrameUI("player")) then
@@ -362,10 +362,10 @@ hooksecurefunc("PlayerFrame_UpdateStatus", function()
 		PlayerRestGlow:Hide()
 		PlayerAttackBackground:Show()
 	elseif ( PlayerFrame.onHateList ) then
-		PlayerAttackIcon:Show();
+		PlayerAttackIcon:Show()
 		PlayerAttackGlow:Hide()
-		PlayerRestIcon:Hide();
-		PlayerRestGlow:Hide();
+		PlayerRestIcon:Hide()
+		PlayerRestGlow:Hide()
 		PlayerAttackBackground:Hide()
 	else
 		statusTexture:Hide()
@@ -412,10 +412,10 @@ PlayerFrame:HookScript("OnUpdate", function(self)
 			alpha = (255 - (counter * 400)) / 255;
 		end
 		if (self.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackGlow:IsShown()) then
-			self.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackGlow:SetAlpha(alpha);
+			self.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackGlow:SetAlpha(alpha)
 		end
 		if (self.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow:IsShown()) then
-			self.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow:SetAlpha(alpha);
+			self.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow:SetAlpha(alpha)
 		end
 	end
 end)

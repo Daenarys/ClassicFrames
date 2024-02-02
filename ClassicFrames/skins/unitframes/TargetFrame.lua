@@ -11,7 +11,7 @@ function CfTargetFrame_OnLoad(self)
 		CfTargetFrameMyHealPredictionBar, CfTargetFrameOtherHealPredictionBar,
 		CfTargetFrameTotalAbsorbBar, CfTargetFrameTotalAbsorbBarOverlay, CfTargetFrameOverAbsorbGlow,
 		CfTargetFrameOverHealAbsorbGlow, CfTargetFrameHealAbsorbBar, CfTargetFrameHealAbsorbBarLeftShadow,
-		CfTargetFrameHealAbsorbBarRightShadow);
+		CfTargetFrameHealAbsorbBarRightShadow)
 
 	TargetFrameHealthBarText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
 	TargetFrameHealthBarTextLeft:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
@@ -23,11 +23,11 @@ function CfTargetFrame_OnLoad(self)
 	TargetFrameUnconsciousText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
 	CfTargetFrameOverAbsorbGlow:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
 
-	self:EnableMouse(false);
+	self:EnableMouse(false)
 end
 
 function CfTargetFrame_OnEvent(self, event, ...)
-	CfUnitFrame_OnEvent(self, event, ...);
+	CfUnitFrame_OnEvent(self, event, ...)
 end
 
 local function SkinFrame(frame)
@@ -58,12 +58,12 @@ local function SkinFrame(frame)
 	hooksecurefunc(frame, "CheckBattlePet", function(self)
 		local petBattle = contextual.PetBattleIcon;
 
-		petBattle:ClearAllPoints();
+		petBattle:ClearAllPoints()
 		petBattle:SetPoint("CENTER", self.TargetFrameContainer.FrameTexture, "RIGHT", -44, 10)
 	end)
 
 	hooksecurefunc(frame, "CheckClassification", function(self)
-		local classification = UnitClassification(self.unit);
+		local classification = UnitClassification(self.unit)
 
 		local leaderIcon = contextual.LeaderIcon;
 		leaderIcon:SetSize(16, 16)
@@ -95,11 +95,11 @@ local function SkinFrame(frame)
 		self.TargetFrameContainer.Portrait:SetPoint("TOPRIGHT", -22, -16)
 
 		TargetFrameBackground:SetSize(119, 25)
-		TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35);
+		TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
 
 		if ( classification == "rareelite" ) then
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
-			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare-Elite");
+			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare-Elite")
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
 			self.TargetFrameContainer.FrameTexture:ClearAllPoints()
 			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -4)
@@ -111,7 +111,7 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "worldboss" or classification == "elite" ) then
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
-			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Elite");
+			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Elite")
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
 			self.TargetFrameContainer.FrameTexture:ClearAllPoints()
 			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -4)
@@ -123,7 +123,7 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "rare" ) then
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
-			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare");
+			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare")
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
 			self.TargetFrameContainer.FrameTexture:ClearAllPoints()
 			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -4)
@@ -134,10 +134,10 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -4)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "minus" ) then
-			TargetFrameBackground:SetSize(119, 12);
-			TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 47);
+			TargetFrameBackground:SetSize(119, 12)
+			TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 47)
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
-			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Minus");
+			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Minus")
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
 			self.TargetFrameContainer.FrameTexture:ClearAllPoints()
 			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -4)
@@ -166,21 +166,21 @@ local function SkinFrame(frame)
 	hooksecurefunc(frame, "CheckDead", function(self)
 		if ((UnitHealth(self.unit) <= 0) and UnitIsConnected(self.unit)) then
 			if (UnitIsUnconscious(self.unit)) then
-				TargetFrameUnconsciousText:Show();
-				TargetFrameDeadText:Hide();
+				TargetFrameUnconsciousText:Show()
+				TargetFrameDeadText:Hide()
 			else
-				TargetFrameUnconsciousText:Hide();
-				TargetFrameDeadText:Show();
+				TargetFrameUnconsciousText:Hide()
+				TargetFrameDeadText:Show()
 			end
 		else
-			TargetFrameDeadText:Hide();
-			TargetFrameUnconsciousText:Hide();
+			TargetFrameDeadText:Hide()
+			TargetFrameUnconsciousText:Hide()
 		end
 	end)
 
 	hooksecurefunc(frame, "CheckFaction", function(self)
 		if (self.showPVP) then
-			local factionGroup = UnitFactionGroup(self.unit);
+			local factionGroup = UnitFactionGroup(self.unit)
 			if (factionGroup == "Alliance") then
 				contextual.PvpIcon:ClearAllPoints()
 				contextual.PvpIcon:SetPoint("TOPRIGHT", -4, -24)
@@ -198,18 +198,18 @@ local function SkinFrame(frame)
 		local highLevelTexture = contextual.HighLevelTexture;
 
 		levelText:SetParent(contextual)
-		levelText:ClearAllPoints();
+		levelText:ClearAllPoints()
 		levelText:SetPoint("CENTER", 82, -21)
 
 		highLevelTexture:SetSize(16, 16)
 		highLevelTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Skull")
-		highLevelTexture:ClearAllPoints();
+		highLevelTexture:ClearAllPoints()
 		highLevelTexture:SetPoint("CENTER", 82, -21)
 	end)
 
 	hooksecurefunc(frame, "Update", function(self)
 		if (UnitExists(self.unit)) then
-			CfUnitFrame_Update(CfTargetFrame);
+			CfUnitFrame_Update(CfTargetFrame)
 		end
 	end)
 
@@ -222,17 +222,17 @@ local function SkinFrame(frame)
 		auraOffsetY = 3;
 		if (index == 1) then
 			if (UnitIsFriend("player", frame.unit) or numDebuffs == 0) then
-				buff:SetPoint(point.."LEFT", frame.TargetFrameContainer.FrameTexture, relativePoint.."LEFT", 5, startY);
+				buff:SetPoint(point.."LEFT", frame.TargetFrameContainer.FrameTexture, relativePoint.."LEFT", 5, startY)
 			else
-				buff:SetPoint(point.."LEFT", contextual.debuffs, relativePoint.."LEFT", 0, -offsetY);
+				buff:SetPoint(point.."LEFT", contextual.debuffs, relativePoint.."LEFT", 0, -offsetY)
 			end
-			contextual.buffs:SetPoint(point.."LEFT", buff, point.."LEFT", 0, 0);
-			contextual.buffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
+			contextual.buffs:SetPoint(point.."LEFT", buff, point.."LEFT", 0, 0)
+			contextual.buffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY)
 		elseif (anchorIndex ~= (index-1)) then
-			buff:SetPoint(point.."LEFT", anchorBuff, relativePoint.."LEFT", 0, -offsetY);
-			contextual.buffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
+			buff:SetPoint(point.."LEFT", anchorBuff, relativePoint.."LEFT", 0, -offsetY)
+			contextual.buffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY)
 		else
-			buff:SetPoint(point.."LEFT", anchorBuff, point.."RIGHT", offsetX, 0);
+			buff:SetPoint(point.."LEFT", anchorBuff, point.."RIGHT", offsetX, 0)
 		end
 	end)
 
@@ -245,17 +245,17 @@ local function SkinFrame(frame)
 		auraOffsetY = 3;
 		if (index == 1) then
 			if (UnitIsFriend("player", frame.unit) and numBuffs > 0) then
-				buff:SetPoint(point.."LEFT", contextual.buffs, relativePoint.."LEFT", 0, -offsetY);
+				buff:SetPoint(point.."LEFT", contextual.buffs, relativePoint.."LEFT", 0, -offsetY)
 			else
-				buff:SetPoint(point.."LEFT", frame.TargetFrameContainer.FrameTexture, relativePoint.."LEFT", 5, startY);
+				buff:SetPoint(point.."LEFT", frame.TargetFrameContainer.FrameTexture, relativePoint.."LEFT", 5, startY)
 			end
-			contextual.debuffs:SetPoint(point.."LEFT", buff, point.."LEFT", 0, 0);
-			contextual.debuffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
+			contextual.debuffs:SetPoint(point.."LEFT", buff, point.."LEFT", 0, 0)
+			contextual.debuffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY)
 		elseif (anchorIndex ~= (index-1)) then
-			buff:SetPoint(point.."LEFT", anchorBuff, relativePoint.."LEFT", 0, -offsetY);
-			contextual.debuffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
+			buff:SetPoint(point.."LEFT", anchorBuff, relativePoint.."LEFT", 0, -offsetY)
+			contextual.debuffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY)
 		else
-			buff:SetPoint(point.."LEFT", anchorBuff, point.."RIGHT", offsetX, 0);
+			buff:SetPoint(point.."LEFT", anchorBuff, point.."RIGHT", offsetX, 0)
 		end
 	end)
 
@@ -266,7 +266,7 @@ local function SkinFrame(frame)
 
 	if (frame.totFrame) then
 		local function fixDebuffs()
-			local frameName = frame.totFrame:GetName();
+			local frameName = frame.totFrame:GetName()
 			local suffix = "Debuff";
 			local frameNameWithSuffix = frameName..suffix;
 			for i= 1, 4 do
@@ -289,11 +289,11 @@ local function SkinFrame(frame)
 		frame.totFrame:SetPoint("BOTTOMRIGHT", 12, -18)
 
 		if (frame.totFrame.Background == nil) then
-			frame.totFrame.Background = frame.totFrame.HealthBar:CreateTexture(nil, "BACKGROUND");
+			frame.totFrame.Background = frame.totFrame.HealthBar:CreateTexture(nil, "BACKGROUND")
 			frame.totFrame.Background:SetSize(46, 15)
 			frame.totFrame.Background:SetColorTexture(0, 0, 0, 0.5)
 			frame.totFrame.Background:ClearAllPoints()
-			frame.totFrame.Background:SetPoint("BOTTOMLEFT", frame.totFrame, "BOTTOMLEFT", 45, 20);
+			frame.totFrame.Background:SetPoint("BOTTOMLEFT", frame.totFrame, "BOTTOMLEFT", 45, 20)
 		end
 		
 		frame.totFrame.FrameTexture:SetSize(93, 45)
