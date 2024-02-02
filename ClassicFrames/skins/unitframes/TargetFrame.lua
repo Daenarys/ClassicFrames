@@ -214,49 +214,47 @@ local function SkinFrame(frame)
 		end
 	end)
 
-	hooksecurefunc('TargetFrame_UpdateBuffAnchor', function(self, buff, index, numDebuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
+	hooksecurefunc('TargetFrame_UpdateBuffAnchor', function(frame, buff, index, numDebuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
 		local point, relativePoint;
 		local startY, auraOffsetY;
 		point = "TOP";
 		relativePoint="BOTTOM";
 		startY = 32;
 		auraOffsetY = 3;
-		local targetFrameContentContextual = self.TargetFrameContent.TargetFrameContentContextual;
 		if (index == 1) then
-			if (UnitIsFriend("player", self.unit) or numDebuffs == 0) then
-				buff:SetPoint(point.."LEFT", self.TargetFrameContainer.FrameTexture, relativePoint.."LEFT", 5, startY);
+			if (UnitIsFriend("player", frame.unit) or numDebuffs == 0) then
+				buff:SetPoint(point.."LEFT", frame.TargetFrameContainer.FrameTexture, relativePoint.."LEFT", 5, startY);
 			else
-				buff:SetPoint(point.."LEFT", targetFrameContentContextual.debuffs, relativePoint.."LEFT", 0, -offsetY);
+				buff:SetPoint(point.."LEFT", contextual.debuffs, relativePoint.."LEFT", 0, -offsetY);
 			end
-			targetFrameContentContextual.buffs:SetPoint(point.."LEFT", buff, point.."LEFT", 0, 0);
-			targetFrameContentContextual.buffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
+			contextual.buffs:SetPoint(point.."LEFT", buff, point.."LEFT", 0, 0);
+			contextual.buffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
 		elseif (anchorIndex ~= (index-1)) then
 			buff:SetPoint(point.."LEFT", anchorBuff, relativePoint.."LEFT", 0, -offsetY);
-			targetFrameContentContextual.buffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
+			contextual.buffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
 		else
 			buff:SetPoint(point.."LEFT", anchorBuff, point.."RIGHT", offsetX, 0);
 		end
 	end)
 
-	hooksecurefunc('TargetFrame_UpdateDebuffAnchor', function(self, buff, index, numBuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
+	hooksecurefunc('TargetFrame_UpdateDebuffAnchor', function(frame, buff, index, numBuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
 		local point, relativePoint;
 		local startY, auraOffsetY;
 		point = "TOP";
 		relativePoint="BOTTOM";
 		startY = 32;
 		auraOffsetY = 3;
-		local targetFrameContentContextual = self.TargetFrameContent.TargetFrameContentContextual;
 		if (index == 1) then
-			if (UnitIsFriend("player", self.unit) and numBuffs > 0) then
-				buff:SetPoint(point.."LEFT", targetFrameContentContextual.buffs, relativePoint.."LEFT", 0, -offsetY);
+			if (UnitIsFriend("player", frame.unit) and numBuffs > 0) then
+				buff:SetPoint(point.."LEFT", contextual.buffs, relativePoint.."LEFT", 0, -offsetY);
 			else
-				buff:SetPoint(point.."LEFT", self.TargetFrameContainer.FrameTexture, relativePoint.."LEFT", 5, startY);
+				buff:SetPoint(point.."LEFT", frame.TargetFrameContainer.FrameTexture, relativePoint.."LEFT", 5, startY);
 			end
-			targetFrameContentContextual.debuffs:SetPoint(point.."LEFT", buff, point.."LEFT", 0, 0);
-			targetFrameContentContextual.debuffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
+			contextual.debuffs:SetPoint(point.."LEFT", buff, point.."LEFT", 0, 0);
+			contextual.debuffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
 		elseif (anchorIndex ~= (index-1)) then
 			buff:SetPoint(point.."LEFT", anchorBuff, relativePoint.."LEFT", 0, -offsetY);
-			targetFrameContentContextual.debuffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
+			contextual.debuffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY);
 		else
 			buff:SetPoint(point.."LEFT", anchorBuff, point.."RIGHT", offsetX, 0);
 		end
