@@ -169,19 +169,3 @@ hooksecurefunc('QuestLogQuests_Update', function()
 		end
 	end
 end)
-
-hooksecurefunc(_G.QuestSessionManager, 'NotifyDialogShow', function(_, dialog)
-	if dialog.isSkinned then return end
-
-	ApplyDialogBorder(dialog.Border)
-
-	if dialog.MinimizeButton then
-		dialog.MinimizeButton:SetSize(32, 32)
-		dialog.MinimizeButton:SetDisabledAtlas("UI-Panel-HideButton-Disabled")
-		dialog.MinimizeButton:SetNormalAtlas("UI-Panel-HideButton-Up")
-		dialog.MinimizeButton:SetPushedAtlas("UI-Panel-HideButton-Down")
-		dialog.MinimizeButton:SetHighlightAtlas("UI-Panel-MinimizeButton-Highlight", "ADD")
-	end
-
-	dialog.isSkinned = true
-end)
