@@ -45,6 +45,7 @@ local function SkinFrame(frame)
 	contextual.RaidTargetIcon:ClearAllPoints()
 	contextual.RaidTargetIcon:SetPoint("CENTER", frame.TargetFrameContainer.Portrait, "TOP", 2, -2)
 
+	contentMain.Name:SetParent(contextual)
 	contentMain.Name:SetWidth(100)
 	contentMain.Name:ClearAllPoints()
 	contentMain.Name:SetPoint("TOPLEFT", 36, -30)
