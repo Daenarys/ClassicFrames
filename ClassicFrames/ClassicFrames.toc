@@ -35,6 +35,7 @@ skins\DebugTools.lua
 skins\DragonTalents.lua
 skins\DressingRoom.lua
 skins\DropDownList.lua
+skins\EditMode.lua
 skins\EncounterJournal.lua
 skins\ExpansionLandingPage.lua
 skins\FlightMap.lua
