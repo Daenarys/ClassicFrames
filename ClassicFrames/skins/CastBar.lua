@@ -22,7 +22,9 @@ local function AdjustPosition(self)
 end
 
 hooksecurefunc(TargetFrame.spellbar, "AdjustPosition", AdjustPosition)
+hooksecurefunc(FocusFrame.spellbar, "AdjustPosition", AdjustPosition)
 TargetFrame.spellbar:HookScript("OnEvent", AdjustPosition)
+FocusFrame.spellbar:HookScript("OnEvent", AdjustPosition)
 
 local function SetLook(frame)
     frame.Background:SetColorTexture(0, 0, 0, 0.5)
