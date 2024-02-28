@@ -17,6 +17,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(AlliedRacesFrame)
 		ApplyNineSlicePortrait(AlliedRacesFrame)
 
+		AlliedRacesFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 		AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar:SetSize(25, 560)
 		AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar:ClearAllPoints()
 		AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", AlliedRacesFrame.RaceInfoFrame.ScrollFrame, "TOPRIGHT", -2, 59)

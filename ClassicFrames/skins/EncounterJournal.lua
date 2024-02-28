@@ -19,6 +19,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(EncounterJournal)
 		ApplyNineSlicePortrait(EncounterJournal)
 
+		EncounterJournalBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 		ApplyBottomTab(EncounterJournalMonthlyActivitiesTab)
 		ApplyBottomTab(EncounterJournalSuggestTab)
 		ApplyBottomTab(EncounterJournalDungeonTab)

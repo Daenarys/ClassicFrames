@@ -14,6 +14,8 @@ if _G.MailFrame then
 	ApplyTitleBg(MailFrame)
 	ApplyNineSlicePortrait(MailFrame)
 
+	MailFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 	MailFrameTab2:ClearAllPoints()
 	MailFrameTab2:SetPoint("LEFT", MailFrameTab1, "RIGHT", -8, 0)
 
@@ -51,6 +53,8 @@ if _G.OpenMailFrame then
 
 	ApplyTitleBg(OpenMailFrame)
 	ApplyNineSlicePortrait(OpenMailFrame)
+
+	OpenMailFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 
 	OpenMailScrollFrame.ScrollBar:SetSize(25, 560)
 	OpenMailScrollFrame.ScrollBar:ClearAllPoints()

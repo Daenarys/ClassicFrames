@@ -18,6 +18,13 @@ f:SetScript("OnEvent", function(self, event, name)
 		ProfessionsFrame.MaximizeMinimize.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
 		ProfessionsFrame.MaximizeMinimize.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 
+		if not ProfessionsFrame.ButtonFrameEdge then
+			ProfessionsFrame.ButtonFrameEdge = ProfessionsFrame.MaximizeMinimize:CreateTexture(nil, "OVERLAY")
+			ProfessionsFrame.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
+			ProfessionsFrame.ButtonFrameEdge:ClearAllPoints()
+			ProfessionsFrame.ButtonFrameEdge:SetPoint("CENTER", ProfessionsFrame.MaximizeMinimize, "LEFT", 6, 0)
+		end
+
 		ProfessionsFrame.PortraitContainer.CircleMask:Hide()
 
 		ProfessionsFramePortrait:SetSize(61, 61)
@@ -32,6 +39,8 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(ProfessionsFrame)
 		ApplyNineSlicePortrait(ProfessionsFrame)
+
+		ProfessionsFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 
 		for i = 1, _G.ProfessionsFrame.TabSystem:GetNumChildren() do
 			local tab = select(i, _G.ProfessionsFrame.TabSystem:GetChildren())

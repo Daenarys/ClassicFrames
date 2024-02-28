@@ -6,6 +6,7 @@ HelpFrame.TitleContainer:ClearAllPoints()
 HelpFrame.TitleContainer:SetPoint("TOPLEFT", HelpFrame, "TOPLEFT", 58, 0)
 HelpFrame.TitleContainer:SetPoint("TOPRIGHT", HelpFrame, "TOPRIGHT", -58, 0)
 
+HelpFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 HelpFrameBg:ClearAllPoints()
 HelpFrameBg:SetPoint("TOPLEFT", 0, -20)
 HelpFrameBg:SetPoint("BOTTOMRIGHT", -2, 2)

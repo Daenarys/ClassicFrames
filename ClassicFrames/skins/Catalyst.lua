@@ -17,6 +17,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(ItemInteractionFrame)
 		ApplyNineSlicePortrait(ItemInteractionFrame)
 
+		ItemInteractionFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 		hooksecurefunc(ItemInteractionFrame, "Show", function()
 			if _G.ContainerFrame1MoneyFrame then
 				_G.ContainerFrame1MoneyFrame:ClearAllPoints()

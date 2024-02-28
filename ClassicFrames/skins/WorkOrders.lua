@@ -17,6 +17,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(ProfessionsCustomerOrdersFrame)
 		ApplyNineSlicePortrait(ProfessionsCustomerOrdersFrame)
 
+		ProfessionsCustomerOrdersFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 		ProfessionsCustomerOrdersFrameOrdersTab:ClearAllPoints()
 		ProfessionsCustomerOrdersFrameOrdersTab:SetPoint("LEFT", ProfessionsCustomerOrdersFrameBrowseTab, "RIGHT", -15, 0)
 

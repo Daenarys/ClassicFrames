@@ -17,6 +17,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(ClassTrainerFrame)
 		ApplyNineSlicePortrait(ClassTrainerFrame)
 
+		ClassTrainerFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 		ClassTrainerFrame.ScrollBar:SetSize(25, 560)
 		ClassTrainerFrame.ScrollBar:ClearAllPoints()
 		ClassTrainerFrame.ScrollBar:SetPoint("TOPLEFT", ClassTrainerFrame.ScrollBox, "TOPRIGHT", -1, 3)

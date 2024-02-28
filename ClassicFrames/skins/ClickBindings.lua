@@ -19,6 +19,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(ClickBindingFrame)
 		ApplyNineSlicePortrait(ClickBindingFrame)
 
+		ClickBindingFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 		ClickBindingFrame.ScrollBar:SetSize(25, 560)
 		ClickBindingFrame.ScrollBar:ClearAllPoints()
 		ClickBindingFrame.ScrollBar:SetPoint("TOPLEFT", ClickBindingFrame.ScrollBox, "TOPRIGHT", 5, 4)

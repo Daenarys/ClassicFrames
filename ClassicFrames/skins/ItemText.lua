@@ -15,6 +15,8 @@ ItemTextFrameTitleText:SetWidth(225)
 ApplyTitleBg(ItemTextFrame)
 ApplyNineSlicePortrait(ItemTextFrame)
 
+ItemTextFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 ItemTextScrollFrame.ScrollBar:SetSize(25, 560)
 ItemTextScrollFrame.ScrollBar:ClearAllPoints()
 ItemTextScrollFrame.ScrollBar:SetPoint("TOPLEFT", ItemTextScrollFrame, "TOPRIGHT", 1, 3)
@@ -29,3 +31,12 @@ end
 ApplyScrollBarArrow(ItemTextScrollFrame.ScrollBar)
 ApplyScrollBarTrack(ItemTextScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(ItemTextScrollFrame.ScrollBar.Track.Thumb)
+
+ItemTextFrame:HookScript("OnEvent", function(self, event)
+	if ( event == "ITEM_TEXT_READY" ) then
+		local defaultXSize = 512;
+		local defaultYSize = 543;
+		ItemTextFramePageBg:SetSize(defaultXSize, defaultYSize)
+		ItemTextFramePageBg:SetTexture("Interface\\QuestFrame\\QuestBG")
+	end
+end)

@@ -6,6 +6,7 @@ AddonList.TitleContainer:ClearAllPoints()
 AddonList.TitleContainer:SetPoint("TOPLEFT", AddonList, "TOPLEFT", 58, 0)
 AddonList.TitleContainer:SetPoint("TOPRIGHT", AddonList, "TOPRIGHT", -58, 0)
 
+AddonListBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 AddonListBg:ClearAllPoints()
 AddonListBg:SetPoint("TOPLEFT", AddonList, "TOPLEFT", 2, -21)
 AddonListBg:SetPoint("BOTTOMRIGHT", AddonList, "BOTTOMRIGHT", -2, 2)

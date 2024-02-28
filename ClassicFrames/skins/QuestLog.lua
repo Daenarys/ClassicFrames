@@ -15,6 +15,8 @@ QuestLogPopupDetailFrame.TitleContainer:SetPoint("TOPRIGHT", QuestLogPopupDetail
 ApplyTitleBg(QuestLogPopupDetailFrame)
 ApplyNineSlicePortrait(QuestLogPopupDetailFrame)
 
+QuestLogPopupDetailFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 QuestLogPopupDetailFrameScrollFrame.ScrollBar:SetSize(25, 560)
 QuestLogPopupDetailFrameScrollFrame.ScrollBar:ClearAllPoints()
 QuestLogPopupDetailFrameScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestLogPopupDetailFrameScrollFrame, "TOPRIGHT", 1, 3)
@@ -23,3 +25,8 @@ QuestLogPopupDetailFrameScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestLogPop
 ApplyScrollBarArrow(QuestLogPopupDetailFrameScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestLogPopupDetailFrameScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestLogPopupDetailFrameScrollFrame.ScrollBar.Track.Thumb)
+
+hooksecurefunc("QuestLogPopupDetailFrame_Show", function()
+	QuestLogPopupDetailFrame.Bg:SetSize(510, 620)
+	QuestLogPopupDetailFrame.Bg:SetTexture("Interface/QuestFrame/QuestBG")
+end)

@@ -15,6 +15,8 @@ MerchantFrame.TitleContainer:SetPoint("TOPRIGHT", MerchantFrame, "TOPRIGHT", -58
 ApplyTitleBg(MerchantFrame)
 ApplyNineSlicePortrait(MerchantFrame)
 
+MerchantFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 MerchantFrameBottomLeftBorder:SetSize(256, 61)
 MerchantFrameBottomLeftBorder:SetTexture("Interface\\MerchantFrame\\UI-Merchant-BottomBorder")
 MerchantFrameBottomLeftBorder:SetTexCoord(0, 1, 0, 0.4765625)

@@ -15,6 +15,8 @@ PVEFrame.TitleContainer:SetPoint("TOPRIGHT", PVEFrame, "TOPRIGHT", -58, 0)
 ApplyTitleBg(PVEFrame)
 ApplyNineSlicePortrait(PVEFrame)
 
+PVEFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 PVEFrameTab2:ClearAllPoints()
 PVEFrameTab2:SetPoint("LEFT", PVEFrameTab1, "RIGHT", -16, 0)
 PVEFrameTab3:ClearAllPoints()

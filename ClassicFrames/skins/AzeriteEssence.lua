@@ -19,6 +19,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(AzeriteEssenceUI)
 		ApplyNineSlicePortrait(AzeriteEssenceUI)
 
+		AzeriteEssenceUIBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 		AzeriteEssenceUI.EssenceList.ScrollBar:SetSize(25, 560)
 		AzeriteEssenceUI.EssenceList.ScrollBar:ClearAllPoints()
 		AzeriteEssenceUI.EssenceList.ScrollBar:SetPoint("TOPLEFT", AzeriteEssenceUI.EssenceList.ScrollBox, "TOPRIGHT", -2, 5)

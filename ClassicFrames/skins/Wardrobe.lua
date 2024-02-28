@@ -18,6 +18,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyNineSlicePortrait(WardrobeFrame)
 		ApplyDialogBorder(WardrobeOutfitFrame.Border)
 
+		WardrobeFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 		WardrobeTransmogFrame.ModelScene.ControlFrame:ClearAllPoints()
 		WardrobeTransmogFrame.ModelScene.ControlFrame:SetPoint("TOP", 0, 0)
 	end

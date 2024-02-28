@@ -16,5 +16,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(AzeriteEmpoweredItemUI)
 		ApplyNineSlicePortrait(AzeriteEmpoweredItemUI.BorderFrame)
+
+		AzeriteEmpoweredItemUIBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 	end
 end)

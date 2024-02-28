@@ -20,6 +20,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(CollectionsJournal)
 		ApplyNineSlicePortrait(CollectionsJournal)
 
+		CollectionsJournalBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 		CollectionsJournalTab2:ClearAllPoints()
 		CollectionsJournalTab2:SetPoint("LEFT", CollectionsJournalTab1, "RIGHT", -16, 0)
 		CollectionsJournalTab3:ClearAllPoints()

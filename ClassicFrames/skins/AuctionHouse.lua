@@ -17,6 +17,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(AuctionHouseFrame)
 		ApplyNineSlicePortrait(AuctionHouseFrame)
 
+		AuctionHouseFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 		AuctionHouseFrameSellTab:ClearAllPoints()
 		AuctionHouseFrameSellTab:SetPoint("LEFT", AuctionHouseFrameBuyTab, "RIGHT", -15, 0)
 		AuctionHouseFrameAuctionsTab:ClearAllPoints()
