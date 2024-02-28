@@ -13,6 +13,8 @@ function CfPlayerFrame_OnLoad(self)
 		CfPlayerFrameOverHealAbsorbGlow, CfPlayerFrameHealAbsorbBar, CfPlayerFrameHealAbsorbBarLeftShadow,
 		CfPlayerFrameHealAbsorbBarRightShadow)
 
+	CfPlayerFrameOverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
 	self:EnableMouse(false)
 end

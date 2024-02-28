@@ -1,33 +1,44 @@
-function CfTargetFrame_OnLoad(self)
-	TargetFrameHealthBar.LeftText = TargetFrameHealthBarTextLeft;
-	TargetFrameHealthBar.RightText = TargetFrameHealthBarTextRight;
-	TargetFrameManaBar.LeftText = TargetFrameManaBarTextLeft;
-	TargetFrameManaBar.RightText = TargetFrameManaBarTextRight;
+function CfTargetFrame_OnLoad(self, unit)
+	local thisName = self:GetName();
+	_G[thisName.."HealthBar"].LeftText = _G[thisName.."HealthBarTextLeft"];
+	_G[thisName.."HealthBar"].RightText = _G[thisName.."HealthBarTextRight"];
+	_G[thisName.."ManaBar"].LeftText = _G[thisName.."ManaBarTextLeft"];
+	_G[thisName.."ManaBar"].RightText = _G[thisName.."ManaBarTextRight"];
 
-	CfUnitFrame_Initialize(self, "target", nil, nil,
-		TargetFrameHealthBar, TargetFrameHealthBarText,
-		TargetFrameManaBar, TargetFrameManaBarText,
+	CfUnitFrame_Initialize(self, unit, nil, nil,
+		_G[thisName.."HealthBar"], _G[thisName.."HealthBarText"],
+		_G[thisName.."ManaBar"], _G[thisName.."ManaBarText"],
 		nil, nil, nil,
-		CfTargetFrameMyHealPredictionBar, CfTargetFrameOtherHealPredictionBar,
-		CfTargetFrameTotalAbsorbBar, CfTargetFrameTotalAbsorbBarOverlay, CfTargetFrameOverAbsorbGlow,
-		CfTargetFrameOverHealAbsorbGlow, CfTargetFrameHealAbsorbBar, CfTargetFrameHealAbsorbBarLeftShadow,
-		CfTargetFrameHealAbsorbBarRightShadow)
+		_G[thisName.."MyHealPredictionBar"], _G[thisName.."OtherHealPredictionBar"],
+		_G[thisName.."TotalAbsorbBar"], _G[thisName.."TotalAbsorbBarOverlay"], _G[thisName.."OverAbsorbGlow"],
+		_G[thisName.."OverHealAbsorbGlow"], _G[thisName.."HealAbsorbBar"],
+		_G[thisName.."HealAbsorbBarLeftShadow"], _G[thisName.."HealAbsorbBarRightShadow"]);
 
-	TargetFrameHealthBarText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-	TargetFrameHealthBarTextLeft:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-	TargetFrameHealthBarTextRight:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-	TargetFrameManaBarText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-	TargetFrameManaBarTextLeft:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-	TargetFrameManaBarTextRight:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-	TargetFrameDeadText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-	TargetFrameUnconsciousText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-	CfTargetFrameOverAbsorbGlow:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
+	if CfTargetFrame then
+		CfTargetFrameHealthBarText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfTargetFrameHealthBarTextLeft:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfTargetFrameHealthBarTextRight:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfTargetFrameManaBarText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfTargetFrameManaBarTextLeft:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfTargetFrameManaBarTextRight:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfTargetFrameDeadText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfTargetFrameUnconsciousText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfTargetFrameOverAbsorbGlow:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
+	end
+
+	if CfFocusFrame then
+		CfFocusFrameHealthBarText:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfFocusFrameHealthBarTextLeft:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfFocusFrameHealthBarTextRight:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfFocusFrameManaBarText:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfFocusFrameManaBarTextLeft:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfFocusFrameManaBarTextRight:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfFocusFrameDeadText:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfFocusFrameUnconsciousText:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfFocusFrameOverAbsorbGlow:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
+	end
 
 	self:EnableMouse(false)
-end
-
-function CfTargetFrame_OnEvent(self, event, ...)
-	CfUnitFrame_OnEvent(self, event, ...)
 end
 
 local function SkinFrame(frame)
@@ -95,8 +106,11 @@ local function SkinFrame(frame)
 		self.TargetFrameContainer.Portrait:ClearAllPoints()
 		self.TargetFrameContainer.Portrait:SetPoint("TOPRIGHT", -22, -16)
 
-		TargetFrameBackground:SetSize(119, 25)
-		TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
+		CfTargetFrameBackground:SetSize(119, 25)
+		CfTargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
+
+		CfFocusFrameBackground:SetSize(119, 25)
+		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
 
 		if ( classification == "rareelite" ) then
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
@@ -135,8 +149,10 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -4)
 			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "minus" ) then
-			TargetFrameBackground:SetSize(119, 12)
-			TargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 47)
+			CfTargetFrameBackground:SetSize(119, 12)
+			CfTargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 47)
+			CfFocusFrameBackground:SetSize(119, 12)
+			CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 47)
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Minus")
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
@@ -166,16 +182,26 @@ local function SkinFrame(frame)
 
 	hooksecurefunc(frame, "CheckDead", function(self)
 		if ((UnitHealth(self.unit) <= 0) and UnitIsConnected(self.unit)) then
+			CfTargetFrameBackground:SetAlpha(0.9)
+			CfFocusFrameBackground:SetAlpha(0.9)
 			if (UnitIsUnconscious(self.unit)) then
-				TargetFrameUnconsciousText:Show()
-				TargetFrameDeadText:Hide()
+				CfTargetFrameUnconsciousText:Show()
+				CfTargetFrameDeadText:Hide()
+				CfFocusFrameUnconsciousText:Show()
+				CfFocusFrameDeadText:Hide()
 			else
-				TargetFrameUnconsciousText:Hide()
-				TargetFrameDeadText:Show()
+				CfTargetFrameUnconsciousText:Hide()
+				CfTargetFrameDeadText:Show()
+				CfFocusFrameUnconsciousText:Hide()
+				CfFocusFrameDeadText:Show()
 			end
 		else
-			TargetFrameDeadText:Hide()
-			TargetFrameUnconsciousText:Hide()
+			CfTargetFrameBackground:SetAlpha(1)
+			CfFocusFrameBackground:SetAlpha(1)
+			CfTargetFrameDeadText:Hide()
+			CfTargetFrameUnconsciousText:Hide()
+			CfFocusFrameDeadText:Hide()
+			CfFocusFrameUnconsciousText:Hide()
 		end
 	end)
 
@@ -211,6 +237,7 @@ local function SkinFrame(frame)
 	hooksecurefunc(frame, "Update", function(self)
 		if (UnitExists(self.unit)) then
 			CfUnitFrame_Update(CfTargetFrame)
+			CfUnitFrame_Update(CfFocusFrame)
 		end
 	end)
 
@@ -333,4 +360,10 @@ local function SkinFrame(frame)
 	end
 end
 
+hooksecurefunc(FocusFrame, "SetSmallSize", function(self)
+	self.totFrame:ClearAllPoints()
+	self.totFrame:SetPoint("BOTTOMRIGHT", 25, -24)
+end)
+
 SkinFrame(TargetFrame)
+SkinFrame(FocusFrame)

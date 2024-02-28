@@ -1,14 +1,11 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 UI_shared.xsd">
 	<Script file="TargetFrame.lua"/>
-	<Button name="CfTargetFrame" parent="TargetFrame">
+	<Button name="CfTargetFrameTemplate" virtual="true">
 		<Size x="232" y="100"/>
-		<Anchors>
-			<Anchor point="TOPLEFT" x="20" y="-4"/>
-		</Anchors>
 		<Layers>
 			<Layer level="BACKGROUND">
-				<Texture name="TargetFrameBackground">
+				<Texture name="$parentBackground">
 					<Anchors>
 						<Anchor point="BOTTOMLEFT" x="7" y="35"/>
 					</Anchors>
@@ -33,42 +30,42 @@ UI_shared.xsd">
 								<Texture name="$parentHealAbsorbBar" inherits="CfHealAbsorbBarTemplate"/>
 								<Texture name="$parentHealAbsorbBarLeftShadow" inherits="CfHealAbsorbBarLeftShadowTemplate"/>
 								<Texture name="$parentHealAbsorbBarRightShadow" inherits="CfHealAbsorbBarRightShadowTemplate"/>
-								<FontString name="TargetFrameDeadText" inherits="GameFontNormalSmall" text="DEAD">
+								<FontString name="$parentDeadText" inherits="GameFontNormalSmall" text="DEAD">
 									<Anchors>
 										<Anchor point="CENTER" x="-50" y="3"/>
 									</Anchors>
 								</FontString>
-								<FontString name="TargetFrameUnconsciousText" inherits="GameFontNormalSmall" text="UNCONSCIOUS">
+								<FontString name="$parentUnconsciousText" inherits="GameFontNormalSmall" text="UNCONSCIOUS">
 									<Anchors>
 										<Anchor point="CENTER" x="-50" y="3"/>
 									</Anchors>
 								</FontString>
-								<FontString name="TargetFrameHealthBarText" inherits="TextStatusBarText">
+								<FontString name="$parentHealthBarText" inherits="TextStatusBarText">
 									<Anchors>
 										<Anchor point="CENTER" x="-50" y="3"/>
 									</Anchors>
 								</FontString>
-								<FontString name="TargetFrameHealthBarTextLeft" inherits="TextStatusBarText">
+								<FontString name="$parentHealthBarTextLeft" inherits="TextStatusBarText">
 									<Anchors>
 										<Anchor point="LEFT" x="7" y="3"/>
 									</Anchors>
 								</FontString>
-								<FontString name="TargetFrameHealthBarTextRight" inherits="TextStatusBarText">
+								<FontString name="$parentHealthBarTextRight" inherits="TextStatusBarText">
 									<Anchors>
 										<Anchor point="RIGHT" x="-110" y="3"/>
 									</Anchors>
 								</FontString>
-								<FontString name="TargetFrameManaBarText" inherits="TextStatusBarText">
+								<FontString name="$parentManaBarText" inherits="TextStatusBarText">
 									<Anchors>
 										<Anchor point="CENTER" x="-50" y="-8"/>
 									</Anchors>
 								</FontString>
-								<FontString name="TargetFrameManaBarTextLeft" inherits="TextStatusBarText">
+								<FontString name="$parentManaBarTextLeft" inherits="TextStatusBarText">
 									<Anchors>
 										<Anchor point="LEFT" x="7" y="-8"/>
 									</Anchors>
 								</FontString>
-								<FontString name="TargetFrameManaBarTextRight" inherits="TextStatusBarText">
+								<FontString name="$parentManaBarTextRight" inherits="TextStatusBarText">
 									<Anchors>
 										<Anchor point="RIGHT" x="-110" y="-8"/>
 									</Anchors>
@@ -82,7 +79,7 @@ UI_shared.xsd">
 					</Frame>
 				</Frames>
 			</Frame>
-			<StatusBar name="TargetFrameHealthBar" inherits="TextStatusBar">
+			<StatusBar name="$parentHealthBar" inherits="TextStatusBar">
 				<Size x="119" y="12"/>
 				<Anchors>
 					<Anchor point="TOPRIGHT" x="-106" y="-41"/>
@@ -102,7 +99,7 @@ UI_shared.xsd">
 				</Scripts>
 				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
 			</StatusBar>
-			<StatusBar name="TargetFrameManaBar" inherits="TextStatusBar">
+			<StatusBar name="$parentManaBar" inherits="TextStatusBar">
 				<Size x="119" y="12"/>
 				<Anchors>
 					<Anchor point="TOPRIGHT" x="-106" y="-52"/>
@@ -120,8 +117,27 @@ UI_shared.xsd">
 			</StatusBar>
 		</Frames>
 		<Scripts>
-			<OnLoad function="CfTargetFrame_OnLoad"/>
-			<OnEvent function="CfTargetFrame_OnEvent"/>
+			<OnEvent function="CfUnitFrame_OnEvent"/>
+		</Scripts>
+	</Button>
+	<Button name="CfTargetFrame" inherits="CfTargetFrameTemplate" parent="TargetFrame">
+		<Anchors>
+			<Anchor point="TOPLEFT" x="20" y="-4"/>
+		</Anchors>
+		<Scripts>
+			<OnLoad>
+				CfTargetFrame_OnLoad(self, "target");
+			</OnLoad>
+		</Scripts>
+	</Button>
+	<Button name="CfFocusFrame" inherits="CfTargetFrameTemplate" parent="FocusFrame">
+		<Anchors>
+			<Anchor point="TOPLEFT" x="20" y="-4"/>
+		</Anchors>
+		<Scripts>
+			<OnLoad>
+				CfTargetFrame_OnLoad(self, "focus");
+			</OnLoad>
 		</Scripts>
 	</Button>
 </Ui>
