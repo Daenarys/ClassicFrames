@@ -13,7 +13,7 @@ function ApplyTitleBg(frame)
 	if (frame.TitleBg == nil) then
 		frame.TitleBg = frame:CreateTexture(nil, "BACKGROUND");
 		frame.TitleBg:SetAtlas("_UI-Frame-TitleTileBg", false)
-		frame.TitleBg:SetSize(256, 17)
+		frame.TitleBg:SetSize(256, 18)
 		frame.TitleBg:SetHorizTile(true)
 		frame.TitleBg:ClearAllPoints()
 		frame.TitleBg:SetPoint("TOPLEFT", 2, -3)
@@ -22,6 +22,12 @@ function ApplyTitleBg(frame)
 end
 
 function ApplyNineSlicePortrait(frame)
+	if frame.TopTileStreaks then
+		frame.TopTileStreaks:ClearAllPoints()
+		frame.TopTileStreaks:SetPoint("TOPLEFT", 0, -21)
+		frame.TopTileStreaks:SetPoint("TOPRIGHT", -2, -21)
+	end
+
 	frame.NineSlice.TopEdge:SetSize(128, 132)
 	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
 	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
@@ -75,6 +81,12 @@ function ApplyNineSlicePortrait(frame)
 end
 
 function ApplyNineSliceNoPortrait(frame)
+	if frame.TopTileStreaks then
+		frame.TopTileStreaks:ClearAllPoints()
+		frame.TopTileStreaks:SetPoint("TOPLEFT", 0, -21)
+		frame.TopTileStreaks:SetPoint("TOPRIGHT", -2, -21)
+	end
+
 	frame.NineSlice.TopEdge:SetSize(128, 132)
 	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
 	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
@@ -248,8 +260,6 @@ function ApplyScrollBarThumb(frame)
 end
 
 function ApplyBottomTab(frame)
-	frame:SetFrameLevel(750)
-
 	frame.LeftActive:SetSize(20, 35)
 	frame.LeftActive:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
 	frame.LeftActive:SetTexCoord(0, 0.15625, 0, 0.546875)

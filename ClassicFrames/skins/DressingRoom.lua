@@ -16,13 +16,6 @@ DressUpFrame.MaximizeMinimizeFrame.MinimizeButton:SetPushedTexture("Interface\\B
 DressUpFrame.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
 DressUpFrame.MaximizeMinimizeFrame.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 
-if not DressUpFrame.ButtonFrameEdge then
-	DressUpFrame.ButtonFrameEdge = DressUpFrame.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
-	DressUpFrame.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
-	DressUpFrame.ButtonFrameEdge:ClearAllPoints()
-	DressUpFrame.ButtonFrameEdge:SetPoint("CENTER", DressUpFrame.MaximizeMinimizeFrame, "LEFT", 6, 0)
-end
-
 DressUpFrame.PortraitContainer.CircleMask:Hide()
 
 DressUpFramePortrait:SetSize(61, 61)
