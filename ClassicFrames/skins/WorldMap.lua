@@ -5,7 +5,7 @@ hooksecurefunc(WorldMapFrame, "Minimize", function(self)
 
 	self.BorderFrame.MaximizeMinimizeFrame:SetSize(32, 32)
 	self.BorderFrame.MaximizeMinimizeFrame:ClearAllPoints()
-	self.BorderFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", WorldMapFrameCloseButton, "LEFT", 10, 0)
+	self.BorderFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", WorldMapFrameCloseButton, "LEFT", 8.5, 0)
 
 	self.BorderFrame.MaximizeMinimizeFrame.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
 	self.BorderFrame.MaximizeMinimizeFrame.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
@@ -38,7 +38,7 @@ hooksecurefunc(WorldMapFrame, "Maximize", function(self)
 
 	self.BorderFrame.MaximizeMinimizeFrame:SetSize(32, 32)
 	self.BorderFrame.MaximizeMinimizeFrame:ClearAllPoints()
-	self.BorderFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", WorldMapFrameCloseButton, "LEFT", 10, 0)
+	self.BorderFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", WorldMapFrameCloseButton, "LEFT", 8.5, 0)
 
 	self.BorderFrame.MaximizeMinimizeFrame.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
 	self.BorderFrame.MaximizeMinimizeFrame.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")

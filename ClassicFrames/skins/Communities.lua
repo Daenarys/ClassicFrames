@@ -13,7 +13,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 				self.MaximizeMinimizeFrame:SetSize(32, 32)
 				self.MaximizeMinimizeFrame:ClearAllPoints()
-				self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
+				self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 8.5, 0)
 
 				self.MaximizeMinimizeFrame.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
 				self.MaximizeMinimizeFrame.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
@@ -24,13 +24,6 @@ f:SetScript("OnEvent", function(self, event, name)
 				self.MaximizeMinimizeFrame.MinimizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Down")
 				self.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
 				self.MaximizeMinimizeFrame.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-
-				if not self.ButtonFrameEdge then
-					self.ButtonFrameEdge = self.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
-					self.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
-					self.ButtonFrameEdge:ClearAllPoints()
-					self.ButtonFrameEdge:SetPoint("CENTER", self.MaximizeMinimizeFrame, "LEFT", 6, 0)
-				end
 
 				ApplyTitleBg(self)
 				ApplyNineSliceNoPortrait(self)
@@ -64,7 +57,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 				self.MaximizeMinimizeFrame:SetSize(32, 32)
 				self.MaximizeMinimizeFrame:ClearAllPoints()
-				self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
+				self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 8.5, 0)
 
 				self.MaximizeMinimizeFrame.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
 				self.MaximizeMinimizeFrame.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
@@ -75,13 +68,6 @@ f:SetScript("OnEvent", function(self, event, name)
 				self.MaximizeMinimizeFrame.MinimizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Down")
 				self.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
 				self.MaximizeMinimizeFrame.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-				
-				if not self.ButtonFrameEdge then
-					self.ButtonFrameEdge = self.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
-					self.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
-					self.ButtonFrameEdge:ClearAllPoints()
-					self.ButtonFrameEdge:SetPoint("CENTER", self.MaximizeMinimizeFrame, "LEFT", 6, 0)
-				end
 
 				self.PortraitContainer.CircleMask:Hide()
 
