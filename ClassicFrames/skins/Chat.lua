@@ -169,24 +169,7 @@ _G.QuickJoinToastButton:HookScript("OnUpdate", function(self)
 end)
 
 ApplyDialogBorder(ChatConfigFrame.Border)
-ChatConfigFrame.Header:Hide()
-
-if not ChatConfigFrameHeader then
-    ChatConfigFrameHeader = ChatConfigFrame:CreateTexture(nil, "ARTWORK")
-    ChatConfigFrameHeader:SetHeight(64)
-    ChatConfigFrameHeader:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header.png")
-    ChatConfigFrameHeader:SetPoint("TOP", 0, 12)
-end
-
-if not ChatConfigFrameHeaderText then
-    ChatConfigFrameHeaderText = ChatConfigFrame:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-    ChatConfigFrameHeaderText:SetPoint("TOP", ChatConfigFrameHeader, 0, -14)
-end
-
-hooksecurefunc("ChatConfigCategoryFrame_Refresh", function()
-    ChatConfigFrameHeaderText:SetText(format(CHATCONFIG_HEADER, FCF_GetCurrentChatFrame().name));
-    ChatConfigFrameHeader:SetWidth(ChatConfigFrameHeaderText:GetWidth()+200);
-end)
+ApplyDialogHeader(ChatConfigFrame.Header)
 
 _G.ChatConfigFrame:HookScript("OnShow", function(self)
     self:ClearAllPoints()

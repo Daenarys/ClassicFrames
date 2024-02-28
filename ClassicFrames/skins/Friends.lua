@@ -147,21 +147,7 @@ RaidInfoCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeBu
 RaidInfoCloseButton:ClearAllPoints()
 RaidInfoCloseButton:SetPoint("TOPRIGHT", -2, -3)
 
-RaidInfoFrame.Header:Hide()
-
-if not RaidInfoFrameHeader then
-	RaidInfoFrame:CreateTexture("RaidInfoFrameHeader", "OVERLAY")
-	RaidInfoFrameHeader:SetSize(256, 64)
-	RaidInfoFrameHeader:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header.png")
-	RaidInfoFrameHeader:SetPoint("TOP", 0, 12)
-end
-
-if not RaidInfoFrameHeaderText then
-	local RaidInfoFrameHeaderText = RaidInfoFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-	RaidInfoFrameHeaderText:SetText(RAID_INFORMATION)
-	RaidInfoFrameHeaderText:SetPoint("TOP", RaidInfoFrameHeader, 0, -14)
-end
-
+ApplyDialogHeader(RaidInfoFrame.Header)
 ApplyDialogBorder(RaidInfoFrame.Border)
 
 if not RaidInfoDetailCorner then
