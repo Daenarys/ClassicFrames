@@ -19,8 +19,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(MacroFrame)
 		ApplyNineSlicePortrait(MacroFrame)
 
-		MacroFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-
 		MacroFrameTab2:ClearAllPoints()
 		MacroFrameTab2:SetPoint("LEFT", MacroFrameTab1, "RIGHT")
 

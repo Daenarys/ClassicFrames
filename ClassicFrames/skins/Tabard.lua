@@ -14,5 +14,3 @@ TabardFrame.TitleContainer:SetPoint("TOPRIGHT", TabardFrame, "TOPRIGHT", -58, 0)
 
 ApplyTitleBg(TabardFrame)
 ApplyNineSlicePortrait(TabardFrame)
-
-TabardFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)

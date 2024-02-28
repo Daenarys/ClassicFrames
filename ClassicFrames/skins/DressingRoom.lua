@@ -36,8 +36,6 @@ DressUpFrame.TitleContainer:SetPoint("TOPRIGHT", DressUpFrame, "TOPRIGHT", -58, 
 ApplyTitleBg(DressUpFrame)
 ApplyNineSlicePortrait(DressUpFrame)
 
-DressUpFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-
 SideDressUpFrameCloseButton:SetSize(32, 32)
 SideDressUpFrameCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 SideDressUpFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")

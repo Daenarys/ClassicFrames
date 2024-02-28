@@ -35,8 +35,6 @@ f:SetScript("OnEvent", function(self, event, name)
 				ApplyTitleBg(self)
 				ApplyNineSliceNoPortrait(self)
 
-				self.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-
 				CommunitiesFrame.Chat.ScrollBar:SetSize(25, 560)
 				CommunitiesFrame.Chat.ScrollBar:ClearAllPoints()
 				CommunitiesFrame.Chat.ScrollBar:SetPoint("TOPLEFT", CommunitiesFrame.Chat.MessageFrame, "TOPRIGHT", 5, 5)
@@ -113,8 +111,6 @@ f:SetScript("OnEvent", function(self, event, name)
 				ApplyTitleBg(self)
 				ApplyNineSlicePortrait(self)
 				
-				self.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-
 				CommunitiesFrameCommunitiesList.ScrollBar:SetSize(25, 560)
 				CommunitiesFrameCommunitiesList.ScrollBar:ClearAllPoints()
 				CommunitiesFrameCommunitiesList.ScrollBar:SetPoint("TOPLEFT", CommunitiesFrameCommunitiesList.ScrollBox, "TOPRIGHT", -2, 0)

@@ -38,7 +38,6 @@ hooksecurefunc(WorldMapFrame, "Minimize", function(self)
 
 	ApplyTitleBg(self)
 	ApplyNineSlicePortrait(self.BorderFrame)
-	WorldMapFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 end)
 
 hooksecurefunc(WorldMapFrame, "Maximize", function(self)
@@ -67,7 +66,6 @@ hooksecurefunc(WorldMapFrame, "Maximize", function(self)
 
 	ApplyTitleBg(self)
 	ApplyNineSliceNoPortrait(self.BorderFrame)
-	WorldMapFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 end)
 
 for _, f in next, WorldMapFrame.overlayFrames do

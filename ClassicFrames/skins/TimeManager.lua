@@ -19,9 +19,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(TimeManagerFrame)
 		ApplyNineSlicePortrait(TimeManagerFrame)
-
-		TimeManagerFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-		
+	
 		StopwatchCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 		StopwatchCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
 		StopwatchCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")

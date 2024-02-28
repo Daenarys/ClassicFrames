@@ -17,8 +17,6 @@ GossipFrameTitleText:SetTextColor(255, 255, 255, 1)
 ApplyTitleBg(GossipFrame)
 ApplyNineSlicePortrait(GossipFrame)
 
-GossipFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-
 GossipFrame.GreetingPanel.ScrollBox:ClearAllPoints()
 GossipFrame.GreetingPanel.ScrollBox:SetPoint("TOPLEFT", 5, -65)
 

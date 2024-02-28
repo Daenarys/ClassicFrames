@@ -16,7 +16,5 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(GarrisonCapacitiveDisplayFrame)
 		ApplyNineSlicePortrait(GarrisonCapacitiveDisplayFrame)
-
-		GarrisonCapacitiveDisplayFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 	end
 end)

@@ -16,7 +16,5 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(ItemSocketingFrame)
 		ApplyNineSlicePortrait(ItemSocketingFrame)
-
-		ItemSocketingFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 	end
 end)
