@@ -5,6 +5,7 @@ ApplyCloseButton(DressUpFrameCloseButton)
 DressUpFrame.MaximizeMinimizeFrame:SetSize(32, 32)
 DressUpFrame.MaximizeMinimizeFrame:ClearAllPoints()
 DressUpFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", DressUpFrameCloseButton, "LEFT", 8.5, 0)
+DressUpFrame.MaximizeMinimizeFrame:SetFrameLevel(2)
 
 DressUpFrame.MaximizeMinimizeFrame.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
 DressUpFrame.MaximizeMinimizeFrame.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
