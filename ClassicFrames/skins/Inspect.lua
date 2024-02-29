@@ -17,8 +17,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(InspectFrame)
 		ApplyNineSlicePortrait(InspectFrame)
 
-		InspectFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-
 		InspectFrameTab2:ClearAllPoints()
 		InspectFrameTab2:SetPoint("LEFT", InspectFrameTab1, "RIGHT", -16, 0)
 		InspectFrameTab3:ClearAllPoints()

@@ -17,8 +17,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(ScrappingMachineFrame)
 		ApplyNineSlicePortrait(ScrappingMachineFrame)
 
-		ScrappingMachineFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-		
 		hooksecurefunc(ScrappingMachineFrame, "Show", function()
 			if _G.ContainerFrame1MoneyFrame then
 				_G.ContainerFrame1MoneyFrame:ClearAllPoints()

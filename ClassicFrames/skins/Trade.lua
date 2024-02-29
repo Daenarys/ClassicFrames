@@ -14,8 +14,6 @@ TradeFrameTitleText:SetPoint("CENTER", -17, 1)
 ApplyTitleBg(TradeFrame)
 ApplyNineSlicePortrait(TradeFrame)
 
-TradeFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-
 TradeFrame.RecipientOverlay.portraitFrame:SetSize(78, 78)
 TradeFrame.RecipientOverlay.portraitFrame:SetAtlas("UI-Frame-Portrait")
 TradeFrame.RecipientOverlay.portraitFrame:ClearAllPoints()

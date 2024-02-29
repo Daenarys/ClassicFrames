@@ -65,7 +65,6 @@ skins\MirrorTimers.lua
 skins\Money.lua
 skins\NamePlates.lua
 skins\NewPlayerGuide.lua
-skins\ObjectiveTracker.lua
 skins\OrderHallTalents.lua
 skins\PerksProgram.lua
 skins\PingTutorial.lua

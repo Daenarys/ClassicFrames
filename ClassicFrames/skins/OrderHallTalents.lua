@@ -17,8 +17,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 			ApplyTitleBg(OrderHallTalentFrame)
 			ApplyNineSlicePortrait(OrderHallTalentFrame)
-
-			OrderHallTalentFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 		end)
 	end
 end)

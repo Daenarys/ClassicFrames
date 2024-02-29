@@ -13,11 +13,6 @@ GuildRegistrarFrame.TitleContainer:SetPoint("TOPRIGHT", GuildRegistrarFrame, "TO
 ApplyTitleBg(GuildRegistrarFrame)
 ApplyNineSlicePortrait(GuildRegistrarFrame)
 
-GuildRegistrarFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-
-GuildRegistrarFrame.Bg:SetSize(512, 512)
-GuildRegistrarFrame.Bg:SetTexture("Interface/QuestFrame/QuestBG")
-
 GuildRegistrarFrame.ScrollBar:SetSize(25, 560)
 GuildRegistrarFrame.ScrollBar:ClearAllPoints()
 GuildRegistrarFrame.ScrollBar:SetPoint("TOPLEFT", GuildRegistrarFrame, "TOPRIGHT", -30, -60)
@@ -41,11 +36,6 @@ PetitionFrame.TitleContainer:SetPoint("TOPRIGHT", PetitionFrame, "TOPRIGHT", -60
 
 ApplyTitleBg(PetitionFrame)
 ApplyNineSlicePortrait(PetitionFrame)
-
-PetitionFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-
-PetitionFrame.Bg:SetSize(512, 512)
-PetitionFrame.Bg:SetTexture("Interface/QuestFrame/QuestBG")
 
 PetitionFrame.ScrollBar:SetSize(25, 560)
 PetitionFrame.ScrollBar:ClearAllPoints()

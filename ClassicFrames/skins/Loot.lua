@@ -9,7 +9,6 @@ function LootFrame_OnLoad(self)
 	self:RegisterEvent("LOOT_CLOSED");
 
 	--skin
-	CFLootFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 	ButtonFrameTemplate_HideButtonBar(self)
 	ApplyCloseButton(CFLootFrameCloseButton)
 	ApplyTitleBg(CFLootFrame)
