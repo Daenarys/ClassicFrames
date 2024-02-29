@@ -242,12 +242,24 @@ local function SkinFrame(frame)
 	end)
 
 	hooksecurefunc('TargetFrame_UpdateBuffAnchor', function(frame, buff, index, numDebuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
+		--For mirroring vertically
 		local point, relativePoint;
 		local startY, auraOffsetY;
-		point = "TOP";
-		relativePoint="BOTTOM";
-		startY = 32;
-		auraOffsetY = 3;
+		if ( mirrorVertically ) then
+			point = "BOTTOM";
+			relativePoint = "TOP";
+			startY = -15;
+			if ( frame.threatNumericIndicator:IsShown() ) then
+				startY = startY + frame.threatNumericIndicator:GetHeight();
+			end
+			offsetY = - offsetY;
+			auraOffsetY = -3;
+		else
+			point = "TOP";
+			relativePoint="BOTTOM";
+			startY = 32;
+			auraOffsetY = 3;
+		end
 		if (index == 1) then
 			if (UnitIsFriend("player", frame.unit) or numDebuffs == 0) then
 				buff:SetPoint(point.."LEFT", frame.TargetFrameContainer.FrameTexture, relativePoint.."LEFT", 5, startY)
@@ -265,12 +277,24 @@ local function SkinFrame(frame)
 	end)
 
 	hooksecurefunc('TargetFrame_UpdateDebuffAnchor', function(frame, buff, index, numBuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
+		--For mirroring vertically
 		local point, relativePoint;
 		local startY, auraOffsetY;
-		point = "TOP";
-		relativePoint="BOTTOM";
-		startY = 32;
-		auraOffsetY = 3;
+		if ( mirrorVertically ) then
+			point = "BOTTOM";
+			relativePoint = "TOP";
+			startY = -15;
+			if ( frame.threatNumericIndicator:IsShown() ) then
+				startY = startY + frame.threatNumericIndicator:GetHeight();
+			end
+			offsetY = - offsetY;
+			auraOffsetY = -3;
+		else
+			point = "TOP";
+			relativePoint="BOTTOM";
+			startY = 32;
+			auraOffsetY = 3;
+		end
 		if (index == 1) then
 			if (UnitIsFriend("player", frame.unit) and numBuffs > 0) then
 				buff:SetPoint(point.."LEFT", contextual.buffs, relativePoint.."LEFT", 0, -offsetY)
