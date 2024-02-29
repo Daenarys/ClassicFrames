@@ -56,10 +56,8 @@ UI_shared.xsd">
 			</OnClick>
 		</Scripts>
 	</ItemButton>
-
-	<Frame name="CFLootFrame" frameStrata="HIGH" toplevel="true" movable="true" enableMouse="true" clampedToScreen="true" hidden="true" parent="UIParent" inherits="ButtonFrameTemplate">
+	<Frame name="CfLootFrame" frameStrata="HIGH" toplevel="true" movable="true" enableMouse="true" clampedToScreen="true" hidden="true" parent="UIParent" inherits="ButtonFrameTemplate">
 		<Size x="170" y="240"/>
-
 		<Layers>
 			<Layer level="OVERLAY" textureSubLevel="-1">
 				<Texture name="LootFramePortraitOverlay" file="Interface\TargetingFrame\TargetDead">
@@ -83,7 +81,7 @@ UI_shared.xsd">
 				</FontString>
 				<FontString name="LootFrameNext" inherits="GameFontNormal" text="NEXT">
 					<Anchors>
-						<Anchor point="BOTTOMRIGHT" relativeTo="CFLootFrame" relativePoint="BOTTOMLEFT" x="127" y="18"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="CfLootFrame" relativePoint="BOTTOMLEFT" x="127" y="18"/>
 					</Anchors>
 				</FontString>
 			</Layer>
@@ -113,7 +111,7 @@ UI_shared.xsd">
 			<Button name="LootFrameUpButton">
 				<Size x="32" y="32"/>
 				<Anchors>
-					<Anchor point="BOTTOMLEFT" relativeTo="CFLootFrame" relativePoint="BOTTOMLEFT" x="8" y="6"/>
+					<Anchor point="BOTTOMLEFT" relativeTo="CfLootFrame" relativePoint="BOTTOMLEFT" x="8" y="6"/>
 				</Anchors>
 				<Scripts>
 					<OnClick function="LootFrame_PageUp"/>
@@ -126,7 +124,7 @@ UI_shared.xsd">
 			<Button name="LootFrameDownButton">
 				<Size x="32" y="32"/>
 				<Anchors>
-					<Anchor point="BOTTOMLEFT" relativeTo="CFLootFrame" relativePoint="BOTTOMLEFT" x="130" y="6"/>
+					<Anchor point="BOTTOMLEFT" relativeTo="CfLootFrame" relativePoint="BOTTOMLEFT" x="130" y="6"/>
 				</Anchors>
 				<Scripts>
 					<OnClick function="LootFrame_PageDown"/>

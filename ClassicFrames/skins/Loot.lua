@@ -10,9 +10,88 @@ function LootFrame_OnLoad(self)
 
 	--skin
 	ButtonFrameTemplate_HideButtonBar(self)
-	ApplyCloseButton(CFLootFrameCloseButton)
-	ApplyTitleBg(CFLootFrame)
-	ApplyNineSlicePortrait(CFLootFrame)
+
+	if CfLootFrameCloseButton then
+		CfLootFrameCloseButton:SetSize(32, 32)
+		CfLootFrameCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
+		CfLootFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
+		CfLootFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
+		CfLootFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+		CfLootFrameCloseButton:ClearAllPoints()
+		CfLootFrameCloseButton:SetPoint("TOPRIGHT", 4, 5)
+	end
+
+	if (self.TitleBg == nil) then
+		self.TitleBg = self:CreateTexture(nil, "BACKGROUND");
+		self.TitleBg:SetAtlas("_UI-Frame-TitleTileBg", false)
+		self.TitleBg:SetSize(256, 17)
+		self.TitleBg:SetHorizTile(true)
+		self.TitleBg:ClearAllPoints()
+		self.TitleBg:SetPoint("TOPLEFT", 2, -3)
+		self.TitleBg:SetPoint("TOPRIGHT", -25, -3)
+	end
+
+	if self.TopTileStreaks then
+		self.TopTileStreaks:ClearAllPoints()
+		self.TopTileStreaks:SetPoint("TOPLEFT", 0, -21)
+		self.TopTileStreaks:SetPoint("TOPRIGHT", -2, -21)
+	end
+
+	self.TitleContainer:ClearAllPoints()
+	self.TitleContainer:SetPoint("TOPLEFT", self, "TOPLEFT", 58, 1)
+	self.TitleContainer:SetPoint("TOPRIGHT", self, "TOPRIGHT", -58, 1)
+
+	self.NineSlice.TopEdge:SetSize(256, 28)
+	self.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
+	self.NineSlice.TopEdge:SetTexCoord(0, 1, 0.43750000, 0.65625000)
+	self.NineSlice.TopEdge:ClearAllPoints()
+	self.NineSlice.TopEdge:SetPoint("TOPLEFT", self.NineSlice.TopLeftCorner, "TOPRIGHT", 0, -10)
+	self.NineSlice.TopEdge:SetPoint("TOPRIGHT", self.NineSlice.TopRightCorner, "TOPLEFT")
+
+	self.NineSlice.TopLeftCorner:SetSize(78, 78)
+	self.NineSlice.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
+	self.NineSlice.TopLeftCorner:SetTexCoord(0.00781250, 0.61718750, 0.00781250, 0.61718750)
+	self.NineSlice.TopLeftCorner:ClearAllPoints()
+	self.NineSlice.TopLeftCorner:SetPoint("TOPLEFT", -14, 11)
+
+	self.NineSlice.TopRightCorner:SetSize(33, 33)
+	self.NineSlice.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
+	self.NineSlice.TopRightCorner:SetTexCoord(0.63281250, 0.89062500, 0.00781250, 0.26562500)
+	self.NineSlice.TopRightCorner:ClearAllPoints()
+	self.NineSlice.TopRightCorner:SetPoint("TOPRIGHT", 0, 1)
+
+	self.NineSlice.BottomEdge:SetSize(256, 9)
+	self.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
+	self.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.20312500, 0.27343750)
+	self.NineSlice.BottomEdge:ClearAllPoints()
+	self.NineSlice.BottomEdge:SetPoint("BOTTOMLEFT", self.NineSlice.BottomLeftCorner, "BOTTOMRIGHT")
+	self.NineSlice.BottomEdge:SetPoint("BOTTOMRIGHT", self.NineSlice.BottomRightCorner, "BOTTOMLEFT")
+
+	self.NineSlice.BottomLeftCorner:SetSize(14, 14)
+	self.NineSlice.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
+	self.NineSlice.BottomLeftCorner:SetTexCoord(0.00781250, 0.11718750, 0.63281250, 0.74218750)
+	self.NineSlice.BottomLeftCorner:ClearAllPoints()
+	self.NineSlice.BottomLeftCorner:SetPoint("BOTTOMLEFT", -6, -5)
+
+	self.NineSlice.BottomRightCorner:SetSize(11, 11)
+	self.NineSlice.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
+	self.NineSlice.BottomRightCorner:SetTexCoord(0.13281250, 0.21875000, 0.89843750, 0.98437500)
+	self.NineSlice.BottomRightCorner:ClearAllPoints()
+	self.NineSlice.BottomRightCorner:SetPoint("BOTTOMRIGHT", 0, -5)
+
+	self.NineSlice.LeftEdge:SetSize(16, 256)
+	self.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\!UI-Frame", false, true)
+	self.NineSlice.LeftEdge:SetTexCoord(0.35937500, 0.60937500, 0, 1)
+	self.NineSlice.LeftEdge:ClearAllPoints()
+	self.NineSlice.LeftEdge:SetPoint("TOPLEFT", self.NineSlice.TopLeftCorner, "BOTTOMLEFT", 8, 0)
+	self.NineSlice.LeftEdge:SetPoint("BOTTOMLEFT", self.NineSlice.BottomLeftCorner, "TOPLEFT")
+
+	self.NineSlice.RightEdge:SetSize(10, 256)
+	self.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\!UI-Frame", false, true)
+	self.NineSlice.RightEdge:SetTexCoord(0.17187500, 0.32812500, 0, 1)
+	self.NineSlice.RightEdge:ClearAllPoints()
+	self.NineSlice.RightEdge:SetPoint("TOPRIGHT", self.NineSlice.TopRightCorner, "BOTTOMRIGHT", 1, 0)
+	self.NineSlice.RightEdge:SetPoint("BOTTOMRIGHT", self.NineSlice.BottomRightCorner, "TOPRIGHT")
 end
 
 function LootFrame_OnEvent(self, event, ...)
@@ -20,7 +99,7 @@ function LootFrame_OnEvent(self, event, ...)
 		local autoLoot, isFromItem = ...;
 		if( autoLoot ) then
 			LootFrame_InitAutoLootTable( self );
-			CFLootFrame:SetScript("OnUpdate", LootFrame_OnUpdate);
+			CfLootFrame:SetScript("OnUpdate", LootFrame_OnUpdate);
 			self.AutoLootDelay = LOOTFRAME_AUTOLOOT_DELAY;
 		else
 			self.AutoLootDelay = 0;
@@ -143,10 +222,10 @@ function LootFrame_OnUpdate(self, elapsed)
 end
 
 function LootFrame_UpdateButton(index)
-	local numLootItems = CFLootFrame.numLootItems;
+	local numLootItems = CfLootFrame.numLootItems;
 	--Logic to determine how many items to show per page
 	local numLootToShow = LOOTFRAME_NUMBUTTONS;
-	local self = CFLootFrame;
+	local self = CfLootFrame;
 	if( self.AutoLootTable ) then
 		numLootItems = #self.AutoLootTable;
 	end
@@ -154,7 +233,7 @@ function LootFrame_UpdateButton(index)
 		numLootToShow = numLootToShow - 1; -- make space for the page buttons
 	end
 	local button = _G["LootButton"..index];
-	local slot = (numLootToShow * (CFLootFrame.page - 1)) + index;
+	local slot = (numLootToShow * (CfLootFrame.page - 1)) + index;
 	if ( slot <= numLootItems ) then
 		if ( (LootSlotHasItem(slot)  or (self.AutoLootTable and self.AutoLootTable[slot]) )and index <= numLootToShow) then
 			local texture, item, quantity, currencyID, quality, locked, isQuestItem, questId, isActive;
@@ -223,7 +302,7 @@ function LootFrame_UpdateButton(index)
 				text:SetText("");
 				_G["LootButton"..index.."IconTexture"]:SetTexture(nil);
 				SetItemButtonNormalTextureVertexColor(button, 1.0, 1.0, 1.0);
-				CFLootFrame:SetScript("OnUpdate", LootFrame_OnUpdate);
+				CfLootFrame:SetScript("OnUpdate", LootFrame_OnUpdate);
 				button:Disable();
 			end
 			button:Show();
@@ -239,7 +318,7 @@ function LootFrame_Update()
 	for index = 1, LOOTFRAME_NUMBUTTONS do
 		LootFrame_UpdateButton(index);
 	end
-	if ( CFLootFrame.page == 1 ) then
+	if ( CfLootFrame.page == 1 ) then
 		LootFrameUpButton:Hide();
 		LootFramePrev:Hide();
 	else
@@ -247,10 +326,10 @@ function LootFrame_Update()
 		LootFramePrev:Show();
 	end
 	local numItemsPerPage = LOOTFRAME_NUMBUTTONS;
-	if ( CFLootFrame.numLootItems > LOOTFRAME_NUMBUTTONS ) then
+	if ( CfLootFrame.numLootItems > LOOTFRAME_NUMBUTTONS ) then
 		numItemsPerPage = numItemsPerPage - 1;
 	end
-	if ( CFLootFrame.page == ceil(CFLootFrame.numLootItems / numItemsPerPage) or CFLootFrame.numLootItems == 0 ) then
+	if ( CfLootFrame.page == ceil(CfLootFrame.numLootItems / numItemsPerPage) or CfLootFrame.numLootItems == 0 ) then
 		LootFrameDownButton:Hide();
 		LootFrameNext:Hide();
 	else
@@ -267,16 +346,16 @@ end
 
 function LootFrame_Close()
 	StaticPopup_Hide("LOOT_BIND");
-	CFLootFrame:Hide();
+	CfLootFrame:Hide();
 end
 
 function LootFrame_PageDown()
-	CFLootFrame.page = CFLootFrame.page + 1;
+	CfLootFrame.page = CfLootFrame.page + 1;
 	LootFrame_Update();
 end
 
 function LootFrame_PageUp()
-	CFLootFrame.page = CFLootFrame.page - 1;
+	CfLootFrame.page = CfLootFrame.page - 1;
 	LootFrame_Update();
 end
 
@@ -316,7 +395,7 @@ function LootFrame_Show(self)
 		self:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 16, -116);
 	end
 
-	if not CFLootFrame:IsShown() then
+	if not CfLootFrame:IsShown() then
 		CloseLoot()
 	end
 
@@ -349,16 +428,16 @@ function LootButton_OnClick(self, button)
 	-- Close any loot distribution confirmation windows
 	StaticPopup_Hide("CONFIRM_LOOT_DISTRIBUTION");
 
-	CFLootFrame.selectedLootButton = self:GetName();
-	CFLootFrame.selectedSlot = self.slot;
-	CFLootFrame.selectedQuality = self.quality;
-	CFLootFrame.selectedItemName = _G[self:GetName().."Text"]:GetText();
-	CFLootFrame.selectedTexture = _G[self:GetName().."IconTexture"]:GetTexture();
+	CfLootFrame.selectedLootButton = self:GetName();
+	CfLootFrame.selectedSlot = self.slot;
+	CfLootFrame.selectedQuality = self.quality;
+	CfLootFrame.selectedItemName = _G[self:GetName().."Text"]:GetText();
+	CfLootFrame.selectedTexture = _G[self:GetName().."IconTexture"]:GetTexture();
 	LootSlot(self.slot);
 end
 
 function LootItem_OnEnter(self)
-	local slot = ((LOOTFRAME_NUMBUTTONS - 1) * (CFLootFrame.page - 1)) + self:GetID();
+	local slot = ((LOOTFRAME_NUMBUTTONS - 1) * (CfLootFrame.page - 1)) + self:GetID();
 	local slotType = GetLootSlotType(slot);
 	if ( slotType == Enum.LootSlotType.Item ) then
 		GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
