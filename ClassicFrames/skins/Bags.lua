@@ -117,6 +117,22 @@ for i = 1, _G.NUM_CONTAINER_FRAMES do
 			_G['ContainerFrame'..i..'Item'..k].emptyBackgroundAtlas = nil
 		end
     end
+    	
+    for k = 1, 4 do
+		if _G['ContainerFrame'..i..'Item'..k] then
+			hooksecurefunc(_G['ContainerFrame'..i..'Item'..k], "UpdateExtended", function(self)
+				if self.extendedFrame and self.extendedFrame:IsShown() then
+					self.extendedFrame:DisableDrawLayer("BACKGROUND")
+					if (self.extendedFrame.Icon == nil) then
+						self.extendedFrame.Icon = self.extendedFrame:CreateTexture(nil, "ARTWORK")
+						self.extendedFrame.Icon:SetSize(27, 35)
+						self.extendedFrame.Icon:SetAtlas("worldquest-tracker-lock")
+						self.extendedFrame.Icon:SetPoint("CENTER")
+					end
+				end
+			end)
+		end
+    end
 
     hooksecurefunc(_G['ContainerFrame'..i], "SetSearchBoxPoint", function(self, searchBox)
 		searchBox:SetPoint("TOPLEFT", self, "TOPLEFT", 54, -37);
@@ -414,5 +430,38 @@ hooksecurefunc("UpdateContainerFrameAnchors", function()
 			frame:SetPoint("BOTTOMRIGHT", _G.ContainerFrameSettingsManager:GetBagsShown()[index - 1], "TOPRIGHT", 0, CONTAINER_SPACING);	
 		end
 		freeScreenHeight = freeScreenHeight - frame:GetHeight() - VISIBLE_CONTAINER_SPACING;
+	end
+end)
+
+
+hooksecurefunc(ContainerFrame1, "LayoutAddSlots", function(self)
+	if self.AddSlotsButton and self.AddSlotsButton:IsShown() then
+		self.AddSlotsButton:SetSize(24, 24)
+		self.AddSlotsButton:GetNormalTexture():SetAlpha(0)
+		self.AddSlotsButton:GetPushedTexture():SetAlpha(0)
+		self.AddSlotsButton:ClearAllPoints()
+		self.AddSlotsButton:SetPoint("BOTTOM", self, "BOTTOMLEFT", 12, 37)
+		if (self.AddSlotsButton.Border == nil) then
+			self.AddSlotsButton.Border = self.AddSlotsButton:CreateTexture(nil, "OVERLAY")
+			self.AddSlotsButton.Border:SetTexture("Interface\\Common\\RingBorder")
+			self.AddSlotsButton.Border:SetAllPoints(self.AddSlotsButton)
+		end
+		if (self.AddSlotsButton.Icon == nil) then
+			self.AddSlotsButton.Icon = self.AddSlotsButton:CreateTexture(nil, "ARTWORK")
+			self.AddSlotsButton.Icon:SetSize(14, 14)
+			self.AddSlotsButton.Icon:SetAtlas("bags-icon-addslots")
+			self.AddSlotsButton.Icon:SetPoint("CENTER")
+		end
+		if (self.AddSlotsButton.BG == nil) then
+			self.AddSlotsButton.BG = self.AddSlotsButton:CreateTexture(nil, "BACKGROUND")
+			self.AddSlotsButton.BG:SetSize(16, 16)
+			self.AddSlotsButton.BG:SetColorTexture(0, 0, 0)
+			self.AddSlotsButton.BG:SetPoint("CENTER")
+		end
+		self.AddSlotsButton:GetHighlightTexture():SetSize(20, 20)
+		self.AddSlotsButton:SetHighlightTexture("bags-roundhighlight")
+		self.AddSlotsButton:GetHighlightTexture():ClearAllPoints()
+		self.AddSlotsButton:GetHighlightTexture():SetPoint("CENTER")
+		self.AddSlotsButton:GetHighlightTexture():SetAlpha(1)
 	end
 end)
