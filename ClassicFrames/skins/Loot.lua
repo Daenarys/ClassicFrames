@@ -10,88 +10,45 @@ function LootFrame_OnLoad(self)
 
 	--skin
 	ButtonFrameTemplate_HideButtonBar(self)
+	ApplyCloseButton(CfLootFrameCloseButton)
+	ApplyTitleBg(self)
+	ApplyNineSlicePortrait(self)
 
-	if CfLootFrameCloseButton then
-		CfLootFrameCloseButton:SetSize(32, 32)
-		CfLootFrameCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-		CfLootFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-		CfLootFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-		CfLootFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-		CfLootFrameCloseButton:ClearAllPoints()
-		CfLootFrameCloseButton:SetPoint("TOPRIGHT", 4, 5)
+	self.NineSlice.TopLeftCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameMetalCornerTopLeft")
+	self.NineSlice.TopRightCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameMetalCornerTopRight")
+	self.NineSlice.BottomLeftCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameMetalCornerBottomLeft")
+	self.NineSlice.BottomRightCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameMetalCornerBottomRight")
+
+	--[[ WOW8-76190 Corners for nine slice template are too large to accommodate 
+	the loot frame, causing overlaps between the pieces. Until an artist can adjust
+	the atlas, cull the overlaps so the composition appears to fit.]]--
+	
+	-- Maps each of the four corners to a UV relative to their corner.
+	local function MapNineSliceCornerUVs(nineSlice, topLeftRelUV, topRightRelUV, botLeftRelUV, botRightRelUV)
+		if (nineSlice) then
+			-- relU,relV expected relative to corner. dirU,dirV translate accordingly.
+			local function MapTextureUV(texture, relU, relV, dirU, dirV)
+				if (texture) then
+					local cullU = 1.0 - Saturate(relU);
+					local cullV = 1.0 - Saturate(relV);
+					local startU = cullU * Saturate(dirU);
+					local startV = cullV * Saturate(dirV);
+					local endU = startU + (1.0 - cullU);
+					local endV = startV + (1.0 - cullV);
+					texture:SetTexCoord(startU, endU, startV, endV);
+					texture:SetWidth(128 * relU);
+					texture:SetHeight(128 * relV);
+				end
+			end
+
+			MapTextureUV(nineSlice.TopLeftCorner, topLeftRelUV[1], topLeftRelUV[2], 0, 0);
+			MapTextureUV(nineSlice.TopRightCorner, topRightRelUV[1], topRightRelUV[2], 1.0, 0);
+			MapTextureUV(nineSlice.BottomLeftCorner, botLeftRelUV[1], botLeftRelUV[2], 0, 1.0);
+			MapTextureUV(nineSlice.BottomRightCorner, botRightRelUV[1], botRightRelUV[2], 1.0, 1.0);
+		end
 	end
 
-	if (self.TitleBg == nil) then
-		self.TitleBg = self:CreateTexture(nil, "BACKGROUND");
-		self.TitleBg:SetAtlas("_UI-Frame-TitleTileBg", false)
-		self.TitleBg:SetSize(256, 17)
-		self.TitleBg:SetHorizTile(true)
-		self.TitleBg:ClearAllPoints()
-		self.TitleBg:SetPoint("TOPLEFT", 2, -3)
-		self.TitleBg:SetPoint("TOPRIGHT", -25, -3)
-	end
-
-	if self.TopTileStreaks then
-		self.TopTileStreaks:ClearAllPoints()
-		self.TopTileStreaks:SetPoint("TOPLEFT", 0, -21)
-		self.TopTileStreaks:SetPoint("TOPRIGHT", -2, -21)
-	end
-
-	self.TitleContainer:ClearAllPoints()
-	self.TitleContainer:SetPoint("TOPLEFT", self, "TOPLEFT", 58, 1)
-	self.TitleContainer:SetPoint("TOPRIGHT", self, "TOPRIGHT", -58, 1)
-
-	self.NineSlice.TopEdge:SetSize(256, 28)
-	self.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
-	self.NineSlice.TopEdge:SetTexCoord(0, 1, 0.43750000, 0.65625000)
-	self.NineSlice.TopEdge:ClearAllPoints()
-	self.NineSlice.TopEdge:SetPoint("TOPLEFT", self.NineSlice.TopLeftCorner, "TOPRIGHT", 0, -10)
-	self.NineSlice.TopEdge:SetPoint("TOPRIGHT", self.NineSlice.TopRightCorner, "TOPLEFT")
-
-	self.NineSlice.TopLeftCorner:SetSize(78, 78)
-	self.NineSlice.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	self.NineSlice.TopLeftCorner:SetTexCoord(0.00781250, 0.61718750, 0.00781250, 0.61718750)
-	self.NineSlice.TopLeftCorner:ClearAllPoints()
-	self.NineSlice.TopLeftCorner:SetPoint("TOPLEFT", -14, 11)
-
-	self.NineSlice.TopRightCorner:SetSize(33, 33)
-	self.NineSlice.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	self.NineSlice.TopRightCorner:SetTexCoord(0.63281250, 0.89062500, 0.00781250, 0.26562500)
-	self.NineSlice.TopRightCorner:ClearAllPoints()
-	self.NineSlice.TopRightCorner:SetPoint("TOPRIGHT", 0, 1)
-
-	self.NineSlice.BottomEdge:SetSize(256, 9)
-	self.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
-	self.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.20312500, 0.27343750)
-	self.NineSlice.BottomEdge:ClearAllPoints()
-	self.NineSlice.BottomEdge:SetPoint("BOTTOMLEFT", self.NineSlice.BottomLeftCorner, "BOTTOMRIGHT")
-	self.NineSlice.BottomEdge:SetPoint("BOTTOMRIGHT", self.NineSlice.BottomRightCorner, "BOTTOMLEFT")
-
-	self.NineSlice.BottomLeftCorner:SetSize(14, 14)
-	self.NineSlice.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	self.NineSlice.BottomLeftCorner:SetTexCoord(0.00781250, 0.11718750, 0.63281250, 0.74218750)
-	self.NineSlice.BottomLeftCorner:ClearAllPoints()
-	self.NineSlice.BottomLeftCorner:SetPoint("BOTTOMLEFT", -6, -5)
-
-	self.NineSlice.BottomRightCorner:SetSize(11, 11)
-	self.NineSlice.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	self.NineSlice.BottomRightCorner:SetTexCoord(0.13281250, 0.21875000, 0.89843750, 0.98437500)
-	self.NineSlice.BottomRightCorner:ClearAllPoints()
-	self.NineSlice.BottomRightCorner:SetPoint("BOTTOMRIGHT", 0, -5)
-
-	self.NineSlice.LeftEdge:SetSize(16, 256)
-	self.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\!UI-Frame", false, true)
-	self.NineSlice.LeftEdge:SetTexCoord(0.35937500, 0.60937500, 0, 1)
-	self.NineSlice.LeftEdge:ClearAllPoints()
-	self.NineSlice.LeftEdge:SetPoint("TOPLEFT", self.NineSlice.TopLeftCorner, "BOTTOMLEFT", 8, 0)
-	self.NineSlice.LeftEdge:SetPoint("BOTTOMLEFT", self.NineSlice.BottomLeftCorner, "TOPLEFT")
-
-	self.NineSlice.RightEdge:SetSize(10, 256)
-	self.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\!UI-Frame", false, true)
-	self.NineSlice.RightEdge:SetTexCoord(0.17187500, 0.32812500, 0, 1)
-	self.NineSlice.RightEdge:ClearAllPoints()
-	self.NineSlice.RightEdge:SetPoint("TOPRIGHT", self.NineSlice.TopRightCorner, "BOTTOMRIGHT", 1, 0)
-	self.NineSlice.RightEdge:SetPoint("BOTTOMRIGHT", self.NineSlice.BottomRightCorner, "TOPRIGHT")
+	MapNineSliceCornerUVs(self.NineSlice, {.65, .6}, {.25, .4}, {.55, .4}, {.35, .4});
 end
 
 function LootFrame_OnEvent(self, event, ...)
