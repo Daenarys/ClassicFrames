@@ -211,7 +211,7 @@ local function SkinFrame(frame)
 
 	hooksecurefunc(frame, "menu", function(self)
 		DropDownList1:ClearAllPoints()
-		DropDownList1:SetPoint("TOPLEFT", self, "BOTTOMLEFT", 140, 3)
+		DropDownList1:SetPoint("TOPLEFT", self, "BOTTOMLEFT", 140, 6)
 	end)
 
 	if (frame.totFrame) then
