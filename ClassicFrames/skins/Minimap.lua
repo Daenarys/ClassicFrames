@@ -690,6 +690,23 @@ local function QueueStatusButton_OnUpdate(self, elapsed)
 	self.Eye.EyePokeEnd:Hide()
 end
 
+QueueStatusButton:HookScript("OnClick", function(self, button)
+	if ( button == "LeftButton" ) then
+		if QueueStatus_InActiveBattlefield() then return
+		elseif C_LFGList.HasActiveEntryInfo() then return
+		else
+			local apps = C_LFGList.GetApplications()
+			for i=1, #apps do
+				local _, appStatus = C_LFGList.GetApplicationInfo(apps[i])
+				if ( appStatus == "applied" or appStatus == "invited" ) then
+					return
+				end
+			end
+			QueueStatusDropDown_Show(self.DropDown, self:GetName())
+		end
+	end
+end)
+
 QueueStatusButton:HookScript("OnUpdate", QueueStatusButton_OnUpdate)
 QueueStatusButton:HookScript("OnHide", function(self)
 	if (self.isDown) then
