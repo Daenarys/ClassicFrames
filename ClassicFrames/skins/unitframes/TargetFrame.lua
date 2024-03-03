@@ -180,31 +180,6 @@ local function SkinFrame(frame)
 		end
 	end)
 
-	hooksecurefunc(frame, "CheckDead", function(self)
-		if ((UnitHealth(self.unit) <= 0) and UnitIsConnected(self.unit)) then
-			CfTargetFrameBackground:SetAlpha(0.9)
-			CfFocusFrameBackground:SetAlpha(0.9)
-			if (UnitIsUnconscious(self.unit)) then
-				CfTargetFrameUnconsciousText:Show()
-				CfTargetFrameDeadText:Hide()
-				CfFocusFrameUnconsciousText:Show()
-				CfFocusFrameDeadText:Hide()
-			else
-				CfTargetFrameUnconsciousText:Hide()
-				CfTargetFrameDeadText:Show()
-				CfFocusFrameUnconsciousText:Hide()
-				CfFocusFrameDeadText:Show()
-			end
-		else
-			CfTargetFrameBackground:SetAlpha(1)
-			CfFocusFrameBackground:SetAlpha(1)
-			CfTargetFrameDeadText:Hide()
-			CfTargetFrameUnconsciousText:Hide()
-			CfFocusFrameDeadText:Hide()
-			CfFocusFrameUnconsciousText:Hide()
-		end
-	end)
-
 	hooksecurefunc(frame, "CheckFaction", function(self)
 		if (self.showPVP) then
 			local factionGroup = UnitFactionGroup(self.unit)
@@ -232,83 +207,6 @@ local function SkinFrame(frame)
 		highLevelTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Skull")
 		highLevelTexture:ClearAllPoints()
 		highLevelTexture:SetPoint("CENTER", 82, -21)
-	end)
-
-	hooksecurefunc(frame, "Update", function(self)
-		if (UnitExists(self.unit)) then
-			CfUnitFrame_Update(CfTargetFrame)
-			CfUnitFrame_Update(CfFocusFrame)
-		end
-	end)
-
-	hooksecurefunc('TargetFrame_UpdateBuffAnchor', function(frame, buff, index, numDebuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
-		--For mirroring vertically
-		local point, relativePoint;
-		local startY, auraOffsetY;
-		if ( mirrorVertically ) then
-			point = "BOTTOM";
-			relativePoint = "TOP";
-			startY = -15;
-			if ( frame.threatNumericIndicator:IsShown() ) then
-				startY = startY + frame.threatNumericIndicator:GetHeight();
-			end
-			offsetY = - offsetY;
-			auraOffsetY = -3;
-		else
-			point = "TOP";
-			relativePoint="BOTTOM";
-			startY = 32;
-			auraOffsetY = 3;
-		end
-		if (index == 1) then
-			if (UnitIsFriend("player", frame.unit) or numDebuffs == 0) then
-				buff:SetPoint(point.."LEFT", frame.TargetFrameContainer.FrameTexture, relativePoint.."LEFT", 5, startY)
-			else
-				buff:SetPoint(point.."LEFT", contextual.debuffs, relativePoint.."LEFT", 0, -offsetY)
-			end
-			contextual.buffs:SetPoint(point.."LEFT", buff, point.."LEFT", 0, 0)
-			contextual.buffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY)
-		elseif (anchorIndex ~= (index-1)) then
-			buff:SetPoint(point.."LEFT", anchorBuff, relativePoint.."LEFT", 0, -offsetY)
-			contextual.buffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY)
-		else
-			buff:SetPoint(point.."LEFT", anchorBuff, point.."RIGHT", offsetX, 0)
-		end
-	end)
-
-	hooksecurefunc('TargetFrame_UpdateDebuffAnchor', function(frame, buff, index, numBuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
-		--For mirroring vertically
-		local point, relativePoint;
-		local startY, auraOffsetY;
-		if ( mirrorVertically ) then
-			point = "BOTTOM";
-			relativePoint = "TOP";
-			startY = -15;
-			if ( frame.threatNumericIndicator:IsShown() ) then
-				startY = startY + frame.threatNumericIndicator:GetHeight();
-			end
-			offsetY = - offsetY;
-			auraOffsetY = -3;
-		else
-			point = "TOP";
-			relativePoint="BOTTOM";
-			startY = 32;
-			auraOffsetY = 3;
-		end
-		if (index == 1) then
-			if (UnitIsFriend("player", frame.unit) and numBuffs > 0) then
-				buff:SetPoint(point.."LEFT", contextual.buffs, relativePoint.."LEFT", 0, -offsetY)
-			else
-				buff:SetPoint(point.."LEFT", frame.TargetFrameContainer.FrameTexture, relativePoint.."LEFT", 5, startY)
-			end
-			contextual.debuffs:SetPoint(point.."LEFT", buff, point.."LEFT", 0, 0)
-			contextual.debuffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY)
-		elseif (anchorIndex ~= (index-1)) then
-			buff:SetPoint(point.."LEFT", anchorBuff, relativePoint.."LEFT", 0, -offsetY)
-			contextual.debuffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY)
-		else
-			buff:SetPoint(point.."LEFT", anchorBuff, point.."RIGHT", offsetX, 0)
-		end
 	end)
 
 	hooksecurefunc(frame, "menu", function(self)
@@ -384,10 +282,130 @@ local function SkinFrame(frame)
 	end
 end
 
+SkinFrame(TargetFrame)
+SkinFrame(FocusFrame)
+
+hooksecurefunc(TargetFrame, "CheckDead", function(self)
+	if ((UnitHealth(self.unit) <= 0) and UnitIsConnected(self.unit)) then
+		CfTargetFrameBackground:SetAlpha(0.9)
+		if (UnitIsUnconscious(self.unit)) then
+			CfTargetFrameUnconsciousText:Show()
+			CfTargetFrameDeadText:Hide()
+		else
+			CfTargetFrameUnconsciousText:Hide()
+			CfTargetFrameDeadText:Show()
+		end
+	else
+		CfTargetFrameBackground:SetAlpha(1)
+		CfTargetFrameDeadText:Hide()
+		CfTargetFrameUnconsciousText:Hide()
+	end
+end)
+
+hooksecurefunc(TargetFrame, "Update", function(self)
+	if (UnitExists(self.unit)) then
+		CfUnitFrame_Update(CfTargetFrame)
+	end
+end)
+
+hooksecurefunc(FocusFrame, "CheckDead", function(self)
+	if ((UnitHealth(self.unit) <= 0) and UnitIsConnected(self.unit)) then
+		CfFocusFrameBackground:SetAlpha(0.9)
+		if (UnitIsUnconscious(self.unit)) then
+			CfFocusFrameUnconsciousText:Show()
+			CfFocusFrameDeadText:Hide()
+		else
+			CfFocusFrameUnconsciousText:Hide()
+			CfFocusFrameDeadText:Show()
+		end
+	else
+		CfFocusFrameBackground:SetAlpha(1)
+		CfFocusFrameDeadText:Hide()
+		CfFocusFrameUnconsciousText:Hide()
+	end
+end)
+
+hooksecurefunc(FocusFrame, "Update", function(self)
+	if (UnitExists(self.unit)) then
+		CfUnitFrame_Update(CfFocusFrame)
+	end
+end)
+
 hooksecurefunc(FocusFrame, "SetSmallSize", function(self)
 	self.totFrame:ClearAllPoints()
 	self.totFrame:SetPoint("BOTTOMRIGHT", 25, -24)
 end)
 
-SkinFrame(TargetFrame)
-SkinFrame(FocusFrame)
+hooksecurefunc('TargetFrame_UpdateBuffAnchor', function(self, buff, index, numDebuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
+	--For mirroring vertically
+	local point, relativePoint;
+	local startY, auraOffsetY;
+	if ( mirrorVertically ) then
+		point = "BOTTOM";
+		relativePoint = "TOP";
+		startY = -15;
+		if ( self.threatNumericIndicator:IsShown() ) then
+			startY = startY + self.threatNumericIndicator:GetHeight();
+		end
+		offsetY = - offsetY;
+		auraOffsetY = -3;
+	else
+		point = "TOP";
+		relativePoint="BOTTOM";
+		startY = 32;
+		auraOffsetY = 3;
+	end
+	buff:ClearAllPoints()
+	local targetFrameContentContextual = self.TargetFrameContent.TargetFrameContentContextual
+	if (index == 1) then
+		if (UnitIsFriend("player", self.unit) or numDebuffs == 0) then
+			buff:SetPoint(point.."LEFT", self.TargetFrameContainer.FrameTexture, relativePoint.."LEFT", 5, startY)
+		else
+			buff:SetPoint(point.."LEFT", targetFrameContentContextual.debuffs, relativePoint.."LEFT", 0, -offsetY)
+		end
+		targetFrameContentContextual.buffs:SetPoint(point.."LEFT", buff, point.."LEFT", 0, 0)
+		targetFrameContentContextual.buffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY)
+	elseif (anchorIndex ~= (index-1)) then
+		buff:SetPoint(point.."LEFT", anchorBuff, relativePoint.."LEFT", 0, -offsetY)
+		targetFrameContentContextual.buffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY)
+	else
+		buff:SetPoint(point.."LEFT", anchorBuff, point.."RIGHT", offsetX, 0)
+	end
+end)
+
+hooksecurefunc('TargetFrame_UpdateDebuffAnchor', function(self, buff, index, numBuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
+	--For mirroring vertically
+	local point, relativePoint;
+	local startY, auraOffsetY;
+	if ( mirrorVertically ) then
+		point = "BOTTOM";
+		relativePoint = "TOP";
+		startY = -15;
+		if ( self.threatNumericIndicator:IsShown() ) then
+			startY = startY + self.threatNumericIndicator:GetHeight();
+		end
+		offsetY = - offsetY;
+		auraOffsetY = -3;
+	else
+		point = "TOP";
+		relativePoint="BOTTOM";
+		startY = 32;
+		auraOffsetY = 3;
+	end
+	buff:ClearAllPoints()
+	local targetFrameContentContextual = self.TargetFrameContent.TargetFrameContentContextual
+	if (index == 1) then
+		if (UnitIsFriend("player", self.unit) and numBuffs > 0) then
+			buff:SetPoint(point.."LEFT", targetFrameContentContextual.buffs, relativePoint.."LEFT", 0, -offsetY)
+		else
+			buff:SetPoint(point.."LEFT", self.TargetFrameContainer.FrameTexture, relativePoint.."LEFT", 5, startY)
+		end
+		targetFrameContentContextual.debuffs:SetPoint(point.."LEFT", buff, point.."LEFT", 0, 0)
+		targetFrameContentContextual.debuffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY)
+	elseif (anchorIndex ~= (index-1)) then
+		buff:SetPoint(point.."LEFT", anchorBuff, relativePoint.."LEFT", 0, -offsetY)
+		targetFrameContentContextual.debuffs:SetPoint(relativePoint.."LEFT", buff, relativePoint.."LEFT", 0, -auraOffsetY)
+	else
+		buff:SetPoint(point.."LEFT", anchorBuff, point.."RIGHT", offsetX, 0)
+	end
+end)
