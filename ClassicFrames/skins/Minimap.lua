@@ -691,19 +691,10 @@ local function QueueStatusButton_OnUpdate(self, elapsed)
 end
 
 QueueStatusButton:HookScript("OnClick", function(self, button)
+	if QueueStatus_InActiveBattlefield() or C_LFGList.HasActiveEntryInfo() then return end
+
 	if ( button == "LeftButton" ) then
-		if QueueStatus_InActiveBattlefield() then return
-		elseif C_LFGList.HasActiveEntryInfo() then return
-		else
-			local apps = C_LFGList.GetApplications()
-			for i=1, #apps do
-				local _, appStatus = C_LFGList.GetApplicationInfo(apps[i])
-				if ( appStatus == "applied" or appStatus == "invited" ) then
-					return
-				end
-			end
-			QueueStatusDropDown_Show(self.DropDown, self:GetName())
-		end
+		QueueStatusDropDown_Show(self.DropDown, self:GetName());
 	end
 end)
 
