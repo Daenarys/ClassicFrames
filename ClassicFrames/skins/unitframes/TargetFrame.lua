@@ -52,7 +52,6 @@ local function SkinFrame(frame)
 
 	contextual.NumericalThreat:ClearAllPoints()
 	contextual.NumericalThreat:SetPoint("BOTTOM", frame, "TOP", -30, -26)
-	contextual.NumericalThreat:SetFrameStrata("LOW")
 
 	contextual.RaidTargetIcon:ClearAllPoints()
 	contextual.RaidTargetIcon:SetPoint("CENTER", frame.TargetFrameContainer.Portrait, "TOP", 2, -2)
