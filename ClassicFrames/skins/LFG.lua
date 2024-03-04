@@ -123,6 +123,7 @@ LFGDungeonReadyStatusCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Pan
 LFGDungeonReadyStatusCloseButton:ClearAllPoints()
 LFGDungeonReadyStatusCloseButton:SetPoint("TOPRIGHT", -2, -2)
 
+LFGDungeonReadyDialog.Border:Hide()
 ApplyDialogBorder(LFDReadyCheckPopup.Border)
 ApplyDialogBorder(LFDRoleCheckPopup.Border)
 ApplyDialogBorder(LFGDungeonReadyStatus.Border)
@@ -349,26 +350,6 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		Mixin(LFGDungeonReadyDialog, BackdropTemplateMixin)
 	end
 
-	LFGDungeonReadyDialog.Border:Hide()
-
-	local DUNGEON_BACKDROP_TABLE = {
-		bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
-		edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
-		tile = true,
-		edge = true,
-		tileSize = 32,
-		edgeSize = 32,
-		insets = { left = 11, right = 12, top = 12, bottom = 11 }};
-	
-	local RAID_BACKDROP_TABLE = {
-		bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
-		edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Gold-Border",
-		tile = true,
-		edge = true,
-		tileSize = 32,
-		edgeSize = 32,
-		insets = { left = 11, right = 12, top = 12, bottom = 11 }};
-
 	LFGDungeonReadyDialogRoleIconTexture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 	LFGDungeonReadyDialogRoleIconTexture:SetAllPoints()
 
@@ -387,7 +368,7 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		LFGDungeonReadyDialog.bottomArt:SetTexture("Interface\\LFGFrame\\LFR-Texture");
 		LFGDungeonReadyDialog.bottomArt:SetTexCoord(0.00195313, 0.55273438, 0.29296875, 0.57812500);
 		LFGDungeonReadyDialog.bottomArt:SetSize(282, 73);
-		LFGDungeonReadyDialog:SetBackdrop(RAID_BACKDROP_TABLE);
+		LFGDungeonReadyDialog:SetBackdrop(BACKDROP_GOLD_DIALOG_32_32);
 	else
 		LFGDungeonReadyDialog.filigree:SetTexture("Interface\\LFGFrame\\UI-LFG-FILIGREE");
 		LFGDungeonReadyDialog.filigree:SetTexCoord(0.02734, 0.59765, 0.578125, 1.0);
@@ -401,7 +382,7 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 			LFGDungeonReadyDialog.bottomArt:SetTexCoord(0.0, 0.5605, 0.0, 0.5625);
 		end
 		LFGDungeonReadyDialog.bottomArt:SetSize(287, 72);
-		LFGDungeonReadyDialog:SetBackdrop(DUNGEON_BACKDROP_TABLE);
+		LFGDungeonReadyDialog:SetBackdrop(BACKDROP_DIALOG_32_32);
 	end
 
 	if _G.LFGDungeonReadyDialogRoleIcon:IsShown() then
