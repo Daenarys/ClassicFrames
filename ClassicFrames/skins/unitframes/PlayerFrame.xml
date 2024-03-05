@@ -7,6 +7,15 @@ UI_shared.xsd">
 			<Anchor point="TOPLEFT" x="-19" y="-4"/>
 		</Anchors>
 		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="CfPlayerFrameBackground">
+					<Size x="119" y="41"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="106" y="-22"/>
+					</Anchors>
+					<Color r="0" g="0" b="0" a="0.5"/>
+				</Texture>
+			</Layer>
 			<Layer level="ARTWORK">
 				<Texture name="$parentTotalAbsorbBar" inherits="CfTotalAbsorbBarTemplate"/>
 			</Layer>
@@ -27,32 +36,32 @@ UI_shared.xsd">
 								<Texture name="$parentHealAbsorbBarRightShadow" inherits="CfHealAbsorbBarRightShadowTemplate"/>
 							</Layer>
 							<Layer level="BORDER">
-								<FontString name="PlayerFrameHealthBarText" inherits="TextStatusBarText">
+								<FontString name="CfPlayerFrameHealthBarText" inherits="TextStatusBarText">
 									<Anchors>
 										<Anchor point="CENTER" x="50" y="3"/>
 									</Anchors>
 								</FontString>
-								<FontString name="PlayerFrameHealthBarTextLeft" inherits="TextStatusBarText">
+								<FontString name="CfPlayerFrameHealthBarTextLeft" inherits="TextStatusBarText">
 									<Anchors>
 										<Anchor point="LEFT" x="110" y="3"/>
 									</Anchors>
 								</FontString>
-								<FontString name="PlayerFrameHealthBarTextRight" inherits="TextStatusBarText">
+								<FontString name="CfPlayerFrameHealthBarTextRight" inherits="TextStatusBarText">
 									<Anchors>
 										<Anchor point="RIGHT" x="-8" y="3"/>
 									</Anchors>
 								</FontString>
-								<FontString name="PlayerFrameManaBarText" inherits="TextStatusBarText">
+								<FontString name="CfPlayerFrameManaBarText" inherits="TextStatusBarText">
 									<Anchors>
 										<Anchor point="CENTER" x="50" y="-8"/>
 									</Anchors>
 								</FontString>
-								<FontString name="PlayerFrameManaBarTextLeft" inherits="TextStatusBarText">
+								<FontString name="CfPlayerFrameManaBarTextLeft" inherits="TextStatusBarText">
 									<Anchors>
 										<Anchor point="LEFT" x="110" y="-8"/>
 									</Anchors>
 								</FontString>
-								<FontString name="PlayerFrameManaBarTextRight" inherits="TextStatusBarText">
+								<FontString name="CfPlayerFrameManaBarTextRight" inherits="TextStatusBarText">
 									<Anchors>
 										<Anchor point="RIGHT" x="-8" y="-8"/>
 									</Anchors>
@@ -66,7 +75,7 @@ UI_shared.xsd">
 					</Frame>
 				</Frames>
 			</Frame>
-			<StatusBar name="PlayerFrameHealthBar" inherits="TextStatusBar">
+			<StatusBar name="CfPlayerFrameHealthBar" inherits="TextStatusBar">
 				<Size x="119" y="12"/>
 				<Anchors>
 					<Anchor point="TOPLEFT" x="106" y="-41"/>
@@ -85,7 +94,7 @@ UI_shared.xsd">
 				</Scripts>
 				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
 			</StatusBar>
-			<StatusBar name="PlayerFrameManaBar" inherits="TextStatusBar">
+			<StatusBar name="CfPlayerFrameManaBar" inherits="TextStatusBar">
 				<Size x="119" y="12"/>
 				<Anchors>
 					<Anchor point="TOPLEFT" x="106" y="-52"/>

@@ -1,12 +1,12 @@
 function CfPlayerFrame_OnLoad(self)
-	PlayerFrameHealthBar.LeftText = PlayerFrameHealthBarTextLeft;
-	PlayerFrameHealthBar.RightText = PlayerFrameHealthBarTextRight;
-	PlayerFrameManaBar.LeftText = PlayerFrameManaBarTextLeft;
-	PlayerFrameManaBar.RightText = PlayerFrameManaBarTextRight;
+	CfPlayerFrameHealthBar.LeftText = CfPlayerFrameHealthBarTextLeft;
+	CfPlayerFrameHealthBar.RightText = CfPlayerFrameHealthBarTextRight;
+	CfPlayerFrameManaBar.LeftText = CfPlayerFrameManaBarTextLeft;
+	CfPlayerFrameManaBar.RightText = CfPlayerFrameManaBarTextRight;
 
 	CfUnitFrame_Initialize(self, "player", nil, nil,
-		PlayerFrameHealthBar, PlayerFrameHealthBarText,
-		PlayerFrameManaBar, PlayerFrameManaBarText,
+		CfPlayerFrameHealthBar, CfPlayerFrameHealthBarText,
+		CfPlayerFrameManaBar, CfPlayerFrameManaBarText,
 		nil, nil, nil,
 		CfPlayerFrameMyHealPredictionBar, CfPlayerFrameOtherHealPredictionBar,
 		CfPlayerFrameTotalAbsorbBar, CfPlayerFrameTotalAbsorbBarOverlay, CfPlayerFrameOverAbsorbGlow,
@@ -37,13 +37,6 @@ PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface/CHARAC
 
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarArea:Hide()
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea:Hide()
-
-if (PlayerFrameBackground == nil) then
-	PlayerFrame:CreateTexture("PlayerFrameBackground", "BACKGROUND")
-	PlayerFrameBackground:SetHeight(41)
-	PlayerFrameBackground:SetColorTexture(0, 0, 0, 0.5)
-	PlayerFrameBackground:SetPoint("TOPLEFT", 87, -26)
-end
 
 if (_G.AlternatePowerBar) then
 	AlternatePowerBar:SetSize(104, 12)
@@ -162,14 +155,14 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMRIGHT", self, "TOPLEFT", 161, -25)
 	self.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon:SetPoint("TOPLEFT", 76, -19)
 
-	PlayerFrameHealthBar:SetWidth(119)
-	PlayerFrameHealthBar:SetPoint("TOPLEFT",106,-41)
-	PlayerFrameManaBar:SetWidth(119)
-	PlayerFrameManaBar:SetPoint("TOPLEFT",106,-52)
-	PlayerFrameBackground:SetWidth(119)
+	CfPlayerFrameHealthBar:SetWidth(119)
+	CfPlayerFrameHealthBar:SetPoint("TOPLEFT",106,-41)
+	CfPlayerFrameManaBar:SetWidth(119)
+	CfPlayerFrameManaBar:SetPoint("TOPLEFT",106,-52)
+	CfPlayerFrameBackground:SetWidth(119)
 	PlayerLevelText:Show()
 
-	CfUnitFrame_SetUnit(CfPlayerFrame, "player", PlayerFrameHealthBar, PlayerFrameManaBar)
+	CfUnitFrame_SetUnit(CfPlayerFrame, "player", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
 
 	local _, class = UnitClass("player")
 	if ( CfPlayerFrame.CfClassPowerBar ) then
@@ -195,14 +188,14 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	PlayerName:ClearAllPoints()
 	PlayerName:SetPoint("TOPLEFT", self.PlayerFrameContainer, "TOPLEFT", 97, -25.5)
 
-	PlayerFrameHealthBar:SetWidth(100)
-	PlayerFrameHealthBar:SetPoint("TOPLEFT",119,-41)
-	PlayerFrameManaBar:SetWidth(100)
-	PlayerFrameManaBar:SetPoint("TOPLEFT",119,-52)
-	PlayerFrameBackground:SetWidth(114)
+	CfPlayerFrameHealthBar:SetWidth(100)
+	CfPlayerFrameHealthBar:SetPoint("TOPLEFT",119,-41)
+	CfPlayerFrameManaBar:SetWidth(100)
+	CfPlayerFrameManaBar:SetPoint("TOPLEFT",119,-52)
+	CfPlayerFrameBackground:SetWidth(114)
 	PlayerLevelText:Hide()
 
-	CfUnitFrame_SetUnit(CfPlayerFrame, "vehicle", PlayerFrameHealthBar, PlayerFrameManaBar)
+	CfUnitFrame_SetUnit(CfPlayerFrame, "vehicle", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
 
 	local _, class = UnitClass("player")
 	if ( CfPlayerFrame.CfClassPowerBar ) then

@@ -142,15 +142,15 @@ hooksecurefunc("PaperDollFrame_UpdateStats", function()
 end)
 
 _G.CharacterFrame:HookScript("OnShow", function()
-	PlayerFrameHealthBar.showNumeric = true;
-	PlayerFrameManaBar.showNumeric = true;
-	ShowTextStatusBarText(PlayerFrameHealthBar);
-	ShowTextStatusBarText(PlayerFrameManaBar);
+	CfPlayerFrameHealthBar.showNumeric = true;
+	CfPlayerFrameManaBar.showNumeric = true;
+	ShowTextStatusBarText(CfPlayerFrameHealthBar)
+	ShowTextStatusBarText(CfPlayerFrameManaBar)
 end)
 
 _G.CharacterFrame:HookScript("OnHide", function()
-	PlayerFrameHealthBar.showNumeric = nil;
-	PlayerFrameManaBar.showNumeric = nil;
-	HideTextStatusBarText(PlayerFrameHealthBar);
-	HideTextStatusBarText(PlayerFrameManaBar);
+	CfPlayerFrameHealthBar.showNumeric = nil;
+	CfPlayerFrameManaBar.showNumeric = nil;
+	HideTextStatusBarText(CfPlayerFrameHealthBar)
+	HideTextStatusBarText(CfPlayerFrameManaBar)
 end)
