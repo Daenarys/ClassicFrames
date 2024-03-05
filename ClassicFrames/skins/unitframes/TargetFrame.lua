@@ -331,7 +331,17 @@ hooksecurefunc(FocusFrame, "Update", function(self)
 	end
 end)
 
-hooksecurefunc(FocusFrame, "SetSmallSize", function(self)
+hooksecurefunc(FocusFrame, "SetSmallSize", function(self, smallSize)
+	if ( smallSize ) then
+		self.TargetFrameContent.TargetFrameContentMain.Name:SetFontObject(FocusFontSmall)
+		self.TargetFrameContent.TargetFrameContentMain.Name:ClearAllPoints()
+		self.TargetFrameContent.TargetFrameContentMain.Name:SetPoint("TOPLEFT", 36, -29)
+	else
+		self.TargetFrameContent.TargetFrameContentMain.Name:SetFontObject(GameFontNormalSmall)
+		self.TargetFrameContent.TargetFrameContentMain.Name:ClearAllPoints()
+		self.TargetFrameContent.TargetFrameContentMain.Name:SetPoint("TOPLEFT", 36, -30)
+	end
+
 	self.totFrame:ClearAllPoints()
 	self.totFrame:SetPoint("BOTTOMRIGHT", 25, -24)
 end)
