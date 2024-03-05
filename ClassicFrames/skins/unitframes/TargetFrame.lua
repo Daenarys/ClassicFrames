@@ -343,7 +343,7 @@ hooksecurefunc(FocusFrame, "SetSmallSize", function(self, smallSize)
 	end
 
 	self.totFrame:ClearAllPoints()
-	self.totFrame:SetPoint("BOTTOMRIGHT", 25, -24)
+	self.totFrame:SetPoint("BOTTOMRIGHT", 29, -24)
 end)
 
 hooksecurefunc('TargetFrame_UpdateBuffAnchor', function(self, buff, index, numDebuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
