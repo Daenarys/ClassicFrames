@@ -34,6 +34,9 @@ PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface/CHARAC
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarArea:Hide()
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea:Hide()
 
+PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:ClearAllPoints()
+PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:SetPoint("CENTER", PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator, "TOPLEFT", 54, -46)
+
 if (_G.AlternatePowerBar) then
 	AlternatePowerBar:SetSize(104, 12)
 	AlternatePowerBar:ClearAllPoints()
