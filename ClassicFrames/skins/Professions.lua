@@ -40,8 +40,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(ProfessionsFrame)
 		ApplyNineSlicePortrait(ProfessionsFrame)
 
-		ProfessionsFrameBg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-
 		for i = 1, _G.ProfessionsFrame.TabSystem:GetNumChildren() do
 			local tab = select(i, _G.ProfessionsFrame.TabSystem:GetChildren())
 
