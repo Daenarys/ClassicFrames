@@ -83,6 +83,30 @@ hooksecurefunc('PVPReadyDialog_Display', function(self, _, _, _, queueType, _, r
 	end
 end)
 
+PVPScoreboardTab2:ClearAllPoints()
+PVPScoreboardTab2:SetPoint("LEFT", PVPScoreboardTab1, "RIGHT", -15, 0)
+PVPScoreboardTab3:ClearAllPoints()
+PVPScoreboardTab3:SetPoint("LEFT", PVPScoreboardTab2, "RIGHT", -15, 0)
+
+for i = 1, 3 do
+	ApplyBottomTab(_G['PVPScoreboardTab'..i])
+
+	_G["PVPScoreboardTab"..i]:HookScript("OnShow", function(self)
+		PVPScoreboardTab1:SetWidth(60 + PVPScoreboardTab1:GetFontString():GetStringWidth())
+		PVPScoreboardTab2:SetWidth(40 + PVPScoreboardTab2:GetFontString():GetStringWidth())
+		PVPScoreboardTab3:SetWidth(40 + PVPScoreboardTab3:GetFontString():GetStringWidth())
+	end)
+end
+
+PVPMatchResults.content.scrollBar:SetSize(25, 560)
+PVPMatchResults.content.scrollBar:ClearAllPoints()
+PVPMatchResults.content.scrollBar:SetPoint("TOPLEFT", PVPMatchResults.content, "TOPRIGHT", -26, -2)
+PVPMatchResults.content.scrollBar:SetPoint("BOTTOMLEFT", PVPMatchResults.content, "BOTTOMRIGHT", -26, 122)
+
+ApplyScrollBarArrow(PVPMatchResults.content.scrollBar)
+ApplyScrollBarTrack(PVPMatchResults.content.scrollBar.Track)
+ApplyScrollBarThumb(PVPMatchResults.content.scrollBar.Track.Thumb)
+
 PVPScoreFrameTab2:ClearAllPoints()
 PVPScoreFrameTab2:SetPoint("LEFT", PVPScoreFrameTab1, "RIGHT", -15, 0)
 PVPScoreFrameTab3:ClearAllPoints()
