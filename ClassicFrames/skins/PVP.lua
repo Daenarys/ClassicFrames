@@ -82,3 +82,18 @@ hooksecurefunc('PVPReadyDialog_Display', function(self, _, _, _, queueType, _, r
 		_G.PVPReadyDialogRoleIcon.texture:SetTexCoord(GetTexCoordsForRole("HEALER"))
 	end
 end)
+
+PVPScoreFrameTab2:ClearAllPoints()
+PVPScoreFrameTab2:SetPoint("LEFT", PVPScoreFrameTab1, "RIGHT", -15, 0)
+PVPScoreFrameTab3:ClearAllPoints()
+PVPScoreFrameTab3:SetPoint("LEFT", PVPScoreFrameTab2, "RIGHT", -15, 0)
+
+for i = 1, 3 do
+	ApplyBottomTab(_G['PVPScoreFrameTab'..i])
+
+	_G["PVPScoreFrameTab"..i]:HookScript("OnShow", function(self)
+		PVPScoreFrameTab1:SetWidth(60 + PVPScoreFrameTab1:GetFontString():GetStringWidth())
+		PVPScoreFrameTab2:SetWidth(40 + PVPScoreFrameTab2:GetFontString():GetStringWidth())
+		PVPScoreFrameTab3:SetWidth(40 + PVPScoreFrameTab3:GetFontString():GetStringWidth())
+	end)
+end
