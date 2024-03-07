@@ -253,8 +253,7 @@ hooksecurefunc("PlayerFrame_UpdatePvPStatus", function()
 		PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PVPIcon:ClearAllPoints()
 		PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PVPIcon:SetPoint("TOPLEFT", -1, -22)
 	end
-	
-	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PrestigePortrait:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+
 	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PrestigePortrait:ClearAllPoints()
 	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PrestigePortrait:SetPoint("TOPLEFT", -4, -17)
 	

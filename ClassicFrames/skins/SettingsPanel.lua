@@ -6,8 +6,6 @@ ApplyNineSliceNoPortrait(SettingsPanel)
 
 SettingsPanel.CloseButton:Hide()
 
-SettingsPanel.NineSlice:SetFrameStrata("HIGH")
-
 SettingsPanel.Bg:ClearAllPoints()
 SettingsPanel.Bg:SetPoint("TOPLEFT", SettingsPanel, "TOPLEFT", 1, -18)
 SettingsPanel.Bg:SetPoint("BOTTOMRIGHT", SettingsPanel, "BOTTOMRIGHT", -3, 3)
