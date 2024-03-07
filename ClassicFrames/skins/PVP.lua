@@ -83,6 +83,15 @@ hooksecurefunc('PVPReadyDialog_Display', function(self, _, _, _, queueType, _, r
 	end
 end)
 
+PVPMatchScoreboard.Content.ScrollBar:SetSize(25, 560)
+PVPMatchScoreboard.Content.ScrollBar:ClearAllPoints()
+PVPMatchScoreboard.Content.ScrollBar:SetPoint("TOPLEFT", PVPMatchScoreboard.Content, "TOPRIGHT", -26, -2)
+PVPMatchScoreboard.Content.ScrollBar:SetPoint("BOTTOMLEFT", PVPMatchScoreboard.Content, "BOTTOMRIGHT", -26, 40)
+
+ApplyScrollBarArrow(PVPMatchScoreboard.Content.ScrollBar)
+ApplyScrollBarTrack(PVPMatchScoreboard.Content.ScrollBar.Track)
+ApplyScrollBarThumb(PVPMatchScoreboard.Content.ScrollBar.Track.Thumb)
+
 PVPScoreboardTab2:ClearAllPoints()
 PVPScoreboardTab2:SetPoint("LEFT", PVPScoreboardTab1, "RIGHT", -15, 0)
 PVPScoreboardTab3:ClearAllPoints()
