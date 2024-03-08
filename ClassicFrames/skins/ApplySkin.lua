@@ -21,10 +21,8 @@ function ApplyTitleBg(frame)
 end
 
 function ApplyNineSlicePortrait(frame)
-	if (frame.Bg:GetTexture()) then
-		if (frame.Bg:GetTexture() == 374155) then
-			frame.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-		end
+	if (frame.Bg:GetTexture() == 374155) then
+		frame.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 	end
 
 	if (frame.TopTileStreaks) then
