@@ -10,7 +10,7 @@ function LootFrame_OnLoad(self)
 
 	--skin
 	ButtonFrameTemplate_HideButtonBar(self)
-	ApplyCloseButton(CfLootFrameCloseButton)
+	ApplyCloseButton(self.CloseButton)
 	ApplyTitleBg(self)
 	ApplyNineSlicePortrait(self)
 end
@@ -19,7 +19,6 @@ function LootFrame_OnEvent(self, event, ...)
 	if ( event == "LOOT_OPENED" ) then
 		local autoLoot, isFromItem = ...;
 		if( autoLoot ) then
-			LootFrame_InitAutoLootTable( self );
 			CfLootFrame:SetScript("OnUpdate", LootFrame_OnUpdate);
 			self.AutoLootDelay = LOOTFRAME_AUTOLOOT_DELAY;
 		else
@@ -30,7 +29,7 @@ function LootFrame_OnEvent(self, event, ...)
 		self.page = 1;
 		LootFrame_Show(self);
 		if ( not self:IsShown()) then
-			CloseLoot(not autoLoot);	-- The parameter tells code that we were unable to open the UI
+			CloseLoot(not autoLoot); -- The parameter tells code that we were unable to open the UI
 		else
 			if ( isFromItem ) then
 				PlaySound(SOUNDKIT.UI_CONTAINER_ITEM_OPEN);
@@ -259,12 +258,6 @@ function LootFrame_Update()
 	end
 end
 
-function LootFrame_InitAutoLootTable( self )
---	if( not self.AutoLootTable )then
---		self.AutoLootTable = GetLootInfo();
---	end
-end
-
 function LootFrame_Close()
 	StaticPopup_Hide("LOOT_BIND");
 	CfLootFrame:Hide();
@@ -286,7 +279,7 @@ function LootFrame_Show(self)
 		self.numLootItems = #self.AutoLootTable;
 	end
 
-	if ( GetCVar("lootUnderMouse") == "1" ) then
+	if GetCVarBool("lootUnderMouse") then
 		self:Show();
 		-- position loot window under mouse cursor
 		local x, y = GetCursorPosition();
@@ -314,10 +307,6 @@ function LootFrame_Show(self)
 		self:Show();
 		self:ClearAllPoints();
 		self:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 16, -116);
-	end
-
-	if not CfLootFrame:IsShown() then
-		CloseLoot()
 	end
 
 	LootFrame_Update();
