@@ -306,7 +306,7 @@ function LootFrame_Show(self)
 	else
 		self:Show();
 		self:ClearAllPoints();
-		self:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 16, -116);
+		self:SetPoint("TOPLEFT", 16, -116);
 	end
 
 	LootFrame_Update();
@@ -365,9 +365,4 @@ hooksecurefunc(_G.LootFrame, "PlayOpenAnimation", function(self)
 	self.ShowAnim:Stop()
 	self:SetSize(0, 0)
 	self:SetAlpha(0)
-end)
-
-hooksecurefunc(_G.LootFrame, "PlayCloseAnimation", function(self)
-	self.HideAnim:Stop()
-	self:Hide()
 end)
