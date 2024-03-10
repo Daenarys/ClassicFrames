@@ -352,7 +352,7 @@ function CfUnitFrameManaBar_UpdateType(manaBar)
 	end
 	manaBar.powerType = powerType;
 	manaBar.powerToken = powerToken;
-	
+
 	if ( not unitFrame.noTextPrefix ) then
 		SetTextStatusBarTextPrefix(manaBar, prefix);
 	end
