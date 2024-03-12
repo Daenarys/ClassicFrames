@@ -152,66 +152,95 @@ end
 
 function ApplyDialogBorder(frame)
 	frame.TopEdge:SetSize(32, 32)
-	frame.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetal", true)
+	frame.TopEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal", true)
 	frame.TopEdge:SetTexCoord(0, 0.5, 0.13671875, 0.26171875)
 	frame.TopEdge:ClearAllPoints()
 	frame.TopEdge:SetPoint("TOPLEFT", frame.TopLeftCorner, "TOPRIGHT")
 	frame.TopEdge:SetPoint("TOPRIGHT", frame.TopRightCorner, "TOPLEFT")
 
 	frame.TopLeftCorner:SetSize(32, 32)
-	frame.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetal")
+	frame.TopLeftCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
 	frame.TopLeftCorner:SetTexCoord(0.015625, 0.515625, 0.53515625, 0.66015625)
 	frame.TopLeftCorner:ClearAllPoints()
 	frame.TopLeftCorner:SetPoint("TOPLEFT")
 
 	frame.TopRightCorner:SetSize(32, 32)
-	frame.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetal")
+	frame.TopRightCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
 	frame.TopRightCorner:SetTexCoord(0.015625, 0.515625, 0.66796875, 0.79296875)
 	frame.TopRightCorner:ClearAllPoints()
 	frame.TopRightCorner:SetPoint("TOPRIGHT")
 
 	frame.BottomEdge:SetSize(32, 32)
-	frame.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetal", true)
+	frame.BottomEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal", true)
 	frame.BottomEdge:SetTexCoord(0, 0.5, 0.00390625, 0.12890625)
 	frame.BottomEdge:ClearAllPoints()
 	frame.BottomEdge:SetPoint("BOTTOMLEFT", frame.BottomLeftCorner, "BOTTOMRIGHT")
 	frame.BottomEdge:SetPoint("BOTTOMRIGHT", frame.BottomRightCorner, "BOTTOMLEFT")
 
 	frame.BottomLeftCorner:SetSize(32, 32)
-	frame.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetal")
+	frame.BottomLeftCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
 	frame.BottomLeftCorner:SetTexCoord(0.015625, 0.515625, 0.26953125, 0.39453125)
 	frame.BottomLeftCorner:ClearAllPoints()
 	frame.BottomLeftCorner:SetPoint("BOTTOMLEFT")
 
 	frame.BottomRightCorner:SetSize(32, 32)
-	frame.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetal")
+	frame.BottomRightCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
 	frame.BottomRightCorner:SetTexCoord(0.015625, 0.515625, 0.40234375, 0.52734375)
 	frame.BottomRightCorner:ClearAllPoints()
 	frame.BottomRightCorner:SetPoint("BOTTOMRIGHT")
 
 	frame.LeftEdge:SetSize(32, 32)
-	frame.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetalVertical", false, true)
+	frame.LeftEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalVertical", false, true)
 	frame.LeftEdge:SetTexCoord(0.0078125, 0.2578125, 0, 1)
 	frame.LeftEdge:SetPoint("TOPLEFT", frame.TopLeftCorner, "BOTTOMLEFT")
 	frame.LeftEdge:SetPoint("BOTTOMLEFT", frame.BottomLeftCorner, "TOPLEFT")
 
 	frame.RightEdge:SetSize(32, 32)
-	frame.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetalVertical", false, true)
+	frame.RightEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalVertical", false, true)
 	frame.RightEdge:SetTexCoord(0.2734375, 0.5234375, 0, 1)
 	frame.RightEdge:ClearAllPoints()
 	frame.RightEdge:SetPoint("TOPRIGHT", frame.TopRightCorner, "BOTTOMRIGHT")
 	frame.RightEdge:SetPoint("BOTTOMRIGHT", frame.BottomRightCorner, "TOPRIGHT")
 end
 
+
 function ApplyDialogHeader(frame)
-	frame.LeftBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalHeader")
-	frame.LeftBG:SetTexCoord(0.0078125, 0.507812, 0.316406, 0.621094)
+	frame.Header.LeftBG:Hide()
+	frame.Header.RightBG:Hide()
+	frame.Header.CenterBG:Hide()
 
-	frame.CenterBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalHeader")
-	frame.CenterBG:SetTexCoord(0, 0.5, 0.00390625, 0.308594)
+	if not frame.TitleFrame then
+		frame.TitleFrame = CreateFrame("Frame", nil, frame)
+		frame.TitleFrame:SetSize(240, 40)
+		frame.TitleFrame:SetPoint("TOP", 0, 12)
+	end
 
-	frame.RightBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalHeader")
-	frame.RightBG:SetTexCoord(0.0078125, 0.507812, 0.628906, 0.933594)
+	if not frame.TitleFrame.BackgroundMiddle then
+		frame.TitleFrame.BackgroundMiddle = frame.TitleFrame:CreateTexture(nil, "ARTWORK")
+		frame.TitleFrame.BackgroundMiddle:SetSize(180, 40)
+		frame.TitleFrame.BackgroundMiddle:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
+		frame.TitleFrame.BackgroundMiddle:SetTexCoord(0.28125, 0.71484375, 0, 0.625)
+		frame.TitleFrame.BackgroundMiddle:ClearAllPoints()
+		frame.TitleFrame.BackgroundMiddle:SetPoint("TOP")
+	end
+
+	if not frame.TitleFrame.BackgroundLeft then
+		frame.TitleFrame.BackgroundLeft = frame.TitleFrame:CreateTexture(nil, "ARTWORK")
+		frame.TitleFrame.BackgroundLeft:SetSize(14, 40)
+		frame.TitleFrame.BackgroundLeft:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
+		frame.TitleFrame.BackgroundLeft:SetTexCoord(0.2265625, 0.28125, 0, 0.625)
+		frame.TitleFrame.BackgroundLeft:ClearAllPoints()
+		frame.TitleFrame.BackgroundLeft:SetPoint("RIGHT", frame.TitleFrame.BackgroundMiddle, "LEFT")
+	end
+
+	if not frame.TitleFrame.BackgroundRight then
+		frame.TitleFrame.BackgroundRight = frame.TitleFrame:CreateTexture(nil, "ARTWORK")
+		frame.TitleFrame.BackgroundRight:SetSize(14, 40)
+		frame.TitleFrame.BackgroundRight:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
+		frame.TitleFrame.BackgroundRight:SetTexCoord(0.71484375, 0.76953125, 0, 0.625)
+		frame.TitleFrame.BackgroundRight:ClearAllPoints()
+		frame.TitleFrame.BackgroundRight:SetPoint("LEFT", frame.TitleFrame.BackgroundMiddle, "RIGHT")
+	end
 end
 
 function ApplyScrollBarArrow(frame)
