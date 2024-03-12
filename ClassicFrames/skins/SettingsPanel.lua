@@ -17,7 +17,7 @@ SettingsPanel.Container.SettingsList.ScrollBar:SetPoint("BOTTOMLEFT", SettingsPa
 
 if (SettingsPanel.Container.SettingsList.ScrollBar.BG == nil) then
 	SettingsPanel.Container.SettingsList.ScrollBar.BG = SettingsPanel.Container.SettingsList.ScrollBar:CreateTexture(nil, "BACKGROUND");
-	SettingsPanel.Container.SettingsList.ScrollBar.BG:SetColorTexture(0, 0, 0, .25)
+	SettingsPanel.Container.SettingsList.ScrollBar.BG:SetColorTexture(0, 0, 0, .1)
 	SettingsPanel.Container.SettingsList.ScrollBar.BG:SetAllPoints()
 end
 
