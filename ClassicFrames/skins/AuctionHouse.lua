@@ -23,11 +23,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		AuctionHouseFrameAuctionsTab:SetPoint("LEFT", AuctionHouseFrameSellTab, "RIGHT", -15, 0)
 
 		ApplyBottomTab(AuctionHouseFrameBuyTab)
-		AuctionHouseFrameBuyTab:SetFrameLevel(500)
 		ApplyBottomTab(AuctionHouseFrameSellTab)
-		AuctionHouseFrameSellTab:SetFrameLevel(500)
 		ApplyBottomTab(AuctionHouseFrameAuctionsTab)
-		AuctionHouseFrameAuctionsTab:SetFrameLevel(500)
 
 		AuctionHouseFrame:HookScript("OnShow", function()
 			AuctionHouseFrameBuyTab:SetWidth(89 + AuctionHouseFrameBuyTab:GetFontString():GetStringWidth())

@@ -29,12 +29,3 @@ end
 ApplyScrollBarArrow(ItemTextScrollFrame.ScrollBar)
 ApplyScrollBarTrack(ItemTextScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(ItemTextScrollFrame.ScrollBar.Track.Thumb)
-
-ItemTextFrame:HookScript("OnEvent", function(self, event)
-	if ( event == "ITEM_TEXT_READY" ) then
-		local defaultXSize = 512;
-		local defaultYSize = 543;
-		ItemTextFramePageBg:SetSize(defaultXSize, defaultYSize)
-		ItemTextFramePageBg:SetTexture("Interface\\QuestFrame\\QuestBG")
-	end
-end)
