@@ -203,7 +203,6 @@ function ApplyDialogBorder(frame)
 	frame.RightEdge:SetPoint("BOTTOMRIGHT", frame.BottomRightCorner, "TOPRIGHT")
 end
 
-
 function ApplyDialogHeader(frame)
 	frame.Header.LeftBG:Hide()
 	frame.Header.RightBG:Hide()
