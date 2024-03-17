@@ -32,24 +32,8 @@ ExpansionLandingPage:HookScript("OnShow", function(self)
 			child.MajorFactionList.ScrollBar.Track.End:Hide()
 			child.MajorFactionList.ScrollBar.Track.Middle:Hide()
 
-			child.MajorFactionList.ScrollBar.Track.Thumb:SetWidth(18)
-			child.MajorFactionList.ScrollBar.Track.Thumb.Begin:SetAtlas("UI-ScrollBar-Knob-EndCap-Top", true)
-			child.MajorFactionList.ScrollBar.Track.Thumb.End:SetAtlas("UI-ScrollBar-Knob-EndCap-Bottom", true)
-			child.MajorFactionList.ScrollBar.Track.Thumb.Middle:SetAtlas("UI-ScrollBar-Knob-Center", true)
-			child.MajorFactionList.ScrollBar.Track.Thumb.upBeginTexture = "UI-ScrollBar-Knob-EndCap-Top"
-			child.MajorFactionList.ScrollBar.Track.Thumb.upMiddleTexture = "UI-ScrollBar-Knob-Center"
-			child.MajorFactionList.ScrollBar.Track.Thumb.upEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom"
-			child.MajorFactionList.ScrollBar.Track.Thumb.overBeginTexture = "UI-ScrollBar-Knob-MouseOver-EndCap-Top"
-			child.MajorFactionList.ScrollBar.Track.Thumb.overMiddleTexture = "UI-ScrollBar-Knob-MouseOver-Center"
-			child.MajorFactionList.ScrollBar.Track.Thumb.overEndTexture = "UI-ScrollBar-Knob-MouseOver-EndCap-Bottom"
-			child.MajorFactionList.ScrollBar.Track.Thumb.downBeginTexture = "UI-ScrollBar-Knob-EndCap-Top-Disabled"
-			child.MajorFactionList.ScrollBar.Track.Thumb.downMiddleTexture = "UI-ScrollBar-Knob-Center-Disabled"
-			child.MajorFactionList.ScrollBar.Track.Thumb.downEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom-Disabled"
-			child.MajorFactionList.ScrollBar.Track.Thumb.Middle:ClearAllPoints()
-			child.MajorFactionList.ScrollBar.Track.Thumb.Middle:SetPoint("TOPLEFT", 0, -5)
-			child.MajorFactionList.ScrollBar.Track.Thumb.Middle:SetPoint("BOTTOMRIGHT", 0, 5)
-
 			ApplyScrollBarArrow(child.MajorFactionList.ScrollBar)
+			ApplyScrollBarThumb(child.MajorFactionList.ScrollBar.Track.Thumb)
 	 	end
 	end
 end)

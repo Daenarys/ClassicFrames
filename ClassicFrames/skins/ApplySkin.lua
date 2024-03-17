@@ -281,9 +281,9 @@ end
 
 function ApplyScrollBarThumb(frame)
 	frame:SetWidth(18)
-	frame.Begin:SetAtlas("UI-ScrollBar-Knob-EndCap-Top")
-	frame.End:SetAtlas("UI-ScrollBar-Knob-EndCap-Bottom")
-	frame.Middle:SetAtlas("UI-ScrollBar-Knob-Center")
+	frame.Begin:SetAtlas("UI-ScrollBar-Knob-EndCap-Top", true)
+	frame.End:SetAtlas("UI-ScrollBar-Knob-EndCap-Bottom", true)
+	frame.Middle:SetAtlas("UI-ScrollBar-Knob-Center", true)
 	frame.upBeginTexture = "UI-ScrollBar-Knob-EndCap-Top"
 	frame.upMiddleTexture = "UI-ScrollBar-Knob-Center"
 	frame.upEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom"

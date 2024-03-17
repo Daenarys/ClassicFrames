@@ -57,22 +57,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.End:Hide()
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Middle:Hide()
 
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb:SetWidth(18)
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.Begin:SetAtlas("UI-ScrollBar-Knob-EndCap-Top", true)
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.End:SetAtlas("UI-ScrollBar-Knob-EndCap-Bottom", true)
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.Middle:SetAtlas("UI-ScrollBar-Knob-Center", true)
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.upBeginTexture = "UI-ScrollBar-Knob-EndCap-Top"
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.upMiddleTexture = "UI-ScrollBar-Knob-Center"
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.upEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom"
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.overBeginTexture = "UI-ScrollBar-Knob-MouseOver-EndCap-Top"
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.overMiddleTexture = "UI-ScrollBar-Knob-MouseOver-Center"
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.overEndTexture = "UI-ScrollBar-Knob-MouseOver-EndCap-Bottom"
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.downBeginTexture = "UI-ScrollBar-Knob-EndCap-Top-Disabled"
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.downMiddleTexture = "UI-ScrollBar-Knob-Center-Disabled"
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.downEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom-Disabled"
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.Middle:ClearAllPoints()
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.Middle:SetPoint("TOPLEFT", 0, -5)
-		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb.Middle:SetPoint("BOTTOMRIGHT", 0, 5)
+		ApplyScrollBarThumb(EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb)
 
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Back:SetSize(18, 16)
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
