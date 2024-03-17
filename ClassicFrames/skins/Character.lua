@@ -139,9 +139,12 @@ CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self.zoomInButton:SetPoint("LEFT", 2, 0)
 	self.zoomInButton.Icon:SetTexture("Interface\\Common\\UI-ModelControlPanel")
 	self.zoomInButton.Icon:SetTexCoord(0.57812500, 0.82812500, 0.14843750, 0.27343750)
+	self.zoomInButton:GetNormalTexture():Hide()
 	self.zoomInButton:SetHighlightTexture("Interface\\Common\\UI-ModelControlPanel")
 	self.zoomInButton:GetHighlightTexture():SetTexCoord(0.57812500, 0.82812500, 0.00781250, 0.13281250)
 	self.zoomInButton:GetHighlightTexture():SetSize(16, 16)
+	self.zoomInButton:GetHighlightTexture():ClearAllPoints()
+	self.zoomInButton:GetHighlightTexture():SetPoint("CENTER")
 	self.zoomInButton:GetHighlightTexture():SetAlpha(1)
 
 	if (self.zoomInButton.Bg == nil) then
@@ -157,9 +160,12 @@ CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self.zoomOutButton:SetPoint("LEFT", self.zoomInButton, "RIGHT")
 	self.zoomOutButton.Icon:SetTexture("Interface\\Common\\UI-ModelControlPanel")
 	self.zoomOutButton.Icon:SetTexCoord(0.29687500, 0.54687500, 0.00781250, 0.13281250)
+	self.zoomOutButton:GetNormalTexture():Hide()
 	self.zoomOutButton:SetHighlightTexture("Interface\\Common\\UI-ModelControlPanel")
 	self.zoomOutButton:GetHighlightTexture():SetTexCoord(0.57812500, 0.82812500, 0.00781250, 0.13281250)
 	self.zoomOutButton:GetHighlightTexture():SetSize(16, 16)
+	self.zoomOutButton:GetHighlightTexture():ClearAllPoints()
+	self.zoomOutButton:GetHighlightTexture():SetPoint("CENTER")
 	self.zoomOutButton:GetHighlightTexture():SetAlpha(1)
 
 	if (self.zoomOutButton.Bg == nil) then
@@ -175,9 +181,12 @@ CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self.rotateLeftButton:SetPoint("LEFT", self.zoomOutButton, "RIGHT")
 	self.rotateLeftButton.Icon:SetTexture("Interface\\Common\\UI-ModelControlPanel")
 	self.rotateLeftButton.Icon:SetTexCoord(0.01562500, 0.26562500, 0.28906250, 0.41406250)
+	self.rotateLeftButton:GetNormalTexture():Hide()
 	self.rotateLeftButton:SetHighlightTexture("Interface\\Common\\UI-ModelControlPanel")
 	self.rotateLeftButton:GetHighlightTexture():SetTexCoord(0.57812500, 0.82812500, 0.00781250, 0.13281250)
 	self.rotateLeftButton:GetHighlightTexture():SetSize(16, 16)
+	self.rotateLeftButton:GetHighlightTexture():ClearAllPoints()
+	self.rotateLeftButton:GetHighlightTexture():SetPoint("CENTER")
 	self.rotateLeftButton:GetHighlightTexture():SetAlpha(1)
 
 	if (self.rotateLeftButton.Bg == nil) then
@@ -193,9 +202,12 @@ CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self.rotateRightButton:SetPoint("LEFT", self.rotateLeftButton, "RIGHT")
 	self.rotateRightButton.Icon:SetTexture("Interface\\Common\\UI-ModelControlPanel")
 	self.rotateRightButton.Icon:SetTexCoord(0.57812500, 0.82812500, 0.28906250, 0.41406250)
+	self.rotateRightButton:GetNormalTexture():Hide()
 	self.rotateRightButton:SetHighlightTexture("Interface\\Common\\UI-ModelControlPanel")
 	self.rotateRightButton:GetHighlightTexture():SetTexCoord(0.57812500, 0.82812500, 0.00781250, 0.13281250)
 	self.rotateRightButton:GetHighlightTexture():SetSize(16, 16)
+	self.rotateRightButton:GetHighlightTexture():ClearAllPoints()
+	self.rotateRightButton:GetHighlightTexture():SetPoint("CENTER")
 	self.rotateRightButton:GetHighlightTexture():SetAlpha(1)
 
 	if (self.rotateRightButton.Bg == nil) then
@@ -211,9 +223,12 @@ CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self.resetButton:SetPoint("LEFT", self.rotateRightButton, "RIGHT")
 	self.resetButton.Icon:SetTexture("Interface\\Common\\UI-ModelControlPanel")
 	self.resetButton.Icon:SetTexCoord(0.01562500, 0.26562500, 0.00781250, 0.13281250)
+	self.resetButton:GetNormalTexture():Hide()
 	self.resetButton:SetHighlightTexture("Interface\\Common\\UI-ModelControlPanel")
 	self.resetButton:GetHighlightTexture():SetTexCoord(0.57812500, 0.82812500, 0.00781250, 0.13281250)
 	self.resetButton:GetHighlightTexture():SetSize(16, 16)
+	self.resetButton:GetHighlightTexture():ClearAllPoints()
+	self.resetButton:GetHighlightTexture():SetPoint("CENTER")
 	self.resetButton:GetHighlightTexture():SetAlpha(1)
 
 	if (self.resetButton.Bg == nil) then
@@ -222,23 +237,6 @@ CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
 		self.resetButton.Bg:SetTexture("Interface\\Common\\UI-ModelControlPanel")
 		self.resetButton.Bg:SetTexCoord(0.29687500, 0.54687500, 0.14843750, 0.27343750)
 		self.resetButton.Bg:SetPoint("CENTER")
-	end
-end)
-
-hooksecurefunc(ModelSceneControlButtonMixin, "Init", function()
-	local level = UnitLevel("player")
-	local MIN_PLAYER_LEVEL_FOR_ITEM_LEVEL_DISPLAY = 60
-
-	if ( level >= MIN_PLAYER_LEVEL_FOR_ITEM_LEVEL_DISPLAY ) then
-		CharacterStatsPane.ItemLevelCategory:Show()
-		CharacterStatsPane.ItemLevelFrame:Show()
-		CharacterStatsPane.AttributesCategory:ClearAllPoints()
-		CharacterStatsPane.AttributesCategory:SetPoint("TOP", CharacterStatsPane.ItemLevelFrame, "BOTTOM", 0, 0)
-	else
-		CharacterStatsPane.ItemLevelCategory:Hide()
-		CharacterStatsPane.ItemLevelFrame:Hide()
-		CharacterStatsPane.AttributesCategory:ClearAllPoints()
-		CharacterStatsPane.AttributesCategory:SetPoint("TOP", CharacterStatsPane, "TOP", 0, -2)
 	end
 end)
 
