@@ -100,11 +100,11 @@ ApplyScrollBarArrow(PaperDollFrame.EquipmentManagerPane.ScrollBar)
 ApplyScrollBarTrack(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track)
 ApplyScrollBarThumb(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track.Thumb)
 
-_G.PaperDollFrame:HookScript("OnShow", function()
+PaperDollFrame:HookScript("OnShow", function()
 	CharacterModelScene.ControlFrame:Hide()
 end)
 
-_G.CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
+CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self:SetSize(94, 23)
 	self:ClearAllPoints()
 	self:SetPoint("TOP", 0, -2)
@@ -259,14 +259,14 @@ hooksecurefunc("PaperDollFrame_UpdateStats", function()
 	end
 end)
 
-_G.CharacterFrame:HookScript("OnShow", function()
+CharacterFrame:HookScript("OnShow", function()
 	CfPlayerFrameHealthBar.showNumeric = true;
 	CfPlayerFrameManaBar.showNumeric = true;
 	ShowTextStatusBarText(CfPlayerFrameHealthBar)
 	ShowTextStatusBarText(CfPlayerFrameManaBar)
 end)
 
-_G.CharacterFrame:HookScript("OnHide", function()
+CharacterFrame:HookScript("OnHide", function()
 	CfPlayerFrameHealthBar.showNumeric = nil;
 	CfPlayerFrameManaBar.showNumeric = nil;
 	HideTextStatusBarText(CfPlayerFrameHealthBar)
