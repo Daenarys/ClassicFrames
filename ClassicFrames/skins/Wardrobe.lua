@@ -60,6 +60,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			self.zoomInButton:GetHighlightTexture():ClearAllPoints()
 			self.zoomInButton:GetHighlightTexture():SetPoint("CENTER")
 			self.zoomInButton:GetHighlightTexture():SetAlpha(1)
+			self.zoomInButton:SetHitRectInsets(0, 0, 0, 0)
 
 			if (self.zoomInButton.Bg == nil) then
 				self.zoomInButton.Bg = self.zoomInButton:CreateTexture(nil, "BACKGROUND");
@@ -81,6 +82,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			self.zoomOutButton:GetHighlightTexture():ClearAllPoints()
 			self.zoomOutButton:GetHighlightTexture():SetPoint("CENTER")
 			self.zoomOutButton:GetHighlightTexture():SetAlpha(1)
+			self.zoomOutButton:SetHitRectInsets(0, 0, 0, 0)
 
 			if (self.zoomOutButton.Bg == nil) then
 				self.zoomOutButton.Bg = self.zoomOutButton:CreateTexture(nil, "BACKGROUND");
@@ -102,6 +104,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			self.rotateLeftButton:GetHighlightTexture():ClearAllPoints()
 			self.rotateLeftButton:GetHighlightTexture():SetPoint("CENTER")
 			self.rotateLeftButton:GetHighlightTexture():SetAlpha(1)
+			self.rotateLeftButton:SetHitRectInsets(0, 0, 0, 0)
 
 			if (self.rotateLeftButton.Bg == nil) then
 				self.rotateLeftButton.Bg = self.rotateLeftButton:CreateTexture(nil, "BACKGROUND");
@@ -123,6 +126,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			self.rotateRightButton:GetHighlightTexture():ClearAllPoints()
 			self.rotateRightButton:GetHighlightTexture():SetPoint("CENTER")
 			self.rotateRightButton:GetHighlightTexture():SetAlpha(1)
+			self.rotateRightButton:SetHitRectInsets(0, 0, 0, 0)
 
 			if (self.rotateRightButton.Bg == nil) then
 				self.rotateRightButton.Bg = self.rotateRightButton:CreateTexture(nil, "BACKGROUND");
@@ -144,6 +148,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			self.resetButton:GetHighlightTexture():ClearAllPoints()
 			self.resetButton:GetHighlightTexture():SetPoint("CENTER")
 			self.resetButton:GetHighlightTexture():SetAlpha(1)
+			self.resetButton:SetHitRectInsets(0, 0, 0, 0)
 
 			if (self.resetButton.Bg == nil) then
 				self.resetButton.Bg = self.resetButton:CreateTexture(nil, "BACKGROUND");
