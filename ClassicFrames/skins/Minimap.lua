@@ -653,24 +653,23 @@ end
 local function EyeTemplate_StopAnimating()
 	QueueStatusButton.Eye:SetScript("OnUpdate", nil);
 	if ( QueueStatusButton.Eye.texture.frame ) then
-		QueueStatusButton.Eye.texture.frame = 1;	--To start the animation over.
+		QueueStatusButton.Eye.texture.frame = 1; --To start the animation over.
 	end
 	local textureInfo = LFG_EYE_TEXTURES[QueueStatusButton.Eye.queueType or "default"];
 	QueueStatusButton.Eye.texture:SetTexCoord(0, textureInfo.iconSize / textureInfo.width, 0, textureInfo.iconSize / textureInfo.height);
 end
 
-local function QueueStatusButton_OnUpdate(self, elapsed)
+local function QueueStatusButton_OnUpdate(self)
 	if ( self:IsShown() ) then
-		self.Eye.texture:Show();
+		self.Eye.texture:Show()
 	else
 		self.Eye.texture:Hide();
 	end
 
 	if ( self.Eye:IsStaticMode() ) then
-		EyeTemplate_StopAnimating(self.Eye);
+		EyeTemplate_StopAnimating();
 	end
 
-	self.Eye.texture:SetSize(45, 45)
 	self.Eye.texture:SetTexture("Interface\\LFGFrame\\LFG-Eye")
 	self.Eye.texture:ClearAllPoints()
 	self.Eye.texture:SetAllPoints()
@@ -769,8 +768,8 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 	end
 
 	if ( animateEye ) then
-		EyeTemplate_StartAnimating(QueueStatusButton.Eye);
+		EyeTemplate_StartAnimating()
 	else
-		EyeTemplate_StopAnimating(QueueStatusButton.Eye);
+		EyeTemplate_StopAnimating()
 	end
 end)
