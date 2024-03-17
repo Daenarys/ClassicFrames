@@ -19,11 +19,13 @@ MerchantFrameBottomLeftBorder:SetSize(256, 61)
 MerchantFrameBottomLeftBorder:SetTexture("Interface\\MerchantFrame\\UI-Merchant-BottomBorder")
 MerchantFrameBottomLeftBorder:SetTexCoord(0, 1, 0, 0.4765625)
 
-MerchantFrame:CreateTexture("MerchantFrameBottomRightBorder", "OVERLAY")
-MerchantFrameBottomRightBorder:SetSize(76, 61)
-MerchantFrameBottomRightBorder:SetTexture("Interface\\MerchantFrame\\UI-Merchant-BottomBorder")
-MerchantFrameBottomRightBorder:SetTexCoord(0, 0.296875, 0.4765625, 0.953125)
-MerchantFrameBottomRightBorder:SetPoint("LEFT", MerchantFrameBottomLeftBorder, "RIGHT")
+if (MerchantFrameBottomRightBorder == nil) then
+	MerchantFrame:CreateTexture("MerchantFrameBottomRightBorder", "OVERLAY")
+	MerchantFrameBottomRightBorder:SetSize(76, 61)
+	MerchantFrameBottomRightBorder:SetTexture("Interface\\MerchantFrame\\UI-Merchant-BottomBorder")
+	MerchantFrameBottomRightBorder:SetTexCoord(0, 0.296875, 0.4765625, 0.953125)
+	MerchantFrameBottomRightBorder:SetPoint("LEFT", MerchantFrameBottomLeftBorder, "RIGHT")
+end
 
 MerchantFrameTab2:ClearAllPoints()
 MerchantFrameTab2:SetPoint("LEFT", MerchantFrameTab1, "RIGHT", -16, 0)
