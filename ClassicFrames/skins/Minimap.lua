@@ -79,8 +79,8 @@ GameTimeFrame:GetFontString():SetPoint("CENTER", -1, -1)
 GameTimeFrame:GetNormalTexture():SetDrawLayer("BACKGROUND")
 GameTimeFrame:GetPushedTexture():SetDrawLayer("BACKGROUND")
 GameTimeFrame:GetFontString():SetDrawLayer("BACKGROUND")
-local currentCalendarTime = C_DateAndTime.GetCurrentCalendarTime();
-GameTimeFrame:SetText(currentCalendarTime.monthDay);
+local currentCalendarTime = C_DateAndTime.GetCurrentCalendarTime()
+GameTimeFrame:SetText(currentCalendarTime.monthDay)
 
 MinimapCluster.Tracking:SetParent(MinimapBackdrop)
 MinimapCluster.Tracking:SetSize(32, 32)
@@ -201,13 +201,13 @@ MiniMapMailIcon:SetPoint("TOPLEFT", MinimapCluster.IndicatorFrame.MailFrame, "TO
 MiniMapMailIcon:SetDrawLayer("ARTWORK", 0)
 
 hooksecurefunc(MinimapCluster.IndicatorFrame.MailFrame, "ResetMailIcon", function(self)
-	self.MailIcon:SetShown(true);
+	self.MailIcon:SetShown(true)
 end)
 
 hooksecurefunc(MinimapCluster.IndicatorFrame.MailFrame, "TryPlayMailNotification", function(self)
-	self.NewMailAnim:SetPlaying(false);
-	self.MailReminderAnim:SetPlaying(false);
-	self.MailIcon:SetShown(true);
+	self.NewMailAnim:SetPlaying(false)
+	self.MailReminderAnim:SetPlaying(false)
+	self.MailIcon:SetShown(true)
 end)
 
 MiniMapCraftingOrderIcon:SetSize(18, 18)
@@ -500,38 +500,38 @@ MiniMapWorldMapButton:GetHighlightTexture():SetPoint("TOPRIGHT", MiniMapWorldMap
 MinimapZoneTextButton:SetScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_LEFT")
 	local pvpType, isSubZonePvP, factionName = GetZonePVPInfo()
-	local zoneName = GetZoneText();
-	local subzoneName = GetSubZoneText();
+	local zoneName = GetZoneText()
+	local subzoneName = GetSubZoneText()
 	if ( subzoneName == zoneName ) then
 		subzoneName = "";
 	end
-	GameTooltip:AddLine( zoneName, 1.0, 1.0, 1.0 );
+	GameTooltip:AddLine( zoneName, 1.0, 1.0, 1.0 )
 	if ( pvpType == "sanctuary" ) then
-		GameTooltip:AddLine( subzoneName, 0.41, 0.8, 0.94 );
-		GameTooltip:AddLine(SANCTUARY_TERRITORY, 0.41, 0.8, 0.94);
+		GameTooltip:AddLine( subzoneName, 0.41, 0.8, 0.94 )
+		GameTooltip:AddLine(SANCTUARY_TERRITORY, 0.41, 0.8, 0.94)
 	elseif ( pvpType == "arena" ) then
-		GameTooltip:AddLine( subzoneName, 1.0, 0.1, 0.1 );
-		GameTooltip:AddLine(FREE_FOR_ALL_TERRITORY, 1.0, 0.1, 0.1);
+		GameTooltip:AddLine( subzoneName, 1.0, 0.1, 0.1 )
+		GameTooltip:AddLine(FREE_FOR_ALL_TERRITORY, 1.0, 0.1, 0.1)
 	elseif ( pvpType == "friendly" ) then
 		if (factionName and factionName ~= "") then
-			GameTooltip:AddLine( subzoneName, 0.1, 1.0, 0.1 );
-			GameTooltip:AddLine(format(FACTION_CONTROLLED_TERRITORY, factionName), 0.1, 1.0, 0.1);
+			GameTooltip:AddLine( subzoneName, 0.1, 1.0, 0.1 )
+			GameTooltip:AddLine(format(FACTION_CONTROLLED_TERRITORY, factionName), 0.1, 1.0, 0.1)
 		end
 	elseif ( pvpType == "hostile" ) then
 		if (factionName and factionName ~= "") then
-			GameTooltip:AddLine( subzoneName, 1.0, 0.1, 0.1 );
-			GameTooltip:AddLine(format(FACTION_CONTROLLED_TERRITORY, factionName), 1.0, 0.1, 0.1);
+			GameTooltip:AddLine( subzoneName, 1.0, 0.1, 0.1 )
+			GameTooltip:AddLine(format(FACTION_CONTROLLED_TERRITORY, factionName), 1.0, 0.1, 0.1)
 		end
 	elseif ( pvpType == "contested" ) then
-		GameTooltip:AddLine( subzoneName, 1.0, 0.7, 0.0 );
-		GameTooltip:AddLine(CONTESTED_TERRITORY, 1.0, 0.7, 0.0);
+		GameTooltip:AddLine( subzoneName, 1.0, 0.7, 0.0 )
+		GameTooltip:AddLine(CONTESTED_TERRITORY, 1.0, 0.7, 0.0)
 	elseif ( pvpType == "combat" ) then
-		GameTooltip:AddLine( subzoneName, 1.0, 0.1, 0.1 );
-		GameTooltip:AddLine(COMBAT_ZONE, 1.0, 0.1, 0.1);
+		GameTooltip:AddLine( subzoneName, 1.0, 0.1, 0.1 )
+		GameTooltip:AddLine(COMBAT_ZONE, 1.0, 0.1, 0.1)
 	else
-		GameTooltip:AddLine( subzoneName, NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b );
+		GameTooltip:AddLine( subzoneName, NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b )
 	end
-	GameTooltip:Show();
+	GameTooltip:Show()
 end)
 
 MinimapZoneTextButton:SetScript("OnLeave", function()
@@ -586,7 +586,7 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 		end
 
 		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIconForGarrison", function(self)
-			local garrisonType = C_Garrison.GetLandingPageGarrisonType();
+			local garrisonType = C_Garrison.GetLandingPageGarrisonType()
 
 			if (garrisonType == Enum.GarrisonType.Type_9_0_Garrison) then
 				self:ClearAllPoints()
@@ -605,8 +605,8 @@ local function MinimapButton_OnMouseDown(self, button)
 		return;
 	end
 	local button = _G[self:GetName().."Icon"];
-	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint();
-	button:SetPoint(point, relativeTo, relativePoint, offsetX+1, offsetY-1);
+	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint()
+	button:SetPoint(point, relativeTo, relativePoint, offsetX+1, offsetY-1)
 	self.isDown = 1;
 end
 
@@ -615,8 +615,8 @@ local function MinimapButton_OnMouseUp(self)
 		return;
 	end
 	local button = _G[self:GetName().."Icon"];
-	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint();
-	button:SetPoint(point, relativeTo, relativePoint, offsetX-1, offsetY+1);
+	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint()
+	button:SetPoint(point, relativeTo, relativePoint, offsetX-1, offsetY+1)
 	self.isDown = nil;
 end
 
@@ -646,28 +646,24 @@ local function EyeTemplate_OnUpdate(self, elapsed)
 	AnimateTexCoords(self.texture, textureInfo.width, textureInfo.height, textureInfo.iconSize, textureInfo.iconSize, textureInfo.frames, elapsed, textureInfo.delay)
 end
 
-local function EyeTemplate_StartAnimating()
-	QueueStatusButton.Eye:SetScript("OnUpdate", EyeTemplate_OnUpdate);
+local function EyeTemplate_StartAnimating(eye)
+	eye:SetScript("OnUpdate", EyeTemplate_OnUpdate)
 end
 
-local function EyeTemplate_StopAnimating()
-	QueueStatusButton.Eye:SetScript("OnUpdate", nil);
-	if ( QueueStatusButton.Eye.texture.frame ) then
-		QueueStatusButton.Eye.texture.frame = 1; --To start the animation over.
+local function EyeTemplate_StopAnimating(eye)
+	eye:SetScript("OnUpdate", nil)
+	if ( eye.texture.frame ) then
+		eye.texture.frame = 1; --To start the animation over.
 	end
-	local textureInfo = LFG_EYE_TEXTURES[QueueStatusButton.Eye.queueType or "default"];
-	QueueStatusButton.Eye.texture:SetTexCoord(0, textureInfo.iconSize / textureInfo.width, 0, textureInfo.iconSize / textureInfo.height);
+	local textureInfo = LFG_EYE_TEXTURES[eye.queueType or "default"];
+	eye.texture:SetTexCoord(0, textureInfo.iconSize / textureInfo.width, 0, textureInfo.iconSize / textureInfo.height)
 end
 
 local function QueueStatusButton_OnUpdate(self)
 	if ( self:IsShown() ) then
 		self.Eye.texture:Show()
 	else
-		self.Eye.texture:Hide();
-	end
-
-	if ( self.Eye:IsStaticMode() ) then
-		EyeTemplate_StopAnimating();
+		self.Eye.texture:Hide()
 	end
 
 	self.Eye.texture:SetTexture("Interface\\LFGFrame\\LFG-Eye")
@@ -692,7 +688,7 @@ end
 QueueStatusButton:HookScript("OnUpdate", QueueStatusButton_OnUpdate)
 QueueStatusButton:HookScript("OnHide", function(self)
 	if (self.isDown) then
-		MinimapButton_OnMouseUp(self);
+		MinimapButton_OnMouseUp(self)
 	end
 end)
 QueueStatusButton:HookScript("OnMouseDown", MinimapButton_OnMouseDown)
@@ -700,8 +696,8 @@ QueueStatusButton:HookScript("OnMouseUp", MinimapButton_OnMouseUp)
 
 --queuestatusframe
 hooksecurefunc(QueueStatusFrame, "UpdatePosition", function(self)
-	self:ClearAllPoints();
-	self:SetPoint("TOPRIGHT", QueueStatusButton, "TOPLEFT", 0, 0);
+	self:ClearAllPoints()
+	self:SetPoint("TOPRIGHT", QueueStatusButton, "TOPLEFT", 0, 0)
 end)
 
 hooksecurefunc("QueueStatusDropDown_Show", function()
@@ -714,7 +710,7 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 
 	--Try each LFG type
 	for i=1, NUM_LE_LFG_CATEGORYS do
-		local mode, submode = GetLFGMode(i);
+		local mode, submode = GetLFGMode(i)
 		if ( mode and submode ~= "noteleport" ) then
 			if ( mode == "queued" ) then
 				animateEye = true;
@@ -723,15 +719,15 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 	end
 
 	--Try LFGList entries
-	local isActive = C_LFGList.HasActiveEntryInfo();
+	local isActive = C_LFGList.HasActiveEntryInfo()
 	if ( isActive ) then
 		animateEye = true;
 	end
 
 	--Try LFGList applications
-	local apps = C_LFGList.GetApplications();
+	local apps = C_LFGList.GetApplications()
 	for i=1, #apps do
-		local _, appStatus = C_LFGList.GetApplicationInfo(apps[i]);
+		local _, appStatus = C_LFGList.GetApplicationInfo(apps[i])
 		if ( appStatus == "applied" or appStatus == "invited" ) then
 			if ( appStatus == "applied" ) then
 				animateEye = true;
@@ -741,7 +737,7 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 
 	--Try all PvP queues
 	for i=1, GetMaxBattlefieldID() do
-		local status, mapName, teamSize, registeredMatch, suspend = GetBattlefieldStatus(i);
+		local status, mapName, teamSize, registeredMatch, suspend = GetBattlefieldStatus(i)
 		if ( status and status ~= "none" ) then
 			if ( status == "queued" and not suspend ) then
 				animateEye = true;
@@ -751,7 +747,7 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 
 	--Try all World PvP queues
 	for i=1, MAX_WORLD_PVP_QUEUES do
-		local status, mapName, queueID = GetWorldPVPQueueStatus(i);
+		local status, mapName, queueID = GetWorldPVPQueueStatus(i)
 		if ( status and status ~= "none" ) then
 			if ( status == "queued" ) then
 				animateEye = true;
@@ -760,7 +756,7 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 	end
 
 	--Pet Battle PvP Queue
-	local pbStatus = C_PetBattles.GetPVPMatchmakingInfo();
+	local pbStatus = C_PetBattles.GetPVPMatchmakingInfo()
 	if ( pbStatus ) then
 		if ( pbStatus == "queued" ) then
 			animateEye = true;
@@ -768,8 +764,8 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 	end
 
 	if ( animateEye ) then
-		EyeTemplate_StartAnimating()
+		EyeTemplate_StartAnimating(QueueStatusButton.Eye)
 	else
-		EyeTemplate_StopAnimating()
+		EyeTemplate_StopAnimating(QueueStatusButton.Eye)
 	end
 end)

@@ -298,6 +298,47 @@ function ApplyScrollBarThumb(frame)
 	frame.Middle:SetPoint("BOTTOMRIGHT", 0, 5)
 end
 
+function ApplyTopTab(frame)
+	frame.LeftActive:SetSize(16, 32)
+	frame.LeftActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
+	frame.LeftActive:SetTexCoord(0, 0.25, 0, 1)
+	frame.LeftActive:SetPoint("BOTTOMLEFT", 0, -3)
+
+	frame.RightActive:SetSize(16, 32)
+	frame.RightActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
+	frame.RightActive:SetTexCoord(0.75, 1, 0, 1)
+	frame.RightActive:SetPoint("BOTTOMRIGHT", 0, -3)
+
+	frame.MiddleActive:SetSize(32, 32)
+	frame.MiddleActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
+	frame.MiddleActive:SetTexCoord(0.25, 0.75, 0, 1)
+	frame.MiddleActive:SetHorizTile(false)
+
+	frame.Left:SetSize(16, 32)
+	frame.Left:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
+	frame.Left:SetTexCoord(0, 0.25, 0, 1)
+	frame.Left:SetPoint("BOTTOMLEFT")
+
+	frame.Right:SetSize(16, 32)
+	frame.Right:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
+	frame.Right:SetTexCoord(0.75, 1, 0, 1)
+	frame.Right:SetPoint("TOPRIGHT")
+
+	frame.Middle:SetSize(32, 32)
+	frame.Middle:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
+	frame.Middle:SetTexCoord(0.25, 0.75, 0, 1)
+	frame.Middle:SetHorizTile(false)
+
+	frame.LeftHighlight:Hide()
+	frame.MiddleHighlight:Hide()
+	frame.RightHighlight:Hide()
+
+	frame:SetHighlightTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-Highlight")
+	frame:GetHighlightTexture():ClearAllPoints()
+	frame:GetHighlightTexture():SetPoint("TOPLEFT", 2, -8)
+	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", 2, -8)
+end
+
 function ApplyBottomTab(frame)
 	frame:SetFrameLevel(501)
 
@@ -341,43 +382,143 @@ function ApplyBottomTab(frame)
 	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", -3, 0)
 end
 
-function ApplyTopTab(frame)
-	frame.LeftActive:SetSize(16, 32)
-	frame.LeftActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
-	frame.LeftActive:SetTexCoord(0, 0.25, 0, 1)
-	frame.LeftActive:SetPoint("BOTTOMLEFT", 0, -3)
+function ApplyControlFrame(frame)
+	frame:SetSize(94, 23)
+	frame:ClearAllPoints()
+	frame:SetPoint("TOP", 0, -2)
 
-	frame.RightActive:SetSize(16, 32)
-	frame.RightActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
-	frame.RightActive:SetTexCoord(0.75, 1, 0, 1)
-	frame.RightActive:SetPoint("BOTTOMRIGHT", 0, -3)
+	if (frame.Right == nil) then
+		frame.Right = frame:CreateTexture(nil, "BACKGROUND")
+		frame.Right:SetSize(23, 23)
+		frame.Right:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+		frame.Right:SetTexCoord(0.01562500, 0.37500000, 0.42968750, 0.60937500)
+		frame.Right:SetPoint("RIGHT")
+	end
 
-	frame.MiddleActive:SetSize(32, 32)
-	frame.MiddleActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
-	frame.MiddleActive:SetTexCoord(0.25, 0.75, 0, 1)
-	frame.MiddleActive:SetHorizTile(false)
+	if (frame.Left == nil) then
+		frame.Left = frame:CreateTexture(nil, "BACKGROUND")
+		frame.Left:SetSize(23, 23)
+		frame.Left:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+		frame.Left:SetTexCoord(0.40625000, 0.76562500, 0.42968750, 0.60937500)
+		frame.Left:SetPoint("LEFT")
+	end
 
-	frame.Left:SetSize(16, 32)
-	frame.Left:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
-	frame.Left:SetTexCoord(0, 0.25, 0, 1)
-	frame.Left:SetPoint("BOTTOMLEFT")
+	if (frame.Middle == nil) then
+		frame.Middle = frame:CreateTexture(nil, "BACKGROUND")
+		frame.Middle:SetSize(32, 23)
+		frame.Middle:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+		frame.Middle:SetTexCoord(0, 1, 0.62500000, 0.80468750)
+		frame.Middle:SetPoint("LEFT", frame.Left, "RIGHT")
+		frame.Middle:SetPoint("RIGHT", frame.Right, "LEFT")
+	end
 
-	frame.Right:SetSize(16, 32)
-	frame.Right:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
-	frame.Right:SetTexCoord(0.75, 1, 0, 1)
-	frame.Right:SetPoint("TOPRIGHT")
+	frame.zoomInButton:SetSize(18, 18)
+	frame.zoomInButton:ClearAllPoints()
+	frame.zoomInButton:SetPoint("LEFT", 2, 0)
+	frame.zoomInButton.Icon:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+	frame.zoomInButton.Icon:SetTexCoord(0.57812500, 0.82812500, 0.14843750, 0.27343750)
+	frame.zoomInButton.NormalTexture:Hide()
+	frame.zoomInButton.HighlightTexture:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+	frame.zoomInButton.HighlightTexture:SetTexCoord(0.57812500, 0.82812500, 0.00781250, 0.13281250)
+	frame.zoomInButton.HighlightTexture:SetSize(16, 16)
+	frame.zoomInButton.HighlightTexture:ClearAllPoints()
+	frame.zoomInButton.HighlightTexture:SetPoint("CENTER")
+	frame.zoomInButton.HighlightTexture:SetAlpha(1)
+	frame.zoomInButton:SetHitRectInsets(0, 0, 0, 0)
 
-	frame.Middle:SetSize(32, 32)
-	frame.Middle:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
-	frame.Middle:SetTexCoord(0.25, 0.75, 0, 1)
-	frame.Middle:SetHorizTile(false)
+	if (frame.zoomInButton.Bg == nil) then
+		frame.zoomInButton.Bg = frame.zoomInButton:CreateTexture(nil, "BACKGROUND")
+		frame.zoomInButton.Bg:SetSize(16, 16)
+		frame.zoomInButton.Bg:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+		frame.zoomInButton.Bg:SetTexCoord(0.29687500, 0.54687500, 0.14843750, 0.27343750)
+		frame.zoomInButton.Bg:SetPoint("CENTER")
+	end
 
-	frame.LeftHighlight:Hide()
-	frame.MiddleHighlight:Hide()
-	frame.RightHighlight:Hide()
+	frame.zoomOutButton:SetSize(18, 18)
+	frame.zoomOutButton:ClearAllPoints()
+	frame.zoomOutButton:SetPoint("LEFT", frame.zoomInButton, "RIGHT")
+	frame.zoomOutButton.Icon:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+	frame.zoomOutButton.Icon:SetTexCoord(0.29687500, 0.54687500, 0.00781250, 0.13281250)
+	frame.zoomOutButton.NormalTexture:Hide()
+	frame.zoomOutButton.HighlightTexture:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+	frame.zoomOutButton.HighlightTexture:SetTexCoord(0.57812500, 0.82812500, 0.00781250, 0.13281250)
+	frame.zoomOutButton.HighlightTexture:SetSize(16, 16)
+	frame.zoomOutButton.HighlightTexture:ClearAllPoints()
+	frame.zoomOutButton.HighlightTexture:SetPoint("CENTER")
+	frame.zoomOutButton.HighlightTexture:SetAlpha(1)
+	frame.zoomOutButton:SetHitRectInsets(0, 0, 0, 0)
 
-	frame:SetHighlightTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-Highlight")
-	frame:GetHighlightTexture():ClearAllPoints()
-	frame:GetHighlightTexture():SetPoint("TOPLEFT", 2, -8)
-	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", 2, -8)
+	if (frame.zoomOutButton.Bg == nil) then
+		frame.zoomOutButton.Bg = frame.zoomOutButton:CreateTexture(nil, "BACKGROUND")
+		frame.zoomOutButton.Bg:SetSize(16, 16)
+		frame.zoomOutButton.Bg:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+		frame.zoomOutButton.Bg:SetTexCoord(0.29687500, 0.54687500, 0.14843750, 0.27343750)
+		frame.zoomOutButton.Bg:SetPoint("CENTER")
+	end
+
+	frame.rotateLeftButton:SetSize(18, 18)
+	frame.rotateLeftButton:ClearAllPoints()
+	frame.rotateLeftButton:SetPoint("LEFT", frame.zoomOutButton, "RIGHT")
+	frame.rotateLeftButton.Icon:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+	frame.rotateLeftButton.Icon:SetTexCoord(0.01562500, 0.26562500, 0.28906250, 0.41406250)
+	frame.rotateLeftButton.NormalTexture:Hide()
+	frame.rotateLeftButton.HighlightTexture:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+	frame.rotateLeftButton.HighlightTexture:SetTexCoord(0.57812500, 0.82812500, 0.00781250, 0.13281250)
+	frame.rotateLeftButton.HighlightTexture:SetSize(16, 16)
+	frame.rotateLeftButton.HighlightTexture:ClearAllPoints()
+	frame.rotateLeftButton.HighlightTexture:SetPoint("CENTER")
+	frame.rotateLeftButton.HighlightTexture:SetAlpha(1)
+	frame.rotateLeftButton:SetHitRectInsets(0, 0, 0, 0)
+
+	if (frame.rotateLeftButton.Bg == nil) then
+		frame.rotateLeftButton.Bg = frame.rotateLeftButton:CreateTexture(nil, "BACKGROUND")
+		frame.rotateLeftButton.Bg:SetSize(16, 16)
+		frame.rotateLeftButton.Bg:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+		frame.rotateLeftButton.Bg:SetTexCoord(0.29687500, 0.54687500, 0.14843750, 0.27343750)
+		frame.rotateLeftButton.Bg:SetPoint("CENTER")
+	end
+
+	frame.rotateRightButton:SetSize(18, 18)
+	frame.rotateRightButton:ClearAllPoints()
+	frame.rotateRightButton:SetPoint("LEFT", frame.rotateLeftButton, "RIGHT")
+	frame.rotateRightButton.Icon:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+	frame.rotateRightButton.Icon:SetTexCoord(0.57812500, 0.82812500, 0.28906250, 0.41406250)
+	frame.rotateRightButton.NormalTexture:Hide()
+	frame.rotateRightButton.HighlightTexture:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+	frame.rotateRightButton.HighlightTexture:SetTexCoord(0.57812500, 0.82812500, 0.00781250, 0.13281250)
+	frame.rotateRightButton.HighlightTexture:SetSize(16, 16)
+	frame.rotateRightButton.HighlightTexture:ClearAllPoints()
+	frame.rotateRightButton.HighlightTexture:SetPoint("CENTER")
+	frame.rotateRightButton.HighlightTexture:SetAlpha(1)
+	frame.rotateRightButton:SetHitRectInsets(0, 0, 0, 0)
+
+	if (frame.rotateRightButton.Bg == nil) then
+		frame.rotateRightButton.Bg = frame.rotateRightButton:CreateTexture(nil, "BACKGROUND")
+		frame.rotateRightButton.Bg:SetSize(16, 16)
+		frame.rotateRightButton.Bg:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+		frame.rotateRightButton.Bg:SetTexCoord(0.29687500, 0.54687500, 0.14843750, 0.27343750)
+		frame.rotateRightButton.Bg:SetPoint("CENTER")
+	end
+
+	frame.resetButton:SetSize(18, 18)
+	frame.resetButton:ClearAllPoints()
+	frame.resetButton:SetPoint("LEFT", frame.rotateRightButton, "RIGHT")
+	frame.resetButton.Icon:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+	frame.resetButton.Icon:SetTexCoord(0.01562500, 0.26562500, 0.00781250, 0.13281250)
+	frame.resetButton.NormalTexture:Hide()
+	frame.resetButton.HighlightTexture:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+	frame.resetButton.HighlightTexture:SetTexCoord(0.57812500, 0.82812500, 0.00781250, 0.13281250)
+	frame.resetButton.HighlightTexture:SetSize(16, 16)
+	frame.resetButton.HighlightTexture:ClearAllPoints()
+	frame.resetButton.HighlightTexture:SetPoint("CENTER")
+	frame.resetButton.HighlightTexture:SetAlpha(1)
+	frame.resetButton:SetHitRectInsets(0, 0, 0, 0)
+
+	if (frame.resetButton.Bg == nil) then
+		frame.resetButton.Bg = frame.resetButton:CreateTexture(nil, "BACKGROUND")
+		frame.resetButton.Bg:SetSize(16, 16)
+		frame.resetButton.Bg:SetTexture("Interface\\Common\\UI-ModelControlPanel")
+		frame.resetButton.Bg:SetTexCoord(0.29687500, 0.54687500, 0.14843750, 0.27343750)
+		frame.resetButton.Bg:SetPoint("CENTER")
+	end
 end
