@@ -67,6 +67,7 @@ skins\NamePlates.lua
 skins\NewPlayerGuide.lua
 skins\OrderHallTalents.lua
 skins\PerksProgram.lua
+skins\PetStable.lua
 skins\PingTutorial.lua
 skins\PlayerChoice.lua
 skins\Professions.lua
