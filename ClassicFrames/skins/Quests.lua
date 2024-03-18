@@ -17,8 +17,6 @@ QuestFrameTitleText:SetTextColor(255, 255, 255, 1)
 ApplyTitleBg(QuestFrame)
 ApplyNineSlicePortrait(QuestFrame)
 
-QuestScrollFrame:SetFrameLevel(501)
-
 QuestScrollFrame.ScrollBar:SetSize(25, 560)
 QuestScrollFrame.ScrollBar:ClearAllPoints()
 QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", 2, 2)
