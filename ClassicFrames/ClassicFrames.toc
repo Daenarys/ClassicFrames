@@ -62,6 +62,7 @@ skins\MajorRenown.lua
 skins\Merchant.lua
 skins\Minimap.lua
 skins\MirrorTimers.lua
+skins\Money.lua
 skins\NamePlates.lua
 skins\NewPlayerGuide.lua
 skins\OrderHallTalents.lua
