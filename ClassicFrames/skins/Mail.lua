@@ -34,6 +34,13 @@ if _G.MailFrame then
 	ApplyScrollBarArrow(SendMailScrollFrame.ScrollBar)
 	ApplyScrollBarTrack(SendMailScrollFrame.ScrollBar.Track)
 	ApplyScrollBarThumb(SendMailScrollFrame.ScrollBar.Track.Thumb)
+
+	SendMailMoneyGold.texture:SetTexture("Interface\\MoneyFrame\\UI-MoneyIcons")
+	SendMailMoneyGold.texture:SetTexCoord(0, 0.25, 0, 1)
+	SendMailMoneySilver.texture:SetTexture("Interface\\MoneyFrame\\UI-MoneyIcons")
+	SendMailMoneySilver.texture:SetTexCoord(0.25, 0.5, 0, 1)
+	SendMailMoneyCopper.texture:SetTexture("Interface\\MoneyFrame\\UI-MoneyIcons")
+	SendMailMoneyCopper.texture:SetTexCoord(0.5, 0.75, 0, 1)
 end
 
 if _G.OpenMailFrame then
