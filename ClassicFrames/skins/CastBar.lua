@@ -86,7 +86,6 @@ local function SkinTargetCastbar(frame)
     end)
 
     hooksecurefunc(frame, 'UpdateShownState', function(self)
-        self:SetFrameStrata("HIGH")
         self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
         self.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
         self.Spark:SetSize(32, 32)
