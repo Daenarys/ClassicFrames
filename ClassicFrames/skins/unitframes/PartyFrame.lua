@@ -38,6 +38,8 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 	frame.ManaBar.CenterText:SetParent(frame)
 
 	hooksecurefunc(frame, "ToPlayerArt", function(self)
+		self.Texture:SetTexture("Interface\\TargetingFrame\\UI-PartyFrame")
+
 		self.Name:SetWidth(0)
 
 		self.Flash:SetSize(128, 64)
