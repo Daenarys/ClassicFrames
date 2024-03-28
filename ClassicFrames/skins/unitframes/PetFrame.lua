@@ -1,7 +1,5 @@
 if not _G.PetFrame then return end
 
-local _, class = UnitClass("player");
-
 PetFrame:SetSize(128, 53)
 
 PetPortrait:ClearAllPoints()
@@ -15,13 +13,12 @@ PetFrameTexture:SetSize(128, 64)
 PetFrameTexture:SetTexture("Interface\\TargetingFrame\\UI-SmallTargetingFrame")
 PetFrameTexture:ClearAllPoints()
 PetFrameTexture:SetPoint("TOPLEFT", 0, -2)
-PetFrameTexture:SetDrawLayer("ARTWORK", 7)
 
 PetFrameFlash:SetSize(128, 64)
 PetFrameFlash:SetTexture("Interface\\TargetingFrame\\UI-PartyFrame-Flash")
 PetFrameFlash:SetPoint("TOPLEFT", -4, 11)
 PetFrameFlash:SetTexCoord(0, 1, 1, 0)
-PetFrameFlash:SetDrawLayer("BACKGROUND", 0)
+PetFrameFlash:SetDrawLayer("BACKGROUND")
 
 PetFrameHealthBar:SetSize(69, 8)
 PetFrameHealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
