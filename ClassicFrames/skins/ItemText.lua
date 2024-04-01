@@ -2,11 +2,14 @@ if not _G.ItemTextFrame then return end
 
 ApplyCloseButton(ItemTextFrameCloseButton)
 
+ItemTextFrame:DisableDrawLayer("OVERLAY")
+
 ItemTextFrame.PortraitContainer.CircleMask:Hide()
 
-ItemTextFramePortrait:SetSize(61, 61)
+ItemTextFramePortrait:SetSize(58, 58)
 ItemTextFramePortrait:ClearAllPoints()
-ItemTextFramePortrait:SetPoint("TOPLEFT", -6, 8)
+ItemTextFramePortrait:SetPoint("TOPLEFT", -5, 5)
+ItemTextFramePortrait:SetTexture("Interface\\Spellbook\\Spellbook-Icon")
 
 ItemTextFrameTitleText:ClearAllPoints()
 ItemTextFrameTitleText:SetPoint("CENTER", -10, 0)
