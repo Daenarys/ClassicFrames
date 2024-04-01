@@ -172,7 +172,6 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	end
 
 	ComboPointPlayerFrame:Setup()
-	CfEssencePlayerFrame:Setup()
 end)
 
 hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
@@ -215,7 +214,6 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	end
 
 	ComboPointPlayerFrame:Setup()
-	CfEssencePlayerFrame:Setup()
 end)
 
 hooksecurefunc("PlayerFrame_UpdateLevel", function()
@@ -386,10 +384,6 @@ PlayerFrame:HookScript("OnEvent", function(self)
     if (classPowerBar) then
         classPowerBar:UnregisterAllEvents()
         classPowerBar:Hide()
-    end
-    if (EssencePlayerFrame) then
-        EssencePlayerFrame:UnregisterAllEvents()
-        EssencePlayerFrame:Hide()
     end
     if (RuneFrame) then
         RuneFrame:UnregisterAllEvents()

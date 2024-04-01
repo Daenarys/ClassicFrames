@@ -107,7 +107,6 @@ skins\unitframes\PetFrame.lua
 skins\unitframes\classbars\ClassPowerBar.xml
 skins\unitframes\classbars\Combo.xml
 skins\unitframes\classbars\DK.xml
-skins\unitframes\classbars\Evoker.xml
 skins\unitframes\classbars\Mage.xml
 skins\unitframes\classbars\Monk.xml
 skins\unitframes\classbars\Paladin.xml
