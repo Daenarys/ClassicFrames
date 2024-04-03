@@ -50,6 +50,12 @@ local function SkinFrame(frame)
 	contextual:SetFrameStrata("MEDIUM")
 	frame.TargetFrameContainer:SetFrameStrata("MEDIUM")
 
+	frame.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND")
+
+	frame.TargetFrameContainer.Portrait:SetSize(64, 64)
+	frame.TargetFrameContainer.Portrait:ClearAllPoints()
+	frame.TargetFrameContainer.Portrait:SetPoint("TOPRIGHT", -22, -16)
+
 	contextual.NumericalThreat:ClearAllPoints()
 	contextual.NumericalThreat:SetPoint("BOTTOM", frame, "TOP", -30, -26)
 
@@ -67,6 +73,25 @@ local function SkinFrame(frame)
 	contentMain.ReputationColor:ClearAllPoints()
 	contentMain.ReputationColor:SetPoint("TOPRIGHT", -86, -26)
 
+	local leaderIcon = contextual.LeaderIcon;
+	leaderIcon:SetSize(16, 16)
+	leaderIcon:SetTexture("Interface\\GroupFrame\\UI-Group-LeaderIcon")
+	leaderIcon:ClearAllPoints()
+	leaderIcon:SetPoint("TOPRIGHT", -24, -14)
+
+	local guideIcon = contextual.GuideIcon;
+	guideIcon:SetSize(19, 19)
+	guideIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
+	guideIcon:SetTexCoord(0, 0.296875, 0.015625, 0.3125)
+	guideIcon:ClearAllPoints()
+	guideIcon:SetPoint("TOPRIGHT", -20, -14)
+
+	local questIcon = contextual.QuestIcon;
+	questIcon:SetSize(32, 32)
+	questIcon:SetTexture("Interface\\TargetingFrame\\PortraitQuestBadge")
+	questIcon:ClearAllPoints()
+	questIcon:SetPoint("TOP", 32, -16)
+
 	hooksecurefunc(frame, "CheckBattlePet", function(self)
 		local petBattle = contextual.PetBattleIcon;
 
@@ -77,34 +102,11 @@ local function SkinFrame(frame)
 	hooksecurefunc(frame, "CheckClassification", function(self)
 		local classification = UnitClassification(self.unit)
 
-		local leaderIcon = contextual.LeaderIcon;
-		leaderIcon:SetSize(16, 16)
-		leaderIcon:SetTexture("Interface\\GroupFrame\\UI-Group-LeaderIcon")
-		leaderIcon:ClearAllPoints()
-		leaderIcon:SetPoint("TOPRIGHT", -24, -14)
-
-		local guideIcon = contextual.GuideIcon;
-		guideIcon:SetSize(19, 19)
-		guideIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
-		guideIcon:SetTexCoord(0, 0.296875, 0.015625, 0.3125)
-		guideIcon:ClearAllPoints()
-		guideIcon:SetPoint("TOPRIGHT", -20, -14)
-
-		local questIcon = contextual.QuestIcon;
-		questIcon:SetSize(32, 32)
-		questIcon:SetTexture("Interface\\TargetingFrame\\PortraitQuestBadge")
-		questIcon:ClearAllPoints()
-		questIcon:SetPoint("TOP", 32, -16)
-
 		FrameHealthBar:SetAlpha(0)
 		FrameManaBar:SetAlpha(0)
 		contentMain.ReputationColor:Show()
 		contextual.BossIcon:Hide()
 		self.TargetFrameContainer.BossPortraitFrameTexture:Hide()
-
-		self.TargetFrameContainer.Portrait:SetSize(64, 64)
-		self.TargetFrameContainer.Portrait:ClearAllPoints()
-		self.TargetFrameContainer.Portrait:SetPoint("TOPRIGHT", -22, -16)
 
 		CfTargetFrameBackground:SetSize(119, 25)
 		CfTargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
@@ -123,7 +125,6 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetTexCoord(0, 0.9453125, 0.181640625, 0.400390625)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -2, 5)
-			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "worldboss" or classification == "elite" ) then
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Elite")
@@ -135,7 +136,6 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetTexCoord(0, 0.9453125, 0.181640625, 0.400390625)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -2, 5)
-			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "rare" ) then
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare")
@@ -147,7 +147,6 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetTexCoord(0, 0.9453125, 0, 0.181640625)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -4)
-			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		elseif ( classification == "minus" ) then
 			CfTargetFrameBackground:SetSize(119, 12)
 			CfTargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 47)
@@ -163,7 +162,6 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetTexCoord(0, 1, 0, 1)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -4)
-			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 			contentMain.ReputationColor:Hide()
 		else
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
@@ -176,7 +174,6 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetTexCoord(0, 0.9453125, 0, 0.181640625)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -4)
-			self.TargetFrameContainer.Flash:SetDrawLayer("BACKGROUND", 0)
 		end
 	end)
 
