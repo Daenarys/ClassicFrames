@@ -130,13 +130,3 @@ for i = 1, 3 do
 		PVPScoreFrameTab3:SetWidth(40 + PVPScoreFrameTab3:GetFontString():GetStringWidth())
 	end)
 end
-
-ReadyStatus.CloseButton:SetSize(32, 32)
-ReadyStatus.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-ReadyStatus.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-HideButton-Up")
-ReadyStatus.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-HideButton-Down")
-ReadyStatus.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-ReadyStatus.CloseButton:ClearAllPoints()
-ReadyStatus.CloseButton:SetPoint("TOPRIGHT", -2, -2)
-
-ApplyDialogBorder(ReadyStatus.Border)

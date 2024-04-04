@@ -169,7 +169,7 @@ _G.QuickJoinToastButton:HookScript("OnUpdate", function(self)
 end)
 
 ApplyDialogBorder(ChatConfigFrame.Border)
-ApplyDialogHeader(ChatConfigFrame)
+ApplyDialogHeader(ChatConfigFrame.Header)
 
 _G.ChatConfigFrame:HookScript("OnShow", function(self)
     self:ClearAllPoints()
