@@ -68,7 +68,6 @@ skins\NamePlates.lua
 skins\NewPlayerGuide.lua
 skins\ObjectiveTracker.lua
 skins\OrderHallTalents.lua
-skins\PerksProgram.lua
 skins\PetStable.lua
 skins\PingTutorial.lua
 skins\PlayerChoice.lua
@@ -92,6 +91,7 @@ skins\TalkingHead.lua
 skins\TimeManager.lua
 skins\TotemFrame.lua
 skins\Trade.lua
+skins\TradingPost.lua
 skins\VoidStorage.lua
 skins\Wardrobe.lua
 skins\WeeklyRewards.lua
