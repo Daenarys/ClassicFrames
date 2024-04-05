@@ -57,6 +57,12 @@ f:SetScript("OnEvent", function(self, event, name)
 		PerksProgramFrame.FooterFrame.RotateButtonContainer.RotateRightButton.HighlightTexture:SetAlpha(1)
 		PerksProgramFrame.FooterFrame.RotateButtonContainer.RotateRightButton.Icon:Hide()
 
+		PerksProgramFrame.FooterFrame.ToggleHideArmor:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+		PerksProgramFrame.FooterFrame.ToggleHideArmor:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+		PerksProgramFrame.FooterFrame.ToggleHideArmor:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+		PerksProgramFrame.FooterFrame.ToggleHideArmor:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+		PerksProgramFrame.FooterFrame.ToggleHideArmor:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
+
 		PerksProgramFrame.FooterFrame.TogglePlayerPreview:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
 		PerksProgramFrame.FooterFrame.TogglePlayerPreview:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
 		PerksProgramFrame.FooterFrame.TogglePlayerPreview:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
