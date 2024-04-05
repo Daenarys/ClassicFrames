@@ -145,7 +145,7 @@ RaidInfoCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeBu
 RaidInfoCloseButton:ClearAllPoints()
 RaidInfoCloseButton:SetPoint("TOPRIGHT", -2, -3)
 
-ApplyDialogHeader(RaidInfoFrame.Header)
+ApplyDialogHeader(RaidInfoFrame)
 ApplyDialogBorder(RaidInfoFrame.Border)
 
 if not RaidInfoDetailCorner then

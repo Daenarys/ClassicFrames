@@ -25,7 +25,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		CalendarViewHolidayCloseButton.Corner:SetPoint("TOPRIGHT", -4, -4)
 		
 		ApplyDialogBorder(CalendarViewHolidayFrame.Border)
-		ApplyDialogHeader(CalendarViewHolidayFrame.Header)
+		ApplyDialogHeader(CalendarViewHolidayFrame)
 
 		CalendarViewRaidCloseButton:SetSize(32, 32)
 		CalendarViewRaidCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
@@ -42,7 +42,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		CalendarViewRaidCloseButton.Corner:SetPoint("TOPRIGHT", -4, -4)
 
 		ApplyDialogBorder(CalendarViewRaidFrame.Border)
-		ApplyDialogHeader(CalendarViewRaidFrame.Header)
+		ApplyDialogHeader(CalendarViewRaidFrame)
 
 		CalendarEventPickerFrame.ScrollBar:SetSize(25, 560)
 		CalendarEventPickerFrame.ScrollBar:ClearAllPoints()
@@ -54,6 +54,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(CalendarEventPickerFrame.ScrollBar.Track.Thumb)
 
 		ApplyDialogBorder(CalendarEventPickerFrame.Border)
-		ApplyDialogHeader(CalendarEventPickerFrame.Header)
+		ApplyDialogHeader(CalendarEventPickerFrame)
 	end
 end)

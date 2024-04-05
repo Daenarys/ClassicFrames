@@ -66,8 +66,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonRecruiterFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 			GarrisonRecruiterFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 			GarrisonRecruiterFrameCloseButton:ClearAllPoints()
-			GarrisonRecruiterFrameCloseButton:SetPoint("TOPRIGHT", 5.6, 5)
-			GarrisonRecruiterFrameCloseButton:SetFrameLevel(2)
+			GarrisonRecruiterFrameCloseButton:SetPoint("TOPRIGHT", 4, 5)
 			
 			GarrisonRecruiterFrame.PortraitContainer.CircleMask:Hide()
 
