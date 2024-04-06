@@ -7,6 +7,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			if displayMode == COMMUNITIES_FRAME_DISPLAY_MODES.MINIMIZED then
 				ApplyCloseButton(CommunitiesFrameCloseButton)
 
+				self.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 				self.TitleContainer:ClearAllPoints()
 				self.TitleContainer:SetPoint("TOPLEFT", self, "TOPLEFT", 58, 0)
 				self.TitleContainer:SetPoint("TOPRIGHT", self, "TOPRIGHT", -58, 0)

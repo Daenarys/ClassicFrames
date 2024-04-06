@@ -85,12 +85,6 @@ function ApplyNineSlicePortrait(frame)
 end
 
 function ApplyNineSliceNoPortrait(frame)
-	if not (frame == SettingsPanel or GroupLootHistoryFrame) then
-		if (frame.Bg:GetTexture() == 374155) then
-			frame.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-		end
-	end
-
 	if (frame.TopTileStreaks) then
 		frame.TopTileStreaks:ClearAllPoints()
 		frame.TopTileStreaks:SetPoint("TOPLEFT", 0, -21)
