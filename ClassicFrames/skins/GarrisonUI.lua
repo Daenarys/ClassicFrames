@@ -302,5 +302,34 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarTrack(GarrisonLandingPageFollowerList.ScrollBar.Track)
 			ApplyScrollBarThumb(GarrisonLandingPageFollowerList.ScrollBar.Track.Thumb)
 		end
+		if _G.GarrisonRecruitSelectFrame then
+			GarrisonRecruitSelectFrame.CloseButton:SetSize(32, 32)
+			GarrisonRecruitSelectFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
+			GarrisonRecruitSelectFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
+			GarrisonRecruitSelectFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
+			GarrisonRecruitSelectFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+			GarrisonRecruitSelectFrame.CloseButton:ClearAllPoints()
+			GarrisonRecruitSelectFrame.CloseButton:SetPoint("TOPRIGHT", 4, 5)
+
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:SetSize(25, 560)
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:ClearAllPoints()
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:SetPoint("TOPLEFT", GarrisonRecruitSelectFrame.FollowerList.ScrollBox, "TOPRIGHT", -4, 0)
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonRecruitSelectFrame.FollowerList.ScrollBox, "BOTTOMRIGHT", -1, -3)
+
+			if (GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG == nil) then
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG = GarrisonRecruitSelectFrame.FollowerList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG:SetColorTexture(0, 0, 0, .75)
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG:SetAllPoints()
+			end
+
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track:SetWidth(18)
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track:ClearAllPoints()
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
+
+			ApplyScrollBarArrow(GarrisonRecruitSelectFrame.FollowerList.ScrollBar)
+			ApplyScrollBarTrack(GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track)
+			ApplyScrollBarThumb(GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track.Thumb)
+		end
 	end
 end)
