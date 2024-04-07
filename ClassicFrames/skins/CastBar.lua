@@ -1,5 +1,5 @@
 local function AdjustPosition(self)
-    local parentFrame = self:GetParent();
+    local parentFrame = self:GetParent()
     if (parentFrame.haveToT) then
         if (parentFrame.buffsOnTop or parentFrame.auraRows <= 1) then
             self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 45, -24)
