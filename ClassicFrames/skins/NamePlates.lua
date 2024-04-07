@@ -9,8 +9,13 @@ hooksecurefunc("CompactUnitFrame_UpdateClassificationIndicator", function(frame)
 end)
 
 local function SkinCastbar(self)
-	if not self:IsForbidden() then 
-		self.Background:SetColorTexture(0.2, 0.2, 0.2, 0.85)
+	if not self:IsForbidden() then
+		if (self.NewBackground == nil) then
+			self.NewBackground = self:CreateTexture(nil, "BACKGROUND")
+			self.NewBackground:SetColorTexture(0.2, 0.2, 0.2, 0.85)
+			self.NewBackground:SetAllPoints()
+		end
+		self.Background:Hide()
 		self.Icon:ClearAllPoints()
 		self.Icon:SetPoint("LEFT", -2, -1)
 
