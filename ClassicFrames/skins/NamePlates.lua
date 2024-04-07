@@ -8,9 +8,9 @@ hooksecurefunc("CompactUnitFrame_UpdateClassificationIndicator", function(frame)
 	end
 end)
 
-local NameplateFix = CreateFrame("Frame")
-NameplateFix:RegisterEvent("PLAYER_LOGIN")
-NameplateFix:SetScript("OnEvent", function(self, event)
+local LoadCastbar = CreateFrame("Frame")
+LoadCastbar:RegisterEvent("PLAYER_LOGIN")
+LoadCastbar:SetScript("OnEvent", function(self, event)
 	local Plater = IsAddOnLoaded("Plater")
 	local NeatPlates = IsAddOnLoaded("NeatPlates")
 	local Kui = IsAddOnLoaded("Kui_Nameplates")
@@ -78,9 +78,9 @@ NameplateFix:SetScript("OnEvent", function(self, event)
 		end
 	end
 
-	local NameplateAddedFrame = CreateFrame("Frame")
-	NameplateAddedFrame:RegisterEvent("NAME_PLATE_UNIT_ADDED")
-	NameplateAddedFrame:SetScript("OnEvent", function(self, event, plate)
+	local SkinCastbar = CreateFrame("Frame")
+	SkinCastbar:RegisterEvent("NAME_PLATE_UNIT_ADDED")
+	SkinCastbar:SetScript("OnEvent", function(self, event, plate)
 		if event == "NAME_PLATE_UNIT_ADDED" then
 			local unitId = plate
 			local nameplate = C_NamePlate.GetNamePlateForUnit(unitId, false)
@@ -88,9 +88,9 @@ NameplateFix:SetScript("OnEvent", function(self, event)
 			if not nameplate or frame:IsForbidden() then return end
 
 			if frame.castBar then 
-				if not frame.castBar.OldCastbars_Hooked then
+				if not frame.castBar.Hooked then
 					frame.castBar:HookScript("OnEvent", SkinNameplateCastbar)
-				frame.castBar.OldCastbars_Hooked = true
+				frame.castBar.Hooked = true
 				end
 				SkinNameplateCastbar(frame.castBar)
 			end
