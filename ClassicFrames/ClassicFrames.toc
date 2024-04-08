@@ -19,7 +19,6 @@ skins\Bags.lua
 skins\Bank.lua
 skins\Buffs.lua
 skins\Calendar.lua
-skins\CastBar.lua
 skins\Catalyst.lua
 skins\Character.lua
 skins\Chat.lua
@@ -64,7 +63,6 @@ skins\Merchant.lua
 skins\Minimap.lua
 skins\MirrorTimers.lua
 skins\Money.lua
-skins\NamePlates.lua
 skins\NewPlayerGuide.lua
 skins\ObjectiveTracker.lua
 skins\OrderHallTalents.lua
@@ -102,6 +100,8 @@ skins\unitframes\UnitFrame.xml
 skins\unitframes\PlayerFrame.xml
 skins\unitframes\TargetFrame.xml
 skins\unitframes\BossFrame.lua
+skins\unitframes\CastBar.lua
+skins\unitframes\NamePlate.lua
 skins\unitframes\PartyFrame.lua
 skins\unitframes\PetFrame.lua
 skins\unitframes\classbars\ClassPowerBar.xml
