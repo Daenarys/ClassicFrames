@@ -9,9 +9,14 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonBuildingFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 			GarrisonBuildingFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 			GarrisonBuildingFrame.CloseButton:ClearAllPoints()
-			GarrisonBuildingFrame.CloseButton:SetPoint("TOPRIGHT", 5, 5)
+			GarrisonBuildingFrame.CloseButton:SetPoint("TOPRIGHT", 4, 5)
 
-			GarrisonBuildingFrameTutorialButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder.png")
+			GarrisonBuildingFrameTutorialButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
+
+			_G.GarrisonBuildingFrame:HookScript("OnShow", function(self)
+				self:ClearAllPoints()
+				self:SetPoint("CENTER")
+			end)
 		end
 		if _G.GarrisonMissionFrame then
 			GarrisonMissionFrame.CloseButton:SetSize(32, 32)
@@ -20,7 +25,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonMissionFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 			GarrisonMissionFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 			GarrisonMissionFrame.CloseButton:ClearAllPoints()
-			GarrisonMissionFrame.CloseButton:SetPoint("TOPRIGHT", 5, 5)
+			GarrisonMissionFrame.CloseButton:SetPoint("TOPRIGHT", 4, 5)
 
 			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
@@ -58,6 +63,11 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarArrow(GarrisonMissionFrameFollowers.ScrollBar)
 			ApplyScrollBarTrack(GarrisonMissionFrameFollowers.ScrollBar.Track)
 			ApplyScrollBarThumb(GarrisonMissionFrameFollowers.ScrollBar.Track.Thumb)
+
+			_G.GarrisonMissionFrame:HookScript("OnShow", function(self)
+				self:ClearAllPoints()
+				self:SetPoint("CENTER")
+			end)
 		end
 		if _G.GarrisonRecruiterFrame then
 			GarrisonRecruiterFrameCloseButton:SetSize(32, 32)
@@ -111,6 +121,11 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:ClearAllPoints()
 			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 5, 5)
+
+			_G.GarrisonShipyardFrame:HookScript("OnShow", function(self)
+				self:ClearAllPoints()
+				self:SetPoint("CENTER")
+			end)
 		end
 		if _G.OrderHallMissionFrame then
 			OrderHallMissionFrame.CloseButton:SetSize(32, 32)
