@@ -3,13 +3,7 @@ f:RegisterEvent("ADDON_LOADED")
 f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_GarrisonUI" then
 		if _G.GarrisonBuildingFrame then
-			GarrisonBuildingFrame.CloseButton:SetSize(32, 32)
-			GarrisonBuildingFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-			GarrisonBuildingFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			GarrisonBuildingFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			GarrisonBuildingFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-			GarrisonBuildingFrame.CloseButton:ClearAllPoints()
-			GarrisonBuildingFrame.CloseButton:SetPoint("TOPRIGHT", 4, 5)
+			ApplyCloseButton(GarrisonBuildingFrame.CloseButton)
 
 			GarrisonBuildingFrameTutorialButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 
@@ -19,20 +13,14 @@ f:SetScript("OnEvent", function(self, event, name)
 			end)
 		end
 		if _G.GarrisonMissionFrame then
-			GarrisonMissionFrame.CloseButton:SetSize(32, 32)
-			GarrisonMissionFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-			GarrisonMissionFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			GarrisonMissionFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			GarrisonMissionFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-			GarrisonMissionFrame.CloseButton:ClearAllPoints()
-			GarrisonMissionFrame.CloseButton:SetPoint("TOPRIGHT", 4, 5)
+			ApplyCloseButton(GarrisonMissionFrame.CloseButton)
 
 			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
 			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:ClearAllPoints()
-			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 5, 5)
+			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 4, 5)
 
 			GarrisonMissionFrameMissions.ScrollBar:SetSize(25, 560)
 			GarrisonMissionFrameMissions.ScrollBar:ClearAllPoints()
@@ -70,13 +58,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			end)
 		end
 		if _G.GarrisonRecruiterFrame then
-			GarrisonRecruiterFrameCloseButton:SetSize(32, 32)
-			GarrisonRecruiterFrameCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-			GarrisonRecruiterFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			GarrisonRecruiterFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			GarrisonRecruiterFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-			GarrisonRecruiterFrameCloseButton:ClearAllPoints()
-			GarrisonRecruiterFrameCloseButton:SetPoint("TOPRIGHT", 4, 5)
+			ApplyCloseButton(GarrisonRecruiterFrameCloseButton)
 			
 			GarrisonRecruiterFrame.PortraitContainer.CircleMask:Hide()
 
@@ -92,13 +74,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyNineSlicePortrait(GarrisonRecruiterFrame)
 		end
 		if _G.GarrisonShipyardFrame then
-			GarrisonShipyardFrame.BorderFrame.CloseButton2:SetSize(32, 32)
-			GarrisonShipyardFrame.BorderFrame.CloseButton2:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-			GarrisonShipyardFrame.BorderFrame.CloseButton2:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			GarrisonShipyardFrame.BorderFrame.CloseButton2:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			GarrisonShipyardFrame.BorderFrame.CloseButton2:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-			GarrisonShipyardFrame.BorderFrame.CloseButton2:ClearAllPoints()
-			GarrisonShipyardFrame.BorderFrame.CloseButton2:SetPoint("TOPRIGHT", 4, 5)
+			ApplyCloseButton(GarrisonShipyardFrame.BorderFrame.CloseButton2)
 
 			GarrisonShipyardFrameFollowers.ScrollBar:SetSize(25, 560)
 			GarrisonShipyardFrameFollowers.ScrollBar:ClearAllPoints()
@@ -120,7 +96,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:ClearAllPoints()
-			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 5, 5)
+			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 4, 5)
 
 			_G.GarrisonShipyardFrame:HookScript("OnShow", function(self)
 				self:ClearAllPoints()
@@ -128,20 +104,14 @@ f:SetScript("OnEvent", function(self, event, name)
 			end)
 		end
 		if _G.OrderHallMissionFrame then
-			OrderHallMissionFrame.CloseButton:SetSize(32, 32)
-			OrderHallMissionFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-			OrderHallMissionFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			OrderHallMissionFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			OrderHallMissionFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-			OrderHallMissionFrame.CloseButton:ClearAllPoints()
-			OrderHallMissionFrame.CloseButton:SetPoint("TOPRIGHT", 5, 5)
+			ApplyCloseButton(OrderHallMissionFrame.CloseButton)
 
 			OrderHallMissionFrame.MissionTab.MissionPage.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 			OrderHallMissionFrame.MissionTab.MissionPage.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
 			OrderHallMissionFrame.MissionTab.MissionPage.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 			OrderHallMissionFrame.MissionTab.MissionPage.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 			OrderHallMissionFrame.MissionTab.MissionPage.CloseButton:ClearAllPoints()
-			OrderHallMissionFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 5, 5)
+			OrderHallMissionFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 4, 5)
 
 			OrderHallMissionFrameMissions.ScrollBar:SetSize(25, 560)
 			OrderHallMissionFrameMissions.ScrollBar:ClearAllPoints()
@@ -186,20 +156,14 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end
 		if _G.BFAMissionFrame then
-			BFAMissionFrame.CloseButton:SetSize(32, 32)
-			BFAMissionFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-			BFAMissionFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			BFAMissionFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			BFAMissionFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-			BFAMissionFrame.CloseButton:ClearAllPoints()
-			BFAMissionFrame.CloseButton:SetPoint("TOPRIGHT", 5, 5)
+			ApplyCloseButton(BFAMissionFrame.CloseButton)
 
 			BFAMissionFrame.MissionTab.MissionPage.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 			BFAMissionFrame.MissionTab.MissionPage.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
 			BFAMissionFrame.MissionTab.MissionPage.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 			BFAMissionFrame.MissionTab.MissionPage.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 			BFAMissionFrame.MissionTab.MissionPage.CloseButton:ClearAllPoints()
-			BFAMissionFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 5, 5)
+			BFAMissionFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 4, 5)
 
 			BFAMissionFrameMissions.ScrollBar:SetSize(25, 560)
 			BFAMissionFrameMissions.ScrollBar:ClearAllPoints()
@@ -244,11 +208,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end
 		if _G.CovenantMissionFrame then
-			CovenantMissionFrame.CloseButton:SetSize(32, 32)
-			CovenantMissionFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-			CovenantMissionFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			CovenantMissionFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			CovenantMissionFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+			ApplyCloseButton(CovenantMissionFrame.CloseButton)
 
 			CovenantMissionFrame.MissionTab.MissionPage.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 			CovenantMissionFrame.MissionTab.MissionPage.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
@@ -318,13 +278,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarThumb(GarrisonLandingPageFollowerList.ScrollBar.Track.Thumb)
 		end
 		if _G.GarrisonRecruitSelectFrame then
-			GarrisonRecruitSelectFrame.CloseButton:SetSize(32, 32)
-			GarrisonRecruitSelectFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-			GarrisonRecruitSelectFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			GarrisonRecruitSelectFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			GarrisonRecruitSelectFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-			GarrisonRecruitSelectFrame.CloseButton:ClearAllPoints()
-			GarrisonRecruitSelectFrame.CloseButton:SetPoint("TOPRIGHT", 4, 5)
+			ApplyCloseButton(GarrisonRecruitSelectFrame.CloseButton)
 
 			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:SetSize(25, 560)
 			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:ClearAllPoints()
