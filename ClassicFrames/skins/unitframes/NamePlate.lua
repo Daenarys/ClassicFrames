@@ -21,10 +21,6 @@ local function SkinCastbar(self)
 
 		hooksecurefunc(self, 'UpdateShownState', function()
 			self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-			if self.Icon then
-				self.Icon:ClearAllPoints()
-				self.Icon:SetPoint("LEFT", -2, -1)
-			end
 			self.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
 			self.Spark:SetSize(16, 16)
 			self.Spark:SetBlendMode("ADD")
