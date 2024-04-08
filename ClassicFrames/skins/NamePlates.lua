@@ -8,33 +8,41 @@ hooksecurefunc("CompactUnitFrame_UpdateClassificationIndicator", function(frame)
 	end
 end)
 
-local function SkinCastbar(self)
-	if not self:IsForbidden() then
-		if (self.NewBackground == nil) then
-			self.NewBackground = self:CreateTexture(nil, "BACKGROUND")
-			self.NewBackground:SetColorTexture(0.2, 0.2, 0.2, 0.85)
-			self.NewBackground:SetAllPoints()
-		end
+local function SetLook(self)
+	if self.Background then
 		self.Background:Hide()
+	end
+	if self.Icon then
 		self.Icon:ClearAllPoints()
 		self.Icon:SetPoint("LEFT", -2, -1)
+	end
+	if (self.NewBackground == nil) then
+		self.NewBackground = self:CreateTexture(nil, "BACKGROUND")
+		self.NewBackground:SetColorTexture(0.2, 0.2, 0.2, 0.85)
+		self.NewBackground:SetAllPoints()
+	end
+end
 
-	    hooksecurefunc(self, 'UpdateShownState', function()
-	        self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-	        self.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
-	        self.Spark:SetSize(16, 16)
-	        self.Spark:SetBlendMode("ADD")
-	        if self.channeling then
-	            self.Spark:Hide()
-	        end
-	    end)
+local function SkinCastbar(self)
+	if not self:IsForbidden() then
+		SetLook(self)
 
-	    hooksecurefunc(self, 'PlayInterruptAnims', function()
-	        self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-	        self.Spark:Hide()
-	    end)
+		hooksecurefunc(self, 'UpdateShownState', function()
+			self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+			self.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
+			self.Spark:SetSize(16, 16)
+			self.Spark:SetBlendMode("ADD")
+			if self.channeling then
+				self.Spark:Hide()
+			end
+		end)
 
-	    hooksecurefunc(self, 'PlayFinishAnim', function()
+		hooksecurefunc(self, 'PlayInterruptAnims', function()
+			self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+			self.Spark:Hide()
+		end)
+
+		hooksecurefunc(self, 'PlayFinishAnim', function()
 			self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 			if (self.NewFlash == nil) then
 				self.NewFlash = self.Flash:GetParent():CreateTexture(nil, "OVERLAY")
@@ -52,21 +60,20 @@ local function SkinCastbar(self)
 			end
 			self.NewFlashAnim:Play()
 			self.NewFlash:SetVertexColor(self:GetStatusBarColor())
-	    end)
+		end)
 
-	    hooksecurefunc(self, 'GetTypeInfo', function()
-	        self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-	        if ( self.barType == "interrupted") then
-	            self:SetValue(100)
-	            self:SetStatusBarColor(1, 0, 0)
-	        elseif (self.barType == "channel") then
-	            self:SetStatusBarColor(0, 1, 0)
-	        elseif (self.barType == "uninterruptable") then
-	            self:SetStatusBarColor(0.7, 0.7, 0.7)
-	        else
-	            self:SetStatusBarColor(1, 0.7, 0)
-	        end
-	    end)
+		hooksecurefunc(self, 'GetTypeInfo', function(barType)
+			if ( self.barType == "interrupted") then
+				self:SetValue(100)
+				self:SetStatusBarColor(1, 0, 0)
+			elseif (self.barType == "channel") then
+				self:SetStatusBarColor(0, 1, 0)
+			elseif (self.barType == "uninterruptable") then
+				self:SetStatusBarColor(0.7, 0.7, 0.7)
+			else
+				self:SetStatusBarColor(1, 0.7, 0)
+			end
+		end)
 	end
 end
 
@@ -78,13 +85,11 @@ ApplyCastbarSkin:SetScript("OnEvent", function(self, event, plate)
 		local nameplate = C_NamePlate.GetNamePlateForUnit(unitId)
 		local frame = nameplate.UnitFrame
 		if not nameplate or frame:IsForbidden() then return end
-
-		if frame.castBar then 
-			if not frame.castBar.Hooked then
-				frame.castBar:HookScript("OnEvent", SkinCastbar)
-			frame.castBar.Hooked = true
+		if frame.castBar then
+			if not frame.castBar.skinned then
+				SkinCastbar(frame.castBar)
+				frame.castBar.skinned = true
 			end
-			SkinCastbar(frame.castBar)
 		end
 	end
 end)
