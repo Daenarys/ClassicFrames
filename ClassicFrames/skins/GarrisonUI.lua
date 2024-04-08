@@ -154,6 +154,11 @@ f:SetScript("OnEvent", function(self, event, name)
 					OrderHallMissionFrameTab3:SetPoint("LEFT", OrderHallMissionFrameTab2, "RIGHT", -15, 0)
 				end)
 			end
+
+			_G.OrderHallMissionFrame:HookScript("OnShow", function(self)
+				self:ClearAllPoints()
+				self:SetPoint("CENTER")
+			end)
 		end
 		if _G.BFAMissionFrame then
 			ApplyCloseButton(BFAMissionFrame.CloseButton)
@@ -206,6 +211,11 @@ f:SetScript("OnEvent", function(self, event, name)
 					BFAMissionFrameTab3:SetPoint("LEFT", BFAMissionFrameTab2, "RIGHT", -15, 0)
 				end)
 			end
+
+			_G.BFAMissionFrame:HookScript("OnShow", function(self)
+				self:ClearAllPoints()
+				self:SetPoint("CENTER")
+			end)
 		end
 		if _G.CovenantMissionFrame then
 			ApplyCloseButton(CovenantMissionFrame.CloseButton)
@@ -224,6 +234,11 @@ f:SetScript("OnEvent", function(self, event, name)
 					CovenantMissionFrameTab2:SetPoint("LEFT", CovenantMissionFrameTab1, "RIGHT", -15, 0)
 				end)
 			end
+
+			_G.CovenantMissionFrame:HookScript("OnShow", function(self)
+				self:ClearAllPoints()
+				self:SetPoint("CENTER")
+			end)
 		end
 		if _G.GarrisonLandingPage then
 			GarrisonLandingPage.CloseButton:SetSize(32, 32)
