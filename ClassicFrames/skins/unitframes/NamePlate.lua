@@ -8,27 +8,23 @@ hooksecurefunc("CompactUnitFrame_UpdateClassificationIndicator", function(frame)
 	end
 end)
 
-local function SetLook(self)
-	if self.Background then
-		self.Background:Hide()
-	end
-	if self.Icon then
-		self.Icon:ClearAllPoints()
-		self.Icon:SetPoint("LEFT", -2, -1)
-	end
-	if (self.NewBackground == nil) then
-		self.NewBackground = self:CreateTexture(nil, "BACKGROUND")
-		self.NewBackground:SetColorTexture(0.2, 0.2, 0.2, 0.85)
-		self.NewBackground:SetAllPoints()
-	end
-end
-
 local function SkinCastbar(self)
 	if not self:IsForbidden() then
-		SetLook(self)
+		if self.Background then
+			self.Background:Hide()
+		end
+		if (self.NewBackground == nil) then
+			self.NewBackground = self:CreateTexture(nil, "BACKGROUND")
+			self.NewBackground:SetColorTexture(0.2, 0.2, 0.2, 0.85)
+			self.NewBackground:SetAllPoints()
+		end
 
 		hooksecurefunc(self, 'UpdateShownState', function()
 			self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+			if self.Icon then
+				self.Icon:ClearAllPoints()
+				self.Icon:SetPoint("LEFT", -2, -1)
+			end
 			self.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
 			self.Spark:SetSize(16, 16)
 			self.Spark:SetBlendMode("ADD")
