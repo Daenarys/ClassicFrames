@@ -5,7 +5,7 @@ for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
 	local FrameManaBar = frame.TargetFrameContent.TargetFrameContentMain.ManaBar;
 	local nameText = frame.TargetFrameContent.TargetFrameContentMain.Name;
 
-	frame:SetScale(0.75);
+	frame:SetScale(0.75)
 
 	FrameHealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 	FrameHealthBar:SetStatusBarColor(0, 1, 0)
@@ -61,14 +61,14 @@ for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
 	end
 
 	if (frame.Background == nil) then
-		frame.Background = frame:CreateTexture(nil, "BACKGROUND");
+		frame.Background = frame:CreateTexture(nil, "BACKGROUND")
 		frame.Background:SetSize(119, 41)
-		frame.Background:SetPoint("TOPLEFT", frame, "TOPLEFT", 26, -29);
+		frame.Background:SetPoint("TOPLEFT", frame, "TOPLEFT", 26, -29)
 		frame.Background:SetColorTexture(0, 0, 0, 0.5)
 	end
 
 	frame.TargetFrameContainer.FrameTexture:SetSize(232, 100)
-	frame.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-UnitFrame-Boss");
+	frame.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-UnitFrame-Boss")
 	frame.TargetFrameContainer.FrameTexture:ClearAllPoints()
 	frame.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", frame.TargetFrameContainer, "TOPLEFT", 20, -7)
 	frame.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
@@ -76,11 +76,11 @@ for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
 	frame.TargetFrameContent.TargetFrameContentContextual.HighLevelTexture:SetParent(frame.TargetFrameContainer)
 	frame.TargetFrameContent.TargetFrameContentContextual.HighLevelTexture:SetSize(16, 16)
 	frame.TargetFrameContent.TargetFrameContentContextual.HighLevelTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Skull")
-	frame.TargetFrameContent.TargetFrameContentContextual.HighLevelTexture:ClearAllPoints();
+	frame.TargetFrameContent.TargetFrameContentContextual.HighLevelTexture:ClearAllPoints()
 	frame.TargetFrameContent.TargetFrameContentContextual.HighLevelTexture:SetPoint("CENTER", 31, -24)
 
 	frame.TargetFrameContent.TargetFrameContentMain.LevelText:SetParent(frame.TargetFrameContainer)
-	frame.TargetFrameContent.TargetFrameContentMain.LevelText:ClearAllPoints();
+	frame.TargetFrameContent.TargetFrameContentMain.LevelText:ClearAllPoints()
 	frame.TargetFrameContent.TargetFrameContentMain.LevelText:SetPoint("CENTER", 31, -24)
 
 	frame.TargetFrameContent.TargetFrameContentMain.ReputationColor:SetParent(frame.TargetFrameContainer)
