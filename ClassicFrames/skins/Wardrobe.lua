@@ -23,3 +23,5 @@ f:SetScript("OnEvent", function(self, event, name)
 		end)
 	end
 end)
+
+ApplyDialogBorder(WardrobeOutfitEditFrame.Border)
