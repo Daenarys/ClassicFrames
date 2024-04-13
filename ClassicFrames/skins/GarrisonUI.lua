@@ -315,5 +315,11 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarTrack(GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track)
 			ApplyScrollBarThumb(GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track.Thumb)
 		end
+		if _G.GarrisonMonumentFrame then
+			_G.GarrisonMonumentFrame:HookScript("OnShow", function(self)
+				self:ClearAllPoints()
+				self:SetPoint("BOTTOM", 0 , 125)
+			end)
+		end
 	end
 end)
