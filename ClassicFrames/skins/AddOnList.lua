@@ -2,8 +2,6 @@ if not _G.AddonList then return end
 
 ApplyCloseButton(AddonListCloseButton)
 
-AddonList.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-
 AddonList.TitleContainer:ClearAllPoints()
 AddonList.TitleContainer:SetPoint("TOPLEFT", AddonList, "TOPLEFT", 58, 0)
 AddonList.TitleContainer:SetPoint("TOPRIGHT", AddonList, "TOPRIGHT", -58, 0)
