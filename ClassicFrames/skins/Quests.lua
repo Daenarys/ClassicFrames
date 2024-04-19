@@ -100,10 +100,86 @@ ApplyScrollBarArrow(QuestRewardScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestRewardScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestRewardScrollFrame.ScrollBar.Track.Thumb)
 
+local defaultXSize = 510
+local defaultYSize = 620
+
+QuestFrameDetailPanel:HookScript("OnShow", function(self)
+	self.Bg:SetSize(defaultXSize, defaultYSize)
+	self.Bg:SetTexture("Interface/QuestFrame/QuestBG")
+end)
+
+QuestFrameProgressPanel:HookScript("OnShow", function(self)
+	self.Bg:SetSize(defaultXSize, defaultYSize)
+	self.Bg:SetTexture("Interface/QuestFrame/QuestBG")
+end)
+
+QuestFrameRewardPanel:HookScript("OnShow", function(self)
+	self.Bg:SetSize(defaultXSize, defaultYSize)
+	self.Bg:SetTexture("Interface/QuestFrame/QuestBG")
+end)
+
+local function GreetingPanel_OnShow(frame)
+	frame.Bg:SetSize(defaultXSize, defaultYSize)
+	frame.Bg:SetTexture("Interface/QuestFrame/QuestBG")
+end
+
+QuestFrameGreetingPanel:HookScript('OnShow', GreetingPanel_OnShow)
+hooksecurefunc('QuestFrameGreetingPanel_OnShow', GreetingPanel_OnShow)
+
+local function QuestMapFrame_OnShow(self)
+	QuestMapFrame.DetailsFrame.Bg:SetSize(287, 464)
+	QuestMapFrame.DetailsFrame.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\QuestMapLogAtlas")
+	QuestMapFrame.DetailsFrame.Bg:SetTexCoord(0.000976562, 0.28125, 0.456055, 0.90918)
+end
+
+QuestMapFrame.DetailsFrame:HookScript('OnShow', QuestMapFrame_OnShow)
+hooksecurefunc('QuestDetailsFrame_OnShow', QuestMapFrame_OnShow)
+
+hooksecurefunc(_G.CampaignCollapseButtonMixin, 'UpdateState', function(self, isCollapsed)
+	if isCollapsed then
+		self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
+		self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Down")
+	else
+		self:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
+		self:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Down")
+	end
+	self:SetSize(16, 16)
+end)
+
+hooksecurefunc('QuestLogQuests_Update', function()
+		for _, child in next, { _G.QuestMapFrame.QuestsFrame.Contents:GetChildren() } do
+		if child.ButtonText and not child.questID then
+			child:SetSize(16, 16)
+			for _, tex in next, { child:GetRegions() } do
+				if tex.GetAtlas then
+					local atlas = tex:GetAtlas()
+					if atlas == 'Campaign_HeaderIcon_Closed' then
+						tex:SetTexture("Interface\\Buttons\\UI-PlusButton-Up")
+					elseif atlas == 'Campaign_HeaderIcon_ClosedPressed' then
+						tex:SetTexture("Interface\\Buttons\\UI-PlusButton-Down")
+					elseif atlas == 'Campaign_HeaderIcon_Open' then
+						tex:SetTexture("Interface\\Buttons\\UI-MinusButton-Up")
+					elseif atlas == 'Campaign_HeaderIcon_OpenPressed' then
+						tex:SetTexture("Interface\\Buttons\\UI-MinusButton-Down")
+					end
+				end
+			end
+		end
+	end
+end)
+
 hooksecurefunc(_G.QuestSessionManager, 'NotifyDialogShow', function(_, dialog)
 	if dialog.isSkinned then return end
 
 	ApplyDialogBorder(dialog.Border)
+
+	if dialog.MinimizeButton then
+		dialog.MinimizeButton:SetSize(32, 32)
+		dialog.MinimizeButton:SetDisabledAtlas("UI-Panel-HideButton-Disabled")
+		dialog.MinimizeButton:SetNormalAtlas("UI-Panel-HideButton-Up")
+		dialog.MinimizeButton:SetPushedAtlas("UI-Panel-HideButton-Down")
+		dialog.MinimizeButton:SetHighlightAtlas("UI-Panel-MinimizeButton-Highlight", "ADD")
+	end
 
 	dialog.isSkinned = true
 end)

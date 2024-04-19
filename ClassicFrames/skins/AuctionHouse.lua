@@ -23,8 +23,11 @@ f:SetScript("OnEvent", function(self, event, name)
 		AuctionHouseFrameAuctionsTab:SetPoint("LEFT", AuctionHouseFrameSellTab, "RIGHT", -15, 0)
 
 		ApplyBottomTab(AuctionHouseFrameBuyTab)
+		AuctionHouseFrameBuyTab:SetFrameLevel(500)
 		ApplyBottomTab(AuctionHouseFrameSellTab)
+		AuctionHouseFrameSellTab:SetFrameLevel(500)
 		ApplyBottomTab(AuctionHouseFrameAuctionsTab)
+		AuctionHouseFrameAuctionsTab:SetFrameLevel(500)
 
 		AuctionHouseFrame:HookScript("OnShow", function()
 			AuctionHouseFrameBuyTab:SetWidth(89 + AuctionHouseFrameBuyTab:GetFontString():GetStringWidth())
@@ -183,6 +186,13 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarArrow(AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar)
 		ApplyScrollBarTrack(AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar.Track)
 		ApplyScrollBarThumb(AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar.Track.Thumb)
+
+		AuctionHouseFrame.MoneyFrameBorder.MoneyFrame.GoldDisplay.Icon:SetTexture("Interface\\MoneyFrame\\UI-MoneyIcons")
+		AuctionHouseFrame.MoneyFrameBorder.MoneyFrame.GoldDisplay.Icon:SetTexCoord(0, 0.25, 0, 1)
+		AuctionHouseFrame.MoneyFrameBorder.MoneyFrame.SilverDisplay.Icon:SetTexture("Interface\\MoneyFrame\\UI-MoneyIcons")
+		AuctionHouseFrame.MoneyFrameBorder.MoneyFrame.SilverDisplay.Icon:SetTexCoord(0.25, 0.5, 0, 1)
+		AuctionHouseFrame.MoneyFrameBorder.MoneyFrame.CopperDisplay.Icon:SetTexture("Interface\\MoneyFrame\\UI-MoneyIcons")
+		AuctionHouseFrame.MoneyFrameBorder.MoneyFrame.CopperDisplay.Icon:SetTexCoord(0.5, 0.75, 0, 1)
 
 		hooksecurefunc(AuctionHouseFrame, "Show", function()
 			if _G.ContainerFrame1MoneyFrame then
