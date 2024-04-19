@@ -17,6 +17,7 @@ skins\AzeriteItem.lua
 skins\AzeriteRespec.lua
 skins\Bags.lua
 skins\Bank.lua
+skins\BlackMarket.lua
 skins\Buffs.lua
 skins\Calendar.lua
 skins\Catalyst.lua
