@@ -138,7 +138,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournalSuggestTab:Show()
 			EncounterJournalDungeonTab:Show()
 			EncounterJournalRaidTab:Show()
-			EncounterJournalLootJournalTab:Show()
+			EncounterJournalLootJournalTab:Hide()
 		end)
 
 		EncounterJournalMonthlyActivitiesFrame.HeaderContainer.Title:Hide()
