@@ -143,6 +143,10 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		EncounterJournalMonthlyActivitiesFrame.HeaderContainer.Title:Hide()
 		EncounterJournalMonthlyActivitiesFrame.HeaderContainer.Month:Hide()
+
+		EncounterJournalMonthlyActivitiesFrame.Bg:ClearAllPoints()
+		EncounterJournalMonthlyActivitiesFrame.Bg:SetPoint("TOPLEFT", 0, -3)
+		EncounterJournalMonthlyActivitiesFrame.Bg:SetPoint("BOTTOMRIGHT")
 		
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar:SetWidth(20)
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar:ClearAllPoints()
