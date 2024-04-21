@@ -112,7 +112,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTierTab(EncounterJournal.dungeonsTab)
 		ApplyTierTab(EncounterJournal.raidsTab)
 
-		EncounterJournal:HookScript("OnShow", function(self)
+		EncounterJournal:HookScript("OnShow", function()
 			EncounterJournal.MonthlyActivitiesTab:ClearAllPoints()
 			EncounterJournal.MonthlyActivitiesTab:SetPoint("BOTTOMLEFT", EncounterJournalInstanceSelect, "TOPLEFT", 25, -45)
 			EncounterJournal.suggestTab:ClearAllPoints()
@@ -121,11 +121,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournal.dungeonsTab:SetPoint("BOTTOMLEFT", EncounterJournal.suggestTab, "BOTTOMRIGHT", 35, 0)
 			EncounterJournal.raidsTab:ClearAllPoints()
 			EncounterJournal.raidsTab:SetPoint("BOTTOMLEFT", EncounterJournal.dungeonsTab, "BOTTOMRIGHT", 35, 0)
-
-			EncounterJournal.MonthlyActivitiesTab:SetWidth(119)
-			EncounterJournal.suggestTab:SetWidth(149)
-			EncounterJournal.dungeonsTab:SetWidth(88)
-			EncounterJournal.raidsTab:SetWidth(58)
 		end)
 
 		EncounterJournalEncounterFrame:HookScript("OnShow", function()
@@ -336,6 +331,11 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		hooksecurefunc("EJInstanceSelect_UpdateTitle", function()
 			EncounterJournalInstanceSelect.Title:Hide()
+
+			EncounterJournal.MonthlyActivitiesTab:SetWidth(119)
+			EncounterJournal.suggestTab:SetWidth(149)
+			EncounterJournal.dungeonsTab:SetWidth(88)
+			EncounterJournal.raidsTab:SetWidth(58)
 		end)
 
 		hooksecurefunc("EncounterJournal_CheckAndDisplayTradingPostTab", function()
