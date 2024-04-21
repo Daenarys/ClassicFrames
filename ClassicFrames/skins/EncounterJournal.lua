@@ -179,9 +179,12 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
 
+		EncounterJournalInstanceSelect.ScrollBox:ClearAllPoints()
+		EncounterJournalInstanceSelect.ScrollBox:SetPoint("TOPLEFT", 17, -54)
+
 		EncounterJournalInstanceSelect.ScrollBar:ClearAllPoints()
-		EncounterJournalInstanceSelect.ScrollBar:SetPoint("TOPLEFT", EncounterJournalInstanceSelect.ScrollBox, "TOPRIGHT", 12, 0)
-		EncounterJournalInstanceSelect.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalInstanceSelect.ScrollBox, "BOTTOMRIGHT", 12, -5)
+		EncounterJournalInstanceSelect.ScrollBar:SetPoint("TOPLEFT", EncounterJournalInstanceSelect.ScrollBox, "TOPRIGHT", 10, 2)
+		EncounterJournalInstanceSelect.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalInstanceSelect.ScrollBox, "BOTTOMRIGHT", 10, -5)
 
 		EncounterJournalInstanceSelect.ScrollBar.Track.Begin:Hide()
 		EncounterJournalInstanceSelect.ScrollBar.Track.End:Hide()
