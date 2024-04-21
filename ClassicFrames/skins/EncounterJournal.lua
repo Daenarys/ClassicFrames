@@ -20,6 +20,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyNineSlicePortrait(EncounterJournal)
 
 		local function ApplyTierTab(frame)
+			frame:SetHitRectInsets(-12, -12, 0, 0)
+
 			frame.MiddleActive:SetSize(64, 36)
 			frame.MiddleActive:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures_Tile")
 			frame.MiddleActive:SetTexCoord(0, 1, 0.59960938, 0.66992188)
