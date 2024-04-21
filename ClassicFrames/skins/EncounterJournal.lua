@@ -93,50 +93,52 @@ f:SetScript("OnEvent", function(self, event, name)
 				frame.Middle:Show()
 				frame.Right:Show()
 				frame.Text:ClearAllPoints()
-				frame.Text:SetPoint("CENTER")
+				frame.Text:SetPoint("CENTER", 0, -3)
 			end)
 
 			hooksecurefunc("PanelTemplates_DeselectTab", function()
 				frame.Text:ClearAllPoints()
-				frame.Text:SetPoint("CENTER")
+				frame.Text:SetPoint("CENTER", 0, -3)
+			end)
+
+			frame:HookScript("OnUpdate", function()
+				frame.Text:SetWidth(0)
+				frame.Text:SetFontObject(GameFontNormalMed1)
 			end)
 		end
 
-		ApplyTierTab(EncounterJournalMonthlyActivitiesTab)
-		ApplyTierTab(EncounterJournalSuggestTab)
-		ApplyTierTab(EncounterJournalDungeonTab)
-		ApplyTierTab(EncounterJournalRaidTab)
-		ApplyTierTab(EncounterJournalLootJournalTab)
+		ApplyTierTab(EncounterJournal.MonthlyActivitiesTab)
+		ApplyTierTab(EncounterJournal.suggestTab)
+		ApplyTierTab(EncounterJournal.dungeonsTab)
+		ApplyTierTab(EncounterJournal.raidsTab)
 
-		EncounterJournal:HookScript("OnShow", function()
-			EncounterJournalMonthlyActivitiesTab:ClearAllPoints()
-			EncounterJournalMonthlyActivitiesTab:SetPoint("BOTTOMLEFT", EncounterJournalInstanceSelect, "TOPLEFT", 25, -45)
-			EncounterJournalSuggestTab:ClearAllPoints()
-			EncounterJournalSuggestTab:SetPoint("BOTTOMLEFT", EncounterJournalMonthlyActivitiesTab, "BOTTOMRIGHT", 35, 0)
-			EncounterJournalDungeonTab:ClearAllPoints()
-			EncounterJournalDungeonTab:SetPoint("BOTTOMLEFT", EncounterJournalSuggestTab, "BOTTOMRIGHT", 35, 0)
-			EncounterJournalRaidTab:ClearAllPoints()
-			EncounterJournalRaidTab:SetPoint("BOTTOMLEFT", EncounterJournalDungeonTab, "BOTTOMRIGHT", 35, 0)
-			EncounterJournalLootJournalTab:ClearAllPoints()
-			EncounterJournalLootJournalTab:SetPoint("BOTTOMLEFT", EncounterJournalRaidTab, "BOTTOMRIGHT", 35, 0)
+		EncounterJournal:HookScript("OnShow", function(self)
+			EncounterJournal.MonthlyActivitiesTab:ClearAllPoints()
+			EncounterJournal.MonthlyActivitiesTab:SetPoint("BOTTOMLEFT", EncounterJournalInstanceSelect, "TOPLEFT", 25, -45)
+			EncounterJournal.suggestTab:ClearAllPoints()
+			EncounterJournal.suggestTab:SetPoint("BOTTOMLEFT", EncounterJournal.MonthlyActivitiesTab, "BOTTOMRIGHT", 35, 0)
+			EncounterJournal.dungeonsTab:ClearAllPoints()
+			EncounterJournal.dungeonsTab:SetPoint("BOTTOMLEFT", EncounterJournal.suggestTab, "BOTTOMRIGHT", 35, 0)
+			EncounterJournal.raidsTab:ClearAllPoints()
+			EncounterJournal.raidsTab:SetPoint("BOTTOMLEFT", EncounterJournal.dungeonsTab, "BOTTOMRIGHT", 35, 0)
 		end)
 
 		EncounterJournalEncounterFrame:HookScript("OnShow", function()
 			if C_PlayerInfo.IsTradingPostAvailable() then
-				EncounterJournalMonthlyActivitiesTab:Hide()
+				EncounterJournal.MonthlyActivitiesTab:Hide()
 			end
-			EncounterJournalSuggestTab:Hide()
-			EncounterJournalDungeonTab:Hide()
+			EncounterJournal.suggestTab:Hide()
+			EncounterJournal.dungeonsTab:Hide()
 			EncounterJournalRaidTab:Hide()
 			EncounterJournalLootJournalTab:Hide()
 		end)
 
 		EncounterJournalInstanceSelect:HookScript("OnShow", function()
 			if C_PlayerInfo.IsTradingPostAvailable() then
-				EncounterJournalMonthlyActivitiesTab:Show()
+				EncounterJournal.MonthlyActivitiesTab:Show()
 			end
-			EncounterJournalSuggestTab:Show()
-			EncounterJournalDungeonTab:Show()
+			EncounterJournal.suggestTab:Show()
+			EncounterJournal.dungeonsTab:Show()
 			EncounterJournalRaidTab:Show()
 			EncounterJournalLootJournalTab:Hide()
 		end)
@@ -154,7 +156,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalMonthlyActivitiesFrame.ScrollBox, "BOTTOMRIGHT", 8, 1)
 
 		if (EncounterJournalMonthlyActivitiesFrame.ScrollBar.BG == nil) then
-			EncounterJournalMonthlyActivitiesFrame.ScrollBar.BG = EncounterJournalMonthlyActivitiesFrame.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			EncounterJournalMonthlyActivitiesFrame.ScrollBar.BG = EncounterJournalMonthlyActivitiesFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			EncounterJournalMonthlyActivitiesFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .5)
 			EncounterJournalMonthlyActivitiesFrame.ScrollBar.BG:SetAllPoints()
 		end
@@ -199,31 +201,13 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalInstanceSelect.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
 		EncounterJournalInstanceSelect.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
 
-		EncounterJournal.LootJournalItems.ItemSetsFrame.ScrollBar.Track.Begin:Hide()
-		EncounterJournal.LootJournalItems.ItemSetsFrame.ScrollBar.Track.End:Hide()
-		EncounterJournal.LootJournalItems.ItemSetsFrame.ScrollBar.Track.Middle:Hide()
-
-		ApplyScrollBarThumb(EncounterJournal.LootJournalItems.ItemSetsFrame.ScrollBar.Track.Thumb)
-
-		EncounterJournal.LootJournalItems.ItemSetsFrame.ScrollBar.Back:SetSize(18, 16)
-		EncounterJournal.LootJournalItems.ItemSetsFrame.ScrollBar.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
-		EncounterJournal.LootJournalItems.ItemSetsFrame.ScrollBar.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
-		EncounterJournal.LootJournalItems.ItemSetsFrame.ScrollBar.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
-		EncounterJournal.LootJournalItems.ItemSetsFrame.ScrollBar.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
-
-		EncounterJournal.LootJournalItems.ItemSetsFrame.ScrollBar.Forward:SetSize(18, 16)
-		EncounterJournal.LootJournalItems.ItemSetsFrame.ScrollBar.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
-		EncounterJournal.LootJournalItems.ItemSetsFrame.ScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
-		EncounterJournal.LootJournalItems.ItemSetsFrame.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
-		EncounterJournal.LootJournalItems.ItemSetsFrame.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
-
 		EncounterJournalEncounterFrameInfo.BossesScrollBar:SetWidth(20)
 		EncounterJournalEncounterFrameInfo.BossesScrollBar:ClearAllPoints()
 		EncounterJournalEncounterFrameInfo.BossesScrollBar:SetPoint("TOPLEFT", EncounterJournalEncounterFrameInfo.BossesScrollBox, "TOPRIGHT", 4, -2)
 		EncounterJournalEncounterFrameInfo.BossesScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalEncounterFrameInfo.BossesScrollBox, "BOTTOMRIGHT", 4, 2)
 
 		if (EncounterJournalEncounterFrameInfo.BossesScrollBar.BG == nil) then
-			EncounterJournalEncounterFrameInfo.BossesScrollBar.BG = EncounterJournalEncounterFrameInfo.BossesScrollBar:CreateTexture(nil, "BACKGROUND");
+			EncounterJournalEncounterFrameInfo.BossesScrollBar.BG = EncounterJournalEncounterFrameInfo.BossesScrollBar:CreateTexture(nil, "BACKGROUND")
 			EncounterJournalEncounterFrameInfo.BossesScrollBar.BG:SetColorTexture(0, 0, 0, .25)
 			EncounterJournalEncounterFrameInfo.BossesScrollBar.BG:SetAllPoints()
 		end
@@ -264,7 +248,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalEncounterFrameInfoOverviewScrollFrame, "BOTTOMRIGHT", -21, 2)
 
 		if (EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar.BG == nil) then
-			EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar.BG = EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar.BG = EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .25)
 			EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar.BG:SetAllPoints()
 		end
@@ -293,7 +277,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalEncounterFrameInfo.LootContainer.ScrollBox, "BOTTOMRIGHT", -1, 2)
 
 		if (EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar.BG == nil) then
-			EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar.BG = EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar.BG = EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar.BG:SetColorTexture(0, 0, 0, .25)
 			EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar.BG:SetAllPoints()
 		end
@@ -322,7 +306,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalEncounterFrameInfoDetailsScrollFrame, "BOTTOMRIGHT", -21, 2)
 
 		if (EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar.BG == nil) then
-			EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar.BG = EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar.BG = EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .25)
 			EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar.BG:SetAllPoints()
 		end
@@ -352,6 +336,46 @@ f:SetScript("OnEvent", function(self, event, name)
 		hooksecurefunc("EncounterJournal_CheckAndDisplayTradingPostTab", function()
 			if EncounterJournalEncounterFrame:IsShown() then
 				EncounterJournal.MonthlyActivitiesTab:Hide()
+			end
+		end)
+
+		hooksecurefunc("EJ_ContentTab_Select", function(id)
+			if ( id == EncounterJournal.MonthlyActivitiesTab:GetID() ) then
+				EncounterJournal.MonthlyActivitiesTab:GetFontString():SetTextColor(NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b)
+				EncounterJournal.MonthlyActivitiesTab:SetHeight(36)
+				EncounterJournal.suggestTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+				EncounterJournal.suggestTab:SetHeight(32)
+				EncounterJournal.dungeonsTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+				EncounterJournal.dungeonsTab:SetHeight(32)
+				EncounterJournal.raidsTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+				EncounterJournal.raidsTab:SetHeight(32)
+			elseif ( id == EncounterJournal.suggestTab:GetID() ) then
+				EncounterJournal.MonthlyActivitiesTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+				EncounterJournal.MonthlyActivitiesTab:SetHeight(32)
+				EncounterJournal.suggestTab:GetFontString():SetTextColor(NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b)
+				EncounterJournal.suggestTab:SetHeight(36)
+				EncounterJournal.dungeonsTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+				EncounterJournal.dungeonsTab:SetHeight(32)
+				EncounterJournal.raidsTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+				EncounterJournal.raidsTab:SetHeight(32)
+			elseif ( id == EncounterJournal.dungeonsTab:GetID() ) then
+				EncounterJournal.MonthlyActivitiesTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+				EncounterJournal.MonthlyActivitiesTab:SetHeight(32)
+				EncounterJournal.suggestTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+				EncounterJournal.suggestTab:SetHeight(32)
+				EncounterJournal.dungeonsTab:GetFontString():SetTextColor(NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b)
+				EncounterJournal.dungeonsTab:SetHeight(36)
+				EncounterJournal.raidsTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+				EncounterJournal.raidsTab:SetHeight(32)
+			elseif ( id == EncounterJournal.raidsTab:GetID() ) then
+				EncounterJournal.MonthlyActivitiesTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+				EncounterJournal.MonthlyActivitiesTab:SetHeight(32)
+				EncounterJournal.suggestTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+				EncounterJournal.suggestTab:SetHeight(32)
+				EncounterJournal.dungeonsTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+				EncounterJournal.dungeonsTab:SetHeight(32)
+				EncounterJournal.raidsTab:GetFontString():SetTextColor(NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b)
+				EncounterJournal.raidsTab:SetHeight(36)
 			end
 		end)
 	end
