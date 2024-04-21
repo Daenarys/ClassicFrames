@@ -92,6 +92,13 @@ f:SetScript("OnEvent", function(self, event, name)
 				frame.Left:Show()
 				frame.Middle:Show()
 				frame.Right:Show()
+				frame.Text:ClearAllPoints()
+				frame.Text:SetPoint("CENTER")
+			end)
+
+			hooksecurefunc("PanelTemplates_DeselectTab", function()
+				frame.Text:ClearAllPoints()
+				frame.Text:SetPoint("CENTER")
 			end)
 		end
 
@@ -115,7 +122,9 @@ f:SetScript("OnEvent", function(self, event, name)
 		end)
 
 		EncounterJournalEncounterFrame:HookScript("OnShow", function()
-			EncounterJournalMonthlyActivitiesTab:Hide()
+			if C_PlayerInfo.IsTradingPostAvailable() then
+				EncounterJournalMonthlyActivitiesTab:Hide()
+			end
 			EncounterJournalSuggestTab:Hide()
 			EncounterJournalDungeonTab:Hide()
 			EncounterJournalRaidTab:Hide()
@@ -123,7 +132,9 @@ f:SetScript("OnEvent", function(self, event, name)
 		end)
 
 		EncounterJournalInstanceSelect:HookScript("OnShow", function()
-			EncounterJournalMonthlyActivitiesTab:Show()
+			if C_PlayerInfo.IsTradingPostAvailable() then
+				EncounterJournalMonthlyActivitiesTab:Show()
+			end
 			EncounterJournalSuggestTab:Show()
 			EncounterJournalDungeonTab:Show()
 			EncounterJournalRaidTab:Show()
@@ -332,6 +343,12 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		hooksecurefunc("EJInstanceSelect_UpdateTitle", function()
 			EncounterJournalInstanceSelect.Title:Hide()
+		end)
+
+		hooksecurefunc("EncounterJournal_CheckAndDisplayTradingPostTab", function()
+			if EncounterJournalEncounterFrame:IsShown() then
+				EncounterJournal.MonthlyActivitiesTab:Hide()
+			end
 		end)
 	end
 end)
