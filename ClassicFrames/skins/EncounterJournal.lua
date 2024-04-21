@@ -121,6 +121,11 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournal.dungeonsTab:SetPoint("BOTTOMLEFT", EncounterJournal.suggestTab, "BOTTOMRIGHT", 35, 0)
 			EncounterJournal.raidsTab:ClearAllPoints()
 			EncounterJournal.raidsTab:SetPoint("BOTTOMLEFT", EncounterJournal.dungeonsTab, "BOTTOMRIGHT", 35, 0)
+
+			EncounterJournal.MonthlyActivitiesTab:SetWidth(119)
+			EncounterJournal.suggestTab:SetWidth(149)
+			EncounterJournal.dungeonsTab:SetWidth(88)
+			EncounterJournal.raidsTab:SetWidth(58)
 		end)
 
 		EncounterJournalEncounterFrame:HookScript("OnShow", function()
@@ -129,8 +134,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 			EncounterJournal.suggestTab:Hide()
 			EncounterJournal.dungeonsTab:Hide()
-			EncounterJournalRaidTab:Hide()
-			EncounterJournalLootJournalTab:Hide()
+			EncounterJournal.raidsTab:Hide()
+			EncounterJournal.LootJournalTab:Hide()
 		end)
 
 		EncounterJournalInstanceSelect:HookScript("OnShow", function()
@@ -139,8 +144,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 			EncounterJournal.suggestTab:Show()
 			EncounterJournal.dungeonsTab:Show()
-			EncounterJournalRaidTab:Show()
-			EncounterJournalLootJournalTab:Hide()
+			EncounterJournal.raidsTab:Show()
+			EncounterJournal.LootJournalTab:Hide()
 		end)
 
 		EncounterJournalMonthlyActivitiesFrame.HeaderContainer.Title:Hide()
