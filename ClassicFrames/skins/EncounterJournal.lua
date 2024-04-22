@@ -111,7 +111,7 @@ f:SetScript("OnEvent", function(self, event, name)
 				frame.Text:SetPoint("CENTER", 0, -3)
 			end)
 
-			frame:HookScript("OnUpdate", function()
+			hooksecurefunc("PanelTemplates_TabResize", function()
 				frame.Text:SetWidth(0)
 				frame.Text:SetFontObject(GameFontNormalMed1)
 			end)
@@ -152,9 +152,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournal.raidsTab:Show()
 			EncounterJournal.LootJournalTab:Hide()
 		end)
-
-		EncounterJournalMonthlyActivitiesFrame.HeaderContainer.Title:Hide()
-		EncounterJournalMonthlyActivitiesFrame.HeaderContainer.Month:Hide()
 
 		EncounterJournalMonthlyActivitiesFrame.Bg:ClearAllPoints()
 		EncounterJournalMonthlyActivitiesFrame.Bg:SetPoint("TOPLEFT", 0, -3)
@@ -348,12 +345,18 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournal.MonthlyActivitiesTab:SetWidth(119)
 			EncounterJournal.suggestTab:SetWidth(149)
 			EncounterJournal.dungeonsTab:SetWidth(88)
-			EncounterJournal.raidsTab:SetWidth(58)
+			EncounterJournal.raidsTab:SetWidth(70)
 		end)
 
 		hooksecurefunc("EncounterJournal_CheckAndDisplayTradingPostTab", function()
-			if EncounterJournalEncounterFrame:IsShown() then
-				EncounterJournal.MonthlyActivitiesTab:Hide()
+			if C_PlayerInfo.IsTradingPostAvailable() then
+				if EncounterJournalEncounterFrame:IsShown() then
+					EncounterJournal.MonthlyActivitiesTab:Hide()
+				else
+					EncounterJournal.MonthlyActivitiesTab:Show()
+				end
+				EncounterJournalMonthlyActivitiesFrame.HeaderContainer.Title:Hide()
+				EncounterJournalMonthlyActivitiesFrame.HeaderContainer.Month:Hide()
 			end
 		end)
 
@@ -369,7 +372,7 @@ f:SetScript("OnEvent", function(self, event, name)
 				EncounterJournal.MonthlyActivitiesTab:GetFontString():SetTextColor(NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b)
 				EncounterJournal.MonthlyActivitiesTab:SetHeight(36)
 				EncounterJournal.MonthlyActivitiesTab.SelectedGlow:Show()
-				EncounterJournal.MonthlyActivitiesTab.SelectedGlow:SetVertexColor(1, 0.8, 1)
+				EncounterJournal.MonthlyActivitiesTab.SelectedGlow:SetVertexColor(tierData.r, tierData.g, tierData.b)
 				EncounterJournal.suggestTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
 				EncounterJournal.suggestTab:SetHeight(32)
 				EncounterJournal.suggestTab.SelectedGlow:Hide()
@@ -386,7 +389,7 @@ f:SetScript("OnEvent", function(self, event, name)
 				EncounterJournal.suggestTab:GetFontString():SetTextColor(NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b)
 				EncounterJournal.suggestTab:SetHeight(36)
 				EncounterJournal.suggestTab.SelectedGlow:Show()
-				EncounterJournal.suggestTab.SelectedGlow:SetVertexColor(1, 0.8, 1)
+				EncounterJournal.suggestTab.SelectedGlow:SetVertexColor(1, 0.8, 0)
 				EncounterJournal.dungeonsTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
 				EncounterJournal.dungeonsTab:SetHeight(32)
 				EncounterJournal.dungeonsTab.SelectedGlow:Hide()
