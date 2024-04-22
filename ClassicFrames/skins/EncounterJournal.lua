@@ -98,12 +98,16 @@ f:SetScript("OnEvent", function(self, event, name)
 				frame.SelectedGlow:Hide()
 			end
 
+			frame:SetNormalFontObject("GameFontNormalMed1")
+			frame:SetHighlightFontObject("GameFontNormalMed1")
+
 			hooksecurefunc("PanelTemplates_SelectTab", function()
 				frame.Left:Show()
 				frame.Middle:Show()
 				frame.Right:Show()
 				frame.Text:ClearAllPoints()
 				frame.Text:SetPoint("CENTER", 0, -3)
+				frame.Text:SetFontObject("GameFontNormalMed1")
 			end)
 
 			hooksecurefunc("PanelTemplates_DeselectTab", function()
@@ -113,7 +117,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 			hooksecurefunc("PanelTemplates_TabResize", function()
 				frame.Text:SetWidth(0)
-				frame.Text:SetFontObject(GameFontNormalMed1)
 			end)
 		end
 
