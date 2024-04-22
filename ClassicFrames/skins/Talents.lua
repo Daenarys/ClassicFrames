@@ -37,5 +37,8 @@ f:SetScript("OnEvent", function(self, event, name)
 				specContentFrame.RoleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 			end
         end)
+
+        ApplyDialogBorder(ClassTalentLoadoutCreateDialog.Border)
+        ApplyDialogBorder(ClassTalentLoadoutImportDialog.Border)
 	end
 end)
