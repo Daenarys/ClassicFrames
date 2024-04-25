@@ -14,4 +14,5 @@ skins\EncounterJournal.lua
 skins\LFG.lua
 skins\Minimap.lua
 skins\PVP.lua
+skins\Quests.lua
 skins\SettingsPanel.lua
