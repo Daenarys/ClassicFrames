@@ -9,6 +9,7 @@ skins\ApplySkin.lua
 skins\Achievements.lua
 skins\Character.lua
 skins\Communities.lua
+skins\DebugTools.lua
 skins\EncounterJournal.lua
 skins\LFG.lua
 skins\Minimap.lua
