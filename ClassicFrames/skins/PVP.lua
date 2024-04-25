@@ -15,6 +15,39 @@ PVPFrame.TankIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 PVPFrame.TankIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 PVPFrame.TankIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 
+hooksecurefunc("PVP_UpdateAvailableRoleButton", function(button, canBeRole)
+	if not (canBeRole) then
+		SetDesaturation(button:GetDisabledTexture(), true)
+		if not button.cover then
+			button.cover = button:CreateTexture(nil, "OVERLAY")
+			button.cover:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+			button.cover:SetTexCoord(0, 0.2617, 0.5234, 0.7851)
+			button.cover:SetAllPoints()
+			button.cover:SetAlpha(0.7)
+		end
+	end
+end)
+
+hooksecurefunc('PVP_DisableRoleButton', function(button)
+	if not button.cover then
+		button.cover = button:CreateTexture(nil, "OVERLAY")
+		button.cover:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		button.cover:SetTexCoord(0, 0.2617, 0.5234, 0.7851)
+		button.cover:SetAllPoints()
+		button.cover:SetAlpha(0.5)
+		button.cover:Show()
+	else
+		button.cover:Show()
+	end
+end)
+
+hooksecurefunc('PVP_EnableRoleButton', function(button)
+	SetDesaturation(button:GetNormalTexture(), false)
+	if button.cover then
+		button.cover:Hide()
+	end
+end)
+
 for _, roleButton in pairs({
 	_G.PVPFrame.DPSIcon,
 	_G.PVPFrame.HealerIcon,
