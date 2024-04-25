@@ -10,4 +10,5 @@ skins\Achievements.lua
 skins\Character.lua
 skins\LFG.lua
 skins\Minimap.lua
+skins\PVP.lua
 skins\SettingsPanel.lua
