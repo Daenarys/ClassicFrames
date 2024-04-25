@@ -39,12 +39,9 @@ end)
 MiniMapLFGFrame:ClearAllPoints()
 MiniMapLFGFrame:SetPoint("TOPLEFT", 22, -100)
 
-QueueStatusFrame:ClearAllPoints()
-QueueStatusFrame:SetPoint("TOPRIGHT", MiniMapLFGFrame, "TOPLEFT", -1, 1)
-
-hooksecurefunc(QueueStatusFrame, "UpdatePosition", function(self)
+QueueStatusFrame:HookScript("OnShow", function(self)
 	self:ClearAllPoints()
-	self:SetPoint("TOPRIGHT", MiniMapLFGFrame, "TOPLEFT", -1, 1)
+	self:SetPoint("TOPRIGHT", MiniMapLFGFrame, "TOPLEFT")
 end)
 
 hooksecurefunc("QueueStatusDropDown_Show", function()
