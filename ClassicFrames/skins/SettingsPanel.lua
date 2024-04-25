@@ -1,14 +1,10 @@
 if not _G.SettingsPanel then return end
 
-ApplyCloseButton(SettingsPanel.ClosePanelButton)
-ApplyTitleBg(SettingsPanel)
-ApplyNineSliceNoPortrait(SettingsPanel)
-
 SettingsPanel.CloseButton:Hide()
 
-SettingsPanel.Bg:ClearAllPoints()
-SettingsPanel.Bg:SetPoint("TOPLEFT", SettingsPanel, "TOPLEFT", 1, -18)
-SettingsPanel.Bg:SetPoint("BOTTOMRIGHT", SettingsPanel, "BOTTOMRIGHT", -3, 3)
+SettingsPanel.NineSlice.RightEdge:ClearAllPoints()
+SettingsPanel.NineSlice.RightEdge:SetPoint("TOPRIGHT", SettingsPanel.NineSlice.TopRightCorner, "BOTTOMRIGHT", 1, 0)
+SettingsPanel.NineSlice.RightEdge:SetPoint("BOTTOMRIGHT", SettingsPanel.NineSlice.BottomRightCorner, "TOPRIGHT")
 
 SettingsPanel.Container.SettingsList.ScrollBar:SetSize(25, 560)
 SettingsPanel.Container.SettingsList.ScrollBar:ClearAllPoints()
@@ -17,7 +13,7 @@ SettingsPanel.Container.SettingsList.ScrollBar:SetPoint("BOTTOMLEFT", SettingsPa
 
 if (SettingsPanel.Container.SettingsList.ScrollBar.BG == nil) then
 	SettingsPanel.Container.SettingsList.ScrollBar.BG = SettingsPanel.Container.SettingsList.ScrollBar:CreateTexture(nil, "BACKGROUND");
-	SettingsPanel.Container.SettingsList.ScrollBar.BG:SetColorTexture(0, 0, 0, .1)
+	SettingsPanel.Container.SettingsList.ScrollBar.BG:SetColorTexture(0, 0, 0, .25)
 	SettingsPanel.Container.SettingsList.ScrollBar.BG:SetAllPoints()
 end
 

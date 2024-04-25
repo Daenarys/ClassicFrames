@@ -1,51 +1,12 @@
 if not _G.PVEFrame then return end
 
-ApplyCloseButton(PVEFrameCloseButton)
-
-PVEFrame.PortraitContainer.CircleMask:Hide()
-
 PVEFramePortrait:SetSize(61, 61)
 PVEFramePortrait:ClearAllPoints()
 PVEFramePortrait:SetPoint("TOPLEFT", -6, 8)
 
-PVEFrame.TitleContainer:ClearAllPoints()
-PVEFrame.TitleContainer:SetPoint("TOPLEFT", PVEFrame, "TOPLEFT", 58, 0)
-PVEFrame.TitleContainer:SetPoint("TOPRIGHT", PVEFrame, "TOPRIGHT", -58, 0)
-
-ApplyTitleBg(PVEFrame)
-ApplyNineSlicePortrait(PVEFrame)
-
-PVEFrameTab2:ClearAllPoints()
-PVEFrameTab2:SetPoint("LEFT", PVEFrameTab1, "RIGHT", -16, 0)
-PVEFrameTab3:ClearAllPoints()
-PVEFrameTab3:SetPoint("LEFT", PVEFrameTab2, "RIGHT", -16, 0)
-
-for i = 1, 3 do
-	ApplyBottomTab(_G['PVEFrameTab'..i])
-
-	_G["PVEFrameTab"..i]:HookScript("OnShow", function(self)
-		self:SetWidth(40 + self:GetFontString():GetStringWidth())
-	end)
-end
-
 GroupFinderFrame:HookScript("OnShow", function()
 	SetPortraitToTexture(PVEFramePortrait, "Interface\\LFGFrame\\UI-LFG-PORTRAIT")
 end)
-
-LFDQueueFrameRandomScrollFrame.ScrollBar:SetSize(25, 560)
-LFDQueueFrameRandomScrollFrame.ScrollBar:ClearAllPoints()
-LFDQueueFrameRandomScrollFrame.ScrollBar:SetPoint("TOPLEFT", LFDQueueFrameRandomScrollFrame, "TOPRIGHT", 2, 8)
-LFDQueueFrameRandomScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", LFDQueueFrameRandomScrollFrame, "BOTTOMRIGHT", 5, -9)
-
-if (LFDQueueFrameRandomScrollFrame.ScrollBar.BG == nil) then
-	LFDQueueFrameRandomScrollFrame.ScrollBar.BG = LFDQueueFrameRandomScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND");
-	LFDQueueFrameRandomScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
-	LFDQueueFrameRandomScrollFrame.ScrollBar.BG:SetAllPoints()
-end
-
-ApplyScrollBarArrow(LFDQueueFrameRandomScrollFrame.ScrollBar)
-ApplyScrollBarTrack(LFDQueueFrameRandomScrollFrame.ScrollBar.Track)
-ApplyScrollBarThumb(LFDQueueFrameRandomScrollFrame.ScrollBar.Track.Thumb)
 
 LFDQueueFrameSpecific.ScrollBar:SetSize(25, 560)
 LFDQueueFrameSpecific.ScrollBar:ClearAllPoints()
@@ -123,52 +84,27 @@ LFGDungeonReadyStatusCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Pan
 LFGDungeonReadyStatusCloseButton:ClearAllPoints()
 LFGDungeonReadyStatusCloseButton:SetPoint("TOPRIGHT", -2, -2)
 
-LFGDungeonReadyDialog.Border:Hide()
-ApplyDialogBorder(LFDReadyCheckPopup.Border)
-ApplyDialogBorder(LFDRoleCheckPopup.Border)
-ApplyDialogBorder(LFGDungeonReadyStatus.Border)
-ApplyDialogBorder(LFGInvitePopup.Border)
-ApplyDialogBorder(LFGListApplicationDialog.Border)
-ApplyDialogBorder(LFGListInviteDialog.Border)
-ApplyDialogBorder(LFGListFrame.EntryCreation.ActivityFinder.Dialog.Border)
-
 LFGListInviteDialog.RoleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 
 LFDQueueFrameRoleButtonLeader:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFDQueueFrameRoleButtonLeader:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("GUIDE"));
 LFDQueueFrameRoleButtonLeader:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFDQueueFrameRoleButtonLeader:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("GUIDE"))
-RaidFinderQueueFrameRoleButtonLeader:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-RaidFinderQueueFrameRoleButtonLeader:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("GUIDE"));
-RaidFinderQueueFrameRoleButtonLeader:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-RaidFinderQueueFrameRoleButtonLeader:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("GUIDE"))
 
 LFDQueueFrameRoleButtonHealer:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFDQueueFrameRoleButtonHealer:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("HEALER"));
 LFDQueueFrameRoleButtonHealer:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFDQueueFrameRoleButtonHealer:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("HEALER"))
-RaidFinderQueueFrameRoleButtonHealer:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-RaidFinderQueueFrameRoleButtonHealer:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("HEALER"));
-RaidFinderQueueFrameRoleButtonHealer:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-RaidFinderQueueFrameRoleButtonHealer:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("HEALER"))
 
 LFDQueueFrameRoleButtonDPS:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFDQueueFrameRoleButtonDPS:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"));
 LFDQueueFrameRoleButtonDPS:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFDQueueFrameRoleButtonDPS:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"))
-RaidFinderQueueFrameRoleButtonDPS:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-RaidFinderQueueFrameRoleButtonDPS:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"));
-RaidFinderQueueFrameRoleButtonDPS:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-RaidFinderQueueFrameRoleButtonDPS:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"))
 
 LFDQueueFrameRoleButtonTank:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFDQueueFrameRoleButtonTank:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("TANK"));
 LFDQueueFrameRoleButtonTank:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFDQueueFrameRoleButtonTank:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
-RaidFinderQueueFrameRoleButtonTank:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-RaidFinderQueueFrameRoleButtonTank:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("TANK"));
-RaidFinderQueueFrameRoleButtonTank:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-RaidFinderQueueFrameRoleButtonTank:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 
 LFDQueueFrameRoleButtonTankShortageBorder:SetSize(48, 48)
 LFDQueueFrameRoleButtonTankShortageBorder:SetTexture("Interface\\Common\\GoldRing")
@@ -182,19 +118,6 @@ LFDQueueFrameRoleButtonDPSShortageBorder:SetSize(48, 48)
 LFDQueueFrameRoleButtonDPSShortageBorder:SetTexture("Interface\\Common\\GoldRing")
 LFDQueueFrameRoleButtonDPSShortageBorder:ClearAllPoints()
 LFDQueueFrameRoleButtonDPSShortageBorder:SetPoint("CENTER", -1, 1)
-
-RaidFinderQueueFrameRoleButtonTankShortageBorder:SetSize(48, 48)
-RaidFinderQueueFrameRoleButtonTankShortageBorder:SetTexture("Interface\\Common\\GoldRing")
-RaidFinderQueueFrameRoleButtonTankShortageBorder:ClearAllPoints()
-RaidFinderQueueFrameRoleButtonTankShortageBorder:SetPoint("CENTER", -1, 1)
-RaidFinderQueueFrameRoleButtonHealerShortageBorder:SetSize(48, 48)
-RaidFinderQueueFrameRoleButtonHealerShortageBorder:SetTexture("Interface\\Common\\GoldRing")
-RaidFinderQueueFrameRoleButtonHealerShortageBorder:ClearAllPoints()
-RaidFinderQueueFrameRoleButtonHealerShortageBorder:SetPoint("CENTER", -1, 1)
-RaidFinderQueueFrameRoleButtonDPSShortageBorder:SetSize(48, 48)
-RaidFinderQueueFrameRoleButtonDPSShortageBorder:SetTexture("Interface\\Common\\GoldRing")
-RaidFinderQueueFrameRoleButtonDPSShortageBorder:ClearAllPoints()
-RaidFinderQueueFrameRoleButtonDPSShortageBorder:SetPoint("CENTER", -1, 1)
 
 LFDQueueFrameRoleButtonTankIncentiveIcon:ClearAllPoints()
 LFDQueueFrameRoleButtonTankIncentiveIcon:SetPoint("BOTTOMRIGHT", 7, -7)
@@ -221,31 +144,6 @@ LFDQueueFrameRoleButtonDPSIncentiveIconBorder:SetAllPoints()
 LFDQueueFrameRoleButtonDPSIncentiveIconTexture:ClearAllPoints()
 LFDQueueFrameRoleButtonDPSIncentiveIconTexture:SetPoint("CENTER", -3, 3)
 
-RaidFinderQueueFrameRoleButtonTankIncentiveIcon:ClearAllPoints()
-RaidFinderQueueFrameRoleButtonTankIncentiveIcon:SetPoint("BOTTOMRIGHT", 7, -7)
-RaidFinderQueueFrameRoleButtonTankIncentiveIconBorder:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-REWARDRING")
-RaidFinderQueueFrameRoleButtonTankIncentiveIconBorder:SetTexCoord(0, 0.675, 0, 0.675)
-RaidFinderQueueFrameRoleButtonTankIncentiveIconBorder:ClearAllPoints()
-RaidFinderQueueFrameRoleButtonTankIncentiveIconBorder:SetAllPoints()
-RaidFinderQueueFrameRoleButtonTankIncentiveIconTexture:ClearAllPoints()
-RaidFinderQueueFrameRoleButtonTankIncentiveIconTexture:SetPoint("CENTER", -3, 3)
-RaidFinderQueueFrameRoleButtonHealerIncentiveIcon:ClearAllPoints()
-RaidFinderQueueFrameRoleButtonHealerIncentiveIcon:SetPoint("BOTTOMRIGHT", 7, -7)
-RaidFinderQueueFrameRoleButtonHealerIncentiveIconBorder:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-REWARDRING")
-RaidFinderQueueFrameRoleButtonHealerIncentiveIconBorder:SetTexCoord(0, 0.675, 0, 0.675)
-RaidFinderQueueFrameRoleButtonHealerIncentiveIconBorder:ClearAllPoints()
-RaidFinderQueueFrameRoleButtonHealerIncentiveIconBorder:SetAllPoints()
-RaidFinderQueueFrameRoleButtonHealerIncentiveIconTexture:ClearAllPoints()
-RaidFinderQueueFrameRoleButtonHealerIncentiveIconTexture:SetPoint("CENTER", -3, 3)
-RaidFinderQueueFrameRoleButtonDPSIncentiveIcon:ClearAllPoints()
-RaidFinderQueueFrameRoleButtonDPSIncentiveIcon:SetPoint("BOTTOMRIGHT", 7, -7)
-RaidFinderQueueFrameRoleButtonDPSIncentiveIconBorder:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-REWARDRING")
-RaidFinderQueueFrameRoleButtonDPSIncentiveIconBorder:SetTexCoord(0, 0.675, 0, 0.675)
-RaidFinderQueueFrameRoleButtonDPSIncentiveIconBorder:ClearAllPoints()
-RaidFinderQueueFrameRoleButtonDPSIncentiveIconBorder:SetAllPoints()
-RaidFinderQueueFrameRoleButtonDPSIncentiveIconTexture:ClearAllPoints()
-RaidFinderQueueFrameRoleButtonDPSIncentiveIconTexture:SetPoint("CENTER", -3, 3)
-
 LFDRoleCheckPopupRoleButtonDPS:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFDRoleCheckPopupRoleButtonDPS:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"));
 LFDRoleCheckPopupRoleButtonDPS:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
@@ -259,19 +157,6 @@ LFDRoleCheckPopupRoleButtonTank:GetNormalTexture():SetTexCoord(GetTexCoordsForRo
 LFDRoleCheckPopupRoleButtonTank:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFDRoleCheckPopupRoleButtonTank:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 
-LFGInvitePopupRoleButtonDPS:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-LFGInvitePopupRoleButtonDPS:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"));
-LFGInvitePopupRoleButtonDPS:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-LFGInvitePopupRoleButtonDPS:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"))
-LFGInvitePopupRoleButtonHealer:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-LFGInvitePopupRoleButtonHealer:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("HEALER"));
-LFGInvitePopupRoleButtonHealer:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-LFGInvitePopupRoleButtonHealer:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("HEALER"))
-LFGInvitePopupRoleButtonTank:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-LFGInvitePopupRoleButtonTank:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("TANK"));
-LFGInvitePopupRoleButtonTank:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-LFGInvitePopupRoleButtonTank:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
-
 for _, roleButton in pairs({
 	_G.LFDRoleCheckPopupRoleButtonDPS,
 	_G.LFDRoleCheckPopupRoleButtonHealer,
@@ -280,10 +165,9 @@ for _, roleButton in pairs({
 	_G.LFDQueueFrameRoleButtonDPS,
 	_G.LFDQueueFrameRoleButtonLeader,
 	_G.LFDQueueFrameRoleButtonTank,
-	_G.RaidFinderQueueFrameRoleButtonHealer,
-	_G.RaidFinderQueueFrameRoleButtonDPS,
-	_G.RaidFinderQueueFrameRoleButtonLeader,
-	_G.RaidFinderQueueFrameRoleButtonTank,
+	_G.LFGListCreateRoleDialog.DamagerButton,
+	_G.LFGListCreateRoleDialog.HealerButton,
+	_G.LFGListCreateRoleDialog.TankButton,
 	_G.LFGInvitePopupRoleButtonTank,
 	_G.LFGInvitePopupRoleButtonHealer,
 	_G.LFGInvitePopupRoleButtonDPS,
@@ -350,6 +234,26 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		Mixin(LFGDungeonReadyDialog, BackdropTemplateMixin)
 	end
 
+	LFGDungeonReadyDialog.Border:Hide()
+
+	local DUNGEON_BACKDROP_TABLE = {
+		bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+		edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+		tile = true,
+		edge = true,
+		tileSize = 32,
+		edgeSize = 32,
+		insets = { left = 11, right = 12, top = 12, bottom = 11 }};
+	
+	local RAID_BACKDROP_TABLE = {
+		bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+		edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Gold-Border",
+		tile = true,
+		edge = true,
+		tileSize = 32,
+		edgeSize = 32,
+		insets = { left = 11, right = 12, top = 12, bottom = 11 }};
+
 	LFGDungeonReadyDialogRoleIconTexture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 	LFGDungeonReadyDialogRoleIconTexture:SetAllPoints()
 
@@ -368,7 +272,7 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		LFGDungeonReadyDialog.bottomArt:SetTexture("Interface\\LFGFrame\\LFR-Texture");
 		LFGDungeonReadyDialog.bottomArt:SetTexCoord(0.00195313, 0.55273438, 0.29296875, 0.57812500);
 		LFGDungeonReadyDialog.bottomArt:SetSize(282, 73);
-		LFGDungeonReadyDialog:SetBackdrop(BACKDROP_GOLD_DIALOG_32_32);
+		LFGDungeonReadyDialog:SetBackdrop(RAID_BACKDROP_TABLE);
 	else
 		LFGDungeonReadyDialog.filigree:SetTexture("Interface\\LFGFrame\\UI-LFG-FILIGREE");
 		LFGDungeonReadyDialog.filigree:SetTexCoord(0.02734, 0.59765, 0.578125, 1.0);
@@ -382,7 +286,7 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 			LFGDungeonReadyDialog.bottomArt:SetTexCoord(0.0, 0.5605, 0.0, 0.5625);
 		end
 		LFGDungeonReadyDialog.bottomArt:SetSize(287, 72);
-		LFGDungeonReadyDialog:SetBackdrop(BACKDROP_DIALOG_32_32);
+		LFGDungeonReadyDialog:SetBackdrop(DUNGEON_BACKDROP_TABLE);
 	end
 
 	if _G.LFGDungeonReadyDialogRoleIcon:IsShown() then
@@ -582,15 +486,13 @@ hooksecurefunc('LFGListGroupDataDisplayEnumerate_Update', function(self, numPlay
 	};
 
 	--Note that icons are numbered from right to left
-	if iconOrder == LFG_LIST_GROUP_DATA_ROLE_ORDER then
-		local iconIndex = numPlayers;
-		for i=1, #iconOrder do
-			for j=1, displayData[iconOrder[i]] do
-				self.Icons[iconIndex]:SetAtlas(LFG_LIST_GROUP_DATA_ATLASES[iconOrder[i]], false);
-				iconIndex = iconIndex - 1;
-				if ( iconIndex < 1 ) then
-					return;
-				end
+	local iconIndex = numPlayers;
+	for i=1, #iconOrder do
+		for j=1, displayData[iconOrder[i]] do
+			self.Icons[iconIndex]:SetAtlas(LFG_LIST_GROUP_DATA_ATLASES[iconOrder[i]], false);
+			iconIndex = iconIndex - 1;
+			if ( iconIndex < 1 ) then
+				return;
 			end
 		end
 	end
@@ -625,66 +527,3 @@ hooksecurefunc("LFGRewardsFrame_SetItemButton", function(parentFrame, _, index, 
 		end
 	end
 end)
-
-ApplyDialogBorder(RolePollPopup.Border)
-
-RolePollPopupCloseButton:SetSize(32, 32)
-RolePollPopupCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-RolePollPopupCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-RolePollPopupCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-RolePollPopupCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-RolePollPopupCloseButton:ClearAllPoints()
-RolePollPopupCloseButton:SetPoint("TOPRIGHT", -2, -2)
-
-hooksecurefunc("RolePollPopupRoleButton_Enable", function(button)
-	RolePollPopupRoleButtonDPS:SetSize(70, 70)
-	RolePollPopupRoleButtonDPS:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-	RolePollPopupRoleButtonDPS:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"));
-
-	RolePollPopupRoleButtonHealer:SetSize(70, 70)
-	RolePollPopupRoleButtonHealer:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-	RolePollPopupRoleButtonHealer:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("HEALER"));
-
-	RolePollPopupRoleButtonTank:SetSize(70, 70)
-	RolePollPopupRoleButtonTank:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-	RolePollPopupRoleButtonTank:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("TANK"));
-
-	SetDesaturation(button:GetNormalTexture(), false);
-	if button.cover then
-		button.cover:Hide()
-		button.cover:SetAlpha(1);
-	end
-end)
-
-hooksecurefunc("RolePollPopupRoleButton_Disable", function(button)
-	SetDesaturation(button:GetNormalTexture(), true);
-	if not button.cover then
-		button.cover = button:CreateTexture(nil, "OVERLAY")
-		button.cover:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-		button.cover:SetTexCoord(0, 0.2617, 0.5234, 0.7851)
-		button.cover:SetAllPoints()
-		button.cover:SetAlpha(0.5)
-		button.cover:Show()
-	else
-		button.cover:Show()
-	end
-end)
-
-for _, rolePollButton in pairs({
-	_G.RolePollPopupRoleButtonTank,
-	_G.RolePollPopupRoleButtonHealer,
-	_G.RolePollPopupRoleButtonDPS
-}) do
-	local checkButton = rolePollButton.checkButton
-
-	checkButton:SetSize(24, 24)
-	checkButton:ClearAllPoints()
-	checkButton:SetPoint("BOTTOMLEFT", -5, -5)
-	checkButton.NormalTexture:SetTexture("Interface\\Buttons\\UI-RadioButton")
-	checkButton.NormalTexture:SetTexCoord(0, 0.25, 0, 1)
-	checkButton.HighlightTexture:SetTexture("Interface\\Buttons\\UI-RadioButton")
-	checkButton.HighlightTexture:SetTexCoord(0.5, 0.75, 0, 1)
-	checkButton.HighlightTexture:SetAlpha(1)
-	checkButton.CheckedTexture:SetTexture("Interface\\Buttons\\UI-RadioButton")
-	checkButton.CheckedTexture:SetTexCoord(0.25, 0.5, 0, 1)
-end
