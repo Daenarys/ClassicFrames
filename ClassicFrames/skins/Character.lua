@@ -34,7 +34,9 @@ ApplyScrollBarTrack(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track)
 ApplyScrollBarThumb(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track.Thumb)
 
 CharacterFrame:HookScript("OnShow", function()
-	CharacterFrame:Expand()
+	if not ReputationFrame:IsShown() or TokenFrame:IsShown() then
+		CharacterFrame:Expand()
+	end
 end)
 
 PaperDollFrame:HookScript("OnShow", function()
