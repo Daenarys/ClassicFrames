@@ -85,6 +85,13 @@ LFGDungeonReadyStatusCloseButton:ClearAllPoints()
 LFGDungeonReadyStatusCloseButton:SetPoint("TOPRIGHT", -2, -2)
 
 LFGListInviteDialog.RoleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+ApplyDialogBorder(LFDReadyCheckPopup.Border)
+ApplyDialogBorder(LFDRoleCheckPopup.Border)
+ApplyDialogBorder(LFGDungeonReadyStatus.Border)
+ApplyDialogBorder(LFGInvitePopup.Border)
+ApplyDialogBorder(LFGListApplicationDialog.Border)
+ApplyDialogBorder(LFGListCreateRoleDialog.Border)
+ApplyDialogBorder(LFGListInviteDialog.Border)
 
 LFDQueueFrameRoleButtonLeader:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFDQueueFrameRoleButtonLeader:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("GUIDE"))
