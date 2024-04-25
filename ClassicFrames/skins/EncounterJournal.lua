@@ -149,6 +149,10 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
 		EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
 
+		EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar:ClearAllPoints()
+		EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar:SetPoint("TOPLEFT", EncounterJournalEncounterFrameInfoDetailsScrollFrame, "TOPRIGHT", -25, -2)
+		EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalEncounterFrameInfoDetailsScrollFrame, "BOTTOMRIGHT", -25, -2)
+
 		EncounterJournalInstanceSelect.Title:SetText(EXPANSION_NAME3)
 		EncounterJournalInstanceSelect.Title:SetFontObject("QuestFont_Super_Huge")
 		EncounterJournalInstanceSelect.Title:SetVertexColor(0.961, 0.824, 0.412)
