@@ -6,6 +6,8 @@
 ## Version: 1.0.1
 ## OptionalDeps: SexyMap
 skins\ApplySkin.lua
+skins\Achievements.lua
+skins\Character.lua
 skins\LFG.lua
 skins\Minimap.lua
 skins\SettingsPanel.lua
