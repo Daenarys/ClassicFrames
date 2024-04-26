@@ -11,6 +11,7 @@ skins\Character.lua
 skins\Communities.lua
 skins\DebugTools.lua
 skins\EncounterJournal.lua
+skins\Gossip.lua
 skins\LFG.lua
 skins\Minimap.lua
 skins\PVP.lua
