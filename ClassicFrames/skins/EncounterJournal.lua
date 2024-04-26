@@ -39,9 +39,17 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		EncounterJournal:HookScript("OnShow", function()
 			EncounterJournal.raidsTab:ClearAllPoints()
-			EncounterJournal.raidsTab:SetPoint("BOTTOMRIGHT", EncounterJournalInstanceSelect, "TOPRIGHT", -35, -45)
+			EncounterJournal.raidsTab:SetPoint("BOTTOMRIGHT", EncounterJournalInstanceSelect, "TOPRIGHT", -34, -45)
 			EncounterJournal.dungeonsTab:ClearAllPoints()
 			EncounterJournal.dungeonsTab:SetPoint("BOTTOMRIGHT", EncounterJournal.raidsTab, "BOTTOMLEFT", -35, 0)
+
+			EncounterJournal.dungeonsTab:SetWidth(120)
+			EncounterJournal.raidsTab:SetWidth(120)
+
+			EncounterJournalInstanceSelect.Title:ClearAllPoints()
+			EncounterJournalInstanceSelect.Title:SetPoint("TOPLEFT", 11, -15)
+
+			EJ_ContentTab_Select(EncounterJournal.dungeonsTab:GetID())
 		end)
 
 		EncounterJournalEncounterFrame:HookScript("OnShow", function()
@@ -161,8 +169,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournalInstanceSelect.Title:SetText(EXPANSION_NAME3)
 			EncounterJournalInstanceSelect.Title:SetFontObject("QuestFont_Super_Huge")
 			EncounterJournalInstanceSelect.Title:SetVertexColor(0.961, 0.824, 0.412)
-			EncounterJournalInstanceSelect.Title:ClearAllPoints()
-			EncounterJournalInstanceSelect.Title:SetPoint("TOPLEFT", 10, -15)
 		end)
 
 		hooksecurefunc("EJ_ContentTab_Select", function(id)
