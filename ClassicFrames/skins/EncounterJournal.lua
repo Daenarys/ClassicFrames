@@ -169,6 +169,11 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournalInstanceSelect.Title:SetText(EXPANSION_NAME3)
 			EncounterJournalInstanceSelect.Title:SetFontObject("QuestFont_Super_Huge")
 			EncounterJournalInstanceSelect.Title:SetVertexColor(0.961, 0.824, 0.412)
+			EncounterJournalInstanceSelect.Title:ClearAllPoints()
+			EncounterJournalInstanceSelect.Title:SetPoint("TOPLEFT", 11, -15)
+
+			EncounterJournal.dungeonsTab:SetWidth(120)
+			EncounterJournal.raidsTab:SetWidth(120)
 		end)
 
 		hooksecurefunc("EJ_ContentTab_Select", function(id)
