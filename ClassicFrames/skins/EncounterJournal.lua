@@ -48,8 +48,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 			EncounterJournalInstanceSelect.Title:ClearAllPoints()
 			EncounterJournalInstanceSelect.Title:SetPoint("TOPLEFT", 11, -15)
-
-			EJ_ContentTab_Select(EncounterJournal.dungeonsTab:GetID())
 		end)
 
 		EncounterJournalEncounterFrame:HookScript("OnShow", function()
