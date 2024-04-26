@@ -16,3 +16,6 @@ skins\Minimap.lua
 skins\PVP.lua
 skins\Quests.lua
 skins\SettingsPanel.lua
+skins\unitframes\PetFrame.lua
+skins\unitframes\PlayerFrame.lua
+skins\unitframes\TargetFrame.lua
