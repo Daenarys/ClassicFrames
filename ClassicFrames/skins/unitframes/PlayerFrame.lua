@@ -1,8 +1,8 @@
 if not _G.PlayerFrame then return end
 
-PlayerFrameHealthBarText:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
-PlayerFrameHealthBarTextLeft:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
-PlayerFrameHealthBarTextRight:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
+PlayerFrameHealthBarText:SetFontObject(SystemFont_Outline_Small)
+PlayerFrameHealthBarTextLeft:SetFontObject(SystemFont_Outline_Small)
+PlayerFrameHealthBarTextRight:SetFontObject(SystemFont_Outline_Small)
 
 PlayerFrameHealthBarText:SetTextColor(1, 1, 1)
 PlayerFrameHealthBarTextLeft:SetTextColor(1, 1, 1)
@@ -11,9 +11,9 @@ PlayerFrameHealthBarTextRight:SetTextColor(1, 1, 1)
 PlayerFrameHealthBarTextLeft:ClearAllPoints()
 PlayerFrameHealthBarTextLeft:SetPoint("LEFT", 111, 3)
 
-PlayerFrameManaBarText:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
-PlayerFrameManaBarTextLeft:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
-PlayerFrameManaBarTextRight:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
+PlayerFrameManaBarText:SetFontObject(SystemFont_Outline_Small)
+PlayerFrameManaBarTextLeft:SetFontObject(SystemFont_Outline_Small)
+PlayerFrameManaBarTextRight:SetFontObject(SystemFont_Outline_Small)
 
 PlayerFrameManaBarText:SetTextColor(1, 1, 1)
 PlayerFrameManaBarTextLeft:SetTextColor(1, 1, 1)
