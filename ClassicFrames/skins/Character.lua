@@ -1,10 +1,15 @@
 if not _G.CharacterFrame then return end
 
+CharacterFrameTitleText:ClearAllPoints()
+CharacterFrameTitleText:SetPoint("TOP", 0, -4)
+CharacterFrameTitleText:SetPoint("LEFT", 60, 0)
+CharacterFrameTitleText:SetPoint("RIGHT", -60, 0)
+
 ApplyDialogBorder(ReputationDetailFrame.Border)
 ApplyDialogBorder(TokenFramePopup.Border)
 
 CharacterStatsPane.ScrollBox:ClearAllPoints()
-CharacterStatsPane.ScrollBox:SetPoint("TOPLEFT", 2, -1)
+CharacterStatsPane.ScrollBox:SetPoint("TOPLEFT", 1, -1)
 
 CharacterStatsPane.ScrollBar:SetSize(25, 560)
 CharacterStatsPane.ScrollBar:ClearAllPoints()
