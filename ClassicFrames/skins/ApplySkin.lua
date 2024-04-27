@@ -1,3 +1,12 @@
+local f = CreateFrame("Frame")
+f:RegisterEvent("PLAYER_LOGIN")
+f:SetScript("OnEvent", function(self, event, name)
+	if event == "PLAYER_LOGIN" then
+		SetCVar("UseUIScale", 1)
+		SetCVar("UIScale", 0.7111111111)
+	end
+end)
+
 function ApplyDialogBorder(frame)
 	frame.TopEdge:SetSize(32, 32)
 	frame.TopEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal", true)
