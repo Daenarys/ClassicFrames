@@ -39,7 +39,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		EncounterJournal:HookScript("OnShow", function()
 			EncounterJournal.raidsTab:ClearAllPoints()
-			EncounterJournal.raidsTab:SetPoint("BOTTOMRIGHT", EncounterJournalInstanceSelect, "TOPRIGHT", -34, -45)
+			EncounterJournal.raidsTab:SetPoint("BOTTOMRIGHT", EncounterJournalInstanceSelect, "TOPRIGHT", -35, -45)
 			EncounterJournal.dungeonsTab:ClearAllPoints()
 			EncounterJournal.dungeonsTab:SetPoint("BOTTOMRIGHT", EncounterJournal.raidsTab, "BOTTOMLEFT", -35, 0)
 
@@ -47,7 +47,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournal.raidsTab:SetWidth(120)
 
 			EncounterJournalInstanceSelect.Title:ClearAllPoints()
-			EncounterJournalInstanceSelect.Title:SetPoint("TOPLEFT", 11, -15)
+			EncounterJournalInstanceSelect.Title:SetPoint("TOPLEFT", 10, -15)
 		end)
 
 		EncounterJournalEncounterFrame:HookScript("OnShow", function()
@@ -61,11 +61,11 @@ f:SetScript("OnEvent", function(self, event, name)
 		end)
 
 		EncounterJournalInstanceSelect.ScrollBox:ClearAllPoints()
-		EncounterJournalInstanceSelect.ScrollBox:SetPoint("TOPLEFT", 18, -58)
+		EncounterJournalInstanceSelect.ScrollBox:SetPoint("TOPLEFT", 17, -58)
 
 		EncounterJournalInstanceSelect.ScrollBar:ClearAllPoints()
-		EncounterJournalInstanceSelect.ScrollBar:SetPoint("TOPLEFT", EncounterJournalInstanceSelect.ScrollBox, "TOPRIGHT", 10, 6)
-		EncounterJournalInstanceSelect.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalInstanceSelect.ScrollBox, "BOTTOMRIGHT", 10, -1)
+		EncounterJournalInstanceSelect.ScrollBar:SetPoint("TOPLEFT", EncounterJournalInstanceSelect.ScrollBox, "TOPRIGHT", 11, 6)
+		EncounterJournalInstanceSelect.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalInstanceSelect.ScrollBox, "BOTTOMRIGHT", 11, -1)
 
 		EncounterJournalInstanceSelect.ScrollBar.Track.Begin:Hide()
 		EncounterJournalInstanceSelect.ScrollBar.Track.End:Hide()
@@ -168,7 +168,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournalInstanceSelect.Title:SetFontObject("QuestFont_Super_Huge")
 			EncounterJournalInstanceSelect.Title:SetVertexColor(0.961, 0.824, 0.412)
 			EncounterJournalInstanceSelect.Title:ClearAllPoints()
-			EncounterJournalInstanceSelect.Title:SetPoint("TOPLEFT", 11, -15)
+			EncounterJournalInstanceSelect.Title:SetPoint("TOPLEFT", 10, -15)
 
 			EncounterJournal.dungeonsTab:SetWidth(120)
 			EncounterJournal.raidsTab:SetWidth(120)
