@@ -20,6 +20,7 @@ skins\Quests.lua
 skins\SettingsPanel.lua
 skins\SpellBook.lua
 skins\unitframes\FocusFrame.lua
+skins\unitframes\PartyFrame.lua
 skins\unitframes\PetFrame.lua
 skins\unitframes\PlayerFrame.lua
 skins\unitframes\TargetFrame.lua

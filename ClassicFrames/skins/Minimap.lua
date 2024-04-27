@@ -12,7 +12,7 @@ MiniMapTracking:SetPoint("TOPLEFT", 9, -45)
 GameTimeFrame:ClearAllPoints()
 GameTimeFrame:SetPoint("TOPRIGHT", Minimap, "TOPRIGHT", 20, -2)
 GameTimeFrame:GetFontString():ClearAllPoints()
-GameTimeFrame:GetFontString():SetPoint("CENTER", -2, -1)
+GameTimeFrame:GetFontString():SetPoint("CENTER", -1, -1)
 
 MiniMapWorldBorder:Hide()
 
@@ -32,7 +32,7 @@ MiniMapWorldMapButton:GetHighlightTexture():SetPoint("TOPRIGHT", MiniMapWorldMap
 
 Minimap:HookScript("OnEvent", function(self, event, ...)
 	TimeManagerClockTicker:ClearAllPoints()
-	TimeManagerClockTicker:SetPoint("CENTER", TimeManagerClockButton, "CENTER", 2, 1)
+	TimeManagerClockTicker:SetPoint("CENTER", TimeManagerClockButton, "CENTER", 3, 1)
 end)
 
 -- queuestatusframe
