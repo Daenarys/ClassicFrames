@@ -22,6 +22,9 @@ PlayerFrameManaBarTextRight:SetTextColor(1, 1, 1)
 PlayerFrameManaBarTextLeft:ClearAllPoints()
 PlayerFrameManaBarTextLeft:SetPoint("LEFT", 111, -9)
 
+PlayerFrameHealthBar.breakUpLargeNumbers = true
+PlayerFrameManaBar.breakUpLargeNumbers = true
+
 hooksecurefunc("PlayerFrame_ToPlayerArt", function()
 	PlayerName:ClearAllPoints()
 	PlayerName:SetPoint("CENTER", 51, 18)

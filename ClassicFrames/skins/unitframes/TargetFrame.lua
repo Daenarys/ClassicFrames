@@ -25,6 +25,9 @@ TargetFrame.textureFrame.ManaBarTextRight:SetTextColor(1, 1, 1)
 TargetFrame.textureFrame.ManaBarTextLeft:ClearAllPoints()
 TargetFrame.textureFrame.ManaBarTextLeft:SetPoint("LEFT", 8, -9)
 
+TargetFrameHealthBar.breakUpLargeNumbers = true
+TargetFrameManaBar.breakUpLargeNumbers = true
+
 hooksecurefunc("TargetFrame_UpdateLevelTextAnchor", function(self)
 	self.levelText:ClearAllPoints()
 	self.levelText:SetPoint("CENTER", 63, -17)
