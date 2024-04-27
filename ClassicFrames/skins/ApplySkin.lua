@@ -2,8 +2,8 @@ local f = CreateFrame("Frame")
 f:RegisterEvent("PLAYER_LOGIN")
 f:SetScript("OnEvent", function(self, event, name)
 	if event == "PLAYER_LOGIN" then
-		if not ( GetCVarBool("useUIScale") ) then
-			SetCVar("useUIScale", 1)
+		if not ( GetCVarBool("useUiScale") ) then
+			SetCVar("useUiScale", 1)
 			SetCVar("uiScale", 0.7111111111)
 		end
 	end
