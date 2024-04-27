@@ -52,3 +52,14 @@ hooksecurefunc("PaperDollFrame_SetLevel", function()
 	CharacterLevelText:SetPoint("TOP", 0, -30)
 	CharacterLevelText:SetFontObject("GameFontNormalSmall")
 end)
+
+for i = 1, 2 do
+	hooksecurefunc(_G['CharacterFrameTab'..i], "OnClick", function(self)
+		local name = self:GetName()
+		if ( name == "CharacterFrameTab1" ) then
+			CharacterFrame:Expand()
+		elseif ( name == "CharacterFrameTab2" ) then
+			CharacterFrame:Expand()
+		end
+	end)
+end
