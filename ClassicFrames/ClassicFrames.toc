@@ -6,7 +6,7 @@
 ## OptionalDeps: SexyMap
 skins\ApplySkin.lua
 skins\Achievements.lua
-skins\Buff.lua
+skins\Buffs.lua
 skins\Character.lua
 skins\Chat.lua
 skins\Collections.lua
@@ -21,6 +21,7 @@ skins\PVP.lua
 skins\Quests.lua
 skins\SettingsPanel.lua
 skins\SpellBook.lua
+skins\Talents.lua
 skins\unitframes\BossFrame.lua
 skins\unitframes\FocusFrame.lua
 skins\unitframes\PartyFrame.lua
