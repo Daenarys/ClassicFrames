@@ -5,6 +5,10 @@ CharacterFrameTitleText:SetPoint("TOP", 0, -4)
 CharacterFrameTitleText:SetPoint("LEFT", 60, 0)
 CharacterFrameTitleText:SetPoint("RIGHT", -60, 0)
 
+CharacterFramePortrait:SetSize(60, 60)
+CharacterFramePortrait:ClearAllPoints()
+CharacterFramePortrait:SetPoint("TOPLEFT", -6, 7)
+
 ApplyDialogBorder(ReputationDetailFrame.Border)
 ApplyDialogBorder(TokenFramePopup.Border)
 
