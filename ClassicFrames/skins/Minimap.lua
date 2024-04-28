@@ -41,7 +41,7 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 	TimeManagerClockTicker:SetPoint("CENTER", TimeManagerClockButton, "CENTER", 3, 1)
 end)
 
--- queuestatusframe
+--lfg eye
 MiniMapLFGFrame:ClearAllPoints()
 MiniMapLFGFrame:SetPoint("TOPLEFT", 22, -100)
 
@@ -52,5 +52,52 @@ end)
 
 hooksecurefunc("QueueStatusDropDown_Show", function()
 	DropDownList1:ClearAllPoints()
-	DropDownList1:SetPoint("BOTTOMLEFT", MiniMapLFGFrame, "BOTTOMLEFT", 0, -61)
+	DropDownList1:SetPoint("TOPLEFT", MiniMapLFGFrame, "BOTTOMLEFT")
+end)
+
+hooksecurefunc(QueueStatusFrame, "Update", function(self)
+	local animateEye;
+
+	--Try each LFG type
+	for i=1, NUM_LE_LFG_CATEGORYS do
+		local mode, submode = GetLFGMode(i)
+		if ( mode and submode ~= "noteleport" ) then
+			if ( mode == "queued" ) then
+				animateEye = true;
+			end
+		end
+	end
+
+	--Try LFGList entries
+	local isActive = C_LFGList.HasActiveEntryInfo()
+	if ( isActive ) then
+		animateEye = true;
+	end
+
+	--Try LFGList applications
+	local apps = C_LFGList.GetApplications()
+	for i=1, #apps do
+		local _, appStatus = C_LFGList.GetApplicationInfo(apps[i])
+		if ( appStatus == "applied" or appStatus == "invited" ) then
+			if ( appStatus == "applied" ) then
+				animateEye = true;
+			end
+		end
+	end
+
+	--Try all PvP queues
+	for i=1, GetMaxBattlefieldID() do
+		local status, mapName, teamSize, registeredMatch, suspend = GetBattlefieldStatus(i)
+		if ( status and status ~= "none" ) then
+			if ( status == "queued" and not suspend ) then
+				animateEye = true;
+			end
+		end
+	end
+
+	if ( animateEye ) then
+		EyeTemplate_StartAnimating(MiniMapLFGFrame.eye)
+	else
+		EyeTemplate_StopAnimating(MiniMapLFGFrame.eye)
+	end
 end)
