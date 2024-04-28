@@ -80,6 +80,15 @@ f:SetScript("OnEvent", function(self, event, name)
 				ApplyScrollBarTrack(CommunitiesFrame.GuildBenefitsFrame.Rewards.ScrollBar.Track)
 				ApplyScrollBarThumb(CommunitiesFrame.GuildBenefitsFrame.Rewards.ScrollBar.Track.Thumb)
 
+				CommunitiesFrame.GuildBenefitsFrame.Perks.ScrollBar:SetSize(25, 560)
+				CommunitiesFrame.GuildBenefitsFrame.Perks.ScrollBar:ClearAllPoints()
+				CommunitiesFrame.GuildBenefitsFrame.Perks.ScrollBar:SetPoint("TOPLEFT", CommunitiesFrame.GuildBenefitsFrame.Perks, "TOPRIGHT", -8, 3)
+				CommunitiesFrame.GuildBenefitsFrame.Perks.ScrollBar:SetPoint("BOTTOMLEFT", CommunitiesFrame.GuildBenefitsFrame.Perks, "BOTTOMRIGHT", -5, -4)
+
+				ApplyScrollBarArrow(CommunitiesFrame.GuildBenefitsFrame.Perks.ScrollBar)
+				ApplyScrollBarTrack(CommunitiesFrame.GuildBenefitsFrame.Perks.ScrollBar.Track)
+				ApplyScrollBarThumb(CommunitiesFrame.GuildBenefitsFrame.Perks.ScrollBar.Track.Thumb)
+
 				CommunitiesFrameGuildDetailsFrameNews.ScrollBar:SetSize(25, 560)
 				CommunitiesFrameGuildDetailsFrameNews.ScrollBar:ClearAllPoints()
 				CommunitiesFrameGuildDetailsFrameNews.ScrollBar:SetPoint("TOPLEFT", CommunitiesFrameGuildDetailsFrameNews, "TOPRIGHT", -13, 3)
