@@ -39,3 +39,8 @@ hooksecurefunc("FCF_FadeOutChatFrame", function(chatFrame)
         end
     end
 end)
+
+_G.FriendsMicroButton:HookScript("OnUpdate", function(self)
+    self:ClearAllPoints()
+    self:SetPoint("LEFT", GeneralDockManager, "LEFT", -35, -1)
+end)
