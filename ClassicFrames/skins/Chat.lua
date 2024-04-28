@@ -1,3 +1,6 @@
+-- hide default buttons
+ChatFrameChannelButton:Hide()
+
 hooksecurefunc("FCFTab_UpdateAlpha", function(chatFrame)
     local chatTab = _G[chatFrame:GetName().."Tab"]
     if ( not chatFrame.isDocked or chatFrame == FCFDock_GetSelectedWindow(GENERAL_CHAT_DOCK) ) then
