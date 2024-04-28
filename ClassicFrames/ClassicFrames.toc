@@ -21,6 +21,7 @@ skins\PVP.lua
 skins\Quests.lua
 skins\SettingsPanel.lua
 skins\SpellBook.lua
+skins\unitframes\BossFrame.lua
 skins\unitframes\FocusFrame.lua
 skins\unitframes\PartyFrame.lua
 skins\unitframes\PetFrame.lua
