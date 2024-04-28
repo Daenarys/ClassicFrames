@@ -1,5 +1,7 @@
 if not _G.FriendsFrame then return end
 
+FriendsFrameIcon:SetTexture("Interface\\FriendsFrame\\Battlenet-Portrait")
+
 FriendsFrameTab1:ClearAllPoints()
 FriendsFrameTab1:SetPoint("BOTTOMLEFT", 5, -30)
 
