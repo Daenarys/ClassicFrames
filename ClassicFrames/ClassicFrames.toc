@@ -8,6 +8,7 @@ skins\ApplySkin.lua
 skins\Achievements.lua
 skins\Character.lua
 skins\Chat.lua
+skins\Collections.lua
 skins\Communities.lua
 skins\DebugTools.lua
 skins\EncounterJournal.lua
