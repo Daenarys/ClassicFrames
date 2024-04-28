@@ -8,7 +8,6 @@ f:SetScript("OnEvent", function(self, event, name)
 				self.MaximizeMinimizeFrame:ClearAllPoints()
 				self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
 
-				self.MaximizeMinimizeFrame.MaximizeButton:SetDisabledTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Panel-SmallerButton-Disabled")
 				self.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Panel-SmallerButton-Disabled")
 
 				if not self.ButtonFrameEdge then
@@ -30,7 +29,6 @@ f:SetScript("OnEvent", function(self, event, name)
 				self.MaximizeMinimizeFrame:ClearAllPoints()
 				self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
 
-				self.MaximizeMinimizeFrame.MaximizeButton:SetDisabledTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Panel-SmallerButton-Disabled")
 				self.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Panel-SmallerButton-Disabled")
 
 				if not self.ButtonFrameEdge then
