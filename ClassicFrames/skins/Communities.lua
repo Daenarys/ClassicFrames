@@ -89,6 +89,10 @@ f:SetScript("OnEvent", function(self, event, name)
 				ApplyScrollBarTrack(CommunitiesFrame.GuildBenefitsFrame.Perks.ScrollBar.Track)
 				ApplyScrollBarThumb(CommunitiesFrame.GuildBenefitsFrame.Perks.ScrollBar.Track.Thumb)
 
+				CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar:ClearAllPoints()
+				CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", CommunitiesFrame.NotificationSettingsDialog.ScrollFrame, "TOPRIGHT", -11, -5)
+				CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", CommunitiesFrame.NotificationSettingsDialog.ScrollFrame, "BOTTOMRIGHT", 11, 5)
+
 				CommunitiesFrameGuildDetailsFrameNews.ScrollBar:SetSize(25, 560)
 				CommunitiesFrameGuildDetailsFrameNews.ScrollBar:ClearAllPoints()
 				CommunitiesFrameGuildDetailsFrameNews.ScrollBar:SetPoint("TOPLEFT", CommunitiesFrameGuildDetailsFrameNews, "TOPRIGHT", -13, 3)
