@@ -8,6 +8,7 @@ MinimapZoomOut:SetPoint("CENTER", 50, -43)
 
 MiniMapTracking:ClearAllPoints()
 MiniMapTracking:SetPoint("TOPLEFT", 9, -45)
+MiniMapTrackingIcon:SetTexture("Interface\\Minimap\\Tracking\\None")
 
 MiniMapMailFrame:ClearAllPoints()
 MiniMapMailFrame:SetPoint("TOPRIGHT", 24, -37)
