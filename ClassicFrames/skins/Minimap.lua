@@ -9,6 +9,9 @@ MinimapZoomOut:SetPoint("CENTER", 50, -43)
 MiniMapTracking:ClearAllPoints()
 MiniMapTracking:SetPoint("TOPLEFT", 9, -45)
 
+MiniMapMailFrame:ClearAllPoints()
+MiniMapMailFrame:SetPoint("TOPRIGHT", 24, -37)
+
 GameTimeFrame:ClearAllPoints()
 GameTimeFrame:SetPoint("TOPRIGHT", Minimap, "TOPRIGHT", 20, -2)
 GameTimeFrame:GetFontString():ClearAllPoints()
