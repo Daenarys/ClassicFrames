@@ -16,12 +16,6 @@ GameTimeFrame:GetFontString():SetPoint("CENTER", -1, -1)
 
 MiniMapWorldBorder:Hide()
 
-MinimapZoneTextButton:SetSize(150, 12)
-MinimapZoneTextButton:ClearAllPoints()
-MinimapZoneTextButton:SetPoint("CENTER", 7, 83)
-MinimapZoneText:ClearAllPoints()
-MinimapZoneText:SetPoint("CENTER", MinimapZoneTextButton, "TOP", -5, -6)
-
 MiniMapWorldMapButton:SetSize(32, 32)
 MiniMapWorldMapButton:ClearAllPoints()
 MiniMapWorldMapButton:SetPoint("TOPRIGHT", MinimapBackdrop, "TOPRIGHT", 0, 21)
@@ -44,6 +38,8 @@ end)
 --lfg eye
 MiniMapLFGFrame:ClearAllPoints()
 MiniMapLFGFrame:SetPoint("TOPLEFT", 22, -100)
+
+MiniMapLFGFrameBorder:SetParent(MiniMapLFGFrame.eye)
 
 QueueStatusFrame:HookScript("OnShow", function(self)
 	self:ClearAllPoints()
