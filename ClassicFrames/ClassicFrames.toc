@@ -2,7 +2,7 @@
 ## Title: Classic Frames
 ## Notes: Restores the pre 10.x UI Frames and Unit Frames
 ## Author: luckfore
-## Version: 1.0.1
+## Version: 1.0.2
 ## OptionalDeps: SexyMap
 skins\ApplySkin.lua
 skins\Achievements.lua
