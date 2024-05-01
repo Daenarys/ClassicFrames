@@ -42,18 +42,29 @@ ApplyScrollBarArrow(PaperDollFrame.EquipmentManagerPane.ScrollBar)
 ApplyScrollBarTrack(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track)
 ApplyScrollBarThumb(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track.Thumb)
 
-CharacterFrame:HookScript("OnShow", function()
+CharacterFrame:HookScript("OnShow", function(self)
 	if not ReputationFrame:IsShown() or TokenFrame:IsShown() then
-		CharacterFrame:Expand()
+		self:Expand()
 	end
 end)
 
-PaperDollFrame:HookScript("OnShow", function()
-	CharacterModelScene.ControlFrame:Hide()
+hooksecurefunc(CharacterFrame, "UpdateSize", function(self)
+	if ReputationFrame:IsShown() then
+		self:SetWidth(338)
+	end
+end)
+
+hooksecurefunc(CharacterFrame, "UpdateTitle", function(self)
+	self.TitleText:SetText(UnitPVPName("player"))
+	self.TitleText:SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
 end)
 
 CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
 	ApplyControlFrame(self)
+end)
+
+PaperDollFrame:HookScript("OnShow", function()
+	CharacterModelScene.ControlFrame:Hide()
 end)
 
 hooksecurefunc("PaperDollFrame_SetLevel", function()
@@ -72,3 +83,9 @@ for i = 1, 2 do
 		end
 	end)
 end
+
+ReputationFrame:HookScript("OnShow", function(self)
+	if not ReputationListScrollFrame:IsShown() then
+		ReputationBar1:SetPoint("TOPRIGHT", ReputationFrame, "TOPRIGHT", -26, -68)
+	end
+end)
