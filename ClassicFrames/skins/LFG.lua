@@ -274,7 +274,7 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 	LFGDungeonReadyDialog:CreateTexture("LFGDungeonReadyDialogfiligree", "OVERLAY")
 	LFGDungeonReadyDialog.filigree = LFGDungeonReadyDialogfiligree
 
-	local showRole = true	-- scenarios will set this to false
+	local showRole = true -- scenarios will set this to false
 	if ( subtypeID == LFG_SUBTYPEID_RAID ) then
 		LFGDungeonReadyDialog.filigree:SetTexture("Interface\\LFGFrame\\LFR-Texture")
 		LFGDungeonReadyDialog.filigree:SetTexCoord(0.00195313, 0.57617188, 0.58593750, 0.78125000)
@@ -285,6 +285,7 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		LFGDungeonReadyDialog.bottomArt:SetSize(282, 73)
 		LFGDungeonReadyDialog:SetBackdrop(RAID_BACKDROP_TABLE)
 	else
+		LFGDungeonReadyDialog.background:SetTexture("Interface\\LFGFrame\\UI-LFG-BACKGROUND-RANDOMDUNGEON")
 		LFGDungeonReadyDialog.filigree:SetTexture("Interface\\LFGFrame\\UI-LFG-FILIGREE")
 		LFGDungeonReadyDialog.filigree:SetTexCoord(0.02734, 0.59765, 0.578125, 1.0)
 		LFGDungeonReadyDialog.filigree:SetSize(292, 54)
@@ -309,6 +310,12 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		elseif role == 'HEALER' then
 			_G.LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("HEALER"))
 		end
+	end
+
+	if LFGDungeonReadyDialog.Center then
+		LFGDungeonReadyDialog.Center:ClearAllPoints()
+		LFGDungeonReadyDialog.Center:SetPoint("TOPLEFT", LFGDungeonReadyDialog.TopLeftCorner, "BOTTOMRIGHT", -21, -96)
+		LFGDungeonReadyDialog.Center:SetPoint("BOTTOMRIGHT", LFGDungeonReadyDialog.BottomRightCorner, "TOPLEFT", 20, -21)
 	end
 end)
 
