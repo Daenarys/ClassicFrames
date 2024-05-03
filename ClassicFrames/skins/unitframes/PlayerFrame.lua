@@ -16,6 +16,7 @@ function CfPlayerFrame_OnLoad(self)
 	CfPlayerFrameHealthBarText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	CfPlayerFrameHealthBarTextLeft:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	CfPlayerFrameHealthBarTextRight:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+	CfPlayerFrameManaBarText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	CfPlayerFrameManaBarTextLeft:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	CfPlayerFrameManaBarTextRight:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 
@@ -342,29 +343,22 @@ PlayerAttackBackground:SetAlpha(0.4)
 PlayerAttackBackground:SetPoint("TOPLEFT", PlayerAttackIcon, "TOPLEFT", -3, -1)
 
 hooksecurefunc("PlayerFrame_UpdateStatus", function()
-	local statusTexture = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.StatusTexture;
-
 	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.AttackIcon:Hide()
 	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerPortraitCornerIcon:Hide()
 	
 	if ( UnitHasVehiclePlayerFrameUI("player") ) then
-		statusTexture:Hide()
 		PlayerAttackIcon:Hide()
 		PlayerAttackGlow:Hide()
 		PlayerRestIcon:Hide()
 		PlayerRestGlow:Hide()
 		PlayerAttackBackground:Hide()
 	elseif ( IsResting() ) then
-		statusTexture:SetVertexColor(1.0, 0.88, 0.25, 1.0)
-		statusTexture:Show()
 		PlayerAttackIcon:Hide()
 		PlayerAttackGlow:Hide()
 		PlayerRestIcon:Show()
 		PlayerRestGlow:Show()
 		PlayerAttackBackground:Hide()
 	elseif ( PlayerFrame.inCombat ) then
-		statusTexture:SetVertexColor(1.0, 0.0, 0.0, 1.0)
-		statusTexture:Show()
 		PlayerAttackIcon:Show()
 		PlayerAttackGlow:Show()
 		PlayerRestIcon:Hide()
@@ -377,7 +371,6 @@ hooksecurefunc("PlayerFrame_UpdateStatus", function()
 		PlayerRestGlow:Hide()
 		PlayerAttackBackground:Hide()
 	else
-		statusTexture:Hide()
 		PlayerAttackIcon:Hide()
 		PlayerAttackGlow:Hide()
 		PlayerRestIcon:Hide()
