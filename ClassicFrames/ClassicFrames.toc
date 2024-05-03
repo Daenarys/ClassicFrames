@@ -55,9 +55,10 @@ skins\IslandsQueue.lua
 skins\ItemRefTooltip.lua
 skins\ItemText.lua
 skins\ItemUpgrade.lua
+skins\Keystone.lua
 skins\LFG.lua
 skins\Loot.xml
-skins\Macros.lua
+skins\Macro.lua
 skins\Mail.lua
 skins\MajorRenown.lua
 skins\Merchant.lua
