@@ -1,9 +1,9 @@
-## Interface: 100207
+## Interface: 100206
 ## IconTexture: Interface/Icons/INV_Sword_2H_AshbringerCorrupt
 ## Title: Classic Frames
 ## Notes: Restores the pre 10.x UI Frames and Unit Frames
 ## Author: luckfore
-## Version: 1.57
+## Version: 1.58
 ## OptionalDeps: SexyMap
 embeds.xml
 skins\ApplySkin.lua

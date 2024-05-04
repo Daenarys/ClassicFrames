@@ -7,7 +7,5 @@ hooksecurefunc(HelpTip, "Show", function(self)
 		frame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 		frame.CloseButton:ClearAllPoints()
 		frame.CloseButton:SetPoint("TOPRIGHT", 5, 5)
-
-		frame.CloseButton.Texture:Hide()
 	end
 end)
