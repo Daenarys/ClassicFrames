@@ -26,8 +26,15 @@ f:SetScript("OnEvent", function(self, event, name)
 		CollectionsJournalTab3:SetPoint("LEFT", CollectionsJournalTab2, "RIGHT", -16, 0)
 		CollectionsJournalTab4:ClearAllPoints()
 		CollectionsJournalTab4:SetPoint("LEFT", CollectionsJournalTab3, "RIGHT", -16, 0)
-		CollectionsJournalTab5:ClearAllPoints()
-		CollectionsJournalTab5:SetPoint("LEFT", CollectionsJournalTab4, "RIGHT", -16, 0)
+
+		hooksecurefunc("CollectionsJournal_CheckAndDisplayHeirloomsTab", function()
+			CollectionsJournalTab5:ClearAllPoints()
+			if PlayerGetTimerunningSeasonID() then
+				CollectionsJournalTab5:SetPoint("LEFT", CollectionsJournalTab3, "RIGHT", -16, 0)
+			else
+				CollectionsJournalTab5:SetPoint("LEFT", CollectionsJournalTab4, "RIGHT", -16, 0)
+			end
+		end)
 
 		for i = 1,5 do
 			ApplyBottomTab(_G['CollectionsJournalTab'..i])
@@ -58,7 +65,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		MountJournal.ScrollBar:SetPoint("BOTTOMLEFT", MountJournal.ScrollBox, "BOTTOMRIGHT", 4, -4)
 
 		if (MountJournal.ScrollBar.BG == nil) then
-			MountJournal.ScrollBar.BG = MountJournal.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			MountJournal.ScrollBar.BG = MountJournal.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			MountJournal.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			MountJournal.ScrollBar.BG:SetAllPoints()
 		end
@@ -73,7 +80,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		PetJournal.ScrollBar:SetPoint("BOTTOMLEFT", PetJournal.ScrollBox, "BOTTOMRIGHT", 4, -4)
 
 		if (PetJournal.ScrollBar.BG == nil) then
-			PetJournal.ScrollBar.BG = PetJournal.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			PetJournal.ScrollBar.BG = PetJournal.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			PetJournal.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			PetJournal.ScrollBar.BG:SetAllPoints()
 		end
@@ -88,7 +95,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:SetPoint("BOTTOMLEFT", WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBox, "BOTTOMRIGHT", 4, -8)
 
 		if (WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG == nil) then
-			WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG = WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG = WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG:SetAllPoints()
 		end
