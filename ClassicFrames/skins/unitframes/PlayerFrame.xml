@@ -82,7 +82,7 @@ UI_shared.xsd">
 						self.textLockable = 1;
 						self.cvar = "statusText";
 						self.cvarLabel = "STATUS_TEXT_PLAYER";
-						self:EnableMouse(false);
+						self:SetMouseClickEnabled(false);
 					</OnLoad>
 					<OnValueChanged function="CfUnitFrameHealthBar_OnValueChanged"/>
 					<OnSizeChanged>
@@ -102,7 +102,7 @@ UI_shared.xsd">
 						self.textLockable = 1;
 						self.cvar = "statusText";
 						self.cvarLabel = "STATUS_TEXT_PLAYER";
-						self:EnableMouse(false);
+						self:SetMouseClickEnabled(false);
 					</OnLoad>
 				</Scripts>
 				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>

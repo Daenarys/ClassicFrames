@@ -56,6 +56,9 @@ local function SkinFrame(frame)
 	frame.TargetFrameContainer.Portrait:ClearAllPoints()
 	frame.TargetFrameContainer.Portrait:SetPoint("TOPRIGHT", -22, -16)
 
+	FrameHealthBar:EnableMouse(false)
+	FrameManaBar:EnableMouse(false)
+
 	contextual.NumericalThreat:ClearAllPoints()
 	contextual.NumericalThreat:SetPoint("BOTTOM", frame, "TOP", -30, -26)
 
