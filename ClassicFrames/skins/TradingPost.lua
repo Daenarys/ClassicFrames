@@ -68,5 +68,17 @@ f:SetScript("OnEvent", function(self, event, name)
 		PerksProgramFrame.FooterFrame.TogglePlayerPreview:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
 		PerksProgramFrame.FooterFrame.TogglePlayerPreview:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
 		PerksProgramFrame.FooterFrame.TogglePlayerPreview:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
+
+		PerksProgramFrame.FooterFrame.ToggleMountSpecial:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+		PerksProgramFrame.FooterFrame.ToggleMountSpecial:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+		PerksProgramFrame.FooterFrame.ToggleMountSpecial:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+		PerksProgramFrame.FooterFrame.ToggleMountSpecial:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+		PerksProgramFrame.FooterFrame.ToggleMountSpecial:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
+
+		PerksProgramFrame.FooterFrame.ToggleAttackAnimation:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+		PerksProgramFrame.FooterFrame.ToggleAttackAnimation:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+		PerksProgramFrame.FooterFrame.ToggleAttackAnimation:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+		PerksProgramFrame.FooterFrame.ToggleAttackAnimation:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+		PerksProgramFrame.FooterFrame.ToggleAttackAnimation:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
 	end
 end)
