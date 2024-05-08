@@ -160,7 +160,7 @@
 	<Frame name="CfOptions" mixin="CfOptionsPanelMixin" inherits="ButtonFrameTemplate" parent="UIParent" toplevel="true" enableMouse="true" frameStrata="DIALOG">
 		<Size x="540" y="424"/>
         <Anchors>
-			<Anchor point="CENTER" x="0" y="24"/>
+			<Anchor point="CENTER" x="0" y="51"/>
 		</Anchors>
 		<Scripts>
 			<OnLoad method="OnLoad"/>
