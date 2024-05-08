@@ -1,8 +1,8 @@
 function CfPlayerFrame_OnLoad(self)
-	CfPlayerFrameHealthBar.LeftText = CfPlayerFrameHealthBarTextLeft;
-	CfPlayerFrameHealthBar.RightText = CfPlayerFrameHealthBarTextRight;
-	CfPlayerFrameManaBar.LeftText = CfPlayerFrameManaBarTextLeft;
-	CfPlayerFrameManaBar.RightText = CfPlayerFrameManaBarTextRight;
+	CfPlayerFrameHealthBar.LeftText = CfPlayerFrameHealthBarTextLeft
+	CfPlayerFrameHealthBar.RightText = CfPlayerFrameHealthBarTextRight
+	CfPlayerFrameManaBar.LeftText = CfPlayerFrameManaBarTextLeft
+	CfPlayerFrameManaBar.RightText = CfPlayerFrameManaBarTextRight
 
 	CfUnitFrame_Initialize(self, "player", nil, nil,
 		CfPlayerFrameHealthBar, CfPlayerFrameHealthBarText,
@@ -182,7 +182,7 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	self.PlayerFrameContainer.VehicleFrameTexture:SetPoint("TOPLEFT", -3, 6)
 	self.PlayerFrameContainer.VehicleFrameTexture:SetDrawLayer("BORDER")
 
-	local FrameFlash = self.PlayerFrameContainer.FrameFlash;
+	local FrameFlash = self.PlayerFrameContainer.FrameFlash
 	FrameFlash:SetParent(self)
 	FrameFlash:SetSize(242, 93)
 	FrameFlash:SetTexture("Interface\\Vehicles\\UI-Vehicle-Frame-Flash")
@@ -190,6 +190,9 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	FrameFlash:ClearAllPoints()
 	FrameFlash:SetPoint("TOPLEFT", -6, -4)
 	FrameFlash:SetDrawLayer("BACKGROUND")
+
+	local StatusTexture = self.PlayerFrameContent.PlayerFrameContentMain.StatusTexture
+	StatusTexture:Hide()
 
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMRIGHT", self, "TOPLEFT", 161, -25)
 	self.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon:SetPoint("TOPLEFT", 76, -19)
@@ -225,13 +228,13 @@ hooksecurefunc("PlayerFrame_UpdateLevel", function()
 end)
 
 hooksecurefunc("PlayerFrame_UpdatePartyLeader", function()
-	local leaderIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.LeaderIcon;
+	local leaderIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.LeaderIcon
 	leaderIcon:SetSize(16, 16)
 	leaderIcon:SetTexture("Interface\\GroupFrame\\UI-Group-LeaderIcon")
 	leaderIcon:ClearAllPoints()
 	leaderIcon:SetPoint("TOPLEFT", 21, -16)
 
-	local guideIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.GuideIcon;
+	local guideIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.GuideIcon
 	guideIcon:SetSize(19, 19)
 	guideIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
 	guideIcon:SetTexCoord(0, 0.296875, 0.015625, 0.3125)
@@ -247,7 +250,7 @@ hooksecurefunc("PlayerFrame_UpdatePlayerNameTextAnchor", function()
 end)
 
 hooksecurefunc("PlayerFrame_UpdatePlayerRestLoop", function()
-	local playerRestLoop = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestLoop;
+	local playerRestLoop = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestLoop
 
 	playerRestLoop:Hide()
 	playerRestLoop.PlayerRestLoopAnim:Stop()
@@ -272,7 +275,7 @@ hooksecurefunc("PlayerFrame_UpdatePvPStatus", function()
 end)
 
 hooksecurefunc("PlayerFrame_UpdateRolesAssigned", function()
-	local roleIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon;
+	local roleIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon
 	local role =  UnitGroupRolesAssigned("player")
 
 	roleIcon:SetSize(19, 19)
@@ -293,7 +296,7 @@ hooksecurefunc("PlayerFrame_UpdateRolesAssigned", function()
 end)
 
 local PlayerRestIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
-PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestIcon = PlayerRestIcon;
+PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestIcon = PlayerRestIcon
 PlayerRestIcon:SetSize(31, 31)
 PlayerRestIcon:SetTexture("Interface\\CharacterFrame\\UI-StateIcon")
 PlayerRestIcon:SetTexCoord(0, 0.5, 0, 0.421875)
@@ -301,7 +304,7 @@ PlayerRestIcon:ClearAllPoints()
 PlayerRestIcon:SetPoint("TOPLEFT", 20, -54)
 
 local PlayerRestGlow = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
-PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow = PlayerRestGlow;
+PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow = PlayerRestGlow
 PlayerRestGlow:SetSize(32, 32)
 PlayerRestGlow:SetTexture("Interface\\CharacterFrame\\UI-StateIcon")
 PlayerRestGlow:SetTexCoord(0, 0.5, 0.5, 1)
@@ -310,7 +313,7 @@ PlayerRestGlow:ClearAllPoints()
 PlayerRestGlow:SetPoint("TOPLEFT", PlayerRestIcon)
 
 local PlayerAttackIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
-PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackIcon = PlayerAttackIcon;
+PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackIcon = PlayerAttackIcon
 PlayerAttackIcon:SetSize(32, 31)
 PlayerAttackIcon:SetTexture("Interface\\CharacterFrame\\UI-StateIcon")
 PlayerAttackIcon:SetTexCoord(0.5, 1.0, 0, 0.484375)
@@ -318,7 +321,7 @@ PlayerAttackIcon:ClearAllPoints()
 PlayerAttackIcon:SetPoint("TOPLEFT", PlayerRestIcon, "TOPLEFT", 1, 1)
 
 local PlayerAttackGlow = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
-PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackGlow = PlayerAttackGlow;
+PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackGlow = PlayerAttackGlow
 PlayerAttackGlow:SetSize(32, 32)
 PlayerAttackGlow:SetTexture("Interface\\CharacterFrame\\UI-StateIcon")
 PlayerAttackGlow:SetTexCoord(0.5, 1, 0.5, 1)
@@ -328,7 +331,7 @@ PlayerAttackGlow:ClearAllPoints()
 PlayerAttackGlow:SetPoint("TOPLEFT", PlayerAttackIcon)
 
 local PlayerAttackBackground = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "ARTWORK")
-PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackBackground = PlayerAttackBackground;
+PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackBackground = PlayerAttackBackground
 PlayerAttackBackground:SetSize(32, 32)
 PlayerAttackBackground:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-AttackBackground")
 PlayerAttackBackground:SetVertexColor(0.8, 0.1, 0.1)
@@ -386,21 +389,21 @@ end)
 
 PlayerFrame:HookScript("OnUpdate", function(self)
 	if (self.PlayerFrameContent.PlayerFrameContentMain.StatusTexture:IsShown()) then
-		local alpha = 255;
-		local counter = self.statusCounter;
-		local sign = self.statusSign;
+		local alpha = 255
+		local counter = self.statusCounter
+		local sign = self.statusSign
 
 		if (counter > 0.5) then
-			sign = -sign;
-			self.statusSign = sign;
+			sign = -sign
+			self.statusSign = sign
 		end
-		counter = mod(counter, 0.5);
-		self.statusCounter = counter;
+		counter = mod(counter, 0.5)
+		self.statusCounter = counter
 
 		if (sign == 1) then
-			alpha = (55 + (counter * 400)) / 255;
+			alpha = (55 + (counter * 400)) / 255
 		else
-			alpha = (255 - (counter * 400)) / 255;
+			alpha = (255 - (counter * 400)) / 255
 		end
 		if (self.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackGlow:IsShown()) then
 			self.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackGlow:SetAlpha(alpha)
