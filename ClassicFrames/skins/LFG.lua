@@ -580,7 +580,7 @@ hooksecurefunc('LFGListApplicationViewer_UpdateRoleIcons', function(member, gray
 	end
 end)
 
-hooksecurefunc('LFGListGroupDataDisplayEnumerate_Update', function(self, numPlayers, displayData, disabled, iconOrder, showClassesByRole)
+hooksecurefunc('LFGListGroupDataDisplayEnumerate_Update', function(self, numPlayers, displayData, disabled, iconOrder)
 	local LFG_LIST_GROUP_DATA_ATLASES = {
 		TANK = "groupfinder-icon-role-large-tank",
 		HEALER = "groupfinder-icon-role-large-heal",
@@ -592,19 +592,16 @@ hooksecurefunc('LFGListGroupDataDisplayEnumerate_Update', function(self, numPlay
 		local iconIndex = numPlayers;
 		for i=1, #iconOrder do
 			local role = iconOrder[i];
-			local classesByRole = displayData.classesByRole[role];
-			for class, num in pairs(classesByRole) do
-				for k=1, num do
-					local icon = self.Icons[iconIndex];
-					icon.RoleIconWithBackground:Hide();
-					icon.RoleIcon:SetSize(18, 18);
-					icon.RoleIcon:SetAtlas(LFG_LIST_GROUP_DATA_ATLASES[role], false);
-					icon.ClassCircle:Hide();
-
-					iconIndex = iconIndex - 1;
-					if ( iconIndex < 1 ) then
-						return;
-					end
+			for j=1, displayData[iconOrder[i]] do
+				local icon = self.Icons[iconIndex];
+				icon.RoleIconWithBackground:Hide();
+				icon.RoleIcon:Show();
+				icon.RoleIcon:SetSize(18, 18);
+				icon.RoleIcon:SetAtlas(LFG_LIST_GROUP_DATA_ATLASES[role], false);
+				icon.ClassCircle:Hide();
+				iconIndex = iconIndex - 1;
+				if ( iconIndex < 1 ) then
+					return;
 				end
 			end
 		end
