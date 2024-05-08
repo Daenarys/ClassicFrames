@@ -1,3 +1,0 @@
-CfMinimapDefaults = {
-    enableMinimap = true
-}

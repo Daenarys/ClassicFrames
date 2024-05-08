@@ -304,15 +304,6 @@ end)
 
 hooksecurefunc(TargetFrame, "Update", function(self)
 	if (UnitExists(self.unit)) then
-		if (CfTargetSettings:GetClassColorHealthEnabled()) then
-			local _, classKey = UnitClass("target")
-			local r,g,b,_ = GetClassColor(classKey)
-			CfTargetFrameHealthBar.lockColor = true
-			CfTargetFrameHealthBar:SetStatusBarColor(r, g, b)				
-		else
-			CfTargetFrameHealthBar.lockColor = false
-			CfTargetFrameHealthBar:SetStatusBarColor(0, 1, 0)
-		end
 		CfUnitFrame_Update(CfTargetFrame)
 	end
 end)

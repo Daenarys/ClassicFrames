@@ -123,6 +123,7 @@ end
 
 hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	self.PlayerFrameContainer.FrameTexture:SetSize(232, 100)
+	self.PlayerFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
 	self.PlayerFrameContainer.FrameTexture:SetTexCoord(1, 0.09375, 0, 0.78125)
 	self.PlayerFrameContainer.FrameTexture:ClearAllPoints()
 	self.PlayerFrameContainer.FrameTexture:SetPoint("TOPLEFT", -19, -4)
@@ -170,9 +171,8 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	elseif ( class == "DEATHKNIGHT" ) then
 		CfRuneFrame:Show()
 	end
-	ComboPointPlayerFrame:Setup()
 
-	CfPlayerSettings:RebuildFrames()
+	ComboPointPlayerFrame:Setup()
 end)
 
 hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
@@ -216,6 +216,7 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	elseif ( class == "DEATHKNIGHT" ) then
 		CfRuneFrame:Hide()
 	end
+
 	ComboPointPlayerFrame:Setup()
 end)
 

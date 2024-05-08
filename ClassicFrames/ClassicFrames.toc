@@ -4,7 +4,7 @@
 ## Notes: Restores the pre 10.x UI Frames and Unit Frames
 ## Author: luckfore
 ## Version: 1.61
-## SavedVariables: ClassicFramesDB
+## OptionalDeps: SexyMap
 embeds.xml
 skins\ApplySkin.lua
 skins\Achievements.lua
@@ -63,6 +63,7 @@ skins\Macro.lua
 skins\Mail.lua
 skins\MajorRenown.lua
 skins\Merchant.lua
+skins\Minimap.lua
 skins\MirrorTimers.lua
 skins\Money.lua
 skins\NewPlayerGuide.lua
@@ -113,17 +114,3 @@ skins\unitframes\classbars\Mage.xml
 skins\unitframes\classbars\Monk.xml
 skins\unitframes\classbars\Paladin.xml
 skins\unitframes\classbars\Warlock.xml
-options\Options.xml
-options\modules\player\Defaults.lua
-options\modules\player\Options.lua
-options\modules\player\Handler.lua
-options\modules\target\Defaults.lua
-options\modules\target\Options.lua
-options\modules\target\Handler.lua
-options\modules\minimap\Defaults.lua
-options\modules\minimap\Options.lua
-options\modules\minimap\Handler.lua
-options\general\Defaults.lua
-options\general\Options.lua
-options\Init.lua
-options\general\Handler.lua
