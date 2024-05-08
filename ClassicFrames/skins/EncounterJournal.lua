@@ -130,8 +130,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournal.MonthlyActivitiesTab:SetPoint("BOTTOMLEFT", EncounterJournalInstanceSelect, "TOPLEFT", 25, -45)
 			EncounterJournal.suggestTab:ClearAllPoints()
 			EncounterJournal.suggestTab:SetPoint("BOTTOMLEFT", EncounterJournal.MonthlyActivitiesTab, "BOTTOMRIGHT", 35, 0)
-			EncounterJournal.dungeonsTab:ClearAllPoints()
-			EncounterJournal.dungeonsTab:SetPoint("BOTTOMLEFT", EncounterJournal.suggestTab, "BOTTOMRIGHT", 35, 0)
 			EncounterJournal.raidsTab:ClearAllPoints()
 			EncounterJournal.raidsTab:SetPoint("BOTTOMLEFT", EncounterJournal.dungeonsTab, "BOTTOMRIGHT", 35, 0)
 		end)
@@ -140,7 +138,9 @@ f:SetScript("OnEvent", function(self, event, name)
 			if C_PlayerInfo.IsTradingPostAvailable() then
 				EncounterJournal.MonthlyActivitiesTab:Hide()
 			end
-			EncounterJournal.suggestTab:Hide()
+			if not PlayerGetTimerunningSeasonID() then
+				EncounterJournal.suggestTab:Hide()
+			end
 			EncounterJournal.dungeonsTab:Hide()
 			EncounterJournal.raidsTab:Hide()
 			EncounterJournal.LootJournalTab:Hide()
@@ -150,10 +150,25 @@ f:SetScript("OnEvent", function(self, event, name)
 			if C_PlayerInfo.IsTradingPostAvailable() then
 				EncounterJournal.MonthlyActivitiesTab:Show()
 			end
-			EncounterJournal.suggestTab:Show()
+			if not PlayerGetTimerunningSeasonID() then
+				EncounterJournal.suggestTab:Show()
+			end
 			EncounterJournal.dungeonsTab:Show()
 			EncounterJournal.raidsTab:Show()
 			EncounterJournal.LootJournalTab:Hide()
+		end)
+
+		hooksecurefunc("EncounterJournal_CheckAndDisplaySuggestedContentTab", function()
+			EncounterJournal.dungeonsTab:ClearAllPoints()
+			if PlayerGetTimerunningSeasonID() then
+				EncounterJournal.dungeonsTab:SetPoint("BOTTOMLEFT", EncounterJournal.MonthlyActivitiesTab, "BOTTOMRIGHT", 35, 0)
+			else
+				EncounterJournal.dungeonsTab:SetPoint("BOTTOMLEFT", EncounterJournal.suggestTab, "BOTTOMRIGHT", 35, 0)
+			end
+
+			if EncounterJournalEncounterFrame:IsShown() then
+				EncounterJournal.suggestTab:Hide()
+			end
 		end)
 
 		EncounterJournalMonthlyActivitiesFrame.Bg:ClearAllPoints()
