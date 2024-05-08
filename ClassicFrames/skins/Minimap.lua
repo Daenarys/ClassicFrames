@@ -1,5 +1,3 @@
-if (C_AddOns.IsAddOnLoaded("SexyMap")) then return end
-
 local ldbi = LibStub ~= nil and LibStub:GetLibrary("LibDBIcon-1.0")
 if (ldbi ~= nil) then
 	for _, v in pairs(ldbi:GetButtonList()) do
