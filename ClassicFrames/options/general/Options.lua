@@ -21,8 +21,9 @@ function GetCfOptionsBlizzard()
                 type = "execute",
                 name = "Open Config",
                 func = function()
-                    HideUIPanel(SettingsPanel)
-                    HideUIPanel(GameMenuFrame)
+                    if not InCombatLockdown() then
+                        HideUIPanel(SettingsPanel)
+                    end
                     ClassicFrames:OpenOptions()
                 end
             }

@@ -12,7 +12,7 @@ function GetCfPlayerOptions()
                 desc = "Enable or disable class colored health bar",
                 type = "toggle",
                 get = "GetClassColorHealthEnabled",
-                set = "SetClassColorHealthEnabled",
+                set = "SetClassColorHealthEnabled"
             },
             playerEliteMode = {
                 order = 2,
