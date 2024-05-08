@@ -1,23 +1,23 @@
 function GetCfPlayerOptions()
     return {
         order = 1,
-        name = "Player",
+        name = "PlayerFrame",
         handler = CfPlayerSettings,
         type = "group",
         args = {
             playerClassColorHealthEnable = {
-                order = 3,
+                order = 1,
                 width = "full",
-                name = "Class Color Health Bar",
-                desc = "Enable or disable class color player health bar",
+                name = "Class Colored Health Bar",
+                desc = "Enable or disable class colored health bar",
                 type = "toggle",
                 get = "GetClassColorHealthEnabled",
                 set = "SetClassColorHealthEnabled",
             },
             playerEliteMode = {
-                order = 3,
+                order = 2,
                 name = "Elite Mode",
-                desc = "Select an Elite Mode style",
+                desc = "Select a Frame Texture",
                 values = {
                     [0] = "None",
                     [1] = "Rare",

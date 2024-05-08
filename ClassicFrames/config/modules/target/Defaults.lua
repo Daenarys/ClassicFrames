@@ -1,0 +1,3 @@
+CfTargetDefaults = {
+    classColorHealthBar = false
+}

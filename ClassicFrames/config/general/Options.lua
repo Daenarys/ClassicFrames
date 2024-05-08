@@ -5,6 +5,7 @@ function GetCfOptions()
         handler = ClassicFrames,
         args = {
             player = GetCfPlayerOptions(),
+            target = GetCfTargetOptions()
         },
     }
 end
@@ -21,7 +22,7 @@ function GetCfOptionsBlizzard()
                 func = function()
                     HideUIPanel(SettingsPanel)
                     HideUIPanel(GameMenuFrame)
-                    ClassicFrames:OpenOptions();
+                    ClassicFrames:OpenOptions()
                 end
             }
         },

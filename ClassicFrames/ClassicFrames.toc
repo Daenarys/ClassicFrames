@@ -118,6 +118,9 @@ config\Options.xml
 config\modules\player\Defaults.lua
 config\modules\player\Options.lua
 config\modules\player\Handler.lua
+config\modules\target\Defaults.lua
+config\modules\target\Options.lua
+config\modules\target\Handler.lua
 config\general\Defaults.lua
 config\general\Options.lua
 config\Init.lua
