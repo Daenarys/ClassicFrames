@@ -558,59 +558,6 @@ hooksecurefunc('LFGListApplicationDialog_UpdateRoles', function(self)
 	self.DamagerButton:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"));
 end)
 
-hooksecurefunc('LFGListApplicationViewer_UpdateRoleIcons', function(member, grayedOut, tank, healer, damage)
-	local LFG_LIST_GROUP_DATA_ATLASES = {
-		TANK = "groupfinder-icon-role-large-tank",
-		HEALER = "groupfinder-icon-role-large-heal",
-		DAMAGER = "groupfinder-icon-role-large-dps",
-	};
-
-	local role1 = tank and "TANK" or (healer and "HEALER" or (damage and "DAMAGER"));
-	local role2 = (tank and healer and "HEALER") or ((tank or healer) and damage and "DAMAGER");
-	local role3 = (tank and healer and damage and "DAMAGER");
-	member.RoleIcon1:GetNormalTexture():SetAtlas(LFG_LIST_GROUP_DATA_ATLASES[role1]);
-	member.RoleIcon1:GetHighlightTexture():SetAtlas(LFG_LIST_GROUP_DATA_ATLASES[role1]);
-	if ( role2 ) then
-		member.RoleIcon2:GetNormalTexture():SetAtlas(LFG_LIST_GROUP_DATA_ATLASES[role2]);
-		member.RoleIcon2:GetHighlightTexture():SetAtlas(LFG_LIST_GROUP_DATA_ATLASES[role2]);
-	end
-	if ( role3 ) then
-		member.RoleIcon3:GetNormalTexture():SetAtlas(LFG_LIST_GROUP_DATA_ATLASES[role3]);
-		member.RoleIcon3:GetHighlightTexture():SetAtlas(LFG_LIST_GROUP_DATA_ATLASES[role3]);
-	end
-end)
-
-hooksecurefunc('LFGListGroupDataDisplayEnumerate_Update', function(self, numPlayers, displayData, disabled, iconOrder, showClassesByRole)
-	local LFG_LIST_GROUP_DATA_ATLASES = {
-		TANK = "groupfinder-icon-role-large-tank",
-		HEALER = "groupfinder-icon-role-large-heal",
-		DAMAGER = "groupfinder-icon-role-large-dps",
-	};
-
-	--Note that icons are numbered from right to left
-	if iconOrder == LFG_LIST_GROUP_DATA_ROLE_ORDER then
-		local iconIndex = numPlayers;
-		for i=1, #iconOrder do
-			local role = iconOrder[i];
-			local classesByRole = displayData.classesByRole[role];
-			for class, num in pairs(classesByRole) do
-				for k=1, num do
-					local icon = self.Icons[iconIndex];
-					icon.RoleIconWithBackground:Hide();
-					icon.RoleIcon:SetSize(18, 18);
-					icon.RoleIcon:SetAtlas(LFG_LIST_GROUP_DATA_ATLASES[role], false);
-					icon.ClassCircle:Hide();
-
-					iconIndex = iconIndex - 1;
-					if ( iconIndex < 1 ) then
-						return;
-					end
-				end
-			end
-		end
-	end
-end)
-
 hooksecurefunc("LFGRewardsFrame_SetItemButton", function(parentFrame, _, index, _, _, texture, _, _, _, _, _, showTankIcon, showHealerIcon, showDamageIcon)
 	local parentName = parentFrame:GetName();
 	local frame = _G[parentName.."Item"..index];
