@@ -10,6 +10,7 @@ function ClassicFrames:OnInitialize()
 	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("ClassicFramesBlizzards", "Classic Frames")
 	self:RegisterChatCommand("cf", "OpenOptions")
 	CfPlayerSettings:RebuildFrames()
+	CfMinimapSettings:RebuildFrames()
 end
 
 function ClassicFrames:OpenOptions(msg)

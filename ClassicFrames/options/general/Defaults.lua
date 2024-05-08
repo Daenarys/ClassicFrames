@@ -1,6 +1,7 @@
 ClassicFramesDBDefaults = {
     profile = {
         player = CfPlayerDefaults,
-        target = CfTargetDefaults
+        target = CfTargetDefaults,
+        minimap = CfMinimapDefaults
     },
 }

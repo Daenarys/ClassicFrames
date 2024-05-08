@@ -5,7 +5,8 @@ function GetCfOptions()
         handler = ClassicFrames,
         args = {
             player = GetCfPlayerOptions(),
-            target = GetCfTargetOptions()
+            target = GetCfTargetOptions(),
+            minimap = GetCfMinimapOptions()
         },
     }
 end

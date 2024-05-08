@@ -63,7 +63,6 @@ skins\Macro.lua
 skins\Mail.lua
 skins\MajorRenown.lua
 skins\Merchant.lua
-skins\Minimap.lua
 skins\MirrorTimers.lua
 skins\Money.lua
 skins\NewPlayerGuide.lua
@@ -121,6 +120,9 @@ options\modules\player\Handler.lua
 options\modules\target\Defaults.lua
 options\modules\target\Options.lua
 options\modules\target\Handler.lua
+options\modules\minimap\Defaults.lua
+options\modules\minimap\Options.lua
+options\modules\minimap\Handler.lua
 options\general\Defaults.lua
 options\general\Options.lua
 options\Init.lua

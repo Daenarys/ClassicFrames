@@ -26,7 +26,7 @@ function GetCfPlayerOptions()
                 },
                 type = "select",
                 get = "GetEliteMode",
-                set = "SetEliteMode",
+                set = "SetEliteMode"
             },
         },
     }
