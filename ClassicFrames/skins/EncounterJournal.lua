@@ -126,10 +126,10 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTierTab(EncounterJournal.raidsTab)
 
 		EncounterJournal:HookScript("OnShow", function()
-			EncounterJournal.MonthlyActivitiesTab:ClearAllPoints()
-			EncounterJournal.MonthlyActivitiesTab:SetPoint("BOTTOMLEFT", EncounterJournalInstanceSelect, "TOPLEFT", 25, -45)
-			EncounterJournal.suggestTab:ClearAllPoints()
-			EncounterJournal.suggestTab:SetPoint("BOTTOMLEFT", EncounterJournal.MonthlyActivitiesTab, "BOTTOMRIGHT", 35, 0)
+			if C_PlayerInfo.IsTradingPostAvailable() then
+				EncounterJournal.MonthlyActivitiesTab:ClearAllPoints()
+				EncounterJournal.MonthlyActivitiesTab:SetPoint("BOTTOMLEFT", EncounterJournalInstanceSelect, "TOPLEFT", 25, -45)
+			end
 			EncounterJournal.raidsTab:ClearAllPoints()
 			EncounterJournal.raidsTab:SetPoint("BOTTOMLEFT", EncounterJournal.dungeonsTab, "BOTTOMRIGHT", 35, 0)
 		end)
@@ -164,12 +164,26 @@ f:SetScript("OnEvent", function(self, event, name)
 				EncounterJournal.dungeonsTab:SetPoint("BOTTOMLEFT", EncounterJournal.MonthlyActivitiesTab, "BOTTOMRIGHT", 35, 0)
 			else
 				EncounterJournal.dungeonsTab:SetPoint("BOTTOMLEFT", EncounterJournal.suggestTab, "BOTTOMRIGHT", 35, 0)
-			end
-
-			if EncounterJournalEncounterFrame:IsShown() then
-				EncounterJournal.suggestTab:Hide()
+				if EncounterJournalEncounterFrame:IsShown() then
+					EncounterJournal.suggestTab:Hide()
+				end
 			end
 		end)
+
+		hooksecurefunc("EncounterJournal_CheckAndDisplayTradingPostTab", function()
+			EncounterJournal.suggestTab:ClearAllPoints()
+			if C_PlayerInfo.IsTradingPostAvailable() then
+				EncounterJournal.suggestTab:SetPoint("BOTTOMLEFT", EncounterJournal.MonthlyActivitiesTab, "BOTTOMRIGHT", 35, 0)
+				if EncounterJournalEncounterFrame:IsShown() then
+					EncounterJournal.MonthlyActivitiesTab:Hide()
+				end
+			else
+				EncounterJournal.suggestTab:SetPoint("BOTTOMLEFT", EncounterJournalInstanceSelect, "TOPLEFT", 25, -45)
+			end
+		end)
+
+		EncounterJournalMonthlyActivitiesFrame.HeaderContainer.Title:Hide()
+		EncounterJournalMonthlyActivitiesFrame.HeaderContainer.Month:Hide()
 
 		EncounterJournalMonthlyActivitiesFrame.Bg:ClearAllPoints()
 		EncounterJournalMonthlyActivitiesFrame.Bg:SetPoint("TOPLEFT", 0, -3)
@@ -364,18 +378,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournal.suggestTab:SetWidth(149)
 			EncounterJournal.dungeonsTab:SetWidth(88)
 			EncounterJournal.raidsTab:SetWidth(70)
-		end)
-
-		hooksecurefunc("EncounterJournal_CheckAndDisplayTradingPostTab", function()
-			if C_PlayerInfo.IsTradingPostAvailable() then
-				if EncounterJournalEncounterFrame:IsShown() then
-					EncounterJournal.MonthlyActivitiesTab:Hide()
-				else
-					EncounterJournal.MonthlyActivitiesTab:Show()
-				end
-				EncounterJournalMonthlyActivitiesFrame.HeaderContainer.Title:Hide()
-				EncounterJournalMonthlyActivitiesFrame.HeaderContainer.Month:Hide()
-			end
 		end)
 
 		hooksecurefunc("EJ_ContentTab_Select", function(id)
