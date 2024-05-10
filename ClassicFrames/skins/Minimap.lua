@@ -584,28 +584,10 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 			self.LoopingGlow:SetAtlas(glow, useAtlasSize)
 		end
 
-		if (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "dragonflight-landingbutton-up") then
-			SetLandingPageIconFromAtlases(ExpansionLandingPageMinimapButton, "plunderstorm-landingpagebutton-up", "plunderstorm-landingpagebutton-down", "plunderstorm-landingpagebutton-up", "plunderstorm-landingpagebutton-up", useDefaultButtonSize)
-			ExpansionLandingPageMinimapButton:SetScale(0.44)
-			ExpansionLandingPageMinimapButton:ClearAllPoints()
-			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 83, -277)
-		else
-			ExpansionLandingPageMinimapButton:ClearAllPoints()
-			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 32, -118)
-		end
-
-		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIconForGarrison", function(self)
-			local garrisonType = C_Garrison.GetLandingPageGarrisonType()
-
-			self:ClearAllPoints()
-			if (garrisonType == Enum.GarrisonType.Type_9_0_Garrison) then
-				self:SetPoint("TOPLEFT", 32, -106)
-			elseif (self:GetNormalTexture():GetAtlas() == "dragonflight-landingbutton-up") then
-				self:SetPoint("TOPLEFT", 83, -277)
-			else
-				self:SetPoint("TOPLEFT", 32, -118)
-			end
-		end)
+		SetLandingPageIconFromAtlases(ExpansionLandingPageMinimapButton, "plunderstorm-landingpagebutton-up", "plunderstorm-landingpagebutton-down", "plunderstorm-landingpagebutton-up", "plunderstorm-landingpagebutton-up", false)
+		ExpansionLandingPageMinimapButton:SetScale(0.44)
+		ExpansionLandingPageMinimapButton:ClearAllPoints()
+		ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 83, -277)
 	end
 end)
 
