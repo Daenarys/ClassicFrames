@@ -47,7 +47,7 @@ hooksecurefunc(SettingsPanel.Container.SettingsList.ScrollBox, 'Update', functio
 	end
 end)
 
-_G.SettingsPanel:HookScript("OnShow", function(self)
+SettingsPanel:HookScript("OnShow", function(self)
 	self:ClearAllPoints()
 	self:SetPoint("CENTER", 0, 5)
 end)
