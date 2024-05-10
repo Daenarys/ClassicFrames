@@ -41,7 +41,7 @@ hooksecurefunc("FCFDock_UpdateTabs", function(dock)
     end
 end)
 
-_G.QuickJoinToastButton:HookScript("OnUpdate", function(self)
+QuickJoinToastButton:HookScript("OnUpdate", function(self)
     self:ClearAllPoints()
     self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT")
 end)
@@ -49,7 +49,7 @@ end)
 ApplyDialogBorder(ChatConfigFrame.Border)
 ApplyDialogHeader(ChatConfigFrame.Header)
 
-_G.ChatConfigFrame:HookScript("OnShow", function(self)
+ChatConfigFrame:HookScript("OnShow", function(self)
     self:ClearAllPoints()
     self:SetPoint("CENTER")
 end)

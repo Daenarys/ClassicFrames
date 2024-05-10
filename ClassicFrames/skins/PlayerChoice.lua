@@ -8,7 +8,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		PlayerChoiceFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 		PlayerChoiceFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 
-		_G.PlayerChoiceFrame:HookScript("OnShow", function(self)
+		PlayerChoiceFrame:HookScript("OnShow", function(self)
 			self:ClearAllPoints()
 			self:SetPoint("CENTER")
 		end)

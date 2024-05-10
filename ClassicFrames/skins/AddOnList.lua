@@ -6,24 +6,13 @@ AddonList.TitleContainer:ClearAllPoints()
 AddonList.TitleContainer:SetPoint("TOPLEFT", AddonList, "TOPLEFT", 58, 0)
 AddonList.TitleContainer:SetPoint("TOPRIGHT", AddonList, "TOPRIGHT", -58, 0)
 
-AddonListBg:ClearAllPoints()
-AddonListBg:SetPoint("TOPLEFT", AddonList, "TOPLEFT", 2, -21)
-AddonListBg:SetPoint("BOTTOMRIGHT", AddonList, "BOTTOMRIGHT", -2, 2)
-
-AddonListInset:ClearAllPoints()
-AddonListInset:SetPoint("TOPLEFT", AddonList, "TOPLEFT", 4, -60)
-AddonListInset:SetPoint("BOTTOMRIGHT", AddonList, "BOTTOMRIGHT", -6, 26)
-
-ApplyTitleBg(AddonList)
+ApplyTitleBgNoPortrait(AddonList)
 ApplyNineSliceNoPortrait(AddonList)
-
-AddonList.ScrollBox:ClearAllPoints()
-AddonList.ScrollBox:SetPoint("TOPLEFT", AddonList, "TOPLEFT", 8, -68)
 
 AddonList.ScrollBar:SetSize(25, 560)
 AddonList.ScrollBar:ClearAllPoints()
-AddonList.ScrollBar:SetPoint("TOPLEFT", AddonList.ScrollBox, "TOPRIGHT", -5, 5)
-AddonList.ScrollBar:SetPoint("BOTTOMLEFT", AddonList.ScrollBox, "BOTTOMRIGHT", -2, 2)
+AddonList.ScrollBar:SetPoint("TOPLEFT", AddonList.ScrollBox, "TOPRIGHT", -5, 4)
+AddonList.ScrollBar:SetPoint("BOTTOMLEFT", AddonList.ScrollBox, "BOTTOMRIGHT", -2, 0)
 
 if (AddonList.ScrollBar.BG == nil) then
 	AddonList.ScrollBar.BG = AddonList.ScrollBar:CreateTexture(nil, "BACKGROUND");
@@ -35,7 +24,7 @@ ApplyScrollBarArrow(AddonList.ScrollBar)
 ApplyScrollBarTrack(AddonList.ScrollBar.Track)
 ApplyScrollBarThumb(AddonList.ScrollBar.Track.Thumb)
 
-_G.AddonList:HookScript("OnShow", function(self)
+AddonList:HookScript("OnShow", function(self)
 	self:ClearAllPoints()
 	self:SetPoint("CENTER", 0, 24)
 end)

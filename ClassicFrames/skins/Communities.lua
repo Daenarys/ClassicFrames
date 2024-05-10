@@ -3,7 +3,7 @@ f:RegisterEvent("ADDON_LOADED")
 f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_Communities" then
 		CommunitiesFrame:HookScript("OnUpdate", function(self)
-			local displayMode = self:GetDisplayMode();
+			local displayMode = self:GetDisplayMode()
 			if displayMode == COMMUNITIES_FRAME_DISPLAY_MODES.MINIMIZED then
 				ApplyCloseButton(CommunitiesFrameCloseButton)
 
@@ -105,7 +105,7 @@ f:SetScript("OnEvent", function(self, event, name)
 				CommunitiesFrameCommunitiesList.ScrollBar:SetPoint("BOTTOMLEFT", CommunitiesFrameCommunitiesList.ScrollBox, "BOTTOMRIGHT", 1, -5)
 
 				if (CommunitiesFrameCommunitiesList.ScrollBar.BG == nil) then
-					CommunitiesFrameCommunitiesList.ScrollBar.BG = CommunitiesFrameCommunitiesList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+					CommunitiesFrameCommunitiesList.ScrollBar.BG = CommunitiesFrameCommunitiesList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 					CommunitiesFrameCommunitiesList.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 					CommunitiesFrameCommunitiesList.ScrollBar.BG:SetAllPoints()
 				end

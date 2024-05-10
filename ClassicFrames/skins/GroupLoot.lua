@@ -6,11 +6,7 @@ GroupLootHistoryFrame.TitleContainer:ClearAllPoints()
 GroupLootHistoryFrame.TitleContainer:SetPoint("TOPLEFT", GroupLootHistoryFrame, "TOPLEFT", 60, -1)
 GroupLootHistoryFrame.TitleContainer:SetPoint("TOPRIGHT", GroupLootHistoryFrame, "TOPRIGHT", -60, 1)
 
-GroupLootHistoryFrameBg:ClearAllPoints()
-GroupLootHistoryFrameBg:SetPoint("TOPLEFT", 2, -21)
-GroupLootHistoryFrameBg:SetPoint("BOTTOMRIGHT", -2, 2)
-
-ApplyTitleBg(GroupLootHistoryFrame)
+ApplyTitleBgNoPortrait(GroupLootHistoryFrame)
 ApplyNineSliceNoPortrait(GroupLootHistoryFrame)
 
 GroupLootHistoryFrame.ScrollBar:SetSize(25, 560)
@@ -27,7 +23,3 @@ end
 ApplyScrollBarArrow(GroupLootHistoryFrame.ScrollBar)
 ApplyScrollBarTrack(GroupLootHistoryFrame.ScrollBar.Track)
 ApplyScrollBarThumb(GroupLootHistoryFrame.ScrollBar.Track.Thumb)
-
-GroupLootHistoryFrame.ScrollBox:ClearAllPoints()
-GroupLootHistoryFrame.ScrollBox:SetPoint("TOPLEFT", 0, -82)
-GroupLootHistoryFrame.ScrollBox:SetPoint("BOTTOMRIGHT", GroupLootHistoryFrame, "BOTTOMLEFT", 237, 4)

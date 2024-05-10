@@ -163,7 +163,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(ProfessionsFrame.OrdersPage.BrowseFrame.OrderList.ScrollBar.Track.Thumb)
 
 		ApplyCloseButton(ProfessionsFrame.CraftingPage.CraftingOutputLog.ClosePanelButton)
-		ApplyTitleBg(ProfessionsFrame.CraftingPage.CraftingOutputLog)
+		ApplyTitleBgNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog)
 		ApplyNineSliceNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog)
 	end
 end)
