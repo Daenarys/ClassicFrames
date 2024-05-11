@@ -6,6 +6,9 @@ f:SetScript("OnEvent", function(self, event, name)
 			SetCVar("useUiScale", 1)
 			SetCVar("uiScale", 0.7111111111)
 		end
+		if not ( GetCVarBool("breakUpLargeNumbers") ) then
+			SetCVar("breakUpLargeNumbers", 1)
+		end
 	end
 end)
 
