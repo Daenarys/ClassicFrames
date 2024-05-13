@@ -564,35 +564,10 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 		TimeManagerClockTicker:ClearAllPoints()
 		TimeManagerClockTicker:SetPoint("CENTER", TimeManagerClockButton, "CENTER", 3, 1)
 
-		local function SetLandingPageIconFromAtlases(self, up, down, highlight, glow, useDefaultButtonSize)
-			local width, height;
-			if useDefaultButtonSize then
-				width = self.defaultWidth;
-				height = self.defaultHeight;
-				self.LoopingGlow:SetSize(self.defaultGlowWidth, self.defaultGlowHeight)
-			else
-				local info = C_Texture.GetAtlasInfo(up)
-				width = info and info.width or 0;
-				height = info and info.height or 0;
-			end
-			self:SetSize(width, height)
-
-			local useAtlasSize = not useDefaultButtonSize;
-			self:GetNormalTexture():SetAtlas(up, useAtlasSize)
-			self:GetPushedTexture():SetAtlas(down, useAtlasSize)
-			self:GetHighlightTexture():SetAtlas(highlight, useAtlasSize)
-			self.LoopingGlow:SetAtlas(glow, useAtlasSize)
-		end
-
 		if (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "dragonflight-landingbutton-up") then
-			SetLandingPageIconFromAtlases(ExpansionLandingPageMinimapButton, "plunderstorm-landingpagebutton-up", "plunderstorm-landingpagebutton-down", "plunderstorm-landingpagebutton-up", "plunderstorm-landingpagebutton-up", false)
-			ExpansionLandingPageMinimapButton:SetScale(0.44)
+			ExpansionLandingPageMinimapButton:SetScale(0.85)
 			ExpansionLandingPageMinimapButton:ClearAllPoints()
-			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 83, -277)
-		elseif (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "plunderstorm-landingpagebutton-up") then
-			ExpansionLandingPageMinimapButton:SetScale(0.44)
-			ExpansionLandingPageMinimapButton:ClearAllPoints()
-			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 83, -277)
+			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 42, -144)
 		else
 			ExpansionLandingPageMinimapButton:ClearAllPoints()
 			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 32, -118)
