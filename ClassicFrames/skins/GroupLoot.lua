@@ -9,9 +9,13 @@ GroupLootHistoryFrame.TitleContainer:SetPoint("TOPRIGHT", GroupLootHistoryFrame,
 ApplyTitleBgNoPortrait(GroupLootHistoryFrame)
 ApplyNineSliceNoPortrait(GroupLootHistoryFrame)
 
+GroupLootHistoryFrame.ScrollBox:ClearAllPoints()
+GroupLootHistoryFrame.ScrollBox:SetPoint("TOPLEFT", 4, -82)
+GroupLootHistoryFrame.ScrollBox:SetPoint("BOTTOMRIGHT", GroupLootHistoryFrame, "BOTTOMLEFT", 237, 4)
+
 GroupLootHistoryFrame.ScrollBar:SetSize(25, 560)
 GroupLootHistoryFrame.ScrollBar:ClearAllPoints()
-GroupLootHistoryFrame.ScrollBar:SetPoint("TOPLEFT", GroupLootHistoryFrame.ScrollBox, "TOPRIGHT", -6, 3)
+GroupLootHistoryFrame.ScrollBar:SetPoint("TOPLEFT", GroupLootHistoryFrame.ScrollBox, "TOPRIGHT", -4, 1)
 GroupLootHistoryFrame.ScrollBar:SetPoint("BOTTOMLEFT", GroupLootHistoryFrame.ScrollBox, "BOTTOMRIGHT", -3, -1)
 
 if (GroupLootHistoryFrame.ScrollBar.BG == nil) then
