@@ -86,16 +86,16 @@
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						TextStatusBar_Initialize(self);
+						self:InitializeTextStatusBar()
 						self.textLockable = 1;
 						self.cvar = "statusText";
 						self.cvarLabel = "STATUS_TEXT_TARGET";
 						self.zeroText = "";
-						self:SetMouseClickEnabled(false);
+						self:SetMouseClickEnabled(false)
 					</OnLoad>
 					<OnValueChanged function="CfUnitFrameHealthBar_OnValueChanged"/>
 					<OnSizeChanged>
-						CfUnitFrameHealPredictionBars_UpdateSize(self:GetParent());
+						CfUnitFrameHealPredictionBars_UpdateSize(self:GetParent())
 					</OnSizeChanged>
 				</Scripts>
 				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
@@ -107,11 +107,11 @@
 				</Anchors>
 				<Scripts>
 					<OnLoad>
-						TextStatusBar_Initialize(self);
+						self:InitializeTextStatusBar()
 						self.textLockable = 1;
 						self.cvar = "statusText";
 						self.cvarLabel = "STATUS_TEXT_TARGET";
-						self:SetMouseClickEnabled(false);
+						self:SetMouseClickEnabled(false)
 					</OnLoad>
 				</Scripts>
 				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
@@ -128,7 +128,7 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				CfTargetFrame_OnLoad(self, "target");
+				CfTargetFrame_OnLoad(self, "target")
 			</OnLoad>
 		</Scripts>
 	</Button>
@@ -138,7 +138,7 @@
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				CfTargetFrame_OnLoad(self, "focus");
+				CfTargetFrame_OnLoad(self, "focus")
 			</OnLoad>
 		</Scripts>
 	</Button>

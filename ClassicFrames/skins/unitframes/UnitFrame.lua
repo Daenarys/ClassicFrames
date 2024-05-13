@@ -330,7 +330,6 @@ function CfUnitFrameManaBar_UpdateType(manaBar)
 	end
 	local unitFrame = manaBar:GetParent()
 	local powerType, powerToken, altR, altG, altB = UnitPowerType(manaBar.unit)
-	local prefix = _G[powerToken];
 	local info = CfPowerBarColor[powerToken];
 	if ( info ) then
 		if ( not manaBar.lockColor ) then
@@ -354,10 +353,7 @@ function CfUnitFrameManaBar_UpdateType(manaBar)
 	manaBar.powerType = powerType;
 	manaBar.powerToken = powerToken;
 
-	if ( not unitFrame.noTextPrefix ) then
-		SetTextStatusBarTextPrefix(manaBar, prefix)
-	end
-	TextStatusBar_UpdateTextString(manaBar)
+	manaBar:UpdateTextString()
 end
 
 function CfUnitFrameHealthBar_Initialize(unit, statusbar, statustext, frequentUpdates)
@@ -366,7 +362,7 @@ function CfUnitFrameHealthBar_Initialize(unit, statusbar, statustext, frequentUp
 	end
 
 	statusbar.unit = unit;
-	SetTextStatusBarText(statusbar, statustext)
+	statusbar:SetBarText(statustext)
 	statusbar.frequentUpdates = frequentUpdates;
 	if ( frequentUpdates ) then
 		statusbar:RegisterEvent("VARIABLES_LOADED")
@@ -382,7 +378,7 @@ end
 
 function CfUnitFrameHealthBar_OnEvent(self, event, ...)
 	if ( event == "CVAR_UPDATE" ) then
-		TextStatusBar_OnEvent(self, event, ...)
+		self:TextStatusBarOnEvent(event, ...)
 	elseif ( event == "VARIABLES_LOADED" ) then
 		self:UnregisterEvent("VARIABLES_LOADED")
 		if ( GetCVarBool("predictedHealth") and self.frequentUpdates ) then
@@ -406,7 +402,7 @@ function CfUnitFrameHealthBar_OnUpdate(self)
 			if ( not self.ignoreNoUnit or UnitGUID(self.unit) ) then
 				self:SetValue(currValue)
 				self.currValue = currValue;
-				TextStatusBar_UpdateTextString(self)
+				self:UpdateTextString()
 				CfUnitFrameHealPredictionBars_Update(self:GetParent())
 			end
 		end
@@ -444,12 +440,12 @@ function CfUnitFrameHealthBar_Update(statusbar, unit)
 			statusbar.currValue = currValue;
 		end
 	end
-	TextStatusBar_UpdateTextString(statusbar)
+	statusbar:UpdateTextString()
 	CfUnitFrameHealPredictionBars_Update(statusbar:GetParent())
 end
 
 function CfUnitFrameHealthBar_OnValueChanged(self, value)
-	TextStatusBar_OnValueChanged(self, value)
+	self:OnStatusBarValueChanged(value)
 	HealthBar_OnValueChanged(self, value)
 end
 
@@ -466,7 +462,7 @@ function CfUnitFrameManaBar_Initialize(unit, statusbar, statustext, frequentUpda
 		return;
 	end
 	statusbar.unit = unit;
-	SetTextStatusBarText(statusbar, statustext)
+	statusbar:SetBarText(statustext)
 	
 	statusbar.frequentUpdates = frequentUpdates;
 	if ( frequentUpdates ) then
@@ -484,7 +480,7 @@ end
 
 function CfUnitFrameManaBar_OnEvent(self, event, ...)
 	if ( event == "CVAR_UPDATE" ) then
-		TextStatusBar_OnEvent(self, event, ...)
+		self:TextStatusBarOnEvent(event, ...)
 	elseif ( event == "VARIABLES_LOADED" ) then
 		self:UnregisterEvent("VARIABLES_LOADED")
 		if ( GetCVarBool("predictedPower") and self.frequentUpdates ) then
@@ -508,7 +504,7 @@ function CfUnitFrameManaBar_OnUpdate(self)
 			if ( not self.ignoreNoUnit or UnitGUID(self.unit) ) then
 				self:SetValue(currValue)
 				self.currValue = currValue;
-				TextStatusBar_UpdateTextString(self)
+				self:UpdateTextString()
 			end
 		end
 	end
@@ -537,7 +533,7 @@ function CfUnitFrameManaBar_Update(statusbar, unit)
 			statusbar.currValue = currValue;
 		end
 	end
-	TextStatusBar_UpdateTextString(statusbar)
+	statusbar:UpdateTextString()
 end
 
 hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
