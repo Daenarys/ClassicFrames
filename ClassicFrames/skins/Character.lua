@@ -128,13 +128,13 @@ end)
 CharacterFrame:HookScript("OnShow", function()
 	CfPlayerFrameHealthBar.showNumeric = true;
 	CfPlayerFrameManaBar.showNumeric = true;
-	ShowTextStatusBarText(CfPlayerFrameHealthBar)
-	ShowTextStatusBarText(CfPlayerFrameManaBar)
+	CfPlayerFrameHealthBar:ShowStatusBarText()
+	CfPlayerFrameManaBar:ShowStatusBarText()
 end)
 
 CharacterFrame:HookScript("OnHide", function()
 	CfPlayerFrameHealthBar.showNumeric = nil;
 	CfPlayerFrameManaBar.showNumeric = nil;
-	HideTextStatusBarText(CfPlayerFrameHealthBar)
-	HideTextStatusBarText(CfPlayerFrameManaBar)
+	CfPlayerFrameHealthBar:HideStatusBarText()
+	CfPlayerFrameManaBar:HideStatusBarText()
 end)
