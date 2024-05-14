@@ -103,17 +103,13 @@ ApplyScrollBarThumb(LFGListFrame.ApplicationViewer.ScrollBar.Track.Thumb)
 
 ScenarioQueueFrameRandomScrollFrame.ScrollBar:SetAlpha(0)
 
-hooksecurefunc("LFGRewardsFrame_UpdateFrame", function(parentFrame, dungeonID, background)
-	local dungeonName, typeID, subtypeID,_,_,_,_,_,_,_,backgroundTexture,difficulty,_,dungeonDescription, isHoliday, bonusRepAmount, _, isTimewalker = GetLFGDungeonInfo(dungeonID)
-	local isScenario = (subtypeID == LFG_SUBTYPEID_SCENARIO)
+hooksecurefunc("ScenarioQueueFrameRandom_UpdateFrame", function()
+	local dungeonID = ScenarioQueueFrame.type
 
-	--HACK
-	if ( isScenario ) then
-		if ( LFG_IsHeroicScenario(dungeonID) ) then
-			ScenarioQueueFrame.Bg:SetTexture("Interface\\LFGFrame\\UI-LFG-SCENARIO-Heroic-Old")
-		else
-			ScenarioQueueFrame.Bg:SetTexture("Interface\\LFGFrame\\UI-LFG-SCENARIO-Random-Old")
-		end
+	if ( LFG_IsHeroicScenario(dungeonID) ) then
+		ScenarioQueueFrame.Bg:SetTexture("Interface\\LFGFrame\\UI-LFG-SCENARIO-Heroic-Old")
+	else
+		ScenarioQueueFrame.Bg:SetTexture("Interface\\LFGFrame\\UI-LFG-SCENARIO-Random-Old")
 	end
 end)
 
