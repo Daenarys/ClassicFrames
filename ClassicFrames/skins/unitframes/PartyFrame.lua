@@ -12,7 +12,7 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 	frame.VehicleTexture:SetPoint("TOPLEFT", -8, -2)
 	frame.VehicleTexture:SetDrawLayer("ARTWORK", 7)
 	frame.NotPresentIcon:ClearAllPoints()
-	frame.NotPresentIcon:SetPoint("LEFT", frame, "RIGHT", 3, -3)
+	frame.NotPresentIcon:SetPoint("LEFT", frame, "RIGHT", 1, -3)
 	frame.PartyMemberOverlay.LeaderIcon:SetSize(16, 16)
 	frame.PartyMemberOverlay.LeaderIcon:SetTexture("Interface\\GroupFrame\\UI-Group-LeaderIcon")
 	frame.PartyMemberOverlay.LeaderIcon:ClearAllPoints()
