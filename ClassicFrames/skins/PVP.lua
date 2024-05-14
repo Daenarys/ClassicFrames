@@ -83,6 +83,9 @@ hooksecurefunc('PVPReadyDialog_Display', function(self, _, _, _, queueType, _, r
 	end
 end)
 
+PVPReadyPopup.RolelessButton.Texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+PVPReadyPopup.RolelessButton.Texture:SetTexCoord(0.5234375, 0.78125, 0, 0.2578125)
+
 PVPMatchScoreboard.Content.ScrollBar:SetSize(25, 560)
 PVPMatchScoreboard.Content.ScrollBar:ClearAllPoints()
 PVPMatchScoreboard.Content.ScrollBar:SetPoint("TOPLEFT", PVPMatchScoreboard.Content, "TOPRIGHT", -26, -2)
