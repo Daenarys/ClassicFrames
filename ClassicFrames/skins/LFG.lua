@@ -101,7 +101,29 @@ ApplyScrollBarArrow(LFGListFrame.ApplicationViewer.ScrollBar)
 ApplyScrollBarTrack(LFGListFrame.ApplicationViewer.ScrollBar.Track)
 ApplyScrollBarThumb(LFGListFrame.ApplicationViewer.ScrollBar.Track.Thumb)
 
-ScenarioQueueFrameRandomScrollFrame.ScrollBar:Hide()
+ScenarioQueueFrameRandomScrollFrame.ScrollBar:SetAlpha(0)
+
+hooksecurefunc("LFGRewardsFrame_UpdateFrame", function(parentFrame, dungeonID, background)
+	local dungeonName, typeID, subtypeID,_,_,_,_,_,_,_,backgroundTexture,difficulty,_,dungeonDescription, isHoliday, bonusRepAmount, _, isTimewalker = GetLFGDungeonInfo(dungeonID)
+	local isScenario = (subtypeID == LFG_SUBTYPEID_SCENARIO)
+
+	--HACK
+	if ( isScenario ) then
+		if ( LFG_IsHeroicScenario(dungeonID) ) then
+			ScenarioQueueFrame.Bg:SetTexture("Interface\\LFGFrame\\UI-LFG-SCENARIO-Heroic-Old")
+		else
+			ScenarioQueueFrame.Bg:SetTexture("Interface\\LFGFrame\\UI-LFG-SCENARIO-Random-Old")
+		end
+	end
+end)
+
+hooksecurefunc("ScenarioQueueFrame_SetTypeRandom", function()
+	local queueFrame = ScenarioQueueFrame
+
+	queueFrame.Bg:SetSize(512, 512)
+	queueFrame.Bg:ClearAllPoints()
+	queueFrame.Bg:SetPoint("TOPLEFT", 4, -75)
+end)
 
 LFGDungeonReadyDialogCloseButton:SetSize(32, 32)
 LFGDungeonReadyDialogCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
