@@ -101,6 +101,8 @@ ApplyScrollBarArrow(LFGListFrame.ApplicationViewer.ScrollBar)
 ApplyScrollBarTrack(LFGListFrame.ApplicationViewer.ScrollBar.Track)
 ApplyScrollBarThumb(LFGListFrame.ApplicationViewer.ScrollBar.Track.Thumb)
 
+ScenarioQueueFrameRandomScrollFrame.ScrollBar:Hide()
+
 LFGDungeonReadyDialogCloseButton:SetSize(32, 32)
 LFGDungeonReadyDialogCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 LFGDungeonReadyDialogCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-HideButton-Up")
