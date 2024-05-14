@@ -110,4 +110,11 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 			roleIcon:Hide()
 		end
 	end)
+
+	hooksecurefunc(frame, "UpdateNotPresentIcon", function(self)
+		if UnitInOtherParty(self:GetUnit()) then
+			self.NotPresentIcon.texture:SetTexture("Interface\\LFGFrame\\LFG-Eye")
+			self.NotPresentIcon.texture:SetTexCoord(0.125, 0.25, 0.25, 0.5)
+		end
+	end)
 end
