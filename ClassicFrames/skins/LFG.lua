@@ -101,26 +101,6 @@ ApplyScrollBarArrow(LFGListFrame.ApplicationViewer.ScrollBar)
 ApplyScrollBarTrack(LFGListFrame.ApplicationViewer.ScrollBar.Track)
 ApplyScrollBarThumb(LFGListFrame.ApplicationViewer.ScrollBar.Track.Thumb)
 
-ScenarioQueueFrameRandomScrollFrame.ScrollBar:SetAlpha(0)
-
-hooksecurefunc("ScenarioQueueFrameRandom_UpdateFrame", function()
-	local dungeonID = ScenarioQueueFrame.type
-
-	if ( LFG_IsHeroicScenario(dungeonID) ) then
-		ScenarioQueueFrame.Bg:SetTexture("Interface\\LFGFrame\\UI-LFG-SCENARIO-Heroic-Old")
-	else
-		ScenarioQueueFrame.Bg:SetTexture("Interface\\LFGFrame\\UI-LFG-SCENARIO-Random-Old")
-	end
-end)
-
-hooksecurefunc("ScenarioQueueFrame_SetTypeRandom", function()
-	local queueFrame = ScenarioQueueFrame
-
-	queueFrame.Bg:SetSize(512, 512)
-	queueFrame.Bg:ClearAllPoints()
-	queueFrame.Bg:SetPoint("TOPLEFT", 4, -75)
-end)
-
 LFGDungeonReadyDialogCloseButton:SetSize(32, 32)
 LFGDungeonReadyDialogCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 LFGDungeonReadyDialogCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-HideButton-Up")
@@ -153,6 +133,8 @@ ApplyDialogBorder(LFGListInviteDialog.Border)
 ApplyDialogBorder(LFGListFrame.EntryCreation.ActivityFinder.Dialog.Border)
 
 LFGListInviteDialog.RoleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+LFGDungeonReadyStatusRoleless.ready.texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+LFGDungeonReadyStatusRoleless.ready.texture:SetTexCoord(0.5234375, 0.78125, 0, 0.2578125)
 
 LFDQueueFrameRoleButtonLeader:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFDQueueFrameRoleButtonLeader:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("GUIDE"));
@@ -506,14 +488,7 @@ hooksecurefunc('LFGDungeonReadyStatusIndividual_UpdateIcon', function(button)
 	local isLeader, role, level, responded, accepted, name, class = GetLFGProposalMember(button:GetID())
 
 	button.texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-
-	if role == 'DAMAGER' then
-		button.texture:SetTexCoord(GetTexCoordsForRole("DAMAGER"))
-	elseif role == 'TANK' then
-		button.texture:SetTexCoord(GetTexCoordsForRole("TANK"))
-	elseif role == 'HEALER' then
-		button.texture:SetTexCoord(GetTexCoordsForRole("HEALER"))
-	end
+	button.texture:SetTexCoord(GetTexCoordsForRole(role))
 
 	button.statusIcon:SetSize(30, 30)
 	button.statusIcon:SetTexture("Interface\\RaidFrame\\ReadyCheck-Waiting")
@@ -720,3 +695,23 @@ for _, rolePollButton in pairs({
 	checkButton.CheckedTexture:SetTexture("Interface\\Buttons\\UI-RadioButton")
 	checkButton.CheckedTexture:SetTexCoord(0.25, 0.5, 0, 1)
 end
+
+ScenarioQueueFrameRandomScrollFrame.ScrollBar:SetAlpha(0)
+
+hooksecurefunc("ScenarioQueueFrameRandom_UpdateFrame", function()
+	local dungeonID = ScenarioQueueFrame.type
+
+	if ( LFG_IsHeroicScenario(dungeonID) ) then
+		ScenarioQueueFrame.Bg:SetTexture("Interface\\LFGFrame\\UI-LFG-SCENARIO-Heroic-Old")
+	else
+		ScenarioQueueFrame.Bg:SetTexture("Interface\\LFGFrame\\UI-LFG-SCENARIO-Random-Old")
+	end
+end)
+
+hooksecurefunc("ScenarioQueueFrame_SetTypeRandom", function()
+	local queueFrame = ScenarioQueueFrame
+
+	queueFrame.Bg:SetSize(512, 512)
+	queueFrame.Bg:ClearAllPoints()
+	queueFrame.Bg:SetPoint("TOPLEFT", 4, -75)
+end)
