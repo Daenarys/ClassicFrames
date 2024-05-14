@@ -508,14 +508,7 @@ hooksecurefunc('LFGDungeonReadyStatusGrouped_UpdateIcon', function(button, butto
 	local isLeader, role, level, responded, accepted, name, class = GetLFGProposalMember(button:GetID());
 
 	button.texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-
-	if buttonRole == 'DAMAGER' then
-		button.texture:SetTexCoord(GetTexCoordsForRole("DAMAGER"))
-	elseif buttonRole == 'TANK' then
-		button.texture:SetTexCoord(GetTexCoordsForRole("TANK"))
-	elseif buttonRole == 'HEALER' then
-		button.texture:SetTexCoord(GetTexCoordsForRole("HEALER"))
-	end
+	button.texture:SetTexCoord(GetTexCoordsForRole(buttonRole))
 
 	button.statusIcon:SetSize(30, 30)
 	button.statusIcon:SetTexture("Interface\\RaidFrame\\ReadyCheck-Waiting")
