@@ -356,6 +356,8 @@ function ApplyTopTab(frame)
 	frame:GetHighlightTexture():ClearAllPoints()
 	frame:GetHighlightTexture():SetPoint("TOPLEFT", 2, -8)
 	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", 2, -8)
+
+	frame.Text:SetPoint("BOTTOM", 0, 6)
 end
 
 function ApplyControlFrame(frame)
