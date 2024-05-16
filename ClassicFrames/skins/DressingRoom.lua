@@ -30,6 +30,23 @@ DressUpFrame.TitleContainer:SetPoint("TOPRIGHT", DressUpFrame, "TOPRIGHT", -58, 
 ApplyTitleBg(DressUpFrame)
 ApplyNineSlicePortraitMinimizable(DressUpFrame)
 
+DressUpFrame.SetSelectionPanel.ScrollBar:SetSize(25, 560)
+DressUpFrame.SetSelectionPanel.ScrollBar:ClearAllPoints()
+DressUpFrame.SetSelectionPanel.ScrollBar:SetPoint("TOPLEFT", DressUpFrame.SetSelectionPanel.ScrollBox, "TOPRIGHT")
+DressUpFrame.SetSelectionPanel.ScrollBar:SetPoint("BOTTOMLEFT", DressUpFrame.SetSelectionPanel.ScrollBox, "BOTTOMRIGHT")
+
+DressUpFrame.SetSelectionPanel.ScrollBar.Track:SetWidth(18)
+DressUpFrame.SetSelectionPanel.ScrollBar.Track:ClearAllPoints()
+DressUpFrame.SetSelectionPanel.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
+DressUpFrame.SetSelectionPanel.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
+
+DressUpFrame.SetSelectionPanel.ScrollBar.Track.Begin:Hide()
+DressUpFrame.SetSelectionPanel.ScrollBar.Track.End:Hide()
+DressUpFrame.SetSelectionPanel.ScrollBar.Track.Middle:Hide()
+
+ApplyScrollBarArrow(DressUpFrame.SetSelectionPanel.ScrollBar)
+ApplyScrollBarThumb(DressUpFrame.SetSelectionPanel.ScrollBar.Track.Thumb)
+
 SideDressUpFrameCloseButton:SetSize(32, 32)
 SideDressUpFrameCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 SideDressUpFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
