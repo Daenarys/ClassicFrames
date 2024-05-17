@@ -20,7 +20,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ItemSocketingScrollFrame.ScrollBar:SetSize(25, 560)
 		ItemSocketingScrollFrame.ScrollBar:ClearAllPoints()
 		ItemSocketingScrollFrame.ScrollBar:SetPoint("TOPLEFT", ItemSocketingScrollFrame, "TOPRIGHT", -21, 1)
-		ItemSocketingScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", ItemSocketingScrollFrame, "BOTTOMRIGHT", -21, -4)
+		ItemSocketingScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", ItemSocketingScrollFrame, "BOTTOMRIGHT", -21, -5)
 
 		ApplyScrollBarArrow(ItemSocketingScrollFrame.ScrollBar)
 		ApplyScrollBarTrack(ItemSocketingScrollFrame.ScrollBar.Track)

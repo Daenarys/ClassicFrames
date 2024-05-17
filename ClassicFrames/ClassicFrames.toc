@@ -54,6 +54,7 @@ skins\HelpTip.lua
 skins\Inspect.lua
 skins\IslandsQueue.lua
 skins\ItemRefTooltip.lua
+skins\ItemSocketing.lua
 skins\ItemText.lua
 skins\ItemUpgrade.lua
 skins\Keystone.lua
@@ -79,7 +80,6 @@ skins\ReadyCheck.lua
 skins\Report.lua
 skins\ScrappingMachine.lua
 skins\SettingsPanel.lua
-skins\Socketing.lua
 skins\SpellBook.lua
 skins\SplashScreen.lua
 skins\StaticPopup.lua
