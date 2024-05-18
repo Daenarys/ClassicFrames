@@ -564,6 +564,10 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 		TimeManagerClockTicker:ClearAllPoints()
 		TimeManagerClockTicker:SetPoint("CENTER", TimeManagerClockButton, "CENTER", 3, 1)
 
+		if PlayerGetTimerunningSeasonID() then
+			ExpansionLandingPageMinimapButton:Hide()
+		end
+
 		if (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "dragonflight-landingbutton-up") then
 			ExpansionLandingPageMinimapButton:SetScale(0.85)
 			ExpansionLandingPageMinimapButton:ClearAllPoints()
