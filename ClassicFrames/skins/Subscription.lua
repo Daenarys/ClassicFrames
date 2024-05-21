@@ -8,7 +8,11 @@ f:SetScript("OnEvent", function(self, event, name)
 		SubscriptionInterstitialFrame.TitleContainer:SetPoint("TOPLEFT", SubscriptionInterstitialFrame, "TOPLEFT", 58, 0)
 		SubscriptionInterstitialFrame.TitleContainer:SetPoint("TOPRIGHT", SubscriptionInterstitialFrame, "TOPRIGHT", -58, 0)
 
-		ApplyTitleBgNoPortrait(SubscriptionInterstitialFrame)
+		SubscriptionInterstitialFrameBg:ClearAllPoints()
+		SubscriptionInterstitialFrameBg:SetPoint("TOPLEFT", SubscriptionInterstitialFrame, "TOPLEFT", 2, -21)
+		SubscriptionInterstitialFrameBg:SetPoint("BOTTOMRIGHT", SubscriptionInterstitialFrame, "BOTTOMRIGHT", -2, 2)
+
+		ApplyTitleBg(SubscriptionInterstitialFrame)
 		ApplyNineSliceNoPortrait(SubscriptionInterstitialFrame)
 	end
 end)
