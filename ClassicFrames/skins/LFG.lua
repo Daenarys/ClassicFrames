@@ -277,6 +277,21 @@ LFGInvitePopupRoleButtonTank:GetDisabledTexture():SetTexCoord(GetTexCoordsForRol
 RaidFinderQueueFrameBackground:ClearAllPoints()
 RaidFinderQueueFrameBackground:SetPoint("BOTTOMLEFT", 6, 26)
 
+RaidFinderQueueFrameScrollFrame.ScrollBar:SetSize(25, 560)
+RaidFinderQueueFrameScrollFrame.ScrollBar:ClearAllPoints()
+RaidFinderQueueFrameScrollFrame.ScrollBar:SetPoint("TOPLEFT", RaidFinderQueueFrameScrollFrame, "TOPRIGHT", 2, 3)
+RaidFinderQueueFrameScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", RaidFinderQueueFrameScrollFrame, "BOTTOMRIGHT", 5, 0)
+
+if (RaidFinderQueueFrameScrollFrame.ScrollBar.BG == nil) then
+	RaidFinderQueueFrameScrollFrame.ScrollBar.BG = RaidFinderQueueFrameScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
+	RaidFinderQueueFrameScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
+	RaidFinderQueueFrameScrollFrame.ScrollBar.BG:SetAllPoints()
+end
+
+ApplyScrollBarArrow(RaidFinderQueueFrameScrollFrame.ScrollBar)
+ApplyScrollBarTrack(RaidFinderQueueFrameScrollFrame.ScrollBar.Track)
+ApplyScrollBarThumb(RaidFinderQueueFrameScrollFrame.ScrollBar.Track.Thumb)
+
 for _, roleButton in pairs({
 	_G.LFDRoleCheckPopupRoleButtonDPS,
 	_G.LFDRoleCheckPopupRoleButtonHealer,
