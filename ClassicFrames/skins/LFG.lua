@@ -716,3 +716,11 @@ hooksecurefunc("ScenarioQueueFrame_SetTypeRandom", function()
 	queueFrame.Bg:ClearAllPoints()
 	queueFrame.Bg:SetPoint("TOPLEFT", 4, -75)
 end)
+
+hooksecurefunc("GroupFinderFrame_EvaluateButtonVisibility", function(self)
+	if not PlayerGetTimerunningSeasonID() then
+		self.groupButton1:SetPoint("TOPLEFT", 10, -101)
+		self.groupButton2:SetPoint("TOP", self.groupButton1, "BOTTOM", 0, -30)
+		self.groupButton3:SetPoint("TOP", self.groupButton2, "BOTTOM", 0, -30)
+	end
+end)
