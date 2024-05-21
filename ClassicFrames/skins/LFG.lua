@@ -274,6 +274,9 @@ LFGInvitePopupRoleButtonTank:GetNormalTexture():SetTexCoord(GetTexCoordsForRole(
 LFGInvitePopupRoleButtonTank:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFGInvitePopupRoleButtonTank:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 
+RaidFinderQueueFrameBackground:ClearAllPoints()
+RaidFinderQueueFrameBackground:SetPoint("BOTTOMLEFT", 6, 26)
+
 for _, roleButton in pairs({
 	_G.LFDRoleCheckPopupRoleButtonDPS,
 	_G.LFDRoleCheckPopupRoleButtonHealer,
