@@ -66,7 +66,9 @@ skins\MajorRenown.lua
 skins\Merchant.lua
 skins\Minimap.lua
 skins\MirrorTimers.lua
+skins\Money.lua
 skins\NewPlayerGuide.lua
+skins\ObjectiveTracker.lua
 skins\OrderHallTalents.lua
 skins\PetStable.lua
 skins\PingTutorial.lua

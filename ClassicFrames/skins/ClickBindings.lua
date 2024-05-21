@@ -11,8 +11,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ClickBindingFramePortrait:SetPoint("TOPLEFT", -6, 8)
 
 		ClickBindingFrame.TitleContainer:ClearAllPoints()
-		ClickBindingFrame.TitleContainer:SetPoint("TOPLEFT", ClickBindingFrame, "TOPLEFT", 60, 0)
-		ClickBindingFrame.TitleContainer:SetPoint("TOPRIGHT", ClickBindingFrame, "TOPRIGHT", -60, 0)
+		ClickBindingFrame.TitleContainer:SetPoint("TOPLEFT", ClickBindingFrame, "TOPLEFT", 66, -1)
+		ClickBindingFrame.TitleContainer:SetPoint("TOPRIGHT", ClickBindingFrame, "TOPRIGHT", -60, 1)
 
 		ClickBindingFrame.TutorialButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 
@@ -35,8 +35,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(ClickBindingFrame.ScrollBar.Track.Thumb)
 
 		ApplyCloseButton(ClickBindingFrame.TutorialFrame.CloseButton)
-		ClickBindingFrame.TutorialFrame.CloseButton:SetFrameLevel(3)
-		ApplyTitleBgNoPortrait(ClickBindingFrame.TutorialFrame)
+		ApplyTitleBg(ClickBindingFrame.TutorialFrame)
 		ApplyNineSliceNoPortrait(ClickBindingFrame.TutorialFrame)
 	end
 end)

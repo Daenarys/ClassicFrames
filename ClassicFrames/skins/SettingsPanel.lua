@@ -1,12 +1,10 @@
 if not _G.SettingsPanel then return end
 
 ApplyCloseButton(SettingsPanel.ClosePanelButton)
-ApplyTitleBgNoPortrait(SettingsPanel)
+ApplyTitleBg(SettingsPanel)
 ApplyNineSliceNoPortrait(SettingsPanel)
 
 SettingsPanel.CloseButton:Hide()
-
-SettingsPanel.NineSlice:SetFrameStrata("HIGH")
 
 SettingsPanel.Container.SettingsList.ScrollBar:SetSize(25, 560)
 SettingsPanel.Container.SettingsList.ScrollBar:ClearAllPoints()
