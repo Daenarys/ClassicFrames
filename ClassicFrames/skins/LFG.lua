@@ -49,8 +49,8 @@ ApplyScrollBarThumb(LFDQueueFrameRandomScrollFrame.ScrollBar.Track.Thumb)
 
 LFDQueueFrameSpecific.ScrollBar:SetSize(25, 560)
 LFDQueueFrameSpecific.ScrollBar:ClearAllPoints()
-LFDQueueFrameSpecific.ScrollBar:SetPoint("TOPLEFT", LFDQueueFrameSpecific.ScrollBox, "TOPRIGHT", 2, 3)
-LFDQueueFrameSpecific.ScrollBar:SetPoint("BOTTOMLEFT", LFDQueueFrameSpecific.ScrollBox, "BOTTOMRIGHT", 5, -1)
+LFDQueueFrameSpecific.ScrollBar:SetPoint("TOPLEFT", LFDQueueFrameSpecific.ScrollBox, "TOPRIGHT", 5, 0)
+LFDQueueFrameSpecific.ScrollBar:SetPoint("BOTTOMLEFT", LFDQueueFrameSpecific.ScrollBox, "BOTTOMRIGHT", 5, 0)
 
 ApplyScrollBarArrow(LFDQueueFrameSpecific.ScrollBar)
 ApplyScrollBarTrack(LFDQueueFrameSpecific.ScrollBar.Track)
