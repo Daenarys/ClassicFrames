@@ -1,18 +1,16 @@
 if not _G.SettingsPanel then return end
 
 ApplyCloseButton(SettingsPanel.ClosePanelButton)
-ApplyTitleBg(SettingsPanel)
+ApplyTitleBgNoPortrait(SettingsPanel)
 ApplyNineSliceNoPortrait(SettingsPanel)
 
 SettingsPanel.CloseButton:Hide()
 
-SettingsPanel.Bg:ClearAllPoints()
-SettingsPanel.Bg:SetPoint("TOPLEFT", SettingsPanel, "TOPLEFT", 1, -18)
-SettingsPanel.Bg:SetPoint("BOTTOMRIGHT", SettingsPanel, "BOTTOMRIGHT", -3, 3)
+SettingsPanel.NineSlice:SetFrameStrata("HIGH")
 
 SettingsPanel.Container.SettingsList.ScrollBar:SetSize(25, 560)
 SettingsPanel.Container.SettingsList.ScrollBar:ClearAllPoints()
-SettingsPanel.Container.SettingsList.ScrollBar:SetPoint("TOPLEFT", SettingsPanel.Container.SettingsList.ScrollBox, "TOPRIGHT", -4, 2)
+SettingsPanel.Container.SettingsList.ScrollBar:SetPoint("TOPLEFT", SettingsPanel.Container.SettingsList.ScrollBox, "TOPRIGHT", -4, 0)
 SettingsPanel.Container.SettingsList.ScrollBar:SetPoint("BOTTOMLEFT", SettingsPanel.Container.SettingsList.ScrollBox, "BOTTOMRIGHT", -1, 0)
 
 if (SettingsPanel.Container.SettingsList.ScrollBar.BG == nil) then
