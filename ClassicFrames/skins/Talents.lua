@@ -14,11 +14,34 @@ f:SetScript("OnEvent", function(self, event, name)
 		PlayerSpellsFrame.TitleContainer:SetPoint("TOPLEFT", PlayerSpellsFrame, "TOPLEFT", 58, 0)
 		PlayerSpellsFrame.TitleContainer:SetPoint("TOPRIGHT", PlayerSpellsFrame, "TOPRIGHT", -58, 0)
 
+		PlayerSpellsFrame.MaximizeMinimizeButton:SetSize(32, 32)
+		PlayerSpellsFrame.MaximizeMinimizeButton:ClearAllPoints()
+		PlayerSpellsFrame.MaximizeMinimizeButton:SetPoint("RIGHT", PlayerSpellsFrameCloseButton, "LEFT", 8.5, 0)
+		PlayerSpellsFrame.MaximizeMinimizeButton:SetFrameLevel(2)
+
+		PlayerSpellsFrame.MaximizeMinimizeButton.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
+		PlayerSpellsFrame.MaximizeMinimizeButton.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
+		PlayerSpellsFrame.MaximizeMinimizeButton.MaximizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Disabled")
+		PlayerSpellsFrame.MaximizeMinimizeButton.MaximizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+
+		PlayerSpellsFrame.MaximizeMinimizeButton.MinimizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Up")
+		PlayerSpellsFrame.MaximizeMinimizeButton.MinimizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Down")
+		PlayerSpellsFrame.MaximizeMinimizeButton.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
+		PlayerSpellsFrame.MaximizeMinimizeButton.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+
 		ApplyTitleBg(PlayerSpellsFrame)
 		ApplyNineSlicePortrait(PlayerSpellsFrame)
 
-		for i = 1, _G.PlayerSpellsFrame.TabSystem:GetNumChildren() do
-			local tab = select(i, _G.PlayerSpellsFrame.TabSystem:GetChildren())
+		PlayerSpellsFrame.SpellBookFrame:HookScript("OnShow", function()
+			ApplyNineSlicePortraitMinimizable(PlayerSpellsFrame)
+        end)
+
+        PlayerSpellsFrame.SpellBookFrame:HookScript("OnHide", function()
+			ApplyNineSlicePortrait(PlayerSpellsFrame)
+        end)
+
+		for i = 1, PlayerSpellsFrame.TabSystem:GetNumChildren() do
+			local tab = select(i, PlayerSpellsFrame.TabSystem:GetChildren())
 
 			ApplyBottomTab(tab)
 		end
