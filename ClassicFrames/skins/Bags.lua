@@ -132,8 +132,6 @@ for i = 1, _G.NUM_CONTAINER_FRAMES do
 end
 
 hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
-	if frame:IsCombinedBagContainer() then return end
-
 	local name = frame:GetName()
 	local bgTextureTop = _G[name.."BackgroundTop"];
 	local bgTextureMiddle = _G[name.."BackgroundMiddle1"];
@@ -324,7 +322,34 @@ hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
 		end
 	end
 
-	frame:SetWidth(CONTAINER_WIDTH)
+	if (size == 1) then
+		-- Halloween gag gift
+		frame:SetHeight(70)	
+		frame:SetWidth(99)
+		local itemButton = frame.Items[1]
+		itemButton:SetPoint("BOTTOMRIGHT", name, "BOTTOMRIGHT", -10, 5)
+	else
+		frame:SetWidth(CONTAINER_WIDTH)
+
+		for i=1, size, 1 do
+			local itemButton = frame.Items[i]
+			-- Set first button
+			if ( i == 1 ) then
+				-- Anchor the first item differently if its the backpack frame
+				if ( id == 0 ) then
+					itemButton:SetPoint("BOTTOMRIGHT", name, "TOPRIGHT", -12, backpackFirstButtonOffset)
+				else
+					itemButton:SetPoint("BOTTOMRIGHT", name, "BOTTOMRIGHT", -12, 9)
+				end
+			else
+				if ( mod((i-1), columns) == 0 ) then
+					itemButton:SetPoint("BOTTOMRIGHT", frame.Items[i - columns], "TOPRIGHT", 0, 4)	
+				else
+					itemButton:SetPoint("BOTTOMRIGHT", frame.Items[i - 1], "BOTTOMLEFT", -5, 0)	
+				end
+			end
+		end
+	end
 end)
 
 hooksecurefunc("UpdateContainerFrameAnchors", function()
