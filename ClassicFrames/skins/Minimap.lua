@@ -488,7 +488,7 @@ MiniMapWorldMapButton:GetHighlightTexture():SetPoint("TOPRIGHT", MiniMapWorldMap
 
 MinimapZoneTextButton:SetScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_LEFT")
-	local pvpType, isSubZonePvP, factionName = GetZonePVPInfo()
+	local pvpType, isSubZonePvP, factionName = C_PvP.GetZonePVPInfo()
 	local zoneName = GetZoneText()
 	local subzoneName = GetSubZoneText()
 	if ( subzoneName == zoneName ) then
