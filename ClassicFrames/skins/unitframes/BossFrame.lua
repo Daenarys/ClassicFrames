@@ -11,13 +11,12 @@ for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
 	FrameHealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 	FrameHealthBar:SetStatusBarColor(0, 1, 0)
 	FrameHealthBar:SetSize(119, 12)
-	FrameHealthBar:ClearAllPoints()
-	FrameHealthBar:SetPoint("TOPLEFT", 26, -48)
-	FrameHealthBar:SetFrameLevel(500)
+	FrameHealthBarContainer:ClearAllPoints()
+	FrameHealthBarContainer:SetPoint("TOPLEFT", 26, -48)
 	FrameHealthBarContainer.HealthBarMask:Hide()
 	FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBar, "CENTER", 1, 0)
-	FrameHealthBar.RightText:SetPoint("RIGHT", FrameHealthBar, "RIGHT", -3, 0)
-	FrameHealthBar.LeftText:SetPoint("LEFT", FrameHealthBar, "LEFT", 2, 0)
+	FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBar, "RIGHT", -3, 0)
+	FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBar, "LEFT", 2, 0)
 	FrameHealthBarContainer.DeadText:SetPoint("CENTER", FrameHealthBar, "CENTER", 1, 0)
 
 	FrameManaBar:SetSize(119, 12)
@@ -30,8 +29,8 @@ for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
 	FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 1, -1)
 	
 	FrameHealthBar.TextString:SetParent(frame.TargetFrameContainer)
-	FrameHealthBar.RightText:SetParent(frame.TargetFrameContainer)
-	FrameHealthBar.LeftText:SetParent(frame.TargetFrameContainer)
+	FrameHealthBarContainer.RightText:SetParent(frame.TargetFrameContainer)
+	FrameHealthBarContainer.LeftText:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.DeadText:SetParent(frame.TargetFrameContainer)
 
 	FrameManaBar.TextString:SetParent(frame.TargetFrameContainer)
