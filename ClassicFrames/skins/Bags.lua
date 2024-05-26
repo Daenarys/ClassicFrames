@@ -41,11 +41,11 @@ local function GetRightActionBarWidth()
 	return offset + 10;
 end
 
-if _G.ContainerFrame1Portrait then
-	_G.ContainerFrame1Portrait:Hide()
+if ContainerFrame1Portrait then
+	ContainerFrame1Portrait:Hide()
 end
-if _G.ContainerFrame1MoneyFrame.Border then
-	_G.ContainerFrame1MoneyFrame.Border:Hide()
+if ContainerFrame1MoneyFrame.Border then
+	ContainerFrame1MoneyFrame.Border:Hide()
 end
 
 for i = 1, _G.NUM_CONTAINER_FRAMES do
