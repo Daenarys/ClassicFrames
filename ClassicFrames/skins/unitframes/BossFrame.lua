@@ -1,7 +1,8 @@
 if not _G.BossTargetFrameContainer then return end
 
 for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
-	local FrameHealthBar = frame.TargetFrameContent.TargetFrameContentMain.HealthBar;
+	local FrameHealthBar = frame.TargetFrameContent.TargetFrameContentMain.HealthBarsContainer.HealthBar;
+	local FrameHealthBarContainer = frame.TargetFrameContent.TargetFrameContentMain.HealthBarsContainer;
 	local FrameManaBar = frame.TargetFrameContent.TargetFrameContentMain.ManaBar;
 	local nameText = frame.TargetFrameContent.TargetFrameContentMain.Name;
 
@@ -13,11 +14,11 @@ for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
 	FrameHealthBar:ClearAllPoints()
 	FrameHealthBar:SetPoint("TOPLEFT", 26, -48)
 	FrameHealthBar:SetFrameLevel(500)
-	FrameHealthBar.HealthBarMask:Hide()
+	FrameHealthBarContainer.HealthBarMask:Hide()
 	FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBar, "CENTER", 1, 0)
 	FrameHealthBar.RightText:SetPoint("RIGHT", FrameHealthBar, "RIGHT", -3, 0)
 	FrameHealthBar.LeftText:SetPoint("LEFT", FrameHealthBar, "LEFT", 2, 0)
-	FrameHealthBar.DeadText:SetPoint("CENTER", FrameHealthBar, "CENTER", 1, 0)
+	FrameHealthBarContainer.DeadText:SetPoint("CENTER", FrameHealthBar, "CENTER", 1, 0)
 
 	FrameManaBar:SetSize(119, 12)
 	FrameManaBar:ClearAllPoints()
@@ -31,7 +32,7 @@ for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
 	FrameHealthBar.TextString:SetParent(frame.TargetFrameContainer)
 	FrameHealthBar.RightText:SetParent(frame.TargetFrameContainer)
 	FrameHealthBar.LeftText:SetParent(frame.TargetFrameContainer)
-	FrameHealthBar.DeadText:SetParent(frame.TargetFrameContainer)
+	FrameHealthBarContainer.DeadText:SetParent(frame.TargetFrameContainer)
 
 	FrameManaBar.TextString:SetParent(frame.TargetFrameContainer)
 	FrameManaBar.RightText:SetParent(frame.TargetFrameContainer)
