@@ -59,6 +59,7 @@ end)
 for _, f in next, WorldMapFrame.overlayFrames do
     if WorldMapTrackingOptionsButtonMixin and f.OnLoad == WorldMapTrackingOptionsButtonMixin.OnLoad then
     	f.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
+    	f.Icon:SetTexture("Interface\\Minimap\\Tracking\\None")
  	end
     if WorldMapTrackingPinButtonMixin and f.OnLoad == WorldMapTrackingPinButtonMixin.OnLoad then
     	f.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
