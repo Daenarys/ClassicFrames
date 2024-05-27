@@ -26,21 +26,6 @@ local CONTAINER_BOTTOM_TEXTURE_DEFAULT_HEIGHT = CONTAINER_BOTTOM_TEXTURE_DEFAULT
 local CONTAINER_BOTTOM_TEXTURE_DEFAULT_ROW_END = 172;
 local CONTAINER_BOTTOM_TEXTURE_DEFAULT_ROW_HEIGHT = CONTAINER_BOTTOM_TEXTURE_DEFAULT_ROW_END - CONTAINER_BOTTOM_TEXTURE_DEFAULT_START;
 
-local function GetRightActionBarWidth()
-	local offset = 0;
-	if MultiBar3_IsVisible and MultiBar3_IsVisible() and MultiBarRight:IsInDefaultPosition() then
-		local point, relativeTo, relativePoint, offsetX, offsetY = MultiBarRight:GetPoint(1)
-		offset = MultiBarRight:GetWidth() - offsetX; -- Subtract x offset since it will be a negative value due to us anchoring to the right side and anchoring towards the middle
-	end
-
-	if MultiBar4_IsVisible and MultiBar4_IsVisible() and MultiBarLeft:IsInDefaultPosition() then
-		local point, relativeTo, relativePoint, offsetX, offsetY = MultiBarLeft:GetPoint(1)
-		offset = MultiBarLeft:GetWidth() - offsetX;
-	end
-
-	return offset + 10;
-end
-
 if ContainerFrame1Portrait then
 	ContainerFrame1Portrait:Hide()
 end
@@ -117,15 +102,6 @@ for i = 1, _G.NUM_CONTAINER_FRAMES do
 
 	hooksecurefunc(_G['ContainerFrame'..i], "UpdateItemLayout", function(self)
 		for i, itemButton in self:EnumerateValidItems() do
-			if itemButton.extendedFrame and itemButton.extendedFrame:IsShown() then
-				itemButton.extendedFrame:DisableDrawLayer("BACKGROUND")
-				if (itemButton.extendedFrame.Icon == nil) then
-					itemButton.extendedFrame.Icon = itemButton.extendedFrame:CreateTexture(nil, "ARTWORK")
-					itemButton.extendedFrame.Icon:SetSize(27, 35)
-					itemButton.extendedFrame.Icon:SetAtlas("worldquest-tracker-lock")
-					itemButton.extendedFrame.Icon:SetPoint("CENTER")
-				end
-			end
 			itemButton.emptyBackgroundAtlas = nil
 		end
 	end)
@@ -348,9 +324,33 @@ hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
 					itemButton:SetPoint("BOTTOMRIGHT", frame.Items[i - 1], "BOTTOMLEFT", -5, 0)	
 				end
 			end
+			if itemButton.extendedFrame and itemButton.extendedFrame:IsShown() then
+				itemButton.extendedFrame:DisableDrawLayer("BACKGROUND")
+				if (itemButton.extendedFrame.Icon == nil) then
+					itemButton.extendedFrame.Icon = itemButton.extendedFrame:CreateTexture(nil, "ARTWORK")
+					itemButton.extendedFrame.Icon:SetSize(27, 35)
+					itemButton.extendedFrame.Icon:SetAtlas("worldquest-tracker-lock")
+					itemButton.extendedFrame.Icon:SetPoint("CENTER")
+				end
+			end
 		end
 	end
 end)
+
+local function GetRightActionBarWidth()
+	local offset = 0;
+	if MultiBar3_IsVisible and MultiBar3_IsVisible() and MultiBarRight:IsInDefaultPosition() then
+		local point, relativeTo, relativePoint, offsetX, offsetY = MultiBarRight:GetPoint(1)
+		offset = MultiBarRight:GetWidth() - offsetX; -- Subtract x offset since it will be a negative value due to us anchoring to the right side and anchoring towards the middle
+	end
+
+	if MultiBar4_IsVisible and MultiBar4_IsVisible() and MultiBarLeft:IsInDefaultPosition() then
+		local point, relativeTo, relativePoint, offsetX, offsetY = MultiBarLeft:GetPoint(1)
+		offset = MultiBarLeft:GetWidth() - offsetX;
+	end
+
+	return offset + 10;
+end
 
 hooksecurefunc("UpdateContainerFrameAnchors", function()
 	local containerFrameOffsetX = GetRightActionBarWidth()
@@ -418,7 +418,6 @@ hooksecurefunc("UpdateContainerFrameAnchors", function()
 		freeScreenHeight = freeScreenHeight - frame:GetHeight() - VISIBLE_CONTAINER_SPACING;
 	end
 end)
-
 
 hooksecurefunc(ContainerFrame1, "LayoutAddSlots", function(self)
 	if self.AddSlotsButton and self.AddSlotsButton:IsShown() then
