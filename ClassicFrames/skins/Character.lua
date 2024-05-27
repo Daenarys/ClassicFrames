@@ -12,6 +12,8 @@ CharacterFrame.TitleContainer:ClearAllPoints()
 CharacterFrame.TitleContainer:SetPoint("TOPLEFT", CharacterFrame, "TOPLEFT", 58, 0)
 CharacterFrame.TitleContainer:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -58, 0)
 
+CharacterFrame.Background:Hide()
+
 ApplyTitleBg(CharacterFrame)
 ApplyNineSlicePortrait(CharacterFrame)
 
@@ -137,4 +139,21 @@ CharacterFrame:HookScript("OnHide", function()
 	CfPlayerFrameManaBar.showNumeric = nil;
 	CfPlayerFrameHealthBar:HideStatusBarText()
 	CfPlayerFrameManaBar:HideStatusBarText()
+end)
+
+hooksecurefunc(CharacterFrame, "UpdatePortrait", function(self)
+	self:SetPortraitToSpecIcon()
+end)
+
+hooksecurefunc(CharacterFrame, "UpdateSize", function(self)
+	if ReputationFrame:IsShown() then
+		self:SetWidth(338)
+	elseif TokenFrame:IsShown() then
+		self:SetWidth(338)
+	end
+end)
+
+hooksecurefunc(CharacterFrame, "UpdateTitle", function(self)
+	self:SetTitleColor(HIGHLIGHT_FONT_COLOR)
+	self:SetTitle(UnitPVPName("player"))
 end)
