@@ -21,6 +21,8 @@ hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
 end)
 
 GameMenuFrame:HookScript("OnShow", function(self)
+	self.topPadding = 32
 	self.leftPadding = 26
 	self.rightPadding = 26
+	self.bottomPadding = 17
 end)
