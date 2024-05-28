@@ -32,6 +32,8 @@ hooksecurefunc(WorldMapFrame, "Minimize", function(self)
 
 	ApplyTitleBg(self)
 	ApplyNineSlicePortraitMinimizable(self.BorderFrame)
+
+	self.questLogWidth = 290
 end)
 
 hooksecurefunc(WorldMapFrame, "Maximize", function(self)
@@ -87,5 +89,3 @@ for _, f in next, WorldMapFrame.overlayFrames do
 		end)
 	end
 end
-
-WorldMapFrame.questLogWidth = 290

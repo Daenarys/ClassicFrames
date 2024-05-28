@@ -164,7 +164,7 @@ hooksecurefunc('QuestLogQuests_Update', function(self)
 		end
 		if child.Text then
 			child.Text:SetSize(175, 15)
-			child.Text:SetFont(GameFontHighlightMedium:GetFont(), 12)
+			child.Text:SetFontObject(GameFontHighlightMedium)
 			child.Text:ClearAllPoints()
 			child.Text:SetPoint("BOTTOMLEFT", child.Background, "LEFT", 42, 6)
 		end
