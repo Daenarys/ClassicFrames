@@ -8,14 +8,6 @@ GameMenuFrame.Header.Text:SetFontObject("GameFontNormal")
 GameMenuFrame.Header.Text:ClearAllPoints()
 GameMenuFrame.Header.Text:SetPoint("TOP", 0, -12)
 
-hooksecurefunc(GameMenuFrame, "Layout", function(self)
-	if C_StorePublic.IsEnabled() then
-		self:SetSize(195, 320)
-	else
-		self:SetSize(195, 292)
-	end
-end)
-
 hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
 	local tableData = self.buttonPool.activeObjects
 	for obj in pairs(tableData) do 
@@ -27,14 +19,10 @@ hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
 
 		obj:GetFontString():ClearAllPoints()
 		obj:GetFontString():SetPoint("CENTER", 0, 1)
-
-		obj:SetPoint("CENTER", GameMenuFrame, "TOP", 0, -42)
 	end
 end)
 
 GameMenuFrame:HookScript("OnShow", function(self)
-	self.topPadding = 32
 	self.leftPadding = 26
 	self.rightPadding = 26
-	self.bottomPadding = 3
 end)
