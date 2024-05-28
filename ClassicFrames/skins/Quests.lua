@@ -150,12 +150,17 @@ end)
 hooksecurefunc('QuestLogQuests_Update', function(self)
 	QuestScrollFrame.Contents:SetWidth(260)
 	for _, child in next, { QuestScrollFrame.Contents:GetChildren() } do
-		child.leftPadding = 0
 		child:SetWidth(260)
+		if child.leftPadding then
+			child.leftPadding = 0
+		end
 		if child.Background then
 			child.Background:SetSize(260, 58)
 			child.Background:ClearAllPoints()
 			child.Background:SetPoint("TOP")
+		end
+		if child.TopFiligree then
+			child.TopFiligree:SetAlpha(1)
 		end
 		if child.Text then
 			child.Text:SetSize(175, 15)
@@ -176,7 +181,6 @@ hooksecurefunc('QuestLogQuests_Update', function(self)
 		if child.CollapseButton then
 			child.CollapseButton:ClearAllPoints()
 			child.CollapseButton:SetPoint("LEFT", child.Background, "LEFT", 18, 6)
-
 			hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
 				self.Icon:Hide()
 				self:SetNormalAtlas(collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open")
