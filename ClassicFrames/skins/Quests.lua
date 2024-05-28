@@ -19,8 +19,8 @@ ApplyNineSlicePortrait(QuestFrame)
 
 QuestScrollFrame.ScrollBar:SetSize(25, 560)
 QuestScrollFrame.ScrollBar:ClearAllPoints()
-QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -1, 2)
-QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", -1, -3)
+QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", 2, 2)
+QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", 2, -2)
 
 ApplyScrollBarArrow(QuestScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestScrollFrame.ScrollBar.Track)
@@ -106,4 +106,55 @@ hooksecurefunc(_G.QuestSessionManager, 'NotifyDialogShow', function(_, dialog)
 	ApplyDialogBorder(dialog.Border)
 
 	dialog.isSkinned = true
+end)
+
+QuestMapFrame:SetWidth(286)
+QuestMapFrame.SettingsButton:Hide()
+
+QuestMapFrame.VerticalSeparator:Show()
+QuestMapFrame.VerticalSeparator:SetAlpha(1)
+
+QuestScrollFrame.BorderFrame:ClearAllPoints()
+QuestScrollFrame.BorderFrame:SetPoint("TOPLEFT")
+QuestScrollFrame.BorderFrame:SetPoint("BOTTOMRIGHT")
+
+QuestScrollFrame.BorderFrame.TopDetail:SetAtlas("QuestLog_TopDetail", true)
+QuestScrollFrame.BorderFrame.TopDetail:ClearAllPoints()
+QuestScrollFrame.BorderFrame.TopDetail:SetPoint("TOP", 0, 9)
+
+QuestScrollFrame.BorderFrame.Border:SetAtlas("QuestLog_BottomDetail", true)
+QuestScrollFrame.BorderFrame.Border:ClearAllPoints()
+QuestScrollFrame.BorderFrame.Border:SetPoint("BOTTOM")
+
+QuestScrollFrame.Background:ClearAllPoints()
+QuestScrollFrame.Background:SetPoint("TOPLEFT", 0, 5)
+
+QuestScrollFrame.Edge:SetAlpha(1)
+
+QuestScrollFrame.SearchBox:Hide()
+QuestScrollFrame.BorderFrame.Shadow:Hide()
+
+local function QuestLogQuests_IsDisplayEmpty(displayState)
+	return not displayState.hasShownAnyHeader and QuestScrollFrame.titleFramePool:GetNumActive() == 0;
+end
+
+hooksecurefunc(_G.QuestScrollFrame, 'UpdateBackground', function(self, displayState)
+	local atlas = QuestLogQuests_IsDisplayEmpty(displayState) and "NoQuestsBackground" or "QuestLogBackground";
+	self.Background:SetAtlas(atlas, true)
+
+	self:ClearAllPoints()
+	self:SetPoint("TOPLEFT")
+	self:SetPoint("BOTTOMRIGHT", -27, 0)
+end)
+
+hooksecurefunc(QuestScrollFrame.Contents, 'Layout', function()
+	for _, child in next, { _G.QuestScrollFrame.Contents:GetChildren() } do
+		child:SetWidth(260)
+		if child.Background then
+			child.Background:SetWidth(260)
+		end
+		if child.NextObjective then
+			child.NextObjective.Text:SetWidth(220)
+		end
+	end
 end)
