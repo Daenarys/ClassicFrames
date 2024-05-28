@@ -5,8 +5,6 @@ ApplyDialogHeader(GameMenuFrame.Header)
 
 GameMenuFrame.Header:SetWidth(139.377)
 GameMenuFrame.Header.Text:SetFontObject("GameFontNormal")
-GameMenuFrame.Header.Text:ClearAllPoints()
-GameMenuFrame.Header.Text:SetPoint("TOP", 0, -12)
 
 hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
 	local tableData = self.buttonPool.activeObjects
