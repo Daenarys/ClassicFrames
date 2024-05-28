@@ -108,6 +108,8 @@ for i = 1, _G.NUM_CONTAINER_FRAMES do
 end
 
 hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
+	if ContainerFrameSettingsManager:IsUsingCombinedBags() then return end
+
 	local name = frame:GetName()
 	local bgTextureTop = _G[name.."BackgroundTop"];
 	local bgTextureMiddle = _G[name.."BackgroundMiddle1"];
