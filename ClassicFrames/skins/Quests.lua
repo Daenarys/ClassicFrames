@@ -157,9 +157,6 @@ hooksecurefunc('QuestLogQuests_Update', function(self)
 			child.Background:ClearAllPoints()
 			child.Background:SetPoint("TOP")
 		end
-		if child.NextObjective then
-			child.NextObjective.Text:SetWidth(220)
-		end
 		if child.Text then
 			child.Text:SetSize(175, 15)
 			child.Text:SetFont(GameFontHighlightMedium:GetFont(), 12)
@@ -186,6 +183,11 @@ hooksecurefunc('QuestLogQuests_Update', function(self)
 				self:SetPushedAtlas(collapsed and "Campaign_HeaderIcon_ClosedPressed" or "Campaign_HeaderIcon_OpenPressed")
 				self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
 			end)
+		end
+		if child.NextObjective then
+			child.NextObjective.Text:SetWidth(220)
+			child.NextObjective.Text:ClearAllPoints()
+			child.NextObjective.Text:SetPoint("TOP")
 		end
 	end
 end)
