@@ -138,7 +138,7 @@ local function QuestLogQuests_IsDisplayEmpty(displayState)
 	return not displayState.hasShownAnyHeader and QuestScrollFrame.titleFramePool:GetNumActive() == 0;
 end
 
-hooksecurefunc(_G.QuestScrollFrame, 'UpdateBackground', function(self, displayState)
+hooksecurefunc(QuestScrollFrame, 'UpdateBackground', function(self, displayState)
 	local atlas = QuestLogQuests_IsDisplayEmpty(displayState) and "NoQuestsBackground" or "QuestLogBackground";
 	self.Background:SetAtlas(atlas, true)
 
@@ -147,14 +147,45 @@ hooksecurefunc(_G.QuestScrollFrame, 'UpdateBackground', function(self, displaySt
 	self:SetPoint("BOTTOMRIGHT", -27, 0)
 end)
 
-hooksecurefunc(QuestScrollFrame.Contents, 'Layout', function()
-	for _, child in next, { _G.QuestScrollFrame.Contents:GetChildren() } do
+hooksecurefunc('QuestLogQuests_Update', function(self)
+	QuestScrollFrame.Contents:SetWidth(260)
+	for _, child in next, { QuestScrollFrame.Contents:GetChildren() } do
+		child.leftPadding = 0
 		child:SetWidth(260)
 		if child.Background then
-			child.Background:SetWidth(260)
+			child.Background:SetSize(260, 58)
+			child.Background:ClearAllPoints()
+			child.Background:SetPoint("TOP")
 		end
 		if child.NextObjective then
 			child.NextObjective.Text:SetWidth(220)
+		end
+		if child.Text then
+			child.Text:SetSize(175, 15)
+			child.Text:SetFont(GameFontHighlightMedium:GetFont(), 12)
+			child.Text:ClearAllPoints()
+			child.Text:SetPoint("BOTTOMLEFT", child.Background, "LEFT", 42, 6)
+		end
+		if child.Progress then
+			child.Progress:SetFontObject(GameFontNormalSmall)
+			child.Progress:ClearAllPoints()
+			child.Progress:SetPoint("TOPLEFT", child.Text, "BOTTOMLEFT", 0, -4)
+		end
+		if child.SelectedHighlight then
+			child.SelectedHighlight:SetAtlas("CampaignHeader_SelectedGlow", true)
+			child.SelectedHighlight:ClearAllPoints()
+			child.SelectedHighlight:SetPoint("TOP", 0, -1)
+		end
+		if child.CollapseButton then
+			child.CollapseButton:ClearAllPoints()
+			child.CollapseButton:SetPoint("LEFT", child.Background, "LEFT", 18, 6)
+
+			hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
+				self.Icon:Hide()
+				self:SetNormalAtlas(collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open")
+				self:SetPushedAtlas(collapsed and "Campaign_HeaderIcon_ClosedPressed" or "Campaign_HeaderIcon_OpenPressed")
+				self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
+			end)
 		end
 	end
 end)
