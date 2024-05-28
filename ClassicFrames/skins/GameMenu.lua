@@ -32,14 +32,9 @@ hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
 	end
 end)
 
-hooksecurefunc(GameMenuFrame, "AddSection", function(self)
-	self.sectionSpacing = 15
-end)
-
 GameMenuFrame:HookScript("OnShow", function(self)
 	self.topPadding = 32
 	self.leftPadding = 26
 	self.rightPadding = 26
 	self.bottomPadding = 3
-	self.spacing = 1
 end)
