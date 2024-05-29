@@ -54,7 +54,7 @@ if (_G.AlternatePowerBar) then
 	end
 
 	if (AlternatePowerBar.Border == nil) then
-		AlternatePowerBar.Border = AlternatePowerBar:CreateTexture(nil, "ARTWORK")
+		AlternatePowerBar.Border = AlternatePowerBar:CreateTexture(nil, "OVERLAY")
 		AlternatePowerBar.Border:SetSize(0, 16)
 		AlternatePowerBar.Border:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
 		AlternatePowerBar.Border:SetTexCoord(0.125, 0.250, 1, 0)
@@ -63,7 +63,7 @@ if (_G.AlternatePowerBar) then
 	end
 
 	if (AlternatePowerBar.LeftBorder == nil) then
-		AlternatePowerBar.LeftBorder = AlternatePowerBar:CreateTexture(nil, "ARTWORK")
+		AlternatePowerBar.LeftBorder = AlternatePowerBar:CreateTexture(nil, "OVERLAY")
 		AlternatePowerBar.LeftBorder:SetSize(16, 16)
 		AlternatePowerBar.LeftBorder:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
 		AlternatePowerBar.LeftBorder:SetTexCoord(0, 0.125, 1, 0)
@@ -71,7 +71,7 @@ if (_G.AlternatePowerBar) then
 	end
 
 	if (AlternatePowerBar.RightBorder == nil) then
-		AlternatePowerBar.RightBorder = AlternatePowerBar:CreateTexture(nil, "ARTWORK")
+		AlternatePowerBar.RightBorder = AlternatePowerBar:CreateTexture(nil, "OVERLAY")
 		AlternatePowerBar.RightBorder:SetSize(16, 16)
 		AlternatePowerBar.RightBorder:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
 		AlternatePowerBar.RightBorder:SetTexCoord(0.125, 0, 1, 0)
@@ -108,7 +108,7 @@ if (_G.MonkStaggerBar) then
 	end
 
 	if (MonkStaggerBar.Border == nil) then
-		MonkStaggerBar.Border = MonkStaggerBar:CreateTexture(nil, "ARTWORK")
+		MonkStaggerBar.Border = MonkStaggerBar:CreateTexture(nil, "OVERLAY")
 		MonkStaggerBar.Border:SetSize(128, 16)
 		MonkStaggerBar.Border:SetTexture("Interface\\PlayerFrame\\MonkManaBar")
 		MonkStaggerBar.Border:SetTexCoord(0, 1, 0, 0.5)
@@ -118,6 +118,56 @@ if (_G.MonkStaggerBar) then
 	hooksecurefunc(MonkStaggerBar, "EvaluateUnit", function(self)
 		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 		self:SetStatusBarColor(0, 0, 1)
+	end)
+end
+
+if (_G.EvokerEbonMightBar) then
+	EvokerEbonMightBar:SetSize(104, 12)
+	EvokerEbonMightBar:ClearAllPoints()
+	EvokerEbonMightBar:SetPoint("BOTTOMLEFT", 95, 19)
+
+	EvokerEbonMightBarText:SetPoint("CENTER", 0, -1)
+	EvokerEbonMightBar.LeftText:SetPoint("LEFT", 0, -1)
+	EvokerEbonMightBar.RightText:SetPoint("RIGHT", 0, -1)
+
+	if (EvokerEbonMightBar.Background == nil) then
+		EvokerEbonMightBar.Background = EvokerEbonMightBar:CreateTexture(nil, "BACKGROUND")
+		EvokerEbonMightBar.Background:SetAllPoints()
+		EvokerEbonMightBar.Background:SetColorTexture(0, 0, 0, 0.5)
+	end
+
+	if (EvokerEbonMightBar.Border == nil) then
+		EvokerEbonMightBar.Border = EvokerEbonMightBar:CreateTexture(nil, "OVERLAY")
+		EvokerEbonMightBar.Border:SetSize(0, 16)
+		EvokerEbonMightBar.Border:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
+		EvokerEbonMightBar.Border:SetTexCoord(0.125, 0.250, 1, 0)
+		EvokerEbonMightBar.Border:SetPoint("TOPLEFT", 4, 0)
+		EvokerEbonMightBar.Border:SetPoint("TOPRIGHT", -4, 0)
+	end
+
+	if (EvokerEbonMightBar.LeftBorder == nil) then
+		EvokerEbonMightBar.LeftBorder = EvokerEbonMightBar:CreateTexture(nil, "OVERLAY")
+		EvokerEbonMightBar.LeftBorder:SetSize(16, 16)
+		EvokerEbonMightBar.LeftBorder:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
+		EvokerEbonMightBar.LeftBorder:SetTexCoord(0, 0.125, 1, 0)
+		EvokerEbonMightBar.LeftBorder:SetPoint("RIGHT", EvokerEbonMightBar.Border, "LEFT")
+	end
+
+	if (EvokerEbonMightBar.RightBorder == nil) then
+		EvokerEbonMightBar.RightBorder = EvokerEbonMightBar:CreateTexture(nil, "OVERLAY")
+		EvokerEbonMightBar.RightBorder:SetSize(16, 16)
+		EvokerEbonMightBar.RightBorder:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
+		EvokerEbonMightBar.RightBorder:SetTexCoord(0.125, 0, 1, 0)
+		EvokerEbonMightBar.RightBorder:SetPoint("LEFT", EvokerEbonMightBar.Border, "RIGHT")
+	end
+
+	hooksecurefunc(EvokerEbonMightBar, "EvaluateUnit", function(self)
+		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		self:SetStatusBarColor(1, 0.5, 0.25)
+
+		if self.PowerBarMask then
+			self.PowerBarMask:Hide()
+		end
 	end)
 end
 
