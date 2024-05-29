@@ -245,7 +245,8 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	local StatusTexture = self.PlayerFrameContent.PlayerFrameContentMain.StatusTexture
 	StatusTexture:Hide()
 
-	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMRIGHT", self, "TOPLEFT", 161, -25)
+	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:ClearAllPoints()
+	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMLEFT", CfPlayerFrame, "TOPLEFT", 97, -13)
 	self.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon:SetPoint("TOPLEFT", 76, -19)
 
 	PlayerName:SetParent(self.PlayerFrameContainer)
@@ -427,15 +428,15 @@ hooksecurefunc("PlayerFrame_UpdateStatus", function()
 end)
 
 PlayerFrame:HookScript("OnEvent", function(self)
-    local classPowerBar = self.classPowerBar
-    if (classPowerBar) then
-        classPowerBar:UnregisterAllEvents()
-        classPowerBar:Hide()
-    end
-    if (RuneFrame) then
-        RuneFrame:UnregisterAllEvents()
-        RuneFrame:Hide()
-    end
+	local classPowerBar = self.classPowerBar
+	if (classPowerBar) then
+		classPowerBar:UnregisterAllEvents()
+		classPowerBar:Hide()
+	end
+	if (RuneFrame) then
+		RuneFrame:UnregisterAllEvents()
+		RuneFrame:Hide()
+	end
 end)
 
 PlayerFrame:HookScript("OnUpdate", function(self)
