@@ -49,7 +49,7 @@ skins\Gossip.lua
 skins\GroupLoot.lua
 skins\GuildBank.lua
 skins\GuildPetition.lua
-skins\Help.lua
+skins\Help.xml
 skins\HelpTip.lua
 skins\Inspect.lua
 skins\IslandsQueue.lua
