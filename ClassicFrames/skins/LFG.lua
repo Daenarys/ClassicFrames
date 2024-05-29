@@ -743,18 +743,59 @@ hooksecurefunc("GroupFinderFrame_EvaluateButtonVisibility", function(self)
 	end
 end)
 
+hooksecurefunc("LFGListApplicationViewer_UpdateApplicant", function(button, id)
+	local applicantInfo = C_LFGList.GetApplicantInfo(id)
+
+	button.Spinner:Hide()
+
+	if (button.CfSpinner == nil) then
+		button.CfSpinner = CreateFrame("Frame", nil, button, "LoadingSpinnerTemplate")
+		button.CfSpinner:SetPoint("RIGHT", 3, 0)
+	end
+
+	button.CfSpinner:SetShown(applicantInfo.applicantInfo)
+end)
+
+hooksecurefunc("LFGListSearchEntry_Update", function(self)
+	local resultID = self.resultID
+
+	if not resultID or not C_LFGList.HasSearchResultInfo(resultID) then
+		return
+	end
+
+	local _, appStatus, pendingStatus, appDuration = C_LFGList.GetApplicationInfo(resultID)
+
+	self.Spinner:Hide()
+
+	if (self.CfSpinner == nil) then
+		self.CfSpinner = CreateFrame("Frame", nil, self, "LoadingSpinnerTemplate")
+		self.CfSpinner:SetPoint("RIGHT", 3, -1)
+	end
+
+	self.CfSpinner:SetShown(pendingStatus == "applied")
+end)
+
 hooksecurefunc("LFGListSearchPanel_UpdateResults", function(self)
 	self.SearchingSpinner:Hide()
 
-	if (CfSearchingSpinner == nil) then
-		CfSearchingSpinner = CreateFrame("Frame", "CfSearchingSpinner", self, "LoadingSpinnerTemplate")
-		CfSearchingSpinner:SetPoint("CENTER", self.ResultsInset)
+	if (self.CfSearchingSpinner == nil) then
+		self.CfSearchingSpinner = CreateFrame("Frame", nil, self, "LoadingSpinnerTemplate")
+		self.CfSearchingSpinner:SetPoint("CENTER", self.ResultsInset)
 	end
 
 	if ( self.searching ) then
-		CfSearchingSpinner:Show()
+		self.CfSearchingSpinner:Show()
 		
 	else
-		CfSearchingSpinner:Hide()
+		self.CfSearchingSpinner:Hide()
+	end
+end)
+
+hooksecurefunc("LFGListEntryCreation_ListGroupInternal", function(self)
+	self.WorkingCover.Spinner:Hide()
+
+	if (self.WorkingCover.CfSpinner == nil) then
+		self.WorkingCover.CfSpinner = CreateFrame("Frame", nil, self.WorkingCover, "LoadingSpinnerTemplate")
+		self.WorkingCover.CfSpinner:SetPoint("CENTER")
 	end
 end)
