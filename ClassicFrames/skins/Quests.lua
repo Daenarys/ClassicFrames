@@ -19,8 +19,14 @@ ApplyNineSlicePortrait(QuestFrame)
 
 QuestScrollFrame.ScrollBar:SetSize(25, 560)
 QuestScrollFrame.ScrollBar:ClearAllPoints()
-QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", 2, 2)
-QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", 2, -2)
+QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -2, 2)
+QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", -2, -11)
+
+if (QuestScrollFrame.ScrollBar.BG == nil) then
+	QuestScrollFrame.ScrollBar.BG = QuestScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
+	QuestScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
+	QuestScrollFrame.ScrollBar.BG:SetAllPoints()
+end
 
 ApplyScrollBarArrow(QuestScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestScrollFrame.ScrollBar.Track)
@@ -106,92 +112,4 @@ hooksecurefunc(_G.QuestSessionManager, 'NotifyDialogShow', function(_, dialog)
 	ApplyDialogBorder(dialog.Border)
 
 	dialog.isSkinned = true
-end)
-
-QuestMapFrame:SetWidth(286)
-QuestMapFrame.SettingsButton:Hide()
-
-QuestMapFrame.VerticalSeparator:Show()
-QuestMapFrame.VerticalSeparator:SetAlpha(1)
-
-QuestScrollFrame.BorderFrame:ClearAllPoints()
-QuestScrollFrame.BorderFrame:SetPoint("TOPLEFT")
-QuestScrollFrame.BorderFrame:SetPoint("BOTTOMRIGHT")
-
-QuestScrollFrame.BorderFrame.TopDetail:SetAtlas("QuestLog_TopDetail", true)
-QuestScrollFrame.BorderFrame.TopDetail:ClearAllPoints()
-QuestScrollFrame.BorderFrame.TopDetail:SetPoint("TOP", 0, 9)
-
-QuestScrollFrame.BorderFrame.Border:SetAtlas("QuestLog_BottomDetail", true)
-QuestScrollFrame.BorderFrame.Border:ClearAllPoints()
-QuestScrollFrame.BorderFrame.Border:SetPoint("BOTTOM")
-
-QuestScrollFrame.Background:ClearAllPoints()
-QuestScrollFrame.Background:SetPoint("TOPLEFT", 0, 5)
-
-QuestScrollFrame.Edge:SetAlpha(1)
-
-QuestScrollFrame.SearchBox:Hide()
-QuestScrollFrame.BorderFrame.Shadow:Hide()
-
-local function QuestLogQuests_IsDisplayEmpty(displayState)
-	return not displayState.hasShownAnyHeader and QuestScrollFrame.titleFramePool:GetNumActive() == 0;
-end
-
-hooksecurefunc(QuestScrollFrame, 'UpdateBackground', function(self, displayState)
-	local atlas = QuestLogQuests_IsDisplayEmpty(displayState) and "NoQuestsBackground" or "QuestLogBackground";
-	self.Background:SetAtlas(atlas, true)
-
-	self:ClearAllPoints()
-	self:SetPoint("TOPLEFT")
-	self:SetPoint("BOTTOMRIGHT", -27, 0)
-end)
-
-hooksecurefunc('QuestLogQuests_Update', function(self)
-	QuestScrollFrame.Contents:SetWidth(260)
-	for _, child in next, { QuestScrollFrame.Contents:GetChildren() } do
-		child:SetWidth(260)
-		if child.leftPadding then
-			child.leftPadding = 0
-		end
-		if child.Background then
-			child.Background:SetSize(260, 58)
-			child.Background:ClearAllPoints()
-			child.Background:SetPoint("TOP")
-		end
-		if child.TopFiligree then
-			child.TopFiligree:SetAlpha(1)
-		end
-		if child.Text then
-			child.Text:SetSize(175, 15)
-			child.Text:SetFontObject(GameFontHighlightMedium)
-			child.Text:ClearAllPoints()
-			child.Text:SetPoint("BOTTOMLEFT", child.Background, "LEFT", 42, 6)
-		end
-		if child.Progress then
-			child.Progress:SetFontObject(GameFontNormalSmall)
-			child.Progress:ClearAllPoints()
-			child.Progress:SetPoint("TOPLEFT", child.Text, "BOTTOMLEFT", 0, -4)
-		end
-		if child.SelectedHighlight then
-			child.SelectedHighlight:SetAtlas("CampaignHeader_SelectedGlow", true)
-			child.SelectedHighlight:ClearAllPoints()
-			child.SelectedHighlight:SetPoint("TOP", 0, -1)
-		end
-		if child.CollapseButton then
-			child.CollapseButton:ClearAllPoints()
-			child.CollapseButton:SetPoint("LEFT", child.Background, "LEFT", 18, 6)
-			hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
-				self.Icon:Hide()
-				self:SetNormalAtlas(collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open")
-				self:SetPushedAtlas(collapsed and "Campaign_HeaderIcon_ClosedPressed" or "Campaign_HeaderIcon_OpenPressed")
-				self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
-			end)
-		end
-		if child.NextObjective then
-			child.NextObjective.Text:SetWidth(220)
-			child.NextObjective.Text:ClearAllPoints()
-			child.NextObjective.Text:SetPoint("TOP")
-		end
-	end
 end)
