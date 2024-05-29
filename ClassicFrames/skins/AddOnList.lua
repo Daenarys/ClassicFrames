@@ -15,7 +15,7 @@ AddonList.ScrollBar:SetPoint("TOPLEFT", AddonList.ScrollBox, "TOPRIGHT", -5, 4)
 AddonList.ScrollBar:SetPoint("BOTTOMLEFT", AddonList.ScrollBox, "BOTTOMRIGHT", -2, 0)
 
 if (AddonList.ScrollBar.BG == nil) then
-	AddonList.ScrollBar.BG = AddonList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+	AddonList.ScrollBar.BG = AddonList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 	AddonList.ScrollBar.BG:SetColorTexture(0, 0, 0, 1)
 	AddonList.ScrollBar.BG:SetAllPoints()
 end

@@ -742,3 +742,19 @@ hooksecurefunc("GroupFinderFrame_EvaluateButtonVisibility", function(self)
 		self.groupButton3:SetPoint("TOP", self.groupButton2, "BOTTOM", 0, -30)
 	end
 end)
+
+hooksecurefunc("LFGListSearchPanel_UpdateResults", function(self)
+	self.SearchingSpinner:Hide()
+
+	if (CfSearchingSpinner == nil) then
+		CfSearchingSpinner = CreateFrame("Frame", "CfSearchingSpinner", self, "LoadingSpinnerTemplate")
+		CfSearchingSpinner:SetPoint("CENTER", self.ResultsInset)
+	end
+
+	if ( self.searching ) then
+		CfSearchingSpinner:Show()
+		
+	else
+		CfSearchingSpinner:Hide()
+	end
+end)
