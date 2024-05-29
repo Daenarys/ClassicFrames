@@ -85,6 +85,29 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(AchievementFrameComparison.StatContainer.ScrollBar.Track)
 		ApplyScrollBarThumb(AchievementFrameComparison.StatContainer.ScrollBar.Track.Thumb)
 
+		AchievementFrame.SearchResults.CloseButton:SetSize(32, 32)
+		AchievementFrame.SearchResults.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
+		AchievementFrame.SearchResults.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
+		AchievementFrame.SearchResults.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
+		AchievementFrame.SearchResults.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+		AchievementFrame.SearchResults.CloseButton:ClearAllPoints()
+		AchievementFrame.SearchResults.CloseButton:SetPoint("TOPRIGHT", 4, 2)
+
+		AchievementFrame.SearchResults.ScrollBar:SetSize(25, 560)
+		AchievementFrame.SearchResults.ScrollBar:ClearAllPoints()
+		AchievementFrame.SearchResults.ScrollBar:SetPoint("TOPLEFT", AchievementFrame.SearchResults.ScrollBox, "TOPRIGHT", -5, 2)
+		AchievementFrame.SearchResults.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrame.SearchResults.ScrollBox, "BOTTOMRIGHT", 5, -1)
+
+		if (AchievementFrame.SearchResults.ScrollBar.BG == nil) then
+			AchievementFrame.SearchResults.ScrollBar.BG = AchievementFrame.SearchResults.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			AchievementFrame.SearchResults.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+			AchievementFrame.SearchResults.ScrollBar.BG:SetAllPoints()
+		end
+
+		ApplyScrollBarArrow(AchievementFrame.SearchResults.ScrollBar)
+		ApplyScrollBarTrack(AchievementFrame.SearchResults.ScrollBar.Track)
+		ApplyScrollBarThumb(AchievementFrame.SearchResults.ScrollBar.Track.Thumb)
+
 		hooksecurefunc('AchievementFrameSummary_Refresh', function()
 			for i = 1, ACHIEVEMENTUI_MAX_SUMMARY_ACHIEVEMENTS do
 				local button = _G["AchievementFrameSummaryAchievement"..i];
