@@ -29,6 +29,7 @@ skins\Cinematic.lua
 skins\ClassTrainer.lua
 skins\ClickBindings.lua
 skins\Collections.lua
+skins\ColorPicker.lua
 skins\Communities.lua
 skins\Covenant.lua
 skins\DeathRecap.lua
