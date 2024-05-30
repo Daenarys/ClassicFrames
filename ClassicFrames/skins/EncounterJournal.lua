@@ -182,6 +182,29 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end)
 
+		EncounterJournalSearchResultsCloseButton:SetSize(32, 32)
+		EncounterJournalSearchResultsCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
+		EncounterJournalSearchResultsCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
+		EncounterJournalSearchResultsCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
+		EncounterJournalSearchResultsCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+		EncounterJournalSearchResultsCloseButton:ClearAllPoints()
+		EncounterJournalSearchResultsCloseButton:SetPoint("TOPRIGHT", 7, 2)
+
+		EncounterJournalSearchResults.ScrollBar:SetSize(25, 560)
+		EncounterJournalSearchResults.ScrollBar:ClearAllPoints()
+		EncounterJournalSearchResults.ScrollBar:SetPoint("TOPLEFT", EncounterJournalSearchResults.ScrollBox, "TOPRIGHT", -5, 2)
+		EncounterJournalSearchResults.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalSearchResults.ScrollBox, "BOTTOMRIGHT", 5, -1)
+
+		if (EncounterJournalSearchResults.ScrollBar.BG == nil) then
+			EncounterJournalSearchResults.ScrollBar.BG = EncounterJournalSearchResults.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			EncounterJournalSearchResults.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+			EncounterJournalSearchResults.ScrollBar.BG:SetAllPoints()
+		end
+
+		ApplyScrollBarArrow(EncounterJournalSearchResults.ScrollBar)
+		ApplyScrollBarTrack(EncounterJournalSearchResults.ScrollBar.Track)
+		ApplyScrollBarThumb(EncounterJournalSearchResults.ScrollBar.Track.Thumb)
+
 		EncounterJournalMonthlyActivitiesFrame.HeaderContainer.Title:Hide()
 		EncounterJournalMonthlyActivitiesFrame.HeaderContainer.Month:Hide()
 
