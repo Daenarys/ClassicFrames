@@ -28,10 +28,14 @@ for i = 1, 3 do
 	end)
 end
 
-ReputationDetailInactiveCheckBoxText:ClearAllPoints()
-ReputationDetailInactiveCheckBoxText:SetPoint("LEFT", ReputationDetailInactiveCheckBox, "RIGHT", 0, 1)
-ReputationDetailMainScreenCheckBoxText:ClearAllPoints()
-ReputationDetailMainScreenCheckBoxText:SetPoint("LEFT", ReputationDetailMainScreenCheckBox, "RIGHT", 0, 1)
+ReputationFrame.ScrollBar:SetSize(25, 560)
+ReputationFrame.ScrollBar:ClearAllPoints()
+ReputationFrame.ScrollBar:SetPoint("TOPLEFT", ReputationFrame.ScrollBox, "TOPRIGHT", -1, 3)
+ReputationFrame.ScrollBar:SetPoint("BOTTOMLEFT", ReputationFrame.ScrollBox, "BOTTOMRIGHT", 2, -1)
+
+ApplyScrollBarArrow(ReputationFrame.ScrollBar)
+ApplyScrollBarTrack(ReputationFrame.ScrollBar.Track)
+ApplyScrollBarThumb(ReputationFrame.ScrollBar.Track.Thumb)
 
 ReputationDetailCloseButton:SetSize(32, 32)
 ReputationDetailCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
@@ -50,6 +54,42 @@ if (ReputationDetailFrameCorner == nil) then
 end
 
 ApplyDialogBorder(ReputationDetailFrame.Border)
+
+TokenFrame.ScrollBar:SetSize(25, 560)
+TokenFrame.ScrollBar:ClearAllPoints()
+TokenFrame.ScrollBar:SetPoint("TOPLEFT", TokenFrame.ScrollBox, "TOPRIGHT", -1, 3)
+TokenFrame.ScrollBar:SetPoint("BOTTOMLEFT", TokenFrame.ScrollBox, "BOTTOMRIGHT", 2, -1)
+
+ApplyScrollBarArrow(TokenFrame.ScrollBar)
+ApplyScrollBarTrack(TokenFrame.ScrollBar.Track)
+ApplyScrollBarThumb(TokenFrame.ScrollBar.Track.Thumb)
+
+select(4, TokenFramePopup:GetChildren()):SetSize(32, 32)
+select(4, TokenFramePopup:GetChildren()):SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
+select(4, TokenFramePopup:GetChildren()):SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
+select(4, TokenFramePopup:GetChildren()):SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
+select(4, TokenFramePopup:GetChildren()):SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+select(4, TokenFramePopup:GetChildren()):ClearAllPoints()
+select(4, TokenFramePopup:GetChildren()):SetPoint("TOPRIGHT", -3, -3)
+
+if (TokenFramePopupCorner == nil) then
+	TokenFramePopup:CreateTexture("TokenFramePopupCorner")
+	TokenFramePopupCorner:SetSize(32, 32)
+	TokenFramePopupCorner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
+	TokenFramePopupCorner:ClearAllPoints()
+	TokenFramePopupCorner:SetPoint("TOPRIGHT", -6, -7)
+end
+
+ApplyDialogBorder(TokenFramePopup.Border)
+
+PaperDollFrame.TitleManagerPane.ScrollBar:SetSize(25, 560)
+PaperDollFrame.TitleManagerPane.ScrollBar:ClearAllPoints()
+PaperDollFrame.TitleManagerPane.ScrollBar:SetPoint("TOPLEFT", PaperDollFrame.TitleManagerPane.ScrollBox, "TOPRIGHT", 1, 1)
+PaperDollFrame.TitleManagerPane.ScrollBar:SetPoint("BOTTOMLEFT", PaperDollFrame.TitleManagerPane.ScrollBox, "BOTTOMRIGHT", 4, -1)
+
+ApplyScrollBarArrow(PaperDollFrame.TitleManagerPane.ScrollBar)
+ApplyScrollBarTrack(PaperDollFrame.TitleManagerPane.ScrollBar.Track)
+ApplyScrollBarThumb(PaperDollFrame.TitleManagerPane.ScrollBar.Track.Thumb)
 
 PaperDollFrame.EquipmentManagerPane.ScrollBar:SetSize(25, 560)
 PaperDollFrame.EquipmentManagerPane.ScrollBar:ClearAllPoints()

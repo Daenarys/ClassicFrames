@@ -69,7 +69,6 @@ skins\Minimap.lua
 skins\MirrorTimers.lua
 skins\NewPlayerGuide.lua
 skins\OrderHallTalents.lua
-skins\PaperDoll.xml
 skins\PetStable.lua
 skins\PingTutorial.lua
 skins\PlayerChoice.lua
@@ -80,7 +79,6 @@ skins\Quests.lua
 skins\QuickKeybind.lua
 skins\ReadyCheck.lua
 skins\Report.lua
-skins\Reputation.xml
 skins\ScrappingMachine.lua
 skins\ScriptError.lua
 skins\SettingsPanel.lua
@@ -92,7 +90,6 @@ skins\Tabard.lua
 skins\Talents.lua
 skins\TalkingHead.lua
 skins\TimeManager.lua
-skins\Token.xml
 skins\TotemFrame.lua
 skins\Trade.lua
 skins\TradingPost.lua
