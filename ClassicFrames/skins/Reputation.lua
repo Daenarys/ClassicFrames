@@ -2,22 +2,6 @@ function CfReputationFrame_OnLoad(self)
 	ReputationWatchBar_UpdateMaxLevel()
 	self.paragonFramesPool = CreateFramePool("FRAME", self, "ReputationParagonFrameTemplate")
 	self:RegisterEvent("UPDATE_EXPANSION_LEVEL")
-
-	CfReputationDetailCloseButton:SetSize(32, 32)
-	CfReputationDetailCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-	CfReputationDetailCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-	CfReputationDetailCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-	CfReputationDetailCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-	CfReputationDetailCloseButton:ClearAllPoints()
-	CfReputationDetailCloseButton:SetPoint("TOPRIGHT", -3, -3)
-
-	CfReputationDetailInactiveCheckBoxText:ClearAllPoints()
-	CfReputationDetailInactiveCheckBoxText:SetPoint("LEFT", CfReputationDetailInactiveCheckBox, "RIGHT", 0, 1)
-
-	CfReputationDetailMainScreenCheckBoxText:ClearAllPoints()
-	CfReputationDetailMainScreenCheckBoxText:SetPoint("LEFT", CfReputationDetailMainScreenCheckBox, "RIGHT", 0, 1)
-
-	ApplyDialogBorder(CfReputationDetailFrame.Border)
 end
 
 function CfReputationFrame_OnShow(self)
@@ -225,37 +209,40 @@ function CfReputationFrame_Update()
 				_G["ReputationBar"..i.."ReputationBarAtWarHighlight2"]:Hide()
 			end
 			if ( factionIndex == GetSelectedFaction() ) then
-				if ( CfReputationDetailFrame:IsShown() ) then
-					CfReputationDetailFactionName:SetText(name)
-					CfReputationDetailFactionDescription:SetText(description)
+				if ( ReputationDetailFrame:IsShown() ) then
+					ReputationDetailFactionName:SetText(name)
+					ReputationDetailFactionDescription:SetText(description)
 					if ( atWarWith ) then
-						CfReputationDetailAtWarCheckBox:SetChecked(true)
+						ReputationDetailAtWarCheckBox:SetChecked(true)
 					else
-						CfReputationDetailAtWarCheckBox:SetChecked(false)
+						ReputationDetailAtWarCheckBox:SetChecked(false)
 					end
 					if ( canToggleAtWar and (not isHeader)) then
-						CfReputationDetailAtWarCheckBox:Enable()
-						CfReputationDetailAtWarCheckBoxText:SetTextColor(RED_FONT_COLOR.r, RED_FONT_COLOR.g, RED_FONT_COLOR.b)
+						ReputationDetailAtWarCheckBox:Enable()
+						ReputationDetailAtWarCheckBoxText:SetTextColor(RED_FONT_COLOR.r, RED_FONT_COLOR.g, RED_FONT_COLOR.b)
 					else
-						CfReputationDetailAtWarCheckBox:Disable()
-						CfReputationDetailAtWarCheckBoxText:SetTextColor(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b)
+						ReputationDetailAtWarCheckBox:Disable()
+						ReputationDetailAtWarCheckBoxText:SetTextColor(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b)
 					end
 					if ( canSetInactive ) then
-						CfReputationDetailInactiveCheckBox:Enable()
-						CfReputationDetailInactiveCheckBoxText:SetTextColor(CfReputationDetailInactiveCheckBoxText:GetFontObject():GetTextColor())
+						ReputationDetailInactiveCheckBox:Enable()
+						ReputationDetailInactiveCheckBoxText:SetTextColor(ReputationDetailInactiveCheckBoxText:GetFontObject():GetTextColor())
 					else
-						CfReputationDetailInactiveCheckBox:Disable()
-						CfReputationDetailInactiveCheckBoxText:SetTextColor(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b)
+						ReputationDetailInactiveCheckBox:Disable()
+						ReputationDetailInactiveCheckBoxText:SetTextColor(GRAY_FONT_COLOR.r, GRAY_FONT_COLOR.g, GRAY_FONT_COLOR.b)
 					end
 					if ( IsFactionInactive(factionIndex) ) then
-						CfReputationDetailInactiveCheckBox:SetChecked(true)
+						ReputationDetailInactiveCheckBox:SetChecked(true)
 					else
-						CfReputationDetailInactiveCheckBox:SetChecked(false)
+						ReputationDetailInactiveCheckBox:SetChecked(false)
 					end
 					if ( isWatched ) then
-						CfReputationDetailMainScreenCheckBox:SetChecked(true)
+						ReputationDetailMainScreenCheckBox:SetChecked(true)
 					else
-						CfReputationDetailMainScreenCheckBox:SetChecked(false)
+						ReputationDetailMainScreenCheckBox:SetChecked(false)
+					end
+					if ReputationDetailViewRenownButton then
+						ReputationDetailViewRenownButton:Hide()
 					end
 					_G["ReputationBar"..i.."ReputationBarHighlight1"]:Show()
 					_G["ReputationBar"..i.."ReputationBarHighlight2"]:Show()
@@ -269,19 +256,19 @@ function CfReputationFrame_Update()
 		end
 	end
 	if ( GetSelectedFaction() == 0 ) then
-		CfReputationDetailFrame:Hide()
+		ReputationDetailFrame:Hide()
 	end
 end
 
 function ReputationBar_OnClick(self)
-	if ( CfReputationDetailFrame:IsShown() and (GetSelectedFaction() == self.index) ) then
+	if ( ReputationDetailFrame:IsShown() and (GetSelectedFaction() == self.index) ) then
 		PlaySound(SOUNDKIT.IG_CHARACTER_INFO_CLOSE)
-		CfReputationDetailFrame:Hide()
+		ReputationDetailFrame:Hide()
 	else
 		if ( self.hasRep ) then
 			PlaySound(SOUNDKIT.IG_CHARACTER_INFO_OPEN)
 			SetSelectedFaction(self.index)
-			CfReputationDetailFrame:Show()
+			ReputationDetailFrame:Show()
 			CfReputationFrame_Update()
 		end
 	end
