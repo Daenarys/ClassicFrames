@@ -28,33 +28,6 @@ for i = 1, 3 do
 	end)
 end
 
-ReputationFrame.ScrollBar:SetSize(25, 560)
-ReputationFrame.ScrollBar:ClearAllPoints()
-ReputationFrame.ScrollBar:SetPoint("TOPLEFT", ReputationFrame.ScrollBox, "TOPRIGHT", -1, 3)
-ReputationFrame.ScrollBar:SetPoint("BOTTOMLEFT", ReputationFrame.ScrollBox, "BOTTOMRIGHT", 2, -1)
-
-ApplyScrollBarArrow(ReputationFrame.ScrollBar)
-ApplyScrollBarTrack(ReputationFrame.ScrollBar.Track)
-ApplyScrollBarThumb(ReputationFrame.ScrollBar.Track.Thumb)
-
-ReputationDetailCloseButton:SetSize(32, 32)
-ReputationDetailCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-ReputationDetailCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-ReputationDetailCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-ReputationDetailCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-ReputationDetailCloseButton:ClearAllPoints()
-ReputationDetailCloseButton:SetPoint("TOPRIGHT", -3, -3)
-
-if (ReputationDetailFrameCorner == nil) then
-	ReputationDetailFrame:CreateTexture("ReputationDetailFrameCorner", "OVERLAY")
-	ReputationDetailFrameCorner:SetSize(32, 32)
-	ReputationDetailFrameCorner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
-	ReputationDetailFrameCorner:ClearAllPoints()
-	ReputationDetailFrameCorner:SetPoint("TOPRIGHT", -6, -7)
-end
-
-ApplyDialogBorder(ReputationDetailFrame.Border)
-
 TokenFrame.ScrollBar:SetSize(25, 560)
 TokenFrame.ScrollBar:ClearAllPoints()
 TokenFrame.ScrollBar:SetPoint("TOPLEFT", TokenFrame.ScrollBox, "TOPRIGHT", -1, 3)
