@@ -40,5 +40,10 @@ f:SetScript("OnEvent", function(self, event, name)
 
         ApplyDialogBorder(ClassTalentLoadoutCreateDialog.Border)
         ApplyDialogBorder(ClassTalentLoadoutImportDialog.Border)
+
+        ClassTalentFrame:HookScript("OnShow", function(self)
+			self:ClearAllPoints()
+			self:SetPoint("CENTER", 0, 24)
+		end)
 	end
 end)
