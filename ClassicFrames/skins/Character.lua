@@ -100,6 +100,15 @@ ApplyScrollBarArrow(PaperDollFrame.EquipmentManagerPane.ScrollBar)
 ApplyScrollBarTrack(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track)
 ApplyScrollBarThumb(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track.Thumb)
 
+GearManagerPopupFrame.IconSelector.ScrollBar:SetSize(25, 560)
+GearManagerPopupFrame.IconSelector.ScrollBar:ClearAllPoints()
+GearManagerPopupFrame.IconSelector.ScrollBar:SetPoint("TOPRIGHT", -3, 30)
+GearManagerPopupFrame.IconSelector.ScrollBar:SetPoint("BOTTOMRIGHT", -3, -2)
+
+ApplyScrollBarArrow(GearManagerPopupFrame.IconSelector.ScrollBar)
+ApplyScrollBarTrack(GearManagerPopupFrame.IconSelector.ScrollBar.Track)
+ApplyScrollBarThumb(GearManagerPopupFrame.IconSelector.ScrollBar.Track.Thumb)
+
 PaperDollFrame:HookScript("OnShow", function()
 	CharacterModelScene.ControlFrame:Hide()
 end)
