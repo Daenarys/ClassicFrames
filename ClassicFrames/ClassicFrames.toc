@@ -69,6 +69,7 @@ skins\Minimap.lua
 skins\MirrorTimers.lua
 skins\NewPlayerGuide.lua
 skins\OrderHallTalents.lua
+skins\PaperDoll.xml
 skins\PetStable.lua
 skins\PingTutorial.lua
 skins\PlayerChoice.lua

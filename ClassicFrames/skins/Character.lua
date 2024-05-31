@@ -51,15 +51,6 @@ end
 
 ApplyDialogBorder(ReputationDetailFrame.Border)
 
-PaperDollFrame.TitleManagerPane.ScrollBar:SetSize(25, 560)
-PaperDollFrame.TitleManagerPane.ScrollBar:ClearAllPoints()
-PaperDollFrame.TitleManagerPane.ScrollBar:SetPoint("TOPLEFT", PaperDollFrame.TitleManagerPane.ScrollBox, "TOPRIGHT", 1, 1)
-PaperDollFrame.TitleManagerPane.ScrollBar:SetPoint("BOTTOMLEFT", PaperDollFrame.TitleManagerPane.ScrollBox, "BOTTOMRIGHT", 4, -1)
-
-ApplyScrollBarArrow(PaperDollFrame.TitleManagerPane.ScrollBar)
-ApplyScrollBarTrack(PaperDollFrame.TitleManagerPane.ScrollBar.Track)
-ApplyScrollBarThumb(PaperDollFrame.TitleManagerPane.ScrollBar.Track.Thumb)
-
 PaperDollFrame.EquipmentManagerPane.ScrollBar:SetSize(25, 560)
 PaperDollFrame.EquipmentManagerPane.ScrollBar:ClearAllPoints()
 PaperDollFrame.EquipmentManagerPane.ScrollBar:SetPoint("TOPLEFT", PaperDollFrame.EquipmentManagerPane.ScrollBox, "TOPRIGHT", 1, 24)
