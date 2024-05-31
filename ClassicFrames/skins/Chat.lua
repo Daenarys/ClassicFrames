@@ -49,14 +49,6 @@ hooksecurefunc("FCF_UpdateScrollbarAnchors", function(chatFrame)
     end
 end)
 
-hooksecurefunc("FCF_FadeInScrollbar", function(chatFrame)
-    if chatFrame.ScrollBar and chatFrame.ScrollBar:IsShown() then
-        if chatFrame.ScrollToBottomButton then
-            UIFrameFadeIn(chatFrame.ScrollToBottomButton, .1, chatFrame.ScrollToBottomButton:GetAlpha(), 1)
-        end
-    end
-end)
-
 hooksecurefunc("FCFDock_UpdateTabs", function(dock)
     local scrollChild = dock.scrollFrame:GetScrollChild()
     local lastDockedStaticTab = nil;
