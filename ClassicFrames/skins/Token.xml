@@ -79,24 +79,24 @@
 				</Anchors>
 				<Scripts>
 					<OnEnter>
-						GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
-						GameTooltip:SetCurrencyToken(self:GetParent().index);
+						GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+						GameTooltip:SetCurrencyToken(self:GetParent().index)
 					</OnEnter>
 					<OnClick>
-						HandleModifiedItemClick(C_CurrencyInfo.GetCurrencyListLink(self:GetParent().index));
+						HandleModifiedItemClick(C_CurrencyInfo.GetCurrencyListLink(self:GetParent().index))
 					</OnClick>
 					<OnLeave>
-						GameTooltip:Hide();
+						GameTooltip:Hide()
 					</OnLeave>
 				</Scripts>
 			</Button>
 		</Frames>
 		<Scripts>
 			<OnLoad>
-				CfTokenButton_OnLoad(self);
+				CfTokenButton_OnLoad(self)
 			</OnLoad>
 			<OnClick>
-				CfTokenButton_OnClick(self, button, down);
+				CfTokenButton_OnClick(self, button, down)
 			</OnClick>
 		</Scripts>
 		<ButtonText>
@@ -131,7 +131,7 @@
 			<OnLoad function="CfTokenFrame_OnLoad"/>
 			<OnShow function="CfTokenFrame_OnShow"/>
 			<OnHide>
-				CfTokenFramePopup:Hide();
+				CfTokenFramePopup:Hide()
 			</OnHide>
 		</Scripts>
 	</Frame>
@@ -171,6 +171,15 @@
 					<OnLeave function="GameTooltip_Hide"/>
 				</Scripts>
 			</CheckButton>
+			<CheckButton name="$parentBackpackCheckBox" inherits="UICheckButtonTemplate" mixin="CfBackpackCurrencyCheckBoxMixin">
+				<Size x="26" y="26"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="CfTokenFramePopupInactiveCheckBox" relativePoint="BOTTOMLEFT" x="0" y="4"/>
+				</Anchors>
+				<Scripts>
+					<OnLoad method="OnLoad"/>
+				</Scripts>
+			</CheckButton>
 			<Button name="$parentCloseButton" inherits="UIPanelCloseButton">
 				<Anchors>
 					<Anchor point="TOPRIGHT" x="-3" y="-3"/>
@@ -179,10 +188,10 @@
 		</Frames>
 		<Scripts>
 			<OnShow>
-				PlaySound(SOUNDKIT.IG_CHARACTER_INFO_OPEN);
+				PlaySound(SOUNDKIT.IG_CHARACTER_INFO_OPEN)
 			</OnShow>
 			<OnHide>
-				PlaySound(SOUNDKIT.IG_CHARACTER_INFO_CLOSE);
+				PlaySound(SOUNDKIT.IG_CHARACTER_INFO_CLOSE)
 			</OnHide>
 		</Scripts>
 	</Frame>

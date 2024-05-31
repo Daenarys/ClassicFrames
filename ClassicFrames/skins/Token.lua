@@ -240,6 +240,15 @@ function CfInactiveCurrencyCheckBoxMixin:OnEnter()
 	GameTooltip:Show()
 end
 
+CfBackpackCurrencyCheckBoxMixin = {};
+
+function CfBackpackCurrencyCheckBoxMixin:OnLoad()
+	self:Disable()
+	self:SetChecked(true)
+	self.Text:SetText(SHOW_ON_BACKPACK)
+	self.Text:SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+end
+
 TokenFrame.ScrollBox:Hide()
 TokenFrame.ScrollBar:Hide()
 
