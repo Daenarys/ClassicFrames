@@ -3,12 +3,12 @@
 	<Script file="Chat.lua"/>
 	<Slider parentKey="CfScrollBar" parent="ChatFrame1" obeyStepOnDrag="true" valueStep="1" minValue="0" maxValue="1" alpha="0">
 		<Size x="22" y="0"/>
-		<ThumbTexture name="$parentThumbTexture" parentKey="ThumbTexture" atlas="chatframe-scrollbar-knob" useAtlasSize="true"/>
+		<ThumbTexture parentKey="ThumbTexture" atlas="chatframe-scrollbar-knob" useAtlasSize="true"/>
 		<Scripts>
 			<OnValueChanged>
 				if userInput then
-					local min, max = self:GetMinMaxValues();
-					self:GetParent():SetScrollOffset(max - value);
+					local min, max = self:GetMinMaxValues()
+					self:GetParent():SetScrollOffset(max - value)
 				end
 			</OnValueChanged>
 		</Scripts>

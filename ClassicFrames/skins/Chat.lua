@@ -12,10 +12,6 @@ for i = 1, NUM_CHAT_WINDOWS do
     _G["ChatFrame"..i].ScrollToBottomButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Disabled")
     _G["ChatFrame"..i].ScrollToBottomButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
 
-     _G['ChatFrame'..i..'EditBox']:ClearAllPoints()
-     _G['ChatFrame'..i..'EditBox']:SetPoint("TOPLEFT", _G["ChatFrame"..i], "BOTTOMLEFT", -5, -2)
-     _G['ChatFrame'..i..'EditBox']:SetPoint("RIGHT", _G["ChatFrame"..i].ScrollBar, "RIGHT", 10, 0)
-
     -- fix blizz 10.1 bug
     hooksecurefunc("FloatingChatFrame_UpdateBackgroundAnchors", function()
         _G["ChatFrame"..i].Background:SetPoint("TOPLEFT", -2, 3)
@@ -48,23 +44,23 @@ hooksecurefunc("FloatingChatFrame_UpdateScroll", function()
     end
 end)
 
-hooksecurefunc("FCF_UpdateScrollbarAnchors", function()
-    if ChatFrame1.CfScrollBar then
-        ChatFrame1.CfScrollBar:ClearAllPoints()
-        ChatFrame1.CfScrollBar:SetPoint("TOPLEFT", ChatFrame1, "TOPRIGHT", -11, 0)
-        ChatFrame1.CfScrollBar:SetPoint("BOTTOM", ChatFrame1.ScrollToBottomButton, "TOP")
+hooksecurefunc("FCF_UpdateScrollbarAnchors", function(chatFrame)
+    if chatFrame.CfScrollBar then
+        chatFrame.CfScrollBar:ClearAllPoints()
+        chatFrame.CfScrollBar:SetPoint("TOPLEFT", chatFrame, "TOPRIGHT", -11, 0)
+        chatFrame.CfScrollBar:SetPoint("BOTTOM", chatFrame.ScrollToBottomButton, "TOP")
     end
 end)
 
-hooksecurefunc("FCF_FadeInScrollbar", function()
-    if ChatFrame1.CfScrollBar and ChatFrame1.CfScrollBar:IsShown() then
-        UIFrameFadeIn(ChatFrame1.CfScrollBar, CHAT_FRAME_FADE_TIME, ChatFrame1.CfScrollBar:GetAlpha(), .6)
+hooksecurefunc("FCF_FadeInScrollbar", function(chatFrame)
+    if chatFrame.CfScrollBar and chatFrame.CfScrollBar:IsShown() then
+        UIFrameFadeIn(chatFrame.CfScrollBar, CHAT_FRAME_FADE_TIME, chatFrame.CfScrollBar:GetAlpha(), .6)
     end
 end)
 
-hooksecurefunc("FCF_FadeOutScrollbar", function()
-    if ChatFrame1.CfScrollBar and ChatFrame1.CfScrollBar:IsShown() then
-        UIFrameFadeOut(ChatFrame1.CfScrollBar, CHAT_FRAME_FADE_OUT_TIME, ChatFrame1.CfScrollBar:GetAlpha(), 0)
+hooksecurefunc("FCF_FadeOutScrollbar", function(chatFrame)
+    if chatFrame.CfScrollBar and chatFrame.CfScrollBar:IsShown() then
+        UIFrameFadeOut(chatFrame.CfScrollBar, CHAT_FRAME_FADE_OUT_TIME, chatFrame.CfScrollBar:GetAlpha(), 0)
     end
 end)
 
