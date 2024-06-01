@@ -34,8 +34,7 @@ end)
 hooksecurefunc("FloatingChatFrame_UpdateScroll", function()
     local numMessages = ChatFrame1:GetNumMessages()
     local isShown = numMessages > 1;
-    ChatFrame1.ScrollBar:SetFrameLevel(0)
-    ChatFrame1.ScrollBar.Track:Hide()
+    ChatFrame1.ScrollBar:Hide()
     ChatFrame1.CfScrollBar:SetShown(isShown)
     if isShown then
         ChatFrame1.CfScrollBar:SetMinMaxValues(1, numMessages)
@@ -54,12 +53,23 @@ end)
 hooksecurefunc("FCF_FadeInScrollbar", function(chatFrame)
     if chatFrame.CfScrollBar and chatFrame.CfScrollBar:IsShown() then
         UIFrameFadeIn(chatFrame.CfScrollBar, CHAT_FRAME_FADE_TIME, chatFrame.CfScrollBar:GetAlpha(), .6)
+        if chatFrame.ScrollToBottomButton then
+            UIFrameFadeIn(chatFrame.ScrollToBottomButton, .1, chatFrame.ScrollToBottomButton:GetAlpha(), 1)
+        end
     end
 end)
 
 hooksecurefunc("FCF_FadeOutScrollbar", function(chatFrame)
     if chatFrame.CfScrollBar and chatFrame.CfScrollBar:IsShown() then
         UIFrameFadeOut(chatFrame.CfScrollBar, CHAT_FRAME_FADE_OUT_TIME, chatFrame.CfScrollBar:GetAlpha(), 0)
+        if chatFrame.ScrollToBottomButton then
+            if UIFrameIsFlashing(chatFrame.ScrollToBottomButton.Flash) then
+                UIFrameFadeRemoveFrame(chatFrame.ScrollToBottomButton)
+                chatFrame.ScrollToBottomButton:SetAlpha(1)
+            else
+                UIFrameFadeOut(chatFrame.ScrollToBottomButton, CHAT_FRAME_FADE_OUT_TIME, chatFrame.ScrollToBottomButton:GetAlpha(), 0)
+            end
+        end
     end
 end)
 
