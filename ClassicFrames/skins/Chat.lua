@@ -52,7 +52,7 @@ hooksecurefunc("FCF_UpdateScrollbarAnchors", function()
     if ChatFrame1.CfScrollBar then
         ChatFrame1.CfScrollBar:ClearAllPoints()
         ChatFrame1.CfScrollBar:SetPoint("TOPLEFT", ChatFrame1, "TOPRIGHT", -11, 0)
-        ChatFrame1.CfScrollBar:SetPoint("BOTTOM", ChatFrame1.ScrollToBottomButton, "TOP", 0, 0)
+        ChatFrame1.CfScrollBar:SetPoint("BOTTOM", ChatFrame1.ScrollToBottomButton, "TOP")
     end
 end)
 
