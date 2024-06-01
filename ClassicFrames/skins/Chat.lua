@@ -92,6 +92,10 @@ hooksecurefunc("FCFDock_UpdateTabs", function(dock)
     end
 end)
 
+if TextToSpeechButtonFrame then
+    TextToSpeechButtonFrame:Hide()
+end
+
 QuickJoinToastButton:HookScript("OnUpdate", function(self)
     self:ClearAllPoints()
     self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT")
