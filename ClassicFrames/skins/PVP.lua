@@ -110,19 +110,34 @@ for i = 1, 3 do
 	end)
 end
 
+PVPMatchResults.CloseButton:SetSize(32, 32)
+PVPMatchResults.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
+PVPMatchResults.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
+PVPMatchResults.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
+PVPMatchResults.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+PVPMatchResults.CloseButton:ClearAllPoints()
+PVPMatchResults.CloseButton:SetPoint("TOPRIGHT", 3.6, 3)
+
 PVPMatchResults.content.scrollBar:SetSize(25, 560)
 PVPMatchResults.content.scrollBar:ClearAllPoints()
-PVPMatchResults.content.scrollBar:SetPoint("TOPLEFT", PVPMatchResults.content, "TOPRIGHT", -26, -2)
-PVPMatchResults.content.scrollBar:SetPoint("BOTTOMLEFT", PVPMatchResults.content, "BOTTOMRIGHT", -26, 122)
+PVPMatchResults.content.scrollBar:SetPoint("TOPLEFT", PVPMatchResults.content, "TOPRIGHT", -25, -3)
+PVPMatchResults.content.scrollBar:SetPoint("BOTTOMLEFT", PVPMatchResults.content, "BOTTOMRIGHT", -25, 122)
 
 ApplyScrollBarArrow(PVPMatchResults.content.scrollBar)
 ApplyScrollBarTrack(PVPMatchResults.content.scrollBar.Track)
 ApplyScrollBarThumb(PVPMatchResults.content.scrollBar.Track.Thumb)
 
+PVPMatchResults:HookScript("OnShow", function(self)
+	self:ClearAllPoints()
+	self:SetPoint("CENTER")
+end)
+
+PVPScoreFrameTab1:ClearAllPoints()
+PVPScoreFrameTab1:SetPoint("TOPLEFT", 0, 50)
 PVPScoreFrameTab2:ClearAllPoints()
-PVPScoreFrameTab2:SetPoint("LEFT", PVPScoreFrameTab1, "RIGHT", -15, 0)
+PVPScoreFrameTab2:SetPoint("LEFT", PVPScoreFrameTab1, "RIGHT", -14, 0)
 PVPScoreFrameTab3:ClearAllPoints()
-PVPScoreFrameTab3:SetPoint("LEFT", PVPScoreFrameTab2, "RIGHT", -15, 0)
+PVPScoreFrameTab3:SetPoint("LEFT", PVPScoreFrameTab2, "RIGHT", -14, 0)
 
 for i = 1, 3 do
 	ApplyBottomTab(_G['PVPScoreFrameTab'..i])
