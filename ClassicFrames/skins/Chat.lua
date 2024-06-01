@@ -12,6 +12,10 @@ for i = 1, NUM_CHAT_WINDOWS do
     _G["ChatFrame"..i].ScrollToBottomButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Disabled")
     _G["ChatFrame"..i].ScrollToBottomButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
 
+    if _G['ChatFrame'..i..'Tab'] then
+        _G['ChatFrame'..i..'Tab'].Text:SetPoint("CENTER", 0, -6)
+    end
+
     -- fix blizz 10.1 bug
     hooksecurefunc("FloatingChatFrame_UpdateBackgroundAnchors", function()
         _G["ChatFrame"..i].Background:SetPoint("TOPLEFT", -2, 3)
@@ -19,11 +23,6 @@ for i = 1, NUM_CHAT_WINDOWS do
         _G["ChatFrame"..i].Background:SetPoint("BOTTOMLEFT", -2, -6)
         _G["ChatFrame"..i].Background:SetPoint("BOTTOMRIGHT", 13, -6)
     end)
-
-    local tab = _G['ChatFrame'..i..'Tab']
-    if tab then
-        tab.Text:SetPoint("CENTER", 0, -6)
-    end
 end
 
 hooksecurefunc("FloatingChatFrame_SetupScrolling", function()
