@@ -425,9 +425,7 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 	end
 
 	if LFGDungeonReadyDialog.Center then
-		LFGDungeonReadyDialog.Center:ClearAllPoints()
-		LFGDungeonReadyDialog.Center:SetPoint("TOPLEFT", LFGDungeonReadyDialog.TopLeftCorner, "BOTTOMRIGHT", -21, -96)
-		LFGDungeonReadyDialog.Center:SetPoint("BOTTOMRIGHT", LFGDungeonReadyDialog.BottomRightCorner, "TOPLEFT", 20, -21)
+		LFGDungeonReadyDialog.Center:SetDrawLayer("BACKGROUND", -5)
 	end
 end)
 
