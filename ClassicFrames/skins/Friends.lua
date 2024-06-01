@@ -62,7 +62,7 @@ end
 
 FriendsListFrame.ScrollBar:SetSize(25, 560)
 FriendsListFrame.ScrollBar:ClearAllPoints()
-FriendsListFrame.ScrollBar:SetPoint("TOPLEFT", FriendsListFrame.ScrollBox, "TOPRIGHT", -2, 3)
+FriendsListFrame.ScrollBar:SetPoint("TOPLEFT", FriendsListFrame.ScrollBox, "TOPRIGHT", -2, 1)
 FriendsListFrame.ScrollBar:SetPoint("BOTTOMLEFT", FriendsListFrame.ScrollBox, "BOTTOMRIGHT", 1, -3)
 
 ApplyScrollBarArrow(FriendsListFrame.ScrollBar)
@@ -71,7 +71,7 @@ ApplyScrollBarThumb(FriendsListFrame.ScrollBar.Track.Thumb)
 
 IgnoreListFrame.ScrollBar:SetSize(25, 560)
 IgnoreListFrame.ScrollBar:ClearAllPoints()
-IgnoreListFrame.ScrollBar:SetPoint("TOPLEFT", IgnoreListFrame.ScrollBox, "TOPRIGHT", -2, 3)
+IgnoreListFrame.ScrollBar:SetPoint("TOPLEFT", IgnoreListFrame.ScrollBox, "TOPRIGHT", -2, 1)
 IgnoreListFrame.ScrollBar:SetPoint("BOTTOMLEFT", IgnoreListFrame.ScrollBox, "BOTTOMRIGHT", 1, -1)
 
 ApplyScrollBarArrow(IgnoreListFrame.ScrollBar)
@@ -80,7 +80,7 @@ ApplyScrollBarThumb(IgnoreListFrame.ScrollBar.Track.Thumb)
 
 RecruitAFriendFrame.RecruitList.ScrollBar:SetSize(25, 560)
 RecruitAFriendFrame.RecruitList.ScrollBar:ClearAllPoints()
-RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("TOPLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "TOPRIGHT", -2, 3)
+RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("TOPLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "TOPRIGHT", -2, 1)
 RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("BOTTOMLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "BOTTOMRIGHT", 1, -3)
 
 ApplyScrollBarArrow(RecruitAFriendFrame.RecruitList.ScrollBar)
@@ -109,7 +109,7 @@ ApplyDialogBorder(RecruitAFriendRewardsFrame.Border)
 
 WhoFrame.ScrollBar:SetSize(25, 560)
 WhoFrame.ScrollBar:ClearAllPoints()
-WhoFrame.ScrollBar:SetPoint("TOPLEFT", WhoFrame.ScrollBox, "TOPRIGHT", -2, 3)
+WhoFrame.ScrollBar:SetPoint("TOPLEFT", WhoFrame.ScrollBox, "TOPRIGHT", -2, 1)
 WhoFrame.ScrollBar:SetPoint("BOTTOMLEFT", WhoFrame.ScrollBox, "BOTTOMRIGHT", 1, -18)
 
 ApplyScrollBarArrow(WhoFrame.ScrollBar)
@@ -118,8 +118,8 @@ ApplyScrollBarThumb(WhoFrame.ScrollBar.Track.Thumb)
 
 QuickJoinFrame.ScrollBar:SetSize(25, 560)
 QuickJoinFrame.ScrollBar:ClearAllPoints()
-QuickJoinFrame.ScrollBar:SetPoint("TOPLEFT", QuickJoinFrame.ScrollBox, "TOPRIGHT", -1, 4)
-QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", 2, -2)
+QuickJoinFrame.ScrollBar:SetPoint("TOPLEFT", QuickJoinFrame.ScrollBox, "TOPRIGHT", -1, 2)
+QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", -1, -2)
 
 ApplyScrollBarArrow(QuickJoinFrame.ScrollBar)
 ApplyScrollBarTrack(QuickJoinFrame.ScrollBar.Track)
@@ -130,8 +130,8 @@ ApplyDialogBorder(FriendsFrameBattlenetFrame.BroadcastFrame.Border)
 
 RaidInfoFrame.ScrollBar:SetSize(25, 560)
 RaidInfoFrame.ScrollBar:ClearAllPoints()
-RaidInfoFrame.ScrollBar:SetPoint("TOPLEFT", RaidInfoFrame.ScrollBox, "TOPRIGHT", 4, 3)
-RaidInfoFrame.ScrollBar:SetPoint("BOTTOMLEFT", RaidInfoFrame.ScrollBox, "BOTTOMRIGHT", 7, -2)
+RaidInfoFrame.ScrollBar:SetPoint("TOPLEFT", RaidInfoFrame.ScrollBox, "TOPRIGHT", 5, 3)
+RaidInfoFrame.ScrollBar:SetPoint("BOTTOMLEFT", RaidInfoFrame.ScrollBox, "BOTTOMRIGHT", 0, -1)
 
 ApplyScrollBarArrow(RaidInfoFrame.ScrollBar)
 ApplyScrollBarTrack(RaidInfoFrame.ScrollBar.Track)
