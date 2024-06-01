@@ -241,6 +241,35 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
 
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar:SetWidth(20)
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar:ClearAllPoints()
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar:SetPoint("TOPLEFT", EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBox, "TOPRIGHT", 0, -3)
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBox, "BOTTOMRIGHT", 0, -1)
+
+		if (EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.BG == nil) then
+			EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.BG = EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar:CreateTexture(nil, "BACKGROUND")
+			EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.BG:SetColorTexture(0, 0, 0, .5)
+			EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.BG:SetAllPoints()
+		end
+
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Track.Begin:Hide()
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Track.End:Hide()
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Track.Middle:Hide()
+
+		ApplyScrollBarThumb(EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Track.Thumb)
+
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Back:SetSize(18, 16)
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
+
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Forward:SetSize(18, 16)
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
+		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
+
 		EncounterJournalInstanceSelect.ScrollBox:ClearAllPoints()
 		EncounterJournalInstanceSelect.ScrollBox:SetPoint("TOPLEFT", 17, -54)
 
