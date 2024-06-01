@@ -30,8 +30,8 @@ end
 
 ReputationFrame.ScrollBar:SetSize(25, 560)
 ReputationFrame.ScrollBar:ClearAllPoints()
-ReputationFrame.ScrollBar:SetPoint("TOPLEFT", ReputationFrame.ScrollBox, "TOPRIGHT", 0, 3)
-ReputationFrame.ScrollBar:SetPoint("BOTTOMLEFT", ReputationFrame.ScrollBox, "BOTTOMRIGHT", 3, -1)
+ReputationFrame.ScrollBar:SetPoint("TOPLEFT", ReputationFrame.ScrollBox, "TOPRIGHT", -1, 3)
+ReputationFrame.ScrollBar:SetPoint("BOTTOMLEFT", ReputationFrame.ScrollBox, "BOTTOMRIGHT", 2, -1)
 
 ApplyScrollBarArrow(ReputationFrame.ScrollBar)
 ApplyScrollBarTrack(ReputationFrame.ScrollBar.Track)
@@ -57,8 +57,8 @@ ApplyDialogBorder(ReputationDetailFrame.Border)
 
 TokenFrame.ScrollBar:SetSize(25, 560)
 TokenFrame.ScrollBar:ClearAllPoints()
-TokenFrame.ScrollBar:SetPoint("TOPLEFT", TokenFrame.ScrollBox, "TOPRIGHT", 0, 3)
-TokenFrame.ScrollBar:SetPoint("BOTTOMLEFT", TokenFrame.ScrollBox, "BOTTOMRIGHT", 3, -1)
+TokenFrame.ScrollBar:SetPoint("TOPLEFT", TokenFrame.ScrollBox, "TOPRIGHT", -1, 3)
+TokenFrame.ScrollBar:SetPoint("BOTTOMLEFT", TokenFrame.ScrollBox, "BOTTOMRIGHT", 2, -1)
 
 ApplyScrollBarArrow(TokenFrame.ScrollBar)
 ApplyScrollBarTrack(TokenFrame.ScrollBar.Track)
@@ -84,8 +84,8 @@ ApplyDialogBorder(TokenFramePopup.Border)
 
 PaperDollFrame.TitleManagerPane.ScrollBar:SetSize(25, 560)
 PaperDollFrame.TitleManagerPane.ScrollBar:ClearAllPoints()
-PaperDollFrame.TitleManagerPane.ScrollBar:SetPoint("TOPLEFT", PaperDollFrame.TitleManagerPane.ScrollBox, "TOPRIGHT", 3, 0)
-PaperDollFrame.TitleManagerPane.ScrollBar:SetPoint("BOTTOMLEFT", PaperDollFrame.TitleManagerPane.ScrollBox, "BOTTOMRIGHT", 3, -1)
+PaperDollFrame.TitleManagerPane.ScrollBar:SetPoint("TOPLEFT", PaperDollFrame.TitleManagerPane.ScrollBox, "TOPRIGHT", 1, 0)
+PaperDollFrame.TitleManagerPane.ScrollBar:SetPoint("BOTTOMLEFT", PaperDollFrame.TitleManagerPane.ScrollBox, "BOTTOMRIGHT", 4, -1)
 
 ApplyScrollBarArrow(PaperDollFrame.TitleManagerPane.ScrollBar)
 ApplyScrollBarTrack(PaperDollFrame.TitleManagerPane.ScrollBar.Track)
@@ -93,8 +93,8 @@ ApplyScrollBarThumb(PaperDollFrame.TitleManagerPane.ScrollBar.Track.Thumb)
 
 PaperDollFrame.EquipmentManagerPane.ScrollBar:SetSize(25, 560)
 PaperDollFrame.EquipmentManagerPane.ScrollBar:ClearAllPoints()
-PaperDollFrame.EquipmentManagerPane.ScrollBar:SetPoint("TOPLEFT", PaperDollFrame.EquipmentManagerPane.ScrollBox, "TOPRIGHT", 3, 23)
-PaperDollFrame.EquipmentManagerPane.ScrollBar:SetPoint("BOTTOMLEFT", PaperDollFrame.EquipmentManagerPane.ScrollBox, "BOTTOMRIGHT", 3, -1)
+PaperDollFrame.EquipmentManagerPane.ScrollBar:SetPoint("TOPLEFT", PaperDollFrame.EquipmentManagerPane.ScrollBox, "TOPRIGHT", 1, 23)
+PaperDollFrame.EquipmentManagerPane.ScrollBar:SetPoint("BOTTOMLEFT", PaperDollFrame.EquipmentManagerPane.ScrollBox, "BOTTOMRIGHT", 4, -1)
 
 ApplyScrollBarArrow(PaperDollFrame.EquipmentManagerPane.ScrollBar)
 ApplyScrollBarTrack(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track)
