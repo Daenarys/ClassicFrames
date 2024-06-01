@@ -6,6 +6,7 @@ for i = 1, NUM_CHAT_WINDOWS do
     _G["ChatFrame"..i].ScrollToBottomButton:ClearAllPoints()
     _G["ChatFrame"..i].ScrollToBottomButton:SetPoint("BOTTOMRIGHT", _G['ChatFrame'..i..'ResizeButton'], "TOPRIGHT", 0, -2)
     _G["ChatFrame"..i].ScrollToBottomButton.Flash:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-BlinkHilight")
+    _G["ChatFrame"..i].ScrollToBottomButton.Flash:SetBlendMode("BLEND")
 
     _G["ChatFrame"..i].ScrollToBottomButton:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Up")
     _G["ChatFrame"..i].ScrollToBottomButton:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Down")
