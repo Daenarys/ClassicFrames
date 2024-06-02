@@ -133,6 +133,12 @@ ApplyDialogBorder(LFGListApplicationDialog.Border)
 ApplyDialogBorder(LFGListInviteDialog.Border)
 ApplyDialogBorder(LFGListFrame.EntryCreation.ActivityFinder.Dialog.Border)
 
+LFGDungeonReadyDialogRoleIconLeaderIcon:SetSize(19, 19)
+LFGDungeonReadyDialogRoleIconLeaderIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
+LFGDungeonReadyDialogRoleIconLeaderIcon:SetTexCoord(0, 0.296875, 0.015625, 0.3125)
+LFGDungeonReadyDialogRoleIconLeaderIcon:ClearAllPoints()
+LFGDungeonReadyDialogRoleIconLeaderIcon:SetPoint("TOPLEFT", 0, -4)
+
 LFGListInviteDialog.RoleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFGDungeonReadyStatusRoleless.ready.texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFGDungeonReadyStatusRoleless.ready.texture:SetTexCoord(0.5234375, 0.78125, 0, 0.2578125)
@@ -371,16 +377,10 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		Mixin(LFGDungeonReadyDialog, BackdropTemplateMixin)
 	end
 
-	LFGDungeonReadyDialogRoleIconTexture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-	LFGDungeonReadyDialogRoleIconTexture:SetAllPoints()
+	if (LFGDungeonReadyDialog.filigree == nil) then
+		LFGDungeonReadyDialog.filigree = LFGDungeonReadyDialog:CreateTexture(nil, "OVERLAY")
+	end
 
-	LFGDungeonReadyDialogRoleIconLeaderIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
-	LFGDungeonReadyDialogRoleIconLeaderIcon:SetTexCoord(0, 0.296875, 0.015625, 0.3125)
-
-	LFGDungeonReadyDialog:CreateTexture("LFGDungeonReadyDialogfiligree", "OVERLAY")
-	LFGDungeonReadyDialog.filigree = LFGDungeonReadyDialogfiligree
-
-	local showRole = true; -- scenarios will set this to false
 	if ( subtypeID == LFG_SUBTYPEID_RAID ) then
 		LFGDungeonReadyDialog.filigree:SetTexture("Interface\\LFGFrame\\LFR-Texture")
 		LFGDungeonReadyDialog.filigree:SetTexCoord(0.00195313, 0.57617188, 0.58593750, 0.78125000)
@@ -397,7 +397,6 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		LFGDungeonReadyDialog.filigree:SetPoint("TOPLEFT", 7, -3)
 		LFGDungeonReadyDialog.bottomArt:SetTexture("Interface\\LFGFrame\\UI-LFG-FILIGREE")
 		if ( subtypeID == LFG_SUBTYPEID_SCENARIO or subtypeID == LFG_SUBTYPEID_FLEXRAID ) then
-			showRole = false;
 			LFGDungeonReadyDialog.bottomArt:SetTexCoord(0.0, 0.18, 0.0, 0.5625)
 		else
 			LFGDungeonReadyDialog.bottomArt:SetTexCoord(0.0, 0.5605, 0.0, 0.5625)
@@ -414,19 +413,26 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		end
 	end
 
-	if _G.LFGDungeonReadyDialogRoleIcon:IsShown() then
-		local _, _, _, _, _, _, role = GetLFGProposal()
+	if ( subtypeID == LFG_SUBTYPEID_SCENARIO or subtypeID == LFG_SUBTYPEID_FLEXRAID ) then
+		LFGDungeonReadyDialogRewardsFrame:SetPoint("BOTTOM", LFGDungeonReadyDialogRoleIcon, "BOTTOM", 0, 15)
+	else
+		LFGDungeonReadyDialogRewardsFrame:SetPoint("BOTTOMLEFT", LFGDungeonReadyDialogRoleIcon, "BOTTOMRIGHT", 19, 15)
+	end
+
+	if LFGDungeonReadyDialogRoleIcon then
+		LFGDungeonReadyDialogRoleIconTexture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		LFGDungeonReadyDialogRoleIconTexture:SetAllPoints()
 		if role == 'DAMAGER' then
-			_G.LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("DAMAGER"))
+			LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("DAMAGER"))
 		elseif role == 'TANK' then
-			_G.LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("TANK"))
+			LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("TANK"))
 		elseif role == 'HEALER' then
-			_G.LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("HEALER"))
+			LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("HEALER"))
 		end
 	end
 
 	if LFGDungeonReadyDialog.Center then
-		LFGDungeonReadyDialog.Center:SetDrawLayer("BACKGROUND", -5)
+		LFGDungeonReadyDialog.Center:SetDrawLayer("BACKGROUND", -8)
 	end
 end)
 
@@ -438,14 +444,14 @@ hooksecurefunc('LFGDungeonReadyDialog_UpdateRewards', function(dungeonID, role)
 		reward:SetSize(40, 40)
 	end
 
-	if _G.LFGDungeonReadyDialogRewardsFrameReward1 then
+	if LFGDungeonReadyDialogRewardsFrameReward1 then
 		LFGDungeonReadyDialogRewardsFrameReward1Texture:SetSize(30, 30)
 		LFGDungeonReadyDialogRewardsFrameReward1Texture:SetPoint("CENTER", -3, 3)
 		LFGDungeonReadyDialogRewardsFrameReward1Border:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-REWARDRING")
 		LFGDungeonReadyDialogRewardsFrameReward1Border:SetTexCoord(0, 0.675, 0, 0.675)
 		LFGDungeonReadyDialogRewardsFrameReward1Border:SetAllPoints()
 	end
-	if _G.LFGDungeonReadyDialogRewardsFrameReward2 then
+	if LFGDungeonReadyDialogRewardsFrameReward2 then
 		LFGDungeonReadyDialogRewardsFrameReward2Texture:SetSize(30, 30)
 		LFGDungeonReadyDialogRewardsFrameReward2Texture:SetPoint("CENTER", -3, 3)
 		LFGDungeonReadyDialogRewardsFrameReward2Border:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-REWARDRING")
