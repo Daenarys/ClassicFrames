@@ -281,9 +281,6 @@ LFGInvitePopupRoleButtonTank:GetNormalTexture():SetTexCoord(GetTexCoordsForRole(
 LFGInvitePopupRoleButtonTank:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFGInvitePopupRoleButtonTank:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 
-RaidFinderQueueFrameBackground:ClearAllPoints()
-RaidFinderQueueFrameBackground:SetPoint("BOTTOMLEFT", 6, 26)
-
 RaidFinderQueueFrameScrollFrame.ScrollBar:SetSize(25, 560)
 RaidFinderQueueFrameScrollFrame.ScrollBar:ClearAllPoints()
 RaidFinderQueueFrameScrollFrame.ScrollBar:SetPoint("TOPLEFT", RaidFinderQueueFrameScrollFrame, "TOPRIGHT", 2, 3)
