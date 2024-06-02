@@ -101,6 +101,8 @@ ApplyScrollBarArrow(LFGListFrame.ApplicationViewer.ScrollBar)
 ApplyScrollBarTrack(LFGListFrame.ApplicationViewer.ScrollBar.Track)
 ApplyScrollBarThumb(LFGListFrame.ApplicationViewer.ScrollBar.Track.Thumb)
 
+LFGDungeonReadyDialog.Border:Hide()
+
 LFGDungeonReadyDialogCloseButton:SetSize(32, 32)
 LFGDungeonReadyDialogCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 LFGDungeonReadyDialogCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-HideButton-Up")
@@ -123,7 +125,6 @@ LFGDungeonReadyStatusCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Pan
 LFGDungeonReadyStatusCloseButton:ClearAllPoints()
 LFGDungeonReadyStatusCloseButton:SetPoint("TOPRIGHT", -2, -2)
 
-LFGDungeonReadyDialog.Border:Hide()
 ApplyDialogBorder(LFDReadyCheckPopup.Border)
 ApplyDialogBorder(LFDRoleCheckPopup.Border)
 ApplyDialogBorder(LFGDungeonReadyStatus.Border)
