@@ -1,30 +1,37 @@
+if not _G.ChatFrame1 then return end
+
+ChatFrame1EditBox:ClearAllPoints()
+ChatFrame1EditBox:SetPoint("TOPLEFT", ChatFrame1, "BOTTOMLEFT", -5, -2)
+ChatFrame1EditBox:SetPoint("RIGHT", ChatFrame1.ScrollBar, "RIGHT", 19, 0)
+
+ChatFrame1.ScrollBar.Back:Hide()
+ChatFrame1.ScrollBar.Forward:Hide()
+
+ChatFrame1.ScrollToBottomButton:SetSize(24, 24)
+ChatFrame1.ScrollToBottomButton:ClearAllPoints()
+ChatFrame1.ScrollToBottomButton:SetPoint("BOTTOMRIGHT", ChatFrame1ResizeButton, "TOPRIGHT", 0, -2)
+ChatFrame1.ScrollToBottomButton:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Up")
+ChatFrame1.ScrollToBottomButton:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Down")
+ChatFrame1.ScrollToBottomButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Disabled")
+ChatFrame1.ScrollToBottomButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
+
+ChatFrame1.ScrollToBottomButton.Flash:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-BlinkHilight")
+ChatFrame1.ScrollToBottomButton.Flash:SetBlendMode("BLEND")
+
 for i = 1, NUM_CHAT_WINDOWS do
-    _G["ChatFrame"..i].ScrollBar.Back:Hide()
-    _G["ChatFrame"..i].ScrollBar.Forward:Hide()
-
-    _G["ChatFrame"..i].ScrollToBottomButton:SetSize(24, 24)
-    _G["ChatFrame"..i].ScrollToBottomButton:ClearAllPoints()
-    _G["ChatFrame"..i].ScrollToBottomButton:SetPoint("BOTTOMRIGHT", _G['ChatFrame'..i..'ResizeButton'], "TOPRIGHT", 0, -2)
-    _G["ChatFrame"..i].ScrollToBottomButton.Flash:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-BlinkHilight")
-    _G["ChatFrame"..i].ScrollToBottomButton.Flash:SetBlendMode("BLEND")
-
-    _G["ChatFrame"..i].ScrollToBottomButton:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Up")
-    _G["ChatFrame"..i].ScrollToBottomButton:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Down")
-    _G["ChatFrame"..i].ScrollToBottomButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Disabled")
-    _G["ChatFrame"..i].ScrollToBottomButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
-
     if _G['ChatFrame'..i..'Tab'] then
+        _G['ChatFrame'..i..'Tab'].Text:ClearAllPoints()
         _G['ChatFrame'..i..'Tab'].Text:SetPoint("CENTER", 0, -6)
     end
-
-    -- fix blizz 10.1 bug
-    hooksecurefunc("FloatingChatFrame_UpdateBackgroundAnchors", function()
-        _G["ChatFrame"..i].Background:SetPoint("TOPLEFT", -2, 3)
-        _G["ChatFrame"..i].Background:SetPoint("TOPRIGHT", 13, 3)
-        _G["ChatFrame"..i].Background:SetPoint("BOTTOMLEFT", -2, -6)
-        _G["ChatFrame"..i].Background:SetPoint("BOTTOMRIGHT", 13, -6)
-    end)
 end
+
+-- fix blizz 10.1 bug
+hooksecurefunc("FloatingChatFrame_UpdateBackgroundAnchors", function()
+    ChatFrame1.Background:SetPoint("TOPLEFT", -2, 3)
+    ChatFrame1.Background:SetPoint("TOPRIGHT", 24, 3)
+    ChatFrame1.Background:SetPoint("BOTTOMLEFT", -2, -6)
+    ChatFrame1.Background:SetPoint("BOTTOMRIGHT", 24, -6)
+end)
 
 hooksecurefunc("FloatingChatFrame_SetupScrolling", function()
     ChatFrame1:SetOnScrollChangedCallback(function(messageFrame, offset)
@@ -46,7 +53,7 @@ end)
 hooksecurefunc("FCF_UpdateScrollbarAnchors", function(chatFrame)
     if chatFrame.CfScrollBar then
         chatFrame.CfScrollBar:ClearAllPoints()
-        chatFrame.CfScrollBar:SetPoint("TOPLEFT", chatFrame, "TOPRIGHT", -11, 0)
+        chatFrame.CfScrollBar:SetPoint("TOPLEFT", chatFrame, "TOPRIGHT")
         chatFrame.CfScrollBar:SetPoint("BOTTOM", chatFrame.ScrollToBottomButton, "TOP")
     end
 end)
