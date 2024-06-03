@@ -30,9 +30,18 @@ for i = 1, 2 do
 	end)
 end
 
+if BankItemAutoSortButton then
+	BankItemAutoSortButton:SetNormalTexture("Interface\\AddOns\\ClassicFrames\\icons\\Bags")
+	BankItemAutoSortButton:GetNormalTexture():SetTexCoord(0.3125, 0.421875, 0.539062, 0.640625)
+	BankItemAutoSortButton:SetPushedTexture("Interface\\AddOns\\ClassicFrames\\icons\\Bags")
+	BankItemAutoSortButton:GetPushedTexture():SetTexCoord(0.164062, 0.273438, 0.835938, 0.9375)
+end
+
+ApplySearchBox(BankItemSearchBox)
+
 hooksecurefunc(BankFrame, "Show", function()
-	if _G.ContainerFrame1MoneyFrame then
-		_G.ContainerFrame1MoneyFrame:ClearAllPoints()
-		_G.ContainerFrame1MoneyFrame:SetPoint("TOPRIGHT", _G.ContainerFrame1, "TOPRIGHT", -2, -272)
+	if ContainerFrame1MoneyFrame then
+		ContainerFrame1MoneyFrame:ClearAllPoints()
+		ContainerFrame1MoneyFrame:SetPoint("TOPRIGHT", ContainerFrame1, "TOPRIGHT", -2, -272)
 	end
 end)
