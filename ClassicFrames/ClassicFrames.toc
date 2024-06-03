@@ -51,7 +51,7 @@ skins\Gossip.lua
 skins\GroupLoot.lua
 skins\GuildBank.lua
 skins\GuildPetition.lua
-skins\Help.xml
+skins\Help.lua
 skins\HelpTip.lua
 skins\Inspect.lua
 skins\IslandsQueue.lua
