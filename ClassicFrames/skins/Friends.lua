@@ -146,15 +146,15 @@ RaidInfoCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeBu
 RaidInfoCloseButton:ClearAllPoints()
 RaidInfoCloseButton:SetPoint("TOPRIGHT", -2, -3)
 
-ApplyDialogHeader(RaidInfoFrame.Header)
-ApplyDialogBorder(RaidInfoFrame.Border)
-
-if not RaidInfoDetailCorner then
+if (RaidInfoDetailCorner == nil) then
 	RaidInfoFrame:CreateTexture("RaidInfoDetailCorner", "OVERLAY")
 	RaidInfoDetailCorner:SetSize(32, 32)
 	RaidInfoDetailCorner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
 	RaidInfoDetailCorner:SetPoint("TOPRIGHT", -6, -7)
 end
+
+ApplyDialogHeader(RaidInfoFrame.Header)
+ApplyDialogBorder(RaidInfoFrame.Border)
 
 RaidFrame.RoleCount.TankIcon:SetAtlas("groupfinder-icon-role-large-tank")
 RaidFrame.RoleCount.HealerIcon:SetAtlas("groupfinder-icon-role-large-heal")

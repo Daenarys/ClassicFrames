@@ -38,7 +38,6 @@ local function SkinCastbar(self)
 			if (self.NewFlash == nil) then
 				self.NewFlash = self.Flash:GetParent():CreateTexture(nil, "OVERLAY")
 				self.NewFlash:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-BarFill")
-				self.NewFlash:ClearAllPoints()
 				self.NewFlash:SetAllPoints()
 				self.NewFlash:SetBlendMode("ADD")
 				self.NewFlash:SetAlpha(0)

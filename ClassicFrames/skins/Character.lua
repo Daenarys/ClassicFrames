@@ -45,12 +45,11 @@ ReputationDetailCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-Mi
 ReputationDetailCloseButton:ClearAllPoints()
 ReputationDetailCloseButton:SetPoint("TOPRIGHT", -3, -3)
 
-if (ReputationDetailFrameCorner == nil) then
-	ReputationDetailFrame:CreateTexture("ReputationDetailFrameCorner", "OVERLAY")
-	ReputationDetailFrameCorner:SetSize(32, 32)
-	ReputationDetailFrameCorner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
-	ReputationDetailFrameCorner:ClearAllPoints()
-	ReputationDetailFrameCorner:SetPoint("TOPRIGHT", -6, -7)
+if (ReputationDetailCorner == nil) then
+	ReputationDetailFrame:CreateTexture("ReputationDetailCorner", "OVERLAY")
+	ReputationDetailCorner:SetSize(32, 32)
+	ReputationDetailCorner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
+	ReputationDetailCorner:SetPoint("TOPRIGHT", -6, -7)
 end
 
 ApplyDialogBorder(ReputationDetailFrame.Border)
@@ -73,10 +72,9 @@ select(4, TokenFramePopup:GetChildren()):ClearAllPoints()
 select(4, TokenFramePopup:GetChildren()):SetPoint("TOPRIGHT", -3, -3)
 
 if (TokenFramePopupCorner == nil) then
-	TokenFramePopup:CreateTexture("TokenFramePopupCorner")
+	TokenFramePopup:CreateTexture("TokenFramePopupCorner", "OVERLAY")
 	TokenFramePopupCorner:SetSize(32, 32)
 	TokenFramePopupCorner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
-	TokenFramePopupCorner:ClearAllPoints()
 	TokenFramePopupCorner:SetPoint("TOPRIGHT", -6, -7)
 end
 

@@ -352,7 +352,6 @@ PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestIcon = Pla
 PlayerRestIcon:SetSize(31, 31)
 PlayerRestIcon:SetTexture("Interface\\CharacterFrame\\UI-StateIcon")
 PlayerRestIcon:SetTexCoord(0, 0.5, 0, 0.421875)
-PlayerRestIcon:ClearAllPoints()
 PlayerRestIcon:SetPoint("TOPLEFT", 20, -54)
 
 local PlayerRestGlow = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
@@ -361,15 +360,13 @@ PlayerRestGlow:SetSize(32, 32)
 PlayerRestGlow:SetTexture("Interface\\CharacterFrame\\UI-StateIcon")
 PlayerRestGlow:SetTexCoord(0, 0.5, 0.5, 1)
 PlayerRestGlow:SetBlendMode("ADD")
-PlayerRestGlow:ClearAllPoints()
-PlayerRestGlow:SetPoint("TOPLEFT", PlayerRestIcon)
+PlayerRestGlow:SetPoint("TOPLEFT", PlayerRestIcon, "TOPLEFT")
 
 local PlayerAttackIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
 PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackIcon = PlayerAttackIcon
 PlayerAttackIcon:SetSize(32, 31)
 PlayerAttackIcon:SetTexture("Interface\\CharacterFrame\\UI-StateIcon")
 PlayerAttackIcon:SetTexCoord(0.5, 1.0, 0, 0.484375)
-PlayerAttackIcon:ClearAllPoints()
 PlayerAttackIcon:SetPoint("TOPLEFT", PlayerRestIcon, "TOPLEFT", 1, 1)
 
 local PlayerAttackGlow = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
@@ -379,8 +376,7 @@ PlayerAttackGlow:SetTexture("Interface\\CharacterFrame\\UI-StateIcon")
 PlayerAttackGlow:SetTexCoord(0.5, 1, 0.5, 1)
 PlayerAttackGlow:SetVertexColor(1, 0, 0)
 PlayerAttackGlow:SetBlendMode("ADD")
-PlayerAttackGlow:ClearAllPoints()
-PlayerAttackGlow:SetPoint("TOPLEFT", PlayerAttackIcon)
+PlayerAttackGlow:SetPoint("TOPLEFT", PlayerAttackIcon, "TOPLEFT")
 
 local PlayerAttackBackground = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "ARTWORK")
 PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackBackground = PlayerAttackBackground

@@ -11,7 +11,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			BattlefieldMapFrame.BorderFrame.CloseButtonBorder = BattlefieldMapFrame.BorderFrame:CreateTexture(nil, "BORDER")
 			BattlefieldMapFrame.BorderFrame.CloseButtonBorder:SetSize(32, 32)
 			BattlefieldMapFrame.BorderFrame.CloseButtonBorder:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
-			BattlefieldMapFrame.BorderFrame.CloseButtonBorder:ClearAllPoints()
 			BattlefieldMapFrame.BorderFrame.CloseButtonBorder:SetPoint("TOPRIGHT", 1, 5)
 		end
 	end

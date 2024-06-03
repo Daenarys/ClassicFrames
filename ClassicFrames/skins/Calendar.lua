@@ -18,11 +18,12 @@ f:SetScript("OnEvent", function(self, event, name)
 		CalendarViewHolidayCloseButton:ClearAllPoints()
 		CalendarViewHolidayCloseButton:SetPoint("TOPRIGHT", -3, -3)
 
-		CalendarViewHolidayCloseButton.Corner = CalendarViewHolidayCloseButton:CreateTexture(nil, "BACKGROUND")
-		CalendarViewHolidayCloseButton.Corner:SetSize(32, 32)
-		CalendarViewHolidayCloseButton.Corner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
-		CalendarViewHolidayCloseButton.Corner:ClearAllPoints()
-		CalendarViewHolidayCloseButton.Corner:SetPoint("TOPRIGHT", -4, -4)
+		if (CalendarViewHolidayCloseButton.Corner == nil) then
+			CalendarViewHolidayCloseButton.Corner = CalendarViewHolidayCloseButton:CreateTexture(nil, "BACKGROUND")
+			CalendarViewHolidayCloseButton.Corner:SetSize(32, 32)
+			CalendarViewHolidayCloseButton.Corner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
+			CalendarViewHolidayCloseButton.Corner:SetPoint("TOPRIGHT", -4, -4)
+		end
 		
 		ApplyDialogBorder(CalendarViewHolidayFrame.Border)
 		ApplyDialogHeader(CalendarViewHolidayFrame.Header)
@@ -35,11 +36,12 @@ f:SetScript("OnEvent", function(self, event, name)
 		CalendarViewRaidCloseButton:ClearAllPoints()
 		CalendarViewRaidCloseButton:SetPoint("TOPRIGHT", -3, -3)
 
-		CalendarViewRaidCloseButton.Corner = CalendarViewRaidCloseButton:CreateTexture(nil, "BACKGROUND")
-		CalendarViewRaidCloseButton.Corner:SetSize(32, 32)
-		CalendarViewRaidCloseButton.Corner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
-		CalendarViewRaidCloseButton.Corner:ClearAllPoints()
-		CalendarViewRaidCloseButton.Corner:SetPoint("TOPRIGHT", -4, -4)
+		if (CalendarViewRaidCloseButton.Corner == nil) then
+			CalendarViewRaidCloseButton.Corner = CalendarViewRaidCloseButton:CreateTexture(nil, "BACKGROUND")
+			CalendarViewRaidCloseButton.Corner:SetSize(32, 32)
+			CalendarViewRaidCloseButton.Corner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
+			CalendarViewRaidCloseButton.Corner:SetPoint("TOPRIGHT", -4, -4)
+		end
 
 		ApplyDialogBorder(CalendarViewRaidFrame.Border)
 		ApplyDialogHeader(CalendarViewRaidFrame.Header)
@@ -64,11 +66,12 @@ f:SetScript("OnEvent", function(self, event, name)
 		CalendarCreateEventCloseButton:ClearAllPoints()
 		CalendarCreateEventCloseButton:SetPoint("TOPRIGHT", -3, -3)
 
-		CalendarCreateEventCloseButton.Corner = CalendarCreateEventCloseButton:CreateTexture(nil, "BACKGROUND")
-		CalendarCreateEventCloseButton.Corner:SetSize(32, 32)
-		CalendarCreateEventCloseButton.Corner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
-		CalendarCreateEventCloseButton.Corner:ClearAllPoints()
-		CalendarCreateEventCloseButton.Corner:SetPoint("TOPRIGHT", -4, -4)
+		if (CalendarCreateEventCloseButton.Corner == nil) then
+			CalendarCreateEventCloseButton.Corner = CalendarCreateEventCloseButton:CreateTexture(nil, "BACKGROUND")
+			CalendarCreateEventCloseButton.Corner:SetSize(32, 32)
+			CalendarCreateEventCloseButton.Corner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
+			CalendarCreateEventCloseButton.Corner:SetPoint("TOPRIGHT", -4, -4)
+		end
 
 		ApplyDialogBorder(CalendarCreateEventFrame.Border)
 		ApplyDialogHeader(CalendarCreateEventFrame.Header)
