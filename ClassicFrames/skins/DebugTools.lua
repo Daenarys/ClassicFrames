@@ -30,5 +30,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		TableAttributeDisplay.ScrollFrameArt:ClearAllPoints()
 		TableAttributeDisplay.ScrollFrameArt:SetPoint("TOPLEFT", TableAttributeDisplay.LinesScrollFrame, "TOPLEFT", 0, 6)
 		TableAttributeDisplay.ScrollFrameArt:SetPoint("BOTTOMRIGHT", TableAttributeDisplay.LinesScrollFrame.ScrollBar, "BOTTOMRIGHT",  2, -2)
+
+		ApplySearchBox(TableAttributeDisplay.FilterBox)
 	end
 end)
