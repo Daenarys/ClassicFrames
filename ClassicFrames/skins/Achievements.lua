@@ -10,6 +10,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		AchievementFrameCloseButton:ClearAllPoints()
 		AchievementFrameCloseButton:SetPoint("TOPRIGHT", 3, 4)
 
+		ApplySearchBox(AchievementFrame.SearchBox)
+
 		AchievementFrameCategories.ScrollBar:SetSize(25, 560)
 		AchievementFrameCategories.ScrollBar:ClearAllPoints()
 		AchievementFrameCategories.ScrollBar:SetPoint("TOPLEFT", AchievementFrameCategories.ScrollBox, "TOPRIGHT", -1, 3)
