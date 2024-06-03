@@ -1,5 +1,5 @@
 function CfTargetFrame_OnLoad(self, unit)
-	local thisName = self:GetName();
+	local thisName = self:GetName()
 	_G[thisName.."HealthBar"].LeftText = _G[thisName.."HealthBarTextLeft"];
 	_G[thisName.."HealthBar"].RightText = _G[thisName.."HealthBarTextRight"];
 	_G[thisName.."ManaBar"].LeftText = _G[thisName.."ManaBarTextLeft"];
@@ -12,7 +12,7 @@ function CfTargetFrame_OnLoad(self, unit)
 		_G[thisName.."MyHealPredictionBar"], _G[thisName.."OtherHealPredictionBar"],
 		_G[thisName.."TotalAbsorbBar"], _G[thisName.."TotalAbsorbBarOverlay"], _G[thisName.."OverAbsorbGlow"],
 		_G[thisName.."OverHealAbsorbGlow"], _G[thisName.."HealAbsorbBar"],
-		_G[thisName.."HealAbsorbBarLeftShadow"], _G[thisName.."HealAbsorbBarRightShadow"]);
+		_G[thisName.."HealAbsorbBarLeftShadow"], _G[thisName.."HealAbsorbBarRightShadow"])
 
 	if CfTargetFrame then
 		CfTargetFrameHealthBarText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
@@ -360,7 +360,7 @@ hooksecurefunc('TargetFrame_UpdateBuffAnchor', function(self, buff, index, numDe
 		relativePoint = "TOP";
 		startY = -15;
 		if ( self.threatNumericIndicator:IsShown() ) then
-			startY = startY + self.threatNumericIndicator:GetHeight();
+			startY = startY + self.threatNumericIndicator:GetHeight()
 		end
 		offsetY = - offsetY;
 		auraOffsetY = -3;
@@ -397,7 +397,7 @@ hooksecurefunc('TargetFrame_UpdateDebuffAnchor', function(self, buff, index, num
 		relativePoint = "TOP";
 		startY = -15;
 		if ( self.threatNumericIndicator:IsShown() ) then
-			startY = startY + self.threatNumericIndicator:GetHeight();
+			startY = startY + self.threatNumericIndicator:GetHeight()
 		end
 		offsetY = - offsetY;
 		auraOffsetY = -3;

@@ -40,7 +40,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonMissionFrameMissions.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonMissionFrameMissions.ScrollBox, "BOTTOMRIGHT", -1, -1)
 
 			if (GarrisonMissionFrameMissions.ScrollBar.BG == nil) then
-				GarrisonMissionFrameMissions.ScrollBar.BG = GarrisonMissionFrameMissions.ScrollBar:CreateTexture(nil, "BACKGROUND");
+				GarrisonMissionFrameMissions.ScrollBar.BG = GarrisonMissionFrameMissions.ScrollBar:CreateTexture(nil, "BACKGROUND")
 				GarrisonMissionFrameMissions.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 				GarrisonMissionFrameMissions.ScrollBar.BG:SetAllPoints()
 			end
@@ -55,7 +55,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonMissionFrameFollowers.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonMissionFrameFollowers.ScrollBox, "BOTTOMRIGHT", -1, -1)
 
 			if (GarrisonMissionFrameFollowers.ScrollBar.BG == nil) then
-				GarrisonMissionFrameFollowers.ScrollBar.BG = GarrisonMissionFrameFollowers.ScrollBar:CreateTexture(nil, "BACKGROUND");
+				GarrisonMissionFrameFollowers.ScrollBar.BG = GarrisonMissionFrameFollowers.ScrollBar:CreateTexture(nil, "BACKGROUND")
 				GarrisonMissionFrameFollowers.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 				GarrisonMissionFrameFollowers.ScrollBar.BG:SetAllPoints()
 			end
@@ -106,7 +106,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonShipyardFrameFollowers.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonShipyardFrameFollowers.ScrollBox, "BOTTOMRIGHT", 7, -1)
 
 			if (GarrisonShipyardFrameFollowers.ScrollBar.BG == nil) then
-				GarrisonShipyardFrameFollowers.ScrollBar.BG = GarrisonShipyardFrameFollowers.ScrollBar:CreateTexture(nil, "BACKGROUND");
+				GarrisonShipyardFrameFollowers.ScrollBar.BG = GarrisonShipyardFrameFollowers.ScrollBar:CreateTexture(nil, "BACKGROUND")
 				GarrisonShipyardFrameFollowers.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 				GarrisonShipyardFrameFollowers.ScrollBar.BG:SetAllPoints()
 			end
@@ -149,7 +149,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			OrderHallMissionFrameMissions.ScrollBar:SetPoint("BOTTOMLEFT", OrderHallMissionFrameMissions.ScrollBox, "BOTTOMRIGHT", -1, -1)
 
 			if (OrderHallMissionFrameMissions.ScrollBar.BG == nil) then
-				OrderHallMissionFrameMissions.ScrollBar.BG = OrderHallMissionFrameMissions.ScrollBar:CreateTexture(nil, "BACKGROUND");
+				OrderHallMissionFrameMissions.ScrollBar.BG = OrderHallMissionFrameMissions.ScrollBar:CreateTexture(nil, "BACKGROUND")
 				OrderHallMissionFrameMissions.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 				OrderHallMissionFrameMissions.ScrollBar.BG:SetAllPoints()
 			end
@@ -164,7 +164,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			OrderHallMissionFrameFollowers.ScrollBar:SetPoint("BOTTOMLEFT", OrderHallMissionFrameFollowers.ScrollBox, "BOTTOMRIGHT", -1, -1)
 
 			if (OrderHallMissionFrameFollowers.ScrollBar.BG == nil) then
-				OrderHallMissionFrameFollowers.ScrollBar.BG = OrderHallMissionFrameFollowers.ScrollBar:CreateTexture(nil, "BACKGROUND");
+				OrderHallMissionFrameFollowers.ScrollBar.BG = OrderHallMissionFrameFollowers.ScrollBar:CreateTexture(nil, "BACKGROUND")
 				OrderHallMissionFrameFollowers.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 				OrderHallMissionFrameFollowers.ScrollBar.BG:SetAllPoints()
 			end
@@ -212,7 +212,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			BFAMissionFrameMissions.ScrollBar:SetPoint("BOTTOMLEFT", BFAMissionFrameMissions.ScrollBox, "BOTTOMRIGHT", -1, -1)
 
 			if (BFAMissionFrameMissions.ScrollBar.BG == nil) then
-				BFAMissionFrameMissions.ScrollBar.BG = BFAMissionFrameMissions.ScrollBar:CreateTexture(nil, "BACKGROUND");
+				BFAMissionFrameMissions.ScrollBar.BG = BFAMissionFrameMissions.ScrollBar:CreateTexture(nil, "BACKGROUND")
 				BFAMissionFrameMissions.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 				BFAMissionFrameMissions.ScrollBar.BG:SetAllPoints()
 			end
@@ -227,7 +227,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			BFAMissionFrameFollowers.ScrollBar:SetPoint("BOTTOMLEFT", BFAMissionFrameFollowers.ScrollBox, "BOTTOMRIGHT", -1, -1)
 
 			if (BFAMissionFrameFollowers.ScrollBar.BG == nil) then
-				BFAMissionFrameFollowers.ScrollBar.BG = BFAMissionFrameFollowers.ScrollBar:CreateTexture(nil, "BACKGROUND");
+				BFAMissionFrameFollowers.ScrollBar.BG = BFAMissionFrameFollowers.ScrollBar:CreateTexture(nil, "BACKGROUND")
 				BFAMissionFrameFollowers.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 				BFAMissionFrameFollowers.ScrollBar.BG:SetAllPoints()
 			end
@@ -294,7 +294,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonLandingPageReportList.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonLandingPageReportList.ScrollBox, "BOTTOMRIGHT", -17, -5)
 
 			if (GarrisonLandingPageReportList.ScrollBar.BG == nil) then
-				GarrisonLandingPageReportList.ScrollBar.BG = GarrisonLandingPageReportList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+				GarrisonLandingPageReportList.ScrollBar.BG = GarrisonLandingPageReportList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 				GarrisonLandingPageReportList.ScrollBar.BG:SetColorTexture(0, 0, 0, .75)
 				GarrisonLandingPageReportList.ScrollBar.BG:SetAllPoints()
 			end
@@ -318,7 +318,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonLandingPageFollowerList.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonLandingPageFollowerList.ScrollBox, "BOTTOMRIGHT", -17, -5)
 
 			if (GarrisonLandingPageFollowerList.ScrollBar.BG == nil) then
-				GarrisonLandingPageFollowerList.ScrollBar.BG = GarrisonLandingPageFollowerList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+				GarrisonLandingPageFollowerList.ScrollBar.BG = GarrisonLandingPageFollowerList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 				GarrisonLandingPageFollowerList.ScrollBar.BG:SetColorTexture(0, 0, 0, .75)
 				GarrisonLandingPageFollowerList.ScrollBar.BG:SetAllPoints()
 			end
@@ -347,7 +347,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonRecruitSelectFrame.FollowerList.ScrollBox, "BOTTOMRIGHT", -1, -3)
 
 			if (GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG == nil) then
-			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG = GarrisonRecruitSelectFrame.FollowerList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG = GarrisonRecruitSelectFrame.FollowerList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG:SetColorTexture(0, 0, 0, .75)
 			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG:SetAllPoints()
 			end

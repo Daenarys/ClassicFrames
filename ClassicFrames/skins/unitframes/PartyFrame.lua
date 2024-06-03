@@ -88,23 +88,23 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 	end)
 
 	hooksecurefunc(frame, "UpdateNameTextAnchors", function(self)
-		self.Name:SetPoint("TOPLEFT", self, "TOPLEFT", 49, -6.5);
+		self.Name:SetPoint("TOPLEFT", self, "TOPLEFT", 49, -6.5)
 	end)
 
 	hooksecurefunc(frame, "UpdateAssignedRoles", function(self)
 		local roleIcon = self.PartyMemberOverlay.RoleIcon;
-		local role = UnitGroupRolesAssigned(self:GetUnit());
+		local role = UnitGroupRolesAssigned(self:GetUnit())
 
 		if IsInInstance() then
 			roleIcon:SetSize(19, 19)
 			roleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
-			roleIcon:ClearAllPoints();
+			roleIcon:ClearAllPoints()
 			roleIcon:SetPoint("TOPLEFT", 7, -41)
 			if ( role == "TANK" or role == "HEALER" or role == "DAMAGER") then
-				roleIcon:SetTexCoord(GetTexCoordsForRoleSmallCircle(role));
-				roleIcon:Show();
+				roleIcon:SetTexCoord(GetTexCoordsForRoleSmallCircle(role))
+				roleIcon:Show()
 			else
-				roleIcon:Hide();
+				roleIcon:Hide()
 			end
 		else
 			roleIcon:Hide()

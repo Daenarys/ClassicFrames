@@ -24,7 +24,7 @@ ItemTextScrollFrame.ScrollBar:SetPoint("TOPLEFT", ItemTextScrollFrame, "TOPRIGHT
 ItemTextScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", ItemTextScrollFrame, "BOTTOMRIGHT", 4, -2)
 
 if (ItemTextScrollFrame.ScrollBar.BG == nil) then
-	ItemTextScrollFrame.ScrollBar.BG = ItemTextScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND");
+	ItemTextScrollFrame.ScrollBar.BG = ItemTextScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
 	ItemTextScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 	ItemTextScrollFrame.ScrollBar.BG:SetAllPoints()
 end

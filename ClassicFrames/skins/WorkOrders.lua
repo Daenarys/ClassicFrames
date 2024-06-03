@@ -34,7 +34,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar:SetPoint("BOTTOMLEFT", ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBox, "BOTTOMRIGHT", -1, -1)
 
 		if (ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar.BG == nil) then
-			ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar.BG = ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar.BG = ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar.BG:SetAllPoints()
 		end
@@ -49,7 +49,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar:SetPoint("BOTTOMLEFT", ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBox, "BOTTOMRIGHT", -7, 1)
 
 		if (ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar.BG == nil) then
-			ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar.BG = ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar.BG = ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar.BG:SetAllPoints()
 		end
@@ -64,7 +64,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar:SetPoint("BOTTOMLEFT", ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBox, "BOTTOMRIGHT", -4, -1)
 
 		if (ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar.BG == nil) then
-			ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar.BG = ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar.BG = ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar.BG:SetAllPoints()
 		end

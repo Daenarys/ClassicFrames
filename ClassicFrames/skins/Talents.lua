@@ -31,9 +31,9 @@ f:SetScript("OnEvent", function(self, event, name)
 
         hooksecurefunc(ClassTalentFrame.SpecTab, 'UpdateSpecFrame', function(frame)
 			for specContentFrame in frame.SpecContentFramePool:EnumerateActive() do
-				local role = GetSpecializationRole(specContentFrame.specIndex, false, false);
+				local role = GetSpecializationRole(specContentFrame.specIndex, false, false)
 				
-				specContentFrame.RoleIcon:SetTexCoord(GetTexCoordsForRole(role));
+				specContentFrame.RoleIcon:SetTexCoord(GetTexCoordsForRole(role))
 				specContentFrame.RoleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 			end
         end)

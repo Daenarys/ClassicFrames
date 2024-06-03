@@ -19,7 +19,7 @@ GroupLootHistoryFrame.ScrollBar:SetPoint("TOPLEFT", GroupLootHistoryFrame.Scroll
 GroupLootHistoryFrame.ScrollBar:SetPoint("BOTTOMLEFT", GroupLootHistoryFrame.ScrollBox, "BOTTOMRIGHT", -3, -1)
 
 if (GroupLootHistoryFrame.ScrollBar.BG == nil) then
-	GroupLootHistoryFrame.ScrollBar.BG = GroupLootHistoryFrame.ScrollBar:CreateTexture(nil, "BACKGROUND");
+	GroupLootHistoryFrame.ScrollBar.BG = GroupLootHistoryFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
 	GroupLootHistoryFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 	GroupLootHistoryFrame.ScrollBar.BG:SetAllPoints()
 end

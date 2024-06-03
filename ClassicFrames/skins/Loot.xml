@@ -31,27 +31,27 @@
 		</Layers>
 		<Scripts>
 			<OnLoad>
-				self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+				self:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 				self.hasItem = 1;
 			</OnLoad>
 			<OnEnter>
-				LootItem_OnEnter(self, motion);
+				LootItem_OnEnter(self, motion)
 			</OnEnter>
 			<OnLeave>
-				GameTooltip:Hide();
-				ResetCursor();
+				GameTooltip:Hide()
+				ResetCursor()
 			</OnLeave>
 			<OnUpdate>
 				if ( GameTooltip:IsOwned(self) ) then
-					LootItem_OnEnter(self);
+					LootItem_OnEnter(self)
 				end
-				CursorOnUpdate(self);
+				CursorOnUpdate(self)
 			</OnUpdate>
 			<OnClick>
 				if ( IsModifiedClick() ) then
-					HandleModifiedItemClick(GetLootSlotLink(self.slot));
+					HandleModifiedItemClick(GetLootSlotLink(self.slot))
 				else
-					LootButton_OnClick(self, button);
+					LootButton_OnClick(self, button)
 				end
 			</OnClick>
 		</Scripts>

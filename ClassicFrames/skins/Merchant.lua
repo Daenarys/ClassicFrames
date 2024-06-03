@@ -41,16 +41,16 @@ end
 hooksecurefunc("MerchantFrame_UpdateMerchantInfo", function()
 	MerchantBuyBackItemItemButton.UndoFrame:Hide()
 	MerchantSellAllJunkButton:Hide()
-	MerchantFrameBottomRightBorder:Show();
+	MerchantFrameBottomRightBorder:Show()
 	MerchantBuyBackItemNameFrame:Show()
 
-	local numBuybackItems = GetNumBuybackItems();
-	local buybackName = GetBuybackItemInfo(numBuybackItems);
+	local numBuybackItems = GetNumBuybackItems()
+	local buybackName = GetBuybackItemInfo(numBuybackItems)
 	if ( buybackName ) then
-		MerchantBuyBackItemMoneyFrame:Show();
+		MerchantBuyBackItemMoneyFrame:Show()
 		
 	else
-		MerchantBuyBackItemMoneyFrame:Hide();
+		MerchantBuyBackItemMoneyFrame:Hide()
 	end
 
 	MerchantBuyBackItem:SetSize(153, 37)
@@ -75,46 +75,46 @@ hooksecurefunc("MerchantFrame_UpdateMerchantInfo", function()
 	MerchantGuildBankRepairButton.Icon:SetTexture("Interface\\MerchantFrame\\UI-Merchant-RepairIcons")
 	MerchantGuildBankRepairButton.Icon:SetTexCoord(0.5625, 0.84375, 0, 0.5625)
 
-	if _G.ContainerFrame1MoneyFrame then
-		_G.ContainerFrame1MoneyFrame:ClearAllPoints()
-		_G.ContainerFrame1MoneyFrame:SetPoint("TOPRIGHT", _G.ContainerFrame1, "TOPRIGHT", -2, -272)
+	if ContainerFrame1MoneyFrame then
+		ContainerFrame1MoneyFrame:ClearAllPoints()
+		ContainerFrame1MoneyFrame:SetPoint("TOPRIGHT", ContainerFrame1, "TOPRIGHT", -2, -272)
 	end
 end)
 
 local MerchantRepairText = MerchantFrame:CreateFontString(nil, "BORDER", "GameFontHighlightSmall")
 MerchantRepairText:SetText(REPAIR_ITEMS)
-MerchantRepairText:Hide();
+MerchantRepairText:Hide()
 
 hooksecurefunc("MerchantFrame_UpdateBuybackInfo", function()
-	MerchantFrameBottomRightBorder:Hide();
-	MerchantRepairText:Hide();
+	MerchantFrameBottomRightBorder:Hide()
+	MerchantRepairText:Hide()
 end)
 
 hooksecurefunc("MerchantFrame_UpdateRepairButtons", function()
 	if ( CanMerchantRepair() ) then
 		if ( CanGuildBankRepair() ) then
-			MerchantRepairAllButton:SetWidth(32);
-			MerchantRepairAllButton:SetHeight(32);
-			MerchantRepairItemButton:SetWidth(32);
-			MerchantRepairItemButton:SetHeight(32);
-			MerchantRepairItemButton:SetPoint("RIGHT", MerchantRepairAllButton, "LEFT", -4, 0);
+			MerchantRepairAllButton:SetWidth(32)
+			MerchantRepairAllButton:SetHeight(32)
+			MerchantRepairItemButton:SetWidth(32)
+			MerchantRepairItemButton:SetHeight(32)
+			MerchantRepairItemButton:SetPoint("RIGHT", MerchantRepairAllButton, "LEFT", -4, 0)
 
-			MerchantRepairAllButton:SetPoint("BOTTOMRIGHT", MerchantFrame, "BOTTOMLEFT", 100, 30);
-			MerchantRepairText:ClearAllPoints();
-			MerchantRepairText:SetPoint("CENTER", MerchantFrame, "BOTTOMLEFT", 80, 68);
+			MerchantRepairAllButton:SetPoint("BOTTOMRIGHT", MerchantFrame, "BOTTOMLEFT", 100, 30)
+			MerchantRepairText:ClearAllPoints()
+			MerchantRepairText:SetPoint("CENTER", MerchantFrame, "BOTTOMLEFT", 80, 68)
 		else
-			MerchantRepairAllButton:SetWidth(36);
-			MerchantRepairAllButton:SetHeight(36);
-			MerchantRepairItemButton:SetWidth(36);
-			MerchantRepairItemButton:SetHeight(36);
-			MerchantRepairItemButton:SetPoint("RIGHT", MerchantRepairAllButton, "LEFT", -2, 0);
+			MerchantRepairAllButton:SetWidth(36)
+			MerchantRepairAllButton:SetHeight(36)
+			MerchantRepairItemButton:SetWidth(36)
+			MerchantRepairItemButton:SetHeight(36)
+			MerchantRepairItemButton:SetPoint("RIGHT", MerchantRepairAllButton, "LEFT", -2, 0)
 
-			MerchantRepairAllButton:SetPoint("BOTTOMRIGHT", MerchantFrame, "BOTTOMLEFT", 160, 32);
-			MerchantRepairText:ClearAllPoints();
-			MerchantRepairText:SetPoint("BOTTOMLEFT", MerchantFrame, "BOTTOMLEFT", 14, 45);
+			MerchantRepairAllButton:SetPoint("BOTTOMRIGHT", MerchantFrame, "BOTTOMLEFT", 160, 32)
+			MerchantRepairText:ClearAllPoints()
+			MerchantRepairText:SetPoint("BOTTOMLEFT", MerchantFrame, "BOTTOMLEFT", 14, 45)
 		end
-		MerchantRepairText:Show();
+		MerchantRepairText:Show()
 	else
-		MerchantRepairText:Hide();
+		MerchantRepairText:Hide()
 	end
 end)

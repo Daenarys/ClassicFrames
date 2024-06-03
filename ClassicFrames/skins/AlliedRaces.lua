@@ -23,7 +23,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", AlliedRacesFrame.RaceInfoFrame.ScrollFrame, "BOTTOMRIGHT", -2, -5)
 
 		if (AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar.BG == nil) then
-			AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar.BG = AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar.BG = AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 1)
 			AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar.BG:SetAllPoints()
 		end

@@ -54,7 +54,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		AuctionHouseFrame.CategoriesList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.CategoriesList.ScrollBox, "BOTTOMRIGHT", 2, -1)
 
 		if (AuctionHouseFrame.CategoriesList.ScrollBar.BG == nil) then
-			AuctionHouseFrame.CategoriesList.ScrollBar.BG = AuctionHouseFrame.CategoriesList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			AuctionHouseFrame.CategoriesList.ScrollBar.BG = AuctionHouseFrame.CategoriesList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			AuctionHouseFrame.CategoriesList.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			AuctionHouseFrame.CategoriesList.ScrollBar.BG:SetAllPoints()
 		end
@@ -69,7 +69,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBox, "BOTTOMRIGHT", 5, -3)
 
 		if (AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar.BG == nil) then
-			AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar.BG = AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar.BG = AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar.BG:SetAllPoints()
 		end
@@ -84,7 +84,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBox, "BOTTOMRIGHT", 5, -3)
 
 		if (AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar.BG == nil) then
-			AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar.BG = AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar.BG = AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar.BG:SetAllPoints()
 		end
@@ -99,7 +99,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBox, "BOTTOMRIGHT", 5, -3)
 
 		if (AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar.BG == nil) then
-			AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar.BG = AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar.BG = AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar.BG:SetAllPoints()
 		end
@@ -114,7 +114,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		AuctionHouseFrame.CommoditiesSellList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.CommoditiesSellList.ScrollBox, "BOTTOMRIGHT", 5, -3)
 
 		if (AuctionHouseFrame.CommoditiesSellList.ScrollBar.BG == nil) then
-			AuctionHouseFrame.CommoditiesSellList.ScrollBar.BG = AuctionHouseFrame.CommoditiesSellList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			AuctionHouseFrame.CommoditiesSellList.ScrollBar.BG = AuctionHouseFrame.CommoditiesSellList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			AuctionHouseFrame.CommoditiesSellList.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			AuctionHouseFrame.CommoditiesSellList.ScrollBar.BG:SetAllPoints()
 		end
@@ -129,7 +129,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		AuctionHouseFrame.ItemSellList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.ItemSellList.ScrollBox, "BOTTOMRIGHT", 5, -3)
 
 		if (AuctionHouseFrame.ItemSellList.ScrollBar.BG == nil) then
-			AuctionHouseFrame.ItemSellList.ScrollBar.BG = AuctionHouseFrame.ItemSellList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			AuctionHouseFrame.ItemSellList.ScrollBar.BG = AuctionHouseFrame.ItemSellList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			AuctionHouseFrame.ItemSellList.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			AuctionHouseFrame.ItemSellList.ScrollBar.BG:SetAllPoints()
 		end
@@ -146,7 +146,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		AuctionHouseFrameAuctionsFrame.SummaryList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrameAuctionsFrame.SummaryList.ScrollBox, "BOTTOMRIGHT", 4, -2)
 
 		if (AuctionHouseFrameAuctionsFrame.SummaryList.ScrollBar.BG == nil) then
-			AuctionHouseFrameAuctionsFrame.SummaryList.ScrollBar.BG = AuctionHouseFrameAuctionsFrame.SummaryList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			AuctionHouseFrameAuctionsFrame.SummaryList.ScrollBar.BG = AuctionHouseFrameAuctionsFrame.SummaryList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			AuctionHouseFrameAuctionsFrame.SummaryList.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			AuctionHouseFrameAuctionsFrame.SummaryList.ScrollBar.BG:SetAllPoints()
 		end
@@ -161,7 +161,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBox, "BOTTOMRIGHT", 5, -3)
 
 		if (AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar.BG == nil) then
-			AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar.BG = AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar.BG = AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar.BG:SetAllPoints()
 		end
@@ -176,7 +176,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "BOTTOMRIGHT", 5, -3)
 
 		if (AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar.BG == nil) then
-			AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar.BG = AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar.BG = AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar.BG:SetAllPoints()
 		end

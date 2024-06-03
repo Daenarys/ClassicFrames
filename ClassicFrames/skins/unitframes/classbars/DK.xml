@@ -13,13 +13,13 @@
 				<Alpha parentKey="RuneFlash" childKey="Rune2" duration="0.15" order="1" fromAlpha="1" toAlpha="0"/>
 				<Scripts>
 					<OnPlay>
-						self:GetParent():GetParent():OnSpentAnimStarted();
+						self:GetParent():GetParent():OnSpentAnimStarted()
 					</OnPlay>
 					<OnFinished>
-						self:GetParent():GetParent():OnSpentAnimStopped();
+						self:GetParent():GetParent():OnSpentAnimStopped()
 					</OnFinished>
 					<OnStop>
-						self:GetParent():GetParent():OnSpentAnimStopped();
+						self:GetParent():GetParent():OnSpentAnimStopped()
 					</OnStop>
 				</Scripts>
 			</AnimationGroup>

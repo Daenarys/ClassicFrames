@@ -9,6 +9,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		MajorFactionRenownFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 		MajorFactionRenownFrame.CloseButton:ClearAllPoints()
 		MajorFactionRenownFrame.CloseButton:SetPoint("TOPRIGHT", 1, 1)
-		UIPanelCloseButton_SetBorderAtlas(MajorFactionRenownFrame.CloseButton, "UI-Frame-Oribos-ExitButtonBorder", -1, 1, textureKit);
+		UIPanelCloseButton_SetBorderAtlas(MajorFactionRenownFrame.CloseButton, "UI-Frame-Oribos-ExitButtonBorder", -1, 1, textureKit)
 	end
 end)

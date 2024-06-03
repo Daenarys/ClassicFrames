@@ -9,6 +9,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		GenericTraitFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 		GenericTraitFrame.CloseButton:ClearAllPoints()
 		GenericTraitFrame.CloseButton:SetPoint("TOPRIGHT")
-		UIPanelCloseButton_SetBorderAtlas(GenericTraitFrame.CloseButton, "UI-Frame-Oribos-ExitButtonBorder", -1, 1);
+		UIPanelCloseButton_SetBorderAtlas(GenericTraitFrame.CloseButton, "UI-Frame-Oribos-ExitButtonBorder", -1, 1)
 	end
 end)

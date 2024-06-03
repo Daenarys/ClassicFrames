@@ -10,7 +10,7 @@ ExpansionLandingPage:HookScript("OnShow", function(self)
 			child.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 			child.CloseButton:ClearAllPoints()
 			child.CloseButton:SetPoint("TOPRIGHT", -2, -2)
-			UIPanelCloseButton_SetBorderAtlas(child.CloseButton, "UI-Frame-Oribos-ExitButtonBorder", -1, 1);
+			UIPanelCloseButton_SetBorderAtlas(child.CloseButton, "UI-Frame-Oribos-ExitButtonBorder", -1, 1)
 
 			child.MajorFactionList.ScrollBar:SetSize(25, 560)
 			child.MajorFactionList.ScrollBar:ClearAllPoints()
@@ -18,7 +18,7 @@ ExpansionLandingPage:HookScript("OnShow", function(self)
 			child.MajorFactionList.ScrollBar:SetPoint("BOTTOMLEFT", child.MajorFactionList.ScrollBox, "BOTTOMRIGHT", 2, -1)
 
 			if (child.MajorFactionList.ScrollBar.BG == nil) then
-				child.MajorFactionList.ScrollBar.BG = child.MajorFactionList.ScrollBar:CreateTexture(nil, "BACKGROUND");
+				child.MajorFactionList.ScrollBar.BG = child.MajorFactionList.ScrollBar:CreateTexture(nil, "BACKGROUND")
 				child.MajorFactionList.ScrollBar.BG:SetColorTexture(0, 0, 0, .25)
 				child.MajorFactionList.ScrollBar.BG:SetAllPoints()
 			end

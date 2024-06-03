@@ -23,7 +23,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		GuideFrame.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", GuideFrame.ScrollFrame, "BOTTOMRIGHT", 1, -1)
 
 		if (GuideFrame.ScrollFrame.ScrollBar.BG == nil) then
-			GuideFrame.ScrollFrame.ScrollBar.BG = GuideFrame.ScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			GuideFrame.ScrollFrame.ScrollBar.BG = GuideFrame.ScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			GuideFrame.ScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			GuideFrame.ScrollFrame.ScrollBar.BG:SetAllPoints()
 		end

@@ -25,7 +25,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ClickBindingFrame.ScrollBar:SetPoint("BOTTOMLEFT", ClickBindingFrame.ScrollBox, "BOTTOMRIGHT", 8, -4)
 
 		if (ClickBindingFrame.ScrollBar.BG == nil) then
-			ClickBindingFrame.ScrollBar.BG = ClickBindingFrame.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			ClickBindingFrame.ScrollBar.BG = ClickBindingFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			ClickBindingFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			ClickBindingFrame.ScrollBar.BG:SetAllPoints()
 		end

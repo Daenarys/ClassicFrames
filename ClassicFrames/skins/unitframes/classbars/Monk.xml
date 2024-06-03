@@ -33,7 +33,7 @@
 				<Scripts>
 					<OnFinished>
 						if self:GetParent():GetParent().hasHarmony then
-							self:Play();
+							self:Play()
 						end
 					</OnFinished>
 				</Scripts>
@@ -41,13 +41,13 @@
 		</Animations>
 		<Scripts>
 			<OnEnter>
-				GameTooltip:SetOwner(self:GetParent(), "ANCHOR_BOTTOMRIGHT", 70, 0);
-				GameTooltip:SetText(CHI_POWER, 1, 1, 1);
-				GameTooltip:AddLine(CHI_TOOLTIP, nil, nil, nil, true);
-				GameTooltip:Show();
+				GameTooltip:SetOwner(self:GetParent(), "ANCHOR_BOTTOMRIGHT", 70, 0)
+				GameTooltip:SetText(CHI_POWER, 1, 1, 1)
+				GameTooltip:AddLine(CHI_TOOLTIP, nil, nil, nil, true)
+				GameTooltip:Show()
 			</OnEnter>
 			<OnLeave>
-				GameTooltip:Hide();
+				GameTooltip:Hide()
 			</OnLeave>
 		</Scripts>
 	</Frame>

@@ -198,7 +198,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalSearchResults.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalSearchResults.ScrollBox, "BOTTOMRIGHT", 5, -1)
 
 		if (EncounterJournalSearchResults.ScrollBar.BG == nil) then
-			EncounterJournalSearchResults.ScrollBar.BG = EncounterJournalSearchResults.ScrollBar:CreateTexture(nil, "BACKGROUND");
+			EncounterJournalSearchResults.ScrollBar.BG = EncounterJournalSearchResults.ScrollBar:CreateTexture(nil, "BACKGROUND")
 			EncounterJournalSearchResults.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
 			EncounterJournalSearchResults.ScrollBar.BG:SetAllPoints()
 		end
