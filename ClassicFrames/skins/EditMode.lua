@@ -17,3 +17,6 @@ ApplyDialogBorder(EditModeImportLayoutDialog.Border)
 ApplyDialogBorder(EditModeUnsavedChangesDialog.Border)
 
 EditModeManagerFrame.Tutorial.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
+
+ApplySearchBox(EditModeImportLayoutDialog.LayoutNameEditBox)
+ApplySearchBox(EditModeNewLayoutDialog.LayoutNameEditBox)
