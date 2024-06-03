@@ -104,6 +104,12 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.Track)
 		ApplyScrollBarThumb(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.Track.Thumb)
 
+		ApplySearchBox(MountJournalSearchBox)
+		ApplySearchBox(PetJournalSearchBox)
+		ApplySearchBox(ToyBox.searchBox)
+		ApplySearchBox(HeirloomsJournalSearchBox)
+		ApplySearchBox(WardrobeCollectionFrameSearchBox)
+
 		MountJournal.MountDisplay.ModelScene.ControlFrame:HookScript("OnShow", function(self)
 			self.rotateLeftButton:SetSize(35, 35)
 			self.rotateLeftButton.NormalTexture:SetTexture("Interface\\Buttons\\UI-RotationLeft-Button-Up")
