@@ -72,5 +72,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarArrow(ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar)
 		ApplyScrollBarTrack(ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar.Track)
 		ApplyScrollBarThumb(ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar.Track.Thumb)
+
+		ApplySearchBox(ProfessionsCustomerOrdersFrame.BrowseOrders.SearchBar.SearchBox)
 	end
 end)
