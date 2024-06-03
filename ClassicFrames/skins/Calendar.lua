@@ -55,5 +55,25 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyDialogBorder(CalendarEventPickerFrame.Border)
 		ApplyDialogHeader(CalendarEventPickerFrame.Header)
+
+		CalendarCreateEventCloseButton:SetSize(32, 32)
+		CalendarCreateEventCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
+		CalendarCreateEventCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
+		CalendarCreateEventCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
+		CalendarCreateEventCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+		CalendarCreateEventCloseButton:ClearAllPoints()
+		CalendarCreateEventCloseButton:SetPoint("TOPRIGHT", -3, -3)
+
+		CalendarCreateEventCloseButton.Corner = CalendarCreateEventCloseButton:CreateTexture(nil, "BACKGROUND")
+		CalendarCreateEventCloseButton.Corner:SetSize(32, 32)
+		CalendarCreateEventCloseButton.Corner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
+		CalendarCreateEventCloseButton.Corner:ClearAllPoints()
+		CalendarCreateEventCloseButton.Corner:SetPoint("TOPRIGHT", -4, -4)
+
+		ApplyDialogBorder(CalendarCreateEventFrame.Border)
+		ApplyDialogHeader(CalendarCreateEventFrame.Header)
+
+		ApplySearchBox(CalendarCreateEventInviteEdit)
+		ApplySearchBox(CalendarCreateEventTitleEdit)
 	end
 end)
