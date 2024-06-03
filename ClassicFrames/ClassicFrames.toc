@@ -70,7 +70,6 @@ skins\Minimap.lua
 skins\MirrorTimers.lua
 skins\NewPlayerGuide.lua
 skins\OrderHallTalents.lua
-skins\PetStable.lua
 skins\PingTutorial.lua
 skins\PlayerChoice.lua
 skins\Professions.lua
@@ -85,6 +84,7 @@ skins\ScriptError.lua
 skins\SettingsPanel.lua
 skins\SpellBook.lua
 skins\SplashScreen.lua
+skins\Stable.lua
 skins\StaticPopup.lua
 skins\Subscription.lua
 skins\Tabard.lua

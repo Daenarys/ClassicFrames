@@ -32,6 +32,8 @@ if (StableFrame.StabledPetList.ScrollBar.BG == nil) then
 	StableFrame.StabledPetList.ScrollBar.BG:SetAllPoints()
 end
 
+ApplySearchBox(StableFrame.StabledPetList.FilterBar.SearchBox)
+
 StableFrame.PetModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self.rotateLeftButton:SetSize(35, 35)
 	self.rotateLeftButton.NormalTexture:SetTexture("Interface\\Buttons\\UI-RotationLeft-Button-Up")
