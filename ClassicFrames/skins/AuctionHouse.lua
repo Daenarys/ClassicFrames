@@ -16,7 +16,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(AuctionHouseFrame)
 		ApplyNineSlicePortrait(AuctionHouseFrame)
-		ApplySearchBox(AuctionHouseFrame.SearchBar.SearchBox)
 
 		AuctionHouseFrameSellTab:ClearAllPoints()
 		AuctionHouseFrameSellTab:SetPoint("LEFT", AuctionHouseFrameBuyTab, "RIGHT", -15, 0)
@@ -184,6 +183,10 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarArrow(AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar)
 		ApplyScrollBarTrack(AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar.Track)
 		ApplyScrollBarThumb(AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar.Track.Thumb)
+
+		ApplySearchBox(AuctionHouseFrame.SearchBar.SearchBox)
+		ApplySearchBox(AuctionHouseFrame.SearchBar.FilterButton.LevelRangeFrame.MinLevel)
+		ApplySearchBox(AuctionHouseFrame.SearchBar.FilterButton.LevelRangeFrame.MaxLevel)
 
 		hooksecurefunc(AuctionHouseFrame, "Show", function()
 			if ContainerFrame1MoneyFrame then
