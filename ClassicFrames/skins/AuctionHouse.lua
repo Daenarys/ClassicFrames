@@ -184,15 +184,30 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar.Track)
 		ApplyScrollBarThumb(AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar.Track.Thumb)
 
-		ApplySearchBox(AuctionHouseFrame.SearchBar.SearchBox)
-		ApplySearchBox(AuctionHouseFrame.SearchBar.FilterButton.LevelRangeFrame.MinLevel)
-		ApplySearchBox(AuctionHouseFrame.SearchBar.FilterButton.LevelRangeFrame.MaxLevel)
-
 		ApplyCloseButton(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial.CloseButton)
 		ApplyTitleBgNoPortrait(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial)
 		ApplyNineSliceNoPortrait(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial)
 
 		AuctionHouseFrame.WoWTokenResults.GameTimeTutorial.CloseButton:SetFrameLevel(4)
+
+		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetSize(25, 560)
+		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:ClearAllPoints()
+		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetPoint("TOPLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "TOPRIGHT", 2, 3)
+		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "BOTTOMRIGHT", 5, -3)
+
+		if (AuctionHouseFrame.WoWTokenResults.DummyScrollBar.BG == nil) then
+			AuctionHouseFrame.WoWTokenResults.DummyScrollBar.BG = AuctionHouseFrame.WoWTokenResults.DummyScrollBar:CreateTexture(nil, "BACKGROUND")
+			AuctionHouseFrame.WoWTokenResults.DummyScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+			AuctionHouseFrame.WoWTokenResults.DummyScrollBar.BG:SetAllPoints()
+		end
+		
+		ApplyScrollBarArrow(AuctionHouseFrame.WoWTokenResults.DummyScrollBar)
+		ApplyScrollBarTrack(AuctionHouseFrame.WoWTokenResults.DummyScrollBar.Track)
+		ApplyScrollBarThumb(AuctionHouseFrame.WoWTokenResults.DummyScrollBar.Track.Thumb)
+
+		ApplySearchBox(AuctionHouseFrame.SearchBar.SearchBox)
+		ApplySearchBox(AuctionHouseFrame.SearchBar.FilterButton.LevelRangeFrame.MinLevel)
+		ApplySearchBox(AuctionHouseFrame.SearchBar.FilterButton.LevelRangeFrame.MaxLevel)
 
 		hooksecurefunc(AuctionHouseFrame, "Show", function()
 			if ContainerFrame1MoneyFrame then
