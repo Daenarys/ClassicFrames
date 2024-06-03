@@ -27,6 +27,11 @@ if (MerchantFrameBottomRightBorder == nil) then
 	MerchantFrameBottomRightBorder:SetPoint("LEFT", MerchantFrameBottomLeftBorder, "RIGHT")
 end
 
+if (MerchantRepairText == nil) then
+	MerchantFrame:CreateFontString("MerchantRepairText", "BORDER", "GameFontHighlightSmall")
+	MerchantRepairText:SetText(REPAIR_ITEMS)
+end
+
 MerchantFrameTab2:ClearAllPoints()
 MerchantFrameTab2:SetPoint("LEFT", MerchantFrameTab1, "RIGHT", -16, 0)
 
@@ -80,10 +85,6 @@ hooksecurefunc("MerchantFrame_UpdateMerchantInfo", function()
 		ContainerFrame1MoneyFrame:SetPoint("TOPRIGHT", ContainerFrame1, "TOPRIGHT", -2, -272)
 	end
 end)
-
-local MerchantRepairText = MerchantFrame:CreateFontString(nil, "BORDER", "GameFontHighlightSmall")
-MerchantRepairText:SetText(REPAIR_ITEMS)
-MerchantRepairText:Hide()
 
 hooksecurefunc("MerchantFrame_UpdateBuybackInfo", function()
 	MerchantFrameBottomRightBorder:Hide()
