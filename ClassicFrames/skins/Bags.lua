@@ -33,6 +33,17 @@ if ContainerFrame1MoneyFrame.Border then
 	ContainerFrame1MoneyFrame.Border:Hide()
 end
 
+if BagItemAutoSortButton then
+	BagItemAutoSortButton:SetNormalTexture("Interface\\AddOns\\ClassicFrames\\icons\\Bags")
+	BagItemAutoSortButton:GetNormalTexture():SetTexCoord(0.3125, 0.421875, 0.539062, 0.640625)
+	BagItemAutoSortButton:SetPushedTexture("Interface\\AddOns\\ClassicFrames\\icons\\Bags")
+	BagItemAutoSortButton:GetPushedTexture():SetTexCoord(0.164062, 0.273438, 0.835938, 0.9375)
+end
+
+if BagItemSearchBox then
+	ApplySearchBox(BagItemSearchBox)
+end
+
 for i = 1, _G.NUM_CONTAINER_FRAMES do
 	_G['ContainerFrame'..i].NineSlice:Hide()
 	_G['ContainerFrame'..i].Bg:Hide()
@@ -94,11 +105,6 @@ for i = 1, _G.NUM_CONTAINER_FRAMES do
 		_G['ContainerFrame'..i..'BackgroundBottom']:SetTexCoord(0, 1, 0.330078125, 0.349609375)
 		_G['ContainerFrame'..i..'BackgroundBottom']:SetPoint("TOP", _G['ContainerFrame'..i..'BackgroundMiddle1'], "BOTTOM")
 	end
-
-    hooksecurefunc(_G['ContainerFrame'..i], "SetSearchBoxPoint", function(self, searchBox)
-		searchBox:SetPoint("TOPLEFT", self, "TOPLEFT", 54, -37)
-		searchBox:SetWidth(96)
-	end)
 
 	hooksecurefunc(_G['ContainerFrame'..i], "UpdateItemLayout", function(self)
 		for i, itemButton in self:EnumerateValidItems() do
@@ -451,4 +457,8 @@ hooksecurefunc(ContainerFrame1, "LayoutAddSlots", function(self)
 		self.AddSlotsButton:GetHighlightTexture():SetPoint("CENTER")
 		self.AddSlotsButton:GetHighlightTexture():SetAlpha(1)
 	end
+end)
+
+hooksecurefunc(ContainerFrame1, "SetSearchBoxPoint", function(self, searchBox)
+	searchBox:SetPoint("TOPLEFT", self, "TOPLEFT", 54, -37)
 end)
