@@ -42,5 +42,7 @@ f:SetScript("OnEvent", function(self, event, name)
         ApplyDialogBorder(ClassTalentLoadoutImportDialog.Border)
 
         ApplySearchBox(ClassTalentFrame.TalentsTab.SearchBox)
+        ApplySearchBox(ClassTalentLoadoutCreateDialog.NameControl.EditBox)
+		ApplySearchBox(ClassTalentLoadoutImportDialog.NameControl.EditBox)
 	end
 end)
