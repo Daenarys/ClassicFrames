@@ -96,6 +96,7 @@ RecruitAFriendRecruitmentFrame.CloseButton:ClearAllPoints()
 RecruitAFriendRecruitmentFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
 
 ApplyDialogBorder(RecruitAFriendRecruitmentFrame.Border)
+ApplySearchBox(RecruitAFriendRecruitmentFrame.EditBox)
 
 RecruitAFriendRewardsFrame.CloseButton:SetSize(32, 32)
 RecruitAFriendRewardsFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
