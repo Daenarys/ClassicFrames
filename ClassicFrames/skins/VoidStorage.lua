@@ -9,5 +9,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		VoidStorageBorderFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 		VoidStorageBorderFrame.CloseButton:ClearAllPoints()
 		VoidStorageBorderFrame.CloseButton:SetPoint("TOPRIGHT", 4, 5)
+
+		ApplySearchBox(VoidItemSearchBox)
 	end
 end)

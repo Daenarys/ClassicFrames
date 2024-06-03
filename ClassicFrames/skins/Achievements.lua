@@ -10,8 +10,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		AchievementFrameCloseButton:ClearAllPoints()
 		AchievementFrameCloseButton:SetPoint("TOPRIGHT", 3, 4)
 
-		ApplySearchBox(AchievementFrame.SearchBox)
-
 		AchievementFrameCategories.ScrollBar:SetSize(25, 560)
 		AchievementFrameCategories.ScrollBar:ClearAllPoints()
 		AchievementFrameCategories.ScrollBar:SetPoint("TOPLEFT", AchievementFrameCategories.ScrollBox, "TOPRIGHT", -1, 3)
@@ -109,6 +107,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarArrow(AchievementFrame.SearchResults.ScrollBar)
 		ApplyScrollBarTrack(AchievementFrame.SearchResults.ScrollBar.Track)
 		ApplyScrollBarThumb(AchievementFrame.SearchResults.ScrollBar.Track.Thumb)
+
+		ApplySearchBox(AchievementFrame.SearchBox)
 
 		hooksecurefunc('AchievementFrameSummary_Refresh', function()
 			for i = 1, ACHIEVEMENTUI_MAX_SUMMARY_ACHIEVEMENTS do
