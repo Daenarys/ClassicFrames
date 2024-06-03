@@ -203,10 +203,14 @@ f:SetScript("OnEvent", function(self, event, name)
 				ClubFinderGuildFinderFrame.OptionsList.HealerRoleFrame.Icon:SetAtlas("UI-Frame-HealerIcon", true)
 				ClubFinderGuildFinderFrame.OptionsList.DpsRoleFrame.Icon:SetAtlas("UI-Frame-DpsIcon", true)
 
+				ApplySearchBox(ClubFinderGuildFinderFrame.OptionsList.SearchBox)
+				
 				ClubFinderCommunityAndGuildFinderFrame.OptionsList.TankRoleFrame.Icon:SetAtlas("UI-Frame-TankIcon", true)
 				ClubFinderCommunityAndGuildFinderFrame.OptionsList.HealerRoleFrame.Icon:SetAtlas("UI-Frame-HealerIcon", true)
 				ClubFinderCommunityAndGuildFinderFrame.OptionsList.DpsRoleFrame.Icon:SetAtlas("UI-Frame-DpsIcon", true)
 
+				ApplySearchBox(ClubFinderCommunityAndGuildFinderFrame.OptionsList.SearchBox)
+				
 				CommunitiesFrame.GuildMemberDetailFrame.CloseButton:SetSize(32, 32)
 				CommunitiesFrame.GuildMemberDetailFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 				CommunitiesFrame.GuildMemberDetailFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
