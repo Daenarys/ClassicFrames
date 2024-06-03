@@ -188,6 +188,12 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplySearchBox(AuctionHouseFrame.SearchBar.FilterButton.LevelRangeFrame.MinLevel)
 		ApplySearchBox(AuctionHouseFrame.SearchBar.FilterButton.LevelRangeFrame.MaxLevel)
 
+		ApplyCloseButton(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial.CloseButton)
+		ApplyTitleBgNoPortrait(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial)
+		ApplyNineSliceNoPortrait(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial)
+
+		AuctionHouseFrame.WoWTokenResults.GameTimeTutorial.CloseButton:SetFrameLevel(4)
+
 		hooksecurefunc(AuctionHouseFrame, "Show", function()
 			if ContainerFrame1MoneyFrame then
 				ContainerFrame1MoneyFrame:ClearAllPoints()
