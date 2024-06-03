@@ -328,6 +328,14 @@ for _, roleButton in pairs({
 	checkButton:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
 end
 
+ApplySearchBox(LFGListFrame.EntryCreation.ActivityFinder.Dialog.EntryBox)
+ApplySearchBox(LFGListFrame.EntryCreation.ItemLevel.EditBox)
+ApplySearchBox(LFGListFrame.EntryCreation.VoiceChat.EditBox)
+ApplySearchBox(LFGListFrame.EntryCreation.Name)
+ApplySearchBox(LFGListFrame.EntryCreation.PvpItemLevel.EditBox)
+ApplySearchBox(LFGListFrame.EntryCreation.PVPRating.EditBox)
+ApplySearchBox(LFGListFrame.SearchPanel.SearchBox)
+
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then
 		button.background:SetTexture("Interface\\LFGFrame\\UI-LFG-ICONS-ROLEBACKGROUNDS")
