@@ -18,5 +18,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		StopwatchCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
 		StopwatchCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 		StopwatchCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+
+		ApplySearchBox(TimeManagerAlarmMessageEditBox)
 	end
 end)
