@@ -125,6 +125,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTierTab(EncounterJournal.dungeonsTab)
 		ApplyTierTab(EncounterJournal.raidsTab)
 
+		ApplySearchBox(EncounterJournalSearchBox)
+
 		EncounterJournal:HookScript("OnShow", function()
 			if C_PlayerInfo.IsTradingPostAvailable() then
 				EncounterJournal.MonthlyActivitiesTab:ClearAllPoints()
