@@ -167,6 +167,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyNineSliceNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog)
 
 		ApplySearchBox(ProfessionsFrame.CraftingPage.RecipeList.SearchBox)
+		ApplySearchBox(ProfessionsFrame.CraftingPage.MinimizedSearchBox)
 		ApplySearchBox(ProfessionsFrame.OrdersPage.BrowseFrame.RecipeList.SearchBox)
 	end
 end)
