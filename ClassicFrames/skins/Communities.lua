@@ -112,8 +112,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 				ApplyTitleBg(self)
 				ApplyNineSlicePortrait(self)
-
-				self.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 				
 				CommunitiesFrameCommunitiesList.ScrollBar:SetSize(25, 560)
 				CommunitiesFrameCommunitiesList.ScrollBar:ClearAllPoints()
