@@ -1,6 +1,7 @@
 for i = 1, NUM_CHAT_WINDOWS do
-    _G['ChatFrame'..i].ScrollBar.Back:Hide()
-    _G['ChatFrame'..i].ScrollBar.Forward:Hide()
+    if (_G['ChatFrame'..i].CfScrollBar == nil) then
+        _G['ChatFrame'..i].CfScrollBar = CreateFrame("Slider", nil, _G['ChatFrame'..i], "CfScrollBarTemplate")
+    end
 
     _G['ChatFrame'..i].ScrollToBottomButton:SetSize(24, 24)
     _G['ChatFrame'..i].ScrollToBottomButton:ClearAllPoints()
@@ -31,24 +32,24 @@ for i = 1, NUM_CHAT_WINDOWS do
         ChatFrame2.Background:SetPoint("BOTTOMLEFT", -2, -6)
         ChatFrame2.Background:SetPoint("BOTTOMRIGHT", 24, -6)
     end)
-end
 
-hooksecurefunc("FloatingChatFrame_SetupScrolling", function()
-    ChatFrame1:SetOnScrollChangedCallback(function(messageFrame, offset)
-        messageFrame.CfScrollBar:SetValue(messageFrame:GetNumMessages() - offset)
+    hooksecurefunc("FloatingChatFrame_UpdateScroll", function()
+        local numMessages = _G['ChatFrame'..i]:GetNumMessages()
+        local isShown = numMessages > 1;
+        _G['ChatFrame'..i].ScrollBar:Hide()
+        _G['ChatFrame'..i].CfScrollBar:SetShown(isShown)
+        if isShown then
+            _G['ChatFrame'..i].CfScrollBar:SetMinMaxValues(1, numMessages)
+            _G['ChatFrame'..i].CfScrollBar:SetValue(numMessages - _G['ChatFrame'..i]:GetScrollOffset())
+        end
     end)
-end)
 
-hooksecurefunc("FloatingChatFrame_UpdateScroll", function()
-    local numMessages = ChatFrame1:GetNumMessages()
-    local isShown = numMessages > 1;
-    ChatFrame1.ScrollBar:Hide()
-    ChatFrame1.CfScrollBar:SetShown(isShown)
-    if isShown then
-        ChatFrame1.CfScrollBar:SetMinMaxValues(1, numMessages)
-        ChatFrame1.CfScrollBar:SetValue(numMessages - ChatFrame1:GetScrollOffset())
-    end
-end)
+    hooksecurefunc("FloatingChatFrame_SetupScrolling", function()
+        _G['ChatFrame'..i]:SetOnScrollChangedCallback(function(messageFrame, offset)
+            messageFrame.CfScrollBar:SetValue(messageFrame:GetNumMessages() - offset)
+        end)
+    end)
+end
 
 hooksecurefunc("FCF_UpdateScrollbarAnchors", function(chatFrame)
     if chatFrame.CfScrollBar then
@@ -61,23 +62,12 @@ end)
 hooksecurefunc("FCF_FadeInScrollbar", function(chatFrame)
     if chatFrame.CfScrollBar and chatFrame.CfScrollBar:IsShown() then
         UIFrameFadeIn(chatFrame.CfScrollBar, CHAT_FRAME_FADE_TIME, chatFrame.CfScrollBar:GetAlpha(), .6)
-        if chatFrame.ScrollToBottomButton then
-            UIFrameFadeIn(chatFrame.ScrollToBottomButton, .1, chatFrame.ScrollToBottomButton:GetAlpha(), 1)
-        end
     end
 end)
 
 hooksecurefunc("FCF_FadeOutScrollbar", function(chatFrame)
     if chatFrame.CfScrollBar and chatFrame.CfScrollBar:IsShown() then
         UIFrameFadeOut(chatFrame.CfScrollBar, CHAT_FRAME_FADE_OUT_TIME, chatFrame.CfScrollBar:GetAlpha(), 0)
-        if chatFrame.ScrollToBottomButton then
-            if UIFrameIsFlashing(chatFrame.ScrollToBottomButton.Flash) then
-                UIFrameFadeRemoveFrame(chatFrame.ScrollToBottomButton)
-                chatFrame.ScrollToBottomButton:SetAlpha(1)
-            else
-                UIFrameFadeOut(chatFrame.ScrollToBottomButton, CHAT_FRAME_FADE_OUT_TIME, chatFrame.ScrollToBottomButton:GetAlpha(), 0)
-            end
-        end
     end
 end)
 
