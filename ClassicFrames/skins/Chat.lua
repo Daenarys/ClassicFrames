@@ -1,3 +1,6 @@
+local CHAT_FRAME_FADE_TIME = 0.15
+local CHAT_FRAME_FADE_OUT_TIME = 2.0
+
 for i = 1, NUM_CHAT_WINDOWS do
     if (_G['ChatFrame'..i].CfScrollBar == nil) then
         _G['ChatFrame'..i].CfScrollBar = CreateFrame("Slider", nil, _G['ChatFrame'..i], "CfScrollBarTemplate")
@@ -35,7 +38,7 @@ for i = 1, NUM_CHAT_WINDOWS do
 
     hooksecurefunc("FloatingChatFrame_UpdateScroll", function()
         local numMessages = _G['ChatFrame'..i]:GetNumMessages()
-        local isShown = numMessages > 1;
+        local isShown = numMessages > 1
         _G['ChatFrame'..i].ScrollBar:Hide()
         _G['ChatFrame'..i].CfScrollBar:SetShown(isShown)
         if isShown then
@@ -62,22 +65,35 @@ end)
 hooksecurefunc("FCF_FadeInScrollbar", function(chatFrame)
     if chatFrame.CfScrollBar and chatFrame.CfScrollBar:IsShown() then
         UIFrameFadeIn(chatFrame.CfScrollBar, CHAT_FRAME_FADE_TIME, chatFrame.CfScrollBar:GetAlpha(), .6)
+
+        if chatFrame.ScrollToBottomButton then
+            UIFrameFadeIn(chatFrame.ScrollToBottomButton, .1, chatFrame.ScrollToBottomButton:GetAlpha(), 1)
+        end
     end
 end)
 
 hooksecurefunc("FCF_FadeOutScrollbar", function(chatFrame)
     if chatFrame.CfScrollBar and chatFrame.CfScrollBar:IsShown() then
         UIFrameFadeOut(chatFrame.CfScrollBar, CHAT_FRAME_FADE_OUT_TIME, chatFrame.CfScrollBar:GetAlpha(), 0)
+
+        if chatFrame.ScrollToBottomButton then
+            if UIFrameIsFlashing(chatFrame.ScrollToBottomButton.Flash) then
+                UIFrameFadeRemoveFrame(chatFrame.ScrollToBottomButton)
+                chatFrame.ScrollToBottomButton:SetAlpha(1)
+            else
+                UIFrameFadeOut(chatFrame.ScrollToBottomButton, CHAT_FRAME_FADE_OUT_TIME, chatFrame.ScrollToBottomButton:GetAlpha(), 0)
+            end
+        end
     end
 end)
 
 hooksecurefunc("FCFDock_UpdateTabs", function(dock)
     local scrollChild = dock.scrollFrame:GetScrollChild()
-    local lastDockedStaticTab = nil;
-    local lastDockedDynamicTab = nil;
+    local lastDockedStaticTab = nil
+    local lastDockedDynamicTab = nil
 
     for index, chatFrame in ipairs(dock.DOCKED_CHAT_FRAMES) do
-        local chatTab = _G[chatFrame:GetName().."Tab"];
+        local chatTab = _G[chatFrame:GetName().."Tab"]
         if ( chatFrame.isStaticDocked ) then
             PanelTemplates_TabResize(chatTab, chatTab.sizePadding or 8)
             if ( lastDockedStaticTab ) then
@@ -85,14 +101,14 @@ hooksecurefunc("FCFDock_UpdateTabs", function(dock)
             else
                 chatTab:SetPoint("LEFT", dock, "LEFT", 2, 0)
             end
-            lastDockedStaticTab = chatTab;
+            lastDockedStaticTab = chatTab
         else
             if ( lastDockedDynamicTab ) then
                 chatTab:SetPoint("LEFT", lastDockedDynamicTab, "RIGHT", 4, 0)
             else
                 chatTab:SetPoint("LEFT", scrollChild, "LEFT", 4, -2)
             end
-            lastDockedDynamicTab = chatTab;
+            lastDockedDynamicTab = chatTab
         end
     end
 end)
