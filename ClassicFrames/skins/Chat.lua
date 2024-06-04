@@ -124,6 +124,13 @@ for i = 1, NUM_CHAT_WINDOWS do
     if tab then
         tab.Text:SetPoint("CENTER", 0, -5)
     end
+
+    hooksecurefunc("FloatingChatFrame_UpdateBackgroundAnchors", function()
+        _G["ChatFrame"..i].Background:SetPoint("TOPLEFT", -2, 3)
+        _G["ChatFrame"..i].Background:SetPoint("TOPRIGHT", 13, 3)
+        _G["ChatFrame"..i].Background:SetPoint("BOTTOMLEFT", -2, -6)
+        _G["ChatFrame"..i].Background:SetPoint("BOTTOMRIGHT", 13, -6)
+    end)
 end
 
 hooksecurefunc("FCFDock_UpdateTabs", function(dock)
