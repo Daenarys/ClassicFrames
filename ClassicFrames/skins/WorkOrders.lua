@@ -22,8 +22,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyBottomTab(ProfessionsCustomerOrdersFrameBrowseTab)
 		ApplyBottomTab(ProfessionsCustomerOrdersFrameOrdersTab)
-		ProfessionsCustomerOrdersFrameBrowseTab:SetFrameLevel(500)
-		ProfessionsCustomerOrdersFrameOrdersTab:SetFrameLevel(500)
 
 		ProfessionsCustomerOrdersFrame:HookScript("OnShow", function()
 			ProfessionsCustomerOrdersFrameBrowseTab:SetWidth(50 + ProfessionsCustomerOrdersFrameBrowseTab:GetFontString():GetStringWidth())
