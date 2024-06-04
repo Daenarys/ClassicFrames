@@ -3,6 +3,7 @@ f:RegisterEvent("ADDON_LOADED")
 f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_TimeManager" then
 		ApplyCloseButton(TimeManagerFrameCloseButton)
+		TimeManagerFrameCloseButton:SetFrameLevel(4)
 
 		TimeManagerFrame.PortraitContainer.CircleMask:Hide()
 
