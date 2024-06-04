@@ -6,8 +6,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ProfessionsFrame.MaximizeMinimize:SetSize(32, 32)
 		ProfessionsFrame.MaximizeMinimize:ClearAllPoints()
-		ProfessionsFrame.MaximizeMinimize:SetPoint("RIGHT", ProfessionsFrame.CloseButton, "LEFT", 8.5, 0)
-		ProfessionsFrame.MaximizeMinimize:SetFrameLevel(2)
+		ProfessionsFrame.MaximizeMinimize:SetPoint("RIGHT", ProfessionsFrame.CloseButton, "LEFT", 10, 0)
 
 		ProfessionsFrame.MaximizeMinimize.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
 		ProfessionsFrame.MaximizeMinimize.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
@@ -18,6 +17,13 @@ f:SetScript("OnEvent", function(self, event, name)
 		ProfessionsFrame.MaximizeMinimize.MinimizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Down")
 		ProfessionsFrame.MaximizeMinimize.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
 		ProfessionsFrame.MaximizeMinimize.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+
+		if (ProfessionsFrame.ButtonFrameEdge == nil) then
+			ProfessionsFrame.ButtonFrameEdge = ProfessionsFrame.MaximizeMinimize:CreateTexture(nil, "OVERLAY")
+			ProfessionsFrame.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
+			ProfessionsFrame.ButtonFrameEdge:ClearAllPoints()
+			ProfessionsFrame.ButtonFrameEdge:SetPoint("CENTER", ProfessionsFrame.MaximizeMinimize, "LEFT", 6, 0)
+		end
 
 		ProfessionsFrame.PortraitContainer.CircleMask:Hide()
 
@@ -32,52 +38,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ProfessionsFrame.CraftingPage.TutorialButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 
 		ApplyTitleBg(ProfessionsFrame)
-
-		ProfessionsFrame.NineSlice.TopEdge:SetSize(128, 132)
-		ProfessionsFrame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
-		ProfessionsFrame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
-		ProfessionsFrame.NineSlice.TopEdge:ClearAllPoints()
-		ProfessionsFrame.NineSlice.TopEdge:SetPoint("TOPLEFT", ProfessionsFrame.NineSlice.TopLeftCorner, "TOPRIGHT")
-		ProfessionsFrame.NineSlice.TopEdge:SetPoint("TOPRIGHT", ProfessionsFrame.NineSlice.TopRightCorner, "TOPLEFT")
-
-		ProfessionsFrame.NineSlice.TopLeftCorner:SetSize(132, 132)
-		ProfessionsFrame.NineSlice.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
-		ProfessionsFrame.NineSlice.TopLeftCorner:SetTexCoord(0.263671875, 0.521484375, 0.263671875, 0.521484375)
-		ProfessionsFrame.NineSlice.TopLeftCorner:ClearAllPoints()
-		ProfessionsFrame.NineSlice.TopLeftCorner:SetPoint("TOPLEFT", -13, 16)
-
-		ProfessionsFrame.NineSlice.BottomEdge:SetSize(128, 132)
-		ProfessionsFrame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
-		ProfessionsFrame.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.001953125, 0.259765625)
-		ProfessionsFrame.NineSlice.BottomEdge:ClearAllPoints()
-		ProfessionsFrame.NineSlice.BottomEdge:SetPoint("BOTTOMLEFT", ProfessionsFrame.NineSlice.BottomLeftCorner, "BOTTOMRIGHT")
-		ProfessionsFrame.NineSlice.BottomEdge:SetPoint("BOTTOMRIGHT", ProfessionsFrame.NineSlice.BottomRightCorner, "BOTTOMLEFT")
-
-		ProfessionsFrame.NineSlice.BottomLeftCorner:SetSize(132, 132)
-		ProfessionsFrame.NineSlice.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
-		ProfessionsFrame.NineSlice.BottomLeftCorner:SetTexCoord(0.001953125, 0.259765625, 0.001953125, 0.259765625)
-		ProfessionsFrame.NineSlice.BottomLeftCorner:ClearAllPoints()
-		ProfessionsFrame.NineSlice.BottomLeftCorner:SetPoint("BOTTOMLEFT", -13, -3)
-
-		ProfessionsFrame.NineSlice.BottomRightCorner:SetSize(132, 132)
-		ProfessionsFrame.NineSlice.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
-		ProfessionsFrame.NineSlice.BottomRightCorner:SetTexCoord(0.263671875, 0.521484375, 0.001953125, 0.259765625)
-		ProfessionsFrame.NineSlice.BottomRightCorner:ClearAllPoints()
-		ProfessionsFrame.NineSlice.BottomRightCorner:SetPoint("BOTTOMRIGHT", 4, -3)
-
-		ProfessionsFrame.NineSlice.LeftEdge:SetSize(132, 128)
-		ProfessionsFrame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
-		ProfessionsFrame.NineSlice.LeftEdge:SetTexCoord(0.001953125, 0.259765625, 0, 1)
-		ProfessionsFrame.NineSlice.LeftEdge:ClearAllPoints()
-		ProfessionsFrame.NineSlice.LeftEdge:SetPoint("TOPLEFT", ProfessionsFrame.NineSlice.TopLeftCorner, "BOTTOMLEFT")
-		ProfessionsFrame.NineSlice.LeftEdge:SetPoint("BOTTOMLEFT", ProfessionsFrame.NineSlice.BottomLeftCorner, "TOPLEFT")
-
-		ProfessionsFrame.NineSlice.RightEdge:SetSize(132, 128)
-		ProfessionsFrame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
-		ProfessionsFrame.NineSlice.RightEdge:SetTexCoord(0.263671875, 0.521484375, 0, 1)
-		ProfessionsFrame.NineSlice.RightEdge:ClearAllPoints()
-		ProfessionsFrame.NineSlice.RightEdge:SetPoint("TOPRIGHT", ProfessionsFrame.NineSlice.TopRightCorner, "BOTTOMRIGHT")
-		ProfessionsFrame.NineSlice.RightEdge:SetPoint("BOTTOMRIGHT", ProfessionsFrame.NineSlice.BottomRightCorner, "TOPRIGHT")
+		ApplyNineSlicePortrait(ProfessionsFrame)
 
 		for i = 1, _G.ProfessionsFrame.TabSystem:GetNumChildren() do
 			local tab = select(i, _G.ProfessionsFrame.TabSystem:GetChildren())
@@ -98,22 +59,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			else
 				self.TabSystem.tabs[3]:ClearAllPoints()
 				self.TabSystem.tabs[3]:SetPoint("LEFT", self.TabSystem.tabs[1], "RIGHT", -15, 0)
-			end
-		end)
-
-		ProfessionsFrame:HookScript("OnEvent", function(self)
-			if self.TabSystem.tabs[3].isSelected then
-				self.NineSlice.TopRightCorner:SetSize(132, 132)
-				self.NineSlice.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
-				self.NineSlice.TopRightCorner:SetTexCoord(0.001953125, 0.259765625, 0.263671875, 0.521484375)
-				self.NineSlice.TopRightCorner:ClearAllPoints()
-				self.NineSlice.TopRightCorner:SetPoint("TOPRIGHT", 4, 16)
-			else
-				self.NineSlice.TopRightCorner:SetSize(132, 132)
-				self.NineSlice.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
-				self.NineSlice.TopRightCorner:SetTexCoord(0.001953125, 0.259765625, 0.525390625, 0.783203125)
-				self.NineSlice.TopRightCorner:ClearAllPoints()
-				self.NineSlice.TopRightCorner:SetPoint("TOPRIGHT", 4, 16)
 			end
 		end)
 
