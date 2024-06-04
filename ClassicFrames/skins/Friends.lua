@@ -153,7 +153,7 @@ if (RaidInfoDetailCorner == nil) then
 	RaidInfoDetailCorner:SetPoint("TOPRIGHT", -6, -7)
 end
 
-ApplyDialogHeader(RaidInfoFrame)
+ApplyDialogHeader(RaidInfoFrame.Header)
 ApplyDialogBorder(RaidInfoFrame.Border)
 
 RaidFrame.RoleCount.TankIcon:SetAtlas("groupfinder-icon-role-large-tank")

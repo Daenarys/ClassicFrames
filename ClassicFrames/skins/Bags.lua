@@ -72,11 +72,7 @@ for i = 1, _G.NUM_CONTAINER_FRAMES do
 	_G['ContainerFrame'..i].CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 	_G['ContainerFrame'..i].CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 	_G['ContainerFrame'..i].CloseButton:ClearAllPoints()
-	if _G['ContainerFrame'..i] == ContainerFrame1 then
-		ContainerFrame1.CloseButton:SetPoint("TOPRIGHT", 0, -1)
-	else
-		_G['ContainerFrame'..i].CloseButton:SetPoint("TOPRIGHT")
-	end
+	_G['ContainerFrame'..i].CloseButton:SetPoint("TOPRIGHT", 0, -1)
 
 	if not (_G['ContainerFrame'..i..'BackgroundTop']) then
 		_G['ContainerFrame'..i]:CreateTexture('ContainerFrame'..i..'BackgroundTop', "ARTWORK")
