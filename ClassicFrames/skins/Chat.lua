@@ -21,7 +21,7 @@ ChatFrame1.ScrollToBottomButton.Flash:SetBlendMode("BLEND")
 for i = 1, NUM_CHAT_WINDOWS do
     if _G['ChatFrame'..i..'Tab'] then
         _G['ChatFrame'..i..'Tab'].Text:ClearAllPoints()
-        _G['ChatFrame'..i..'Tab'].Text:SetPoint("CENTER", 0, -6)
+        _G['ChatFrame'..i..'Tab'].Text:SetPoint("CENTER", 0, -5)
     end
 end
 
