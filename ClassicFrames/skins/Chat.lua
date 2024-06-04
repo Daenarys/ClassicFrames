@@ -2,6 +2,7 @@ for i = 1, NUM_CHAT_WINDOWS do
     -- hide default buttons
     ChatFrameChannelButton:Hide()
     ChatFrameMenuButton:Hide()
+    TextToSpeechButtonFrame:Hide()
 
     _G["ChatFrame"..i.."EditBox"]:ClearAllPoints()
     _G["ChatFrame"..i.."EditBox"]:SetPoint("TOPLEFT", _G["ChatFrame"..i], "BOTTOMLEFT", -5, -2)
@@ -114,14 +115,6 @@ for i = 1, NUM_CHAT_WINDOWS do
     
     hooksecurefunc("ChatFrame_OnUpdate", ChatFrameButtonFrameBottomButton.func_ChatFrame_OnUpdate)
 
-    -- fix blizz 10.1 bug
-    hooksecurefunc("FloatingChatFrame_Update", function()
-        _G["ChatFrame"..i].Background:SetPoint("TOPLEFT", _G["ChatFrame"..i], "TOPLEFT", -2, 3)
-        _G["ChatFrame"..i].Background:SetPoint("TOPRIGHT", _G["ChatFrame"..i], "TOPRIGHT", 2, 3)
-        _G["ChatFrame"..i].Background:SetPoint("BOTTOMLEFT", _G["ChatFrame"..i], "BOTTOMLEFT", -2, -6)
-        _G["ChatFrame"..i].Background:SetPoint("BOTTOMRIGHT", _G["ChatFrame"..i], "BOTTOMRIGHT", 3, -6)
-    end)
-
     ChatFrameButtonFrameMenuButton:ClearAllPoints()
     ChatFrameButtonFrameMenuButton:SetPoint("BOTTOM", ChatFrameButtonFrameUpButton, "TOP", 0, 0)
     ChatFrameButtonFrameUpButton:ClearAllPoints()
@@ -130,6 +123,13 @@ for i = 1, NUM_CHAT_WINDOWS do
     ChatFrameButtonFrameDownButton:SetPoint("BOTTOM", ChatFrameButtonFrameBottomButton, "TOP", 0, -2)
     ChatFrameButtonFrameBottomButton:ClearAllPoints()
     ChatFrameButtonFrameBottomButton:SetPoint("BOTTOM", _G["ChatFrame"..i.."ButtonFrame"], "BOTTOM", 0, -7)
+
+    hooksecurefunc("FloatingChatFrame_UpdateBackgroundAnchors", function()
+        _G["ChatFrame"..i].Background:SetPoint("TOPLEFT", _G["ChatFrame"..i], "TOPLEFT", -2, 3)
+        _G["ChatFrame"..i].Background:SetPoint("TOPRIGHT", _G["ChatFrame"..i], "TOPRIGHT", 2, 3)
+        _G["ChatFrame"..i].Background:SetPoint("BOTTOMLEFT", _G["ChatFrame"..i], "BOTTOMLEFT", -2, -6)
+        _G["ChatFrame"..i].Background:SetPoint("BOTTOMRIGHT", _G["ChatFrame"..i], "BOTTOMRIGHT", 3, -6)
+    end)
 
     local tab = _G['ChatFrame'..i..'Tab']
     if tab then
@@ -169,6 +169,15 @@ QuickJoinToastButton:HookScript("OnUpdate", function(self)
     self:ClearAllPoints()
     self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT", 0, -23)
 end)
+
+ChatConfigCombatSettingsFilters.ScrollBar:SetSize(25, 560)
+ChatConfigCombatSettingsFilters.ScrollBar:ClearAllPoints()
+ChatConfigCombatSettingsFilters.ScrollBar:SetPoint("TOPLEFT", ChatConfigCombatSettingsFilters.ScrollBox, "TOPRIGHT", -1, 0)
+ChatConfigCombatSettingsFilters.ScrollBar:SetPoint("BOTTOMLEFT", ChatConfigCombatSettingsFilters.ScrollBox, "BOTTOMRIGHT", 0, -1)
+
+ApplyScrollBarArrow(ChatConfigCombatSettingsFilters.ScrollBar)
+ApplyScrollBarTrack(ChatConfigCombatSettingsFilters.ScrollBar.Track)
+ApplyScrollBarThumb(ChatConfigCombatSettingsFilters.ScrollBar.Track.Thumb)
 
 ApplyDialogBorder(ChatConfigFrame.Border)
 ApplyDialogHeader(ChatConfigFrame)
