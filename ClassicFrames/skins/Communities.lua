@@ -202,14 +202,10 @@ f:SetScript("OnEvent", function(self, event, name)
 				ClubFinderGuildFinderFrame.OptionsList.TankRoleFrame.Icon:SetAtlas("UI-Frame-TankIcon", true)
 				ClubFinderGuildFinderFrame.OptionsList.HealerRoleFrame.Icon:SetAtlas("UI-Frame-HealerIcon", true)
 				ClubFinderGuildFinderFrame.OptionsList.DpsRoleFrame.Icon:SetAtlas("UI-Frame-DpsIcon", true)
-
-				ApplySearchBox(ClubFinderGuildFinderFrame.OptionsList.SearchBox)
 				
 				ClubFinderCommunityAndGuildFinderFrame.OptionsList.TankRoleFrame.Icon:SetAtlas("UI-Frame-TankIcon", true)
 				ClubFinderCommunityAndGuildFinderFrame.OptionsList.HealerRoleFrame.Icon:SetAtlas("UI-Frame-HealerIcon", true)
 				ClubFinderCommunityAndGuildFinderFrame.OptionsList.DpsRoleFrame.Icon:SetAtlas("UI-Frame-DpsIcon", true)
-
-				ApplySearchBox(ClubFinderCommunityAndGuildFinderFrame.OptionsList.SearchBox)
 				
 				CommunitiesFrame.GuildMemberDetailFrame.CloseButton:SetSize(32, 32)
 				CommunitiesFrame.GuildMemberDetailFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
@@ -228,6 +224,10 @@ f:SetScript("OnEvent", function(self, event, name)
 				CommunitiesGuildNewsFiltersFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
 				CommunitiesGuildNewsFiltersFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 				CommunitiesGuildNewsFiltersFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+
+				ApplySearchBox(ClubFinderGuildFinderFrame.OptionsList.SearchBox)
+				ApplySearchBox(ClubFinderCommunityAndGuildFinderFrame.OptionsList.SearchBox)
+				ApplySearchBox(CommunitiesFrame.RecruitmentDialog.MinIlvlOnly.EditBox)
 			end
 		end)
 	end
