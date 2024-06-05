@@ -107,6 +107,23 @@ ApplyScrollBarArrow(GearManagerPopupFrame.IconSelector.ScrollBar)
 ApplyScrollBarTrack(GearManagerPopupFrame.IconSelector.ScrollBar.Track)
 ApplyScrollBarThumb(GearManagerPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 
+hooksecurefunc(CharacterFrame, "UpdatePortrait", function(self)
+	self:SetPortraitToSpecIcon()
+end)
+
+hooksecurefunc(CharacterFrame, "UpdateSize", function(self)
+	if ReputationFrame:IsShown() then
+		self:SetWidth(338)
+	elseif TokenFrame:IsShown() then
+		self:SetWidth(338)
+	end
+end)
+
+hooksecurefunc(CharacterFrame, "UpdateTitle", function(self)
+	self:SetTitleColor(HIGHLIGHT_FONT_COLOR)
+	self:SetTitle(UnitPVPName("player"))
+end)
+
 PaperDollFrame:HookScript("OnShow", function()
 	CharacterModelScene.ControlFrame:Hide()
 end)
