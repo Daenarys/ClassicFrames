@@ -22,7 +22,9 @@ skins\BlackMarket.lua
 skins\Buffs.lua
 skins\Calendar.lua
 skins\Catalyst.lua
+skins\Channel.lua
 skins\Character.lua
+skins\Chat.xml
 skins\Chat.lua
 skins\ChromieTime.lua
 skins\Cinematic.lua
@@ -67,7 +69,6 @@ skins\MajorRenown.lua
 skins\Merchant.lua
 skins\Minimap.lua
 skins\MirrorTimers.lua
-skins\Money.lua
 skins\NewPlayerGuide.lua
 skins\Opacity.lua
 skins\OrderHallTalents.lua
