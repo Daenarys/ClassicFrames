@@ -76,6 +76,7 @@ skins\OrderHallTalents.lua
 skins\PingTutorial.lua
 skins\PlayerChoice.lua
 skins\Professions.lua
+skins\ProfessionsBook.lua
 skins\PVP.lua
 skins\QuestLog.lua
 skins\Quests.lua
