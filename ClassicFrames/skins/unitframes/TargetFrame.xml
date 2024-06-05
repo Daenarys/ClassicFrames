@@ -47,7 +47,7 @@
 								</FontString>
 								<FontString name="$parentHealthBarTextLeft" inherits="TextStatusBarText">
 									<Anchors>
-										<Anchor point="LEFT" x="7" y="3"/>
+										<Anchor point="LEFT" x="8" y="3"/>
 									</Anchors>
 								</FontString>
 								<FontString name="$parentHealthBarTextRight" inherits="TextStatusBarText">
@@ -62,7 +62,7 @@
 								</FontString>
 								<FontString name="$parentManaBarTextLeft" inherits="TextStatusBarText">
 									<Anchors>
-										<Anchor point="LEFT" x="7" y="-8"/>
+										<Anchor point="LEFT" x="8" y="-8"/>
 									</Anchors>
 								</FontString>
 								<FontString name="$parentManaBarTextRight" inherits="TextStatusBarText">
