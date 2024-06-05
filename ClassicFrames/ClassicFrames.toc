@@ -36,6 +36,7 @@ skins\Communities.lua
 skins\Covenant.lua
 skins\DeathRecap.lua
 skins\DebugTools.lua
+skins\Deprecated.lua
 skins\DragonTalents.lua
 skins\DressingRoom.lua
 skins\DropDownList.lua
