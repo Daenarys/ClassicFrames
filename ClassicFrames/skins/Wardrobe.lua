@@ -16,7 +16,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(WardrobeFrame)
 		ApplyNineSlicePortrait(WardrobeFrame)
-		ApplyDialogBorder(WardrobeOutfitFrame.Border)
 
 		WardrobeTransmogFrame.ModelScene.ControlFrame:HookScript("OnShow", function(self)
 			ApplyControlFrame(self)
@@ -24,5 +23,4 @@ f:SetScript("OnEvent", function(self, event, name)
 	end
 end)
 
-ApplyDialogBorder(WardrobeOutfitFrame.Border)
 ApplyDialogBorder(WardrobeOutfitEditFrame.Border)
