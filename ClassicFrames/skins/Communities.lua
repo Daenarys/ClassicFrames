@@ -13,8 +13,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 				self.MaximizeMinimizeFrame:SetSize(32, 32)
 				self.MaximizeMinimizeFrame:ClearAllPoints()
-				self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 8.5, 0)
-				self.MaximizeMinimizeFrame:SetFrameLevel(2)
+				self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
 
 				self.MaximizeMinimizeFrame.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
 				self.MaximizeMinimizeFrame.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
@@ -26,8 +25,17 @@ f:SetScript("OnEvent", function(self, event, name)
 				self.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
 				self.MaximizeMinimizeFrame.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 
-				ApplyTitleBg(self)
-				ApplyNineSliceNoPortraitMinimizable(self)
+				if (self.ButtonFrameEdge == nil) then
+					self.ButtonFrameEdge = self.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
+					self.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
+					self.ButtonFrameEdge:ClearAllPoints()
+					self.ButtonFrameEdge:SetPoint("CENTER", self.MaximizeMinimizeFrame, "LEFT", 6, 0)
+				end
+
+				ApplyTitleBgNoPortrait(self)
+				ApplyNineSliceNoPortrait(self)
+
+				self.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 
 				CommunitiesFrame.Chat.ScrollBar:SetSize(25, 560)
 				CommunitiesFrame.Chat.ScrollBar:ClearAllPoints()
@@ -58,8 +66,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 				self.MaximizeMinimizeFrame:SetSize(32, 32)
 				self.MaximizeMinimizeFrame:ClearAllPoints()
-				self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 8.5, 0)
-				self.MaximizeMinimizeFrame:SetFrameLevel(2)
+				self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
 
 				self.MaximizeMinimizeFrame.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
 				self.MaximizeMinimizeFrame.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
@@ -70,6 +77,13 @@ f:SetScript("OnEvent", function(self, event, name)
 				self.MaximizeMinimizeFrame.MinimizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Down")
 				self.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
 				self.MaximizeMinimizeFrame.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+
+				if (self.ButtonFrameEdge == nil) then
+					self.ButtonFrameEdge = self.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
+					self.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
+					self.ButtonFrameEdge:ClearAllPoints()
+					self.ButtonFrameEdge:SetPoint("CENTER", self.MaximizeMinimizeFrame, "LEFT", 6, 0)
+				end
 
 				self.PortraitContainer.CircleMask:Hide()
 
@@ -97,7 +111,7 @@ f:SetScript("OnEvent", function(self, event, name)
 				self.TitleContainer:SetPoint("TOPRIGHT", self, "TOPRIGHT", -58, 0)
 
 				ApplyTitleBg(self)
-				ApplyNineSlicePortraitMinimizable(self)
+				ApplyNineSlicePortrait(self)
 				
 				CommunitiesFrameCommunitiesList.ScrollBar:SetSize(25, 560)
 				CommunitiesFrameCommunitiesList.ScrollBar:ClearAllPoints()
@@ -202,14 +216,10 @@ f:SetScript("OnEvent", function(self, event, name)
 				ClubFinderGuildFinderFrame.OptionsList.TankRoleFrame.Icon:SetAtlas("UI-Frame-TankIcon", true)
 				ClubFinderGuildFinderFrame.OptionsList.HealerRoleFrame.Icon:SetAtlas("UI-Frame-HealerIcon", true)
 				ClubFinderGuildFinderFrame.OptionsList.DpsRoleFrame.Icon:SetAtlas("UI-Frame-DpsIcon", true)
-
-				ApplySearchBox(ClubFinderGuildFinderFrame.OptionsList.SearchBox)
 				
 				ClubFinderCommunityAndGuildFinderFrame.OptionsList.TankRoleFrame.Icon:SetAtlas("UI-Frame-TankIcon", true)
 				ClubFinderCommunityAndGuildFinderFrame.OptionsList.HealerRoleFrame.Icon:SetAtlas("UI-Frame-HealerIcon", true)
 				ClubFinderCommunityAndGuildFinderFrame.OptionsList.DpsRoleFrame.Icon:SetAtlas("UI-Frame-DpsIcon", true)
-
-				ApplySearchBox(ClubFinderCommunityAndGuildFinderFrame.OptionsList.SearchBox)
 				
 				CommunitiesFrame.GuildMemberDetailFrame.CloseButton:SetSize(32, 32)
 				CommunitiesFrame.GuildMemberDetailFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
@@ -228,6 +238,10 @@ f:SetScript("OnEvent", function(self, event, name)
 				CommunitiesGuildNewsFiltersFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
 				CommunitiesGuildNewsFiltersFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 				CommunitiesGuildNewsFiltersFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+
+				ApplySearchBox(ClubFinderGuildFinderFrame.OptionsList.SearchBox)
+				ApplySearchBox(ClubFinderCommunityAndGuildFinderFrame.OptionsList.SearchBox)
+				ApplySearchBox(CommunitiesFrame.RecruitmentDialog.MinIlvlOnly.EditBox)
 			end
 		end)
 	end

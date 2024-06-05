@@ -569,9 +569,9 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 		end
 
 		if (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "dragonflight-landingbutton-up") then
-			ExpansionLandingPageMinimapButton:SetScale(0.83)
+			ExpansionLandingPageMinimapButton:SetScale(0.85)
 			ExpansionLandingPageMinimapButton:ClearAllPoints()
-			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 45, -147)
+			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 42, -144)
 		else
 			ExpansionLandingPageMinimapButton:ClearAllPoints()
 			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 32, -118)

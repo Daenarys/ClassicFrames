@@ -153,8 +153,22 @@ if (RaidInfoDetailCorner == nil) then
 	RaidInfoDetailCorner:SetPoint("TOPRIGHT", -6, -7)
 end
 
-ApplyDialogHeader(RaidInfoFrame.Header)
 ApplyDialogBorder(RaidInfoFrame.Border)
+
+RaidInfoFrame.Header:Hide()
+
+if (RaidInfoFrameHeader == nil) then
+	RaidInfoFrameHeader = RaidInfoFrame:CreateTexture(nil, "OVERLAY")
+	RaidInfoFrameHeader:SetSize(256, 64)
+	RaidInfoFrameHeader:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
+	RaidInfoFrameHeader:SetPoint("TOP", 0, 12)
+end
+
+if (RaidInfoFrameHeaderText == nil) then
+	RaidInfoFrameHeaderText = RaidInfoFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+	RaidInfoFrameHeaderText:SetText(RAID_INFORMATION)
+	RaidInfoFrameHeaderText:SetPoint("TOP", RaidInfoFrameHeader, "TOP", 0, -14)
+end
 
 RaidFrame.RoleCount.TankIcon:SetAtlas("groupfinder-icon-role-large-tank")
 RaidFrame.RoleCount.HealerIcon:SetAtlas("groupfinder-icon-role-large-heal")
