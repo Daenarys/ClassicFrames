@@ -69,6 +69,7 @@ skins\Minimap.lua
 skins\MirrorTimers.lua
 skins\Money.lua
 skins\NewPlayerGuide.lua
+skins\Opacity.lua
 skins\OrderHallTalents.lua
 skins\PingTutorial.lua
 skins\PlayerChoice.lua
