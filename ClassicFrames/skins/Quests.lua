@@ -19,8 +19,14 @@ ApplyNineSlicePortrait(QuestFrame)
 
 QuestScrollFrame.ScrollBar:SetSize(25, 560)
 QuestScrollFrame.ScrollBar:ClearAllPoints()
-QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", 2, 2)
-QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", 5, -2)
+QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -2, 2)
+QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", -2, -11)
+
+if (QuestScrollFrame.ScrollBar.BG == nil) then
+	QuestScrollFrame.ScrollBar.BG = QuestScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
+	QuestScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
+	QuestScrollFrame.ScrollBar.BG:SetAllPoints()
+end
 
 ApplyScrollBarArrow(QuestScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestScrollFrame.ScrollBar.Track)
