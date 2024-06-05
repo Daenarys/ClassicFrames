@@ -19,8 +19,10 @@ PVEFrameTab2:ClearAllPoints()
 PVEFrameTab2:SetPoint("LEFT", PVEFrameTab1, "RIGHT", -16, 0)
 PVEFrameTab3:ClearAllPoints()
 PVEFrameTab3:SetPoint("LEFT", PVEFrameTab2, "RIGHT", -16, 0)
+PVEFrameTab4:ClearAllPoints()
+PVEFrameTab4:SetPoint("LEFT", PVEFrameTab3, "RIGHT", -16, 0)
 
-for i = 1, 3 do
+for i = 1, 4 do
 	ApplyBottomTab(_G['PVEFrameTab'..i])
 
 	_G["PVEFrameTab"..i]:HookScript("OnShow", function(self)
