@@ -44,7 +44,7 @@ end
 local function SkinFrame(frame)
 	local contextual = frame.TargetFrameContent.TargetFrameContentContextual;
 	local contentMain = frame.TargetFrameContent.TargetFrameContentMain;
-	local FrameHealthBar = contentMain.HealthBar;
+	local FrameHealthBar = contentMain.HealthBarsContainer.HealthBar;
 	local FrameManaBar = contentMain.ManaBar;
 
 	contextual:SetFrameStrata("MEDIUM")
