@@ -59,24 +59,6 @@ end)
 for _, f in next, WorldMapFrame.overlayFrames do
 	if WorldMapTrackingOptionsButtonMixin and f.OnLoad == WorldMapTrackingOptionsButtonMixin.OnLoad then
 		f.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
-		f.Icon:SetTexture("Interface\\Minimap\\Tracking\\None")
-		if (f.IconOverlay == nil) then
-			f.IconOverlay = f:CreateTexture(nil, "OVERLAY")
-			f.IconOverlay:SetPoint("TOPLEFT", f.Icon)
-			f.IconOverlay:SetPoint("BOTTOMRIGHT", f.Icon)
-			f.IconOverlay:SetColorTexture(0, 0, 0, 0.5)
-			f.IconOverlay:Hide()
-		end
-		f:HookScript("OnMouseDown", function(self)
-			self.Icon:SetTexture("Interface\\Minimap\\Tracking\\None")
-			self.Icon:SetPoint("TOPLEFT", 8, -8)
-			self.IconOverlay:Show()
-		end)
-		f:HookScript("OnMouseUp", function(self)
-			self.Icon:SetTexture("Interface\\Minimap\\Tracking\\None")
-			self.Icon:SetPoint("TOPLEFT", self, "TOPLEFT", 6, -6)
-			self.IconOverlay:Hide()
-		end)
 	end
 	if WorldMapTrackingPinButtonMixin and f.OnLoad == WorldMapTrackingPinButtonMixin.OnLoad then
 		f.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")

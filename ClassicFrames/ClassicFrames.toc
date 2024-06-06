@@ -34,6 +34,7 @@ skins\Collections.lua
 skins\ColorPicker.lua
 skins\Communities.lua
 skins\Covenant.lua
+skins\CurrencyTransfer.lua
 skins\DeathRecap.lua
 skins\DebugTools.lua
 skins\Deprecated.lua
