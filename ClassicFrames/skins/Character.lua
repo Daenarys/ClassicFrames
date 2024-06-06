@@ -15,8 +15,6 @@ CharacterFrame.TitleContainer:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -
 ApplyTitleBg(CharacterFrame)
 ApplyNineSlicePortrait(CharacterFrame)
 
-CharacterFrame.Background:Hide()
-
 CharacterFrameTab2:ClearAllPoints()
 CharacterFrameTab2:SetPoint("LEFT", CharacterFrameTab1, "RIGHT", -15, 0)
 CharacterFrameTab3:ClearAllPoints()
@@ -126,12 +124,22 @@ hooksecurefunc(CharacterFrame, "UpdateTitle", function(self)
 	self:SetTitle(UnitPVPName("player"))
 end)
 
-PaperDollFrame:HookScript("OnShow", function()
-	CharacterModelScene.ControlFrame:Hide()
-end)
-
 CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
 	ApplyControlFrame(self)
+end)
+
+CharacterFrame:HookScript("OnShow", function()
+	CfPlayerFrameHealthBar.showNumeric = true;
+	CfPlayerFrameManaBar.showNumeric = true;
+	CfPlayerFrameHealthBar:ShowStatusBarText()
+	CfPlayerFrameManaBar:ShowStatusBarText()
+end)
+
+CharacterFrame:HookScript("OnHide", function()
+	CfPlayerFrameHealthBar.showNumeric = nil;
+	CfPlayerFrameManaBar.showNumeric = nil;
+	CfPlayerFrameHealthBar:HideStatusBarText()
+	CfPlayerFrameManaBar:HideStatusBarText()
 end)
 
 hooksecurefunc("PaperDollFrame_UpdateStats", function()
@@ -151,16 +159,6 @@ hooksecurefunc("PaperDollFrame_UpdateStats", function()
 	end
 end)
 
-CharacterFrame:HookScript("OnShow", function()
-	CfPlayerFrameHealthBar.showNumeric = true;
-	CfPlayerFrameManaBar.showNumeric = true;
-	CfPlayerFrameHealthBar:ShowStatusBarText()
-	CfPlayerFrameManaBar:ShowStatusBarText()
-end)
-
-CharacterFrame:HookScript("OnHide", function()
-	CfPlayerFrameHealthBar.showNumeric = nil;
-	CfPlayerFrameManaBar.showNumeric = nil;
-	CfPlayerFrameHealthBar:HideStatusBarText()
-	CfPlayerFrameManaBar:HideStatusBarText()
+PaperDollFrame:HookScript("OnShow", function()
+	CharacterModelScene.ControlFrame:Hide()
 end)

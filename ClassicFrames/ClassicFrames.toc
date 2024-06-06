@@ -37,6 +37,7 @@ skins\Covenant.lua
 skins\CurrencyTransfer.lua
 skins\DeathRecap.lua
 skins\DebugTools.lua
+skins\Delves.lua
 skins\Deprecated.lua
 skins\DragonTalents.lua
 skins\DressingRoom.lua
