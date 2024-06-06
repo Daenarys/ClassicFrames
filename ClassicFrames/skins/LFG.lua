@@ -26,7 +26,11 @@ for i = 1, 4 do
 	ApplyBottomTab(_G['PVEFrameTab'..i])
 
 	_G["PVEFrameTab"..i]:HookScript("OnShow", function(self)
-		self:SetWidth(40 + self:GetFontString():GetStringWidth())
+		if _G["PVEFrameTab"..i] == PVEFrameTab4 then
+			self:SetWidth(50 + self:GetFontString():GetStringWidth())
+		else
+			self:SetWidth(40 + self:GetFontString():GetStringWidth())
+		end
 	end)
 end
 
