@@ -11,6 +11,7 @@ for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
 	FrameHealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 	FrameHealthBar:SetStatusBarColor(0, 1, 0)
 	FrameHealthBar:SetSize(119, 12)
+	FrameHealthBarContainer:SetParent(frame)
 	FrameHealthBarContainer:ClearAllPoints()
 	FrameHealthBarContainer:SetPoint("TOPLEFT", 26, -48)
 	FrameHealthBarContainer.HealthBarMask:Hide()
