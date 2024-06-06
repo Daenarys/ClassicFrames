@@ -1,6 +1,6 @@
-local f = CreateFrame("Frame")
-f:RegisterEvent("ADDON_LOADED")
-f:SetScript("OnEvent", function(self, event, name)
+local a = CreateFrame("Frame")
+a:RegisterEvent("ADDON_LOADED")
+a:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_DelvesDifficultyPicker" then
 		ApplyDialogBorder(DelvesDifficultyPickerFrame.Border)
 
@@ -12,16 +12,36 @@ f:SetScript("OnEvent", function(self, event, name)
 		DelvesDifficultyPickerFrame.CloseButton:ClearAllPoints()
 		DelvesDifficultyPickerFrame.CloseButton:SetPoint("TOPRIGHT", 4, 4)
 
-		if (DelvesDifficultyPickerFrame.Corner == nil) then
-			DelvesDifficultyPickerFrame.Corner = DelvesDifficultyPickerFrame:CreateTexture(nil, "OVERLAY")
-			DelvesDifficultyPickerFrame.Corner:SetSize(32, 32)
-			DelvesDifficultyPickerFrame.Corner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
-			DelvesDifficultyPickerFrame.Corner:SetPoint("TOPRIGHT")
-		end
-
 		DelvesDifficultyPickerFrame:HookScript("OnShow", function(self)
 			self:ClearAllPoints()
 			self:SetPoint("CENTER", 0, 50)
 		end)
 	end
 end)
+
+if DelvesCompanionAbilityListFrame then
+	ApplyCloseButton(DelvesCompanionAbilityListFrameCloseButton)
+
+	DelvesCompanionAbilityListFrame.PortraitContainer.CircleMask:Hide()
+
+	DelvesCompanionAbilityListFramePortrait:SetSize(61, 61)
+	DelvesCompanionAbilityListFramePortrait:ClearAllPoints()
+	DelvesCompanionAbilityListFramePortrait:SetPoint("TOPLEFT", -6, 8)
+
+	DelvesCompanionAbilityListFrame.TitleContainer:ClearAllPoints()
+	DelvesCompanionAbilityListFrame.TitleContainer:SetPoint("TOPLEFT", DelvesCompanionAbilityListFrame, "TOPLEFT", 58, 0)
+	DelvesCompanionAbilityListFrame.TitleContainer:SetPoint("TOPRIGHT", DelvesCompanionAbilityListFrame, "TOPRIGHT", -58, 0)
+
+	ApplyTitleBg(DelvesCompanionAbilityListFrame)
+	ApplyNineSlicePortrait(DelvesCompanionAbilityListFrame)
+end
+
+if DelvesCompanionConfigurationFrame then
+	DelvesCompanionConfigurationFrame.CloseButton:SetSize(32, 32)
+	DelvesCompanionConfigurationFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
+	DelvesCompanionConfigurationFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
+	DelvesCompanionConfigurationFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
+	DelvesCompanionConfigurationFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+	DelvesCompanionConfigurationFrame.CloseButton:ClearAllPoints()
+	DelvesCompanionConfigurationFrame.CloseButton:SetPoint("TOPRIGHT", 4, 4)
+end
