@@ -501,7 +501,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end)
 
-		hooksecurefunc("EncounterJournal_TierDropDown_Select", function(_, tier)
+		hooksecurefunc("EncounterJournal_SetupExpansionDropdown", function()
+			local tier = EJ_GetCurrentTier()
 			local tierData = GetEJTierData(tier)
 			EncounterJournal.raidsTab.SelectedGlow:SetVertexColor(tierData.r, tierData.g, tierData.b)
 			EncounterJournal.dungeonsTab.SelectedGlow:SetVertexColor(tierData.r, tierData.g, tierData.b)
