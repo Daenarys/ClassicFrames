@@ -2,7 +2,7 @@ if not _G.ExpansionLandingPage then return end
 
 ExpansionLandingPage:HookScript("OnShow", function(self)
 	for _, child in next, { self.Overlay:GetChildren() } do
-	    if DragonflightLandingOverlayMixin and child.OnLoad == DragonflightLandingOverlayMixin.OnLoad then
+	    if DragonflightLandingOverlayMixin and child.OnLoad == WarWithinLandingOverlayMixin.OnLoad then
 	    	child.CloseButton:SetSize(32, 32)
 			child.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 			child.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
