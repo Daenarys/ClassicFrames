@@ -1,6 +1,6 @@
-local a = CreateFrame("Frame")
-a:RegisterEvent("ADDON_LOADED")
-a:SetScript("OnEvent", function(self, event, name)
+local f = CreateFrame("Frame")
+f:RegisterEvent("ADDON_LOADED")
+f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_DelvesDifficultyPicker" then
 		ApplyDialogBorder(DelvesDifficultyPickerFrame.Border)
 
