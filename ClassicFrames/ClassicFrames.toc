@@ -39,7 +39,6 @@ skins\DebugTools.lua
 skins\Deprecated.lua
 skins\DragonTalents.lua
 skins\DressingRoom.lua
-skins\DropDownList.lua
 skins\EditMode.lua
 skins\EncounterJournal.lua
 skins\ExpansionLandingPage.lua
