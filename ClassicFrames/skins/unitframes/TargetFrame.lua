@@ -44,7 +44,7 @@ end
 local function SkinFrame(frame)
 	local contextual = frame.TargetFrameContent.TargetFrameContentContextual;
 	local contentMain = frame.TargetFrameContent.TargetFrameContentMain;
-	local FrameHealthBar = contentMain.HealthBarsContainer.HealthBar;
+	local FrameHealthBar = contentMain.HealthBarsContainer;
 	local FrameManaBar = contentMain.ManaBar;
 
 	contextual:SetFrameStrata("MEDIUM")
@@ -56,7 +56,7 @@ local function SkinFrame(frame)
 	frame.TargetFrameContainer.Portrait:ClearAllPoints()
 	frame.TargetFrameContainer.Portrait:SetPoint("TOPRIGHT", -22, -16)
 
-	FrameHealthBar:EnableMouse(false)
+	FrameHealthBar.HealthBar:EnableMouse(false)
 	FrameManaBar:EnableMouse(false)
 
 	contextual.NumericalThreat:ClearAllPoints()
