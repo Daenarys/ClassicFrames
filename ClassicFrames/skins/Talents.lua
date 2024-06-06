@@ -60,5 +60,14 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplySearchBox(PlayerSpellsFrame.TalentsFrame.SearchBox)
 		ApplySearchBox(ClassTalentLoadoutCreateDialog.NameControl.EditBox)
 		ApplySearchBox(ClassTalentLoadoutImportDialog.NameControl.EditBox)
+
+		ApplyCloseButton(HeroTalentsSelectionDialog.CloseButton)
+		ApplyTitleBgNoPortrait(HeroTalentsSelectionDialog)
+		ApplyNineSliceNoPortrait(HeroTalentsSelectionDialog)
+
+		HeroTalentsSelectionDialog:HookScript("OnShow", function(self)
+			self:ClearAllPoints()
+			self:SetPoint("TOP", 0, -65)
+		end)
 	end
 end)
