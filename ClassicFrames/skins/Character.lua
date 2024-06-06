@@ -15,6 +15,8 @@ CharacterFrame.TitleContainer:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -
 ApplyTitleBg(CharacterFrame)
 ApplyNineSlicePortrait(CharacterFrame)
 
+CharacterFrame.Background:Hide()
+
 CharacterFrameTab2:ClearAllPoints()
 CharacterFrameTab2:SetPoint("LEFT", CharacterFrameTab1, "RIGHT", -15, 0)
 CharacterFrameTab3:ClearAllPoints()
