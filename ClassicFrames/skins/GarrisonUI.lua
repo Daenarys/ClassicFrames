@@ -70,13 +70,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			end)
 		end
 		if _G.GarrisonRecruiterFrame then
-			GarrisonRecruiterFrameCloseButton:SetSize(32, 32)
-			GarrisonRecruiterFrameCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-			GarrisonRecruiterFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			GarrisonRecruiterFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			GarrisonRecruiterFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-			GarrisonRecruiterFrameCloseButton:ClearAllPoints()
-			GarrisonRecruiterFrameCloseButton:SetPoint("TOPRIGHT", 4, 5)
+			ApplyCloseButton(GarrisonRecruiterFrameCloseButton)
 			
 			GarrisonRecruiterFrame.PortraitContainer.CircleMask:Hide()
 
@@ -361,13 +355,15 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarTrack(GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track)
 			ApplyScrollBarThumb(GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track.Thumb)
 
-			_G.GarrisonRecruitSelectFrame:HookScript("OnShow", function(self)
+			GarrisonRecruitSelectFrame:HookScript("OnShow", function(self)
 				self:ClearAllPoints()
 				self:SetPoint("CENTER")
 			end)
+
+			ApplySearchBox(GarrisonLandingPageFollowerList.SearchBox)
 		end
 		if _G.GarrisonMonumentFrame then
-			_G.GarrisonMonumentFrame:HookScript("OnShow", function(self)
+			GarrisonMonumentFrame:HookScript("OnShow", function(self)
 				self:ClearAllPoints()
 				self:SetPoint("BOTTOM", 0 , 125)
 			end)
