@@ -82,5 +82,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(CalendarCreateEventFrame.EventTypeDropdown)
 		ApplyDropDown(CalendarCreateEventFrame.HourDropdown)
 		ApplyDropDown(CalendarCreateEventFrame.MinuteDropdown)
+
+		ApplyFilterDropDown(CalendarFrame.FilterButton)
 	end
 end)

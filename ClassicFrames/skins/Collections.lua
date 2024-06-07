@@ -114,6 +114,12 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(WardrobeCollectionFrame.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
 
+		ApplyFilterDropDown(MountJournal.FilterDropdown)
+		ApplyFilterDropDown(PetJournal.FilterDropdown)
+		ApplyFilterDropDown(ToyBox.FilterDropdown)
+		ApplyFilterDropDown(HeirloomsJournal.FilterDropdown)
+		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
+
 		MountJournal.MountDisplay.ModelScene.ControlFrame:HookScript("OnShow", function(self)
 			self.rotateLeftButton:SetSize(35, 35)
 			self.rotateLeftButton.NormalTexture:SetTexture("Interface\\Buttons\\UI-RotationLeft-Button-Up")

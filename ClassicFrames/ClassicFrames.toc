@@ -28,7 +28,6 @@ skins\Chat.xml
 skins\Chat.lua
 skins\ChromieTime.lua
 skins\Cinematic.lua
-skins\ClassTrainer.lua
 skins\ClickBindings.lua
 skins\Collections.lua
 skins\ColorPicker.lua
@@ -99,6 +98,7 @@ skins\TimeManager.lua
 skins\TotemFrame.lua
 skins\Trade.lua
 skins\TradingPost.lua
+skins\Trainer.lua
 skins\VoidStorage.lua
 skins\Wardrobe.lua
 skins\WeeklyRewards.lua

@@ -348,6 +348,7 @@ ApplyDropDown(ScenarioQueueFrameTypeDropdown)
 ApplyDropDown(LFGListEntryCreationGroupDropdown)
 ApplyDropDown(LFGListEntryCreationActivityDropdown)
 ApplyDropDown(LFGListEntryCreationPlayStyleDropdown)
+ApplyFilterDropDown(LFGListFrame.SearchPanel.FilterButton)
 
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then

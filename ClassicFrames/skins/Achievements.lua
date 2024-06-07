@@ -109,6 +109,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(AchievementFrame.SearchResults.ScrollBar.Track.Thumb)
 
 		ApplySearchBox(AchievementFrame.SearchBox)
+		ApplyFilterDropDown(AchievementFrameFilterDropdown)
 
 		hooksecurefunc('AchievementFrameSummary_Refresh', function()
 			for i = 1, ACHIEVEMENTUI_MAX_SUMMARY_ACHIEVEMENTS do

@@ -169,5 +169,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplySearchBox(ProfessionsFrame.CraftingPage.RecipeList.SearchBox)
 		ApplySearchBox(ProfessionsFrame.CraftingPage.MinimizedSearchBox)
 		ApplySearchBox(ProfessionsFrame.OrdersPage.BrowseFrame.RecipeList.SearchBox)
+
+		ApplyFilterDropDown(ProfessionsFrame.CraftingPage.RecipeList.FilterDropdown)
 	end
 end)

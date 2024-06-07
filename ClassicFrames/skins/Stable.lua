@@ -33,6 +33,7 @@ if (StableFrame.StabledPetList.ScrollBar.BG == nil) then
 end
 
 ApplySearchBox(StableFrame.StabledPetList.FilterBar.SearchBox)
+ApplyFilterDropDown(StableFrame.StabledPetList.FilterBar.FilterDropdown)
 
 StableFrame.PetModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self.rotateLeftButton:SetSize(35, 35)

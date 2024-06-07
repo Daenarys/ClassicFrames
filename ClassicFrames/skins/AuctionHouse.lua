@@ -208,6 +208,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplySearchBox(AuctionHouseFrame.SearchBar.SearchBox)
 
 		ApplyDropDown(AuctionHouseFrame.ItemSellFrame.Duration.Dropdown)
+		ApplyFilterDropDown(AuctionHouseFrame.SearchBar.FilterButton)
 
 		hooksecurefunc(AuctionHouseFrame, "Show", function()
 			if ContainerFrame1MoneyFrame then

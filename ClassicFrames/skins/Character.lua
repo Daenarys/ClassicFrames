@@ -108,6 +108,7 @@ ApplyScrollBarTrack(GearManagerPopupFrame.IconSelector.ScrollBar.Track)
 ApplyScrollBarThumb(GearManagerPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 
 ApplyDropDown(ReputationFrame.filterDropdown)
+ApplyDropDown(GearManagerPopupFrame.BorderBox.IconTypeDropdown)
 
 hooksecurefunc(CharacterFrame, "UpdateSize", function(self)
 	if ReputationFrame:IsShown() then

@@ -25,5 +25,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarArrow(ClassTrainerFrame.ScrollBar)
 		ApplyScrollBarTrack(ClassTrainerFrame.ScrollBar.Track)
 		ApplyScrollBarThumb(ClassTrainerFrame.ScrollBar.Track.Thumb)
+
+		ApplyFilterDropDown(ClassTrainerFrame.FilterDropdown)
 	end
 end)
