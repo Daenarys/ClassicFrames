@@ -1,6 +1,6 @@
-local f = CreateFrame("Frame")
-f:RegisterEvent("ADDON_LOADED")
-f:SetScript("OnEvent", function(self, event, name)
+local a = CreateFrame("Frame")
+a:RegisterEvent("ADDON_LOADED")
+a:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_DelvesDifficultyPicker" then
 		ApplyDialogBorder(DelvesDifficultyPickerFrame.Border)
 
@@ -16,6 +16,14 @@ f:SetScript("OnEvent", function(self, event, name)
 			self:ClearAllPoints()
 			self:SetPoint("CENTER", 0, 50)
 		end)
+	end
+end)
+
+local b = CreateFrame("Frame")
+b:RegisterEvent("ADDON_LOADED")
+b:SetScript("OnEvent", function(self, event, name)
+	if name == "Blizzard_DelvesDashboardUI" then
+		DelvesDashboardFrame.DashboardBackground:SetDrawLayer("BACKGROUND", -1)
 	end
 end)
 
