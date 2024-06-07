@@ -532,21 +532,52 @@ function ApplyDropDown(frame)
 		self.Arrow:SetSize(26, 26)
 		if self:IsEnabled() then
 			if self:IsDownOver() then
-				frame.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
-				frame.Arrow:SetTexCoord(0.199219, 0.308594, 0.714844, 0.824219)
+				self.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+				self.Arrow:SetTexCoord(0.199219, 0.308594, 0.714844, 0.824219)
 			elseif self:IsOver() then
-				frame.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
-				frame.Arrow:SetTexCoord(0.808594, 0.917969, 0.269531, 0.378906)
+				self.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+				self.Arrow:SetTexCoord(0.808594, 0.917969, 0.269531, 0.378906)
 			elseif self:IsDown() then
-				frame.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
-				frame.Arrow:SetTexCoord(0.199219, 0.308594, 0.597656, 0.707031)
+				self.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+				self.Arrow:SetTexCoord(0.199219, 0.308594, 0.597656, 0.707031)
 			else
-				frame.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
-				frame.Arrow:SetTexCoord(0.199219, 0.308594, 0.832031, 0.941406)
+				self.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+				self.Arrow:SetTexCoord(0.199219, 0.308594, 0.832031, 0.941406)
 			end
 		else
-			frame.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
-			frame.Arrow:SetTexCoord(0.808594, 0.917969, 0.152344, 0.261719)
+			self.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+			self.Arrow:SetTexCoord(0.808594, 0.917969, 0.152344, 0.261719)
+		end
+	end)
+end
+
+function ApplyFilterDropDown(frame)
+	frame.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+	frame.Background:SetTexCoord(0.660156, 0.980469, 0.480469, 0.589844)
+	frame.Background:ClearAllPoints()
+	frame.Background:SetPoint("TOPLEFT", -3, 1)
+	frame.Background:SetPoint("BOTTOMRIGHT", 3, -5)
+
+	frame.Text:SetFontObject(GameFontHighlight)
+
+	hooksecurefunc(frame, "OnButtonStateChanged", function(self)
+		if self:IsEnabled() then
+			if self:IsDownOver() then
+				self.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+				self.Background:SetTexCoord(0.332031, 0.652344, 0.480469, 0.589844)
+			elseif self:IsOver() then
+				self.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+				self.Background:SetTexCoord(0.480469, 0.800781, 0.269531, 0.378906)
+			elseif self:IsDown() then
+				self.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+				self.Background:SetTexCoord(0.00390625, 0.324219, 0.480469, 0.589844)
+			else
+				self.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+				self.Background:SetTexCoord(0.660156, 0.980469, 0.480469, 0.589844)
+			end
+		else
+			self.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+			self.Background:SetTexCoord(0.480469, 0.800781, 0.152344, 0.261719)
 		end
 	end)
 end
