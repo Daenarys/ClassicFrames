@@ -56,16 +56,7 @@ hooksecurefunc(WorldMapFrame, "Maximize", function(self)
 	ApplyNineSliceNoPortraitMinimizable(self.BorderFrame)
 end)
 
-for _, f in next, WorldMapFrame.overlayFrames do
-	if WorldMapTrackingOptionsButtonMixin and f.OnLoad == WorldMapTrackingOptionsButtonMixin.OnLoad then
-		f.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
-	end
-	if WorldMapTrackingPinButtonMixin and f.OnLoad == WorldMapTrackingPinButtonMixin.OnLoad then
-		f.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
-	end
-	if WorldMapActivityTrackerMixin and f.OnLoad == WorldMapActivityTrackerMixin.OnLoad then
-		hooksecurefunc(f, "Show", function()
-			f:Hide()
-		end)
-	end
-end
+local Dropdown, Tracking, Pin = unpack(WorldMapFrame.overlayFrames)
+ApplyDropDown(Dropdown)
+Tracking.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
+Pin.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
