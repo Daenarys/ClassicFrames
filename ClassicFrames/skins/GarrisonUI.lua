@@ -341,9 +341,9 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonRecruitSelectFrame.FollowerList.ScrollBox, "BOTTOMRIGHT", -1, -3)
 
 			if (GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG == nil) then
-			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG = GarrisonRecruitSelectFrame.FollowerList.ScrollBar:CreateTexture(nil, "BACKGROUND")
-			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG:SetColorTexture(0, 0, 0, .75)
-			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG:SetAllPoints()
+				GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG = GarrisonRecruitSelectFrame.FollowerList.ScrollBar:CreateTexture(nil, "BACKGROUND")
+				GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG:SetColorTexture(0, 0, 0, .75)
+				GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG:SetAllPoints()
 			end
 
 			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track:SetWidth(18)
@@ -355,12 +355,13 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarTrack(GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track)
 			ApplyScrollBarThumb(GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track.Thumb)
 
+			ApplySearchBox(GarrisonLandingPageFollowerList.SearchBox)
+			ApplySearchBox(GarrisonRecruitSelectFrame.FollowerList.SearchBox)
+
 			GarrisonRecruitSelectFrame:HookScript("OnShow", function(self)
 				self:ClearAllPoints()
 				self:SetPoint("CENTER")
 			end)
-
-			ApplySearchBox(GarrisonLandingPageFollowerList.SearchBox)
 		end
 		if _G.GarrisonMonumentFrame then
 			GarrisonMonumentFrame:HookScript("OnShow", function(self)
