@@ -95,3 +95,5 @@ QuestRewardScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestRewardScrollFrame, 
 ApplyScrollBarArrow(QuestRewardScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestRewardScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestRewardScrollFrame.ScrollBar.Track.Thumb)
+
+ApplySearchBox(QuestScrollFrame.SearchBox)
