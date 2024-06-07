@@ -10,7 +10,7 @@ a:SetScript("OnEvent", function(self, event, name)
 		DelvesDifficultyPickerFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 		DelvesDifficultyPickerFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 		DelvesDifficultyPickerFrame.CloseButton:ClearAllPoints()
-		DelvesDifficultyPickerFrame.CloseButton:SetPoint("TOPRIGHT", 4, 4)
+		DelvesDifficultyPickerFrame.CloseButton:SetPoint("TOPRIGHT", 4, 3)
 
 		DelvesDifficultyPickerFrame:HookScript("OnShow", function(self)
 			self:ClearAllPoints()
@@ -51,5 +51,5 @@ if DelvesCompanionConfigurationFrame then
 	DelvesCompanionConfigurationFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 	DelvesCompanionConfigurationFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 	DelvesCompanionConfigurationFrame.CloseButton:ClearAllPoints()
-	DelvesCompanionConfigurationFrame.CloseButton:SetPoint("TOPRIGHT", 4, 4)
+	DelvesCompanionConfigurationFrame.CloseButton:SetPoint("TOPRIGHT", 4, 3)
 end
