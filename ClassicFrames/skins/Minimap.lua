@@ -568,19 +568,22 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 			ExpansionLandingPageMinimapButton:Hide()
 		end
 
+		ExpansionLandingPageMinimapButton.faction = UnitFactionGroup("player")
+		if ( ExpansionLandingPageMinimapButton.faction == "Horde" ) then
+			ExpansionLandingPageMinimapButton:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Up", true)
+			ExpansionLandingPageMinimapButton:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Down", true)
+		else
+			ExpansionLandingPageMinimapButton:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Up", true)
+			ExpansionLandingPageMinimapButton:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Down", true)
+		end
+		ExpansionLandingPageMinimapButton:GetHighlightTexture():SetTexture(136477, "ADD")
+
 		ExpansionLandingPageMinimapButton:ClearAllPoints()
 		ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 32, -118)
 
 		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIconForGarrison", function(self)
-			local garrisonType = C_Garrison.GetLandingPageGarrisonType()
-
-			if (garrisonType == Enum.GarrisonType.Type_9_0_Garrison) then
-				self:ClearAllPoints()
-				self:SetPoint("TOPLEFT", 32, -106)
-			else
-				self:ClearAllPoints()
-				self:SetPoint("TOPLEFT", 32, -118)
-			end
+			self:ClearAllPoints()
+			self:SetPoint("TOPLEFT", 32, -118)
 		end)
 	end
 end)
