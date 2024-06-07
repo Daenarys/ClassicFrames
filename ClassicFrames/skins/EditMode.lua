@@ -20,3 +20,5 @@ EditModeManagerFrame.Tutorial.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\
 
 ApplySearchBox(EditModeImportLayoutDialog.LayoutNameEditBox)
 ApplySearchBox(EditModeNewLayoutDialog.LayoutNameEditBox)
+
+ApplyDropDown(EditModeManagerFrame.LayoutDropdown)

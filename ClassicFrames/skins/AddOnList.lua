@@ -24,6 +24,8 @@ ApplyScrollBarArrow(AddonList.ScrollBar)
 ApplyScrollBarTrack(AddonList.ScrollBar.Track)
 ApplyScrollBarThumb(AddonList.ScrollBar.Track.Thumb)
 
+ApplyDropDown(AddonList.Dropdown)
+
 AddonList:HookScript("OnShow", function(self)
 	self:ClearAllPoints()
 	self:SetPoint("CENTER", 0, 24)

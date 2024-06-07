@@ -507,5 +507,10 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournal.raidsTab.SelectedGlow:SetVertexColor(tierData.r, tierData.g, tierData.b)
 			EncounterJournal.dungeonsTab.SelectedGlow:SetVertexColor(tierData.r, tierData.g, tierData.b)
 		end)
+
+		ApplyDropDown(EncounterJournalInstanceSelect.ExpansionDropdown)
+		ApplyDropDown(EncounterJournalEncounterFrameInfo.LootContainer.filter)
+		ApplyDropDown(EncounterJournalEncounterFrameInfo.LootContainer.slotFilter)
+		ApplyDropDown(EncounterJournalEncounterFrameInfoDifficulty)
 	end
 end)

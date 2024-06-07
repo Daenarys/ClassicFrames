@@ -206,8 +206,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(AuctionHouseFrame.WoWTokenResults.DummyScrollBar.Track.Thumb)
 
 		ApplySearchBox(AuctionHouseFrame.SearchBar.SearchBox)
-		ApplySearchBox(AuctionHouseFrame.SearchBar.FilterButton.LevelRangeFrame.MinLevel)
-		ApplySearchBox(AuctionHouseFrame.SearchBar.FilterButton.LevelRangeFrame.MaxLevel)
+
+		ApplyDropDown(AuctionHouseFrame.ItemSellFrame.Duration.Dropdown)
 
 		hooksecurefunc(AuctionHouseFrame, "Show", function()
 			if ContainerFrame1MoneyFrame then

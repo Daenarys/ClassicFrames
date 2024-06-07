@@ -58,6 +58,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ConquestFrame.TankIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 		ConquestFrame.TankIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 		ConquestFrame.TankIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
+
+		ApplyDropDown(HonorFrameTypeDropdown)
 	end
 end)
 

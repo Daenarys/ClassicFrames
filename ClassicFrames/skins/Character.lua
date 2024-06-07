@@ -107,6 +107,8 @@ ApplyScrollBarArrow(GearManagerPopupFrame.IconSelector.ScrollBar)
 ApplyScrollBarTrack(GearManagerPopupFrame.IconSelector.ScrollBar.Track)
 ApplyScrollBarThumb(GearManagerPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 
+ApplyDropDown(ReputationFrame.filterDropdown)
+
 hooksecurefunc(CharacterFrame, "UpdateSize", function(self)
 	if ReputationFrame:IsShown() then
 		self:SetWidth(338)

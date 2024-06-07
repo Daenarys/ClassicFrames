@@ -17,6 +17,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(WardrobeFrame)
 		ApplyNineSlicePortrait(WardrobeFrame)
 
+		ApplyDropDown(WardrobeTransmogFrame.OutfitDropdown)
+
 		WardrobeTransmogFrame.ModelScene.ControlFrame:HookScript("OnShow", function(self)
 			ApplyControlFrame(self)
 		end)

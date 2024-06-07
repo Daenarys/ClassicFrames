@@ -226,5 +226,10 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		ApplySearchBox(ClubFinderGuildFinderFrame.OptionsList.SearchBox)
 		ApplySearchBox(ClubFinderCommunityAndGuildFinderFrame.OptionsList.SearchBox)
 		ApplySearchBox(CommunitiesFrame.RecruitmentDialog.MinIlvlOnly.EditBox)
+
+		ApplyDropDown(ClubFinderGuildFinderFrame.OptionsList.ClubFilterDropdown)
+		ApplyDropDown(ClubFinderGuildFinderFrame.OptionsList.ClubSizeDropdown)
+		ApplyDropDown(ClubFinderCommunityAndGuildFinderFrame.OptionsList.ClubFilterDropdown)
+		ApplyDropDown(ClubFinderCommunityAndGuildFinderFrame.OptionsList.SortByDropdown)
 	end
 end)

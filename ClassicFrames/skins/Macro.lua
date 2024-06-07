@@ -71,5 +71,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarArrow(MacroPopupFrame.IconSelector.ScrollBar)
 		ApplyScrollBarTrack(MacroPopupFrame.IconSelector.ScrollBar.Track)
 		ApplyScrollBarThumb(MacroPopupFrame.IconSelector.ScrollBar.Track.Thumb)
+
+		ApplyDropDown(MacroPopupFrame.BorderBox.IconTypeDropdown)
 	end
 end)

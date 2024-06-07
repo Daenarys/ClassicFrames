@@ -342,6 +342,13 @@ ApplySearchBox(LFGListFrame.EntryCreation.PvpItemLevel.EditBox)
 ApplySearchBox(LFGListFrame.EntryCreation.PVPRating.EditBox)
 ApplySearchBox(LFGListFrame.SearchPanel.SearchBox)
 
+ApplyDropDown(LFDQueueFrameTypeDropdown)
+ApplyDropDown(RaidFinderQueueFrameSelectionDropdown)
+ApplyDropDown(ScenarioQueueFrameTypeDropdown)
+ApplyDropDown(LFGListEntryCreationGroupDropdown)
+ApplyDropDown(LFGListEntryCreationActivityDropdown)
+ApplyDropDown(LFGListEntryCreationPlayStyleDropdown)
+
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then
 		button.background:SetTexture("Interface\\LFGFrame\\UI-LFG-ICONS-ROLEBACKGROUNDS")

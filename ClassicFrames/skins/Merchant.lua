@@ -43,6 +43,8 @@ for i = 1, 2 do
 	end)
 end
 
+ApplyDropDown(MerchantFrame.FilterDropdown)
+
 hooksecurefunc("MerchantFrame_UpdateMerchantInfo", function()
 	MerchantBuyBackItemItemButton.UndoFrame:Hide()
 	MerchantSellAllJunkButton:Hide()

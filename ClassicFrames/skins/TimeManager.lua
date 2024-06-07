@@ -20,5 +20,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		StopwatchCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 
 		ApplySearchBox(TimeManagerAlarmMessageEditBox)
+
+		ApplyDropDown(TimeManagerAlarmTimeFrame.HourDropdown)
+		ApplyDropDown(TimeManagerAlarmTimeFrame.MinuteDropdown)
 	end
 end)

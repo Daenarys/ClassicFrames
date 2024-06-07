@@ -96,7 +96,6 @@ RecruitAFriendRecruitmentFrame.CloseButton:ClearAllPoints()
 RecruitAFriendRecruitmentFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
 
 ApplyDialogBorder(RecruitAFriendRecruitmentFrame.Border)
-ApplySearchBox(RecruitAFriendRecruitmentFrame.EditBox)
 
 RecruitAFriendRewardsFrame.CloseButton:SetSize(32, 32)
 RecruitAFriendRewardsFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
@@ -159,3 +158,8 @@ ApplyDialogBorder(RaidInfoFrame.Border)
 RaidFrame.RoleCount.TankIcon:SetAtlas("groupfinder-icon-role-large-tank")
 RaidFrame.RoleCount.HealerIcon:SetAtlas("groupfinder-icon-role-large-heal")
 RaidFrame.RoleCount.DamagerIcon:SetAtlas("groupfinder-icon-role-large-dps")
+
+ApplySearchBox(RecruitAFriendRecruitmentFrame.EditBox)
+
+ApplyDropDown(FriendsFrameStatusDropdown)
+ApplyDropDown(WhoFrameDropdown)

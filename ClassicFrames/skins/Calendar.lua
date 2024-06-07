@@ -78,5 +78,9 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplySearchBox(CalendarCreateEventInviteEdit)
 		ApplySearchBox(CalendarCreateEventTitleEdit)
+
+		ApplyDropDown(CalendarCreateEventFrame.EventTypeDropdown)
+		ApplyDropDown(CalendarCreateEventFrame.HourDropdown)
+		ApplyDropDown(CalendarCreateEventFrame.MinuteDropdown)
 	end
 end)

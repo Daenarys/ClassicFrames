@@ -62,6 +62,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplySearchBox(ClassTalentLoadoutCreateDialog.NameControl.EditBox)
 		ApplySearchBox(ClassTalentLoadoutImportDialog.NameControl.EditBox)
 
+		ApplyDropDown(PlayerSpellsFrame.TalentsFrame.LoadSystem.Dropdown)
+
 		ApplyCloseButton(HeroTalentsSelectionDialog.CloseButton)
 		ApplyTitleBgNoPortrait(HeroTalentsSelectionDialog)
 		ApplyNineSliceNoPortrait(HeroTalentsSelectionDialog)
