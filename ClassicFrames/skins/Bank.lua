@@ -18,13 +18,16 @@ ApplyNineSlicePortrait(BankFrame)
 BankFrameTab2:ClearAllPoints()
 BankFrameTab2:SetPoint("LEFT", BankFrameTab1, "RIGHT", -15, 0)
 
-for i = 1, 2 do
+BankFrameTab3:ClearAllPoints()
+BankFrameTab3:SetPoint("LEFT", BankFrameTab2, "RIGHT", -15, 0)
+
+for i = 1, 3 do
 	ApplyBottomTab(_G['BankFrameTab'..i])
 
 	_G["BankFrameTab"..i]:HookScript("OnShow", function(self)
 		if _G["BankFrameTab"..i] == BankFrameTab1 then
 			self:SetWidth(49 + self:GetFontString():GetStringWidth())
-		elseif _G["BankFrameTab"..i] == BankFrameTab2 then
+		else
 			self:SetWidth(40 + self:GetFontString():GetStringWidth())
 		end
 	end)
