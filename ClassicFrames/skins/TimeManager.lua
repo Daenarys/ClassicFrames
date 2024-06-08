@@ -29,5 +29,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplySearchBox(TimeManagerAlarmMessageEditBox)
 		ApplyDropDown(TimeManagerAlarmTimeFrame.HourDropdown)
 		ApplyDropDown(TimeManagerAlarmTimeFrame.MinuteDropdown)
+		ApplyDropDown(TimeManagerAlarmTimeFrame.AMPMDropdown)
 	end
 end)
