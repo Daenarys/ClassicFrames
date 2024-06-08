@@ -32,14 +32,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(PlayerSpellsFrame)
 		ApplyNineSlicePortrait(PlayerSpellsFrame)
 
-		PlayerSpellsFrame.SpellBookFrame:HookScript("OnShow", function()
-			ApplyNineSlicePortraitMinimizable(PlayerSpellsFrame)
-        end)
-
-        PlayerSpellsFrame.SpellBookFrame:HookScript("OnHide", function()
-			ApplyNineSlicePortrait(PlayerSpellsFrame)
-        end)
-
 		for i = 1, PlayerSpellsFrame.TabSystem:GetNumChildren() do
 			local tab = select(i, PlayerSpellsFrame.TabSystem:GetChildren())
 
@@ -52,6 +44,23 @@ f:SetScript("OnEvent", function(self, event, name)
 			self.tabs[2]:SetPoint("LEFT", self.tabs[1], "RIGHT", -15, 0)
 			self.tabs[3]:ClearAllPoints()
 			self.tabs[3]:SetPoint("LEFT", self.tabs[2], "RIGHT", -15, 0)
+        end)
+
+        hooksecurefunc(PlayerSpellsFrame.SpecFrame, 'UpdateSpecFrame', function(frame)
+			for specContentFrame in frame.SpecContentFramePool:EnumerateActive() do
+				local role = GetSpecializationRole(specContentFrame.specIndex, false, false)
+
+				specContentFrame.RoleIcon:SetTexCoord(GetTexCoordsForRole(role))
+				specContentFrame.RoleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+			end
+		end)
+
+    	PlayerSpellsFrame.SpellBookFrame:HookScript("OnShow", function()
+			ApplyNineSlicePortraitMinimizable(PlayerSpellsFrame)
+        end)
+
+        PlayerSpellsFrame.SpellBookFrame:HookScript("OnHide", function()
+			ApplyNineSlicePortrait(PlayerSpellsFrame)
         end)
 
 		ApplyDialogBorder(ClassTalentLoadoutCreateDialog.Border)
