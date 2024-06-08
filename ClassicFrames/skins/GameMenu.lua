@@ -3,7 +3,7 @@ if not _G.GameMenuFrame then return end
 ApplyDialogBorder(GameMenuFrame.Border)
 ApplyDialogHeader(GameMenuFrame.Header)
 
-GameMenuFrame.Header:SetWidth(139.377)
+GameMenuFrame.Header:SetWidth(139.3777)
 GameMenuFrame.Header.Text:SetFontObject("GameFontNormal")
 
 hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
