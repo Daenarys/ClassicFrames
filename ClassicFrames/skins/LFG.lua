@@ -766,9 +766,3 @@ hooksecurefunc("GroupFinderFrame_EvaluateButtonVisibility", function(self)
 		self.groupButton3:SetPoint("TOP", self.groupButton2, "BOTTOM", 0, -30)
 	end
 end)
-
-LFDQueueFrameTypeDropdownName:ClearAllPoints()
-LFDQueueFrameTypeDropdownName:SetPoint("RIGHT", LFDQueueFrameTypeDropdown, "LEFT", -14, 1)
-
-RaidFinderQueueFrameSelectionDropdownName:ClearAllPoints()
-RaidFinderQueueFrameSelectionDropdownName:SetPoint("RIGHT", RaidFinderQueueFrameSelectionDropdown, "LEFT", -14, 1)
