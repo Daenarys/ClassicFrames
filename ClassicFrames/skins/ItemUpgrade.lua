@@ -16,5 +16,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(ItemUpgradeFrame)
 		ApplyNineSlicePortrait(ItemUpgradeFrame)
+
+		ApplyDropDown(ItemUpgradeFrame.ItemInfo.Dropdown)
 	end
 end)
