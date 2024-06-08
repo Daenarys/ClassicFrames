@@ -63,6 +63,9 @@ ApplyScrollBarArrow(TokenFrame.ScrollBar)
 ApplyScrollBarTrack(TokenFrame.ScrollBar.Track)
 ApplyScrollBarThumb(TokenFrame.ScrollBar.Track.Thumb)
 
+TokenFrame.CurrencyTransferLogToggleButton:ClearAllPoints()
+TokenFrame.CurrencyTransferLogToggleButton:SetPoint("TOPRIGHT", -11, -32)
+
 select(4, TokenFramePopup:GetChildren()):SetSize(32, 32)
 select(4, TokenFramePopup:GetChildren()):SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 select(4, TokenFramePopup:GetChildren()):SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
