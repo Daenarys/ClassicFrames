@@ -35,7 +35,6 @@ DressUpFrame.SetSelectionPanel.ScrollBar:ClearAllPoints()
 DressUpFrame.SetSelectionPanel.ScrollBar:SetPoint("TOPLEFT", DressUpFrame.SetSelectionPanel.ScrollBox, "TOPRIGHT")
 DressUpFrame.SetSelectionPanel.ScrollBar:SetPoint("BOTTOMLEFT", DressUpFrame.SetSelectionPanel.ScrollBox, "BOTTOMRIGHT")
 
-DressUpFrame.SetSelectionPanel.ScrollBar.Track:SetWidth(18)
 DressUpFrame.SetSelectionPanel.ScrollBar.Track:ClearAllPoints()
 DressUpFrame.SetSelectionPanel.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
 DressUpFrame.SetSelectionPanel.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)

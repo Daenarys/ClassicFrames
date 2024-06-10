@@ -13,7 +13,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar.BG:SetAllPoints()
 		end
 
-		PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar.Track:SetWidth(18)
 		PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar.Track:ClearAllPoints()
 		PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
 		PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
@@ -33,7 +32,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar.BG:SetAllPoints()
 		end
 
-		PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar.Track:SetWidth(18)
 		PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar.Track:ClearAllPoints()
 		PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
 		PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)

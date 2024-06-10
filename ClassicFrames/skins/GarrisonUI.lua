@@ -293,7 +293,6 @@ f:SetScript("OnEvent", function(self, event, name)
 				GarrisonLandingPageReportList.ScrollBar.BG:SetAllPoints()
 			end
 
-			GarrisonLandingPageReportList.ScrollBar.Track:SetWidth(18)
 			GarrisonLandingPageReportList.ScrollBar.Track:ClearAllPoints()
 			GarrisonLandingPageReportList.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
 			GarrisonLandingPageReportList.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
@@ -317,7 +316,6 @@ f:SetScript("OnEvent", function(self, event, name)
 				GarrisonLandingPageFollowerList.ScrollBar.BG:SetAllPoints()
 			end
 
-			GarrisonLandingPageFollowerList.ScrollBar.Track:SetWidth(18)
 			GarrisonLandingPageFollowerList.ScrollBar.Track:ClearAllPoints()
 			GarrisonLandingPageFollowerList.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
 			GarrisonLandingPageFollowerList.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
@@ -346,7 +344,6 @@ f:SetScript("OnEvent", function(self, event, name)
 				GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG:SetAllPoints()
 			end
 
-			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track:SetWidth(18)
 			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track:ClearAllPoints()
 			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
 			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)

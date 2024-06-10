@@ -15,7 +15,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		TableAttributeDisplay.LinesScrollFrame.ScrollBar:SetPoint("TOPLEFT", TableAttributeDisplay.LinesScrollFrame, "TOPRIGHT", 1, 3)
 		TableAttributeDisplay.LinesScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", TableAttributeDisplay.LinesScrollFrame, "BOTTOMRIGHT", 1, -4)
 
-		TableAttributeDisplay.LinesScrollFrame.ScrollBar.Track:SetWidth(18)
 		TableAttributeDisplay.LinesScrollFrame.ScrollBar.Track:ClearAllPoints()
 		TableAttributeDisplay.LinesScrollFrame.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
 		TableAttributeDisplay.LinesScrollFrame.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)

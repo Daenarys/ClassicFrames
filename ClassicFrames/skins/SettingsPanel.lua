@@ -19,7 +19,6 @@ if (SettingsPanel.Container.SettingsList.ScrollBar.BG == nil) then
 	SettingsPanel.Container.SettingsList.ScrollBar.BG:SetAllPoints()
 end
 
-SettingsPanel.Container.SettingsList.ScrollBar.Track:SetWidth(18)
 SettingsPanel.Container.SettingsList.ScrollBar.Track:ClearAllPoints()
 SettingsPanel.Container.SettingsList.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
 SettingsPanel.Container.SettingsList.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
@@ -42,7 +41,6 @@ if (SettingsPanel.CategoryList.ScrollBar.BG == nil) then
 	SettingsPanel.CategoryList.ScrollBar.BG:SetAllPoints()
 end
 
-SettingsPanel.CategoryList.ScrollBar.Track:SetWidth(18)
 SettingsPanel.CategoryList.ScrollBar.Track:ClearAllPoints()
 SettingsPanel.CategoryList.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
 SettingsPanel.CategoryList.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)

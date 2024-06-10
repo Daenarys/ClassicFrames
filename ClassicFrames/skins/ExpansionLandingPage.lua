@@ -23,7 +23,6 @@ ExpansionLandingPage:HookScript("OnShow", function(self)
 				child.MajorFactionList.ScrollBar.BG:SetAllPoints()
 			end
 
-			child.MajorFactionList.ScrollBar.Track:SetWidth(18)
 			child.MajorFactionList.ScrollBar.Track:ClearAllPoints()
 			child.MajorFactionList.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
 			child.MajorFactionList.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
