@@ -33,6 +33,12 @@ ReputationFrame.ScrollBar:ClearAllPoints()
 ReputationFrame.ScrollBar:SetPoint("TOPLEFT", ReputationFrame.ScrollBox, "TOPRIGHT", -1, 3)
 ReputationFrame.ScrollBar:SetPoint("BOTTOMLEFT", ReputationFrame.ScrollBox, "BOTTOMRIGHT", 2, -1)
 
+if (ReputationFrame.ScrollBar.BG == nil) then
+	ReputationFrame.ScrollBar.BG = ReputationFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
+	ReputationFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+	ReputationFrame.ScrollBar.BG:SetAllPoints()
+end
+
 ApplyScrollBarArrow(ReputationFrame.ScrollBar)
 ApplyScrollBarTrack(ReputationFrame.ScrollBar.Track)
 ApplyScrollBarThumb(ReputationFrame.ScrollBar.Track.Thumb)
@@ -58,6 +64,12 @@ TokenFrame.ScrollBar:SetSize(25, 560)
 TokenFrame.ScrollBar:ClearAllPoints()
 TokenFrame.ScrollBar:SetPoint("TOPLEFT", TokenFrame.ScrollBox, "TOPRIGHT", -1, 3)
 TokenFrame.ScrollBar:SetPoint("BOTTOMLEFT", TokenFrame.ScrollBox, "BOTTOMRIGHT", 2, -1)
+
+if (TokenFrame.ScrollBar.BG == nil) then
+	TokenFrame.ScrollBar.BG = TokenFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
+	TokenFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+	TokenFrame.ScrollBar.BG:SetAllPoints()
+end
 
 ApplyScrollBarArrow(TokenFrame.ScrollBar)
 ApplyScrollBarTrack(TokenFrame.ScrollBar.Track)
