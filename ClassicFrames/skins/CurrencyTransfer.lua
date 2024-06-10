@@ -15,7 +15,7 @@ if _G.CurrencyTransferLog then
 
 	if (CurrencyTransferLog.ScrollBar.BG == nil) then
 		CurrencyTransferLog.ScrollBar.BG = CurrencyTransferLog.ScrollBar:CreateTexture(nil, "BACKGROUND")
-		CurrencyTransferLog.ScrollBar.BG:SetColorTexture(0, 0, 0, 1)
+		CurrencyTransferLog.ScrollBar.BG:SetColorTexture(0, 0, 0, .75)
 		CurrencyTransferLog.ScrollBar.BG:SetAllPoints()
 	end
 
