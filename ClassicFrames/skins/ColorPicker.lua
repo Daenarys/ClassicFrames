@@ -1,5 +1,5 @@
 if not _G.ColorPickerFrame then return end
 
 ApplyDialogBorder(ColorPickerFrame.Border)
-ApplyDialogHeader(ColorPickerFrame.Header)
+ApplyDialogHeader(ColorPickerFrame)
 ApplySearchBox(ColorPickerFrame.Content.HexBox)

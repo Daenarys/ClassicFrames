@@ -99,5 +99,3 @@ ApplyScrollBarTrack(QuestRewardScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestRewardScrollFrame.ScrollBar.Track.Thumb)
 
 QuestMapFrame.SettingsDropdown:Hide()
-
-ApplySearchBox(QuestScrollFrame.SearchBox)
