@@ -232,11 +232,11 @@ function ApplyScrollBarArrow(frame)
 	frame.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
 	frame.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
 	frame.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
+	frame.Forward:ClearAllPoints()
 	frame.Forward:SetPoint("BOTTOMLEFT", 4, 4)
 end
 
 function ApplyScrollBarTrack(frame)
-	frame:SetWidth(18)
 	frame:ClearAllPoints()
 	frame:SetPoint("TOPLEFT", 4, -22)
 	frame:SetPoint("BOTTOMRIGHT", -4, 22)
@@ -250,16 +250,19 @@ function ApplyScrollBarTrack(frame)
 	frame.End:SetPoint("BOTTOMLEFT", -4, -22)
 
 	frame.Middle:SetAtlas("!UI-ScrollBar-Center", true)
-	frame.Middle:ClearAllPoints()
-	frame.Middle:SetPoint("TOPLEFT", frame.Begin, "BOTTOMLEFT")
-	frame.Middle:SetPoint("BOTTOMRIGHT", frame.End, "TOPRIGHT")
 end
 
 function ApplyScrollBarThumb(frame)
 	frame:SetWidth(18)
+
 	frame.Begin:SetAtlas("UI-ScrollBar-Knob-EndCap-Top", true)
 	frame.End:SetAtlas("UI-ScrollBar-Knob-EndCap-Bottom", true)
 	frame.Middle:SetAtlas("UI-ScrollBar-Knob-Center", true)
+
+	frame.Middle:ClearAllPoints()
+	frame.Middle:SetPoint("TOPLEFT", 0, -5)
+	frame.Middle:SetPoint("BOTTOMRIGHT", 0, 5)
+
 	frame.upBeginTexture = "UI-ScrollBar-Knob-EndCap-Top"
 	frame.upMiddleTexture = "UI-ScrollBar-Knob-Center"
 	frame.upEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom"
@@ -269,9 +272,6 @@ function ApplyScrollBarThumb(frame)
 	frame.downBeginTexture = "UI-ScrollBar-Knob-EndCap-Top-Disabled"
 	frame.downMiddleTexture = "UI-ScrollBar-Knob-Center-Disabled"
 	frame.downEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom-Disabled"
-	frame.Middle:ClearAllPoints()
-	frame.Middle:SetPoint("TOPLEFT", 0, -5)
-	frame.Middle:SetPoint("BOTTOMRIGHT", 0, 5)
 end
 
 function ApplyBottomTab(frame)
