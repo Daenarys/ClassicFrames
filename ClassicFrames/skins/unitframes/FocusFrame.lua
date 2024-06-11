@@ -21,6 +21,3 @@ FocusFrame.textureFrame.ManaBarTextRight:SetTextColor(1, 1, 1)
 
 FocusFrame.textureFrame.ManaBarTextLeft:ClearAllPoints()
 FocusFrame.textureFrame.ManaBarTextLeft:SetPoint("LEFT", 7, -8)
-
-FocusFrameHealthBar.breakUpLargeNumbers = true
-FocusFrameManaBar.breakUpLargeNumbers = true

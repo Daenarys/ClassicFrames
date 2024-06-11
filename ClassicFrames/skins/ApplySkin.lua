@@ -6,9 +6,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			SetCVar("useUiScale", 1)
 			SetCVar("uiScale", 0.7111111111)
 		end
-		if not ( GetCVarBool("breakUpLargeNumbers") ) then
-			SetCVar("breakUpLargeNumbers", 1)
-		end
 	end
 end)
 
@@ -54,6 +51,7 @@ function ApplyDialogBorder(frame)
 	frame.LeftEdge:SetSize(32, 32)
 	frame.LeftEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalVertical", false, true)
 	frame.LeftEdge:SetTexCoord(0.0078125, 0.2578125, 0, 1)
+	frame.LeftEdge:ClearAllPoints()
 	frame.LeftEdge:SetPoint("TOPLEFT", frame.TopLeftCorner, "BOTTOMLEFT")
 	frame.LeftEdge:SetPoint("BOTTOMLEFT", frame.BottomLeftCorner, "TOPLEFT")
 
@@ -83,7 +81,6 @@ function ApplyScrollBarArrow(frame)
 end
 
 function ApplyScrollBarTrack(frame)
-	frame:SetWidth(18)
 	frame:ClearAllPoints()
 	frame:SetPoint("TOPLEFT", 4, -22)
 	frame:SetPoint("BOTTOMRIGHT", -4, 22)
@@ -97,16 +94,19 @@ function ApplyScrollBarTrack(frame)
 	frame.End:SetPoint("BOTTOMLEFT", -4, -22)
 
 	frame.Middle:SetAtlas("!UI-ScrollBar-Center", true)
-	frame.Middle:ClearAllPoints()
-	frame.Middle:SetPoint("TOPLEFT", frame.Begin, "BOTTOMLEFT")
-	frame.Middle:SetPoint("BOTTOMRIGHT", frame.End, "TOPRIGHT")
 end
 
 function ApplyScrollBarThumb(frame)
 	frame:SetWidth(18)
+
 	frame.Begin:SetAtlas("UI-ScrollBar-Knob-EndCap-Top", true)
 	frame.End:SetAtlas("UI-ScrollBar-Knob-EndCap-Bottom", true)
 	frame.Middle:SetAtlas("UI-ScrollBar-Knob-Center", true)
+
+	frame.Middle:ClearAllPoints()
+	frame.Middle:SetPoint("TOPLEFT", 0, -5)
+	frame.Middle:SetPoint("BOTTOMRIGHT", 0, 5)
+
 	frame.upBeginTexture = "UI-ScrollBar-Knob-EndCap-Top"
 	frame.upMiddleTexture = "UI-ScrollBar-Knob-Center"
 	frame.upEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom"
@@ -116,9 +116,6 @@ function ApplyScrollBarThumb(frame)
 	frame.downBeginTexture = "UI-ScrollBar-Knob-EndCap-Top-Disabled"
 	frame.downMiddleTexture = "UI-ScrollBar-Knob-Center-Disabled"
 	frame.downEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom-Disabled"
-	frame.Middle:ClearAllPoints()
-	frame.Middle:SetPoint("TOPLEFT", 0, -5)
-	frame.Middle:SetPoint("BOTTOMRIGHT", 0, 5)
 end
 
 function ApplyControlFrame(frame)

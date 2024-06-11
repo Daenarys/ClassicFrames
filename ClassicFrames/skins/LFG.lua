@@ -271,8 +271,9 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 	LFGDungeonReadyDialogRoleIconLeaderIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
 	LFGDungeonReadyDialogRoleIconLeaderIcon:SetTexCoord(0, 0.296875, 0.015625, 0.3125)
 
-	LFGDungeonReadyDialog:CreateTexture("LFGDungeonReadyDialogfiligree", "OVERLAY")
-	LFGDungeonReadyDialog.filigree = LFGDungeonReadyDialogfiligree
+	if (LFGDungeonReadyDialog.filigree == nil) then
+		LFGDungeonReadyDialog.filigree = LFGDungeonReadyDialog:CreateTexture(nil, "OVERLAY")
+	end
 
 	local showRole = true -- scenarios will set this to false
 	if ( subtypeID == LFG_SUBTYPEID_RAID ) then
@@ -301,6 +302,12 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		LFGDungeonReadyDialog:SetBackdrop(DUNGEON_BACKDROP_TABLE)
 	end
 
+	if ( subtypeID == LFG_SUBTYPEID_SCENARIO or subtypeID == LFG_SUBTYPEID_FLEXRAID ) then
+		LFGDungeonReadyDialogRewardsFrame:SetPoint("BOTTOM", LFGDungeonReadyDialogRoleIcon, "BOTTOM", 0, 15)
+	else
+		LFGDungeonReadyDialogRewardsFrame:SetPoint("BOTTOMLEFT", LFGDungeonReadyDialogRoleIcon, "BOTTOMRIGHT", 19, 15)
+	end
+
 	if _G.LFGDungeonReadyDialogRoleIcon:IsShown() then
 		local _, _, _, _, _, _, role = GetLFGProposal()
 		if role == 'DAMAGER' then
@@ -313,9 +320,7 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 	end
 
 	if LFGDungeonReadyDialog.Center then
-		LFGDungeonReadyDialog.Center:ClearAllPoints()
-		LFGDungeonReadyDialog.Center:SetPoint("TOPLEFT", LFGDungeonReadyDialog.TopLeftCorner, "BOTTOMRIGHT", -21, -96)
-		LFGDungeonReadyDialog.Center:SetPoint("BOTTOMRIGHT", LFGDungeonReadyDialog.BottomRightCorner, "TOPLEFT", 20, -21)
+		LFGDungeonReadyDialog.Center:SetDrawLayer("BACKGROUND", -8)
 	end
 end)
 

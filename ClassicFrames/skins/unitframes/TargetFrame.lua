@@ -21,6 +21,3 @@ TargetFrame.textureFrame.ManaBarTextRight:SetTextColor(1, 1, 1)
 
 TargetFrame.textureFrame.ManaBarTextLeft:ClearAllPoints()
 TargetFrame.textureFrame.ManaBarTextLeft:SetPoint("LEFT", 7, -8)
-
-TargetFrameHealthBar.breakUpLargeNumbers = true
-TargetFrameManaBar.breakUpLargeNumbers = true

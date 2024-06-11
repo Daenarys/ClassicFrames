@@ -22,7 +22,4 @@ for i = 1, MAX_BOSS_FRAMES do
 
 	_G["Boss"..i.."TargetFrame"].textureFrame.ManaBarTextLeft:ClearAllPoints()
 	_G["Boss"..i.."TargetFrame"].textureFrame.ManaBarTextLeft:SetPoint("LEFT", 7, -8)
-
-	_G["Boss"..i.."TargetFrameHealthBar"].breakUpLargeNumbers = true
-	_G["Boss"..i.."TargetFrameManaBar"].breakUpLargeNumbers = true
 end

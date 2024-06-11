@@ -1,12 +1,20 @@
 if not _G.PetFrame then return end
 
-if PetFrameHealthBarText then
-	PetFrameHealthBarText:SetAlpha(0)
-end
+PetFrameHealthBarText:SetFontObject(SystemFont_Outline_Small)
+PetFrameHealthBarTextLeft:SetFontObject(SystemFont_Outline_Small)
+PetFrameHealthBarTextRight:SetFontObject(SystemFont_Outline_Small)
 
-if PetFrameManaBarText then
-	PetFrameManaBarText:SetAlpha(0)
-end
+PetFrameHealthBarText:SetTextColor(1, 1, 1)
+PetFrameHealthBarTextLeft:SetTextColor(1, 1, 1)
+PetFrameHealthBarTextRight:SetTextColor(1, 1, 1)
+
+PetFrameManaBarText:SetFontObject(SystemFont_Outline_Small)
+PetFrameManaBarTextLeft:SetFontObject(SystemFont_Outline_Small)
+PetFrameManaBarTextRight:SetFontObject(SystemFont_Outline_Small)
+
+PetFrameManaBarText:SetTextColor(1, 1, 1)
+PetFrameManaBarTextLeft:SetTextColor(1, 1, 1)
+PetFrameManaBarTextRight:SetTextColor(1, 1, 1)
 
 local _, class = UnitClass("player")
 if ( class == "DEATHKNIGHT" or class == "ROGUE") then
