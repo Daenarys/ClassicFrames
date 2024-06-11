@@ -13,30 +13,28 @@ local trackers = {
 }
 
 hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
+	self:SetWidth(235)
 	self.Header:Hide()
 
 	for _, tracker in pairs(trackers) do
-		local background = tracker.Header.Background
-		if background then
-			background:SetSize(300, 32)
-			background:SetAtlas("UI-QuestTracker-Primary-Objective-Header")
-			background:ClearAllPoints()
-			background:SetPoint("CENTER", 0, 1)
-		end
-
-		local button = tracker.Header.MinimizeButton
-		if button then
-			button:ClearAllPoints()
-			button:SetPoint("RIGHT", -6, 1)
-			button:SetHighlightAtlas("UI-QuestTrackerButton-Highlight", "ADD")
-
-			if tracker:IsCollapsed() then
-				button:SetNormalAtlas("UI-QuestTrackerButton-Expand-All")
-				button:SetPushedAtlas("UI-QuestTrackerButton-Expand-All-Pressed")
-			else
-				button:SetNormalAtlas("UI-QuestTrackerButton-Collapse-All")
-				button:SetPushedAtlas("UI-QuestTrackerButton-Collapse-All-Pressed")
-			end
+		tracker:SetWidth(235)
+		tracker.Header:SetSize(235, 25)
+		tracker.Header.Background:SetAtlas("Objective-Header", true)
+		tracker.Header.Background:ClearAllPoints()
+		tracker.Header.Background:SetPoint("TOPLEFT", -29, 14)
+		tracker.ContentsFrame:SetPoint("LEFT", -10, 0)
+		tracker.Header.Text:ClearAllPoints()
+		tracker.Header.Text:SetPoint("LEFT", 4, -1)
+		tracker.Header.MinimizeButton:SetSize(15, 14)
+		tracker.Header.MinimizeButton:ClearAllPoints()
+		tracker.Header.MinimizeButton:SetPoint("RIGHT", 0, -1)
+		tracker.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Highlight", "ADD")
+		if tracker:IsCollapsed() then
+			tracker.Header.MinimizeButton:SetNormalAtlas("UI-QuestTrackerButton-Expand-All")
+			tracker.Header.MinimizeButton:SetPushedAtlas("UI-QuestTrackerButton-Expand-All-Pressed")
+		else
+			tracker.Header.MinimizeButton:SetNormalAtlas("UI-QuestTrackerButton-Collapse-All")
+			tracker.Header.MinimizeButton:SetPushedAtlas("UI-QuestTrackerButton-Collapse-All-Pressed")
 		end
 	end
 end)
