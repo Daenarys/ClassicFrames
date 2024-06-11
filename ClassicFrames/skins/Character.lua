@@ -9,8 +9,8 @@ CharacterFramePortrait:ClearAllPoints()
 CharacterFramePortrait:SetPoint("TOPLEFT", -6, 8)
 
 CharacterFrame.TitleContainer:ClearAllPoints()
-CharacterFrame.TitleContainer:SetPoint("TOPLEFT", CharacterFrame, "TOPLEFT", 58, 1)
-CharacterFrame.TitleContainer:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -58, 1)
+CharacterFrame.TitleContainer:SetPoint("TOPLEFT", CharacterFrame, "TOPLEFT", 58, 0)
+CharacterFrame.TitleContainer:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -58, 0)
 
 ApplyTitleBg(CharacterFrame)
 ApplyNineSlicePortrait(CharacterFrame)
@@ -143,7 +143,7 @@ end)
 
 hooksecurefunc("PaperDollFrame_UpdateStats", function()
 	local level = UnitLevel("player")
-	local MIN_PLAYER_LEVEL_FOR_ITEM_LEVEL_DISPLAY = 70
+	local MIN_PLAYER_LEVEL_FOR_ITEM_LEVEL_DISPLAY = 60
 
 	if ( level >= MIN_PLAYER_LEVEL_FOR_ITEM_LEVEL_DISPLAY ) then
 		CharacterStatsPane.ItemLevelCategory:Show()

@@ -35,21 +35,6 @@ local function SkinCastbar(self)
 
 		hooksecurefunc(self, 'PlayFinishAnim', function()
 			self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-			--[[if (self.NewFlash == nil) then
-				self.NewFlash = self.Flash:GetParent():CreateTexture(nil, "OVERLAY")
-				self.NewFlash:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-BarFill")
-				self.NewFlash:SetAllPoints()
-				self.NewFlash:SetBlendMode("ADD")
-				self.NewFlash:SetAlpha(0)
-				self.NewFlashAnim = self.NewFlash:CreateAnimationGroup()
-				self.NewFlashAnim:SetToFinalAlpha(true)
-				local anim = self.NewFlashAnim:CreateAnimation("Alpha") 
-				anim:SetDuration(0.2)
-				anim:SetFromAlpha(1)
-				anim:SetToAlpha(0)
-			end
-			self.NewFlashAnim:Play()
-			self.NewFlash:SetVertexColor(self:GetStatusBarColor())]]--
 		end)
 
 		hooksecurefunc(self, 'GetTypeInfo', function(barType)

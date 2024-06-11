@@ -26,7 +26,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		end
 		
 		ApplyDialogBorder(CalendarViewHolidayFrame.Border)
-		ApplyDialogHeader(CalendarViewHolidayFrame)
+		ApplyDialogHeader(CalendarViewHolidayFrame.Header)
 
 		CalendarViewRaidCloseButton:SetSize(32, 32)
 		CalendarViewRaidCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
@@ -44,7 +44,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		end
 
 		ApplyDialogBorder(CalendarViewRaidFrame.Border)
-		ApplyDialogHeader(CalendarViewRaidFrame)
+		ApplyDialogHeader(CalendarViewRaidFrame.Header)
 
 		CalendarEventPickerFrame.ScrollBar:SetSize(25, 560)
 		CalendarEventPickerFrame.ScrollBar:ClearAllPoints()
@@ -56,7 +56,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(CalendarEventPickerFrame.ScrollBar.Track.Thumb)
 
 		ApplyDialogBorder(CalendarEventPickerFrame.Border)
-		ApplyDialogHeader(CalendarEventPickerFrame)
+		ApplyDialogHeader(CalendarEventPickerFrame.Header)
 
 		CalendarCreateEventCloseButton:SetSize(32, 32)
 		CalendarCreateEventCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
@@ -74,7 +74,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		end
 
 		ApplyDialogBorder(CalendarCreateEventFrame.Border)
-		ApplyDialogHeader(CalendarCreateEventFrame)
+		ApplyDialogHeader(CalendarCreateEventFrame.Header)
 
 		ApplySearchBox(CalendarCreateEventInviteEdit)
 		ApplySearchBox(CalendarCreateEventTitleEdit)

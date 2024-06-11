@@ -25,9 +25,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyBottomTab(AuctionHouseFrameBuyTab)
 		ApplyBottomTab(AuctionHouseFrameSellTab)
 		ApplyBottomTab(AuctionHouseFrameAuctionsTab)
-		AuctionHouseFrameBuyTab:SetFrameLevel(500)
-		AuctionHouseFrameSellTab:SetFrameLevel(500)
-		AuctionHouseFrameAuctionsTab:SetFrameLevel(500)
 
 		AuctionHouseFrame:HookScript("OnShow", function()
 			AuctionHouseFrameBuyTab:SetWidth(89 + AuctionHouseFrameBuyTab:GetFontString():GetStringWidth())
@@ -191,6 +188,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBgNoPortrait(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial)
 		ApplyNineSliceNoPortrait(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial)
 
+		AuctionHouseFrame.WoWTokenResults.GameTimeTutorial.CloseButton:SetFrameLevel(4)
+
 		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetSize(25, 560)
 		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:ClearAllPoints()
 		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetPoint("TOPLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "TOPRIGHT", 2, 3)
@@ -207,6 +206,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(AuctionHouseFrame.WoWTokenResults.DummyScrollBar.Track.Thumb)
 
 		ApplySearchBox(AuctionHouseFrame.SearchBar.SearchBox)
+
 		ApplyDropDown(AuctionHouseFrame.ItemSellFrame.Duration.Dropdown)
 		ApplyFilterDropDown(AuctionHouseFrame.SearchBar.FilterButton)
 

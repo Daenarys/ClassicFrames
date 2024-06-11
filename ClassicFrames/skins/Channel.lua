@@ -26,7 +26,7 @@ ApplyScrollBarThumb(ChannelFrame.ChannelRoster.ScrollBar.Track.Thumb)
 
 CreateChannelPopup.CloseButton:Hide()
 ApplyDialogBorder(CreateChannelPopup.BG)
-ApplyDialogHeader(CreateChannelPopup)
+ApplyDialogHeader(CreateChannelPopup.Header)
 
 ApplySearchBox(CreateChannelPopup.Name)
 ApplySearchBox(CreateChannelPopup.Password)
