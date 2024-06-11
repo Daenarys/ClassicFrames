@@ -100,4 +100,16 @@ ApplyScrollBarThumb(QuestRewardScrollFrame.ScrollBar.Track.Thumb)
 
 QuestMapFrame.SettingsDropdown:Hide()
 
+QuestScrollFrame.BorderFrame:ClearAllPoints()
+QuestScrollFrame.BorderFrame:SetPoint("TOPLEFT", -3, 4)
+QuestScrollFrame.BorderFrame:SetPoint("BOTTOMRIGHT", 1, -6)
+
+QuestMapFrame.CampaignOverview.BorderFrame:ClearAllPoints()
+QuestMapFrame.CampaignOverview.BorderFrame:SetPoint("TOPLEFT", -3, 4)
+QuestMapFrame.CampaignOverview.BorderFrame:SetPoint("BOTTOMRIGHT", 1, -6)
+
+QuestMapFrame.DetailsFrame.BorderFrame:ClearAllPoints()
+QuestMapFrame.DetailsFrame.BorderFrame:SetPoint("TOPLEFT", -3, 4)
+QuestMapFrame.DetailsFrame.BorderFrame:SetPoint("BOTTOMRIGHT", 1, 17)
+
 ApplySearchBox(QuestScrollFrame.SearchBox)
