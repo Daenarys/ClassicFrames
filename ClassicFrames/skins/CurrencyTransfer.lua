@@ -11,7 +11,7 @@ if _G.CurrencyTransferLog then
 	CurrencyTransferLog.ScrollBar:SetSize(25, 560)
 	CurrencyTransferLog.ScrollBar:ClearAllPoints()
 	CurrencyTransferLog.ScrollBar:SetPoint("TOPLEFT", CurrencyTransferLog.ScrollBox, "TOPRIGHT", -2, 2)
-	CurrencyTransferLog.ScrollBar:SetPoint("BOTTOMLEFT", CurrencyTransferLog.ScrollBox, "BOTTOMRIGHT", -2, 0)
+	CurrencyTransferLog.ScrollBar:SetPoint("BOTTOMLEFT", CurrencyTransferLog.ScrollBox, "BOTTOMRIGHT", -2, -1)
 
 	if (CurrencyTransferLog.ScrollBar.BG == nil) then
 		CurrencyTransferLog.ScrollBar.BG = CurrencyTransferLog.ScrollBar:CreateTexture(nil, "BACKGROUND")

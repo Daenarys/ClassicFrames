@@ -143,7 +143,7 @@ end)
 
 hooksecurefunc("PaperDollFrame_UpdateStats", function()
 	local level = UnitLevel("player")
-	local MIN_PLAYER_LEVEL_FOR_ITEM_LEVEL_DISPLAY = 60
+	local MIN_PLAYER_LEVEL_FOR_ITEM_LEVEL_DISPLAY = 70
 
 	if ( level >= MIN_PLAYER_LEVEL_FOR_ITEM_LEVEL_DISPLAY ) then
 		CharacterStatsPane.ItemLevelCategory:Show()
