@@ -211,9 +211,10 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 
 		ApplyDialogBorder(self.GuildMemberDetailFrame.Border)
 		ApplyDialogBorder(self.RecruitmentDialog.BG)
+		ApplyDialogBorder(self.ClubFinderInvitationFrame.RequestToJoinFrame.BG)
+		ApplyDialogBorder(self.ClubFinderInvitationFrame.WarningDialog.BG)
 		ApplyDialogBorder(ClubFinderGuildFinderFrame.RequestToJoinFrame.BG)
 		ApplyDialogBorder(ClubFinderCommunityAndGuildFinderFrame.RequestToJoinFrame.BG)
-		ApplyDialogBorder(self.ClubFinderInvitationFrame.WarningDialog.BG)
 
 		CommunitiesGuildNewsFiltersFrame.CloseButton:SetSize(32, 32)
 		CommunitiesGuildNewsFiltersFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
