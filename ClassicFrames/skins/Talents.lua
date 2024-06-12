@@ -16,7 +16,8 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		PlayerSpellsFrame.MaximizeMinimizeButton:SetSize(32, 32)
 		PlayerSpellsFrame.MaximizeMinimizeButton:ClearAllPoints()
-		PlayerSpellsFrame.MaximizeMinimizeButton:SetPoint("RIGHT", PlayerSpellsFrameCloseButton, "LEFT", 10, 0)
+		PlayerSpellsFrame.MaximizeMinimizeButton:SetPoint("RIGHT", PlayerSpellsFrameCloseButton, "LEFT", 8.5, 0)
+		PlayerSpellsFrame.MaximizeMinimizeButton:SetFrameLevel(2)
 
 		PlayerSpellsFrame.MaximizeMinimizeButton.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
 		PlayerSpellsFrame.MaximizeMinimizeButton.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
@@ -27,13 +28,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		PlayerSpellsFrame.MaximizeMinimizeButton.MinimizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Down")
 		PlayerSpellsFrame.MaximizeMinimizeButton.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
 		PlayerSpellsFrame.MaximizeMinimizeButton.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-
-		if (PlayerSpellsFrame.ButtonFrameEdge == nil) then
-			PlayerSpellsFrame.ButtonFrameEdge = PlayerSpellsFrame.MaximizeMinimizeButton:CreateTexture(nil, "OVERLAY")
-			PlayerSpellsFrame.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
-			PlayerSpellsFrame.ButtonFrameEdge:ClearAllPoints()
-			PlayerSpellsFrame.ButtonFrameEdge:SetPoint("CENTER", PlayerSpellsFrame.MaximizeMinimizeButton, "LEFT", 6, 0)
-		end
 
 		ApplyTitleBg(PlayerSpellsFrame)
 		ApplyNineSlicePortrait(PlayerSpellsFrame)

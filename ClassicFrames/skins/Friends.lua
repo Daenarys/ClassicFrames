@@ -153,13 +153,12 @@ if (RaidInfoDetailCorner == nil) then
 end
 
 ApplyDialogBorder(RaidInfoFrame.Border)
-ApplyDialogHeader(RaidInfoFrame)
+ApplyDialogHeader(RaidInfoFrame.Header)
 
 RaidFrame.RoleCount.TankIcon:SetAtlas("groupfinder-icon-role-large-tank")
 RaidFrame.RoleCount.HealerIcon:SetAtlas("groupfinder-icon-role-large-heal")
 RaidFrame.RoleCount.DamagerIcon:SetAtlas("groupfinder-icon-role-large-dps")
 
 ApplySearchBox(RecruitAFriendRecruitmentFrame.EditBox)
-
 ApplyDropDown(FriendsFrameStatusDropdown)
 ApplyDropDown(WhoFrameDropdown)
