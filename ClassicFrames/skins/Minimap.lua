@@ -544,6 +544,23 @@ MiniMapWorldMapButton:SetScript("OnEvent", function(self)
 	self.newbieText = NEWBIE_TOOLTIP_WORLDMAP
 end)
 
+local function GetMinimapAtlases_GarrisonType8_0(faction)
+	if faction == "Horde" then
+		return "bfa-landingbutton-horde-up", "bfa-landingbutton-horde-down", "bfa-landingbutton-horde-diamondhighlight", "bfa-landingbutton-horde-diamondglow";
+	else
+		return "bfa-landingbutton-alliance-up", "bfa-landingbutton-alliance-down", "bfa-landingbutton-alliance-shieldhighlight", "bfa-landingbutton-alliance-shieldglow";
+	end
+end
+
+local function SetLandingPageIconFromAtlases(self, up, down, highlight, glow)
+	local info = C_Texture.GetAtlasInfo(up)
+	self:SetSize(info and info.width or 0, info and info.height or 0)
+	self:GetNormalTexture():SetAtlas(up, true)
+	self:GetPushedTexture():SetAtlas(down, true)
+	self:GetHighlightTexture():SetAtlas(highlight, true)
+	self.LoopingGlow:SetAtlas(glow, true)
+end
+
 Minimap:HookScript("OnEvent", function(self, event, ...)
 	if ( event == "PLAYER_ENTERING_WORLD" ) then
 		TimeManagerClockButton:SetParent(self)
@@ -568,10 +585,15 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 			ExpansionLandingPageMinimapButton:Hide()
 		end
 
+		ExpansionLandingPageMinimapButton.faction = UnitFactionGroup("player")
+		SetLandingPageIconFromAtlases(ExpansionLandingPageMinimapButton, GetMinimapAtlases_GarrisonType8_0(ExpansionLandingPageMinimapButton.faction))
+
 		ExpansionLandingPageMinimapButton:ClearAllPoints()
 		ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 32, -118)
 
 		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIcon", function(self)
+			self.faction = UnitFactionGroup("player")
+			SetLandingPageIconFromAtlases(self, GetMinimapAtlases_GarrisonType8_0(self.faction))
 			self:ClearAllPoints()
 			self:SetPoint("TOPLEFT", 32, -118)
 		end)
