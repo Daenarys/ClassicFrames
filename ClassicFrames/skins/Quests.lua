@@ -132,12 +132,14 @@ hooksecurefunc('QuestLogQuests_Update', function(self)
 	end
 	for _, child in next, { _G.QuestMapFrame.QuestsFrame.Contents:GetChildren() } do
 		if child.ButtonText and not child.questID then
-			hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
-				self.Icon:SetAlpha(0)
-				self:SetNormalAtlas(collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open")
-				self:SetPushedAtlas(collapsed and "Campaign_HeaderIcon_ClosedPressed" or "Campaign_HeaderIcon_OpenPressed")
-				self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
-			end)
+			if child.CollapseButton then
+				hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
+					self.Icon:SetAlpha(0)
+					self:SetNormalAtlas(collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open")
+					self:SetPushedAtlas(collapsed and "Campaign_HeaderIcon_ClosedPressed" or "Campaign_HeaderIcon_OpenPressed")
+					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
+				end)
+			end
 		end
 	end
 end)
