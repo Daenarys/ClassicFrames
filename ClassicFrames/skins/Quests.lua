@@ -119,7 +119,7 @@ hooksecurefunc('QuestLogQuests_Update', function(self)
 			child.CollapseButton:ClearAllPoints()
 			child.CollapseButton:SetPoint("LEFT", child.Background, "LEFT", 10, 6)
 			hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
-				self.Icon:Hide()
+				self.Icon:SetAlpha(0)
 				self:SetNormalAtlas(collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open")
 				self:SetPushedAtlas(collapsed and "Campaign_HeaderIcon_ClosedPressed" or "Campaign_HeaderIcon_OpenPressed")
 				self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
@@ -132,26 +132,12 @@ hooksecurefunc('QuestLogQuests_Update', function(self)
 	end
 	for _, child in next, { _G.QuestMapFrame.QuestsFrame.Contents:GetChildren() } do
 		if child.ButtonText and not child.questID then
-			child.ButtonText:ClearAllPoints()
-			child.ButtonText:SetPoint("LEFT", 25, 0)
-			if child.CollapseButton then
-				child.CollapseButton:ClearAllPoints()
-				child.CollapseButton:SetPoint("LEFT")
-				hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
-					self.Icon:Hide()
-					self:SetNormalAtlas(collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open")
-					self:SetPushedAtlas(collapsed and "Campaign_HeaderIcon_ClosedPressed" or "Campaign_HeaderIcon_OpenPressed")
-					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
-				end)
-			end
-			for _, tex in next, { child:GetRegions() } do
-				if tex.GetAtlas then
-					local atlas = tex:GetAtlas()
-					if atlas == 'QuestLog-tab' then
-						tex:Hide()
-					end
-				end
-			end
+			hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
+				self.Icon:SetAlpha(0)
+				self:SetNormalAtlas(collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open")
+				self:SetPushedAtlas(collapsed and "Campaign_HeaderIcon_ClosedPressed" or "Campaign_HeaderIcon_OpenPressed")
+				self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
+			end)
 		end
 	end
 end)
