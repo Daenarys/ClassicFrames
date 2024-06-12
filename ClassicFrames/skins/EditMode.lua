@@ -2,7 +2,6 @@ if not _G.EditModeManagerFrame then return end
 
 ApplyCloseButton(EditModeManagerFrame.CloseButton)
 ApplyCloseButton(EditModeSystemSettingsDialog.CloseButton)
-EditModeSystemSettingsDialog.CloseButton:SetFrameLevel(510)
 
 EditModeManagerFrame.CloseButton:ClearAllPoints()
 EditModeManagerFrame.CloseButton:SetPoint("TOPRIGHT", -5 , -6)
@@ -20,5 +19,4 @@ EditModeManagerFrame.Tutorial.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\
 
 ApplySearchBox(EditModeImportLayoutDialog.LayoutNameEditBox)
 ApplySearchBox(EditModeNewLayoutDialog.LayoutNameEditBox)
-
 ApplyDropDown(EditModeManagerFrame.LayoutDropdown)

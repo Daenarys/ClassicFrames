@@ -6,8 +6,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ProfessionsFrame.MaximizeMinimize:SetSize(32, 32)
 		ProfessionsFrame.MaximizeMinimize:ClearAllPoints()
-		ProfessionsFrame.MaximizeMinimize:SetPoint("RIGHT", ProfessionsFrame.CloseButton, "LEFT", 8.5, 0)
-		ProfessionsFrame.MaximizeMinimize:SetFrameLevel(2)
+		ProfessionsFrame.MaximizeMinimize:SetPoint("RIGHT", ProfessionsFrame.CloseButton, "LEFT", 10, 0)
 
 		ProfessionsFrame.MaximizeMinimize.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
 		ProfessionsFrame.MaximizeMinimize.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
@@ -18,6 +17,13 @@ f:SetScript("OnEvent", function(self, event, name)
 		ProfessionsFrame.MaximizeMinimize.MinimizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Down")
 		ProfessionsFrame.MaximizeMinimize.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
 		ProfessionsFrame.MaximizeMinimize.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+
+		if (ProfessionsFrame.ButtonFrameEdge == nil) then
+			ProfessionsFrame.ButtonFrameEdge = ProfessionsFrame.MaximizeMinimize:CreateTexture(nil, "OVERLAY")
+			ProfessionsFrame.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
+			ProfessionsFrame.ButtonFrameEdge:ClearAllPoints()
+			ProfessionsFrame.ButtonFrameEdge:SetPoint("CENTER", ProfessionsFrame.MaximizeMinimize, "LEFT", 6, 0)
+		end
 
 		ProfessionsFrame.PortraitContainer.CircleMask:Hide()
 
@@ -32,7 +38,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ProfessionsFrame.CraftingPage.TutorialButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 
 		ApplyTitleBg(ProfessionsFrame)
-		ApplyNineSlicePortraitMinimizable(ProfessionsFrame)
+		ApplyNineSlicePortrait(ProfessionsFrame)
 
 		for i = 1, _G.ProfessionsFrame.TabSystem:GetNumChildren() do
 			local tab = select(i, ProfessionsFrame.TabSystem:GetChildren())
@@ -100,14 +106,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarArrow(ProfessionsFrame.OrdersPage.BrowseFrame.OrderList.ScrollBar)
 		ApplyScrollBarTrack(ProfessionsFrame.OrdersPage.BrowseFrame.OrderList.ScrollBar.Track)
 		ApplyScrollBarThumb(ProfessionsFrame.OrdersPage.BrowseFrame.OrderList.ScrollBar.Track.Thumb)
-
-		ProfessionsFrame.OrdersPage:HookScript("OnShow", function()
-			ApplyNineSlicePortrait(ProfessionsFrame)
-		end)
-
-		ProfessionsFrame.OrdersPage:HookScript("OnHide", function()
-			ApplyNineSlicePortraitMinimizable(ProfessionsFrame)
-		end)
 
 		ApplyCloseButton(ProfessionsFrame.CraftingPage.CraftingOutputLog.ClosePanelButton)
 		ApplyTitleBgNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog)

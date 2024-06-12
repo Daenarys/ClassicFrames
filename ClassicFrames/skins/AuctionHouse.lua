@@ -188,8 +188,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBgNoPortrait(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial)
 		ApplyNineSliceNoPortrait(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial)
 
-		AuctionHouseFrame.WoWTokenResults.GameTimeTutorial.CloseButton:SetFrameLevel(4)
-
 		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetSize(25, 560)
 		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:ClearAllPoints()
 		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetPoint("TOPLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "TOPRIGHT", 2, 3)
@@ -206,7 +204,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(AuctionHouseFrame.WoWTokenResults.DummyScrollBar.Track.Thumb)
 
 		ApplySearchBox(AuctionHouseFrame.SearchBar.SearchBox)
-
 		ApplyDropDown(AuctionHouseFrame.ItemSellFrame.Duration.Dropdown)
 		ApplyFilterDropDown(AuctionHouseFrame.SearchBar.FilterButton)
 

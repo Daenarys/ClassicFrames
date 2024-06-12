@@ -5,7 +5,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyCloseButton(BattlefieldMapFrame.BorderFrame.CloseButton)
 		BattlefieldMapFrame.BorderFrame.CloseButton:ClearAllPoints()
 		BattlefieldMapFrame.BorderFrame.CloseButton:SetPoint("TOPRIGHT", 5, 9)
-		BattlefieldMapFrame.BorderFrame.CloseButton:SetFrameLevel(3)
 
 		if (BattlefieldMapFrame.BorderFrame.CloseButtonBorder == nil) then
 			BattlefieldMapFrame.BorderFrame.CloseButtonBorder = BattlefieldMapFrame.BorderFrame:CreateTexture(nil, "BORDER")
