@@ -39,7 +39,6 @@ skins\Delves.lua
 skins\Deprecated.lua
 skins\DragonTalents.lua
 skins\DressingRoom.lua
-skins\EditMode.lua
 skins\EncounterJournal.lua
 skins\ExpansionLandingPage.lua
 skins\FlightMap.lua
