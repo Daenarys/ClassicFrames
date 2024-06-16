@@ -119,9 +119,6 @@ for i = 1, NUM_CHAT_WINDOWS do
     ChatFrameButtonFrameDownButton:SetPoint("BOTTOM", ChatFrameButtonFrameBottomButton, "TOP", 0, -2)
     ChatFrameButtonFrameBottomButton:ClearAllPoints()
     ChatFrameButtonFrameBottomButton:SetPoint("BOTTOM", _G["ChatFrame"..i.."ButtonFrame"], "BOTTOM", 0, -7)
-
-    _G['ChatFrame'..i..'Tab'].Text:ClearAllPoints()
-    _G['ChatFrame'..i..'Tab'].Text:SetPoint("CENTER", 0, -5)
 end
 
 hooksecurefunc("FCFDock_UpdateTabs", function(dock)
@@ -150,6 +147,11 @@ hooksecurefunc("FCFDock_UpdateTabs", function(dock)
     end
 end)
 
+QuickJoinToastButton:HookScript("OnUpdate", function(self)
+    self:ClearAllPoints()
+    self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT", 0, -23)
+end)
+
 ChatConfigCombatSettingsFilters.ScrollBar:SetSize(25, 560)
 ChatConfigCombatSettingsFilters.ScrollBar:ClearAllPoints()
 ChatConfigCombatSettingsFilters.ScrollBar:SetPoint("TOPLEFT", ChatConfigCombatSettingsFilters.ScrollBox, "TOPRIGHT", -1, 0)
@@ -165,9 +167,4 @@ ApplyDialogHeader(ChatConfigFrame.Header)
 ChatConfigFrame:HookScript("OnShow", function(self)
     self:ClearAllPoints()
     self:SetPoint("CENTER")
-end)
-
-QuickJoinToastButton:HookScript("OnUpdate", function(self)
-    self:ClearAllPoints()
-    self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT", 0, -23)
 end)
