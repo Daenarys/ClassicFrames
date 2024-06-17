@@ -34,22 +34,9 @@ local function SkinCastbar(self)
 		end)
 
 		hooksecurefunc(self, 'PlayFinishAnim', function()
-			if self:IsForbidden() then return end
 			self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 			self.Flash:SetVertexColor(self:GetStatusBarColor())
-			self.Flash:ClearAllPoints()
-			self.Flash:SetAllPoints()
-			self.Flash:SetBlendMode("ADD")
 			self.Flash:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
-			if not self.FlashAnim then
-				self.FlashAnim = self.Flash:CreateAnimationGroup()
-				self.FlashAnim:SetToFinalAlpha(true)
-				local FlashAnim = self.FlashAnim:CreateAnimation("Alpha") 
-				FlashAnim:SetDuration(0.2)
-				FlashAnim:SetFromAlpha(1)
-				FlashAnim:SetToAlpha(0)
-			end
-			self.FlashAnim:Play()
 		end)
 
 		hooksecurefunc(self, 'GetTypeInfo', function(barType)
