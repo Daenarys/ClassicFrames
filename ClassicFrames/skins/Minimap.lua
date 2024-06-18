@@ -544,26 +544,6 @@ MiniMapWorldMapButton:SetScript("OnEvent", function(self)
 	self.newbieText = NEWBIE_TOOLTIP_WORLDMAP
 end)
 
-local function SetLandingPageIconFromAtlases(self, up, down, highlight, glow, useDefaultButtonSize)
-	local width, height;
-	if useDefaultButtonSize then
-		width = self.defaultWidth;
-		height = self.defaultHeight;
-		self.LoopingGlow:SetSize(self.defaultGlowWidth, self.defaultGlowHeight);
-	else
-		local info = C_Texture.GetAtlasInfo(up);
-		width = info and info.width or 0;
-		height = info and info.height or 0;
-	end
-	self:SetSize(width, height);
-
-	local useAtlasSize = not useDefaultButtonSize;
-	self:GetNormalTexture():SetAtlas(up, useAtlasSize);
-	self:GetPushedTexture():SetAtlas(down, useAtlasSize);
-	self:GetHighlightTexture():SetAtlas(highlight, useAtlasSize);
-	self.LoopingGlow:SetAtlas(glow, useAtlasSize);
-end
-
 Minimap:HookScript("OnEvent", function(self, event, ...)
 	if ( event == "PLAYER_ENTERING_WORLD" ) then
 		TimeManagerClockButton:SetParent(self)
@@ -588,13 +568,11 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 			ExpansionLandingPageMinimapButton:Hide()
 		end
 
-		SetLandingPageIconFromAtlases(ExpansionLandingPageMinimapButton, "plunderstorm-landingpagebutton-up", "plunderstorm-landingpagebutton-down", "plunderstorm-landingpagebutton-up", "plunderstorm-landingpagebutton-up", true)
-		ExpansionLandingPageMinimapButton:SetScale(0.82)
+		ExpansionLandingPageMinimapButton:SetScale(0.84)
 		ExpansionLandingPageMinimapButton:ClearAllPoints()
-		ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 45, -150)
+		ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 46, -144)
 
 		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIcon", function(self)
-			SetLandingPageIconFromAtlases(self, "plunderstorm-landingpagebutton-up", "plunderstorm-landingpagebutton-down", "plunderstorm-landingpagebutton-up", "plunderstorm-landingpagebutton-up", true)
 			self:ClearAllPoints()
 			self:SetPoint("TOPLEFT", 45, -150)
 		end)
