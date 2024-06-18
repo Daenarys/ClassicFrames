@@ -18,15 +18,33 @@ if (GameMenuFrameHeaderText == nil) then
 end
 
 hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
-	for obj in self.buttonPool:EnumerateActive() do
-		obj:SetSize(144, 21)
+	if not self.buttonPool then return end
 
-		obj:SetNormalFontObject("GameFontHighlight")
-		obj:SetHighlightFontObject("GameFontHighlight")
-		obj:SetDisabledFontObject("GameFontDisable")
+	for button in self.buttonPool:EnumerateActive() do
+		button:SetSize(144, 21)
 
-		obj:GetFontString():ClearAllPoints()
-		obj:GetFontString():SetPoint("CENTER", 0, 1)
+		button:SetNormalFontObject("GameFontHighlight")
+		button:SetHighlightFontObject("GameFontHighlight")
+		button:SetDisabledFontObject("GameFontDisable")
+
+		button:HookScript("OnUpdate", function()
+			button.Left:SetSize(12, 21)
+			button.Left:SetScale(1)
+			button.Left:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
+			button.Left:SetTexCoord(0, 0.09375, 0, 0.6875)
+			button.Left:SetPoint("TOPLEFT")
+			button.Left:SetPoint("BOTTOMLEFT")
+			button.Center:SetScale(1)
+			button.Center:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
+			button.Center:SetTexCoord(0.09375, 0.53125, 0, 0.6875)
+			button.Center:SetHorizTile(false)
+			button.Right:SetSize(12, 21)
+			button.Right:SetScale(1)
+			button.Right:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
+			button.Right:SetTexCoord(0.53125, 0.625, 0, 0.6875)
+			button.Right:SetPoint("TOPRIGHT")
+			button.Right:SetPoint("BOTTOMRIGHT")
+		end)
 	end
 end)
 
