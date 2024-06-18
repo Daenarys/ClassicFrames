@@ -115,12 +115,21 @@ ApplyScrollBarThumb(GearManagerPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 ApplyDropDown(ReputationFrame.filterDropdown)
 ApplyDropDown(GearManagerPopupFrame.BorderBox.IconTypeDropdown)
 
+hooksecurefunc(CharacterFrame, "UpdatePortrait", function(self)
+	self:SetPortraitToSpecIcon()
+end)
+
 hooksecurefunc(CharacterFrame, "UpdateSize", function(self)
 	if ReputationFrame:IsShown() then
 		self:SetWidth(338)
 	elseif TokenFrame:IsShown() then
 		self:SetWidth(338)
 	end
+end)
+
+hooksecurefunc(CharacterFrame, "UpdateTitle", function(self)
+	self:SetTitleColor(HIGHLIGHT_FONT_COLOR)
+	self:SetTitle(UnitPVPName("player"))
 end)
 
 CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
