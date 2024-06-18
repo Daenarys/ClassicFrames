@@ -574,7 +574,7 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 
 		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIcon", function(self)
 			self:ClearAllPoints()
-			self:SetPoint("TOPLEFT", 45, -150)
+			self:SetPoint("TOPLEFT", 46, -144)
 		end)
 
 		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIconForGarrison", function(self)
