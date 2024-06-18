@@ -544,21 +544,24 @@ MiniMapWorldMapButton:SetScript("OnEvent", function(self)
 	self.newbieText = NEWBIE_TOOLTIP_WORLDMAP
 end)
 
-local function GetMinimapAtlases_GarrisonType8_0(faction)
-	if faction == "Horde" then
-		return "bfa-landingbutton-horde-up", "bfa-landingbutton-horde-down", "bfa-landingbutton-horde-diamondhighlight", "bfa-landingbutton-horde-diamondglow";
+local function SetLandingPageIconFromAtlases(self, up, down, highlight, glow, useDefaultButtonSize)
+	local width, height;
+	if useDefaultButtonSize then
+		width = self.defaultWidth;
+		height = self.defaultHeight;
+		self.LoopingGlow:SetSize(self.defaultGlowWidth, self.defaultGlowHeight);
 	else
-		return "bfa-landingbutton-alliance-up", "bfa-landingbutton-alliance-down", "bfa-landingbutton-alliance-shieldhighlight", "bfa-landingbutton-alliance-shieldglow";
+		local info = C_Texture.GetAtlasInfo(up);
+		width = info and info.width or 0;
+		height = info and info.height or 0;
 	end
-end
+	self:SetSize(width, height);
 
-local function SetLandingPageIconFromAtlases(self, up, down, highlight, glow)
-	local info = C_Texture.GetAtlasInfo(up)
-	self:SetSize(info and info.width or 0, info and info.height or 0)
-	self:GetNormalTexture():SetAtlas(up, true)
-	self:GetPushedTexture():SetAtlas(down, true)
-	self:GetHighlightTexture():SetAtlas(highlight, true)
-	self.LoopingGlow:SetAtlas(glow, true)
+	local useAtlasSize = not useDefaultButtonSize;
+	self:GetNormalTexture():SetAtlas(up, useAtlasSize);
+	self:GetPushedTexture():SetAtlas(down, useAtlasSize);
+	self:GetHighlightTexture():SetAtlas(highlight, useAtlasSize);
+	self.LoopingGlow:SetAtlas(glow, useAtlasSize);
 end
 
 Minimap:HookScript("OnEvent", function(self, event, ...)
@@ -585,17 +588,15 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 			ExpansionLandingPageMinimapButton:Hide()
 		end
 
-		ExpansionLandingPageMinimapButton.faction = UnitFactionGroup("player")
-		SetLandingPageIconFromAtlases(ExpansionLandingPageMinimapButton, GetMinimapAtlases_GarrisonType8_0(ExpansionLandingPageMinimapButton.faction))
-
+		SetLandingPageIconFromAtlases(ExpansionLandingPageMinimapButton, "plunderstorm-landingpagebutton-up", "plunderstorm-landingpagebutton-down", "plunderstorm-landingpagebutton-up", "plunderstorm-landingpagebutton-up", true)
+		ExpansionLandingPageMinimapButton:SetScale(0.82)
 		ExpansionLandingPageMinimapButton:ClearAllPoints()
-		ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 32, -118)
+		ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 45, -150)
 
 		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIcon", function(self)
-			self.faction = UnitFactionGroup("player")
-			SetLandingPageIconFromAtlases(self, GetMinimapAtlases_GarrisonType8_0(self.faction))
+			SetLandingPageIconFromAtlases(self, "plunderstorm-landingpagebutton-up", "plunderstorm-landingpagebutton-down", "plunderstorm-landingpagebutton-up", "plunderstorm-landingpagebutton-up", true)
 			self:ClearAllPoints()
-			self:SetPoint("TOPLEFT", 32, -118)
+			self:SetPoint("TOPLEFT", 45, -150)
 		end)
 
 		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIconForGarrison", function(self)

@@ -147,11 +147,6 @@ hooksecurefunc("FCFDock_UpdateTabs", function(dock)
     end
 end)
 
-QuickJoinToastButton:HookScript("OnUpdate", function(self)
-    self:ClearAllPoints()
-    self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT", 0, -23)
-end)
-
 ChatConfigCombatSettingsFilters.ScrollBar:SetSize(25, 560)
 ChatConfigCombatSettingsFilters.ScrollBar:ClearAllPoints()
 ChatConfigCombatSettingsFilters.ScrollBar:SetPoint("TOPLEFT", ChatConfigCombatSettingsFilters.ScrollBox, "TOPRIGHT", -1, 0)
@@ -162,9 +157,14 @@ ApplyScrollBarTrack(ChatConfigCombatSettingsFilters.ScrollBar.Track)
 ApplyScrollBarThumb(ChatConfigCombatSettingsFilters.ScrollBar.Track.Thumb)
 
 ApplyDialogBorder(ChatConfigFrame.Border)
-ApplyDialogHeader(ChatConfigFrame.Header)
+ApplyDialogHeader(ChatConfigFrame)
 
 ChatConfigFrame:HookScript("OnShow", function(self)
     self:ClearAllPoints()
     self:SetPoint("CENTER")
+end)
+
+QuickJoinToastButton:HookScript("OnUpdate", function(self)
+    self:ClearAllPoints()
+    self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT", 0, -23)
 end)

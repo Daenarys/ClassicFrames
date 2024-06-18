@@ -23,10 +23,3 @@ ChannelFrame.ChannelRoster.ScrollBar:SetPoint("BOTTOMLEFT", ChannelFrame.Channel
 ApplyScrollBarArrow(ChannelFrame.ChannelRoster.ScrollBar)
 ApplyScrollBarTrack(ChannelFrame.ChannelRoster.ScrollBar.Track)
 ApplyScrollBarThumb(ChannelFrame.ChannelRoster.ScrollBar.Track.Thumb)
-
-CreateChannelPopup.CloseButton:Hide()
-ApplyDialogBorder(CreateChannelPopup.BG)
-ApplyDialogHeader(CreateChannelPopup.Header)
-
-ApplySearchBox(CreateChannelPopup.Name)
-ApplySearchBox(CreateChannelPopup.Password)
