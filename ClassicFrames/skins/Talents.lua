@@ -38,6 +38,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(PlayerSpellsFrame)
 		ApplyNineSlicePortrait(PlayerSpellsFrame)
 
+		PlayerSpellsFrame.SpellBookFrame.HelpPlateButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
+
 		for i = 1, PlayerSpellsFrame.TabSystem:GetNumChildren() do
 			local tab = select(i, PlayerSpellsFrame.TabSystem:GetChildren())
 
