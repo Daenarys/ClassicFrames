@@ -42,6 +42,14 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 	end
 end)
 
+hooksecurefunc(BonusObjectiveTracker, "GetProgressBar", function(self, key)
+	local progressBar = self.usedProgressBars[key]
+	local bar = progressBar and progressBar.Bar
+
+	bar:ClearAllPoints()
+	bar:SetPoint("LEFT", -7, 2)
+end)
+
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block, _, _, _, textureKit)
 	if textureKit then
 		block.NormalBG:SetAtlas(textureKit.."-TrackerHeader", true)
