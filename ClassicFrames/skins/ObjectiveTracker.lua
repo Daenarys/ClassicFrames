@@ -42,6 +42,20 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 	end
 end)
 
+hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block, _, _, _, textureKit)
+	if textureKit then
+		block.NormalBG:SetAtlas(textureKit.."-TrackerHeader", true)
+	elseif (scenarioType == LE_SCENARIO_TYPE_LEGION_INVASION) then
+		block.NormalBG:SetAtlas("legioninvasion-ScenarioTrackerToast", true)
+	else
+		block.NormalBG:SetAtlas("ScenarioTrackerToast", true)
+	end
+	block.NormalBG:ClearAllPoints()
+	block.NormalBG:SetPoint("TOPLEFT", -11, -2)
+	block.Stage:ClearAllPoints()
+	block.Stage:SetPoint("TOPLEFT", 4, -19)
+end)
+
 for _, tracker in pairs(trackers) do
 	hooksecurefunc(tracker, 'AddBlock', function(self)
 		for _, child in next, { tracker.ContentsFrame:GetChildren() } do
@@ -57,20 +71,6 @@ for _, tracker in pairs(trackers) do
 		end
 	end)
 end
-
-hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block, _, _, _, textureKit)
-	if textureKit then
-		block.NormalBG:SetAtlas(textureKit.."-TrackerHeader", true)
-	elseif (scenarioType == LE_SCENARIO_TYPE_LEGION_INVASION) then
-		block.NormalBG:SetAtlas("legioninvasion-ScenarioTrackerToast", true)
-	else
-		block.NormalBG:SetAtlas("ScenarioTrackerToast", true)
-	end
-	block.NormalBG:ClearAllPoints()
-	block.NormalBG:SetPoint("TOPLEFT", -11, -2)
-	block.Stage:ClearAllPoints()
-	block.Stage:SetPoint("TOPLEFT", 4, -19)
-end)
 
 AchievementObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
 AchievementObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
