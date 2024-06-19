@@ -19,7 +19,6 @@ end)
 hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 	self:SetWidth(235)
 	self.Header:Hide()
-
 	for _, tracker in pairs(trackers) do
 		tracker:SetWidth(235)
 		tracker.Header:SetSize(235, 25)
@@ -42,14 +41,6 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 	end
 end)
 
-hooksecurefunc(BonusObjectiveTracker, "GetProgressBar", function(self, key)
-	local progressBar = self.usedProgressBars[key]
-	local bar = progressBar and progressBar.Bar
-
-	bar:ClearAllPoints()
-	bar:SetPoint("LEFT", -7, 2)
-end)
-
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block, _, _, _, textureKit)
 	if textureKit then
 		block.NormalBG:SetAtlas(textureKit.."-TrackerHeader", true)
@@ -70,13 +61,20 @@ for _, tracker in pairs(trackers) do
 			if child and child.AddPOIButton then
 				hooksecurefunc(child, "AddPOIButton", function(self)
 					if child.poiButton then
-						child.poiButton:SetScale(0.9)
+						child.poiButton:SetScale(0.88)
 						child.poiButton:ClearAllPoints()
 						child.poiButton:SetPoint("TOPRIGHT", self.HeaderText, "TOPLEFT", -6, 2)
 					end
 				end)
 			end
 		end
+	end)
+	hooksecurefunc(tracker, "GetProgressBar", function(self, key)
+		local progressBar = self.usedProgressBars[key]
+		local bar = progressBar and progressBar.Bar
+
+		bar:ClearAllPoints()
+		bar:SetPoint("LEFT", -8, 4)
 	end)
 end
 
