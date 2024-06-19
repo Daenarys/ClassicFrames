@@ -41,59 +41,16 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 	end
 end)
 
-hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block, _, _, _, textureKit)
-	if textureKit then
-		block.NormalBG:SetAtlas(textureKit.."-TrackerHeader", true)
-	elseif (scenarioType == LE_SCENARIO_TYPE_LEGION_INVASION) then
-		block.NormalBG:SetAtlas("legioninvasion-ScenarioTrackerToast", true)
-	else
-		block.NormalBG:SetAtlas("ScenarioTrackerToast", true)
-	end
-	block.NormalBG:ClearAllPoints()
-	block.NormalBG:SetPoint("TOPLEFT", -11, -2)
-	block.Stage:ClearAllPoints()
-	block.Stage:SetPoint("TOPLEFT", 4, -19)
-end)
-
 for _, tracker in pairs(trackers) do
 	hooksecurefunc(tracker, 'AddBlock', function(self)
-		for _, child in next, { tracker.ContentsFrame:GetChildren() } do
-			if child and child.AddPOIButton then
-				hooksecurefunc(child, "AddPOIButton", function(self)
-					if child.poiButton then
-						child.poiButton:SetScale(0.88)
-						child.poiButton:ClearAllPoints()
-						child.poiButton:SetPoint("TOPRIGHT", self.HeaderText, "TOPLEFT", -6, 2)
-					end
-				end)
-			end
-		end
-	end)
-	hooksecurefunc(tracker, "GetProgressBar", function(self, key)
-		local progressBar = self.usedProgressBars[key]
-		local bar = progressBar and progressBar.Bar
-
-		if not bar.BorderMid then
-			bar:ClearAllPoints()
-			bar:SetPoint("LEFT", -8, 4)
+		for _, child in next, { self.ContentsFrame:GetChildren() } do
+			hooksecurefunc(child, "AddPOIButton", function()
+				if child.poiButton then
+					child.poiButton:SetScale(0.9)
+					child.poiButton:ClearAllPoints()
+					child.poiButton:SetPoint("TOPRIGHT", child.HeaderText, "TOPLEFT", -6, 2)
+				end
+			end)
 		end
 	end)
 end
-
-AchievementObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-AchievementObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-AdventureObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-AdventureObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-BonusObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-BonusObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-CampaignQuestObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-CampaignQuestObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-MonthlyActivitiesObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-MonthlyActivitiesObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-ProfessionsRecipeTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-ProfessionsRecipeTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-QuestObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-QuestObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-ScenarioObjectiveTracker.ContentsFrame:SetPoint("LEFT", 1, 0)
-WorldQuestObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-WorldQuestObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
