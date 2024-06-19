@@ -61,14 +61,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end)
 
-    	PlayerSpellsFrame.SpellBookFrame:HookScript("OnShow", function()
-			ApplyNineSlicePortraitMinimizable(PlayerSpellsFrame)
-        end)
-
-        PlayerSpellsFrame.SpellBookFrame:HookScript("OnHide", function()
-			ApplyNineSlicePortrait(PlayerSpellsFrame)
-        end)
-
 		ApplyDialogBorder(ClassTalentLoadoutCreateDialog.Border)
 		ApplyDialogBorder(ClassTalentLoadoutImportDialog.Border)
 
