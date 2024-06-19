@@ -108,43 +108,22 @@ for i = 1, NUM_CHAT_WINDOWS do
             end
         end)
     end
-    
-    hooksecurefunc("ChatFrame_OnUpdate", ChatFrameButtonFrameBottomButton.func_ChatFrame_OnUpdate)
 
-    ChatFrameButtonFrameMenuButton:ClearAllPoints()
-    ChatFrameButtonFrameMenuButton:SetPoint("BOTTOM", ChatFrameButtonFrameUpButton, "TOP", 0, 0)
     ChatFrameButtonFrameUpButton:ClearAllPoints()
     ChatFrameButtonFrameUpButton:SetPoint("BOTTOM", ChatFrameButtonFrameDownButton, "TOP", 0, 0)
     ChatFrameButtonFrameDownButton:ClearAllPoints()
     ChatFrameButtonFrameDownButton:SetPoint("BOTTOM", ChatFrameButtonFrameBottomButton, "TOP", 0, -2)
     ChatFrameButtonFrameBottomButton:ClearAllPoints()
     ChatFrameButtonFrameBottomButton:SetPoint("BOTTOM", _G["ChatFrame"..i.."ButtonFrame"], "BOTTOM", 0, -7)
+    ChatFrameButtonFrameMenuButton:ClearAllPoints()
+    ChatFrameButtonFrameMenuButton:SetPoint("BOTTOM", ChatFrameButtonFrameUpButton, "TOP", 0, 0)
+
+    hooksecurefunc("ChatFrame_OnUpdate", ChatFrameButtonFrameBottomButton.func_ChatFrame_OnUpdate)
 end
 
-hooksecurefunc("FCFDock_UpdateTabs", function(dock)
-    local scrollChild = dock.scrollFrame:GetScrollChild()
-    local lastDockedStaticTab = nil
-    local lastDockedDynamicTab = nil
-
-    for index, chatFrame in ipairs(dock.DOCKED_CHAT_FRAMES) do
-        local chatTab = _G[chatFrame:GetName().."Tab"]
-        if ( chatFrame.isStaticDocked ) then
-            PanelTemplates_TabResize(chatTab, chatTab.sizePadding or 8)
-            if ( lastDockedStaticTab ) then
-                chatTab:SetPoint("LEFT", lastDockedStaticTab, "RIGHT", 4, 0)
-            else
-                chatTab:SetPoint("LEFT", dock, "LEFT", 2, 0)
-            end
-            lastDockedStaticTab = chatTab
-        else
-            if ( lastDockedDynamicTab ) then
-                chatTab:SetPoint("LEFT", lastDockedDynamicTab, "RIGHT", 4, 0)
-            else
-                chatTab:SetPoint("LEFT", scrollChild, "LEFT", 4, -2)
-            end
-            lastDockedDynamicTab = chatTab
-        end
-    end
+QuickJoinToastButton:HookScript("OnUpdate", function(self)
+    self:ClearAllPoints()
+    self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT", 0, -23)
 end)
 
 ChatConfigCombatSettingsFilters.ScrollBar:SetSize(25, 560)
@@ -162,9 +141,4 @@ ApplyDialogHeader(ChatConfigFrame)
 ChatConfigFrame:HookScript("OnShow", function(self)
     self:ClearAllPoints()
     self:SetPoint("CENTER")
-end)
-
-QuickJoinToastButton:HookScript("OnUpdate", function(self)
-    self:ClearAllPoints()
-    self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT", 0, -23)
 end)
