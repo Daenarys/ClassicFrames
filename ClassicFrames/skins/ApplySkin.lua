@@ -275,6 +275,8 @@ function ApplyScrollBarThumb(frame)
 end
 
 function ApplyBottomTab(frame)
+	frame:SetFrameLevel(501)
+
 	frame.LeftActive:SetSize(20, 35)
 	frame.LeftActive:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
 	frame.LeftActive:SetTexCoord(0, 0.15625, 0, 0.546875)
