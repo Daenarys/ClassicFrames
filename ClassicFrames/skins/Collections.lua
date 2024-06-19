@@ -111,7 +111,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplySearchBox(WardrobeCollectionFrameSearchBox)
 
 		ApplyDropDown(HeirloomsJournal.ClassDropdown)
-		ApplyDropDown(WardrobeCollectionFrame.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
 
@@ -120,6 +119,26 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyFilterDropDown(ToyBox.FilterDropdown)
 		ApplyFilterDropDown(HeirloomsJournal.FilterDropdown)
 		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
+
+		hooksecurefunc("MountJournal_InitMountButton", function(button)
+			button.DragonRidingLabel:Hide()
+			button.name:SetSize(147, 25)
+			button.name:ClearAllPoints()
+			button.name:SetPoint("TOPLEFT", button.icon, "TOPRIGHT", 10, -5)
+		end)
+
+		MountJournal.MountDisplay.ModelScene.ControlFrame:Show()
+		MountJournal.MountDisplay.ModelScene.ControlFrame:SetAlpha(1)
+
+		MountJournal.MountDisplay.ModelScene:HookScript("OnEnter", function(self)
+			self.ControlFrame:Show()
+			self.ControlFrame:SetAlpha(1)
+		end)
+
+		MountJournal.MountDisplay.ModelScene:HookScript("OnLeave", function(self)
+			self.ControlFrame:Show()
+			self.ControlFrame:SetAlpha(1)
+		end)
 
 		MountJournal.MountDisplay.ModelScene.ControlFrame:HookScript("OnShow", function(self)
 			self.rotateLeftButton:SetSize(35, 35)
@@ -151,6 +170,30 @@ f:SetScript("OnEvent", function(self, event, name)
 			self.zoomInButton:Hide()
 			self.zoomOutButton:Hide()
 			self.resetButton:Hide()
+		end)
+
+		hooksecurefunc(WardrobeCollectionFrame, "SetContainer", function(self, parent)
+			if parent == CollectionsJournal then
+				self.ClassDropdown:Hide()
+				self.ItemsCollectionFrame.ModelR1C1:SetPoint("TOP", -238, -85)
+				self.ItemsCollectionFrame.PagingFrame:SetPoint("BOTTOM", 22, 38)
+				self.ItemsCollectionFrame.SlotsFrame:SetPoint("TOPLEFT", 18, -20)
+				self.ItemsCollectionFrame.WeaponDropdown:SetPoint("TOPRIGHT", -20, -23)
+			end
+		end)
+
+		hooksecurefunc(WardrobeCollectionFrame.ItemsCollectionFrame, "Show", function(self)
+			self.WeaponDropdown:SetEnabled(false)
+		end)
+
+		hooksecurefunc(WardrobeCollectionFrame.ItemsCollectionFrame, "UpdateWeaponDropdown", function(self)
+			local name, isWeapon
+			if self.transmogLocation:IsAppearance() then
+				name, isWeapon = C_TransmogCollection.GetCategoryInfo(self:GetActiveCategory())
+			end
+
+			self.WeaponDropdown:SetShown(true)
+			self.WeaponDropdown:SetEnabled(isWeapon)
 		end)
 	end
 end)
