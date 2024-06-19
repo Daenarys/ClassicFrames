@@ -43,3 +43,17 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 		end
 	end
 end)
+
+for _, tracker in pairs(trackers) do
+	hooksecurefunc(tracker, 'AddBlock', function(self)
+		for _, child in next, { tracker.ContentsFrame:GetChildren() } do
+			hooksecurefunc(child, "AddPOIButton", function(self)
+				if child.poiButton then
+					child.poiButton:SetScale(0.9)
+					child.poiButton:ClearAllPoints()
+					child.poiButton:SetPoint("TOPRIGHT", self.HeaderText, "TOPLEFT", -6, 2)
+				end
+			end)
+		end
+	end)
+end
