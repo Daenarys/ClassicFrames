@@ -73,8 +73,10 @@ for _, tracker in pairs(trackers) do
 		local progressBar = self.usedProgressBars[key]
 		local bar = progressBar and progressBar.Bar
 
-		bar:ClearAllPoints()
-		bar:SetPoint("LEFT", -8, 4)
+		if not bar.BorderMid then
+			bar:ClearAllPoints()
+			bar:SetPoint("LEFT", -8, 4)
+		end
 	end)
 end
 
