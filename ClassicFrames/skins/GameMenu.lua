@@ -1,25 +1,12 @@
 if not _G.GameMenuFrame then return end
 
 ApplyDialogBorder(GameMenuFrame.Border)
+ApplyDialogHeader(GameMenuFrame.Header)
 
-GameMenuFrame.Header:Hide()
-
-if (GameMenuFrameHeader == nil) then
-	GameMenuFrameHeader = GameMenuFrame:CreateTexture(nil, "ARTWORK")
-	GameMenuFrameHeader:SetSize(256, 64)
-	GameMenuFrameHeader:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
-	GameMenuFrameHeader:SetPoint("TOP", 0, 12)
-end
-
-if (GameMenuFrameHeaderText == nil) then
-	GameMenuFrameHeaderText = GameMenuFrame:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-	GameMenuFrameHeaderText:SetText(MAINMENU_BUTTON)
-	GameMenuFrameHeaderText:SetPoint("TOP", GameMenuFrameHeader, "TOP", 0, -14)
-end
+GameMenuFrame.Header:SetWidth(139.3777)
+GameMenuFrame.Header.Text:SetFontObject("GameFontNormal")
 
 hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
-	if not self.buttonPool then return end
-
 	for button in self.buttonPool:EnumerateActive() do
 		button:SetSize(144, 21)
 
@@ -27,36 +14,8 @@ hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
 		button:SetHighlightFontObject("GameFontHighlight")
 		button:SetDisabledFontObject("GameFontDisable")
 
-		button.Left:ClearAllPoints()
-		button.Left:SetPoint("TOPLEFT")
-		button.Left:SetPoint("BOTTOMLEFT")
-		button.Center:SetHorizTile(false)
-		button.Right:ClearAllPoints()
-		button.Right:SetPoint("TOPRIGHT")
-		button.Right:SetPoint("BOTTOMRIGHT")
-
-		button:SetHighlightTexture("Interface\\Buttons\\UI-Panel-Button-Highlight", "ADD")
-		button:GetHighlightTexture():SetTexCoord(0, 0.625, 0, 0.6875)
-
-		button:HookScript("OnUpdate", function()
-			if not button:IsEnabled() then
-				button.Left:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
-				button.Center:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
-				button.Right:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
-			else
-				button.Left:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
-				button.Center:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
-				button.Right:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
-			end
-			button.Left:SetScale(1)
-			button.Left:SetSize(12, 21)
-			button.Left:SetTexCoord(0, 0.09375, 0, 0.6875)
-			button.Center:SetScale(1)
-			button.Center:SetTexCoord(0.09375, 0.53125, 0, 0.6875)
-			button.Right:SetScale(1)
-			button.Right:SetSize(12, 21)
-			button.Right:SetTexCoord(0.53125, 0.625, 0, 0.6875)
-		end)
+		button:GetFontString():ClearAllPoints()
+		button:GetFontString():SetPoint("CENTER", 0, 1)
 	end
 end)
 

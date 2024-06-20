@@ -118,13 +118,39 @@ for i = 1, NUM_CHAT_WINDOWS do
     ChatFrameButtonFrameMenuButton:ClearAllPoints()
     ChatFrameButtonFrameMenuButton:SetPoint("BOTTOM", ChatFrameButtonFrameUpButton, "TOP", 0, 0)
 
-    hooksecurefunc("ChatFrame_OnUpdate", ChatFrameButtonFrameBottomButton.func_ChatFrame_OnUpdate)
-
     QuickJoinToastButton:HookScript("OnUpdate", function(self)
         self:ClearAllPoints()
         self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT", 0, -23)
     end)
+
+    hooksecurefunc("ChatFrame_OnUpdate", ChatFrameButtonFrameBottomButton.func_ChatFrame_OnUpdate)
 end
+
+hooksecurefunc("FCFDock_UpdateTabs", function(dock)
+    local scrollChild = dock.scrollFrame:GetScrollChild()
+    local lastDockedStaticTab = nil
+    local lastDockedDynamicTab = nil
+
+    for index, chatFrame in ipairs(dock.DOCKED_CHAT_FRAMES) do
+        local chatTab = _G[chatFrame:GetName().."Tab"]
+        if ( chatFrame.isStaticDocked ) then
+            PanelTemplates_TabResize(chatTab, chatTab.sizePadding or 8)
+            if ( lastDockedStaticTab ) then
+                chatTab:SetPoint("LEFT", lastDockedStaticTab, "RIGHT", 4, 0)
+            else
+                chatTab:SetPoint("LEFT", dock, "LEFT", 2, 0)
+            end
+            lastDockedStaticTab = chatTab
+        else
+            if ( lastDockedDynamicTab ) then
+                chatTab:SetPoint("LEFT", lastDockedDynamicTab, "RIGHT", 4, 0)
+            else
+                chatTab:SetPoint("LEFT", scrollChild, "LEFT", 4, -2)
+            end
+            lastDockedDynamicTab = chatTab
+        end
+    end
+end)
 
 ChatConfigCombatSettingsFilters.ScrollBar:SetSize(25, 560)
 ChatConfigCombatSettingsFilters.ScrollBar:ClearAllPoints()
@@ -136,7 +162,7 @@ ApplyScrollBarTrack(ChatConfigCombatSettingsFilters.ScrollBar.Track)
 ApplyScrollBarThumb(ChatConfigCombatSettingsFilters.ScrollBar.Track.Thumb)
 
 ApplyDialogBorder(ChatConfigFrame.Border)
-ApplyDialogHeader(ChatConfigFrame)
+ApplyDialogHeader(ChatConfigFrame.Header)
 
 ChatConfigFrame:HookScript("OnShow", function(self)
     self:ClearAllPoints()
