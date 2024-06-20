@@ -544,6 +544,41 @@ MiniMapWorldMapButton:SetScript("OnEvent", function(self)
 	self.newbieText = NEWBIE_TOOLTIP_WORLDMAP
 end)
 
+local function SetLandingPageIconFromAtlases(self, up, down, highlight, glow, useDefaultButtonSize)
+	local width, height;
+	if useDefaultButtonSize then
+		width = self.defaultWidth;
+		height = self.defaultHeight;
+		self.LoopingGlow:SetSize(self.defaultGlowWidth, self.defaultGlowHeight);
+	else
+		local info = C_Texture.GetAtlasInfo(up);
+		width = info and info.width or 0;
+		height = info and info.height or 0;
+	end
+	self:SetSize(width, height);
+
+	local useAtlasSize = not useDefaultButtonSize;
+	self:GetNormalTexture():SetAtlas(up, useAtlasSize);
+	self:GetPushedTexture():SetAtlas(down, useAtlasSize);
+	self:GetHighlightTexture():SetAtlas(highlight, useAtlasSize);
+	self.LoopingGlow:SetAtlas(glow, useAtlasSize);
+end
+
+local garrisonType9_0AtlasFormats = {
+	"shadowlands-landingbutton-%s-up",
+	"shadowlands-landingbutton-%s-down",
+	"shadowlands-landingbutton-%s-highlight",
+	"shadowlands-landingbutton-%s-glow",
+};
+
+local function GetMinimapAtlases_GarrisonType9_0()
+	local kit = "Venthyr";
+	if kit then
+		local t = garrisonType9_0AtlasFormats;
+		return t[1]:format(kit), t[2]:format(kit), t[3]:format(kit), t[4]:format(kit);
+	end
+end
+
 Minimap:HookScript("OnEvent", function(self, event, ...)
 	if ( event == "PLAYER_ENTERING_WORLD" ) then
 		TimeManagerClockButton:SetParent(self)
@@ -569,33 +604,13 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 		end
 
 		ExpansionLandingPageMinimapButton:ClearAllPoints()
-		ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 32, -118)
-
-		ExpansionLandingPageMinimapButton.faction = UnitFactionGroup("player")
-		if ( ExpansionLandingPageMinimapButton.faction == "Horde" ) then
-			ExpansionLandingPageMinimapButton:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Up", true)
-			ExpansionLandingPageMinimapButton:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Down", true)
-		else
-			ExpansionLandingPageMinimapButton:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Up", true)
-			ExpansionLandingPageMinimapButton:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Down", true)
-		end
-		ExpansionLandingPageMinimapButton:GetHighlightTexture():SetTexture(136477, "ADD")
-		ExpansionLandingPageMinimapButton.LoopingGlow:SetAtlas("GarrLanding-CircleGlow", true)
+		ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 32, -106)
+		SetLandingPageIconFromAtlases(ExpansionLandingPageMinimapButton, GetMinimapAtlases_GarrisonType9_0());
 
 		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIcon", function(self)
 			self:ClearAllPoints()
-			self:SetPoint("TOPLEFT", 32, -118)
-
-			self.faction = UnitFactionGroup("player")
-			if ( self.faction == "Horde" ) then
-				self:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Up", true)
-				self:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Down", true)
-			else
-				self:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Up", true)
-				self:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Down", true)
-			end
-			self:GetHighlightTexture():SetTexture(136477, "ADD")
-			self.LoopingGlow:SetAtlas("GarrLanding-CircleGlow", true)
+			self:SetPoint("TOPLEFT", 32, -106)
+			SetLandingPageIconFromAtlases(self, GetMinimapAtlases_GarrisonType9_0())
 		end)
 
 		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIconForGarrison", function(self)
