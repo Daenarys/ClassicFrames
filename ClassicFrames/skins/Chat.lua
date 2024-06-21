@@ -1,114 +1,130 @@
-local CHAT_FRAME_FADE_TIME = 0.15
-local CHAT_FRAME_FADE_OUT_TIME = 2.0
-
 for i = 1, NUM_CHAT_WINDOWS do
-    _G['ChatFrame'..i..'Tab'].Text:ClearAllPoints()
-    _G['ChatFrame'..i..'Tab'].Text:SetPoint("CENTER", 0, -6)
-end
-
-ChatFrame1EditBox:ClearAllPoints()
-ChatFrame1EditBox:SetPoint("TOPLEFT", ChatFrame1, "BOTTOMLEFT", -5, -2)
-ChatFrame1EditBox:SetPoint("RIGHT", ChatFrame1.ScrollBar, "RIGHT", 19, 0)
-
-ChatFrame1.ScrollToBottomButton:SetSize(24, 24)
-ChatFrame1.ScrollToBottomButton:ClearAllPoints()
-ChatFrame1.ScrollToBottomButton:SetPoint("BOTTOMRIGHT", ChatFrame1ResizeButton, "TOPRIGHT", 0, -2)
-ChatFrame1.ScrollToBottomButton:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Up")
-ChatFrame1.ScrollToBottomButton:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Down")
-ChatFrame1.ScrollToBottomButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Disabled")
-ChatFrame1.ScrollToBottomButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
-ChatFrame1.ScrollToBottomButton.Flash:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-BlinkHilight")
-ChatFrame1.ScrollToBottomButton.Flash:SetBlendMode("BLEND")
-
-if TextToSpeechButtonFrame then
+    -- hide default buttons
+    ChatFrameChannelButton:Hide()
+    ChatFrameMenuButton:Hide()
     TextToSpeechButtonFrame:Hide()
-end
 
-QuickJoinToastButton:HookScript("OnUpdate", function(self)
-    self:ClearAllPoints()
-    self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT")
-end)
+    -- hide chat window scrollbars
+    local b = _G["ChatFrame"..i].ScrollBar b:UnregisterAllEvents() b:SetScript("OnShow", b.Hide) b:Hide()
+    local c = _G["ChatFrame"..i].ScrollToBottomButton c:UnregisterAllEvents() c:SetScript("OnShow", c.Hide) c:Hide()
+    
+    local ChatFrameButtonFrameUpButton = _G["ChatFrame"..i.."ButtonFrameUpButton"]
+    if (ChatFrameButtonFrameUpButton == nil) then
+        ChatFrameButtonFrameUpButton = CreateFrame("Button", _G["ChatFrame"..i.."ButtonFrameUpButton"], _G["ChatFrame"..i.."ButtonFrame"])
+        ChatFrameButtonFrameUpButton:SetSize(32, 32)
+        ChatFrameButtonFrameUpButton:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollUp-Up")
+        ChatFrameButtonFrameUpButton:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollUp-Down")
+        ChatFrameButtonFrameUpButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollUp-Disabled")
+        ChatFrameButtonFrameUpButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
+        MessageFrameScrollButton_OnLoad(ChatFrameButtonFrameUpButton)
+        ChatFrameButtonFrameUpButton:SetScript("OnUpdate", MessageFrameScrollButton_OnUpdate)
+        ChatFrameButtonFrameUpButton:SetScript("OnClick", function(self, button)
+            if (self:GetButtonState() == "PUSHED") then
+                self.clickDelay = MESSAGE_SCROLLBUTTON_INITIAL_DELAY
+            else
+                PlaySound(SOUNDKIT.IG_CHAT_SCROLL_UP)
+                self:GetParent():GetParent():ScrollUp()
+            end
+        end)
+    end
 
-hooksecurefunc("FloatingChatFrame_SetupScrolling", function()
-    ChatFrame1:SetOnScrollChangedCallback(function(messageFrame, offset)
-        messageFrame.CfScrollBar:SetValue(messageFrame:GetNumMessages() - offset)
+    local ChatFrameButtonFrameDownButton = _G["ChatFrame"..i.."ButtonFrameDownButton"]
+    if (ChatFrameButtonFrameDownButton == nil) then
+        ChatFrameButtonFrameDownButton = CreateFrame("Button", _G["ChatFrame"..i.."ButtonFrameDownButton"], _G["ChatFrame"..i.."ButtonFrame"])
+        ChatFrameButtonFrameDownButton:SetSize(32, 32)
+        ChatFrameButtonFrameDownButton:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Up")
+        ChatFrameButtonFrameDownButton:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Down")
+        ChatFrameButtonFrameDownButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Disabled")
+        ChatFrameButtonFrameDownButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
+        MessageFrameScrollButton_OnLoad(ChatFrameButtonFrameDownButton)
+        ChatFrameButtonFrameDownButton:SetScript("OnUpdate", MessageFrameScrollButton_OnUpdate)
+        ChatFrameButtonFrameDownButton:SetScript("OnClick", function(self, button)
+            if (self:GetButtonState() == "PUSHED") then
+                self.clickDelay = MESSAGE_SCROLLBUTTON_INITIAL_DELAY
+            else
+                PlaySound(SOUNDKIT.IG_CHAT_SCROLL_DOWN)
+                self:GetParent():GetParent():ScrollDown()
+            end
+        end)
+    end
+
+    local ChatFrameButtonFrameBottomButton = _G["ChatFrame"..i.."ButtonFrameBottomButton"]
+    if (ChatFrameButtonFrameBottomButton == nil) then
+        ChatFrameButtonFrameBottomButton = CreateFrame("Button", _G["ChatFrame"..i.."ButtonFrameBottomButton"], _G["ChatFrame"..i.."ButtonFrame"])
+        ChatFrameButtonFrameBottomButton:SetSize(32, 32)
+        ChatFrameButtonFrameBottomButton:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Up")
+        ChatFrameButtonFrameBottomButton:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Down")
+        ChatFrameButtonFrameBottomButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Disabled")
+        ChatFrameButtonFrameBottomButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
+        local ChatFrameButtonFrameBottomButtonFlash = ChatFrameButtonFrameBottomButton:CreateTexture(_G["ChatFrame"..i.."ButtonFrameBottomButtonFlash"], "OVERLAY")
+        ChatFrameButtonFrameBottomButtonFlash:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-BlinkHilight")
+        ChatFrameButtonFrameBottomButtonFlash:SetAllPoints(ChatFrameButtonFrameBottomButton)
+        ChatFrameButtonFrameBottomButtonFlash:Hide()
+        MessageFrameScrollButton_OnLoad(ChatFrameButtonFrameBottomButton)
+        ChatFrameButtonFrameBottomButton:SetScript("OnUpdate", MessageFrameScrollButton_OnUpdate)
+        ChatFrameButtonFrameBottomButton:SetScript("OnClick", function(self, button)
+            if (self:GetButtonState() == "PUSHED") then
+            else
+                PlaySound(SOUNDKIT.IG_CHAT_BOTTOM)
+                self:GetParent():GetParent():ScrollToBottom()
+            end
+        end)
+                
+        ChatFrameButtonFrameBottomButton.func_ChatFrame_OnUpdate = function(self, elapsedSec) 
+            local oldflash = ChatFrameButtonFrameBottomButtonFlash
+            local flash = self.ScrollToBottomButton.Flash
+            if oldflash and flash then
+                if (self:AtBottom()) then
+                    if (oldflash:IsShown()) then
+                        oldflash:Hide()
+                    end
+                end
+                if flash:IsShown() then
+                    oldflash:SetAlpha(flash:GetAlpha())
+                    if (not oldflash:IsShown()) then
+                        oldflash:Show()
+                    end
+                elseif (oldflash:IsShown()) then
+                    oldflash:Hide()
+                end
+            end
+        end
+    end
+
+    local ChatFrameButtonFrameMenuButton = _G["ChatFrame"..i.."ButtonFrameMenuButton"]
+    if (ChatFrameButtonFrameMenuButton == nil) then
+        ChatFrameButtonFrameMenuButton = CreateFrame("Button", _G["ChatFrame"..i.."ButtonFrameMenuButton"], _G["ChatFrame"..i.."ButtonFrame"])
+        ChatFrameButtonFrameMenuButton:SetSize(32, 32)
+        ChatFrameButtonFrameMenuButton:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIcon-Chat-Up")
+        ChatFrameButtonFrameMenuButton:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIcon-Chat-Down")
+        ChatFrameButtonFrameMenuButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-Chat-Disabled")
+        ChatFrameButtonFrameMenuButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
+        ChatFrameButtonFrameMenuButton:SetScript("OnClick", function(self, button)
+            PlaySound(SOUNDKIT.IG_CHAT_EMOTE_BUTTON)
+            ChatFrame_ToggleMenu()
+
+            if ChatMenu:IsShown() and HelpTip:IsShowingAny(self) then
+                HelpTip:HideAll(self)
+            end
+        end)
+    end
+
+    ChatFrameButtonFrameUpButton:ClearAllPoints()
+    ChatFrameButtonFrameUpButton:SetPoint("BOTTOM", ChatFrameButtonFrameDownButton, "TOP", 0, 0)
+    ChatFrameButtonFrameDownButton:ClearAllPoints()
+    ChatFrameButtonFrameDownButton:SetPoint("BOTTOM", ChatFrameButtonFrameBottomButton, "TOP", 0, -2)
+    ChatFrameButtonFrameBottomButton:ClearAllPoints()
+    ChatFrameButtonFrameBottomButton:SetPoint("BOTTOM", _G["ChatFrame"..i.."ButtonFrame"], "BOTTOM", 0, -7)
+    ChatFrameButtonFrameMenuButton:ClearAllPoints()
+    ChatFrameButtonFrameMenuButton:SetPoint("BOTTOM", ChatFrameButtonFrameUpButton, "TOP", 0, 0)
+
+    hooksecurefunc("ChatFrame_OnUpdate", ChatFrameButtonFrameBottomButton.func_ChatFrame_OnUpdate)
+
+    QuickJoinToastButton:HookScript("OnUpdate", function(self)
+        self:ClearAllPoints()
+        self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT", 0, -23)
     end)
-end)
-
-hooksecurefunc("FloatingChatFrame_UpdateBackgroundAnchors", function()
-    ChatFrame1.Background:SetPoint("TOPLEFT", -2, 3)
-    ChatFrame1.Background:SetPoint("TOPRIGHT", 24, 3)
-    ChatFrame1.Background:SetPoint("BOTTOMLEFT", -2, -6)
-    ChatFrame1.Background:SetPoint("BOTTOMRIGHT", 24, -6)
-end)
-
-hooksecurefunc("FloatingChatFrame_UpdateScroll", function()
-    local numMessages = ChatFrame1:GetNumMessages()
-    local isShown = numMessages > 1
-    ChatFrame1.ScrollBar:Hide()
-    ChatFrame1.CfScrollBar:SetShown(isShown)
-    if isShown then
-        ChatFrame1.CfScrollBar:SetMinMaxValues(1, numMessages)
-        ChatFrame1.CfScrollBar:SetValue(numMessages - ChatFrame1:GetScrollOffset())
-    end
-end)
-
-hooksecurefunc("FCF_FadeInScrollbar", function(chatFrame)
-    if chatFrame.CfScrollBar and chatFrame.CfScrollBar:IsShown() then
-        UIFrameFadeIn(chatFrame.CfScrollBar, CHAT_FRAME_FADE_TIME, chatFrame.CfScrollBar:GetAlpha(), .6)
-        if chatFrame.ScrollToBottomButton then
-            UIFrameFadeIn(chatFrame.ScrollToBottomButton, .1, chatFrame.ScrollToBottomButton:GetAlpha(), 1)
-        end
-    end
-end)
-
-hooksecurefunc("FCF_FadeOutScrollbar", function(chatFrame)
-    if chatFrame.CfScrollBar and chatFrame.CfScrollBar:IsShown() then
-        UIFrameFadeOut(chatFrame.CfScrollBar, CHAT_FRAME_FADE_OUT_TIME, chatFrame.CfScrollBar:GetAlpha(), 0)
-        if chatFrame.ScrollToBottomButton then
-            if UIFrameIsFlashing(chatFrame.ScrollToBottomButton.Flash) then
-                UIFrameFadeRemoveFrame(chatFrame.ScrollToBottomButton)
-                chatFrame.ScrollToBottomButton:SetAlpha(1)
-            else
-                UIFrameFadeOut(chatFrame.ScrollToBottomButton, CHAT_FRAME_FADE_OUT_TIME, chatFrame.ScrollToBottomButton:GetAlpha(), 0)
-            end
-        end
-    end
-end)
-
-hooksecurefunc("FCF_UpdateScrollbarAnchors", function(chatFrame)
-    if chatFrame.CfScrollBar then
-        chatFrame.CfScrollBar:ClearAllPoints()
-        chatFrame.CfScrollBar:SetPoint("TOPLEFT", chatFrame, "TOPRIGHT")
-        chatFrame.CfScrollBar:SetPoint("BOTTOM", chatFrame.ScrollToBottomButton, "TOP")
-    end
-end)
-
-hooksecurefunc("FCFDock_UpdateTabs", function(dock)
-    local scrollChild = dock.scrollFrame:GetScrollChild()
-    local lastDockedStaticTab = nil
-    local lastDockedDynamicTab = nil
-
-    for index, chatFrame in ipairs(dock.DOCKED_CHAT_FRAMES) do
-        local chatTab = _G[chatFrame:GetName().."Tab"]
-        if ( chatFrame.isStaticDocked ) then
-            PanelTemplates_TabResize(chatTab, chatTab.sizePadding or 8)
-            if ( lastDockedStaticTab ) then
-                chatTab:SetPoint("LEFT", lastDockedStaticTab, "RIGHT", 4, 0)
-            else
-                chatTab:SetPoint("LEFT", dock, "LEFT", 2, 0)
-            end
-            lastDockedStaticTab = chatTab
-        else
-            if ( lastDockedDynamicTab ) then
-                chatTab:SetPoint("LEFT", lastDockedDynamicTab, "RIGHT", 4, 0)
-            else
-                chatTab:SetPoint("LEFT", scrollChild, "LEFT", 4, -2)
-            end
-            lastDockedDynamicTab = chatTab
-        end
-    end
-end)
+end
 
 ChatConfigCombatSettingsFilters.ScrollBar:SetSize(25, 560)
 ChatConfigCombatSettingsFilters.ScrollBar:ClearAllPoints()
@@ -120,7 +136,7 @@ ApplyScrollBarTrack(ChatConfigCombatSettingsFilters.ScrollBar.Track)
 ApplyScrollBarThumb(ChatConfigCombatSettingsFilters.ScrollBar.Track.Thumb)
 
 ApplyDialogBorder(ChatConfigFrame.Border)
-ApplyDialogHeader(ChatConfigFrame.Header)
+ApplyDialogHeader(ChatConfigFrame)
 
 ChatConfigFrame:HookScript("OnShow", function(self)
     self:ClearAllPoints()

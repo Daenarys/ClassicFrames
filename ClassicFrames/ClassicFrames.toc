@@ -24,7 +24,7 @@ skins\Calendar.lua
 skins\Catalyst.lua
 skins\Channel.lua
 skins\Character.lua
-skins\Chat.xml
+skins\Chat.lua
 skins\ChromieTime.lua
 skins\Cinematic.lua
 skins\ClickBindings.lua

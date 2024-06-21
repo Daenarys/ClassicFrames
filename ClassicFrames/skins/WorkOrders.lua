@@ -17,6 +17,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(ProfessionsCustomerOrdersFrame)
 		ApplyNineSlicePortrait(ProfessionsCustomerOrdersFrame)
 
+		ProfessionsCustomerOrdersFrameBrowseTab:ClearAllPoints()
+		ProfessionsCustomerOrdersFrameBrowseTab:SetPoint("BOTTOMLEFT", 20, -31)
 		ProfessionsCustomerOrdersFrameOrdersTab:ClearAllPoints()
 		ProfessionsCustomerOrdersFrameOrdersTab:SetPoint("LEFT", ProfessionsCustomerOrdersFrameBrowseTab, "RIGHT", -15, 0)
 
