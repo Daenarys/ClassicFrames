@@ -132,7 +132,7 @@ hooksecurefunc('QuestLogQuests_Update', function(self)
 		end
 	end
 	for _, child in next, { _G.QuestMapFrame.QuestsFrame.Contents:GetChildren() } do
-		if child.ButtonText and not child.questID then
+		if not child.questID then
 			if child.CollapseButton then
 				hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
 					self.Icon:SetAlpha(0)
