@@ -187,13 +187,15 @@ f:SetScript("OnEvent", function(self, event, name)
 		end)
 
 		hooksecurefunc(WardrobeCollectionFrame.ItemsCollectionFrame, "UpdateWeaponDropdown", function(self)
-			local name, isWeapon
-			if self.transmogLocation:IsAppearance() then
-				name, isWeapon = C_TransmogCollection.GetCategoryInfo(self:GetActiveCategory())
-			end
+			if WardrobeCollectionFrame:GetParent() == CollectionsJournal then
+				local name, isWeapon
+				if self.transmogLocation:IsAppearance() then
+					name, isWeapon = C_TransmogCollection.GetCategoryInfo(self:GetActiveCategory())
+				end
 
-			self.WeaponDropdown:SetShown(true)
-			self.WeaponDropdown:SetEnabled(isWeapon)
+				self.WeaponDropdown:SetShown(true)
+				self.WeaponDropdown:SetEnabled(isWeapon)
+			end
 		end)
 	end
 end)

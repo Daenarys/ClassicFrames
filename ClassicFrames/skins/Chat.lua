@@ -1,11 +1,6 @@
 local CHAT_FRAME_FADE_TIME = 0.15
 local CHAT_FRAME_FADE_OUT_TIME = 2.0
 
-for i = 1, NUM_CHAT_WINDOWS do
-    _G['ChatFrame'..i..'Tab'].Text:ClearAllPoints()
-    _G['ChatFrame'..i..'Tab'].Text:SetPoint("CENTER", 0, -6)
-end
-
 ChatFrame1EditBox:ClearAllPoints()
 ChatFrame1EditBox:SetPoint("TOPLEFT", ChatFrame1, "BOTTOMLEFT", -5, -2)
 ChatFrame1EditBox:SetPoint("RIGHT", ChatFrame1.ScrollBar, "RIGHT", 19, 0)
@@ -28,6 +23,11 @@ QuickJoinToastButton:HookScript("OnUpdate", function(self)
     self:ClearAllPoints()
     self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT")
 end)
+
+for i = 1, NUM_CHAT_WINDOWS do
+    _G['ChatFrame'..i..'Tab'].Text:ClearAllPoints()
+    _G['ChatFrame'..i..'Tab'].Text:SetPoint("CENTER", 0, -6)
+end
 
 hooksecurefunc("FloatingChatFrame_SetupScrolling", function()
     ChatFrame1:SetOnScrollChangedCallback(function(messageFrame, offset)
