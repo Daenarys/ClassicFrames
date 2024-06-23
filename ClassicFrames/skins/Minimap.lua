@@ -544,41 +544,6 @@ MiniMapWorldMapButton:SetScript("OnEvent", function(self)
 	self.newbieText = NEWBIE_TOOLTIP_WORLDMAP
 end)
 
-local function SetLandingPageIconFromAtlases(self, up, down, highlight, glow, useDefaultButtonSize)
-	local width, height;
-	if useDefaultButtonSize then
-		width = self.defaultWidth;
-		height = self.defaultHeight;
-		self.LoopingGlow:SetSize(self.defaultGlowWidth, self.defaultGlowHeight);
-	else
-		local info = C_Texture.GetAtlasInfo(up);
-		width = info and info.width or 0;
-		height = info and info.height or 0;
-	end
-	self:SetSize(width, height);
-
-	local useAtlasSize = not useDefaultButtonSize;
-	self:GetNormalTexture():SetAtlas(up, useAtlasSize);
-	self:GetPushedTexture():SetAtlas(down, useAtlasSize);
-	self:GetHighlightTexture():SetAtlas(highlight, useAtlasSize);
-	self.LoopingGlow:SetAtlas(glow, useAtlasSize);
-end
-
-local garrisonType9_0AtlasFormats = {
-	"shadowlands-landingbutton-%s-up",
-	"shadowlands-landingbutton-%s-down",
-	"shadowlands-landingbutton-%s-highlight",
-	"shadowlands-landingbutton-%s-glow",
-};
-
-local function GetMinimapAtlases_GarrisonType9_0()
-	local kit = "Venthyr";
-	if kit then
-		local t = garrisonType9_0AtlasFormats;
-		return t[1]:format(kit), t[2]:format(kit), t[3]:format(kit), t[4]:format(kit);
-	end
-end
-
 Minimap:HookScript("OnEvent", function(self, event, ...)
 	if ( event == "PLAYER_ENTERING_WORLD" ) then
 		TimeManagerClockButton:SetParent(self)
@@ -603,14 +568,14 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 			ExpansionLandingPageMinimapButton:Hide()
 		end
 
+		ExpansionLandingPageMinimapButton:SetScale(0.8)
 		ExpansionLandingPageMinimapButton:ClearAllPoints()
-		ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 32, -106)
-		SetLandingPageIconFromAtlases(ExpansionLandingPageMinimapButton, GetMinimapAtlases_GarrisonType9_0());
+		ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 52, -151)
 
 		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIcon", function(self)
+			self:SetScale(0.8)
 			self:ClearAllPoints()
-			self:SetPoint("TOPLEFT", 32, -106)
-			SetLandingPageIconFromAtlases(self, GetMinimapAtlases_GarrisonType9_0())
+			self:SetPoint("TOPLEFT", 52, -151)
 		end)
 
 		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIconForGarrison", function(self)
