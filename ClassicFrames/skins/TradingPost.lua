@@ -42,17 +42,5 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyScrollBarArrow(PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar)
 		ApplyScrollBarThumb(PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar.Track.Thumb)
-
-		PerksProgramFrame.FooterFrame.RotateButtonContainer.RotateLeftButton.NormalTexture:SetTexture("Interface\\Buttons\\UI-RotationLeft-Button-Up")
-		PerksProgramFrame.FooterFrame.RotateButtonContainer.RotateLeftButton.PushedTexture:SetTexture("Interface\\Buttons\\UI-RotationLeft-Button-Down")
-		PerksProgramFrame.FooterFrame.RotateButtonContainer.RotateLeftButton.HighlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Round")
-		PerksProgramFrame.FooterFrame.RotateButtonContainer.RotateLeftButton.HighlightTexture:SetAlpha(1)
-		PerksProgramFrame.FooterFrame.RotateButtonContainer.RotateLeftButton.Icon:Hide()
-
-		PerksProgramFrame.FooterFrame.RotateButtonContainer.RotateRightButton.NormalTexture:SetTexture("Interface\\Buttons\\UI-RotationRight-Button-Up")
-		PerksProgramFrame.FooterFrame.RotateButtonContainer.RotateRightButton.PushedTexture:SetTexture("Interface\\Buttons\\UI-RotationRight-Button-Down")
-		PerksProgramFrame.FooterFrame.RotateButtonContainer.RotateRightButton.HighlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Round")
-		PerksProgramFrame.FooterFrame.RotateButtonContainer.RotateRightButton.HighlightTexture:SetAlpha(1)
-		PerksProgramFrame.FooterFrame.RotateButtonContainer.RotateRightButton.Icon:Hide()
 	end
 end)
