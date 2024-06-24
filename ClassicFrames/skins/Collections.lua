@@ -181,21 +181,5 @@ f:SetScript("OnEvent", function(self, event, name)
 				self.ItemsCollectionFrame.WeaponDropdown:SetPoint("TOPRIGHT", -20, -23)
 			end
 		end)
-
-		hooksecurefunc(WardrobeCollectionFrame.ItemsCollectionFrame, "Show", function(self)
-			self.WeaponDropdown:SetEnabled(false)
-		end)
-
-		hooksecurefunc(WardrobeCollectionFrame.ItemsCollectionFrame, "UpdateWeaponDropdown", function(self)
-			if WardrobeCollectionFrame:GetParent() == CollectionsJournal then
-				local name, isWeapon
-				if self.transmogLocation:IsAppearance() then
-					name, isWeapon = C_TransmogCollection.GetCategoryInfo(self:GetActiveCategory())
-				end
-
-				self.WeaponDropdown:SetShown(true)
-				self.WeaponDropdown:SetEnabled(isWeapon)
-			end
-		end)
 	end
 end)
