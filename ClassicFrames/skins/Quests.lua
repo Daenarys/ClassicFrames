@@ -98,6 +98,10 @@ ApplyScrollBarArrow(QuestRewardScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestRewardScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestRewardScrollFrame.ScrollBar.Track.Thumb)
 
+if QuestMapFrame.CampaignOverview.Header.BackButton then
+	QuestMapFrame.CampaignOverview.Header.BackButton:ClearAllPoints()
+	QuestMapFrame.CampaignOverview.Header.BackButton:SetPoint("RIGHT", QuestMapFrame.CampaignOverview.Header.Background, "RIGHT", -10, 7)
+end
 QuestMapFrame.SettingsDropdown:Hide()
 
 ApplySearchBox(QuestScrollFrame.SearchBox)
