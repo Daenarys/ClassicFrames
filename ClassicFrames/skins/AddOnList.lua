@@ -12,7 +12,7 @@ ApplyNineSliceNoPortrait(AddonList)
 AddonList.ScrollBar:SetSize(25, 560)
 AddonList.ScrollBar:ClearAllPoints()
 AddonList.ScrollBar:SetPoint("TOPLEFT", AddonList.ScrollBox, "TOPRIGHT", -2, 2)
-AddonList.ScrollBar:SetPoint("BOTTOMLEFT", AddonList.ScrollBox, "BOTTOMRIGHT", -2, 0)
+AddonList.ScrollBar:SetPoint("BOTTOMLEFT", AddonList.ScrollBox, "BOTTOMRIGHT", -2, -1)
 
 if (AddonList.ScrollBar.BG == nil) then
 	AddonList.ScrollBar.BG = AddonList.ScrollBar:CreateTexture(nil, "BACKGROUND")

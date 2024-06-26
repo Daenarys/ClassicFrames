@@ -64,6 +64,17 @@ end)
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", function(self)
 	self.WidgetContainer:ClearAllPoints()
 	self.WidgetContainer:SetPoint("TOPLEFT", -18, 10)
+	if self.WidgetContainer.widgetFrames then
+		for _, widgetFrame in pairs(self.WidgetContainer.widgetFrames) do
+			if widgetFrame.HeaderText then
+				widgetFrame.HeaderText:SetFontObject(QuestTitleFont)
+			end
+			if widgetFrame.Frame then
+				widgetFrame:SetWidth(258)
+				widgetFrame.Frame:SetWidth(258)
+			end
+		end
+	end
 end)
 
 for _, tracker in pairs(trackers) do
