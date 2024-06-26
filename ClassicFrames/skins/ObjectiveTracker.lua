@@ -58,7 +58,7 @@ end)
 
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", function(self)
 	self.WidgetContainer:ClearAllPoints()
-	self.WidgetContainer:SetPoint("TOPLEFT", -11, 7)
+	self.WidgetContainer:SetPoint("TOPLEFT", -18, 10)
 end)
 
 hooksecurefunc(ScenarioObjectiveTracker.ChallengeModeBlock, "Activate", function(block)
