@@ -51,8 +51,9 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function
 	end
 	block.NormalBG:ClearAllPoints()
 	block.NormalBG:SetPoint("TOPLEFT", -11, -2)
+	block.Stage:SetFontObject(QuestTitleFont)
 	block.Stage:ClearAllPoints()
-	block.Stage:SetPoint("TOPLEFT", 4, -19)
+	block.Stage:SetPoint("TOPLEFT", 4, -20)
 end)
 
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", function(self)
