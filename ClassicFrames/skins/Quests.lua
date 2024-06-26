@@ -110,7 +110,7 @@ hooksecurefunc('QuestLogQuests_Update', function(self)
 	for child in _G.QuestScrollFrame.campaignHeaderFramePool:EnumerateActive() do
 		if child.Text then
 			child.Text:ClearAllPoints()
-			child.Text:SetPoint("BOTTOMLEFT", child.Background, "LEFT", 40, 5)
+			child.Text:SetPoint("BOTTOMLEFT", child.Background, "LEFT", 35, 5)
 		end
 		if child.Progress then
 			child.Progress:ClearAllPoints()
