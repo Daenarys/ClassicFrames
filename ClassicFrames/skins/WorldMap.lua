@@ -56,7 +56,14 @@ hooksecurefunc(WorldMapFrame, "Maximize", function(self)
 	ApplyNineSliceNoPortraitMinimizable(self.BorderFrame)
 end)
 
-local Dropdown, Tracking, Pin = unpack(WorldMapFrame.overlayFrames)
+for _, f in next, WorldMapFrame.overlayFrames do
+	if WorldMapActivityTrackerMixin and f.OnLoad == WorldMapActivityTrackerMixin.OnLoad then
+		hooksecurefunc(f, "Show", function()
+			f:Hide()
+		end)
+	end
+
+local Dropdown, Tracking, Pin, ActivityTracker, MapLegend = unpack(WorldMapFrame.overlayFrames)
 ApplyDropDown(Dropdown)
 
 Tracking.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
@@ -80,3 +87,5 @@ Tracking:HookScript("OnMouseUp", function(self)
 end)
 
 Pin.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
+
+MapLegend:Hide()
