@@ -298,7 +298,7 @@ if (MiniMapInstanceDifficulty) == nil then
 	MiniMapChallengeMode:SetFrameStrata("LOW")
 	MiniMapChallengeMode:SetFrameLevel(11)
 	MiniMapChallengeMode:SetSize(27, 36)
-	MiniMapChallengeMode:SetPoint("TOPLEFT", Minimap, "TOPLEFT", -19, 11)
+	MiniMapChallengeMode:SetPoint("TOPLEFT", Minimap, "TOPLEFT", -7, -1)
 	MiniMapChallengeMode:Hide()
 	local MiniMapChallengeModeTexture = MiniMapChallengeMode:CreateTexture("MiniMapChallengeModeTexture", "BACKGROUND")
 	MiniMapChallengeModeTexture:SetSize(64, 64)

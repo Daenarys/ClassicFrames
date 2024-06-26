@@ -60,6 +60,12 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", 
 	self.WidgetContainer:SetPoint("TOPLEFT", -11, 7)
 end)
 
+hooksecurefunc(ScenarioObjectiveTracker.ChallengeModeBlock, "Activate", function(block)
+	block.StatusBar:SetWidth(200)
+	block.TimerBG:SetWidth(200)
+	block.TimerBGBack:SetWidth(200)
+end)
+
 for _, tracker in pairs(trackers) do
 	hooksecurefunc(tracker, 'AddBlock', function(self)
 		for _, child in next, { tracker.ContentsFrame:GetChildren() } do
