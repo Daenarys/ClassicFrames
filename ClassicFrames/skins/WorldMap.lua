@@ -62,8 +62,9 @@ for _, f in next, WorldMapFrame.overlayFrames do
 			f:Hide()
 		end)
 	end
+end
 
-local Dropdown, Tracking, Pin, ActivityTracker, MapLegend = unpack(WorldMapFrame.overlayFrames)
+local Dropdown, Tracking, Pin, MapLegend = unpack(WorldMapFrame.overlayFrames)
 ApplyDropDown(Dropdown)
 
 Tracking.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
