@@ -21,6 +21,8 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 	self.Header:Hide()
 	for _, tracker in pairs(trackers) do
 		tracker:SetWidth(235)
+		tracker.ContentsFrame:SetPoint("LEFT", -10, 0)
+		tracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
 		tracker.Header:SetSize(235, 25)
 		tracker.Header.Background:SetAtlas("Objective-Header", true)
 		tracker.Header.Background:ClearAllPoints()
@@ -38,6 +40,9 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 			tracker.Header.MinimizeButton:SetNormalAtlas("UI-QuestTrackerButton-Collapse-All")
 			tracker.Header.MinimizeButton:SetPushedAtlas("UI-QuestTrackerButton-Collapse-All-Pressed")
 		end
+	end
+	for _, child in next, { _G.ScenarioObjectiveTracker.ContentsFrame:GetChildren() } do
+		child:SetPoint("LEFT", 31, 0)
 	end
 end)
 
@@ -59,12 +64,6 @@ end)
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", function(self)
 	self.WidgetContainer:ClearAllPoints()
 	self.WidgetContainer:SetPoint("TOPLEFT", -18, 10)
-end)
-
-hooksecurefunc(ScenarioObjectiveTracker.ChallengeModeBlock, "Activate", function(block)
-	block.StatusBar:SetWidth(200)
-	block.TimerBG:SetWidth(200)
-	block.TimerBGBack:SetWidth(200)
 end)
 
 for _, tracker in pairs(trackers) do
@@ -91,21 +90,3 @@ for _, tracker in pairs(trackers) do
 		end
 	end)
 end
-
-AchievementObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-AchievementObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-AdventureObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-AdventureObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-BonusObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-BonusObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-CampaignQuestObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-CampaignQuestObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-MonthlyActivitiesObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-MonthlyActivitiesObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-ProfessionsRecipeTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-ProfessionsRecipeTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-QuestObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-QuestObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-ScenarioObjectiveTracker.ContentsFrame:SetPoint("LEFT", 1, 0)
-WorldQuestObjectiveTracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-WorldQuestObjectiveTracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
