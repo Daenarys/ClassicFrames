@@ -121,7 +121,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
 
 		hooksecurefunc("MountJournal_InitMountButton", function(button)
-			button.DragonRidingLabel:Hide()
+			button.SteadyFlightLabel:Hide()
 			button.name:SetSize(147, 25)
 			button.name:ClearAllPoints()
 			button.name:SetPoint("TOPLEFT", button.icon, "TOPRIGHT", 10, -5)

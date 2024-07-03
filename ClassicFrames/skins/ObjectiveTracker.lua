@@ -56,30 +56,18 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function
 	end
 	block.NormalBG:ClearAllPoints()
 	block.NormalBG:SetPoint("TOPLEFT", -11, -2)
-	block.Stage:SetFontObject(QuestTitleFont)
 	block.Stage:ClearAllPoints()
 	block.Stage:SetPoint("TOPLEFT", 4, -20)
 end)
 
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", function(self)
 	self.WidgetContainer:ClearAllPoints()
-	self.WidgetContainer:SetPoint("TOPLEFT", -18, 10)
+	self.WidgetContainer:SetPoint("TOPLEFT", -18, 1)
 	if self.WidgetContainer.widgetFrames then
 		for _, widgetFrame in pairs(self.WidgetContainer.widgetFrames) do
-			if widgetFrame.Background then
-				widgetFrame.Background:ClearAllPoints()
-				widgetFrame.Background:SetPoint("CENTER", -15, -7)
-			end
-			if widgetFrame.HeaderText then
-				widgetFrame.HeaderText:SetFontObject(QuestTitleFont)
-			end
 			if widgetFrame.Frame then
 				widgetFrame:SetWidth(258)
 				widgetFrame.Frame:SetWidth(258)
-			end
-			if widgetFrame.Text then
-				widgetFrame.Text:ClearAllPoints()
-				widgetFrame.Text:SetPoint("CENTER", -14, -1)
 			end
 		end
 	end
