@@ -111,6 +111,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplySearchBox(WardrobeCollectionFrameSearchBox)
 
 		ApplyDropDown(HeirloomsJournal.ClassDropdown)
+		ApplyDropDown(WardrobeCollectionFrame.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
 
@@ -174,7 +175,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		hooksecurefunc(WardrobeCollectionFrame, "SetContainer", function(self, parent)
 			if parent == CollectionsJournal then
-				self.ClassDropdown:Hide()
 				self.ItemsCollectionFrame.ModelR1C1:SetPoint("TOP", -238, -85)
 				self.ItemsCollectionFrame.PagingFrame:SetPoint("BOTTOM", 22, 38)
 				self.ItemsCollectionFrame.SlotsFrame:SetPoint("TOPLEFT", 18, -20)

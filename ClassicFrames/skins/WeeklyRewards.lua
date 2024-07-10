@@ -8,7 +8,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		WeeklyRewardsFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 		WeeklyRewardsFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 		WeeklyRewardsFrame.CloseButton:ClearAllPoints()
-		WeeklyRewardsFrame.CloseButton:SetPoint("TOPRIGHT", -2, -2)
+		WeeklyRewardsFrame.CloseButton:SetPoint("TOPRIGHT", -5, -2)
 		UIPanelCloseButton_SetBorderAtlas(WeeklyRewardsFrame.CloseButton, "UI-Frame-Oribos-ExitButtonBorder", -1, 1)
 
 		WeeklyRewardsFrame:HookScript("OnShow", function(self)

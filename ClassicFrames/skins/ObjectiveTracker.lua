@@ -56,6 +56,9 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function
 	end
 	block.NormalBG:ClearAllPoints()
 	block.NormalBG:SetPoint("TOPLEFT", -11, -2)
+	block.FinalBG:SetAtlas("ScenarioTrackerToast-FinalFiligree", true)
+	block.FinalBG:ClearAllPoints()
+	block.FinalBG:SetPoint("TOPLEFT", -7, -6)
 	block.Stage:ClearAllPoints()
 	block.Stage:SetPoint("TOPLEFT", 4, -20)
 end)
