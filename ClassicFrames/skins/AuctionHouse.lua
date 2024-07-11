@@ -17,6 +17,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(AuctionHouseFrame)
 		ApplyNineSlicePortrait(AuctionHouseFrame)
 
+		AuctionHouseFrameBuyTab:ClearAllPoints()
+		AuctionHouseFrameBuyTab:SetPoint("BOTTOMLEFT", 20, -31)
 		AuctionHouseFrameSellTab:ClearAllPoints()
 		AuctionHouseFrameSellTab:SetPoint("LEFT", AuctionHouseFrameBuyTab, "RIGHT", -15, 0)
 		AuctionHouseFrameAuctionsTab:ClearAllPoints()
@@ -187,8 +189,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyCloseButton(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial.CloseButton)
 		ApplyTitleBgNoPortrait(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial)
 		ApplyNineSliceNoPortrait(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial)
-
-		AuctionHouseFrame.WoWTokenResults.GameTimeTutorial.CloseButton:SetFrameLevel(4)
 
 		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetSize(25, 560)
 		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:ClearAllPoints()
