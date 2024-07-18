@@ -525,6 +525,7 @@ function ApplyDropDown(frame)
 	frame.Arrow:SetPoint("RIGHT", -2, -1)
 
 	frame.Text:SetFontObject(GameFontHighlightSmall)
+	frame.Text:SetPoint("TOPLEFT", 10, -8)
 
 	hooksecurefunc(frame, "OnButtonStateChanged", function(self)
 		self.Arrow:SetSize(22, 22)
