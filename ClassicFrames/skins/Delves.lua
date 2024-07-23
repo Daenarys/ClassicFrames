@@ -52,5 +52,7 @@ if DelvesCompanionConfigurationFrame then
 	DelvesCompanionConfigurationFrame.CloseButton:ClearAllPoints()
 	DelvesCompanionConfigurationFrame.CloseButton:SetPoint("TOPRIGHT", 4, 3)
 
-	ApplyDialogBorder(DelvesCompanionConfigurationFrame.Border)
+	if DelvesCompanionConfigurationFrame.Border then
+		ApplyDialogBorder(DelvesCompanionConfigurationFrame.Border)
+	end
 end
