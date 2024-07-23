@@ -568,14 +568,19 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 			ExpansionLandingPageMinimapButton:Hide()
 		end
 
-		ExpansionLandingPageMinimapButton:SetScale(0.8)
-		ExpansionLandingPageMinimapButton:ClearAllPoints()
-		ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 52, -151)
+		if (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "dragonflight-landingbutton-up") then
+			ExpansionLandingPageMinimapButton:SetScale(0.85)
+			ExpansionLandingPageMinimapButton:ClearAllPoints()
+			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 42, -144)
+		else
+			ExpansionLandingPageMinimapButton:ClearAllPoints()
+			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 32, -118)
+		end
 
 		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIcon", function(self)
-			self:SetScale(0.8)
+			self:SetScale(0.85)
 			self:ClearAllPoints()
-			self:SetPoint("TOPLEFT", 52, -151)
+			self:SetPoint("TOPLEFT", 42, -144)
 		end)
 
 		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIconForGarrison", function(self)
