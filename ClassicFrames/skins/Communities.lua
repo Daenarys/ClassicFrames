@@ -236,3 +236,7 @@ ApplyDropDown(CommunitiesFrame.NotificationSettingsDialog.CommunitiesListDropdow
 ApplyDropDown(CommunitiesFrame.CommunitiesListDropdown)
 ApplyDropDown(CommunitiesFrame.GuildMemberListDropdown)
 ApplyDropDown(CommunitiesFrame.StreamDropdown)
+ApplyDropDown(CommunitiesFrame.GuildMemberDetailFrame.RankDropdown)
+ApplyDropDown(CommunitiesFrame.RecruitmentDialog.ClubFocusDropdown)
+ApplyDropDown(CommunitiesFrame.RecruitmentDialog.LookingForDropdown)
+ApplyDropDown(CommunitiesFrame.RecruitmentDialog.LanguageDropdown)
