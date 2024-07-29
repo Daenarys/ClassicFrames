@@ -12,6 +12,29 @@ EditModeSystemSettingsDialog.CloseButton:SetFrameLevel(510)
 
 EditModeManagerFrame.Tutorial.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar:SetWidth(20)
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar:ClearAllPoints()
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar:SetPoint("TOPLEFT", EditModeManagerFrame.AccountSettings.SettingsContainer, "TOPRIGHT", -20, -1)
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar:SetPoint("BOTTOMLEFT", EditModeManagerFrame.AccountSettings.SettingsContainer, "BOTTOMRIGHT", 20, 1)
+
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Track.Begin:Hide()
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Track.End:Hide()
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Track.Middle:Hide()
+
+ApplyScrollBarThumb(EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Track.Thumb)
+
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Back:SetSize(18, 16)
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
+
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Forward:SetSize(18, 16)
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
+EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
+
 EditModeImportLayoutDialog.ImportBox.ScrollBar:SetWidth(20)
 EditModeImportLayoutDialog.ImportBox.ScrollBar:ClearAllPoints()
 EditModeImportLayoutDialog.ImportBox.ScrollBar:SetPoint("TOPLEFT", EditModeImportLayoutDialog.ImportBox, "TOPRIGHT", -16, 1)
