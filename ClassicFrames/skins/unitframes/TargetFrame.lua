@@ -95,6 +95,11 @@ local function SkinFrame(frame)
 	questIcon:ClearAllPoints()
 	questIcon:SetPoint("TOP", 32, -16)
 
+	if ComboFrame then
+		ComboFrame:ClearAllPoints()
+		ComboFrame:SetPoint("TOPRIGHT", TargetFrame, "TOPRIGHT", -24, -13)
+	end
+
 	hooksecurefunc(frame, "CheckBattlePet", function(self)
 		local petBattle = contextual.PetBattleIcon;
 
