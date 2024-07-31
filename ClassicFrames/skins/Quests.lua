@@ -135,6 +135,9 @@ hooksecurefunc('QuestLogQuests_Update', function(self)
 			child.LoreButton:SetPoint("RIGHT", child.Background, "RIGHT", -10, 7)
 		end
 	end
+end)
+
+QuestMapFrame:HookScript("OnShow", function()
 	for _, child in next, { _G.QuestMapFrame.QuestsFrame.Contents:GetChildren() } do
 		if not child.questID then
 			if child.CollapseButton then
