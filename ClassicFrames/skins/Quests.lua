@@ -107,47 +107,52 @@ QuestMapFrame.SettingsDropdown:Hide()
 ApplySearchBox(QuestScrollFrame.SearchBox)
 
 hooksecurefunc('QuestLogQuests_Update', function(self)
-	for child in _G.QuestScrollFrame.campaignHeaderFramePool:EnumerateActive() do
-		if child.Text then
-			child.Text:ClearAllPoints()
-			child.Text:SetPoint("BOTTOMLEFT", child.Background, "LEFT", 35, 5)
+	for button in _G.QuestScrollFrame.campaignHeaderFramePool:EnumerateActive() do
+		if button.Text then
+			button.Text:ClearAllPoints()
+			button.Text:SetPoint("BOTTOMLEFT", button.Background, "LEFT", 35, 5)
 		end
-		if child.Progress then
-			child.Progress:ClearAllPoints()
-			child.Progress:SetPoint("TOPLEFT", child.Text, "BOTTOMLEFT", 0, -4)
+		if button.Progress then
+			button.Progress:ClearAllPoints()
+			button.Progress:SetPoint("TOPLEFT", button.Text, "BOTTOMLEFT", 0, -4)
 		end
-		if child.NextObjective.Text then
-			child.NextObjective.Text:ClearAllPoints()
-			child.NextObjective.Text:SetPoint("TOP", child.NextObjective, "TOP")
+		if button.NextObjective.Text then
+			button.NextObjective.Text:ClearAllPoints()
+			button.NextObjective.Text:SetPoint("TOP", button.NextObjective, "TOP")
 		end
-		if child.CollapseButton then
-			child.CollapseButton:ClearAllPoints()
-			child.CollapseButton:SetPoint("LEFT", child.Background, "LEFT", 8, 6)
-			hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
+		if button.LoreButton then
+			button.LoreButton:ClearAllPoints()
+			button.LoreButton:SetPoint("RIGHT", button.Background, "RIGHT", -10, 7)
+		end
+		if button.CollapseButton then
+			button.CollapseButton:ClearAllPoints()
+			button.CollapseButton:SetPoint("LEFT", button.Background, "LEFT", 8, 6)
+			hooksecurefunc(button.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
 				local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
 				self.Icon:SetAtlas(atlas, true)
 				self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
 			end)
 		end
-		if child.LoreButton then
-			child.LoreButton:ClearAllPoints()
-			child.LoreButton:SetPoint("RIGHT", child.Background, "RIGHT", -10, 7)
+	end
+	for button in _G.QuestScrollFrame.titleFramePool:EnumerateActive() do
+		if button.Checkbox then
+			button.Checkbox:Hide()
 		end
 	end
 end)
 
 QuestScrollFrame:HookScript("OnShow", function()
-	for child in _G.QuestScrollFrame.headerFramePool:EnumerateActive() do
-		child:GetNormalTexture():SetAlpha(0)
-		child:GetHighlightTexture():SetAlpha(0)
-		if child.ButtonText then
-			child.ButtonText:ClearAllPoints()
-			child.ButtonText:SetPoint("LEFT", 24, 1)
+	for button in _G.QuestScrollFrame.headerFramePool:EnumerateActive() do
+		button:GetNormalTexture():SetAlpha(0)
+		button:GetHighlightTexture():SetAlpha(0)
+		if button.ButtonText then
+			button.ButtonText:ClearAllPoints()
+			button.ButtonText:SetPoint("LEFT", 24, 1)
 		end
-		if child.CollapseButton then
-			child.CollapseButton:ClearAllPoints()
-			child.CollapseButton:SetPoint("LEFT", -1, 1)
-			hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
+		if button.CollapseButton then
+			button.CollapseButton:ClearAllPoints()
+			button.CollapseButton:SetPoint("LEFT", -1, 1)
+			hooksecurefunc(button.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
 				local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
 				self.Icon:SetAtlas(atlas)
 				self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
