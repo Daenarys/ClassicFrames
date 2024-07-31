@@ -139,9 +139,8 @@ hooksecurefunc('QuestLogQuests_Update', function(self)
 		if not child.questID then
 			if child.CollapseButton then
 				hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
-					self.Icon:SetAlpha(0)
-					self:SetNormalAtlas(collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open")
-					self:SetPushedAtlas(collapsed and "Campaign_HeaderIcon_ClosedPressed" or "Campaign_HeaderIcon_OpenPressed")
+					local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
+					self.Icon:SetAtlas(atlas, true)
 					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
 				end)
 			end
