@@ -58,8 +58,14 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function
 	else
 		block.NormalBG:SetAtlas("ScenarioTrackerToast", true)
 	end
-	block.NormalBG:ClearAllPoints()
-	block.NormalBG:SetPoint("TOPLEFT", -11, -2)
+	if (block.NormalBG:GetAtlas() == "thewarwithin-scenario-trackerheader") then
+		block.NormalBG:SetWidth(257)
+		block.NormalBG:ClearAllPoints()
+		block.NormalBG:SetPoint("TOPLEFT", -18, 1)
+	else
+		block.NormalBG:ClearAllPoints()
+		block.NormalBG:SetPoint("TOPLEFT", -11, -2)
+	end
 	block.FinalBG:SetAtlas("ScenarioTrackerToast-FinalFiligree", true)
 	block.FinalBG:ClearAllPoints()
 	block.FinalBG:SetPoint("TOPLEFT", -7, -6)
