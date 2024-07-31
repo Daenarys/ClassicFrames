@@ -122,11 +122,10 @@ hooksecurefunc('QuestLogQuests_Update', function(self)
 		end
 		if child.CollapseButton then
 			child.CollapseButton:ClearAllPoints()
-			child.CollapseButton:SetPoint("LEFT", child.Background, "LEFT", 10, 6)
+			child.CollapseButton:SetPoint("LEFT", child.Background, "LEFT", 8, 6)
 			hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
-				self.Icon:SetAlpha(0)
-				self:SetNormalAtlas(collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open")
-				self:SetPushedAtlas(collapsed and "Campaign_HeaderIcon_ClosedPressed" or "Campaign_HeaderIcon_OpenPressed")
+				local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
+				self.Icon:SetAtlas(atlas, true)
 				self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
 			end)
 		end
@@ -137,16 +136,22 @@ hooksecurefunc('QuestLogQuests_Update', function(self)
 	end
 end)
 
-QuestMapFrame:HookScript("OnShow", function()
-	for _, child in next, { _G.QuestMapFrame.QuestsFrame.Contents:GetChildren() } do
-		if not child.questID then
-			if child.CollapseButton then
-				hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
-					local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
-					self.Icon:SetAtlas(atlas, true)
-					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
-				end)
-			end
+QuestScrollFrame:HookScript("OnShow", function()
+	for child in _G.QuestScrollFrame.headerFramePool:EnumerateActive() do
+		child:GetNormalTexture():SetAlpha(0)
+		child:GetHighlightTexture():SetAlpha(0)
+		if child.ButtonText then
+			child.ButtonText:ClearAllPoints()
+			child.ButtonText:SetPoint("LEFT", 24, 1)
+		end
+		if child.CollapseButton then
+			child.CollapseButton:ClearAllPoints()
+			child.CollapseButton:SetPoint("LEFT", -1, 1)
+			hooksecurefunc(child.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
+				local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
+				self.Icon:SetAtlas(atlas)
+				self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
+			end)
 		end
 	end
 end)
