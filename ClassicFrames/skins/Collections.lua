@@ -181,5 +181,13 @@ f:SetScript("OnEvent", function(self, event, name)
 				self.ItemsCollectionFrame.WeaponDropdown:SetPoint("TOPRIGHT", -20, -23)
 			end
 		end)
+
+		hooksecurefunc(WardrobeCollectionFrame, "SetTab", function(self, tabID)
+			if self.activeFrame == self.ItemsCollectionFrame then
+				self.ClassDropdown:Hide()
+			elseif self.activeFrame == self.SetsCollectionFrame then
+				self.ClassDropdown:Show()
+			end
+		end)
 	end
 end)
