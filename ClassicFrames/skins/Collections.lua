@@ -182,7 +182,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end)
 
-		hooksecurefunc(WardrobeCollectionFrame, "SetTab", function(self, tabID)
+		hooksecurefunc(WardrobeCollectionFrame, "SetTab", function(self)
 			if self.activeFrame == self.ItemsCollectionFrame then
 				self.ClassDropdown:Hide()
 			elseif self.activeFrame == self.SetsCollectionFrame then
