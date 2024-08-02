@@ -106,7 +106,7 @@ for _, tracker in pairs(trackers) do
 
 		if not bar.BorderMid then
 			bar:ClearAllPoints()
-			bar:SetPoint("LEFT", -8, 4)
+			bar:SetPoint("LEFT", -1, 0)
 		end
 	end)
 end
