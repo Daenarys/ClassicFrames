@@ -1,5 +1,8 @@
 if not _G.ObjectiveTrackerFrame then return end
 
+ObjectiveTrackerFrame:SetWidth(235)
+ObjectiveTrackerFrame.Header:Hide()
+
 local trackers = {
 	_G.AchievementObjectiveTracker,
 	_G.AdventureObjectiveTracker,
@@ -12,23 +15,52 @@ local trackers = {
 	_G.WorldQuestObjectiveTracker
 }
 
+for _, tracker in pairs(trackers) do
+	tracker:SetWidth(235)
+	tracker.ContentsFrame:SetPoint("LEFT", -10, 0)
+	tracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
+	tracker.Header:SetSize(235, 25)
+	tracker.Header.Background:SetAtlas("Objective-Header", true)
+	tracker.Header.Background:ClearAllPoints()
+	tracker.Header.Background:SetPoint("TOPLEFT", -29, 14)
+	tracker.Header.Text:ClearAllPoints()
+	tracker.Header.Text:SetPoint("LEFT", 4, -1)
+
+	for _, child in next, { _G.ScenarioObjectiveTracker.ContentsFrame:GetChildren() } do
+		child:SetPoint("LEFT", 31, 0)
+	end
+
+	hooksecurefunc(tracker, 'AddBlock', function()
+		for _, child in next, { tracker.ContentsFrame:GetChildren() } do
+			if child and child.AddPOIButton then
+				hooksecurefunc(child, "AddPOIButton", function(self)
+					if child.poiButton then
+						child.poiButton:SetScale(0.88)
+						child.poiButton:ClearAllPoints()
+						child.poiButton:SetPoint("TOPRIGHT", self.HeaderText, "TOPLEFT", -6, 2)
+					end
+				end)
+			end
+		end
+	end)
+
+	hooksecurefunc(tracker, "GetProgressBar", function(self, key)
+		local progressBar = self.usedProgressBars[key]
+		local bar = progressBar and progressBar.Bar
+
+		if not bar.BorderMid then
+			bar:ClearAllPoints()
+			bar:SetPoint("LEFT", -1, 0)
+		end
+	end)
+end
+
 hooksecurefunc(ObjectiveTrackerFrame, "AnchorSelectionFrame", function(self)
 	self.Selection:SetPoint("TOPLEFT", -17, -38)
 end)
 
-hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
-	self:SetWidth(235)
-	self.Header:Hide()
+hooksecurefunc(ObjectiveTrackerFrame, "Update", function()
 	for _, tracker in pairs(trackers) do
-		tracker:SetWidth(235)
-		tracker.ContentsFrame:SetPoint("LEFT", -10, 0)
-		tracker.ContentsFrame:SetPoint("RIGHT", 10, 0)
-		tracker.Header:SetSize(235, 25)
-		tracker.Header.Background:SetAtlas("Objective-Header", true)
-		tracker.Header.Background:ClearAllPoints()
-		tracker.Header.Background:SetPoint("TOPLEFT", -29, 14)
-		tracker.Header.Text:ClearAllPoints()
-		tracker.Header.Text:SetPoint("LEFT", 4, -1)
 		tracker.Header.MinimizeButton:SetSize(15, 14)
 		tracker.Header.MinimizeButton:ClearAllPoints()
 		tracker.Header.MinimizeButton:SetPoint("RIGHT")
@@ -44,9 +76,6 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 			tracker.Header.MinimizeButton:SetPushedTexture("Interface\\Buttons\\QuestTrackerButtons")
 			tracker.Header.MinimizeButton:GetPushedTexture():SetTexCoord(0.0078125, 0.125, 0.546875, 0.765625)
 		end
-	end
-	for _, child in next, { _G.ScenarioObjectiveTracker.ContentsFrame:GetChildren() } do
-		child:SetPoint("LEFT", 31, 0)
 	end
 end)
 
@@ -86,28 +115,3 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", 
 		end
 	end
 end)
-
-for _, tracker in pairs(trackers) do
-	hooksecurefunc(tracker, 'AddBlock', function(self)
-		for _, child in next, { tracker.ContentsFrame:GetChildren() } do
-			if child and child.AddPOIButton then
-				hooksecurefunc(child, "AddPOIButton", function(self)
-					if child.poiButton then
-						child.poiButton:SetScale(0.88)
-						child.poiButton:ClearAllPoints()
-						child.poiButton:SetPoint("TOPRIGHT", self.HeaderText, "TOPLEFT", -6, 2)
-					end
-				end)
-			end
-		end
-	end)
-	hooksecurefunc(tracker, "GetProgressBar", function(self, key)
-		local progressBar = self.usedProgressBars[key]
-		local bar = progressBar and progressBar.Bar
-
-		if not bar.BorderMid then
-			bar:ClearAllPoints()
-			bar:SetPoint("LEFT", -1, 0)
-		end
-	end)
-end
