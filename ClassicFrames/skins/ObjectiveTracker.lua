@@ -26,10 +26,6 @@ for _, tracker in pairs(trackers) do
 	tracker.Header.Text:ClearAllPoints()
 	tracker.Header.Text:SetPoint("LEFT", 4, -1)
 
-	for _, child in next, { _G.ScenarioObjectiveTracker.ContentsFrame:GetChildren() } do
-		child:SetPoint("LEFT", 31, 0)
-	end
-
 	hooksecurefunc(tracker, 'AddBlock', function()
 		for _, child in next, { tracker.ContentsFrame:GetChildren() } do
 			if child and child.AddPOIButton then
@@ -79,6 +75,12 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function()
 	end
 end)
 
+hooksecurefunc(ScenarioObjectiveTracker, "UpdateCriteria", function(self)
+	for _, child in next, { self.ContentsFrame:GetChildren() } do
+		child:SetPoint("LEFT", 31, 0)
+	end
+end)
+
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block, _, _, _, textureKit)
 	if textureKit then
 		block.NormalBG:SetAtlas(textureKit.."-TrackerHeader", true)
@@ -98,7 +100,6 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function
 	block.FinalBG:SetAtlas("ScenarioTrackerToast-FinalFiligree", true)
 	block.FinalBG:ClearAllPoints()
 	block.FinalBG:SetPoint("TOPLEFT", -7, -6)
-	block.Stage:SetFontObject(QuestTitleFont)
 	block.Stage:ClearAllPoints()
 	block.Stage:SetPoint("TOPLEFT", 4, -19)
 end)
