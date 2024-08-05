@@ -73,10 +73,8 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function()
 			tracker.Header.MinimizeButton:GetPushedTexture():SetTexCoord(0.0078125, 0.125, 0.546875, 0.765625)
 		end
 	end
-end)
 
-hooksecurefunc(ScenarioObjectiveTracker, "UpdateCriteria", function(self)
-	for _, child in next, { self.ContentsFrame:GetChildren() } do
+	for _, child in next, { ScenarioObjectiveTracker.ContentsFrame:GetChildren() } do
 		child:SetPoint("LEFT", 31, 0)
 	end
 end)
