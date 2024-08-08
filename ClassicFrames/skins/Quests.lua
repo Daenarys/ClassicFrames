@@ -127,11 +127,6 @@ hooksecurefunc('QuestLogQuests_Update', function()
 			if button.CollapseButton then
 				button.CollapseButton:ClearAllPoints()
 				button.CollapseButton:SetPoint("LEFT", button.Background, "LEFT", 8, 6)
-				hooksecurefunc(button.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
-					local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
-					self.Icon:SetAtlas(atlas, true)
-					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
-				end)
 			end
 			button.IsSkinned = true
 		end
@@ -148,11 +143,6 @@ hooksecurefunc('QuestLogQuests_Update', function()
 			if button.CollapseButton then
 				button.CollapseButton:ClearAllPoints()
 				button.CollapseButton:SetPoint("LEFT", -1, 1)
-				hooksecurefunc(button.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
-					local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
-					self.Icon:SetAtlas(atlas, true)
-					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
-				end)
 			end
 			button.IsSkinned = true
 		end
@@ -162,6 +152,30 @@ hooksecurefunc('QuestLogQuests_Update', function()
 		if not button.IsSkinned then
 			if button.Checkbox then
 				button.Checkbox:Hide()
+			end
+			if button.TagTexture then
+				button.TagTexture:ClearAllPoints()
+				button.TagTexture:SetPoint("RIGHT", 8, 0)
+			end
+			button.IsSkinned = true
+		end
+	end
+
+	for button in _G.QuestScrollFrame.campaignHeaderMinimalFramePool:EnumerateActive() do
+		if not button.IsSkinned then
+			if button.Background then
+				button.Background:SetAlpha(0)
+			end
+			if button.Highlight then
+				button.Highlight:SetAlpha(0)
+			end
+			if button.Text then
+				button.Text:ClearAllPoints()
+				button.Text:SetPoint("LEFT", button.Background, "LEFT", 24, 1)
+			end
+			if button.CollapseButton then
+				button.CollapseButton:ClearAllPoints()
+				button.CollapseButton:SetPoint("LEFT", button.Background, -1, 1)
 			end
 			button.IsSkinned = true
 		end
