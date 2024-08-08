@@ -434,12 +434,31 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournal.raidsTab:SetWidth(70)
 		end)
 
+		local EJ_TIER_DATA =
+		{
+			[1] = { r = 1.0, g = 0.8, b = 0.0 },
+			[2] = { r = 0.6, g = 0.8, b = 0.0 },
+			[3] = { r = 0.2, g = 0.8, b = 1.0 },
+			[4] = { r = 1.0, g = 0.4, b = 0.0 },
+			[5] = { r = 0.0, g = 0.6, b = 0.2 },
+			[6] = { r = 0.82, g = 0.55, b = 0.1 },
+			[7] = { r = 0.0, g = 0.6, b = 0.2 },
+			[8] = { r = 0.8, g = 0.4, b = 0.0 },
+			[9] = { r = 0.278, g = 0.471, b = .937 },
+			[10] = { r = 0.2, g = 0.8, b = 1.0 },
+			[11] = { r = 0.82, g = 0.55, b = 0.1 },
+		}
+
+		local function GetCfEJTierData(tier)
+			return EJ_TIER_DATA[tier] or EJ_TIER_DATA[1];
+		end
+
 		hooksecurefunc("EJ_ContentTab_Select", function(id)
 			local tierData
 			if ( id == EncounterJournal.suggestTab:GetID() or id == EncounterJournal.MonthlyActivitiesTab:GetID()) then
-				tierData = GetEJTierData(EJSuggestTab_GetPlayerTierIndex())
+				tierData = GetCfEJTierData(EJSuggestTab_GetPlayerTierIndex())
 			else
-				tierData = GetEJTierData(EJ_GetCurrentTier())
+				tierData = GetCfEJTierData(EJ_GetCurrentTier())
 			end
 
 			if ( id == EncounterJournal.MonthlyActivitiesTab:GetID() ) then
@@ -503,7 +522,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		hooksecurefunc("EncounterJournal_SetupExpansionDropdown", function()
 			local tier = EJ_GetCurrentTier()
-			local tierData = GetEJTierData(tier)
+			local tierData = GetCfEJTierData(tier)
 			EncounterJournal.raidsTab.SelectedGlow:SetVertexColor(tierData.r, tierData.g, tierData.b)
 			EncounterJournal.dungeonsTab.SelectedGlow:SetVertexColor(tierData.r, tierData.g, tierData.b)
 		end)
