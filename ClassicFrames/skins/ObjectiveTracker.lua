@@ -79,7 +79,7 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function()
 	end
 end)
 
-hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block, _, scenarioType, _, textureKit)
+hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block)
 	block.NormalBG:SetWidth(257)
 	block.NormalBG:ClearAllPoints()
 	block.NormalBG:SetPoint("TOPLEFT", -18, 1)
