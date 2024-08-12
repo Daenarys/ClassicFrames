@@ -79,22 +79,10 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function()
 	end
 end)
 
-hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block, _, _, _, textureKit)
-	if textureKit then
-		block.NormalBG:SetAtlas(textureKit.."-TrackerHeader", true)
-	elseif (scenarioType == LE_SCENARIO_TYPE_LEGION_INVASION) then
-		block.NormalBG:SetAtlas("legioninvasion-ScenarioTrackerToast", true)
-	else
-		block.NormalBG:SetAtlas("ScenarioTrackerToast", true)
-	end
-	if (block.NormalBG:GetAtlas() == "thewarwithin-scenario-trackerheader") then
-		block.NormalBG:SetWidth(257)
-		block.NormalBG:ClearAllPoints()
-		block.NormalBG:SetPoint("TOPLEFT", -18, 1)
-	else
-		block.NormalBG:ClearAllPoints()
-		block.NormalBG:SetPoint("TOPLEFT", -11, -2)
-	end
+hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block, _, scenarioType, _, textureKit)
+	block.NormalBG:SetWidth(257)
+	block.NormalBG:ClearAllPoints()
+	block.NormalBG:SetPoint("TOPLEFT", -18, 1)
 	block.FinalBG:SetAtlas("ScenarioTrackerToast-FinalFiligree", true)
 	block.FinalBG:ClearAllPoints()
 	block.FinalBG:SetPoint("TOPLEFT", -7, -6)
