@@ -8,57 +8,42 @@ hooksecurefunc("CompactUnitFrame_UpdateClassificationIndicator", function(frame)
 end)
 
 local function SkinCastbar(self)
-	if not self:IsForbidden() then
-		if self.Background then
-			self.Background:SetColorTexture(0.2, 0.2, 0.2, 0.85)
-		end
+	if self:IsForbidden() then return end
 
-		hooksecurefunc(self, 'UpdateShownState', function()
-			self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-			self.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
-			self.Spark:SetSize(16, 16)
-			self.Spark:SetBlendMode("ADD")
-			if self.channeling then
-				self.Spark:Hide()
-			end
-		end)
-
-		hooksecurefunc(self, 'PlayInterruptAnims', function()
-			self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+	hooksecurefunc(self, 'UpdateShownState', function()
+		self.Background:SetColorTexture(0.2, 0.2, 0.2, 0.85)
+		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		self.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
+		self.Spark:SetSize(16, 16)
+		self.Spark:SetBlendMode("ADD")
+		if self.channeling then
 			self.Spark:Hide()
-		end)
+		end
+	end)
 
-		hooksecurefunc(self, 'PlayFinishAnim', function()
-			self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-			self.Flash:SetVertexColor(self:GetStatusBarColor())
-			self.Flash:ClearAllPoints()
-			self.Flash:SetAllPoints()
-			self.Flash:SetBlendMode("ADD")
-			self.Flash:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
-			if not self.NewFlashAnim then
-				self.NewFlashAnim = self.Flash:CreateAnimationGroup()
-				self.NewFlashAnim:SetToFinalAlpha(true)
-				local FlashAnim = self.NewFlashAnim:CreateAnimation("Alpha") 
-				FlashAnim:SetDuration(0.2)
-				FlashAnim:SetFromAlpha(1)
-				FlashAnim:SetToAlpha(0)
-			end
-			self.NewFlashAnim:Play()
-		end)
+	hooksecurefunc(self, 'PlayInterruptAnims', function()
+		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		self.Spark:Hide()
+	end)
 
-		hooksecurefunc(self, 'GetTypeInfo', function(barType)
-			if ( self.barType == "interrupted") then
-				self:SetValue(100)
-				self:SetStatusBarColor(1, 0, 0)
-			elseif (self.barType == "channel") then
-				self:SetStatusBarColor(0, 1, 0)
-			elseif (self.barType == "uninterruptable") then
-				self:SetStatusBarColor(0.7, 0.7, 0.7)
-			else
-				self:SetStatusBarColor(1, 0.7, 0)
-			end
-		end)
-	end
+	hooksecurefunc(self, 'PlayFinishAnim', function()
+		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		self.Flash:SetVertexColor(self:GetStatusBarColor())
+		self.Flash:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
+	end)
+
+	hooksecurefunc(self, 'GetTypeInfo', function(barType)
+		if ( self.barType == "interrupted") then
+			self:SetValue(100)
+			self:SetStatusBarColor(1, 0, 0)
+		elseif (self.barType == "channel") then
+			self:SetStatusBarColor(0, 1, 0)
+		elseif (self.barType == "uninterruptable") then
+			self:SetStatusBarColor(0.7, 0.7, 0.7)
+		else
+			self:SetStatusBarColor(1, 0.7, 0)
+		end
+	end)
 end
 
 local ApplyCastbarSkin = CreateFrame("Frame")
