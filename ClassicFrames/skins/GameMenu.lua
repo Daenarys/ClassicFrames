@@ -29,9 +29,9 @@ GameMenuFrame:HookScript("OnShow", function(self)
 				button.Center:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
 				button.Right:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
 			elseif buttonState == "PUSHED" then
-				button.Left:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down");
-				button.Center:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down");
-				button.Right:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down");
+				button.Left:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
+				button.Center:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
+				button.Right:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
 			else
 				button.Left:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
 				button.Center:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
