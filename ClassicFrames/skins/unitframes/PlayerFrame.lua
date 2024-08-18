@@ -328,7 +328,7 @@ end)
 
 hooksecurefunc("PlayerFrame_UpdateRolesAssigned", function()
 	local roleIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon
-	local role =  UnitGroupRolesAssigned("player")
+	local role = UnitGroupRolesAssigned("player")
 
 	roleIcon:SetSize(19, 19)
 	roleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
