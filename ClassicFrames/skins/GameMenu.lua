@@ -10,7 +10,7 @@ GameMenuFrame:HookScript("OnShow", function(self)
 	self.topPadding = 32
 	self.leftPadding = 26
 	self.rightPadding = 26
-	self.bottomPadding = 16
+	self.bottomPadding = 18
 
 	for button in GameMenuFrame.buttonPool:EnumerateActive() do
 		button:SetSize(144, 21)
