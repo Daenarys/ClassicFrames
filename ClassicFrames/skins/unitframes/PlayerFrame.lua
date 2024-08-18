@@ -328,13 +328,19 @@ end)
 
 hooksecurefunc("PlayerFrame_UpdateRolesAssigned", function()
 	local roleIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon
-	local role = UnitGroupRolesAssigned("player")
+	local role = UnitGroupRolesAssignedEnum("player")
 
 	roleIcon:SetSize(19, 19)
 	roleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
 	
-	if ( role == "TANK" or role == "HEALER" or role == "DAMAGER") then
-		roleIcon:SetTexCoord(GetTexCoordsForRoleSmallCircle(role))
+	if (role == Enum.LFGRole.Tank) then
+		roleIcon:SetTexCoord(0, 19/64, 22/64, 41/64)
+		roleIcon:Show()
+	elseif (role == Enum.LFGRole.Healer) then
+		roleIcon:SetTexCoord(20/64, 39/64, 1/64, 20/64)
+		roleIcon:Show()
+	elseif (role == Enum.LFGRole.Damage) then
+		roleIcon:SetTexCoord(20/64, 39/64, 22/64, 41/64)
 		roleIcon:Show()
 	else
 		roleIcon:Hide()
