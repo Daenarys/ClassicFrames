@@ -13,6 +13,10 @@ function CfPlayerFrame_OnLoad(self)
 		CfPlayerFrameOverHealAbsorbGlow, CfPlayerFrameHealAbsorbBar, CfPlayerFrameHealAbsorbBarLeftShadow,
 		CfPlayerFrameHealAbsorbBarRightShadow)
 
+	CfPlayerFrameHealthBarTextLeft:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+	CfPlayerFrameHealthBarTextRight:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+	CfPlayerFrameManaBarTextLeft:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+	CfPlayerFrameManaBarTextRight:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	CfPlayerFrameOverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
