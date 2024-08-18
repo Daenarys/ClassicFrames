@@ -10,8 +10,11 @@ end)
 local function SkinCastbar(self)
 	if self:IsForbidden() then return end
 
-	hooksecurefunc(self, 'UpdateShownState', function()
+	if self.Background then
 		self.Background:SetColorTexture(0.2, 0.2, 0.2, 0.85)
+	end
+
+	hooksecurefunc(self, 'UpdateShownState', function()
 		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 		self.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
 		self.Spark:SetSize(16, 16)
