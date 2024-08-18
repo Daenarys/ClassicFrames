@@ -573,9 +573,9 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 			ExpansionLandingPageMinimapButton:ClearAllPoints()
 			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 42, -144)
 		elseif (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "warwithin-landingbutton-up") then
-			ExpansionLandingPageMinimapButton:SetScale(0.82)
+			ExpansionLandingPageMinimapButton:SetScale(0.84)
 			ExpansionLandingPageMinimapButton:ClearAllPoints()
-			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 49, -147)
+			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 45, -143)
 		else
 			ExpansionLandingPageMinimapButton:ClearAllPoints()
 			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 32, -118)
@@ -587,9 +587,9 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 				self:ClearAllPoints()
 				self:SetPoint("TOPLEFT", 42, -144)
 			elseif (self:GetNormalTexture():GetAtlas() == "warwithin-landingbutton-up") then
-				self:SetScale(0.82)
+				self:SetScale(0.84)
 				self:ClearAllPoints()
-				self:SetPoint("TOPLEFT", 49, -147)
+				self:SetPoint("TOPLEFT", 45, -143)
 			end
 		end)
 
