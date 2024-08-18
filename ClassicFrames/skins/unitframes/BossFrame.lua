@@ -4,7 +4,7 @@ for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
 	local FrameHealthBar = frame.TargetFrameContent.TargetFrameContentMain.HealthBarsContainer.HealthBar;
 	local FrameHealthBarContainer = frame.TargetFrameContent.TargetFrameContentMain.HealthBarsContainer;
 	local FrameManaBar = frame.TargetFrameContent.TargetFrameContentMain.ManaBar;
-	local nameText = frame.TargetFrameContent.TargetFrameContentMain.Name;
+	local FrameNameText = frame.TargetFrameContent.TargetFrameContentMain.Name;
 
 	frame:SetScale(0.75)
 
@@ -12,6 +12,7 @@ for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
 	FrameHealthBar:SetStatusBarColor(0, 1, 0)
 	FrameHealthBar:SetSize(119, 12)
 	FrameHealthBarContainer:SetParent(frame)
+	FrameHealthBarContainer:SetSize(119, 12)
 	FrameHealthBarContainer:ClearAllPoints()
 	FrameHealthBarContainer:SetPoint("TOPLEFT", 26, -48)
 	FrameHealthBarContainer.HealthBarMask:Hide()
@@ -19,6 +20,11 @@ for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
 	FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBar, "RIGHT", -3, 0)
 	FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBar, "LEFT", 2, 0)
 	FrameHealthBarContainer.DeadText:SetPoint("CENTER", FrameHealthBar, "CENTER", 1, 0)
+
+	FrameHealthBar.TextString:SetParent(frame.TargetFrameContainer)
+	FrameHealthBarContainer.RightText:SetParent(frame.TargetFrameContainer)
+	FrameHealthBarContainer.LeftText:SetParent(frame.TargetFrameContainer)
+	FrameHealthBarContainer.DeadText:SetParent(frame.TargetFrameContainer)
 
 	FrameManaBar:SetSize(119, 12)
 	FrameManaBar:ClearAllPoints()
@@ -28,21 +34,16 @@ for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
 	FrameManaBar.TextString:SetPoint("CENTER", FrameManaBar, "CENTER", 1, -1)
 	FrameManaBar.RightText:SetPoint("RIGHT", FrameManaBar, "RIGHT", -3, -1)
 	FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 1, -1)
-	
-	FrameHealthBar.TextString:SetParent(frame.TargetFrameContainer)
-	FrameHealthBarContainer.RightText:SetParent(frame.TargetFrameContainer)
-	FrameHealthBarContainer.LeftText:SetParent(frame.TargetFrameContainer)
-	FrameHealthBarContainer.DeadText:SetParent(frame.TargetFrameContainer)
 
 	FrameManaBar.TextString:SetParent(frame.TargetFrameContainer)
 	FrameManaBar.RightText:SetParent(frame.TargetFrameContainer)
 	FrameManaBar.LeftText:SetParent(frame.TargetFrameContainer)
 	
-	nameText:SetWidth(100)
-	nameText:ClearAllPoints()
-	nameText:SetPoint("TOPLEFT", frame.TargetFrameContainer, "TOPLEFT", 36, -33)
-	nameText:SetJustifyH("CENTER")
-	nameText:SetParent(frame.TargetFrameContainer)
+	FrameNameText:SetWidth(100)
+	FrameNameText:ClearAllPoints()
+	FrameNameText:SetPoint("TOPLEFT", frame.TargetFrameContainer, "TOPLEFT", 36, -33)
+	FrameNameText:SetJustifyH("CENTER")
+	FrameNameText:SetParent(frame.TargetFrameContainer)
 	
 	frame.threatIndicator:SetParent(frame)
 	frame.threatIndicator:SetTexture("Interface\\TargetingFrame\\UI-UnitFrame-Boss-Flash")
