@@ -1,6 +1,5 @@
 -- hide default buttons
 ChatFrameChannelButton:Hide()
-ChatFrameMenuButton:Hide()
 TextToSpeechButtonFrame:Hide()
     
 for i = 1, NUM_CHAT_WINDOWS do
@@ -91,32 +90,14 @@ for i = 1, NUM_CHAT_WINDOWS do
         end
     end
 
-    local ChatFrameButtonFrameMenuButton = _G["ChatFrame"..i.."ButtonFrameMenuButton"]
-    if (ChatFrameButtonFrameMenuButton == nil) then
-        ChatFrameButtonFrameMenuButton = CreateFrame("Button", _G["ChatFrame"..i.."ButtonFrameMenuButton"], _G["ChatFrame"..i.."ButtonFrame"])
-        ChatFrameButtonFrameMenuButton:SetSize(32, 32)
-        ChatFrameButtonFrameMenuButton:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIcon-Chat-Up")
-        ChatFrameButtonFrameMenuButton:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIcon-Chat-Down")
-        ChatFrameButtonFrameMenuButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-Chat-Disabled")
-        ChatFrameButtonFrameMenuButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
-        ChatFrameButtonFrameMenuButton:SetScript("OnClick", function(self, button)
-            PlaySound(SOUNDKIT.IG_CHAT_EMOTE_BUTTON)
-            ChatFrame_ToggleMenu()
-
-            if ChatMenu:IsShown() and HelpTip:IsShowingAny(self) then
-                HelpTip:HideAll(self)
-            end
-        end)
-    end
-
     ChatFrameButtonFrameUpButton:ClearAllPoints()
     ChatFrameButtonFrameUpButton:SetPoint("BOTTOM", ChatFrameButtonFrameDownButton, "TOP", 0, 0)
     ChatFrameButtonFrameDownButton:ClearAllPoints()
     ChatFrameButtonFrameDownButton:SetPoint("BOTTOM", ChatFrameButtonFrameBottomButton, "TOP", 0, -2)
     ChatFrameButtonFrameBottomButton:ClearAllPoints()
     ChatFrameButtonFrameBottomButton:SetPoint("BOTTOM", _G["ChatFrame"..i.."ButtonFrame"], "BOTTOM", 0, -7)
-    ChatFrameButtonFrameMenuButton:ClearAllPoints()
-    ChatFrameButtonFrameMenuButton:SetPoint("BOTTOM", ChatFrameButtonFrameUpButton, "TOP", 0, 0)
+    ChatFrameMenuButton:ClearAllPoints()
+    ChatFrameMenuButton:SetPoint("BOTTOM", 0, 87)
 
     hooksecurefunc("ChatFrame_OnUpdate", ChatFrameButtonFrameBottomButton.func_ChatFrame_OnUpdate)
 
