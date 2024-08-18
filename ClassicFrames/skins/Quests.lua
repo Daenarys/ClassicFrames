@@ -142,7 +142,7 @@ hooksecurefunc('QuestLogQuests_Update', function()
 			end
 			if button.CollapseButton then
 				button.CollapseButton:ClearAllPoints()
-				button.CollapseButton:SetPoint("LEFT", -1, 1)
+				button.CollapseButton:SetPoint("LEFT", -1, 0)
 			end
 			button.IsSkinned = true
 		end
@@ -175,7 +175,7 @@ hooksecurefunc('QuestLogQuests_Update', function()
 			end
 			if button.CollapseButton then
 				button.CollapseButton:ClearAllPoints()
-				button.CollapseButton:SetPoint("LEFT", button.Background, -1, 1)
+				button.CollapseButton:SetPoint("LEFT", button.Background, -1, 0)
 			end
 			button.IsSkinned = true
 		end
