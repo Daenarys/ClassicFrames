@@ -92,7 +92,6 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function
 	block.FinalBG:SetAtlas("ScenarioTrackerToast-FinalFiligree", true)
 	block.FinalBG:ClearAllPoints()
 	block.FinalBG:SetPoint("TOPLEFT", -7, -6)
-	block.Stage:SetFontObject(QuestTitleFont)
 	block.Stage:ClearAllPoints()
 	block.Stage:SetPoint("TOPLEFT", 4, -19)
 end)
