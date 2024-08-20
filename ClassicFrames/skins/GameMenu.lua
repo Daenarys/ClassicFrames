@@ -17,35 +17,5 @@ GameMenuFrame:HookScript("OnShow", function(self)
 		button:SetNormalFontObject("GameFontHighlight")
 		button:SetHighlightFontObject("GameFontHighlight")
 		button:SetDisabledFontObject("GameFontDisable")
-
-		button:SetHighlightTexture("Interface\\Buttons\\UI-Panel-Button-Highlight", "ADD")
-		button:GetHighlightTexture():SetTexCoord(0, 0.625, 0, 0.6875)
-
-		button:HookScript("OnUpdate", function()
-			buttonState = button:GetButtonState()
-
-			if buttonState == "DISABLED" then
-				button.Left:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
-				button.Center:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
-				button.Right:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
-			elseif buttonState == "PUSHED" then
-				button.Left:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
-				button.Center:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
-				button.Right:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
-			else
-				button.Left:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
-				button.Center:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
-				button.Right:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
-			end
-
-			button.Left:SetScale(1)
-			button.Left:SetSize(12, 21)
-			button.Left:SetTexCoord(0, 0.09375, 0, 0.6875)
-			button.Center:SetScale(1)
-			button.Center:SetTexCoord(0.09375, 0.53125, 0, 0.6875)
-			button.Right:SetScale(1)
-			button.Right:SetSize(12, 21)
-			button.Right:SetTexCoord(0.53125, 0.625, 0, 0.6875)
-		end)
 	end
 end)
