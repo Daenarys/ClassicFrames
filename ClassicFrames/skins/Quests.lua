@@ -98,6 +98,24 @@ ApplyScrollBarArrow(QuestRewardScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestRewardScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestRewardScrollFrame.ScrollBar.Track.Thumb)
 
+QuestNPCModelTextScrollFrame.ScrollBar.Track.Begin:Hide()
+QuestNPCModelTextScrollFrame.ScrollBar.Track.End:Hide()
+QuestNPCModelTextScrollFrame.ScrollBar.Track.Middle:Hide()
+
+ApplyScrollBarThumb(QuestNPCModelTextScrollFrame.ScrollBar.Track.Thumb)
+
+QuestNPCModelTextScrollFrame.ScrollBar.Back:SetSize(18, 16)
+QuestNPCModelTextScrollFrame.ScrollBar.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
+QuestNPCModelTextScrollFrame.ScrollBar.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
+QuestNPCModelTextScrollFrame.ScrollBar.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
+QuestNPCModelTextScrollFrame.ScrollBar.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
+
+QuestNPCModelTextScrollFrame.ScrollBar.Forward:SetSize(18, 16)
+QuestNPCModelTextScrollFrame.ScrollBar.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
+QuestNPCModelTextScrollFrame.ScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
+QuestNPCModelTextScrollFrame.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
+QuestNPCModelTextScrollFrame.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
+
 if QuestMapFrame.CampaignOverview.Header.BackButton then
 	QuestMapFrame.CampaignOverview.Header.BackButton:ClearAllPoints()
 	QuestMapFrame.CampaignOverview.Header.BackButton:SetPoint("RIGHT", QuestMapFrame.CampaignOverview.Header.Background, "RIGHT", -10, 7)
