@@ -123,6 +123,10 @@ end
 QuestMapFrame.SettingsDropdown:Hide()
 ApplySearchBox(QuestScrollFrame.SearchBox)
 
+hooksecurefunc(QuestScrollFrame, 'UpdateBackground', function(self)
+	self.Background:SetAtlas("QuestLogBackground")
+end)
+
 hooksecurefunc('QuestLogQuests_Update', function()
 	for button in _G.QuestScrollFrame.campaignHeaderFramePool:EnumerateActive() do
 		if not button.IsSkinned then
