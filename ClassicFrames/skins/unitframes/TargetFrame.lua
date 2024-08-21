@@ -123,6 +123,7 @@ local function SkinFrame(frame)
 		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
 
 		self.haveElite = nil;
+		CfTargetFrameManaBar.pauseUpdates = false;
 
 		if ( classification == "rareelite" ) then
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
@@ -176,6 +177,7 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -4)
 			contentMain.ReputationColor:Hide()
+			CfTargetFrameManaBar.pauseUpdates = true;
 		else
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
