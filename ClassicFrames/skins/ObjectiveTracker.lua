@@ -9,10 +9,10 @@ local trackers = {
 	_G.BonusObjectiveTracker,
 	_G.CampaignQuestObjectiveTracker,
 	_G.MonthlyActivitiesObjectiveTracker,
-	_G.UIWidgetObjectiveTracker,
 	_G.ProfessionsRecipeTracker,
 	_G.QuestObjectiveTracker,
 	_G.ScenarioObjectiveTracker,
+	_G.UIWidgetObjectiveTracker,
 	_G.WorldQuestObjectiveTracker
 }
 
@@ -101,4 +101,8 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", 
 			end
 		end
 	end
+end)
+
+hooksecurefunc(ObjectiveTrackerUIWidgetContainer, "AttachToBlockAndShow", function(self)
+	self:SetPoint("TOP", -12, 0)
 end)
