@@ -9,6 +9,7 @@ local trackers = {
 	_G.BonusObjectiveTracker,
 	_G.CampaignQuestObjectiveTracker,
 	_G.MonthlyActivitiesObjectiveTracker,
+	_G.UIWidgetObjectiveTracker,
 	_G.ProfessionsRecipeTracker,
 	_G.QuestObjectiveTracker,
 	_G.ScenarioObjectiveTracker,
@@ -80,15 +81,8 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function()
 end)
 
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block)
-	if (block.NormalBG:GetAtlas() == "evergreen-scenario-trackerheader") then
-		block.NormalBG:SetAtlas("ScenarioTrackerToast", true)
-		block.NormalBG:ClearAllPoints()
-		block.NormalBG:SetPoint("TOPLEFT", -11, -2)
-	else
-		block.NormalBG:SetWidth(257)
-		block.NormalBG:ClearAllPoints()
-		block.NormalBG:SetPoint("TOPLEFT", -18, 1)
-	end
+	block.NormalBG:ClearAllPoints()
+	block.NormalBG:SetPoint("TOPLEFT", -18, 1)
 	block.FinalBG:SetAtlas("ScenarioTrackerToast-FinalFiligree", true)
 	block.FinalBG:ClearAllPoints()
 	block.FinalBG:SetPoint("TOPLEFT", -7, -6)
