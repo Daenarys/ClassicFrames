@@ -132,7 +132,7 @@ hooksecurefunc('QuestLogQuests_Update', function()
 		if not button.IsSkinned then
 			if button.Text then
 				button.Text:ClearAllPoints()
-				button.Text:SetPoint("BOTTOMLEFT", button.Background, "LEFT", 31, 5)
+				button.Text:SetPoint("BOTTOMLEFT", button.Background, "LEFT", 33, 5)
 			end
 			if button.Progress then
 				button.Progress:ClearAllPoints()
@@ -149,6 +149,11 @@ hooksecurefunc('QuestLogQuests_Update', function()
 			if button.CollapseButton then
 				button.CollapseButton:ClearAllPoints()
 				button.CollapseButton:SetPoint("LEFT", button.Background, "LEFT", 8, 6)
+				hooksecurefunc(button.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
+					local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
+					self.Icon:SetAtlas(atlas, true)
+					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
+				end)
 			end
 			button.IsSkinned = true
 		end
@@ -165,6 +170,11 @@ hooksecurefunc('QuestLogQuests_Update', function()
 			if button.CollapseButton then
 				button.CollapseButton:ClearAllPoints()
 				button.CollapseButton:SetPoint("LEFT", -1, 0)
+				hooksecurefunc(button.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
+					local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
+					self.Icon:SetAtlas(atlas, true)
+					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
+				end)
 			end
 			button.IsSkinned = true
 		end
@@ -198,6 +208,11 @@ hooksecurefunc('QuestLogQuests_Update', function()
 			if button.CollapseButton then
 				button.CollapseButton:ClearAllPoints()
 				button.CollapseButton:SetPoint("LEFT", button.Background, -1, 0)
+				hooksecurefunc(button.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
+					local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
+					self.Icon:SetAtlas(atlas, true)
+					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
+				end)
 			end
 			button.IsSkinned = true
 		end
