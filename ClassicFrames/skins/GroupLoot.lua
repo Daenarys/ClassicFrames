@@ -27,3 +27,5 @@ end
 ApplyScrollBarArrow(GroupLootHistoryFrame.ScrollBar)
 ApplyScrollBarTrack(GroupLootHistoryFrame.ScrollBar.Track)
 ApplyScrollBarThumb(GroupLootHistoryFrame.ScrollBar.Track.Thumb)
+
+ApplyDropDown(GroupLootHistoryFrame.EncounterDropdown)
