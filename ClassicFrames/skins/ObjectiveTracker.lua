@@ -27,20 +27,6 @@ for _, tracker in pairs(trackers) do
 	tracker.Header.Text:ClearAllPoints()
 	tracker.Header.Text:SetPoint("LEFT", 4, -1)
 
-	hooksecurefunc(tracker, 'AddBlock', function()
-		for _, child in next, { tracker.ContentsFrame:GetChildren() } do
-			if child and child.AddPOIButton then
-				hooksecurefunc(child, "AddPOIButton", function(self)
-					if child.poiButton then
-						child.poiButton:SetScale(0.88)
-						child.poiButton:ClearAllPoints()
-						child.poiButton:SetPoint("TOPRIGHT", self.HeaderText, "TOPLEFT", -6, 2)
-					end
-				end)
-			end
-		end
-	end)
-
 	hooksecurefunc(tracker, "GetProgressBar", function(self, key)
 		local progressBar = self.usedProgressBars[key]
 		local bar = progressBar and progressBar.Bar
