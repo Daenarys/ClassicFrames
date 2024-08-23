@@ -1,21 +1,38 @@
-if not _G.QuestFrame then return end
+if _G.QuestFrame then
+	ApplyCloseButton(QuestFrameCloseButton)
 
-ApplyCloseButton(QuestFrameCloseButton)
+	QuestFrame.PortraitContainer.CircleMask:Hide()
 
-QuestFrame.PortraitContainer.CircleMask:Hide()
+	QuestFramePortrait:SetSize(61, 61)
+	QuestFramePortrait:ClearAllPoints()
+	QuestFramePortrait:SetPoint("TOPLEFT", -6, 8)
 
-QuestFramePortrait:SetSize(61, 61)
-QuestFramePortrait:ClearAllPoints()
-QuestFramePortrait:SetPoint("TOPLEFT", -6, 8)
+	QuestFrame.TitleContainer:ClearAllPoints()
+	QuestFrame.TitleContainer:SetPoint("TOPLEFT", QuestFrame, "TOPLEFT", 73, -1)
+	QuestFrame.TitleContainer:SetPoint("TOPRIGHT", QuestFrame, "TOPRIGHT", -47, 1)
 
-QuestFrame.TitleContainer:ClearAllPoints()
-QuestFrame.TitleContainer:SetPoint("TOPLEFT", QuestFrame, "TOPLEFT", 73, -1)
-QuestFrame.TitleContainer:SetPoint("TOPRIGHT", QuestFrame, "TOPRIGHT", -47, 1)
+	QuestFrameTitleText:SetTextColor(255, 255, 255, 1)
 
-QuestFrameTitleText:SetTextColor(255, 255, 255, 1)
+	ApplyTitleBg(QuestFrame)
+	ApplyNineSlicePortrait(QuestFrame)
+end
 
-ApplyTitleBg(QuestFrame)
-ApplyNineSlicePortrait(QuestFrame)
+if _G.QuestLogPopupDetailFrame then
+	ApplyCloseButton(QuestLogPopupDetailFrameCloseButton)
+
+	QuestLogPopupDetailFrame.PortraitContainer.CircleMask:Hide()
+
+	QuestLogPopupDetailFramePortrait:SetSize(61, 61)
+	QuestLogPopupDetailFramePortrait:ClearAllPoints()
+	QuestLogPopupDetailFramePortrait:SetPoint("TOPLEFT", -6, 8)
+
+	QuestLogPopupDetailFrame.TitleContainer:ClearAllPoints()
+	QuestLogPopupDetailFrame.TitleContainer:SetPoint("TOPLEFT", QuestLogPopupDetailFrame, "TOPLEFT", 58, 0)
+	QuestLogPopupDetailFrame.TitleContainer:SetPoint("TOPRIGHT", QuestLogPopupDetailFrame, "TOPRIGHT", -58, 0)
+
+	ApplyTitleBg(QuestLogPopupDetailFrame)
+	ApplyNineSlicePortrait(QuestLogPopupDetailFrame)
+end
 
 QuestScrollFrame.ScrollBar:SetSize(25, 560)
 QuestScrollFrame.ScrollBar:ClearAllPoints()
@@ -116,105 +133,11 @@ QuestNPCModelTextScrollFrame.ScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-Scro
 QuestNPCModelTextScrollFrame.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
 QuestNPCModelTextScrollFrame.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
 
-if QuestMapFrame.CampaignOverview.Header.BackButton then
-	QuestMapFrame.CampaignOverview.Header.BackButton:ClearAllPoints()
-	QuestMapFrame.CampaignOverview.Header.BackButton:SetPoint("RIGHT", QuestMapFrame.CampaignOverview.Header.Background, "RIGHT", -10, 7)
-end
-QuestMapFrame.SettingsDropdown:Hide()
-ApplySearchBox(QuestScrollFrame.SearchBox)
+QuestLogPopupDetailFrameScrollFrame.ScrollBar:SetSize(25, 560)
+QuestLogPopupDetailFrameScrollFrame.ScrollBar:ClearAllPoints()
+QuestLogPopupDetailFrameScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestLogPopupDetailFrameScrollFrame, "TOPRIGHT", 1, 3)
+QuestLogPopupDetailFrameScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestLogPopupDetailFrameScrollFrame, "BOTTOMRIGHT", 4, -1)
 
-hooksecurefunc(QuestScrollFrame, 'UpdateBackground', function(self)
-	self.Background:SetAtlas("QuestLogBackground")
-end)
-
-hooksecurefunc('QuestLogQuests_Update', function()
-	for button in _G.QuestScrollFrame.campaignHeaderFramePool:EnumerateActive() do
-		if not button.IsSkinned then
-			if button.Text then
-				button.Text:ClearAllPoints()
-				button.Text:SetPoint("BOTTOMLEFT", button.Background, "LEFT", 33, 5)
-			end
-			if button.Progress then
-				button.Progress:ClearAllPoints()
-				button.Progress:SetPoint("TOPLEFT", button.Text, "BOTTOMLEFT", 0, -4)
-			end
-			if button.NextObjective.Text then
-				button.NextObjective.Text:ClearAllPoints()
-				button.NextObjective.Text:SetPoint("TOP", button.NextObjective, "TOP")
-			end
-			if button.LoreButton then
-				button.LoreButton:ClearAllPoints()
-				button.LoreButton:SetPoint("RIGHT", button.Background, "RIGHT", -10, 7)
-			end
-			if button.CollapseButton then
-				button.CollapseButton:ClearAllPoints()
-				button.CollapseButton:SetPoint("LEFT", button.Background, "LEFT", 8, 6)
-				hooksecurefunc(button.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
-					local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
-					self.Icon:SetAtlas(atlas, true)
-					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
-				end)
-			end
-			button.IsSkinned = true
-		end
-	end
-
-	for button in _G.QuestScrollFrame.headerFramePool:EnumerateActive() do
-		if not button.IsSkinned then
-			button:GetNormalTexture():SetAlpha(0)
-			button:GetHighlightTexture():SetAlpha(0)
-			if button.ButtonText then
-				button.ButtonText:ClearAllPoints()
-				button.ButtonText:SetPoint("LEFT", 24, 1)
-			end
-			if button.CollapseButton then
-				button.CollapseButton:ClearAllPoints()
-				button.CollapseButton:SetPoint("LEFT", -1, 0)
-				hooksecurefunc(button.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
-					local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
-					self.Icon:SetAtlas(atlas, true)
-					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
-				end)
-			end
-			button.IsSkinned = true
-		end
-	end
-
-	for button in _G.QuestScrollFrame.titleFramePool:EnumerateActive() do
-		if not button.IsSkinned then
-			if button.Checkbox then
-				button.Checkbox:Hide()
-			end
-			if button.TagTexture then
-				button.TagTexture:ClearAllPoints()
-				button.TagTexture:SetPoint("RIGHT", 8, 0)
-			end
-			button.IsSkinned = true
-		end
-	end
-
-	for button in _G.QuestScrollFrame.campaignHeaderMinimalFramePool:EnumerateActive() do
-		if not button.IsSkinned then
-			if button.Background then
-				button.Background:SetAlpha(0)
-			end
-			if button.Highlight then
-				button.Highlight:SetAlpha(0)
-			end
-			if button.Text then
-				button.Text:ClearAllPoints()
-				button.Text:SetPoint("LEFT", button.Background, "LEFT", 24, 1)
-			end
-			if button.CollapseButton then
-				button.CollapseButton:ClearAllPoints()
-				button.CollapseButton:SetPoint("LEFT", button.Background, -1, 0)
-				hooksecurefunc(button.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
-					local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
-					self.Icon:SetAtlas(atlas, true)
-					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
-				end)
-			end
-			button.IsSkinned = true
-		end
-	end
-end)
+ApplyScrollBarArrow(QuestLogPopupDetailFrameScrollFrame.ScrollBar)
+ApplyScrollBarTrack(QuestLogPopupDetailFrameScrollFrame.ScrollBar.Track)
+ApplyScrollBarThumb(QuestLogPopupDetailFrameScrollFrame.ScrollBar.Track.Thumb)
