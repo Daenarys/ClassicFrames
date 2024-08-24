@@ -63,6 +63,8 @@ f:SetScript("OnEvent", function(self, event, name)
 	end
 end)
 
+ApplyDialogBorder(PVPReadyDialog.Border)
+
 PVPReadyDialogCloseButton:SetSize(32, 32)
 PVPReadyDialogCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 PVPReadyDialogCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-HideButton-Up")
@@ -71,18 +73,23 @@ PVPReadyDialogCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-Mini
 PVPReadyDialogCloseButton:ClearAllPoints()
 PVPReadyDialogCloseButton:SetPoint("TOPRIGHT", -2, -2)
 
-ApplyDialogBorder(PVPReadyDialog.Border)
+PVPReadyDialogBottomArt:SetSize(287, 72)
+PVPReadyDialogBottomArt:SetTexture("Interface\\LFGFrame\\UI-LFG-FILIGREE")
+PVPReadyDialogBottomArt:SetTexCoord(0, 0.5605, 0, 0.5625)
+PVPReadyDialogBottomArt:ClearAllPoints()
+PVPReadyDialogBottomArt:SetPoint("BOTTOM", 0, 55)
 
-PVPReadyDialogRoleIcon.texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICONS-ROLEBACKGROUNDS")
+if (PVPReadyDialogFiligree == nil) then
+	PVPReadyDialog:CreateTexture("PVPReadyDialogFiligree", "OVERLAY")
+	PVPReadyDialogFiligree:SetTexture("Interface\\LFGFrame\\UI-LFG-FILIGREE")
+	PVPReadyDialogFiligree:SetTexCoord(0.02734, 0.59765, 0.578125, 1.0)
+	PVPReadyDialogFiligree:SetSize(292, 54)
+	PVPReadyDialogFiligree:SetPoint("TOPLEFT", 7, -3)
+end
 
-hooksecurefunc('PVPReadyDialog_Display', function(self, _, _, _, queueType, _, role)
-	if role == 'DAMAGER' then
-		_G.PVPReadyDialogRoleIcon.texture:SetTexCoord(GetTexCoordsForRole("DAMAGER"))
-	elseif role == 'TANK' then
-		_G.PVPReadyDialogRoleIcon.texture:SetTexCoord(GetTexCoordsForRole("TANK"))
-	elseif role == 'HEALER' then
-		_G.PVPReadyDialogRoleIcon.texture:SetTexCoord(GetTexCoordsForRole("HEALER"))
-	end
+hooksecurefunc('PVPReadyDialog_Display', function(self, _, _, _, _, _, role)
+	self.roleIcon.texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+	self.roleIcon.texture:SetTexCoord(GetTexCoordsForRole(role))
 end)
 
 PVPReadyPopup.RolelessButton.Texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
