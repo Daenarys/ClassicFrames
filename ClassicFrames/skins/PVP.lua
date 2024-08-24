@@ -87,7 +87,13 @@ if (PVPReadyDialogFiligree == nil) then
 	PVPReadyDialogFiligree:SetPoint("TOPLEFT", 7, -3)
 end
 
-hooksecurefunc('PVPReadyDialog_Display', function(self, _, _, _, _, _, role)
+hooksecurefunc('PVPReadyDialog_Display', function(self, _, _, isRated, queueType, _, role)
+	if ( PVPHelper_QueueNeedsRoles(queueType, isRated) ) then
+		self.bottomArt:SetTexCoord(0.0, 0.5605, 0.0, 0.5625)
+	else
+		self.bottomArt:SetTexCoord(0.0, 0.18, 0.0, 0.5625)
+	end
+
 	self.roleIcon.texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 	self.roleIcon.texture:SetTexCoord(GetTexCoordsForRole(role))
 end)
