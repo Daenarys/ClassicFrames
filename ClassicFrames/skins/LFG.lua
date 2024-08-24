@@ -414,6 +414,7 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 	end
 
 	if ( subtypeID == LFG_SUBTYPEID_SCENARIO ) then
+		LFGDungeonReadyDialog.background:SetDrawLayer("BACKGROUND")
 		if ( LFG_IsHeroicScenario(id) ) then
 			LFGDungeonReadyDialog.background:SetTexture("Interface\\LFGFrame\\UI-LFG-BACKGROUND-HeroicScenario")
 		else
@@ -437,10 +438,6 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		elseif role == 'HEALER' then
 			LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("HEALER"))
 		end
-	end
-
-	if LFGDungeonReadyDialog.Center then
-		LFGDungeonReadyDialog.Center:SetDrawLayer("BACKGROUND", -8)
 	end
 end)
 
