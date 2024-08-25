@@ -137,6 +137,11 @@
 					<Anchor point="LEFT" relativeKey="$parent.Combo5" relativePoint="RIGHT" x="1" y="0"/>
 				</Anchors>
 			</Frame>
+			<Frame parentKey="Combo7" parentArray="ComboPoints" inherits="ComboPointPlayerTemplate">
+				<Anchors>
+					<Anchor point="LEFT" relativeKey="$parent.Combo6" relativePoint="RIGHT" x="1" y="0"/>
+				</Anchors>
+			</Frame>
 			<Frame parentKey="ComboBonus1" parentArray="ComboBonus" inherits="ComboPointBonusPlayerTemplate">
 				<Anchors>
 					<Anchor point="TOPLEFT" x="7" y="0"/>
