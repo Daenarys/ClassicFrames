@@ -88,18 +88,10 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function
 	block.FinalBG:SetPoint("TOPLEFT", -7, -6)
 	block.Stage:ClearAllPoints()
 	block.Stage:SetPoint("TOPLEFT", 4, -19)
-end)
 
-hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", function(self)
-	self.WidgetContainer:ClearAllPoints()
-	self.WidgetContainer:SetPoint("TOPLEFT", -18, 1)
-	if self.WidgetContainer.widgetFrames then
-		for _, widgetFrame in pairs(self.WidgetContainer.widgetFrames) do
-			if widgetFrame.Frame then
-				widgetFrame:SetWidth(258)
-				widgetFrame.Frame:SetWidth(258)
-			end
-		end
+	if block.WidgetContainer then
+		block.WidgetContainer:ClearAllPoints()
+		block.WidgetContainer:SetPoint("TOPLEFT", -18, 1)
 	end
 end)
 
