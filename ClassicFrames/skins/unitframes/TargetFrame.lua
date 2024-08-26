@@ -221,11 +221,6 @@ local function SkinFrame(frame)
 		highLevelTexture:SetPoint("CENTER", 82, -21)
 	end)
 
-	hooksecurefunc(frame, "menu", function(self)
-		DropDownList1:ClearAllPoints()
-		DropDownList1:SetPoint("TOPLEFT", self, "BOTTOMLEFT", 140, 6)
-	end)
-
 	if (frame.totFrame) then
 		local function fixDebuffs()
 			local frameName = frame.totFrame:GetName()

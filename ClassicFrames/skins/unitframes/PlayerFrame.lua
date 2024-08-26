@@ -473,8 +473,3 @@ PlayerFrame:HookScript("OnUpdate", function(self)
 		end
 	end
 end)
-
-hooksecurefunc(PlayerFrame, "menu", function(self)
-    DropDownList1:ClearAllPoints()
-    DropDownList1:SetPoint("TOPLEFT", self, "BOTTOMLEFT", 87, 23)
-end)
