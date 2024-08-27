@@ -88,10 +88,25 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function
 	block.FinalBG:SetPoint("TOPLEFT", -7, -6)
 	block.Stage:ClearAllPoints()
 	block.Stage:SetPoint("TOPLEFT", 4, -19)
+end)
 
-	if block.WidgetContainer then
-		block.WidgetContainer:ClearAllPoints()
-		block.WidgetContainer:SetPoint("TOPLEFT", -18, 1)
+hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", function(block)
+	if block.WidgetContainer.widgetFrames then
+		for _, widgetFrame in pairs(block.WidgetContainer.widgetFrames) do
+			if (widgetFrame.Frame:GetAtlas() == "evergreen-scenario-frame") then
+				block.WidgetContainer:ClearAllPoints()
+				block.WidgetContainer:SetPoint("TOPLEFT", -18, 1)
+			elseif (widgetFrame.Frame:GetAtlas() == "thewarwithin-scenario-frame") then
+				block.WidgetContainer:ClearAllPoints()
+				block.WidgetContainer:SetPoint("TOPLEFT", -18, 1)
+			elseif (widgetFrame.Frame:GetAtlas() == "delves-scenario-frame") then
+				block.WidgetContainer:ClearAllPoints()
+				block.WidgetContainer:SetPoint("TOPLEFT", -18, 1)
+			else
+				block.WidgetContainer:ClearAllPoints()
+				block.WidgetContainer:SetPoint("TOPLEFT", -11, -2)
+			end
+		end
 	end
 end)
 
