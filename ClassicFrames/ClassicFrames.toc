@@ -8,7 +8,6 @@
 embeds.xml
 skins\ApplySkin.lua
 skins\Achievements.lua
-skins\ActionBars.lua
 skins\AddOnList.lua
 skins\AdventureMap.lua
 skins\AlliedRaces.lua
