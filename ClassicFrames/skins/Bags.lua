@@ -45,7 +45,7 @@ if BagItemSearchBox then
 	ApplySearchBox(BagItemSearchBox)
 end
 
-for i = 1, 5 do
+for i = 1, _G.NUM_CONTAINER_FRAMES do
 	_G['ContainerFrame'..i].NineSlice:Hide()
 	_G['ContainerFrame'..i].Bg:Hide()
 
@@ -121,8 +121,6 @@ for i = 1, 5 do
 end
 
 hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
-	if ContainerFrameSettingsManager:IsUsingCombinedBags() or ContainerFrame_IsReagentBag(id) then return end
-
 	local name = frame:GetName()
 	local bgTextureTop = _G[name.."BackgroundTop"];
 	local bgTextureMiddle = _G[name.."BackgroundMiddle1"];
@@ -135,6 +133,7 @@ hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
 
 	-- if id = 0 then its the backpack
 	if ( id == 0 ) then
+		if ContainerFrameSettingsManager:IsUsingCombinedBags() then return end
 		bgTexture1Slot:Hide()
 
 		local extended = size > BACKPACK_BASE_SIZE;
