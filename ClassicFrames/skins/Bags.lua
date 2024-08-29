@@ -45,7 +45,7 @@ if BagItemSearchBox then
 	ApplySearchBox(BagItemSearchBox)
 end
 
-for i = 1, _G.NUM_CONTAINER_FRAMES do
+for i = 1, 5 do
 	_G['ContainerFrame'..i].NineSlice:Hide()
 	_G['ContainerFrame'..i].Bg:Hide()
 
@@ -121,7 +121,7 @@ for i = 1, _G.NUM_CONTAINER_FRAMES do
 end
 
 hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
-	if ContainerFrameSettingsManager:IsUsingCombinedBags() then return end
+	if ContainerFrameSettingsManager:IsUsingCombinedBags() or ContainerFrame_IsReagentBag(id) then return end
 
 	local name = frame:GetName()
 	local bgTextureTop = _G[name.."BackgroundTop"];
@@ -368,6 +368,8 @@ local function GetRightActionBarWidth()
 end
 
 hooksecurefunc("UpdateContainerFrameAnchors", function()
+	if ContainerFrameSettingsManager:IsUsingCombinedBags() then return end
+
 	local containerFrameOffsetX = GetRightActionBarWidth()
 	local frame, xOffset, yOffset, screenHeight, freeScreenHeight, leftMostPoint, column;
 	local screenWidth = GetScreenWidth()
