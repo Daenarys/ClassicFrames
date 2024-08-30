@@ -8,6 +8,11 @@ f:SetScript("OnEvent", function(self, event, name)
 		ChromieTimeFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 		ChromieTimeFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 		ChromieTimeFrame.CloseButton:ClearAllPoints()
-		ChromieTimeFrame.CloseButton:SetPoint("TOPRIGHT")
+		ChromieTimeFrame.CloseButton:SetPoint("TOPRIGHT", 3, 2)
+
+		ChromieTimeFrame:HookScript("OnShow", function(self)
+			self:ClearAllPoints()
+			self:SetPoint("CENTER")
+		end)
 	end
 end)
