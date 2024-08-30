@@ -3,6 +3,7 @@ if not _G.TotemFrame then return end
 hooksecurefunc(TotemFrame, "Update", function(self)
 	local _, class = UnitClass("player")
 	local hasPet = PetFrame and PetFrame:IsShown()
+
 	self:ClearAllPoints()
 	if ( class == "WARLOCK" ) then
 		self:SetPoint("TOPLEFT", CfPlayerFrame, "TOPLEFT", 28, -85)
