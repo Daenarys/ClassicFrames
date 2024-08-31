@@ -768,3 +768,7 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 		EyeTemplate_StopAnimating(QueueStatusButton.Eye)
 	end
 end)
+
+hooksecurefunc(AddonCompartmentFrame, "UpdateDisplay", function(self)
+	self:SetShown(false)
+end)
