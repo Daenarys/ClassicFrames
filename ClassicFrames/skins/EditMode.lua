@@ -66,3 +66,11 @@ ApplyDialogBorder(EditModeUnsavedChangesDialog.Border)
 ApplySearchBox(EditModeImportLayoutDialog.LayoutNameEditBox)
 ApplySearchBox(EditModeNewLayoutDialog.LayoutNameEditBox)
 ApplyDropDown(EditModeManagerFrame.LayoutDropdown)
+
+EditModeSystemSettingsDialog:HookScript("OnShow", function(self)
+	for _, frame in next, { self.Settings:GetChildren() } do
+		if frame.Dropdown then
+			ApplyDropDown(frame.Dropdown)
+		end
+	end
+end)
