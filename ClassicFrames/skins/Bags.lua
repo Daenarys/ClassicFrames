@@ -1,3 +1,5 @@
+if (C_AddOns.IsAddOnLoaded("Bagnon")) then return end
+
 local NUM_CONTAINER_COLUMNS = 4;
 local ROWS_IN_BG_TEXTURE = 5;
 local MAX_MIDDLE_TEXTURES = 2;
