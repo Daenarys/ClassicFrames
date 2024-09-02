@@ -107,6 +107,15 @@
 				</Scripts>
 				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
 				<BarColor r="0" g="0" b="1.0"/>
+				<Frames>
+					<Frame parentKey="FeedbackFrame" setAllPoints="true" useParentLevel="true" inherits="BuilderSpenderFrame"/>
+					<Frame parentKey="FullPowerFrame" inherits="FullResourcePulseFrame">
+						<Size x="119" y="12"/>
+						<Anchors>
+							<Anchor point="TOPRIGHT"/>
+						</Anchors>
+					</Frame>
+				</Frames>
 			</StatusBar>
 		</Frames>
 	</Button>
