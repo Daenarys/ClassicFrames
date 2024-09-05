@@ -98,6 +98,7 @@ skins\TimeManager.lua
 skins\TotemFrame.lua
 skins\Trade.lua
 skins\TradingPost.lua
+skins\UIWidget.lua
 skins\VoidStorage.lua
 skins\Wardrobe.lua
 skins\WeeklyRewards.lua
