@@ -77,6 +77,7 @@ function ApplyScrollBarArrow(frame)
 	frame.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
 	frame.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
 	frame.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
+	frame.Forward:ClearAllPoints()
 	frame.Forward:SetPoint("BOTTOMLEFT", 4, 4)
 end
 

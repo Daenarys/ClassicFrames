@@ -19,6 +19,7 @@ skins\LFG.lua
 skins\Minimap.lua
 skins\PVP.lua
 skins\Quests.lua
+skins\ScriptError.lua
 skins\SettingsPanel.lua
 skins\SpellBook.lua
 skins\Talents.lua

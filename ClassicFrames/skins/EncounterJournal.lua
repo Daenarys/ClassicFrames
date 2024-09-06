@@ -64,6 +64,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournal.raidsTab:Show()
 		end)
 
+		EncounterJournalInstanceSelect.ExpansionDropdown:Hide()
+
 		EncounterJournalInstanceSelect.ScrollBox:ClearAllPoints()
 		EncounterJournalInstanceSelect.ScrollBox:SetPoint("TOPLEFT", 17, -58)
 

@@ -50,11 +50,6 @@ QueueStatusFrame:HookScript("OnShow", function(self)
 	self:SetPoint("TOPRIGHT", MiniMapLFGFrame, "TOPLEFT")
 end)
 
-hooksecurefunc("QueueStatusDropDown_Show", function()
-	DropDownList1:ClearAllPoints()
-	DropDownList1:SetPoint("TOPLEFT", MiniMapLFGFrame, "BOTTOMLEFT")
-end)
-
 hooksecurefunc(QueueStatusFrame, "Update", function(self)
 	local animateEye;
 
