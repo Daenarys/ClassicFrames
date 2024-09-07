@@ -66,7 +66,6 @@ end
 
 local Dropdown, Tracking, Pin, MapLegend = unpack(WorldMapFrame.overlayFrames)
 ApplyDropDown(Dropdown)
-
 Tracking.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 Tracking.Icon:SetTexture("Interface\\Minimap\\Tracking\\None")
 if (Tracking.IconOverlay == nil) then
@@ -86,9 +85,7 @@ Tracking:HookScript("OnMouseUp", function(self)
 	self.Icon:SetPoint("TOPLEFT", 6, -6)
 	self.IconOverlay:Hide()
 end)
-
 Pin.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
-
 MapLegend:Hide()
 
 hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
@@ -120,6 +117,12 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 				poiButton:GetNormalTexture():SetTexCoord(0.875, 1, 0.375, 0.5)
 				poiButton:SetPushedTexture("Interface/WorldMap/UI-QuestPoi-NumberIcons")
 				poiButton:GetPushedTexture():SetTexCoord(0.750, 0.875, 0.375, 0.5)
+			end
+			if info.isElite then
+				poiButton.Glow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\WorldQuest")
+				poiButton.Glow:SetTexCoord(0.548828, 0.644531, 0.435547, 0.529297)
+				poiButton.UnderlayAtlas:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\WorldQuest")
+				poiButton.UnderlayAtlas:SetTexCoord(0.0839844, 0.150391, 0.75, 0.816406)
 			end
 		end
 	end
