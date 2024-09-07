@@ -90,3 +90,28 @@ end)
 Pin.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 
 MapLegend:Hide()
+
+hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
+	local style = poiButton:GetStyle()
+	local questID = poiButton:GetQuestID()
+
+	if style == POIButtonUtil.Style.WorldQuest then
+		local info = C_QuestLog.GetQuestTagInfo(questID)
+		if info then
+			poiButton:SetSize(20, 20)
+			poiButton.Display.Icon:SetSize(6, 15)
+			poiButton.Display.Icon:SetAtlas("worldquest-questmarker-questbang")
+			if info.isElite then
+				poiButton:SetNormalAtlas("worldquest-questmarker-rare")
+				poiButton:GetNormalTexture():SetSize(18, 18)
+				poiButton:SetPushedAtlas("worldquest-questmarker-rare-down")
+				poiButton:GetPushedTexture():SetSize(18, 18)
+			else
+				poiButton:SetNormalTexture("Interface/WorldMap/UI-QuestPoi-NumberIcons")
+				poiButton:GetNormalTexture():SetTexCoord(0.875, 1, 0.375, 0.5)
+				poiButton:SetPushedTexture("Interface/WorldMap/UI-QuestPoi-NumberIcons")
+				poiButton:GetPushedTexture():SetTexCoord(0.750, 0.875, 0.375, 0.5)
+			end
+		end
+	end
+end)
