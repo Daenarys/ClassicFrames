@@ -88,6 +88,70 @@ end)
 Pin.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 MapLegend:Hide()
 
+hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
+	if self.Texture then
+		-- dungeons & raids
+		if (self.Texture:GetAtlas() == "Dungeon") then
+			self.Texture:SetSize(22, 22)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.Texture:SetTexCoord(0.912109, 0.955078, 0.0449219, 0.0664062)
+			self.HighlightTexture:SetSize(22, 22)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.HighlightTexture:SetTexCoord(0.912109, 0.955078, 0.0449219, 0.0664062)
+		elseif (self.Texture:GetAtlas() == "Raid") then
+			self.Texture:SetSize(22, 22)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.Texture:SetTexCoord(0.689453, 0.732422, 0.166016, 0.1875)
+			self.HighlightTexture:SetSize(22, 22)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.HighlightTexture:SetTexCoord(0.689453, 0.732422, 0.166016, 0.1875)
+		-- taxis
+		elseif (self.Texture:GetAtlas() == "TaxiNode_Alliance") then
+			self.Texture:SetSize(18, 18)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.Texture:SetTexCoord(0.958984, 0.994141, 0.0449219, 0.0625)
+			self.HighlightTexture:SetSize(18, 18)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.HighlightTexture:SetTexCoord(0.958984, 0.994141, 0.0449219, 0.0625)
+		elseif (self.Texture:GetAtlas() == "TaxiNode_Horde") then
+			self.Texture:SetSize(18, 18)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.Texture:SetTexCoord(0.474609, 0.509766, 0.177734, 0.195312)
+			self.HighlightTexture:SetSize(18, 18)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.HighlightTexture:SetTexCoord(0.474609, 0.509766, 0.177734, 0.195312)
+		elseif (self.Texture:GetAtlas() == "TaxiNode_Neutral") then
+			self.Texture:SetSize(18, 18)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.Texture:SetTexCoord(0.513672, 0.548828, 0.177734, 0.195312)
+			self.HighlightTexture:SetSize(18, 18)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.HighlightTexture:SetTexCoord(0.513672, 0.548828, 0.177734, 0.195312)
+		elseif (self.Texture:GetAtlas() == "TaxiNode_Continent_Alliance") then
+			self.Texture:SetSize(27, 27)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.Texture:SetTexCoord(0.00195312, 0.0546875, 0.608398, 0.634766)
+			self.HighlightTexture:SetSize(27, 27)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.HighlightTexture:SetTexCoord(0.00195312, 0.0546875, 0.608398, 0.634766)
+		elseif (self.Texture:GetAtlas() == "TaxiNode_Continent_Horde") then
+			self.Texture:SetSize(27, 27)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.Texture:SetTexCoord(0.00195312, 0.0546875, 0.636719, 0.663086)
+			self.HighlightTexture:SetSize(27, 27)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.HighlightTexture:SetTexCoord(0.00195312, 0.0546875, 0.636719, 0.663086)
+		elseif (self.Texture:GetAtlas() == "TaxiNode_Continent_Neutral") then
+			self.Texture:SetSize(27, 27)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.Texture:SetTexCoord(0.00195312, 0.0546875, 0.665039, 0.691406)
+			self.HighlightTexture:SetSize(27, 27)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.HighlightTexture:SetTexCoord(0.00195312, 0.0546875, 0.665039, 0.691406)
+		end
+	end
+end)
+
 hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 	local style = poiButton:GetStyle()
 	local questID = poiButton:GetQuestID()
