@@ -181,6 +181,9 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 		if info then
 			poiButton.Display.Icon:SetSize(6, 15)
 			poiButton.Display.Icon:SetAtlas("worldquest-questmarker-questbang")
+			poiButton.HighlightTexture:SetSize(32, 32)
+			poiButton.HighlightTexture:SetTexture("Interface\\WorldMap\\UI-QuestPoi-NumberIcons")
+			poiButton.HighlightTexture:SetTexCoord(0.625, 0.750, 0.375, 0.5)
 			if info.quality == Enum.WorldQuestQuality.Rare then
 				poiButton:SetNormalTexture("Interface\\AddOns\\ClassicFrames\\icons\\WorldQuest")
 				poiButton:GetNormalTexture():SetTexCoord(0.955078, 0.994141, 0.134766, 0.173828)
