@@ -118,3 +118,12 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 		end
 	end)
 end
+
+hooksecurefunc("CompactUnitFrame_UpdateCenterStatusIcon", function(frame)
+	if ( frame.centerStatusIcon ) then
+		if ( frame.optionTable.displayInOtherGroup and UnitInOtherParty(frame.unit) ) then
+			frame.centerStatusIcon.texture:SetTexture("Interface\\LFGFrame\\LFG-Eye");
+			frame.centerStatusIcon.texture:SetTexCoord(0.125, 0.25, 0.25, 0.5);
+		end
+	end
+end)
