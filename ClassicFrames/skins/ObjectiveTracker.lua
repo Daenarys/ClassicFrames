@@ -93,18 +93,20 @@ end)
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", function(block)
 	if block.WidgetContainer.widgetFrames then
 		for _, widgetFrame in pairs(block.WidgetContainer.widgetFrames) do
-			if (widgetFrame.Frame:GetAtlas() == "evergreen-scenario-frame") then
-				block.WidgetContainer:ClearAllPoints()
-				block.WidgetContainer:SetPoint("TOPLEFT", -18, 1)
-			elseif (widgetFrame.Frame:GetAtlas() == "thewarwithin-scenario-frame") then
-				block.WidgetContainer:ClearAllPoints()
-				block.WidgetContainer:SetPoint("TOPLEFT", -18, 1)
-			elseif (widgetFrame.Frame:GetAtlas() == "delves-scenario-frame") then
-				block.WidgetContainer:ClearAllPoints()
-				block.WidgetContainer:SetPoint("TOPLEFT", -18, 1)
-			else
-				block.WidgetContainer:ClearAllPoints()
-				block.WidgetContainer:SetPoint("TOPLEFT", -11, -2)
+			if widgetFrame.Frame then
+				if (widgetFrame.Frame:GetAtlas() == "evergreen-scenario-frame") then
+					block.WidgetContainer:ClearAllPoints()
+					block.WidgetContainer:SetPoint("TOPLEFT", -18, 1)
+				elseif (widgetFrame.Frame:GetAtlas() == "thewarwithin-scenario-frame") then
+					block.WidgetContainer:ClearAllPoints()
+					block.WidgetContainer:SetPoint("TOPLEFT", -18, 1)
+				elseif (widgetFrame.Frame:GetAtlas() == "delves-scenario-frame") then
+					block.WidgetContainer:ClearAllPoints()
+					block.WidgetContainer:SetPoint("TOPLEFT", -18, 1)
+				else
+					block.WidgetContainer:ClearAllPoints()
+					block.WidgetContainer:SetPoint("TOPLEFT", -11, -2)
+				end
 			end
 		end
 	end
