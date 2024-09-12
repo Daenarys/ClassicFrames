@@ -127,6 +127,9 @@ hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
 			self.HighlightTexture:SetSize(18, 18)
 			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 			self.HighlightTexture:SetTexCoord(0.513672, 0.548828, 0.177734, 0.195312)
+		elseif (self.Texture:GetAtlas() == "TaxiNode_Undiscovered") then
+			self.Texture:SetSize(18, 18)
+			self.HighlightTexture:SetSize(18, 18)
 		elseif (self.Texture:GetAtlas() == "TaxiNode_Continent_Alliance") then
 			self.Texture:SetSize(27, 27)
 			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
