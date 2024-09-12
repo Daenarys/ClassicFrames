@@ -159,10 +159,18 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 	local style = poiButton:GetStyle()
 	local questID = poiButton:GetQuestID()
 
-	if style == POIButtonUtil.Style.WorldQuest then
+	if style == POIButtonUtil.Style.BonusObjective then
+		poiButton.Display:Hide()
+		poiButton:SetNormalTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+		poiButton:GetNormalTexture():SetTexCoord(0.859375, 0.921875, 0.635742, 0.666992)
+		poiButton:GetNormalTexture():SetSize(25, 25)
+		poiButton:SetPushedTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+		poiButton:GetPushedTexture():SetTexCoord(0.859375, 0.921875, 0.635742, 0.666992)
+		poiButton:GetPushedTexture():SetSize(25, 25)
+		poiButton.HighlightTexture:SetAlpha(0)
+	elseif style == POIButtonUtil.Style.WorldQuest then
 		local info = C_QuestLog.GetQuestTagInfo(questID)
 		if info then
-			poiButton:SetSize(20, 20)
 			poiButton.Display.Icon:SetSize(6, 15)
 			poiButton.Display.Icon:SetAtlas("worldquest-questmarker-questbang")
 			if info.quality == Enum.WorldQuestQuality.Rare then
