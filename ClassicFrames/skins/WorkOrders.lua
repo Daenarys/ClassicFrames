@@ -77,6 +77,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplySearchBox(ProfessionsCustomerOrdersFrame.Form.OrderRecipientTarget)
 		ApplyDropDown(ProfessionsCustomerOrdersFrame.Form.OrderRecipientDropdown)
 		ApplyDropDown(ProfessionsCustomerOrdersFrame.Form.PaymentContainer.DurationDropdown)
+		ApplyDropDown(ProfessionsCustomerOrdersFrame.Form.MinimumQuality.Dropdown)
 		ApplyFilterDropDown(ProfessionsCustomerOrdersFrame.BrowseOrders.SearchBar.FilterDropdown)
 	end
 end)
