@@ -78,10 +78,5 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyCloseButton(HeroTalentsSelectionDialog.CloseButton)
 		ApplyTitleBgNoPortrait(HeroTalentsSelectionDialog)
 		ApplyNineSliceNoPortrait(HeroTalentsSelectionDialog)
-
-		HeroTalentsSelectionDialog:HookScript("OnShow", function(self)
-			self:ClearAllPoints()
-			self:SetPoint("TOP", 0, -65)
-		end)
 	end
 end)
