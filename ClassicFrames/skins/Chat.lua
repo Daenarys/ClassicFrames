@@ -100,44 +100,11 @@ for i = 1, NUM_CHAT_WINDOWS do
     ChatFrameMenuButton:SetPoint("BOTTOM", 0, 87)
 
     hooksecurefunc("ChatFrame_OnUpdate", ChatFrameButtonFrameBottomButton.func_ChatFrame_OnUpdate)
-
-    for i = 1, NUM_CHAT_WINDOWS do
-        _G['ChatFrame'..i..'Tab'].Text:ClearAllPoints()
-        _G['ChatFrame'..i..'Tab'].Text:SetPoint("CENTER", 0, -6)
-    end
-
-
 end
 
 QuickJoinToastButton:HookScript("OnUpdate", function(self)
     self:ClearAllPoints()
     self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT", 0, -23)
-end)
-
-hooksecurefunc("FCFDock_UpdateTabs", function(dock)
-    local scrollChild = dock.scrollFrame:GetScrollChild()
-    local lastDockedStaticTab = nil
-    local lastDockedDynamicTab = nil
-
-    for index, chatFrame in ipairs(dock.DOCKED_CHAT_FRAMES) do
-        local chatTab = _G[chatFrame:GetName().."Tab"]
-        if ( chatFrame.isStaticDocked ) then
-            PanelTemplates_TabResize(chatTab, chatTab.sizePadding or 8)
-            if ( lastDockedStaticTab ) then
-                chatTab:SetPoint("LEFT", lastDockedStaticTab, "RIGHT", 4, 0)
-            else
-                chatTab:SetPoint("LEFT", dock, "LEFT", 2, 0)
-            end
-            lastDockedStaticTab = chatTab
-        else
-            if ( lastDockedDynamicTab ) then
-                chatTab:SetPoint("LEFT", lastDockedDynamicTab, "RIGHT", 4, 0)
-            else
-                chatTab:SetPoint("LEFT", scrollChild, "LEFT", 4, -2)
-            end
-            lastDockedDynamicTab = chatTab
-        end
-    end
 end)
 
 ChatConfigCombatSettingsFilters.ScrollBar:SetSize(25, 560)
