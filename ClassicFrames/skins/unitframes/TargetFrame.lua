@@ -59,6 +59,7 @@ local function SkinFrame(frame)
 	FrameHealthBar.HealthBar:EnableMouse(false)
 	FrameManaBar:EnableMouse(false)
 
+	contextual.NumericalThreat:SetParent(frame)
 	contextual.NumericalThreat:ClearAllPoints()
 	contextual.NumericalThreat:SetPoint("BOTTOM", frame, "TOP", -30, -26)
 
