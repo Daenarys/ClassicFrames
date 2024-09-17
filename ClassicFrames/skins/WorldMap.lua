@@ -173,7 +173,7 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 	end
 
 	if style == POIButtonUtil.Style.BonusObjective then
-		poiButton.Display:Hide()
+		poiButton.Display:SetAlpha(0)
 		poiButton:SetNormalTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 		poiButton:GetNormalTexture():SetTexCoord(0.272461, 0.303711, 0.668945, 0.700195)
 		poiButton:GetNormalTexture():SetSize(25, 25)
@@ -226,7 +226,7 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 		poiButton.NormalTexture:SetAlpha(0)
 		poiButton.PushedTexture:SetAlpha(0)
 		if poiButton.SubTypeIcon then
-			poiButton.SubTypeIcon:Hide()
+			poiButton.SubTypeIcon:SetAlpha(0)
 		end
 		poiButton:SetMouseClickEnabled(false)
 	end
