@@ -71,6 +71,12 @@
 					</Frame>
 				</Frames>
 			</Frame>
+			<StatusBar parentKey="PlayerFrameHealthBarAnimatedLoss" mixin="CfAnimatedHealthLossMixin" hidden="true">
+				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+				<Scripts>
+					<OnLoad method="OnLoad"/>
+				</Scripts>
+			</StatusBar>
 			<StatusBar name="$parentHealthBar" inherits="TextStatusBar">
 				<Size x="119" y="12"/>
 				<Anchors>
@@ -83,6 +89,7 @@
 						self.cvar = "statusText";
 						self.cvarLabel = "STATUS_TEXT_PLAYER";
 						self:SetMouseClickEnabled(false)
+						self:GetParent().PlayerFrameHealthBarAnimatedLoss:SetUnitHealthBar("player", self)
 					</OnLoad>
 					<OnValueChanged function="CfUnitFrameHealthBar_OnValueChanged"/>
 					<OnSizeChanged>
