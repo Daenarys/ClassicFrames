@@ -167,6 +167,11 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 	local style = poiButton:GetStyle()
 	local questID = poiButton:GetQuestID()
 
+	if poiButton.TimeLowFrame then
+		poiButton.TimeLowFrame:SetSize(20, 20)
+		poiButton.TimeLowFrame:SetPoint("CENTER", -8, -8)
+	end
+
 	if style == POIButtonUtil.Style.BonusObjective then
 		poiButton.Display:Hide()
 		poiButton:SetNormalTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
