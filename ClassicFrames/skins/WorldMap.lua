@@ -231,3 +231,16 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 		poiButton:SetMouseClickEnabled(false)
 	end
 end)
+
+hooksecurefunc(VignettePinMixin, "OnAcquired", function(self)
+	if self.Texture then
+		if (self.Texture:GetAtlas() == "VignetteKillElite") then
+			self.Texture:SetSize(32, 32)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.Texture:SetTexCoord(0.0654297, 0.12793, 0.450195, 0.512695)
+			self.HighlightTexture:SetSize(32, 32)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.HighlightTexture:SetTexCoord(0.0654297, 0.12793, 0.450195, 0.512695)
+		end
+	end
+end)
