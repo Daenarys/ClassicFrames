@@ -39,7 +39,7 @@ for _, tracker in pairs(trackers) do
 end
 
 if ScenarioObjectiveTracker.MawBuffsBlock.Container then
-	ScenarioObjectiveTracker.MawBuffsBlock.Container:SetPoint("TOPRIGHT", -10, 0)
+	ScenarioObjectiveTracker.MawBuffsBlock.Container:SetPoint("TOPRIGHT", -12, 1)
 end
 
 hooksecurefunc(ObjectiveTrackerFrame, "AnchorSelectionFrame", function(self)
