@@ -235,6 +235,13 @@ hooksecurefunc(VignettePinMixin, "OnAcquired", function(self)
 			self.HighlightTexture:SetSize(32, 32)
 			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 			self.HighlightTexture:SetTexCoord(0.59375, 0.65625, 0.801758, 0.833008)
+		elseif (self.Texture:GetAtlas() == "VignetteEvent") then
+			self.Texture:SetSize(32, 32)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.Texture:SetTexCoord(0.792969, 0.855469, 0.768555, 0.799805)
+			self.HighlightTexture:SetSize(32, 32)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.HighlightTexture:SetTexCoord(0.792969, 0.855469, 0.768555, 0.799805)
 		end
 	end
 end)
