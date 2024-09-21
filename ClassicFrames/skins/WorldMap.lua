@@ -152,6 +152,10 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 			end
 		end
 	elseif style == POIButtonUtil.Style.AreaPOI then
+		poiButton:SetNormalTexture("Interface/WorldMap/UI-QuestPoi-NumberIcons")
+		poiButton:GetNormalTexture():SetTexCoord(0.875, 1, 0.375, 0.5)
+		poiButton:SetPushedTexture("Interface/WorldMap/UI-QuestPoi-NumberIcons")
+		poiButton:GetPushedTexture():SetTexCoord(0.750, 0.875, 0.375, 0.5)
 		if poiButton.SubTypeIcon then
 			poiButton.SubTypeIcon:SetAlpha(0)
 		end
