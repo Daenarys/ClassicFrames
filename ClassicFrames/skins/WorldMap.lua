@@ -114,7 +114,6 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 		poiButton:GetPushedTexture():SetTexCoord(0.859375, 0.921875, 0.635742, 0.666992)
 		poiButton:GetPushedTexture():SetSize(25, 25)
 		poiButton.HighlightTexture:SetAlpha(0)
-		poiButton:SetMouseClickEnabled(false)
 	elseif style == POIButtonUtil.Style.WorldQuest then
 		local info = C_QuestLog.GetQuestTagInfo(questID)
 		if info then
