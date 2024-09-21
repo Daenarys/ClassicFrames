@@ -567,39 +567,41 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 		TimeManagerClockTicker:ClearAllPoints()
 		TimeManagerClockTicker:SetPoint("CENTER", TimeManagerClockButton, "CENTER", 3, 1)
 
-		if (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "dragonflight-landingbutton-up") then
-			ExpansionLandingPageMinimapButton:SetScale(0.85)
-			ExpansionLandingPageMinimapButton:ClearAllPoints()
-			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 42, -144)
-		elseif (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "warwithin-landingbutton-up") then
-			ExpansionLandingPageMinimapButton:SetScale(0.84)
-			ExpansionLandingPageMinimapButton:ClearAllPoints()
-			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 45, -143)
+		if not (C_AddOns.IsAddOnLoaded("ClassicUI")) then
+			if (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "dragonflight-landingbutton-up") then
+				ExpansionLandingPageMinimapButton:SetScale(0.85)
+				ExpansionLandingPageMinimapButton:ClearAllPoints()
+				ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 42, -144)
+			elseif (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "warwithin-landingbutton-up") then
+				ExpansionLandingPageMinimapButton:SetScale(0.84)
+				ExpansionLandingPageMinimapButton:ClearAllPoints()
+				ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 45, -143)
+			end
+
+			hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIcon", function(self)
+				if (self:GetNormalTexture():GetAtlas() == "dragonflight-landingbutton-up") then
+					self:SetScale(0.85)
+					self:ClearAllPoints()
+					self:SetPoint("TOPLEFT", 42, -144)
+				elseif (self:GetNormalTexture():GetAtlas() == "warwithin-landingbutton-up") then
+					self:SetScale(0.84)
+					self:ClearAllPoints()
+					self:SetPoint("TOPLEFT", 45, -143)
+				end
+			end)
+
+			hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIconForGarrison", function(self)
+				local garrisonType = C_Garrison.GetLandingPageGarrisonType()
+
+				if (garrisonType == Enum.GarrisonType.Type_9_0_Garrison) then
+					self:ClearAllPoints()
+					self:SetPoint("TOPLEFT", 32, -106)
+				else
+					self:ClearAllPoints()
+					self:SetPoint("TOPLEFT", 32, -118)
+				end
+			end)
 		end
-
-		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIcon", function(self)
-			if (self:GetNormalTexture():GetAtlas() == "dragonflight-landingbutton-up") then
-				self:SetScale(0.85)
-				self:ClearAllPoints()
-				self:SetPoint("TOPLEFT", 42, -144)
-			elseif (self:GetNormalTexture():GetAtlas() == "warwithin-landingbutton-up") then
-				self:SetScale(0.84)
-				self:ClearAllPoints()
-				self:SetPoint("TOPLEFT", 45, -143)
-			end
-		end)
-
-		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIconForGarrison", function(self)
-			local garrisonType = C_Garrison.GetLandingPageGarrisonType()
-
-			if (garrisonType == Enum.GarrisonType.Type_9_0_Garrison) then
-				self:ClearAllPoints()
-				self:SetPoint("TOPLEFT", 32, -106)
-			else
-				self:ClearAllPoints()
-				self:SetPoint("TOPLEFT", 32, -118)
-			end
-		end)
 	end
 end)
 
