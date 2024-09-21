@@ -17,7 +17,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(FlightMapFrame)
 		ApplyNineSlicePortrait(FlightMapFrame.BorderFrame)
 
-		hooksecurefunc(FlightMap_FlightPointPinMixin, 'SetFlightPathStyle', function(self)
+		hooksecurefunc(FlightMap_FlightPointPinMixin, "SetFlightPathStyle", function(self)
 			local info = self.taxiNodeData
 			if info then
 				if (self.Icon:GetAtlas() == "Taxi_Frame_Gray") then
@@ -33,7 +33,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end)
 
-		hooksecurefunc(FlightMap_FlightPointPinMixin, 'OnMouseEnter', function(self)
+		hooksecurefunc(FlightMap_FlightPointPinMixin, "OnMouseEnter", function(self)
 			local info = self.taxiNodeData
 			if info then
 				if (self.Icon:GetAtlas() == "Taxi_Frame_Gray") then
@@ -49,7 +49,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end)
 
-		hooksecurefunc(FlightMap_FlightPointPinMixin, 'OnMouseLeave', function(self)
+		hooksecurefunc(FlightMap_FlightPointPinMixin, "OnMouseLeave", function(self)
 			local info = self.taxiNodeData
 			if info then
 				if (self.Icon:GetAtlas() == "Taxi_Frame_Gray") then
