@@ -50,6 +50,7 @@ skins\GameMenu.lua
 skins\GarrisonCapacitive.lua
 skins\GarrisonUI.lua
 skins\Gossip.lua
+skins\GreatVault.lua
 skins\GroupLoot.lua
 skins\GuildBank.lua
 skins\GuildPetition.lua
@@ -101,7 +102,6 @@ skins\TradingPost.lua
 skins\UIWidget.lua
 skins\VoidStorage.lua
 skins\Wardrobe.lua
-skins\WeeklyRewards.lua
 skins\WorkOrders.lua
 skins\WorldMap.lua
 skins\ZoneMap.lua
