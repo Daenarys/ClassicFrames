@@ -63,6 +63,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest = CreateFrame("Frame", nil, PVPQueueFrame.HonorInset.CasualPanel)
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetSize(84, 70)
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetPoint("TOP", 0, -48)
+			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:Hide()
 
 			if (PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.FlairTexture == nil) then
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.FlairTexture = PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:CreateTexture(nil, "BACKGROUND")
@@ -88,9 +89,10 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetScript("OnMouseUp", function(self, ...)
-				if not ConquestFrame_HasActiveSeason() or InCombatLockdown() then
+				if InCombatLockdown() then
 					return
 				end
+
 				WeeklyRewardMixin.OnMouseUp(self, ...)
 			end)
 		end
