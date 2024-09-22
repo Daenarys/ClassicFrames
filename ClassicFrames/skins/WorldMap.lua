@@ -285,14 +285,6 @@ hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
 			self.HighlightTexture:SetSize(32, 32)
 			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 			self.HighlightTexture:SetTexCoord(0.59375, 0.65625, 0.801758, 0.833008)
-		-- great vault
-		elseif (self.Texture:GetAtlas() == "GreatVault-32x32") then
-			self.Texture:SetSize(24, 24)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.128906, 0.191406, 0.668945, 0.700195)
-			self.HighlightTexture:SetSize(24, 24)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.128906, 0.191406, 0.668945, 0.700195)
 		end
 	end
 end)
