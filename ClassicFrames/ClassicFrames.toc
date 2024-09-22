@@ -22,7 +22,6 @@ skins\BlackMarket.lua
 skins\Buffs.lua
 skins\Calendar.lua
 skins\Catalyst.lua
-skins\Challenges.lua
 skins\Channel.lua
 skins\Character.lua
 skins\Chat.lua
@@ -78,7 +77,7 @@ skins\PingTutorial.lua
 skins\PlayerChoice.lua
 skins\Professions.lua
 skins\ProfessionsBook.lua
-skins\PVP.xml
+skins\PVP.lua
 skins\QuestLog.lua
 skins\Quests.lua
 skins\QuickKeybind.lua

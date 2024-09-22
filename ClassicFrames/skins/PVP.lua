@@ -60,9 +60,39 @@ f:SetScript("OnEvent", function(self, event, name)
 		ConquestFrame.TankIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 
 		if not PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest then
-			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest = CreateFrame("Frame", nil, PVPQueueFrame.HonorInset.CasualPanel, "PVPWeeklyChestTemplate")
+			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest = CreateFrame("Frame", nil, PVPQueueFrame.HonorInset.CasualPanel)
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetSize(84, 70)
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetPoint("TOP", 0, -48)
+
+			if (PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.FlairTexture == nil) then
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.FlairTexture = PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:CreateTexture(nil, "BACKGROUND")
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.FlairTexture:SetSize(187, 152)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.FlairTexture:SetAtlas("pvpqueue-chest-background")
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.FlairTexture:SetPoint("CENTER")
+			end
+
+			if (PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture == nil) then
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture = PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:CreateTexture(nil, "ARTWORK")
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetAtlas("gficon-chest-evergreen-greatvault-complete", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetScale(0.5)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetPoint("CENTER", -1, 0)
+			end
+
+			if (PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight == nil) then
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight = PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:CreateTexture(nil, "HIGHLIGHT")
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("gficon-chest-evergreen-greatvault-complete", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetBlendMode("ADD")
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetScale(0.5)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAlpha(0.2)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetPoint("CENTER", -1, 0)
+			end
+
+			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetScript("OnMouseUp", function(self, ...)
+				if not ConquestFrame_HasActiveSeason() or InCombatLockdown() then
+					return
+				end
+				WeeklyRewardMixin.OnMouseUp(self, ...)
+			end)
 		end
 
 		PVPQueueFrame.HonorInset.CasualPanel:HookScript("OnShow", function(self)
@@ -213,33 +243,3 @@ ReadyStatus.CloseButton:ClearAllPoints()
 ReadyStatus.CloseButton:SetPoint("TOPRIGHT", -2, -2)
 
 ApplyDialogBorder(ReadyStatus.Border)
-
-PVPWeeklyChestMixin = CreateFromMixins(WeeklyRewardMixin)
-function PVPWeeklyChestMixin:GetState()
-	if C_WeeklyRewards.HasAvailableRewards() then
-		return "collect"
-	elseif self:HasUnlockedRewards(Enum.WeeklyRewardChestThresholdType.World) then
-		return "complete"
-	end
-
-	return "incomplete"
-end
-
-function PVPWeeklyChestMixin:OnShow()
-	local state = self:GetState()
-	local atlas = "pvpqueue-chest-greatvault-"..state
-	self.ChestTexture:SetAtlas(atlas, TextureKitConstants.UseAtlasSize)
-	self.Highlight:SetAtlas(atlas, TextureKitConstants.UseAtlasSize)
-
-	local desaturated = not ConquestFrame_HasActiveSeason()
-	self.ChestTexture:SetDesaturated(desaturated)
-	self.Highlight:SetDesaturated(desaturated)
-end
-
-function PVPWeeklyChestMixin:OnMouseUp(...)
-	if not ConquestFrame_HasActiveSeason() or InCombatLockdown() then
-		return
-	end
-
-	WeeklyRewardMixin.OnMouseUp(self, ...)
-end
