@@ -216,11 +216,9 @@ ApplyDialogBorder(ReadyStatus.Border)
 
 PVPWeeklyChestMixin = CreateFromMixins(WeeklyRewardMixin)
 function PVPWeeklyChestMixin:GetState()
-	local weeklyProgress = C_WeeklyRewards.GetConquestWeeklyProgress()
-
 	if C_WeeklyRewards.HasAvailableRewards() then
 		return "collect"
-	elseif self:HasUnlockedRewards(Enum.WeeklyRewardChestThresholdType.World) or weeklyProgress.unlocksCompleted > 0 then
+	elseif self:HasUnlockedRewards(Enum.WeeklyRewardChestThresholdType.World) then
 		return "complete"
 	end
 
