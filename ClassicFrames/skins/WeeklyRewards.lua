@@ -44,7 +44,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		WeeklyRewardsFrame:HookScript("OnShow", function(self)
 			self:ClearAllPoints()
-			self:SetPoint("CENTER")
+			self:SetPoint("CENTER", 0, 39)
 		end)
 	end
 end)
