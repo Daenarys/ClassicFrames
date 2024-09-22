@@ -236,10 +236,6 @@ function PVPWeeklyChestMixin:OnShow()
 	local desaturated = not ConquestFrame_HasActiveSeason()
 	self.ChestTexture:SetDesaturated(desaturated)
 	self.Highlight:SetDesaturated(desaturated)
-
-	self.SpinTextureBottom:Hide()
-	self.SpinTextureTop:Hide()
-	self.SpinAnim:Stop()
 end
 
 function PVPWeeklyChestMixin:OnMouseUp(...)
