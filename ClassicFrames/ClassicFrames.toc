@@ -22,6 +22,7 @@ skins\BlackMarket.lua
 skins\Buffs.lua
 skins\Calendar.lua
 skins\Catalyst.lua
+skins\Challenges.lua
 skins\Channel.lua
 skins\Character.lua
 skins\Chat.lua
