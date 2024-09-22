@@ -59,6 +59,31 @@ f:SetScript("OnEvent", function(self, event, name)
 		ConquestFrame.TankIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 		ConquestFrame.TankIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 
+		if not PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest then
+			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest = CreateFrame("Frame", nil, PVPQueueFrame.HonorInset.CasualPanel, "PVPWeeklyChestTemplate")
+			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetSize(84, 70)
+			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetPoint("TOP", 0, -48)
+		end
+
+		PVPQueueFrame.HonorInset.CasualPanel:HookScript("OnShow", function(self)
+			local serverExpansionLevel = GetServerExpansionLevel()
+
+			local maxLevel = GetMaxLevelForExpansionLevel(serverExpansionLevel)
+			local playerLevel = UnitLevel("player")
+			local Label = self.HKLabel
+			if playerLevel < maxLevel then
+				Label:Hide()
+				self.WeeklyChest:Hide()
+				self.HonorLevelDisplay:SetPoint("TOP", 0, -25)
+			else
+				Label:SetText(RATED_PVP_WEEKLY_VAULT)
+				Label:SetPoint("TOP", 0, -12)
+				Label:Show()
+				self.WeeklyChest:Show()
+				self.HonorLevelDisplay:SetPoint("TOP", self.WeeklyChest, "BOTTOM", 0, -90)
+			end
+		end)
+
 		ApplyDropDown(HonorFrameTypeDropdown)
 	end
 end)
@@ -188,3 +213,39 @@ ReadyStatus.CloseButton:ClearAllPoints()
 ReadyStatus.CloseButton:SetPoint("TOPRIGHT", -2, -2)
 
 ApplyDialogBorder(ReadyStatus.Border)
+
+PVPWeeklyChestMixin = CreateFromMixins(WeeklyRewardMixin)
+function PVPWeeklyChestMixin:GetState()
+	local weeklyProgress = C_WeeklyRewards.GetConquestWeeklyProgress()
+
+	if C_WeeklyRewards.HasAvailableRewards() then
+		return "collect"
+	elseif self:HasUnlockedRewards(Enum.WeeklyRewardChestThresholdType.World) or weeklyProgress.unlocksCompleted > 0 then
+		return "complete"
+	end
+
+	return "incomplete"
+end
+
+function PVPWeeklyChestMixin:OnShow()
+	local state = self:GetState()
+	local atlas = "pvpqueue-chest-greatvault-"..state
+	self.ChestTexture:SetAtlas(atlas, TextureKitConstants.UseAtlasSize)
+	self.Highlight:SetAtlas(atlas, TextureKitConstants.UseAtlasSize)
+
+	local desaturated = not ConquestFrame_HasActiveSeason()
+	self.ChestTexture:SetDesaturated(desaturated)
+	self.Highlight:SetDesaturated(desaturated)
+
+	self.SpinTextureBottom:Hide()
+	self.SpinTextureTop:Hide()
+	self.SpinAnim:Stop()
+end
+
+function PVPWeeklyChestMixin:OnMouseUp(...)
+	if not ConquestFrame_HasActiveSeason() or InCombatLockdown() then
+		return
+	end
+
+	WeeklyRewardMixin.OnMouseUp(self, ...)
+end

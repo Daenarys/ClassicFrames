@@ -77,7 +77,7 @@ skins\PingTutorial.lua
 skins\PlayerChoice.lua
 skins\Professions.lua
 skins\ProfessionsBook.lua
-skins\PVP.lua
+skins\PVP.xml
 skins\QuestLog.lua
 skins\Quests.lua
 skins\QuickKeybind.lua
