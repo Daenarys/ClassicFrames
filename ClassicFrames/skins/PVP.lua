@@ -88,6 +88,14 @@ f:SetScript("OnEvent", function(self, event, name)
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetPoint("CENTER", -1, 0)
 			end
 
+			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetScript("OnEnter", function(self)
+				GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+				GameTooltip_SetTitle(GameTooltip, GREAT_VAULT_REWARDS)
+				GameTooltip_AddInstructionLine(GameTooltip, WEEKLY_REWARDS_CLICK_TO_PREVIEW_INSTRUCTIONS)
+				GameTooltip:Show()
+			end)
+			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetScript("OnLeave", GameTooltip_Hide)
+
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetScript("OnMouseUp", function(self, ...)
 				if InCombatLockdown() then
 					return
