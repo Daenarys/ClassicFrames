@@ -82,7 +82,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 			if (PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight == nil) then
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight = PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:CreateTexture(nil, "HIGHLIGHT")
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("gficon-chest-evergreen-greatvault-complete", true)
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetBlendMode("ADD")
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetScale(0.5)
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAlpha(0.2)
@@ -91,10 +90,13 @@ f:SetScript("OnEvent", function(self, event, name)
 
 			if C_WeeklyRewards.HasAvailableRewards() then
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetAtlas("gficon-chest-evergreen-greatvault-collect", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("gficon-chest-evergreen-greatvault-collect", true)
 			elseif PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:HasUnlockedRewards(Enum.WeeklyRewardChestThresholdType.World) then
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetAtlas("gficon-chest-evergreen-greatvault-complete", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("gficon-chest-evergreen-greatvault-complete", true)
 			else
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetAtlas("gficon-chest-evergreen-greatvault-incomplete", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("gficon-chest-evergreen-greatvault-incomplete", true)
 			end
 
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetScript("OnEnter", function(self)
