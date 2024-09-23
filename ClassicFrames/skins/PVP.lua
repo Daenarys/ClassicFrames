@@ -65,6 +65,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetPoint("TOP", 0, -48)
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:Hide()
 
+			Mixin(PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest, WeeklyRewardMixin)
+
 			if (PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.FlairTexture == nil) then
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.FlairTexture = PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:CreateTexture(nil, "BACKGROUND")
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.FlairTexture:SetSize(187, 152)
@@ -74,7 +76,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 			if (PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture == nil) then
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture = PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:CreateTexture(nil, "ARTWORK")
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetAtlas("gficon-chest-evergreen-greatvault-complete", true)
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetScale(0.5)
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetPoint("CENTER", -1, 0)
 			end
@@ -86,6 +87,14 @@ f:SetScript("OnEvent", function(self, event, name)
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetScale(0.5)
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAlpha(0.2)
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetPoint("CENTER", -1, 0)
+			end
+
+			if C_WeeklyRewards.HasAvailableRewards() then
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetAtlas("gficon-chest-evergreen-greatvault-collect", true)
+			elseif PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:HasUnlockedRewards(Enum.WeeklyRewardChestThresholdType.World) then
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetAtlas("gficon-chest-evergreen-greatvault-complete", true)
+			else
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetAtlas("gficon-chest-evergreen-greatvault-incomplete", true)
 			end
 
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetScript("OnEnter", function(self)
