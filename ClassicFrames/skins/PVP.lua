@@ -98,15 +98,28 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetScript("OnEnter", function(self)
+				if not ConquestFrame_HasActiveSeason() then
+					GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+					GameTooltip_SetTitle(GameTooltip, GREAT_VAULT_REWARDS)
+					GameTooltip_AddDisabledLine(GameTooltip, UNAVAILABLE)
+					GameTooltip_AddNormalLine(GameTooltip, CONQUEST_REQUIRES_PVP_SEASON)
+					GameTooltip:Show()
+					return
+				end
 				GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
 				GameTooltip_SetTitle(GameTooltip, GREAT_VAULT_REWARDS)
+				local hasRewards = C_WeeklyRewards.HasAvailableRewards()
+				if hasRewards then
+					GameTooltip_AddColoredLine(GameTooltip, GREAT_VAULT_REWARDS_WAITING, GREEN_FONT_COLOR)
+					GameTooltip_AddBlankLineToTooltip(GameTooltip)
+				end
 				GameTooltip_AddInstructionLine(GameTooltip, WEEKLY_REWARDS_CLICK_TO_PREVIEW_INSTRUCTIONS)
 				GameTooltip:Show()
 			end)
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetScript("OnLeave", GameTooltip_Hide)
 
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetScript("OnMouseUp", function(self, ...)
-				if InCombatLockdown() then
+				if not ConquestFrame_HasActiveSeason() or InCombatLockdown() then
 					return
 				end
 
