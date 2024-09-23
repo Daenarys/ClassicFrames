@@ -184,9 +184,9 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 	elseif style == POIButtonUtil.Style.AreaPOI then
 		poiButton.Display:SetAlpha(0)
 		poiButton:SetNormalAtlas("minimap-genericevent-hornicon-small")
-		poiButton:GetNormalTexture():SetSize(26, 26)
+		poiButton:GetNormalTexture():SetSize(26, 25)
 		poiButton:SetPushedAtlas("minimap-genericevent-hornicon-small")
-		poiButton:GetPushedTexture():SetSize(26, 26)
+		poiButton:GetPushedTexture():SetSize(26, 25)
 		if poiButton.SubTypeIcon then
 			poiButton.SubTypeIcon:SetAlpha(0)
 		end
