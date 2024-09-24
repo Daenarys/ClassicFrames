@@ -1,3 +1,5 @@
+if not _G.HelpTip then return end
+
 hooksecurefunc(HelpTip, "Show", function(self)
 	for frame in self.framePool:EnumerateActive() do
 		frame.CloseButton:SetSize(32, 32)
@@ -7,7 +9,6 @@ hooksecurefunc(HelpTip, "Show", function(self)
 		frame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 		frame.CloseButton:ClearAllPoints()
 		frame.CloseButton:SetPoint("TOPRIGHT", 5, 5)
-
 		frame.CloseButton.Texture:Hide()
 	end
 end)
