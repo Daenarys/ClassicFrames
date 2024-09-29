@@ -26,16 +26,6 @@ for _, tracker in pairs(trackers) do
 	tracker.Header.Background:SetPoint("TOPLEFT", -29, 14)
 	tracker.Header.Text:ClearAllPoints()
 	tracker.Header.Text:SetPoint("LEFT", 4, -1)
-
-	hooksecurefunc(tracker, "GetProgressBar", function(self, key)
-		local progressBar = self.usedProgressBars[key]
-		local bar = progressBar and progressBar.Bar
-
-		if not bar.BorderMid then
-			bar:ClearAllPoints()
-			bar:SetPoint("LEFT", -1, 0)
-		end
-	end)
 end
 
 if ScenarioObjectiveTracker.MawBuffsBlock.Container then
@@ -72,6 +62,10 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function()
 			child:SetPoint("LEFT", 31, 0)
 		end
 	end
+end)
+
+hooksecurefunc(ObjectiveTrackerUIWidgetContainer, "AttachToBlockAndShow", function(self)
+	self:SetPoint("TOP", -12, 0)
 end)
 
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block)
@@ -120,6 +114,22 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", 
 	end
 end)
 
-hooksecurefunc(ObjectiveTrackerUIWidgetContainer, "AttachToBlockAndShow", function(self)
-	self:SetPoint("TOP", -12, 0)
+hooksecurefunc(ScenarioObjectiveTracker, "GetProgressBar", function(self, key)
+	local progressBar = self.usedProgressBars[key]
+	local bar = progressBar and progressBar.Bar
+
+	if not bar.BorderMid then
+		bar:ClearAllPoints()
+		bar:SetPoint("LEFT")
+	end
+end)
+
+hooksecurefunc(WorldQuestObjectiveTracker, "GetProgressBar", function(self, key)
+	local progressBar = self.usedProgressBars[key]
+	local bar = progressBar and progressBar.Bar
+
+	if not bar.BorderMid then
+		bar:ClearAllPoints()
+		bar:SetPoint("LEFT", -10, 6)
+	end
 end)
