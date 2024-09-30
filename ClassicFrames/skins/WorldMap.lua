@@ -119,6 +119,7 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 		poiButton:GetPushedTexture():SetTexCoord(0.859375, 0.921875, 0.635742, 0.666992)
 		poiButton:GetPushedTexture():SetSize(25, 25)
 		poiButton.HighlightTexture:SetAlpha(0)
+		poiButton:SetMouseClickEnabled(false)
 	elseif style == POIButtonUtil.Style.QuestThreat  then
 		poiButton:SetNormalTexture("Interface/WorldMap/UI-QuestPoi-NumberIcons")
 		poiButton:SetPushedTexture("Interface/WorldMap/UI-QuestPoi-NumberIcons")
@@ -201,6 +202,7 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 		if poiButton.SubTypeIcon then
 			poiButton.SubTypeIcon:SetAlpha(0)
 		end
+		poiButton:SetMouseClickEnabled(false)
 	end
 end)
 
