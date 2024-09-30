@@ -10,5 +10,10 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBgNoPortrait(SubscriptionInterstitialFrame)
 		ApplyNineSliceNoPortrait(SubscriptionInterstitialFrame)
+
+		SubscriptionInterstitialFrame:HookScript("OnShow", function(self)
+			self:ClearAllPoints()
+			self:SetPoint("CENTER", 0, 100)
+		end)
 	end
 end)
