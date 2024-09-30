@@ -109,8 +109,8 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 	end
 
 	if poiButton.TimeLowFrame then
-		poiButton.TimeLowFrame:SetSize(20, 20)
-		poiButton.TimeLowFrame:SetPoint("CENTER", -8, -8)
+		poiButton.TimeLowFrame:SetSize(18, 18)
+		poiButton.TimeLowFrame:SetPoint("CENTER", -8, -7)
 	end
 
 	if poiButton.Glow then
@@ -130,9 +130,11 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 	elseif style == POIButtonUtil.Style.WorldQuest then
 		local info = C_QuestLog.GetQuestTagInfo(questID)
 		if info then
-			if (poiButton.Display.Icon:GetAtlas() == "Worldquest-icon" or poiButton.Display.Icon:GetAtlas() == "worldquest-icon-boss" ) then
+			if (poiButton.Display.Icon:GetAtlas() == "Worldquest-icon" or poiButton.Display.Icon:GetAtlas() == "worldquest-icon-boss") then
 				poiButton.Display.Icon:SetSize(6, 15)
 				poiButton.Display.Icon:SetAtlas("worldquest-questmarker-questbang")
+			elseif (poiButton.Display.Icon:GetAtlas() == "worldquest-icon-petbattle") then
+				poiButton.Display.Icon:SetSize(11, 9)
 			end
 			poiButton.HighlightTexture:SetSize(32, 32)
 			poiButton.HighlightTexture:SetTexture("Interface\\WorldMap\\UI-QuestPoi-NumberIcons")
@@ -175,10 +177,11 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 					poiButton:GetNormalTexture():SetTexCoord(0.875, 1, 0.375, 0.5)
 					poiButton:GetPushedTexture():SetTexCoord(0.750, 0.875, 0.375, 0.5)
 				end
+				poiButton.SelectedGlow:Hide()
 			end
 			if info.isElite then
 				poiButton.UnderlayAtlas:SetSize(34, 34)
-				poiButton.UnderlayAtlas:SetTexture("Interface\\AddOns\\ModernFrames\\icons\\WorldQuest")
+				poiButton.UnderlayAtlas:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\WorldQuest")
 				poiButton.UnderlayAtlas:SetTexCoord(0.0839844, 0.150391, 0.75, 0.816406)
 				poiButton.UnderlayAtlas:SetPoint("CENTER", 0, -1)
 			end
