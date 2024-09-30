@@ -26,6 +26,23 @@ for _, tracker in pairs(trackers) do
 	tracker.Header.Background:SetPoint("TOPLEFT", -29, 14)
 	tracker.Header.Text:ClearAllPoints()
 	tracker.Header.Text:SetPoint("LEFT", 4, -1)
+
+	hooksecurefunc(tracker, "GetProgressBar", function(self, key)
+		local progressBar = self.usedProgressBars[key]
+		local bar = progressBar and progressBar.Bar
+
+		if self == ScenarioObjectiveTracker then
+			if bar and not bar.BorderMid then
+				bar:ClearAllPoints()
+				bar:SetPoint("LEFT", -1, 1)
+			end
+		elseif self == WorldQuestObjectiveTracker then
+			if bar and not bar.BorderMid then
+				bar:ClearAllPoints()
+				bar:SetPoint("LEFT", -10, 5)
+			end
+		end
+	end)
 end
 
 if ScenarioObjectiveTracker.MawBuffsBlock.Container then
@@ -36,36 +53,40 @@ hooksecurefunc(ObjectiveTrackerFrame, "AnchorSelectionFrame", function(self)
 	self.Selection:SetPoint("TOPLEFT", -17, -38)
 end)
 
-hooksecurefunc(ObjectiveTrackerFrame, "Update", function()
-	for _, tracker in pairs(trackers) do
-		tracker.Header.MinimizeButton:SetSize(15, 14)
-		tracker.Header.MinimizeButton:ClearAllPoints()
-		tracker.Header.MinimizeButton:SetPoint("RIGHT")
-		tracker.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Highlight", "ADD")
-		if tracker:IsCollapsed() then
-			tracker.Header.MinimizeButton:SetNormalTexture("Interface\\Buttons\\QuestTrackerButtons")
-			tracker.Header.MinimizeButton:GetNormalTexture():SetTexCoord(0.273438, 0.390625, 0.765625, 0.984375)
-			tracker.Header.MinimizeButton:SetPushedTexture("Interface\\Buttons\\QuestTrackerButtons")
-			tracker.Header.MinimizeButton:GetPushedTexture():SetTexCoord(0.273438, 0.390625, 0.515625, 0.734375)
-		else
-			tracker.Header.MinimizeButton:SetNormalTexture("Interface\\Buttons\\QuestTrackerButtons")
-			tracker.Header.MinimizeButton:GetNormalTexture():SetTexCoord(0.140625, 0.257812, 0.546875, 0.765625)
-			tracker.Header.MinimizeButton:SetPushedTexture("Interface\\Buttons\\QuestTrackerButtons")
-			tracker.Header.MinimizeButton:GetPushedTexture():SetTexCoord(0.0078125, 0.125, 0.546875, 0.765625)
-		end
+hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
+	if not self.modules then
+		return
 	end
 
-	for _, child in next, { ScenarioObjectiveTracker.ContentsFrame:GetChildren() } do
-		if child == ScenarioObjectiveTracker.ChallengeModeBlock then
-			child:SetPoint("RIGHT", -12, 0)
+	for i, module in ipairs(self.modules) do
+		module.Header.MinimizeButton:SetSize(15, 14)
+		module.Header.MinimizeButton:SetPoint("RIGHT")
+		module.Header.MinimizeButton:SetNormalTexture("Interface\\Buttons\\QuestTrackerButtons")
+		module.Header.MinimizeButton:SetPushedTexture("Interface\\Buttons\\QuestTrackerButtons")
+		module.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Highlight", "ADD")
+		if module:IsCollapsed() then
+			module.Header.MinimizeButton:GetNormalTexture():SetTexCoord(0.273438, 0.390625, 0.765625, 0.984375)
+			module.Header.MinimizeButton:GetPushedTexture():SetTexCoord(0.273438, 0.390625, 0.515625, 0.734375)
 		else
-			child:SetPoint("LEFT", 31, 0)
+			module.Header.MinimizeButton:GetNormalTexture():SetTexCoord(0.140625, 0.257812, 0.546875, 0.765625)
+			module.Header.MinimizeButton:GetPushedTexture():SetTexCoord(0.0078125, 0.125, 0.546875, 0.765625)
 		end
 	end
 end)
 
 hooksecurefunc(ObjectiveTrackerUIWidgetContainer, "AttachToBlockAndShow", function(self)
 	self:SetPoint("TOP", -12, 0)
+end)
+
+hooksecurefunc(ScenarioObjectiveTracker, "LayoutBlock", function(block)
+	for _, child in next, { block.ContentsFrame:GetChildren() } do
+		if child == block.ChallengeModeBlock then
+			child:SetPoint("TOP", 0, -2)
+			child:SetPoint("RIGHT", -10, 0)
+		else
+			child:SetPoint("LEFT", 31, 0)
+		end
+	end
 end)
 
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block)
@@ -111,25 +132,5 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", 
 				end
 			end
 		end
-	end
-end)
-
-hooksecurefunc(ScenarioObjectiveTracker, "GetProgressBar", function(self, key)
-	local progressBar = self.usedProgressBars[key]
-	local bar = progressBar and progressBar.Bar
-
-	if not bar.BorderMid then
-		bar:ClearAllPoints()
-		bar:SetPoint("LEFT")
-	end
-end)
-
-hooksecurefunc(WorldQuestObjectiveTracker, "GetProgressBar", function(self, key)
-	local progressBar = self.usedProgressBars[key]
-	local bar = progressBar and progressBar.Bar
-
-	if not bar.BorderMid then
-		bar:ClearAllPoints()
-		bar:SetPoint("LEFT", -10, 6)
 	end
 end)
