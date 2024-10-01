@@ -275,17 +275,17 @@ hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
 		-- caves
 		elseif (self.Texture:GetAtlas() == "CaveUnderground-Down") then
 			self.Texture:SetSize(25, 25)
-			self.Texture:SetTexture("Interface\\AddOns\\ModernFrames\\icons\\ObjectIconsAtlasDF")
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasDF")
 			self.Texture:SetTexCoord(0.000976562, 0.0634766, 0.12793, 0.19043)
 			self.HighlightTexture:SetSize(25, 25)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ModernFrames\\icons\\ObjectIconsAtlasDF")
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasDF")
 			self.HighlightTexture:SetTexCoord(0.000976562, 0.0634766, 0.12793, 0.19043)
 		elseif (self.Texture:GetAtlas() == "CaveUnderground-Up") then
 			self.Texture:SetSize(25, 25)
-			self.Texture:SetTexture("Interface\\AddOns\\ModernFrames\\icons\\ObjectIconsAtlasDF")
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasDF")
 			self.Texture:SetTexCoord(0.000976562, 0.0634766, 0.192383, 0.254883)
 			self.HighlightTexture:SetSize(25, 25)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ModernFrames\\icons\\ObjectIconsAtlasDF")
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasDF")
 			self.HighlightTexture:SetTexCoord(0.000976562, 0.0634766, 0.192383, 0.254883)
 		-- vignettes
 		elseif (self.Texture:GetAtlas() == "VignetteEvent") then
