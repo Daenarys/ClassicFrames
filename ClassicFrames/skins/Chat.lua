@@ -104,7 +104,7 @@ end
 
 QuickJoinToastButton:HookScript("OnUpdate", function(self)
     self:ClearAllPoints()
-    self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT")
+    self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT", 0, -23)
 end)
 
 ChatConfigCombatSettingsFilters.ScrollBar:SetSize(25, 560)
