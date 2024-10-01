@@ -41,7 +41,7 @@ QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT
 
 if (QuestScrollFrame.ScrollBar.BG == nil) then
 	QuestScrollFrame.ScrollBar.BG = QuestScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	QuestScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 1)
+	QuestScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
 	QuestScrollFrame.ScrollBar.BG:SetAllPoints()
 end
 
