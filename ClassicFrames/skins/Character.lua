@@ -15,8 +15,7 @@ CharacterFrame.TitleContainer:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -
 ApplyTitleBg(CharacterFrame)
 ApplyNineSlicePortrait(CharacterFrame)
 
-CharacterFrame.Background:Hide()
-ReputationFrame.filterDropdown:Hide()
+CharacterFrame.Background:SetAlpha(0)
 
 CharacterFrameTab2:ClearAllPoints()
 CharacterFrameTab2:SetPoint("LEFT", CharacterFrameTab1, "RIGHT", -15, 0)
@@ -125,6 +124,7 @@ ApplyScrollBarArrow(GearManagerPopupFrame.IconSelector.ScrollBar)
 ApplyScrollBarTrack(GearManagerPopupFrame.IconSelector.ScrollBar.Track)
 ApplyScrollBarThumb(GearManagerPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 
+ReputationFrame.filterDropdown:Hide()
 ApplyDropDown(GearManagerPopupFrame.BorderBox.IconTypeDropdown)
 
 hooksecurefunc(CharacterFrame, "UpdatePortrait", function(self)
