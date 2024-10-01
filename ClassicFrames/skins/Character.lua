@@ -16,6 +16,7 @@ ApplyTitleBg(CharacterFrame)
 ApplyNineSlicePortrait(CharacterFrame)
 
 CharacterFrame.Background:Hide()
+ReputationFrame.filterDropdown:Hide()
 
 CharacterFrameTab2:ClearAllPoints()
 CharacterFrameTab2:SetPoint("LEFT", CharacterFrameTab1, "RIGHT", -15, 0)
@@ -52,6 +53,18 @@ if (ReputationDetailCorner == nil) then
 	ReputationDetailCorner:SetSize(32, 32)
 	ReputationDetailCorner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
 	ReputationDetailCorner:SetPoint("TOPRIGHT", -6, -7)
+end
+
+if (ReputationFrame.FactionLabel == nil) then
+	ReputationFrame.FactionLabel = ReputationFrame:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
+	ReputationFrame.FactionLabel:SetText(FACTION)
+	ReputationFrame.FactionLabel:SetPoint("TOPLEFT", 70, -42)
+end
+
+if (ReputationFrame.StandingLabel == nil) then
+	ReputationFrame.StandingLabel = ReputationFrame:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
+	ReputationFrame.StandingLabel:SetText(STANDING)
+	ReputationFrame.StandingLabel:SetPoint("TOPLEFT", 215, -42)
 end
 
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
@@ -112,7 +125,6 @@ ApplyScrollBarArrow(GearManagerPopupFrame.IconSelector.ScrollBar)
 ApplyScrollBarTrack(GearManagerPopupFrame.IconSelector.ScrollBar.Track)
 ApplyScrollBarThumb(GearManagerPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 
-ApplyDropDown(ReputationFrame.filterDropdown)
 ApplyDropDown(GearManagerPopupFrame.BorderBox.IconTypeDropdown)
 
 hooksecurefunc(CharacterFrame, "UpdatePortrait", function(self)
