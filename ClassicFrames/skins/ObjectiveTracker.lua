@@ -134,3 +134,7 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", 
 		end
 	end
 end)
+
+ScenarioObjectiveTracker.StageBlock:HookScript("OnEnter", function(self)
+	GameTooltip:SetPoint("RIGHT", self, "LEFT", -11, -2)
+end)
