@@ -118,9 +118,9 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 		poiButton:SetPushedTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasSL")
 		poiButton:GetPushedTexture():SetTexCoord(0.859375, 0.921875, 0.635742, 0.666992)
 		poiButton:GetPushedTexture():SetSize(25, 25)
-		poiButton.HighlightTexture:SetAlpha(0)
 		poiButton:SetMouseClickEnabled(false)
-	elseif style == POIButtonUtil.Style.QuestThreat  then
+		poiButton.HighlightTexture:SetAlpha(0)
+	elseif style == POIButtonUtil.Style.QuestThreat then
 		poiButton:SetNormalTexture("Interface/WorldMap/UI-QuestPoi-NumberIcons")
 		poiButton:SetPushedTexture("Interface/WorldMap/UI-QuestPoi-NumberIcons")
 		if poiButton:IsSelected() then
@@ -201,17 +201,32 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 		poiButton:SetPushedTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasDF")
 		poiButton:GetPushedTexture():SetTexCoord(0.0654297, 0.12793, 0.643555, 0.706055)
 		poiButton:GetPushedTexture():SetSize(24, 24)
+		poiButton:SetMouseClickEnabled(false)
 		if poiButton.SubTypeIcon then
 			poiButton.SubTypeIcon:SetAlpha(0)
 		end
-		poiButton:SetMouseClickEnabled(false)
 	end
 end)
 
 hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
 	if self.Texture then
+		-- caves
+		if (self.Texture:GetAtlas() == "CaveUnderground-Down") then
+			self.Texture:SetSize(25, 25)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasDF")
+			self.Texture:SetTexCoord(0.000976562, 0.0634766, 0.12793, 0.19043)
+			self.HighlightTexture:SetSize(25, 25)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasDF")
+			self.HighlightTexture:SetTexCoord(0.000976562, 0.0634766, 0.12793, 0.19043)
+		elseif (self.Texture:GetAtlas() == "CaveUnderground-Up") then
+			self.Texture:SetSize(25, 25)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasDF")
+			self.Texture:SetTexCoord(0.000976562, 0.0634766, 0.192383, 0.254883)
+			self.HighlightTexture:SetSize(25, 25)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasDF")
+			self.HighlightTexture:SetTexCoord(0.000976562, 0.0634766, 0.192383, 0.254883)
 		-- dungeons & raids
-		if (self.Texture:GetAtlas() == "Dungeon") then
+		elseif (self.Texture:GetAtlas() == "Dungeon") then
 			self.Texture:SetSize(22, 22)
 			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasSL")
 			self.Texture:SetTexCoord(0.912109, 0.955078, 0.0449219, 0.0664062)
@@ -271,21 +286,6 @@ hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
 			self.HighlightTexture:SetSize(27, 27)
 			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasSL")
 			self.HighlightTexture:SetTexCoord(0.00195312, 0.0546875, 0.665039, 0.691406)
-		-- caves
-		elseif (self.Texture:GetAtlas() == "CaveUnderground-Down") then
-			self.Texture:SetSize(25, 25)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasDF")
-			self.Texture:SetTexCoord(0.000976562, 0.0634766, 0.12793, 0.19043)
-			self.HighlightTexture:SetSize(25, 25)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasDF")
-			self.HighlightTexture:SetTexCoord(0.000976562, 0.0634766, 0.12793, 0.19043)
-		elseif (self.Texture:GetAtlas() == "CaveUnderground-Up") then
-			self.Texture:SetSize(25, 25)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasDF")
-			self.Texture:SetTexCoord(0.000976562, 0.0634766, 0.192383, 0.254883)
-			self.HighlightTexture:SetSize(25, 25)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasDF")
-			self.HighlightTexture:SetTexCoord(0.000976562, 0.0634766, 0.192383, 0.254883)
 		-- vignettes
 		elseif (self.Texture:GetAtlas() == "VignetteEvent") then
 			self.Texture:SetSize(32, 32)

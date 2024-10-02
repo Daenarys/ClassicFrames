@@ -15,8 +15,6 @@ CharacterFrame.TitleContainer:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -
 ApplyTitleBg(CharacterFrame)
 ApplyNineSlicePortrait(CharacterFrame)
 
-CharacterFrame.Background:SetAlpha(0)
-
 CharacterFrameTab2:ClearAllPoints()
 CharacterFrameTab2:SetPoint("LEFT", CharacterFrameTab1, "RIGHT", -15, 0)
 CharacterFrameTab3:ClearAllPoints()
@@ -29,6 +27,8 @@ for i = 1, 3 do
 		self:SetWidth(40 + self:GetFontString():GetStringWidth())
 	end)
 end
+
+CharacterFrame.Background:Hide()
 
 ReputationFrame.ScrollBar:SetSize(25, 560)
 ReputationFrame.ScrollBar:ClearAllPoints()
@@ -65,6 +65,8 @@ if (ReputationFrame.StandingLabel == nil) then
 	ReputationFrame.StandingLabel:SetText(STANDING)
 	ReputationFrame.StandingLabel:SetPoint("TOPLEFT", 215, -42)
 end
+
+ReputationFrame.filterDropdown:Hide()
 
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
 
@@ -124,7 +126,6 @@ ApplyScrollBarArrow(GearManagerPopupFrame.IconSelector.ScrollBar)
 ApplyScrollBarTrack(GearManagerPopupFrame.IconSelector.ScrollBar.Track)
 ApplyScrollBarThumb(GearManagerPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 
-ReputationFrame.filterDropdown:Hide()
 ApplyDropDown(GearManagerPopupFrame.BorderBox.IconTypeDropdown)
 
 hooksecurefunc(CharacterFrame, "UpdatePortrait", function(self)
