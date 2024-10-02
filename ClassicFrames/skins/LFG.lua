@@ -347,6 +347,7 @@ ApplyDropDown(LFGListEntryCreationPlayStyleDropdown)
 ApplyFilterDropDown(LFGListFrame.SearchPanel.FilterButton)
 
 LFDQueueFrameTypeDropdown:SetPoint("BOTTOMLEFT", 131, 289)
+RaidFinderQueueFrameSelectionDropdown:SetPoint("BOTTOMLEFT", 131, 291)
 
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then
