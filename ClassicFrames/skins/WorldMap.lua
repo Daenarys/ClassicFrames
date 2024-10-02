@@ -141,6 +141,8 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 				poiButton.Display.Icon:SetAtlas("worldquest-questmarker-questbang")
 			elseif (poiButton.Display.Icon:GetAtlas() == "worldquest-icon-petbattle") then
 				poiButton.Display.Icon:SetSize(11, 9)
+			elseif (poiButton.Display.Icon:GetAtlas() == "worldquest-icon-race") then
+				poiButton.Display.Icon:SetSize(17, 14)
 			end
 			poiButton.HighlightTexture:SetSize(32, 32)
 			poiButton.HighlightTexture:SetTexture("Interface\\WorldMap\\UI-QuestPoi-NumberIcons")
@@ -207,7 +209,6 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 end)
 
 hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
-	self:SetMouseClickEnabled(false)
 	if self.Texture then
 		-- dungeons & raids
 		if (self.Texture:GetAtlas() == "Dungeon") then
@@ -217,7 +218,6 @@ hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
 			self.HighlightTexture:SetSize(22, 22)
 			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasSL")
 			self.HighlightTexture:SetTexCoord(0.912109, 0.955078, 0.0449219, 0.0664062)
-			self:SetMouseClickEnabled(true)
 		elseif (self.Texture:GetAtlas() == "Raid") then
 			self.Texture:SetSize(22, 22)
 			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasSL")
@@ -225,7 +225,6 @@ hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
 			self.HighlightTexture:SetSize(22, 22)
 			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasSL")
 			self.HighlightTexture:SetTexCoord(0.689453, 0.732422, 0.166016, 0.1875)
-			self:SetMouseClickEnabled(true)
 		-- taxis
 		elseif (self.Texture:GetAtlas() == "TaxiNode_Alliance") then
 			self.Texture:SetSize(18, 18)
