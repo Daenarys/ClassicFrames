@@ -8,3 +8,8 @@ ModelPreviewFrame.TitleContainer:SetPoint("TOPRIGHT", ModelPreviewFrame, "TOPRIG
 
 ApplyTitleBgNoPortrait(ModelPreviewFrame)
 ApplyNineSliceNoPortrait(ModelPreviewFrame)
+
+ModelPreviewFrame.Display.ModelScene.ControlFrame:HookScript("OnShow", function(self)
+	self:ClearAllPoints()
+	self:SetPoint("TOP")
+end)
