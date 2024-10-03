@@ -64,6 +64,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarTrack(GarrisonMissionFrameFollowers.ScrollBar.Track)
 			ApplyScrollBarThumb(GarrisonMissionFrameFollowers.ScrollBar.Track.Thumb)
 
+			ApplySearchBox(GarrisonMissionFrameFollowers.SearchBox)
+
 			_G.GarrisonMissionFrame:HookScript("OnShow", function(self)
 				self:ClearAllPoints()
 				self:SetPoint("CENTER")
@@ -115,6 +117,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:ClearAllPoints()
 			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 4, 5)
+
+			ApplySearchBox(GarrisonShipyardFrameFollowers.SearchBox)
 
 			_G.GarrisonShipyardFrame:HookScript("OnShow", function(self)
 				self:ClearAllPoints()
@@ -179,6 +183,8 @@ f:SetScript("OnEvent", function(self, event, name)
 				end)
 			end
 
+			ApplySearchBox(OrderHallMissionFrameFollowers.SearchBox)
+
 			_G.OrderHallMissionFrame:HookScript("OnShow", function(self)
 				self:ClearAllPoints()
 				self:SetPoint("CENTER")
@@ -241,6 +247,8 @@ f:SetScript("OnEvent", function(self, event, name)
 					BFAMissionFrameTab3:SetPoint("LEFT", BFAMissionFrameTab2, "RIGHT", -15, 0)
 				end)
 			end
+
+			ApplySearchBox(BFAMissionFrameFollowers.SearchBox)
 
 			_G.BFAMissionFrame:HookScript("OnShow", function(self)
 				self:ClearAllPoints()
