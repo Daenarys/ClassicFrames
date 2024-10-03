@@ -1,3 +1,5 @@
+if not _G.QuestScrollFrame then return end
+
 if QuestMapFrame.CampaignOverview.Header.BackButton then
 	QuestMapFrame.CampaignOverview.Header.BackButton:ClearAllPoints()
 	QuestMapFrame.CampaignOverview.Header.BackButton:SetPoint("RIGHT", QuestMapFrame.CampaignOverview.Header.Background, "RIGHT", -10, 7)
@@ -8,6 +10,9 @@ QuestScrollFrame.BorderFrame.Shadow:SetAlpha(0)
 QuestScrollFrame.BorderFrame.TopDetail:SetAlpha(0)
 QuestMapFrame.DetailsFrame.BorderFrame.TopDetail:SetAlpha(0)
 QuestMapFrame.SettingsDropdown:Hide()
+
+QuestScrollFrame:SetPoint("TOPLEFT")
+QuestScrollFrame.BorderFrame:SetPoint("TOPLEFT", -3, 3)
 
 ApplySearchBox(QuestScrollFrame.SearchBox)
 

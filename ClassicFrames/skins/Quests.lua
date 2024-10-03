@@ -34,7 +34,6 @@ if _G.QuestLogPopupDetailFrame then
 	ApplyNineSlicePortrait(QuestLogPopupDetailFrame)
 end
 
-QuestScrollFrame:SetPoint("TOPLEFT")
 QuestScrollFrame.ScrollBar:SetSize(25, 560)
 QuestScrollFrame.ScrollBar:ClearAllPoints()
 QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -2, 3)
