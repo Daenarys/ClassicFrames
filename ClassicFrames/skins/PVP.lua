@@ -59,8 +59,11 @@ f:SetScript("OnEvent", function(self, event, name)
 		ConquestFrame.TankIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 		ConquestFrame.TankIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 
+		ApplyDropDown(HonorFrameTypeDropdown)
+
 		if not PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest then
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest = CreateFrame("Frame", nil, PVPQueueFrame.HonorInset.CasualPanel)
+			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetFrameLevel(3)
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetSize(84, 70)
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetPoint("TOP", 0, -48)
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:Hide()
@@ -74,40 +77,30 @@ f:SetScript("OnEvent", function(self, event, name)
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.FlairTexture:SetPoint("CENTER")
 			end
 
-			if (PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture == nil) then
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture = PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:CreateTexture(nil, "ARTWORK")
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetScale(0.5)
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetPoint("CENTER", -1, 0)
+			if (PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture == nil) then
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture = PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:CreateTexture(nil, "ARTWORK")
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture:SetPoint("CENTER")
 			end
 
 			if (PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight == nil) then
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight = PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:CreateTexture(nil, "HIGHLIGHT")
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetBlendMode("ADD")
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetScale(0.5)
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAlpha(0.2)
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetPoint("CENTER", -1, 0)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetPoint("CENTER")
 			end
 
 			if C_WeeklyRewards.HasAvailableRewards() then
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetAtlas("gficon-chest-evergreen-greatvault-collect", true)
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("gficon-chest-evergreen-greatvault-collect", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture:SetAtlas("pvpqueue-chest-greatvault-collect", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("pvpqueue-chest-greatvault-collect", true)
 			elseif PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:HasUnlockedRewards(Enum.WeeklyRewardChestThresholdType.World) then
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetAtlas("gficon-chest-evergreen-greatvault-complete", true)
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("gficon-chest-evergreen-greatvault-complete", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture:SetAtlas("pvpqueue-chest-greatvault-complete", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("pvpqueue-chest-greatvault-complete", true)
 			else
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Texture:SetAtlas("gficon-chest-evergreen-greatvault-incomplete", true)
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("gficon-chest-evergreen-greatvault-incomplete", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture:SetAtlas("pvpqueue-chest-greatvault-incomplete", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("pvpqueue-chest-greatvault-incomplete", true)
 			end
 
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetScript("OnEnter", function(self)
-				if not ConquestFrame_HasActiveSeason() then
-					GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-					GameTooltip_SetTitle(GameTooltip, GREAT_VAULT_REWARDS)
-					GameTooltip_AddDisabledLine(GameTooltip, UNAVAILABLE)
-					GameTooltip_AddNormalLine(GameTooltip, CONQUEST_REQUIRES_PVP_SEASON)
-					GameTooltip:Show()
-					return
-				end
 				GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
 				GameTooltip_SetTitle(GameTooltip, GREAT_VAULT_REWARDS)
 				local hasRewards = C_WeeklyRewards.HasAvailableRewards()
@@ -131,7 +124,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		PVPQueueFrame.HonorInset.CasualPanel:HookScript("OnShow", function(self)
 			local serverExpansionLevel = GetServerExpansionLevel()
-
 			local maxLevel = GetMaxLevelForExpansionLevel(serverExpansionLevel)
 			local playerLevel = UnitLevel("player")
 			local Label = self.HKLabel
@@ -148,7 +140,86 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end)
 
-		ApplyDropDown(HonorFrameTypeDropdown)
+		if not PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest then
+			PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest = CreateFrame("Frame", nil, PVPQueueFrame.HonorInset.RatedPanel)
+			PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest:SetFrameLevel(3)
+			PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest:SetSize(84, 70)
+			PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest:SetPoint("TOP", 0, -48)
+			PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest:Hide()
+
+			Mixin(PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest, WeeklyRewardMixin)
+
+			if (PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.FlairTexture == nil) then
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.FlairTexture = PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest:CreateTexture(nil, "BACKGROUND")
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.FlairTexture:SetSize(187, 152)
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.FlairTexture:SetAtlas("pvpqueue-chest-background")
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.FlairTexture:SetPoint("CENTER")
+			end
+
+			if (PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture == nil) then
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture = PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest:CreateTexture(nil, "ARTWORK")
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture:SetPoint("CENTER")
+			end
+
+			if (PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight == nil) then
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight = PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest:CreateTexture(nil, "HIGHLIGHT")
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetBlendMode("ADD")
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetAlpha(0.2)
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetPoint("CENTER")
+			end
+
+			if (PVPQueueFrame.HonorInset.RatedPanel.Label == nil) then
+				PVPQueueFrame.HonorInset.RatedPanel.Label = PVPQueueFrame.HonorInset.RatedPanel:CreateFontString(nil, "ARTWORK", "GameFontNormal")
+				PVPQueueFrame.HonorInset.RatedPanel.Label:SetText(RATED_PVP_WEEKLY_CHEST)
+				PVPQueueFrame.HonorInset.RatedPanel.Label:SetPoint("TOP", 0, -12)
+				PVPQueueFrame.HonorInset.RatedPanel.Label:Hide()
+			end
+
+			if C_WeeklyRewards.HasAvailableRewards() then
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture:SetAtlas("pvpqueue-chest-greatvault-collect", true)
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetAtlas("pvpqueue-chest-greatvault-collect", true)
+			elseif PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest:HasUnlockedRewards(Enum.WeeklyRewardChestThresholdType.World) then
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture:SetAtlas("pvpqueue-chest-greatvault-complete", true)
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetAtlas("pvpqueue-chest-greatvault-complete", true)
+			else
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture:SetAtlas("pvpqueue-chest-greatvault-incomplete", true)
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetAtlas("pvpqueue-chest-greatvault-incomplete", true)
+			end
+
+			PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest:SetScript("OnEnter", function(self)
+				GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+				GameTooltip_SetTitle(GameTooltip, GREAT_VAULT_REWARDS)
+				local hasRewards = C_WeeklyRewards.HasAvailableRewards()
+				if hasRewards then
+					GameTooltip_AddColoredLine(GameTooltip, GREAT_VAULT_REWARDS_WAITING, GREEN_FONT_COLOR)
+					GameTooltip_AddBlankLineToTooltip(GameTooltip)
+				end
+				GameTooltip_AddInstructionLine(GameTooltip, WEEKLY_REWARDS_CLICK_TO_PREVIEW_INSTRUCTIONS)
+				GameTooltip:Show()
+			end)
+			PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest:SetScript("OnLeave", GameTooltip_Hide)
+
+			PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest:SetScript("OnMouseUp", function(self, ...)
+				if not ConquestFrame_HasActiveSeason() or InCombatLockdown() then
+					return
+				end
+
+				WeeklyRewardMixin.OnMouseUp(self, ...)
+			end)
+		end
+
+		PVPQueueFrame.HonorInset.RatedPanel:HookScript("OnShow", function(self)
+			local Tier = self.Tier
+			local Label = self.Label
+			Label:SetText(RATED_PVP_WEEKLY_VAULT)
+			Label:Show()
+			self.HonorLevelDisplay:Hide()
+			self.WeeklyChest:Show()
+			Tier:SetPoint("TOP", self.WeeklyChest, "BOTTOM", 0, -90)
+		end)
+
+		PVPQueueFrame.HonorInset.RatedPanel.Tier:SetSize(50, 50)
+		PVPQueueFrame.HonorInset.RatedPanel.Tier.Icon:SetSize(50, 50)
 	end
 end)
 
