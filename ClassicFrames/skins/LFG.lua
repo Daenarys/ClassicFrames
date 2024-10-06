@@ -632,6 +632,7 @@ hooksecurefunc('LFGListGroupDataDisplayEnumerate_Update', function(self, numPlay
 			local role = iconOrder[i];
 			for j=1, displayData[iconOrder[i]] do
 				local icon = self.Icons[iconIndex];
+				icon:SetAlpha(disabled and 0.5 or 1)
 				icon.RoleIconWithBackground:Hide()
 				icon.RoleIcon:Show()
 				icon.RoleIcon:SetSize(18, 18)
