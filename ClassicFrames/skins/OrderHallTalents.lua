@@ -9,9 +9,6 @@ f:SetScript("OnEvent", function(self, event, name)
 				OrderHallTalentFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
 				OrderHallTalentFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 				OrderHallTalentFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-				OrderHallTalentFrameCloseButton:ClearAllPoints()
-				OrderHallTalentFrameCloseButton:SetPoint("TOPRIGHT", 4, 4)
-				OrderHallTalentFrameCloseButton.Border:SetPoint("CENTER", -1, -1)
 			else
 				ApplyCloseButton(OrderHallTalentFrameCloseButton)
 
