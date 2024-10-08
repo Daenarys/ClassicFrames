@@ -7,14 +7,19 @@ a:SetScript("OnEvent", function(self, event, name)
 		DelvesDashboardFrame.ButtonPanelLayoutFrame.GreatVaultButtonPanel.GreatVaultButton:HookScript("OnShow", function(self)
 			self:SetPoint("CENTER", 0, -20)
 			if self.ChestTexture then
+				self.AnimTexture:SetScale(1)
 				self.ChestTexture:SetScale(1)
+				self.Highlight:SetScale(1)
 				if (self.ChestTexture:GetAtlas() == "gficon-chest-evergreen-greatvault-incomplete") then
+					self.AnimTexture:SetAtlas("mythicplus-dragonflight-greatvault-incomplete", true)
 					self.ChestTexture:SetAtlas("mythicplus-dragonflight-greatvault-incomplete", true)
 					self.Highlight:SetAtlas("mythicplus-dragonflight-greatvault-incomplete", true)
 				elseif (self.ChestTexture:GetAtlas() == "gficon-chest-evergreen-greatvault-complete") then
+					self.AnimTexture:SetAtlas("mythicplus-dragonflight-greatvault-complete", true)
 					self.ChestTexture:SetAtlas("mythicplus-dragonflight-greatvault-complete", true)
 					self.Highlight:SetAtlas("mythicplus-dragonflight-greatvault-complete", true)
 				elseif (self.ChestTexture:GetAtlas() == "gficon-chest-evergreen-greatvault-collect") then
+					self.AnimTexture:SetAtlas("mythicplus-dragonflight-greatvault-collect", true)
 					self.ChestTexture:SetAtlas("mythicplus-dragonflight-greatvault-collect", true)
 					self.Highlight:SetAtlas("mythicplus-dragonflight-greatvault-collect", true)
 				end
