@@ -31,7 +31,7 @@ for _, tracker in pairs(trackers) do
 		local progressBar = self.usedProgressBars[key]
 		local bar = progressBar and progressBar.Bar
 
-		if self == ScenarioObjectiveTracker then
+		if self == BonusObjectiveTracker or self == ScenarioObjectiveTracker then
 			if bar and not bar.BorderMid then
 				bar:ClearAllPoints()
 				bar:SetPoint("LEFT", -1, 1)
