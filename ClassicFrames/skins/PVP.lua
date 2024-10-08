@@ -80,6 +80,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			if (PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture == nil) then
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture = PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:CreateTexture(nil, "ARTWORK")
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture:SetPoint("CENTER")
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture:SetScale(0.5)
 			end
 
 			if (PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight == nil) then
@@ -87,17 +88,18 @@ f:SetScript("OnEvent", function(self, event, name)
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetBlendMode("ADD")
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAlpha(0.2)
 				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetPoint("CENTER")
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetScale(0.5)
 			end
 
 			if C_WeeklyRewards.HasAvailableRewards() then
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture:SetAtlas("pvpqueue-chest-dragonflight-greatvault-collect", true)
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("pvpqueue-chest-dragonflight-greatvault-collect", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture:SetAtlas("gficon-chest-evergreen-greatvault-collect", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("gficon-chest-evergreen-greatvault-collect", true)
 			elseif PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:HasUnlockedRewards(Enum.WeeklyRewardChestThresholdType.World) then
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture:SetAtlas("pvpqueue-chest-dragonflight-greatvault-complete", true)
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("pvpqueue-chest-dragonflight-greatvault-complete", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture:SetAtlas("gficon-chest-evergreen-greatvault-complete", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("gficon-chest-evergreen-greatvault-complete", true)
 			else
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture:SetAtlas("pvpqueue-chest-dragonflight-greatvault-incomplete", true)
-				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("pvpqueue-chest-dragonflight-greatvault-incomplete", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.ChestTexture:SetAtlas("gficon-chest-evergreen-greatvault-incomplete", true)
+				PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest.Highlight:SetAtlas("gficon-chest-evergreen-greatvault-incomplete", true)
 			end
 
 			PVPQueueFrame.HonorInset.CasualPanel.WeeklyChest:SetScript("OnEnter", function(self)
@@ -157,6 +159,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			if (PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture == nil) then
 				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture = PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest:CreateTexture(nil, "ARTWORK")
 				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture:SetPoint("CENTER")
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture:SetScale(0.5)
 			end
 
 			if (PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight == nil) then
@@ -164,6 +167,7 @@ f:SetScript("OnEvent", function(self, event, name)
 				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetBlendMode("ADD")
 				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetAlpha(0.2)
 				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetPoint("CENTER")
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetScale(0.5)
 			end
 
 			if (PVPQueueFrame.HonorInset.RatedPanel.Label == nil) then
@@ -173,14 +177,14 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 
 			if C_WeeklyRewards.HasAvailableRewards() then
-				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture:SetAtlas("pvpqueue-chest-dragonflight-greatvault-collect", true)
-				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetAtlas("pvpqueue-chest-dragonflight-greatvault-collect", true)
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture:SetAtlas("gficon-chest-evergreen-greatvault-collect", true)
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetAtlas("gficon-chest-evergreen-greatvault-collect", true)
 			elseif PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest:HasUnlockedRewards(Enum.WeeklyRewardChestThresholdType.World) then
-				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture:SetAtlas("pvpqueue-chest-dragonflight-greatvault-complete", true)
-				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetAtlas("pvpqueue-chest-dragonflight-greatvault-complete", true)
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture:SetAtlas("gficon-chest-evergreen-greatvault-complete", true)
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetAtlas("gficon-chest-evergreen-greatvault-complete", true)
 			else
-				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture:SetAtlas("pvpqueue-chest-dragonflight-greatvault-incomplete", true)
-				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetAtlas("pvpqueue-chest-dragonflight-greatvault-incomplete", true)
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.ChestTexture:SetAtlas("gficon-chest-evergreen-greatvault-incomplete", true)
+				PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest.Highlight:SetAtlas("gficon-chest-evergreen-greatvault-incomplete", true)
 			end
 
 			PVPQueueFrame.HonorInset.RatedPanel.WeeklyChest:SetScript("OnEnter", function(self)
