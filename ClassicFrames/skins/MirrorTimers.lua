@@ -11,7 +11,6 @@ hooksecurefunc(MirrorTimerContainer, "SetupTimer", function(self, timer, value, 
 	end
 
 	dialog:SetSize(206, 26)
-
 	dialog.TextBorder:Hide()
 	dialog.Text:ClearAllPoints()
 	dialog.Text:SetPoint("CENTER", dialog, "CENTER", 0, 7)
