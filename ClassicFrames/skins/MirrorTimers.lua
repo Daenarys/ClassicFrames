@@ -1,3 +1,5 @@
+if not _G.MirrorTimerContainer then return end
+
 hooksecurefunc(MirrorTimerContainer, "SetupTimer", function(self, timer, value, maxvalue, scale, paused, label)
 	local dialog
 	for index = 1, #MirrorTimerContainer.mirrorTimers, 1 do
