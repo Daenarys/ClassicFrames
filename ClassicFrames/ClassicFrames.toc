@@ -70,6 +70,7 @@ skins\Mail.lua
 skins\MajorRenown.lua
 skins\Merchant.lua
 skins\Minimap.lua
+skins\MirrorTimers.lua
 skins\ModelPreview.lua
 skins\NewPlayerGuide.lua
 skins\ObjectiveTracker.lua
