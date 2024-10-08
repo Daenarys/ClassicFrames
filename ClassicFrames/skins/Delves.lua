@@ -3,6 +3,23 @@ a:RegisterEvent("ADDON_LOADED")
 a:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_DelvesDashboardUI" then
 		DelvesDashboardFrame.DashboardBackground:SetDrawLayer("BACKGROUND", -1)
+
+		DelvesDashboardFrame.ButtonPanelLayoutFrame.GreatVaultButtonPanel.GreatVaultButton:HookScript("OnShow", function(self)
+			self:SetPoint("CENTER", 0, -20)
+			if self.ChestTexture then
+				self.ChestTexture:SetScale(1)
+				if (self.ChestTexture:GetAtlas() == "gficon-chest-evergreen-greatvault-incomplete") then
+					self.ChestTexture:SetAtlas("mythicplus-dragonflight-greatvault-incomplete", true)
+					self.Highlight:SetAtlas("mythicplus-dragonflight-greatvault-incomplete", true)
+				elseif (self.ChestTexture:GetAtlas() == "gficon-chest-evergreen-greatvault-complete") then
+					self.ChestTexture:SetAtlas("mythicplus-dragonflight-greatvault-complete", true)
+					self.Highlight:SetAtlas("mythicplus-dragonflight-greatvault-complete", true)
+				elseif (self.ChestTexture:GetAtlas() == "gficon-chest-evergreen-greatvault-collect") then
+					self.ChestTexture:SetAtlas("mythicplus-dragonflight-greatvault-collect", true)
+					self.Highlight:SetAtlas("mythicplus-dragonflight-greatvault-collect", true)
+				end
+			end
+		end)
 	end
 end)
 
