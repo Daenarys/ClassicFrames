@@ -109,9 +109,9 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyNineSlicePortraitMinimizable(ProfessionsFrame)
 		end)
 
-		ApplyCloseButton(ProfessionsFrame.CraftingPage.CraftingOutputLog.ClosePanelButton)
+		ApplyCloseButtonOld(ProfessionsFrame.CraftingPage.CraftingOutputLog.ClosePanelButton)
 		ApplyTitleBgNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog)
-		ApplyNineSliceNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog)
+		ApplyNineSliceNoPortraitOld(ProfessionsFrame.CraftingPage.CraftingOutputLog)
 
 		if ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar then
 			ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Track.Begin:Hide()
