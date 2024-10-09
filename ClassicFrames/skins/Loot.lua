@@ -402,3 +402,7 @@ hooksecurefunc(_G.LootFrame, "PlayOpenAnimation", function(self)
 	self:SetSize(0, 0)
 	self:SetAlpha(0)
 end)
+
+if _G.BonusRollFrame then
+	BonusRollFrame.SpecRing:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
+end
