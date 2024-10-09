@@ -1,3 +1,10 @@
-if not _G.UIWidgetCenterDisplayFrame then return end
+if UIWidgetBelowMinimapContainerFrame then
+	UIWidgetBelowMinimapContainerFrame:HookScript("OnUpdate", function(self)
+		self:ClearAllPoints()
+		self:SetPoint("TOPRIGHT", MinimapCluster, "BOTTOMRIGHT")
+	end)
+end
 
-ApplyDialogBorder(UIWidgetCenterDisplayFrame.NineSlice)
+if UIWidgetCenterDisplayFrame then
+	ApplyDialogBorder(UIWidgetCenterDisplayFrame.NineSlice)
+end
