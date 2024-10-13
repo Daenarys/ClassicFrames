@@ -37,10 +37,11 @@ hooksecurefunc('QuestLogQuests_Update', function()
 			end
 			if button.CollapseButton then
 				button.CollapseButton:ClearAllPoints()
-				button.CollapseButton:SetPoint("LEFT", button.Background, "LEFT", 8, 6)
+				button.CollapseButton:SetPoint("LEFT", button.Background, "LEFT", 5, 7)
 				hooksecurefunc(button.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
 					local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
-					self.Icon:SetAtlas(atlas, true)
+					self.Icon:SetSize(20, 20)
+					self.Icon:SetAtlas(atlas)
 					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
 				end)
 			end
@@ -54,14 +55,15 @@ hooksecurefunc('QuestLogQuests_Update', function()
 			button:GetHighlightTexture():SetAlpha(0)
 			if button.ButtonText then
 				button.ButtonText:ClearAllPoints()
-				button.ButtonText:SetPoint("LEFT", 24, 1)
+				button.ButtonText:SetPoint("LEFT", 21, 1)
 			end
 			if button.CollapseButton then
 				button.CollapseButton:ClearAllPoints()
-				button.CollapseButton:SetPoint("LEFT", -1, 0)
+				button.CollapseButton:SetPoint("LEFT", -4, 1)
 				hooksecurefunc(button.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
 					local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
-					self.Icon:SetAtlas(atlas, true)
+					self.Icon:SetSize(20, 20)
+					self.Icon:SetAtlas(atlas)
 					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
 				end)
 			end
@@ -96,10 +98,11 @@ hooksecurefunc('QuestLogQuests_Update', function()
 			end
 			if button.CollapseButton then
 				button.CollapseButton:ClearAllPoints()
-				button.CollapseButton:SetPoint("LEFT", button.Background, -1, 0)
+				button.CollapseButton:SetPoint("LEFT", button.Background, -4, 1)
 				hooksecurefunc(button.CollapseButton, "UpdateCollapsedState", function(self, collapsed)
 					local atlas = collapsed and "Campaign_HeaderIcon_Closed" or "Campaign_HeaderIcon_Open"
-					self.Icon:SetAtlas(atlas, true)
+					self.Icon:SetSize(20, 20)
+					self.Icon:SetAtlas(atlas)
 					self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight", "ADD")
 				end)
 			end
