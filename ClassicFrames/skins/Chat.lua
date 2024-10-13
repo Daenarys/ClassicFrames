@@ -1,6 +1,24 @@
 -- hide default buttons
 TextToSpeechButtonFrame:Hide()
 
+for i = 1, NUM_CHAT_WINDOWS do
+    _G['ChatFrame'..i].ScrollBar.Back:Hide()
+    _G['ChatFrame'..i].ScrollBar.Forward:Hide()
+    _G['ChatFrame'..i].ScrollBar.Track.Begin:Hide()
+    _G['ChatFrame'..i].ScrollBar.Track.Middle:Hide()
+    _G['ChatFrame'..i].ScrollBar.Track.End:Hide()
+
+    _G['ChatFrame'..i].ScrollToBottomButton:SetSize(24, 24)
+    _G['ChatFrame'..i].ScrollToBottomButton:ClearAllPoints()
+    _G['ChatFrame'..i].ScrollToBottomButton:SetPoint("BOTTOMRIGHT", _G['ChatFrame'..i..'ResizeButton'], "TOPRIGHT", 1, -4)
+    _G['ChatFrame'..i].ScrollToBottomButton:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Up")
+    _G['ChatFrame'..i].ScrollToBottomButton:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Down")
+    _G['ChatFrame'..i].ScrollToBottomButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Disabled")
+    _G['ChatFrame'..i].ScrollToBottomButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
+    _G['ChatFrame'..i].ScrollToBottomButton.Flash:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-BlinkHilight")
+    _G['ChatFrame'..i].ScrollToBottomButton.Flash:SetBlendMode("BLEND")
+end
+
 QuickJoinToastButton:HookScript("OnUpdate", function(self)
     self:ClearAllPoints()
     self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT")
