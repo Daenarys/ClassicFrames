@@ -4,11 +4,8 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_OrderHallUI" then
 		hooksecurefunc(OrderHallTalentFrame, 'SetUseThemedTextures', function(frame, isThemed)
 			if isThemed then
-				OrderHallTalentFrameCloseButton:SetSize(32, 32)
-				OrderHallTalentFrameCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-				OrderHallTalentFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-				OrderHallTalentFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-				OrderHallTalentFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+				ApplyCloseButtonOld(OrderHallTalentFrameCloseButton)
+				OrderHallTalentFrameCloseButton.Border:SetPoint("CENTER", 0, -1)
 			else
 				ApplyCloseButton(OrderHallTalentFrameCloseButton)
 
