@@ -351,12 +351,8 @@ hooksecurefunc(VignettePinMixin, "OnAcquired", function(self)
 			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasSL")
 			self.HighlightTexture:SetTexCoord(0.59375, 0.65625, 0.801758, 0.833008)
 		elseif (self.Texture:GetAtlas() == "vignettekillboss") then
-			self.Texture:SetSize(32, 32)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasSL")
-			self.Texture:SetTexCoord(0.59375, 0.65625, 0.801758, 0.833008)
-			self.HighlightTexture:SetSize(32, 32)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlasSL")
-			self.HighlightTexture:SetTexCoord(0.59375, 0.65625, 0.801758, 0.833008)
+			self.Texture:SetAtlas("legioninvasion-map-icon-portal", true)
+			self.HighlightTexture:SetAtlas("legioninvasion-map-icon-portal", true)
 		end
 	end
 end)
