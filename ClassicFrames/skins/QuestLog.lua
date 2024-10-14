@@ -8,11 +8,13 @@ end
 QuestScrollFrame.SearchBox:Hide()
 QuestScrollFrame.BorderFrame.Shadow:SetAlpha(0)
 QuestScrollFrame.BorderFrame.TopDetail:SetAlpha(0)
+QuestMapFrame.CampaignOverview.BorderFrame.TopDetail:SetAlpha(0)
 QuestMapFrame.DetailsFrame.BorderFrame.TopDetail:SetAlpha(0)
 QuestMapFrame.SettingsDropdown:Hide()
 
 QuestScrollFrame:SetPoint("TOPLEFT")
 QuestScrollFrame.BorderFrame:SetPoint("TOPLEFT", -3, 3)
+QuestMapFrame.CampaignOverview.BorderFrame:SetPoint("TOPLEFT", -3, 3)
 
 ApplySearchBox(QuestScrollFrame.SearchBox)
 
