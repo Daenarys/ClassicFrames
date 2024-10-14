@@ -224,10 +224,25 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 	end
 end)
 
+CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar:SetSize(25, 560)
+CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar:ClearAllPoints()
+CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", CommunitiesFrame.NotificationSettingsDialog.ScrollFrame, "TOPRIGHT", -3, 2)
+CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", CommunitiesFrame.NotificationSettingsDialog.ScrollFrame, "BOTTOMRIGHT", 3, -2)
+
+CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar.Track:ClearAllPoints()
+CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
+CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
+
+CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar.Track.Begin:Hide()
+CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar.Track.End:Hide()
+CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar.Track.Middle:Hide()
+
+ApplyScrollBarArrow(CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar)
+ApplyScrollBarThumb(CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar.Track.Thumb)
+
 ApplySearchBox(ClubFinderGuildFinderFrame.OptionsList.SearchBox)
 ApplySearchBox(ClubFinderCommunityAndGuildFinderFrame.OptionsList.SearchBox)
 ApplySearchBox(CommunitiesFrame.RecruitmentDialog.MinIlvlOnly.EditBox)
-
 ApplyDropDown(ClubFinderGuildFinderFrame.OptionsList.ClubFilterDropdown)
 ApplyDropDown(ClubFinderGuildFinderFrame.OptionsList.ClubSizeDropdown)
 ApplyDropDown(ClubFinderCommunityAndGuildFinderFrame.OptionsList.ClubFilterDropdown)
