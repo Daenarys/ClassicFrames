@@ -568,50 +568,38 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 		TimeManagerClockTicker:SetPoint("CENTER", TimeManagerClockButton, "CENTER", 3, 1)
 
 		if not (C_AddOns.IsAddOnLoaded("ClassicUI")) then
-			ExpansionLandingPageMinimapButton:ClearAllPoints()
-			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 32, -118)
-
-			ExpansionLandingPageMinimapButton.faction = UnitFactionGroup("player")
-			if ( ExpansionLandingPageMinimapButton.faction == "Horde" ) then
-				ExpansionLandingPageMinimapButton:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Up", true)
-				ExpansionLandingPageMinimapButton:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Down", true)
-			else
-				ExpansionLandingPageMinimapButton:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Up", true)
-				ExpansionLandingPageMinimapButton:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Down", true)
+			if (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "dragonflight-landingbutton-up") then
+				ExpansionLandingPageMinimapButton:SetScale(0.85)
+				ExpansionLandingPageMinimapButton:ClearAllPoints()
+				ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 42, -144)
+			elseif (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "warwithin-landingbutton-up") then
+				ExpansionLandingPageMinimapButton:SetScale(0.84)
+				ExpansionLandingPageMinimapButton:ClearAllPoints()
+				ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 45, -143)
 			end
-			ExpansionLandingPageMinimapButton:GetHighlightTexture():SetTexture(136477, "ADD")
-			ExpansionLandingPageMinimapButton.LoopingGlow:SetAtlas("GarrLanding-CircleGlow", true)
 
 			hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIcon", function(self)
-				self:ClearAllPoints()
-				self:SetPoint("TOPLEFT", 32, -118)
-
-				self.faction = UnitFactionGroup("player")
-				if ( self.faction == "Horde" ) then
-					self:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Up", true)
-					self:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Down", true)
-				else
-					self:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Up", true)
-					self:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Down", true)
+				if (self:GetNormalTexture():GetAtlas() == "dragonflight-landingbutton-up") then
+					self:SetScale(0.85)
+					self:ClearAllPoints()
+					self:SetPoint("TOPLEFT", 42, -144)
+				elseif (self:GetNormalTexture():GetAtlas() == "warwithin-landingbutton-up") then
+					self:SetScale(0.84)
+					self:ClearAllPoints()
+					self:SetPoint("TOPLEFT", 45, -143)
 				end
-				self:GetHighlightTexture():SetTexture(136477, "ADD")
-				self.LoopingGlow:SetAtlas("GarrLanding-CircleGlow", true)
 			end)
 
 			hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIconForGarrison", function(self)
-				self:ClearAllPoints()
-				self:SetPoint("TOPLEFT", 32, -118)
+				local garrisonType = C_Garrison.GetLandingPageGarrisonType()
 
-				self.faction = UnitFactionGroup("player")
-				if ( self.faction == "Horde" ) then
-					self:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Up", true)
-					self:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Down", true)
+				if (garrisonType == Enum.GarrisonType.Type_9_0_Garrison) then
+					self:ClearAllPoints()
+					self:SetPoint("TOPLEFT", 32, -106)
 				else
-					self:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Up", true)
-					self:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Down", true)
+					self:ClearAllPoints()
+					self:SetPoint("TOPLEFT", 32, -118)
 				end
-				self:GetHighlightTexture():SetTexture(136477, "ADD")
-				self.LoopingGlow:SetAtlas("GarrLanding-CircleGlow", true)
 			end)
 		end
 	end
