@@ -7,10 +7,6 @@ if _G.MailFrame then
 	MailFramePortrait:ClearAllPoints()
 	MailFramePortrait:SetPoint("TOPLEFT", -6, 8)
 
-	MailFrame.TitleContainer:ClearAllPoints()
-	MailFrame.TitleContainer:SetPoint("TOPLEFT", MailFrame, "TOPLEFT", 85, 0)
-	MailFrame.TitleContainer:SetPoint("TOPRIGHT", MailFrame, "TOPRIGHT", -58, 0)
-
 	ApplyTitleBg(MailFrame)
 	ApplyNineSlicePortrait(MailFrame)
 
@@ -44,10 +40,6 @@ if _G.OpenMailFrame then
 	OpenMailFramePortrait:SetSize(61, 61)
 	OpenMailFramePortrait:ClearAllPoints()
 	OpenMailFramePortrait:SetPoint("TOPLEFT", -6, 8)
-
-	OpenMailFrame.TitleContainer:ClearAllPoints()
-	OpenMailFrame.TitleContainer:SetPoint("TOPLEFT", OpenMailFrame, "TOPLEFT", 85, 0)
-	OpenMailFrame.TitleContainer:SetPoint("TOPRIGHT", OpenMailFrame, "TOPRIGHT", -58, 0)
 
 	ApplyTitleBg(OpenMailFrame)
 	ApplyNineSlicePortrait(OpenMailFrame)
