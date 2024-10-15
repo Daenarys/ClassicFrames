@@ -111,11 +111,12 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 	end
 
 	if style == POIButtonUtil.Style.BonusObjective then
+		poiButton:SetScalingLimits(1, 0.825, 0.85)
 		poiButton.Display:SetAlpha(0)
-		poiButton.NormalTexture:SetSize(24, 24)
+		poiButton.NormalTexture:SetSize(30, 30)
 		poiButton.NormalTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 		poiButton.NormalTexture:SetTexCoord(0.807617, 0.838867, 0.331055, 0.362305)
-		poiButton.PushedTexture:SetSize(24, 24)
+		poiButton.PushedTexture:SetSize(30, 30)
 		poiButton.PushedTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 		poiButton.PushedTexture:SetTexCoord(0.807617, 0.838867, 0.331055, 0.362305)
 		poiButton.HighlightTexture:SetAlpha(0)
@@ -142,10 +143,10 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 		end
 	elseif style == POIButtonUtil.Style.AreaPOI then
 		poiButton.Display:SetAlpha(0)
-		poiButton.NormalTexture:SetSize(25, 24)
+		poiButton.NormalTexture:SetSize(24.5, 24.5)
 		poiButton.NormalTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 		poiButton.NormalTexture:SetTexCoord(0.0654297, 0.12793, 0.643555, 0.706055)
-		poiButton.PushedTexture:SetSize(25, 24)
+		poiButton.PushedTexture:SetSize(24.5, 24.5)
 		poiButton.PushedTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 		poiButton.PushedTexture:SetTexCoord(0.0654297, 0.12793, 0.643555, 0.706055)
 	end
