@@ -21,6 +21,10 @@ for _, tracker in pairs(trackers) do
 	tracker.Header.Text:SetPoint("LEFT", 14, 0)
 end
 
+hooksecurefunc(ObjectiveTrackerFrame, "AnchorSelectionFrame", function(self)
+	self.Selection:SetPoint("TOPLEFT", -17, -38)
+end)
+
 hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 	if not self.modules then
 		return
