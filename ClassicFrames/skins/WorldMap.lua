@@ -110,17 +110,7 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 		poiButton.Glow:SetTexture("Interface\\WorldMap\\UI-QuestPoi-IconGlow")
 	end
 
-	if style == POIButtonUtil.Style.BonusObjective then
-		poiButton:SetScalingLimits(1, 0.825, 0.85)
-		poiButton.Display:SetAlpha(0)
-		poiButton.NormalTexture:SetSize(30, 30)
-		poiButton.NormalTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-		poiButton.NormalTexture:SetTexCoord(0.807617, 0.838867, 0.331055, 0.362305)
-		poiButton.PushedTexture:SetSize(30, 30)
-		poiButton.PushedTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-		poiButton.PushedTexture:SetTexCoord(0.807617, 0.838867, 0.331055, 0.362305)
-		poiButton.HighlightTexture:SetAlpha(0)
-	elseif style == POIButtonUtil.Style.QuestThreat then
+	if style == POIButtonUtil.Style.QuestThreat  then
 		if poiButton:IsSelected() then
 			poiButton.NormalTexture:SetAtlas("UI-QuestPoi-QuestNumber-SuperTracked")
 			poiButton.PushedTexture:SetAtlas("UI-QuestPoi-QuestNumber-Pressed-SuperTracked")
@@ -133,8 +123,8 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 		local info = C_QuestLog.GetQuestTagInfo(questID)
 		if info then
 			if (poiButton.Display.Icon:GetAtlas() == "Worldquest-icon") then
-				poiButton.Display.Icon:SetSize(6, 15)
 				poiButton.Display.Icon:SetAtlas("worldquest-questmarker-questbang")
+				poiButton.Display.Icon:SetSize(6, 15)
 			elseif (poiButton.Display.Icon:GetAtlas() == "worldquest-icon-petbattle") then
 				poiButton.Display.Icon:SetSize(11, 9)
 			elseif (poiButton.Display.Icon:GetAtlas() == "worldquest-icon-race") then
@@ -142,102 +132,29 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 			end
 		end
 	elseif style == POIButtonUtil.Style.AreaPOI then
-		poiButton.Display:SetAlpha(0)
-		poiButton.NormalTexture:SetSize(24.5, 24.5)
-		poiButton.NormalTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-		poiButton.NormalTexture:SetTexCoord(0.0654297, 0.12793, 0.643555, 0.706055)
-		poiButton.PushedTexture:SetSize(24.5, 24.5)
-		poiButton.PushedTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-		poiButton.PushedTexture:SetTexCoord(0.0654297, 0.12793, 0.643555, 0.706055)
+		poiButton.Display.Icon:SetAtlas("UI-EventPoi-Horn-big")
+		if poiButton.SubTypeIcon then
+			poiButton.SubTypeIcon:SetAlpha(0)
+		end
 	end
 end)
 
 hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
 	if self.Texture then
-		-- caves
-		if (self.Texture:GetAtlas() == "CaveUnderground-Down") then
-			self.Texture:SetSize(25, 25)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.000976562, 0.0634766, 0.12793, 0.19043)
-			self.HighlightTexture:SetSize(25, 25)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.000976562, 0.0634766, 0.12793, 0.19043)
-		elseif (self.Texture:GetAtlas() == "CaveUnderground-Up") then
-			self.Texture:SetSize(25, 25)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.000976562, 0.0634766, 0.192383, 0.254883)
-			self.HighlightTexture:SetSize(25, 25)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.000976562, 0.0634766, 0.192383, 0.254883)
-		-- dungeons & raids
-		elseif (self.Texture:GetAtlas() == "Dungeon") then
-			self.Texture:SetSize(22, 22)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.508789, 0.530273, 0.104492, 0.125977)
-			self.HighlightTexture:SetSize(22, 22)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.508789, 0.530273, 0.104492, 0.125977)
-		elseif (self.Texture:GetAtlas() == "Raid") then
-			self.Texture:SetSize(22, 22)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.532227, 0.553711, 0.104492, 0.125977)
-			self.HighlightTexture:SetSize(22, 22)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.532227, 0.553711, 0.104492, 0.125977)
 		-- taxis
-		elseif (self.Texture:GetAtlas() == "TaxiNode_Alliance") then
+		if (self.Texture:GetAtlas() == "TaxiNode_Alliance") then
 			self.Texture:SetSize(18, 18)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.821289, 0.838867, 0.102539, 0.120117)
 			self.HighlightTexture:SetSize(18, 18)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.821289, 0.838867, 0.102539, 0.120117)
 		elseif (self.Texture:GetAtlas() == "TaxiNode_Horde") then
 			self.Texture:SetSize(18, 18)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.34375, 0.361328, 0.170898, 0.188477)
 			self.HighlightTexture:SetSize(18, 18)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.34375, 0.361328, 0.170898, 0.188477)
 		elseif (self.Texture:GetAtlas() == "TaxiNode_Neutral") then
 			self.Texture:SetSize(18, 18)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.400391, 0.417969, 0.168945, 0.186523)
 			self.HighlightTexture:SetSize(18, 18)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.400391, 0.417969, 0.168945, 0.186523)
 		elseif (self.Texture:GetAtlas() == "TaxiNode_Undiscovered") then
 			self.Texture:SetSize(18, 18)
 			self.HighlightTexture:SetSize(18, 18)
 		-- vignettes
-		elseif (self.Texture:GetAtlas() == "VignetteEvent") then
-			self.Texture:SetSize(24, 24)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.608398, 0.639648, 0.397461, 0.428711)
-			self.HighlightTexture:SetSize(24, 24)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.608398, 0.639648, 0.397461, 0.428711)
-		elseif (self.Texture:GetAtlas() == "VignetteEventElite") then
-			self.Texture:SetSize(32, 32)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.641602, 0.672852, 0.397461, 0.428711)
-			self.HighlightTexture:SetSize(32, 32)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.641602, 0.672852, 0.397461, 0.428711)
-		elseif (self.Texture:GetAtlas() == "VignetteKill") then
-			self.Texture:SetSize(24, 24)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.674805, 0.706055, 0.397461, 0.428711)
-			self.HighlightTexture:SetSize(24, 24)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.674805, 0.706055, 0.397461, 0.428711)
-		elseif (self.Texture:GetAtlas() == "VignetteKillElite") then
-			self.Texture:SetSize(32, 32)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.258789, 0.321289, 0.12793, 0.19043)
-			self.HighlightTexture:SetSize(32, 32)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.258789, 0.321289, 0.12793, 0.19043)
 		elseif (self.Texture:GetAtlas() == "vignettekillboss") then
 			self.Texture:SetAtlas("legioninvasion-map-icon-portal", true)
 			self.HighlightTexture:SetAtlas("legioninvasion-map-icon-portal", true)
@@ -247,35 +164,7 @@ end)
 
 hooksecurefunc(VignettePinMixin, "OnAcquired", function(self)
 	if self.Texture then
-		if (self.Texture:GetAtlas() == "VignetteEvent") then
-			self.Texture:SetSize(24, 24)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.608398, 0.639648, 0.397461, 0.428711)
-			self.HighlightTexture:SetSize(24, 24)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.608398, 0.639648, 0.397461, 0.428711)
-		elseif (self.Texture:GetAtlas() == "VignetteEventElite") then
-			self.Texture:SetSize(32, 32)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.641602, 0.672852, 0.397461, 0.428711)
-			self.HighlightTexture:SetSize(32, 32)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.641602, 0.672852, 0.397461, 0.428711)
-		elseif (self.Texture:GetAtlas() == "VignetteKill") then
-			self.Texture:SetSize(24, 24)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.674805, 0.706055, 0.397461, 0.428711)
-			self.HighlightTexture:SetSize(24, 24)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.674805, 0.706055, 0.397461, 0.428711)
-		elseif (self.Texture:GetAtlas() == "VignetteKillElite") then
-			self.Texture:SetSize(32, 32)
-			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.Texture:SetTexCoord(0.258789, 0.321289, 0.12793, 0.19043)
-			self.HighlightTexture:SetSize(32, 32)
-			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
-			self.HighlightTexture:SetTexCoord(0.258789, 0.321289, 0.12793, 0.19043)
-		elseif (self.Texture:GetAtlas() == "vignettekillboss") then
+		if (self.Texture:GetAtlas() == "vignettekillboss") then
 			self.Texture:SetAtlas("legioninvasion-map-icon-portal", true)
 			self.HighlightTexture:SetAtlas("legioninvasion-map-icon-portal", true)
 		end
