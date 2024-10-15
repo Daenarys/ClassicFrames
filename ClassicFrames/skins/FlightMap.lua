@@ -16,6 +16,45 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(FlightMapFrame)
 		ApplyNineSlicePortrait(FlightMapFrame.BorderFrame)
+
+		hooksecurefunc(FlightMap_FlightPointPinMixin, "SetFlightPathStyle", function(self)
+			if (self.Icon:GetAtlas() == "Taxi_Frame_Gray") then
+				self.Icon:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\taxiassets")
+				self.Icon:SetTexCoord(0.0078125, 0.585938, 0.0683594, 0.212891)
+			elseif (self.Icon:GetAtlas() == "Taxi_Frame_Yellow") then
+				self.Icon:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\taxiassets")
+				self.Icon:SetTexCoord(0.0078125, 0.585938, 0.365234, 0.509766)
+			elseif (self.Icon:GetAtlas() == "Taxi_Frame_Green") then
+				self.Icon:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\taxiassets")
+				self.Icon:SetTexCoord(0.0078125, 0.585938, 0.216797, 0.361328)
+			end
+		end)
+
+		hooksecurefunc(FlightMap_FlightPointPinMixin, "OnMouseEnter", function(self)
+			if (self.Icon:GetAtlas() == "Taxi_Frame_Gray") then
+				self.Icon:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\taxiassets")
+				self.Icon:SetTexCoord(0.0078125, 0.585938, 0.0683594, 0.212891)
+			elseif (self.Icon:GetAtlas() == "Taxi_Frame_Yellow") then
+				self.Icon:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\taxiassets")
+				self.Icon:SetTexCoord(0.0078125, 0.585938, 0.365234, 0.509766)
+			elseif (self.Icon:GetAtlas() == "Taxi_Frame_Green") then
+				self.Icon:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\taxiassets")
+				self.Icon:SetTexCoord(0.0078125, 0.585938, 0.216797, 0.361328)
+			end
+		end)
+
+		hooksecurefunc(FlightMap_FlightPointPinMixin, "OnMouseLeave", function(self)
+			if (self.Icon:GetAtlas() == "Taxi_Frame_Gray") then
+				self.Icon:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\taxiassets")
+				self.Icon:SetTexCoord(0.0078125, 0.585938, 0.0683594, 0.212891)
+			elseif (self.Icon:GetAtlas() == "Taxi_Frame_Yellow") then
+				self.Icon:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\taxiassets")
+				self.Icon:SetTexCoord(0.0078125, 0.585938, 0.365234, 0.509766)
+			elseif (self.Icon:GetAtlas() == "Taxi_Frame_Green") then
+				self.Icon:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\taxiassets")
+				self.Icon:SetTexCoord(0.0078125, 0.585938, 0.216797, 0.361328)
+			end
+		end)
 		
 		FlightMapFrame:HookScript("OnShow", function(self)
 			self:ClearAllPoints()
