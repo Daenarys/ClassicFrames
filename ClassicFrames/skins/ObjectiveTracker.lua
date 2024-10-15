@@ -45,3 +45,14 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 		end
 	end
 end)
+
+hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block)
+	if (block.NormalBG:GetAtlas() == "evergreen-scenario-trackerheader") then
+		block.NormalBG:SetAtlas("ScenarioTrackerToast", true)
+		block.NormalBG:ClearAllPoints()
+		block.NormalBG:SetPoint("TOPLEFT")
+	end
+	block.FinalBG:SetAtlas("ScenarioTrackerToast-FinalFiligree", true)
+	block.FinalBG:ClearAllPoints()
+	block.FinalBG:SetPoint("TOPLEFT", 4, -4)
+end)
