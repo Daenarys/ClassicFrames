@@ -2,6 +2,19 @@ if not _G.ObjectiveTrackerFrame then return end
 
 ObjectiveTrackerFrame.Header:Hide()
 
+local function SetCollapsed(tracker)
+	tracker.Header.MinimizeButton:SetNormalTexture("Interface\\Buttons\\QuestTrackerButtons")
+	tracker.Header.MinimizeButton:SetPushedTexture("Interface\\Buttons\\QuestTrackerButtons")
+	tracker.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Highlight", "ADD")
+	if tracker:IsCollapsed() then
+		tracker.Header.MinimizeButton:GetNormalTexture():SetTexCoord(0.273438, 0.390625, 0.765625, 0.984375)
+		tracker.Header.MinimizeButton:GetPushedTexture():SetTexCoord(0.273438, 0.390625, 0.515625, 0.734375)
+	else
+		tracker.Header.MinimizeButton:GetNormalTexture():SetTexCoord(0.140625, 0.257812, 0.546875, 0.765625)
+		tracker.Header.MinimizeButton:GetPushedTexture():SetTexCoord(0.0078125, 0.125, 0.546875, 0.765625)
+	end
+end
+
 local trackers = {
 	_G.AchievementObjectiveTracker,
 	_G.AdventureObjectiveTracker,
@@ -19,31 +32,14 @@ for _, tracker in pairs(trackers) do
 	tracker.Header.Background:SetAtlas("Objective-Header", true)
 	tracker.Header.Background:SetPoint("TOPLEFT", -19, 14)
 	tracker.Header.Text:SetPoint("LEFT", 14, 0)
+	tracker.Header.MinimizeButton:SetSize(15, 14)
+	tracker.Header.MinimizeButton:SetPoint("RIGHT", -15, 0)
+	SetCollapsed(tracker, _G.ObjectiveTrackerFrame.isCollapsed)
+	hooksecurefunc(tracker, 'SetCollapsed', SetCollapsed)
 end
 
 hooksecurefunc(ObjectiveTrackerFrame, "AnchorSelectionFrame", function(self)
 	self.Selection:SetPoint("TOPLEFT", -17, -38)
-end)
-
-hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
-	if not self.modules then
-		return
-	end
-
-	for i, module in ipairs(self.modules) do
-		module.Header.MinimizeButton:SetSize(15, 14)
-		module.Header.MinimizeButton:SetPoint("RIGHT", -15, 0)
-		module.Header.MinimizeButton:SetNormalTexture("Interface\\Buttons\\QuestTrackerButtons")
-		module.Header.MinimizeButton:SetPushedTexture("Interface\\Buttons\\QuestTrackerButtons")
-		module.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Highlight", "ADD")
-		if module:IsCollapsed() then
-			module.Header.MinimizeButton:GetNormalTexture():SetTexCoord(0.273438, 0.390625, 0.765625, 0.984375)
-			module.Header.MinimizeButton:GetPushedTexture():SetTexCoord(0.273438, 0.390625, 0.515625, 0.734375)
-		else
-			module.Header.MinimizeButton:GetNormalTexture():SetTexCoord(0.140625, 0.257812, 0.546875, 0.765625)
-			module.Header.MinimizeButton:GetPushedTexture():SetTexCoord(0.0078125, 0.125, 0.546875, 0.765625)
-		end
-	end
 end)
 
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block)
