@@ -183,6 +183,31 @@ hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
 			self.HighlightTexture:SetSize(22, 22)
 			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 			self.HighlightTexture:SetTexCoord(0.532227, 0.553711, 0.104492, 0.125977)
+		-- taxis
+		elseif (self.Texture:GetAtlas() == "TaxiNode_Alliance") then
+			self.Texture:SetSize(18, 18)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.Texture:SetTexCoord(0.821289, 0.838867, 0.102539, 0.120117)
+			self.HighlightTexture:SetSize(18, 18)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.HighlightTexture:SetTexCoord(0.821289, 0.838867, 0.102539, 0.120117)
+		elseif (self.Texture:GetAtlas() == "TaxiNode_Horde") then
+			self.Texture:SetSize(18, 18)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.Texture:SetTexCoord(0.34375, 0.361328, 0.170898, 0.188477)
+			self.HighlightTexture:SetSize(18, 18)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.HighlightTexture:SetTexCoord(0.34375, 0.361328, 0.170898, 0.188477)
+		elseif (self.Texture:GetAtlas() == "TaxiNode_Neutral") then
+			self.Texture:SetSize(18, 18)
+			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.Texture:SetTexCoord(0.400391, 0.417969, 0.168945, 0.186523)
+			self.HighlightTexture:SetSize(18, 18)
+			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
+			self.HighlightTexture:SetTexCoord(0.400391, 0.417969, 0.168945, 0.186523)
+		elseif (self.Texture:GetAtlas() == "TaxiNode_Undiscovered") then
+			self.Texture:SetSize(18, 18)
+			self.HighlightTexture:SetSize(18, 18)
 		-- vignettes
 		elseif (self.Texture:GetAtlas() == "VignetteEvent") then
 			self.Texture:SetSize(24, 24)
