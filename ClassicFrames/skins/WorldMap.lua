@@ -185,10 +185,10 @@ hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
 			self.HighlightTexture:SetTexCoord(0.532227, 0.553711, 0.104492, 0.125977)
 		-- vignettes
 		elseif (self.Texture:GetAtlas() == "VignetteEvent") then
-			self.Texture:SetSize(32, 32)
+			self.Texture:SetSize(24, 24)
 			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 			self.Texture:SetTexCoord(0.608398, 0.639648, 0.397461, 0.428711)
-			self.HighlightTexture:SetSize(32, 32)
+			self.HighlightTexture:SetSize(24, 24)
 			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 			self.HighlightTexture:SetTexCoord(0.608398, 0.639648, 0.397461, 0.428711)
 		elseif (self.Texture:GetAtlas() == "VignetteEventElite") then
@@ -199,10 +199,10 @@ hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
 			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 			self.HighlightTexture:SetTexCoord(0.641602, 0.672852, 0.397461, 0.428711)
 		elseif (self.Texture:GetAtlas() == "VignetteKill") then
-			self.Texture:SetSize(32, 32)
+			self.Texture:SetSize(24, 24)
 			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 			self.Texture:SetTexCoord(0.674805, 0.706055, 0.397461, 0.428711)
-			self.HighlightTexture:SetSize(32, 32)
+			self.HighlightTexture:SetSize(24, 24)
 			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 			self.HighlightTexture:SetTexCoord(0.674805, 0.706055, 0.397461, 0.428711)
 		elseif (self.Texture:GetAtlas() == "VignetteKillElite") then
@@ -222,10 +222,10 @@ end)
 hooksecurefunc(VignettePinMixin, "OnAcquired", function(self)
 	if self.Texture then
 		if (self.Texture:GetAtlas() == "VignetteEvent") then
-			self.Texture:SetSize(32, 32)
+			self.Texture:SetSize(24, 24)
 			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 			self.Texture:SetTexCoord(0.608398, 0.639648, 0.397461, 0.428711)
-			self.HighlightTexture:SetSize(32, 32)
+			self.HighlightTexture:SetSize(24, 24)
 			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 			self.HighlightTexture:SetTexCoord(0.608398, 0.639648, 0.397461, 0.428711)
 		elseif (self.Texture:GetAtlas() == "VignetteEventElite") then
@@ -236,10 +236,10 @@ hooksecurefunc(VignettePinMixin, "OnAcquired", function(self)
 			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 			self.HighlightTexture:SetTexCoord(0.641602, 0.672852, 0.397461, 0.428711)
 		elseif (self.Texture:GetAtlas() == "VignetteKill") then
-			self.Texture:SetSize(32, 32)
+			self.Texture:SetSize(24, 24)
 			self.Texture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 			self.Texture:SetTexCoord(0.674805, 0.706055, 0.397461, 0.428711)
-			self.HighlightTexture:SetSize(32, 32)
+			self.HighlightTexture:SetSize(24, 24)
 			self.HighlightTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\ObjectIconsAtlas")
 			self.HighlightTexture:SetTexCoord(0.674805, 0.706055, 0.397461, 0.428711)
 		elseif (self.Texture:GetAtlas() == "VignetteKillElite") then
