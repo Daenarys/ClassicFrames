@@ -125,7 +125,7 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 			if (poiButton.EmissaryRing == nil) then
 				poiButton.EmissaryRing = poiButton:CreateTexture(nil, "BACKGROUND")
 				poiButton.EmissaryRing:SetAtlas("worldquest-emissary-ring", true)
-				poiButton.EmissaryRing:SetPoint("CENTER")
+				poiButton.EmissaryRing:SetPoint("CENTER", 0, -1)
 				poiButton.EmissaryRing:Hide()
 			end
 			if (poiButton.Display.Icon:GetAtlas() == "Worldquest-icon") then
