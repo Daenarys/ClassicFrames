@@ -5,7 +5,6 @@ ObjectiveTrackerFrame.Header:Hide()
 local function SetCollapsed(self, collapsed)
 	self.MinimizeButton:SetNormalTexture("Interface\\Buttons\\QuestTrackerButtons")
 	self.MinimizeButton:SetPushedTexture("Interface\\Buttons\\QuestTrackerButtons")
-
 	if collapsed then
 		self.MinimizeButton:GetNormalTexture():SetTexCoord(0.273438, 0.390625, 0.765625, 0.984375)
 		self.MinimizeButton:GetPushedTexture():SetTexCoord(0.273438, 0.390625, 0.515625, 0.734375)
