@@ -2,16 +2,16 @@ if not _G.ObjectiveTrackerFrame then return end
 
 ObjectiveTrackerFrame.Header:Hide()
 
-local function SetCollapsed(tracker)
-	tracker.Header.MinimizeButton:SetNormalTexture("Interface\\Buttons\\QuestTrackerButtons")
-	tracker.Header.MinimizeButton:SetPushedTexture("Interface\\Buttons\\QuestTrackerButtons")
-	tracker.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Highlight", "ADD")
-	if tracker:IsCollapsed() then
-		tracker.Header.MinimizeButton:GetNormalTexture():SetTexCoord(0.273438, 0.390625, 0.765625, 0.984375)
-		tracker.Header.MinimizeButton:GetPushedTexture():SetTexCoord(0.273438, 0.390625, 0.515625, 0.734375)
+local function SetCollapsed(self, collapsed)
+	self.MinimizeButton:SetNormalTexture("Interface\\Buttons\\QuestTrackerButtons")
+	self.MinimizeButton:SetPushedTexture("Interface\\Buttons\\QuestTrackerButtons")
+
+	if collapsed then
+		self.MinimizeButton:GetNormalTexture():SetTexCoord(0.273438, 0.390625, 0.765625, 0.984375)
+		self.MinimizeButton:GetPushedTexture():SetTexCoord(0.273438, 0.390625, 0.515625, 0.734375)
 	else
-		tracker.Header.MinimizeButton:GetNormalTexture():SetTexCoord(0.140625, 0.257812, 0.546875, 0.765625)
-		tracker.Header.MinimizeButton:GetPushedTexture():SetTexCoord(0.0078125, 0.125, 0.546875, 0.765625)
+		self.MinimizeButton:GetNormalTexture():SetTexCoord(0.140625, 0.257812, 0.546875, 0.765625)
+		self.MinimizeButton:GetPushedTexture():SetTexCoord(0.0078125, 0.125, 0.546875, 0.765625)
 	end
 end
 
@@ -34,8 +34,9 @@ for _, tracker in pairs(trackers) do
 	tracker.Header.Text:SetPoint("LEFT", 14, 0)
 	tracker.Header.MinimizeButton:SetSize(15, 14)
 	tracker.Header.MinimizeButton:SetPoint("RIGHT", -15, 0)
-	SetCollapsed(tracker, _G.ObjectiveTrackerFrame.isCollapsed)
-	hooksecurefunc(tracker, 'SetCollapsed', SetCollapsed)
+	tracker.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Red-Highlight", "ADD")
+	SetCollapsed(tracker.Header, _G.ObjectiveTrackerFrame.isCollapsed)
+	hooksecurefunc(tracker.Header, 'SetCollapsed', SetCollapsed)
 end
 
 hooksecurefunc(ObjectiveTrackerFrame, "AnchorSelectionFrame", function(self)
@@ -71,3 +72,7 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", 
 		end
 	end
 end)
+
+if ScenarioObjectiveTracker.MawBuffsBlock.Container then
+	ScenarioObjectiveTracker.MawBuffsBlock.Container:SetPoint("TOPRIGHT", -17, 0)
+end
