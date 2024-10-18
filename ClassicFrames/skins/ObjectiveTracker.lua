@@ -45,7 +45,9 @@ end)
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block)
 	if (block.NormalBG:GetAtlas() == "evergreen-scenario-trackerheader") then
 		block.NormalBG:SetAtlas("ScenarioTrackerToast", true)
-	else
+	elseif (block.NormalBG:GetAtlas() == "thewarwithin-scenario-trackerheader") then
+		block.NormalBG:SetAtlas("dragonflight-scenario-TrackerHeader", true)
+	elseif (block.NormalBG:GetAtlas() == "delves-scenario-TrackerHeader") then
 		block.NormalBG:SetAtlas("dragonflight-scenario-TrackerHeader", true)
 	end
 	block.NormalBG:SetPoint("TOPLEFT", 0, -1)
