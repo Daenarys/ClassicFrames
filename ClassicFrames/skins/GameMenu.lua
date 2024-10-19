@@ -85,19 +85,47 @@ hooksecurefunc(GameMenuFrame, "Layout", function(self)
 		elseif (text == _G["GAMEMENU_NEW_BUTTON"]) then
 			button:SetPoint("TOPLEFT", 26, -76)
 		elseif (text == _G["GAMEMENU_OPTIONS"]) then
-			button:SetPoint("TOPLEFT", 26, -113)
+			if C_SplashScreen.CanViewSplashScreen() and not IsCharacterNewlyBoosted() then
+				button:SetPoint("TOPLEFT", 26, -113)
+			else
+				button:SetPoint("TOPLEFT", 26, -91)
+			end
 		elseif (text == _G["HUD_EDIT_MODE_MENU"]) then
-			button:SetPoint("TOPLEFT", 26, -135)
+			if C_SplashScreen.CanViewSplashScreen() and not IsCharacterNewlyBoosted() then
+				button:SetPoint("TOPLEFT", 26, -135)
+			else
+				button:SetPoint("TOPLEFT", 26, -113)
+			end
 		elseif (text == _G["MACROS"]) then
-			button:SetPoint("TOPLEFT", 26, -157)
+			if C_SplashScreen.CanViewSplashScreen() and not IsCharacterNewlyBoosted() then
+				button:SetPoint("TOPLEFT", 26, -157)
+			else
+				button:SetPoint("TOPLEFT", 26, -135)
+			end
 		elseif (text == _G["ADDONS"]) then
-			button:SetPoint("TOPLEFT", 26, -179)
+			if C_SplashScreen.CanViewSplashScreen() and not IsCharacterNewlyBoosted() then
+				button:SetPoint("TOPLEFT", 26, -179)
+			else
+				button:SetPoint("TOPLEFT", 26, -157)
+			end
 		elseif (text == _G["LOG_OUT"]) then
-			button:SetPoint("TOPLEFT", 26, -216)
+			if C_SplashScreen.CanViewSplashScreen() and not IsCharacterNewlyBoosted() then
+				button:SetPoint("TOPLEFT", 26, -216)
+			else
+				button:SetPoint("TOPLEFT", 26, -194)
+			end
 		elseif (text == _G["EXIT_GAME"]) then
-			button:SetPoint("TOPLEFT", 26, -238)
+			if C_SplashScreen.CanViewSplashScreen() and not IsCharacterNewlyBoosted() then
+				button:SetPoint("TOPLEFT", 26, -238)
+			else
+				button:SetPoint("TOPLEFT", 26, -216)
+			end
 		elseif (text == _G["RETURN_TO_GAME"]) then
-			button:SetPoint("TOPLEFT", 26, -275)	
+			if C_SplashScreen.CanViewSplashScreen() and not IsCharacterNewlyBoosted() then
+				button:SetPoint("TOPLEFT", 26, -275)
+			else
+				button:SetPoint("TOPLEFT", 26, -253)
+			end
 		end
 	end
 end)
