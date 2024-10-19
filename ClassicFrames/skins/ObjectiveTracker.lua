@@ -2,6 +2,11 @@ if not _G.ObjectiveTrackerFrame then return end
 
 ObjectiveTrackerFrame.Header:Hide()
 
+hooksecurefunc(ObjectiveTrackerFrame, "AnchorSelectionFrame", function(self)
+	self.Selection:SetPoint("TOPLEFT", -10, -38)
+	self.Selection:SetPoint("BOTTOMRIGHT", -8, 0)
+end)
+
 local function SetCollapsed(self, collapsed)
 	self.MinimizeButton:SetNormalTexture("Interface\\Buttons\\QuestTrackerButtons")
 	self.MinimizeButton:SetPushedTexture("Interface\\Buttons\\QuestTrackerButtons")
@@ -37,8 +42,3 @@ for _, tracker in pairs(trackers) do
 	SetCollapsed(tracker.Header, _G.ObjectiveTrackerFrame.isCollapsed)
 	hooksecurefunc(tracker.Header, 'SetCollapsed', SetCollapsed)
 end
-
-hooksecurefunc(ObjectiveTrackerFrame, "AnchorSelectionFrame", function(self)
-	self.Selection:SetPoint("TOPLEFT", -10, -38)
-	self.Selection:SetPoint("BOTTOMRIGHT", -8, 0)
-end)
