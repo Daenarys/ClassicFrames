@@ -1,4 +1,4 @@
-## Interface: 110002
+## Interface: 110005
 ## IconTexture: Interface/Icons/INV_Sword_2H_AshbringerCorrupt
 ## Title: Classic Frames
 ## Notes: Restores the pre 10.x UI and Unit Frames
