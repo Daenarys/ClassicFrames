@@ -4,7 +4,7 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_OrderHallUI" then
 		hooksecurefunc(OrderHallTalentFrame, 'SetUseThemedTextures', function(frame, isThemed)
 			if isThemed then
-				ApplyCloseButton(OrderHallTalentFrameCloseButton)
+				ApplyCloseButtonOld(OrderHallTalentFrameCloseButton)
 				OrderHallTalentFrameCloseButton.Border:SetPoint("CENTER", 0, -1)
 			else
 				ApplyCloseButton(OrderHallTalentFrameCloseButton)
