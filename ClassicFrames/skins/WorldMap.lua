@@ -110,6 +110,11 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 		poiButton.Glow:SetTexture("Interface\\WorldMap\\UI-QuestPoi-IconGlow")
 	end
 
+	if poiButton.LinkGlow then
+		poiButton.LinkGlow:SetSize(45, 45)
+		poiButton.LinkGlow:SetTexture("Interface\\WorldMap\\UI-QuestPoi-IconGlow")
+	end
+
 	if style == POIButtonUtil.Style.QuestThreat then
 		if poiButton:IsSelected() then
 			poiButton.NormalTexture:SetAtlas("UI-QuestPoi-QuestNumber-SuperTracked")
