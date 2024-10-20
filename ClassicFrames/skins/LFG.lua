@@ -36,6 +36,7 @@ end)
 
 PVEFrame:HookScript("OnShow", function(self)
 	self.tab3:SetShown(UnitLevel("player") == GetMaxLevelForExpansionLevel(LE_EXPANSION_WAR_WITHIN))
+	self.tab4:SetShown(UnitLevel("player") == GetMaxLevelForExpansionLevel(LE_EXPANSION_WAR_WITHIN))
 end)
 
 LFDQueueFrameRandomScrollFrame.ScrollBar:SetSize(25, 560)
