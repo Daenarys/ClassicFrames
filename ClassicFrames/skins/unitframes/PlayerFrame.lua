@@ -33,8 +33,6 @@ PlayerFrame.PlayerFrameContainer:SetFrameLevel(4)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:SetFrameLevel(5)
 
 PlayerFrame.PlayerFrameContainer.PlayerPortrait:SetSize(64, 64)
-PlayerFrame.PlayerFrameContainer.PlayerPortrait:ClearAllPoints()
-PlayerFrame.PlayerFrameContainer.PlayerPortrait:SetPoint("TOPLEFT", 23, -16)
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface/CHARACTERFRAME/TempPortraitAlphaMask", "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")
 
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer:Hide()
@@ -191,6 +189,9 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	self.PlayerFrameContainer.AlternatePowerFrameTexture:ClearAllPoints()
 	self.PlayerFrameContainer.AlternatePowerFrameTexture:SetPoint("TOPLEFT", -19, -4)
 
+	self.PlayerFrameContainer.PlayerPortrait:SetPoint("TOPLEFT", 23, -16)
+	self.PlayerFrameContainer.PlayerPortraitMask:SetPoint("TOPLEFT", 24, -19)
+
 	local FrameFlash = self.PlayerFrameContainer.FrameFlash
 	FrameFlash:SetParent(self)
 	FrameFlash:SetSize(242, 93)
@@ -238,6 +239,9 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	self.PlayerFrameContainer.VehicleFrameTexture:ClearAllPoints()
 	self.PlayerFrameContainer.VehicleFrameTexture:SetPoint("TOPLEFT", -3, 6)
 	self.PlayerFrameContainer.VehicleFrameTexture:SetDrawLayer("BORDER")
+
+	self.PlayerFrameContainer.PlayerPortrait:SetPoint("TOPLEFT", 23, -15)
+	self.PlayerFrameContainer.PlayerPortraitMask:SetPoint("TOPLEFT", 24, -16)
 
 	local FrameFlash = self.PlayerFrameContainer.FrameFlash
 	FrameFlash:SetParent(self)
