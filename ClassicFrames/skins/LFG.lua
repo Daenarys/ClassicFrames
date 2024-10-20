@@ -34,6 +34,11 @@ GroupFinderFrame:HookScript("OnShow", function()
 	SetPortraitToTexture(PVEFramePortrait, "Interface\\LFGFrame\\UI-LFG-PORTRAIT")
 end)
 
+PVEFrame:HookScript("OnShow", function(self)
+	self.tab3:SetShown(UnitLevel("player") == GetMaxLevelForExpansionLevel(LE_EXPANSION_WAR_WITHIN))
+end)
+
+
 LFDQueueFrameRandomScrollFrame.ScrollBar:SetSize(25, 560)
 LFDQueueFrameRandomScrollFrame.ScrollBar:ClearAllPoints()
 LFDQueueFrameRandomScrollFrame.ScrollBar:SetPoint("TOPLEFT", LFDQueueFrameRandomScrollFrame, "TOPRIGHT", 2, 8)

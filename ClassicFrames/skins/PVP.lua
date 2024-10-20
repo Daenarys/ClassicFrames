@@ -123,11 +123,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		end
 
 		PVPQueueFrame.HonorInset.CasualPanel:HookScript("OnShow", function(self)
-			local serverExpansionLevel = GetServerExpansionLevel()
-			local maxLevel = GetMaxLevelForExpansionLevel(serverExpansionLevel)
-			local playerLevel = UnitLevel("player")
 			local Label = self.HKLabel
-			if playerLevel < maxLevel then
+			if(UnitLevel("player") < GetMaxLevelForExpansionLevel(LE_EXPANSION_WAR_WITHIN)) then
 				Label:Hide()
 				self.WeeklyChest:Hide()
 				self.HonorLevelDisplay:SetPoint("TOP", 0, -25)
@@ -210,10 +207,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		PVPQueueFrame.HonorInset.RatedPanel:HookScript("OnShow", function(self)
 			local Tier = self.Tier
 			local Label = self.Label
-			local serverExpansionLevel = GetServerExpansionLevel()
-			local maxLevel = GetMaxLevelForExpansionLevel(serverExpansionLevel)
-			local playerLevel = UnitLevel("player")
-			if playerLevel < maxLevel then
+			if(UnitLevel("player") < GetMaxLevelForExpansionLevel(LE_EXPANSION_WAR_WITHIN)) then
 				Label:Hide()
 				self.HonorLevelDisplay:Show()
 				self.WeeklyChest:Hide()
