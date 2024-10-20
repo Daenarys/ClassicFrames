@@ -44,3 +44,37 @@ hooksecurefunc(ObjectiveTrackerFrame, "AnchorSelectionFrame", function(self)
 	self.Selection:SetPoint("TOPLEFT", -10, -38)
 	self.Selection:SetPoint("BOTTOMRIGHT", -8, 0)
 end)
+
+hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block)
+	if (block.NormalBG:GetAtlas() == "evergreen-scenario-trackerheader") then
+		block.NormalBG:SetAtlas("ScenarioTrackerToast", true)
+	elseif (block.NormalBG:GetAtlas() == "thewarwithin-scenario-trackerheader") then
+		block.NormalBG:SetAtlas("dragonflight-scenario-TrackerHeader", true)
+	elseif (block.NormalBG:GetAtlas() == "delves-scenario-TrackerHeader") then
+		block.NormalBG:SetAtlas("dragonflight-scenario-TrackerHeader", true)
+	end
+	block.NormalBG:SetPoint("TOPLEFT", 0, -1)
+	block.FinalBG:SetAtlas("ScenarioTrackerToast-FinalFiligree", true)
+	block.FinalBG:ClearAllPoints()
+	block.FinalBG:SetPoint("TOPLEFT", 4, -5)
+end)
+
+hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", function(block)
+	if block.WidgetContainer.widgetFrames then
+		for _, widgetFrame in pairs(block.WidgetContainer.widgetFrames) do
+			if widgetFrame.Frame then
+				if (widgetFrame.Frame:GetAtlas() == "evergreen-scenario-frame") then
+					block.WidgetContainer:SetPoint("TOPLEFT", -2, 0)
+				elseif (widgetFrame.Frame:GetAtlas() == "thewarwithin-scenario-frame") then
+					block.WidgetContainer:SetPoint("TOPLEFT", 1, -2)
+				elseif (widgetFrame.Frame:GetAtlas() == "delves-scenario-frame") then
+					block.WidgetContainer:SetPoint("TOPLEFT", -7, 2)
+				end
+			end
+		end
+	end
+end)
+
+if ScenarioObjectiveTracker.MawBuffsBlock.Container then
+	ScenarioObjectiveTracker.MawBuffsBlock.Container:SetPoint("TOPRIGHT", -17, 3)
+end
