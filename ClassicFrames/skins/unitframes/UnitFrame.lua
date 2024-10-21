@@ -5,7 +5,7 @@ hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
 	end
 
 	local powerType, powerToken, altR, altG, altB = UnitPowerType(manaBar.unit)
-	local info = CfPowerBarColor[powerToken]
+	local info = PowerBarColor[powerToken]
 
 	manaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 
@@ -23,19 +23,12 @@ hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
 				manaBar:SetStatusBarColor(info.r, info.g, info.b)
 			end
 		end
-		if (manaBar.FeedbackFrame) then
-			if (info.atlas) then
-				manaBar.FeedbackFrame.BarTexture:SetAtlas(info.atlas, false)
-			else
-				manaBar.FeedbackFrame.BarTexture:SetVertexColor(info.r, info.g, info.b)
-			end
-		end
 		if (manaBar.Spark) then
 			manaBar.Spark:SetAlpha(0)
 		end
 	else
 		if ( not altR ) then
-			info = CfPowerBarColor[powerType] or CfPowerBarColor["MANA"]
+			info = PowerBarColor[powerType] or PowerBarColor["MANA"]
 		else
 			manaBar:SetStatusBarColor(altR, altG, altB)
 		end
