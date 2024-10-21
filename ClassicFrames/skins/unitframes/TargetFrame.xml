@@ -25,6 +25,8 @@
 								<Texture name="$parentMyHealPredictionBar" inherits="MyHealPredictionBarTemplate"/>
 								<Texture name="$parentOtherHealPredictionBar" inherits="OtherHealPredictionBarTemplate"/>
 								<Texture name="$parentHealAbsorbBar" inherits="HealAbsorbBarTemplate"/>
+								<FontString name="$parentName" inherits="GameFontNormalSmall" hidden="true">
+								</FontString>
 								<FontString name="$parentDeadText" inherits="GameFontNormalSmall" text="DEAD">
 									<Anchors>
 										<Anchor point="CENTER" x="-50" y="3"/>

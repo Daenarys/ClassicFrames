@@ -5,7 +5,7 @@ function CfTargetFrame_OnLoad(self, unit)
 	_G[thisName.."ManaBar"].LeftText = _G[thisName.."ManaBarTextLeft"];
 	_G[thisName.."ManaBar"].RightText = _G[thisName.."ManaBarTextRight"];
 
-	UnitFrame_Initialize(self, unit, nil, nil, nil,
+	UnitFrame_Initialize(self, unit, _G[thisName.."Name"], nil, nil,
 		_G[thisName.."HealthBar"], _G[thisName.."HealthBarText"],
 		_G[thisName.."ManaBar"], _G[thisName.."ManaBarText"],
 		nil, nil, nil,
