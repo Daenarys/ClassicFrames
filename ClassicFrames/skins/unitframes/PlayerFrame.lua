@@ -222,15 +222,6 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	PlayerLevelText:Show()
 
 	CfUnitFrame_SetUnit(CfPlayerFrame, "player", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
-
-	local _, class = UnitClass("player")
-	if ( CfPlayerFrame.CfClassPowerBar ) then
-		CfPlayerFrame.CfClassPowerBar:Setup()
-	elseif ( class == "DEATHKNIGHT" ) then
-		CfRuneFrame:Show()
-	end
-
-	ComboPointPlayerFrame:Setup()
 end)
 
 hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
@@ -271,15 +262,6 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	PlayerLevelText:Hide()
 
 	CfUnitFrame_SetUnit(CfPlayerFrame, "vehicle", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
-
-	local _, class = UnitClass("player")
-	if ( CfPlayerFrame.CfClassPowerBar ) then
-		CfPlayerFrame.CfClassPowerBar:Hide()
-	elseif ( class == "DEATHKNIGHT" ) then
-		CfRuneFrame:Hide()
-	end
-
-	ComboPointPlayerFrame:Setup()
 end)
 
 hooksecurefunc("PlayerFrame_UpdateLevel", function()
@@ -439,18 +421,6 @@ hooksecurefunc("PlayerFrame_UpdateStatus", function()
 	end
 end)
 
-PlayerFrame:HookScript("OnEvent", function(self)
-	local classPowerBar = self.classPowerBar
-	if (classPowerBar) then
-		classPowerBar:UnregisterAllEvents()
-		classPowerBar:Hide()
-	end
-	if (RuneFrame) then
-		RuneFrame:UnregisterAllEvents()
-		RuneFrame:Hide()
-	end
-end)
-
 PlayerFrame:HookScript("OnUpdate", function(self)
 	if (self.PlayerFrameContent.PlayerFrameContentMain.StatusTexture:IsShown()) then
 		local alpha = 255
@@ -476,4 +446,8 @@ PlayerFrame:HookScript("OnUpdate", function(self)
 			self.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow:SetAlpha(alpha)
 		end
 	end
+end)
+
+hooksecurefunc(PlayerFrameBottomManagedFramesContainer, "Layout", function(self)
+	self:SetPoint("TOP", PlayerFrame, "BOTTOM", 30, 35)
 end)
