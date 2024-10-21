@@ -13,10 +13,7 @@
 				</Texture>
 			</Layer>
 			<Layer level="ARTWORK">
-				<Texture name="$parentTotalAbsorbBar" inherits="CfTotalAbsorbBarTemplate"/>
-			</Layer>
-			<Layer level="ARTWORK" textureSubLevel="1">
-				<Texture name="$parentTotalAbsorbBarOverlay" inherits="CfTotalAbsorbBarOverlayTemplate"/>
+				<Texture name="$parentTotalAbsorbBar" inherits="TotalAbsorbBarTemplate"/>
 			</Layer>
 		</Layers>
 		<Frames>
@@ -25,11 +22,9 @@
 					<Frame setAllPoints="true">
 						<Layers>
 							<Layer level="BACKGROUND">
-								<Texture name="$parentMyHealPredictionBar" inherits="CfMyHealPredictionBarTemplate"/>
-								<Texture name="$parentOtherHealPredictionBar" inherits="CfOtherHealPredictionBarTemplate"/>
-								<Texture name="$parentHealAbsorbBar" inherits="CfHealAbsorbBarTemplate"/>
-								<Texture name="$parentHealAbsorbBarLeftShadow" inherits="CfHealAbsorbBarLeftShadowTemplate"/>
-								<Texture name="$parentHealAbsorbBarRightShadow" inherits="CfHealAbsorbBarRightShadowTemplate"/>
+								<Texture name="$parentMyHealPredictionBar" inherits="MyHealPredictionBarTemplate"/>
+								<Texture name="$parentOtherHealPredictionBar" inherits="OtherHealPredictionBarTemplate"/>
+								<Texture name="$parentHealAbsorbBar" inherits="HealAbsorbBarTemplate"/>
 								<FontString name="$parentDeadText" inherits="GameFontNormalSmall" text="DEAD">
 									<Anchors>
 										<Anchor point="CENTER" x="-50" y="3"/>
@@ -72,8 +67,8 @@
 								</FontString>
 							</Layer>
 							<Layer level="ARTWORK" textureSubLevel="1">
-								<Texture name="$parentOverAbsorbGlow" inherits="CfOverAbsorbGlowTemplate"/>
-								<Texture name="$parentOverHealAbsorbGlow" inherits="CfOverHealAbsorbGlowTemplate"/>
+								<Texture name="$parentOverAbsorbGlow" inherits="OverAbsorbGlowTemplate"/>
+								<Texture name="$parentOverHealAbsorbGlow" inherits="OverHealAbsorbGlowTemplate"/>
 							</Layer>
 						</Layers>
 					</Frame>
@@ -93,9 +88,9 @@
 						self.zeroText = "";
 						self:SetMouseClickEnabled(false)
 					</OnLoad>
-					<OnValueChanged function="CfUnitFrameHealthBar_OnValueChanged"/>
+					<OnValueChanged function="UnitFrameHealthBar_OnValueChanged"/>
 					<OnSizeChanged>
-						CfUnitFrameHealPredictionBars_UpdateSize(self:GetParent())
+						UnitFrameHealPredictionBars_UpdateSize(self:GetParent())
 					</OnSizeChanged>
 				</Scripts>
 				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
@@ -119,7 +114,7 @@
 			</StatusBar>
 		</Frames>
 		<Scripts>
-			<OnEvent function="CfUnitFrame_OnEvent"/>
+			<OnEvent function="UnitFrame_OnEvent"/>
 		</Scripts>
 	</Button>
 	<Button name="CfTargetFrame" inherits="CfTargetFrameTemplate" parent="TargetFrame">

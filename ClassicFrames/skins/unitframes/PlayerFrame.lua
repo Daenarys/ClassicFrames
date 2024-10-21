@@ -4,14 +4,13 @@ function CfPlayerFrame_OnLoad(self)
 	CfPlayerFrameManaBar.LeftText = CfPlayerFrameManaBarTextLeft
 	CfPlayerFrameManaBar.RightText = CfPlayerFrameManaBarTextRight
 
-	CfUnitFrame_Initialize(self, "player", nil, nil,
+	UnitFrame_Initialize(self, "player", nil, nil, nil,
 		CfPlayerFrameHealthBar, CfPlayerFrameHealthBarText,
 		CfPlayerFrameManaBar, CfPlayerFrameManaBarText,
 		nil, nil, nil,
 		CfPlayerFrameMyHealPredictionBar, CfPlayerFrameOtherHealPredictionBar,
-		CfPlayerFrameTotalAbsorbBar, CfPlayerFrameTotalAbsorbBarOverlay, CfPlayerFrameOverAbsorbGlow,
-		CfPlayerFrameOverHealAbsorbGlow, CfPlayerFrameHealAbsorbBar, CfPlayerFrameHealAbsorbBarLeftShadow,
-		CfPlayerFrameHealAbsorbBarRightShadow)
+		CfPlayerFrameTotalAbsorbBar, CfPlayerFrameOverAbsorbGlow,
+		CfPlayerFrameOverHealAbsorbGlow, CfPlayerFrameHealAbsorbBar, nil, nil)
 
 	CfPlayerFrameHealthBarText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	CfPlayerFrameHealthBarTextLeft:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
@@ -26,7 +25,7 @@ function CfPlayerFrame_OnLoad(self)
 end
 
 function CfPlayerFrame_OnEvent(self, event, ...)
-	CfUnitFrame_OnEvent(self, event, ...)
+	UnitFrame_OnEvent(self, event, ...)
 end
 
 PlayerFrame.PlayerFrameContainer:SetFrameLevel(4)
@@ -221,7 +220,7 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	CfPlayerFrameBackground:SetSize(119, 41)
 	PlayerLevelText:Show()
 
-	CfUnitFrame_SetUnit(CfPlayerFrame, "player", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
+	UnitFrame_SetUnit(CfPlayerFrame, "player", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
 end)
 
 hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
@@ -261,7 +260,7 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	CfPlayerFrameBackground:SetSize(114, 41)
 	PlayerLevelText:Hide()
 
-	CfUnitFrame_SetUnit(CfPlayerFrame, "vehicle", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
+	UnitFrame_SetUnit(CfPlayerFrame, "vehicle", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
 end)
 
 hooksecurefunc("PlayerFrame_UpdateLevel", function()

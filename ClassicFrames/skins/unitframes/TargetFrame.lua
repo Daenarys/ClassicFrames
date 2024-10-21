@@ -5,14 +5,14 @@ function CfTargetFrame_OnLoad(self, unit)
 	_G[thisName.."ManaBar"].LeftText = _G[thisName.."ManaBarTextLeft"];
 	_G[thisName.."ManaBar"].RightText = _G[thisName.."ManaBarTextRight"];
 
-	CfUnitFrame_Initialize(self, unit, nil, nil,
+	UnitFrame_Initialize(self, unit, nil, nil, nil,
 		_G[thisName.."HealthBar"], _G[thisName.."HealthBarText"],
 		_G[thisName.."ManaBar"], _G[thisName.."ManaBarText"],
 		nil, nil, nil,
 		_G[thisName.."MyHealPredictionBar"], _G[thisName.."OtherHealPredictionBar"],
-		_G[thisName.."TotalAbsorbBar"], _G[thisName.."TotalAbsorbBarOverlay"], _G[thisName.."OverAbsorbGlow"],
+		_G[thisName.."TotalAbsorbBar"], _G[thisName.."OverAbsorbGlow"],
 		_G[thisName.."OverHealAbsorbGlow"], _G[thisName.."HealAbsorbBar"],
-		_G[thisName.."HealAbsorbBarLeftShadow"], _G[thisName.."HealAbsorbBarRightShadow"])
+		nil, nil)
 
 	if CfTargetFrame then
 		CfTargetFrameHealthBarText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
@@ -312,7 +312,7 @@ end)
 
 hooksecurefunc(TargetFrame, "Update", function(self)
 	if (UnitExists(self.unit)) then
-		CfUnitFrame_Update(CfTargetFrame)
+		UnitFrame_Update(CfTargetFrame)
 	end
 end)
 
@@ -335,7 +335,7 @@ end)
 
 hooksecurefunc(FocusFrame, "Update", function(self)
 	if (UnitExists(self.unit)) then
-		CfUnitFrame_Update(CfFocusFrame)
+		UnitFrame_Update(CfFocusFrame)
 	end
 end)
 
