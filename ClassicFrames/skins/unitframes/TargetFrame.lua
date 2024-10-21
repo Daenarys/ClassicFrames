@@ -5,7 +5,7 @@ function CfTargetFrame_OnLoad(self, unit)
 	_G[thisName.."ManaBar"].LeftText = _G[thisName.."ManaBarTextLeft"];
 	_G[thisName.."ManaBar"].RightText = _G[thisName.."ManaBarTextRight"];
 
-	UnitFrame_Initialize(self, unit, _G[thisName.."Name"], nil, nil,
+	UnitFrame_Initialize(self, unit, nil, nil, nil,
 		_G[thisName.."HealthBar"], _G[thisName.."HealthBarText"],
 		_G[thisName.."ManaBar"], _G[thisName.."ManaBarText"],
 		nil, nil, nil,
@@ -38,6 +38,7 @@ function CfTargetFrame_OnLoad(self, unit)
 		CfFocusFrameOverAbsorbGlow:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
 	end
 
+	self:UnregisterEvent("UNIT_NAME_UPDATE")
 	self:EnableMouse(false)
 end
 
