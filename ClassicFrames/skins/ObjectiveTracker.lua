@@ -40,9 +40,23 @@ for _, tracker in pairs(trackers) do
 	hooksecurefunc(tracker.Header, 'SetCollapsed', SetCollapsed)
 end
 
-hooksecurefunc(ObjectiveTrackerFrame, "AnchorSelectionFrame", function(self)
-	self.Selection:SetPoint("TOPLEFT", -10, -38)
-	self.Selection:SetPoint("BOTTOMRIGHT", -8, 0)
+hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
+	if not self.modules then
+		return
+	end
+	local prevModule = nil
+	for i, module in ipairs(self.modules) do
+		local heightUsed = module:GetContentsHeight()
+		if heightUsed > 0 then
+			if prevModule then
+				module:SetPoint("TOP", prevModule, "BOTTOM", 0, -16)
+			else
+				module:SetPoint("TOP", 0, 0)
+			end
+			prevModule = module
+		end
+	end
+
 end)
 
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block)
