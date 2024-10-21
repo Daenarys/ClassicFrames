@@ -1,4 +1,4 @@
---update the manabar for all unitframes
+--update the manabar for non player/target unitframes
 hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
 	if ( not manaBar ) then
 		return
