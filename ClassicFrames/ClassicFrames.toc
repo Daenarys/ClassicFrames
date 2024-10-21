@@ -115,3 +115,10 @@ skins\unitframes\NamePlate.lua
 skins\unitframes\PartyFrame.lua
 skins\unitframes\PetFrame.lua
 skins\unitframes\UnitFrame.lua
+skins\unitframes\classbars\ClassPowerBar.xml
+skins\unitframes\classbars\Combo.xml
+skins\unitframes\classbars\DK.xml
+skins\unitframes\classbars\Mage.xml
+skins\unitframes\classbars\Monk.xml
+skins\unitframes\classbars\Paladin.xml
+skins\unitframes\classbars\Warlock.xml

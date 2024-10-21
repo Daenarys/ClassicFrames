@@ -221,6 +221,15 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	PlayerLevelText:Show()
 
 	UnitFrame_SetUnit(CfPlayerFrame, "player", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
+
+	local _, class = UnitClass("player")
+	if ( CfPlayerFrame.CfClassPowerBar ) then
+		CfPlayerFrame.CfClassPowerBar:Setup()
+	elseif ( class == "DEATHKNIGHT" ) then
+		CfRuneFrame:Show()
+	end
+
+	ComboPointPlayerFrame:Setup()
 end)
 
 hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
@@ -261,6 +270,15 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	PlayerLevelText:Hide()
 
 	UnitFrame_SetUnit(CfPlayerFrame, "vehicle", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
+
+	local _, class = UnitClass("player")
+	if ( CfPlayerFrame.CfClassPowerBar ) then
+		CfPlayerFrame.CfClassPowerBar:Hide()
+	elseif ( class == "DEATHKNIGHT" ) then
+		CfRuneFrame:Hide()
+	end
+
+	ComboPointPlayerFrame:Setup()
 end)
 
 hooksecurefunc("PlayerFrame_UpdateLevel", function()
@@ -448,5 +466,7 @@ PlayerFrame:HookScript("OnUpdate", function(self)
 end)
 
 hooksecurefunc(PlayerFrameBottomManagedFramesContainer, "Layout", function(self)
-	self:SetPoint("TOP", PlayerFrame, "BOTTOM", 30, 35)
+	if self then
+		self:Hide()
+	end
 end)
