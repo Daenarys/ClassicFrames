@@ -114,3 +114,4 @@ skins\unitframes\CastBar.lua
 skins\unitframes\NamePlate.lua
 skins\unitframes\PartyFrame.lua
 skins\unitframes\PetFrame.lua
+skins\unitframes\UnitFrame.lua
