@@ -49,7 +49,7 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 		local heightUsed = module:GetContentsHeight()
 		if heightUsed > 0 then
 			if prevModule then
-				module:SetPoint("TOP", prevModule, "BOTTOM", 0, -16)
+				module:SetPoint("TOP", prevModule, "BOTTOM", 0, -10)
 			else
 				module:SetPoint("TOP", 0, 0)
 			end
