@@ -183,3 +183,7 @@ end)
 PaperDollFrame:HookScript("OnShow", function()
 	CharacterModelScene.ControlFrame:Hide()
 end)
+
+hooksecurefunc(CharacterModelScene.GearEnchantAnimation, "PlayAndShow", function(self)
+	self:Hide()
+end)
