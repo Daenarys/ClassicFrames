@@ -57,6 +57,13 @@ hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
 		if (manaBar.Spark) then
 			manaBar.Spark:SetAlpha(0)
 		end
+		if (manaBar.FeedbackFrame) then
+			if (info.atlas) then
+				manaBar.FeedbackFrame.BarTexture:SetAtlas(info.atlas, false)
+			else
+				manaBar.FeedbackFrame.BarTexture:SetVertexColor(info.r, info.g, info.b)
+			end
+		end
 	else
 		if ( not altR ) then
 			info = CfPowerBarColor[powerType] or CfPowerBarColor["MANA"]
