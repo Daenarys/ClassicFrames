@@ -144,8 +144,8 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 		end
 	elseif style == POIButtonUtil.Style.AreaPOI then
 		poiButton.Display.Icon:SetAtlas("UI-EventPoi-Horn-big")
-		if poiButton.SubTypeIcon then
-			poiButton.SubTypeIcon:SetAlpha(0)
+		if poiButton.Display.SubTypeIcon then
+			poiButton.Display.SubTypeIcon:SetAlpha(0)
 		end
 	end
 end)
