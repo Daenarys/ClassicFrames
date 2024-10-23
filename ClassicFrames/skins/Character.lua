@@ -67,6 +67,7 @@ if (ReputationFrame.StandingLabel == nil) then
 end
 
 ReputationFrame.filterDropdown:Hide()
+TokenFrame.filterDropdown:Hide()
 
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
 
