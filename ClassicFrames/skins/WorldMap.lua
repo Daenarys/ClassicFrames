@@ -167,8 +167,8 @@ hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
 			self.HighlightTexture:SetSize(18, 18)
 		-- vignettes
 		elseif (self.Texture:GetAtlas() == "vignettekillboss") then
-			self.Texture:SetAtlas("legioninvasion-map-icon-portal", true)
-			self.HighlightTexture:SetAtlas("legioninvasion-map-icon-portal", true)
+			self.Texture:SetAtlas("DemonInvasion5", true)
+			self.HighlightTexture:SetAtlas("DemonInvasion5", true)
 		end
 	end
 end)
@@ -176,8 +176,8 @@ end)
 hooksecurefunc(VignettePinMixin, "OnAcquired", function(self)
 	if self.Texture then
 		if (self.Texture:GetAtlas() == "vignettekillboss") then
-			self.Texture:SetAtlas("legioninvasion-map-icon-portal", true)
-			self.HighlightTexture:SetAtlas("legioninvasion-map-icon-portal", true)
+			self.Texture:SetAtlas("DemonInvasion5", true)
+			self.HighlightTexture:SetAtlas("DemonInvasion5", true)
 		end
 	end
 end)
