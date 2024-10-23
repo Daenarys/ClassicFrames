@@ -38,7 +38,7 @@ CfPowerBarColor[17] = CfPowerBarColor["FURY"]
 CfPowerBarColor[18] = CfPowerBarColor["PAIN"]
 
 hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
-	if ( not manaBar ) then
+	if (not manaBar) then
 		return
 	end
 
@@ -47,15 +47,19 @@ hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
 
 	manaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 
-	if ( info ) then
-		if ( info.atlas ) then
+	if (info) then
+		local playerDeadOrGhost = (manaBar.unit == "player" and (UnitIsDead("player") or UnitIsGhost("player")))
+		manaBar:GetStatusBarTexture():SetDesaturated(playerDeadOrGhost)
+		manaBar:GetStatusBarTexture():SetAlpha(playerDeadOrGhost and 0.5 or 1)
+		if (info.atlas) then
 			manaBar:SetStatusBarTexture(info.atlas)
 			manaBar:SetStatusBarColor(1, 1, 1)
 		else
-			manaBar:SetStatusBarColor(info.r, info.g, info.b)
-		end
-		if (manaBar.Spark) then
-			manaBar.Spark:SetAlpha(0)
+			if (playerDeadOrGhost) then
+				manaBar:SetStatusBarColor(0.6, 0.6, 0.6, 0.5)
+			else
+				manaBar:SetStatusBarColor(info.r, info.g, info.b)
+			end
 		end
 		if (manaBar.FeedbackFrame) then
 			if (info.atlas) then
@@ -64,8 +68,11 @@ hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
 				manaBar.FeedbackFrame.BarTexture:SetVertexColor(info.r, info.g, info.b)
 			end
 		end
+		if (manaBar.Spark) then
+			manaBar.Spark:SetAlpha(0)
+		end
 	else
-		if ( not altR ) then
+		if (not altR) then
 			info = CfPowerBarColor[powerType] or CfPowerBarColor["MANA"]
 		else
 			manaBar:SetStatusBarColor(altR, altG, altB)
