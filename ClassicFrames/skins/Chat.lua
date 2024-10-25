@@ -8,9 +8,12 @@ for i = 1, NUM_CHAT_WINDOWS do
     _G['ChatFrame'..i].ScrollBar.Track.Middle:Hide()
     _G['ChatFrame'..i].ScrollBar.Track.End:Hide()
 
+    _G['ChatFrame'..i].ScrollBar.Track:SetPoint("TOP", 0, -4)
+    _G['ChatFrame'..i].ScrollBar.Track:SetPoint("BOTTOM")
+
     _G['ChatFrame'..i].ScrollToBottomButton:SetSize(24, 24)
     _G['ChatFrame'..i].ScrollToBottomButton:ClearAllPoints()
-    _G['ChatFrame'..i].ScrollToBottomButton:SetPoint("BOTTOMRIGHT", _G['ChatFrame'..i..'ResizeButton'], "TOPRIGHT", 1, -4)
+    _G['ChatFrame'..i].ScrollToBottomButton:SetPoint("BOTTOMRIGHT", _G['ChatFrame'..i..'ResizeButton'], "TOPRIGHT", 1, -2)
     _G['ChatFrame'..i].ScrollToBottomButton:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Up")
     _G['ChatFrame'..i].ScrollToBottomButton:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Down")
     _G['ChatFrame'..i].ScrollToBottomButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollEnd-Disabled")
