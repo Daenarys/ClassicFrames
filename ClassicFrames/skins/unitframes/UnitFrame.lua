@@ -1,8 +1,8 @@
 CfPowerBarColor = {}
-CfPowerBarColor["MANA"] =				{ r = 0.00, g = 0.00, b = 1.00, atlasElementName="Mana", hasClassResourceVariant = true }
+CfPowerBarColor["MANA"] =				{ r = 0.00, g = 0.00, b = 1.00, atlasElementName="Mana" }
 CfPowerBarColor["RAGE"] =				{ r = 1.00, g = 0.00, b = 0.00, fullPowerAnim=true, atlasElementName="Rage" }
 CfPowerBarColor["FOCUS"] =			{ r = 1.00, g = 0.50, b = 0.25, fullPowerAnim=true, atlasElementName="Focus" }
-CfPowerBarColor["ENERGY"] =			{ r = 1.00, g = 1.00, b = 0.00, fullPowerAnim=true, atlasElementName="Energy", hasClassResourceVariant = true }
+CfPowerBarColor["ENERGY"] =			{ r = 1.00, g = 1.00, b = 0.00, fullPowerAnim=true, atlasElementName="Energy" }
 CfPowerBarColor["COMBO_POINTS"] =		{ r = 1.00, g = 0.96, b = 0.41 }
 CfPowerBarColor["RUNES"] =			{ r = 0.50, g = 0.50, b = 0.50 }
 CfPowerBarColor["RUNIC_POWER"] =		{ r = 0.00, g = 0.82, b = 1.00, fullPowerAnim=true, atlasElementName="RunicPower" }
