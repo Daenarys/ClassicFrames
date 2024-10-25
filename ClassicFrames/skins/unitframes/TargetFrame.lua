@@ -38,9 +38,18 @@ function CfTargetFrame_OnLoad(self, unit)
 		CfFocusFrameHealthBar.OverAbsorbGlow:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
 	end
 
-	self:UnregisterEvent("UNIT_NAME_UPDATE")
+	self:RegisterEvent("PLAYER_ENTERING_WORLD")
 	self:EnableMouse(false)
 end
+
+function CfTargetFrame_OnEvent(self, event, ...)
+	UnitFrame_OnEvent(self, event, ...)
+
+	if (event == "PLAYER_ENTERING_WORLD") then
+		UnitFrame_Update(self)
+	end
+end
+
 
 local function SkinFrame(frame)
 	local contextual = frame.TargetFrameContent.TargetFrameContentContextual;

@@ -116,7 +116,7 @@
 			</StatusBar>
 		</Frames>
 		<Scripts>
-			<OnEvent function="UnitFrame_OnEvent"/>
+			<OnEvent function="CfTargetFrame_OnEvent"/>
 		</Scripts>
 	</Button>
 	<Button name="CfTargetFrame" inherits="CfTargetFrameTemplate" parent="TargetFrame">
