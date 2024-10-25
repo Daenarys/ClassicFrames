@@ -109,30 +109,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyNineSlicePortraitMinimizable(ProfessionsFrame)
 		end)
 
-		ApplyCloseButtonOld(ProfessionsFrame.CraftingPage.CraftingOutputLog.ClosePanelButton)
-		ApplyTitleBgNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog)
-		ApplyNineSliceNoPortraitOld(ProfessionsFrame.CraftingPage.CraftingOutputLog)
-
-		if ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar then
-			ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Track.Begin:Hide()
-			ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Track.End:Hide()
-			ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Track.Middle:Hide()
-
-			ApplyScrollBarThumb(ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Track.Thumb)
-
-			ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Back:SetSize(18, 16)
-			ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
-			ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
-			ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
-			ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
-
-			ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Forward:SetSize(18, 16)
-			ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
-			ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
-			ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
-			ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
-		end
-
 		ApplySearchBox(ProfessionsFrame.CraftingPage.RecipeList.SearchBox)
 		ApplySearchBox(ProfessionsFrame.CraftingPage.MinimizedSearchBox)
 		ApplySearchBox(ProfessionsFrame.OrdersPage.BrowseFrame.RecipeList.SearchBox)

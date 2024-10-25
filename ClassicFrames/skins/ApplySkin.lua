@@ -183,49 +183,6 @@ function ApplyNineSliceNoPortraitMinimizable(frame)
 	frame.NineSlice.RightEdge:SetTexCoord(0.263671875, 0.521484375, 0, 1)
 end
 
-function ApplyNineSliceNoPortraitOld(frame)
-	frame.NineSlice.TopEdge:SetSize(256, 28)
-	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
-	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.43750000, 0.65625000)
-
-	frame.NineSlice.TopLeftCorner:SetSize(32, 32)
-	frame.NineSlice.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.TopLeftCorner:SetTexCoord(0.63281250, 0.88281250, 0.28125000, 0.53125000)
-	frame.NineSlice.TopLeftCorner:ClearAllPoints()
-	frame.NineSlice.TopLeftCorner:SetPoint("TOPLEFT", 0, 1)
-
-	frame.NineSlice.TopRightCorner:SetSize(33, 33)
-	frame.NineSlice.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.TopRightCorner:SetTexCoord(0.63281250, 0.89062500, 0.00781250, 0.26562500)
-	frame.NineSlice.TopRightCorner:ClearAllPoints()
-	frame.NineSlice.TopRightCorner:SetPoint("TOPRIGHT", 0, 1)
-
-	frame.NineSlice.BottomEdge:SetSize(256, 9)
-	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
-	frame.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.20312500, 0.27343750)
-
-	frame.NineSlice.BottomLeftCorner:SetSize(14, 14)
-	frame.NineSlice.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.BottomLeftCorner:SetTexCoord(0.00781250, 0.11718750, 0.63281250, 0.74218750)
-	frame.NineSlice.BottomLeftCorner:ClearAllPoints()
-	frame.NineSlice.BottomLeftCorner:SetPoint("BOTTOMLEFT", 0, -4)
-
-	frame.NineSlice.BottomRightCorner:SetSize(11, 11)
-	frame.NineSlice.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.BottomRightCorner:SetTexCoord(0.13281250, 0.21875000, 0.89843750, 0.98437500)
-	frame.NineSlice.BottomRightCorner:ClearAllPoints()
-	frame.NineSlice.BottomRightCorner:SetPoint("BOTTOMRIGHT", 0, -4)
-
-	frame.NineSlice.LeftEdge:SetSize(16, 256)
-	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\!UI-Frame", false, true)
-	frame.NineSlice.LeftEdge:SetTexCoord(0.35937500, 0.60937500, 0, 1)
-
-	frame.NineSlice.RightEdge:SetSize(10, 256)
-	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\!UI-Frame", false, true)
-	frame.NineSlice.RightEdge:SetTexCoord(0.17187500, 0.32812500, 0, 1)
-	frame.NineSlice.RightEdge:SetPoint("TOPRIGHT", frame.NineSlice.TopRightCorner, "BOTTOMRIGHT", 1, 0)
-end
-
 function ApplyDialogBorder(frame)
 	frame.TopEdge:SetSize(32, 32)
 	frame.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetal", true)
