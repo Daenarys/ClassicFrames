@@ -21,11 +21,6 @@
 				<Frames>
 					<Frame setAllPoints="true">
 						<Layers>
-							<Layer level="BACKGROUND">
-								<Texture name="$parentMyHealPredictionBar" inherits="MyHealPredictionBarTemplate"/>
-								<Texture name="$parentOtherHealPredictionBar" inherits="OtherHealPredictionBarTemplate"/>
-								<Texture name="$parentHealAbsorbBar" inherits="HealAbsorbBarTemplate"/>
-							</Layer>
 							<Layer level="BORDER">
 								<FontString name="$parentHealthBarText" inherits="TextStatusBarText">
 									<Anchors>
@@ -58,10 +53,6 @@
 									</Anchors>
 								</FontString>
 							</Layer>
-							<Layer level="ARTWORK" textureSubLevel="1">
-								<Texture name="$parentOverAbsorbGlow" inherits="OverAbsorbGlowTemplate"/>
-								<Texture name="$parentOverHealAbsorbGlow" inherits="OverHealAbsorbGlowTemplate"/>
-							</Layer>
 						</Layers>
 					</Frame>
 				</Frames>
@@ -77,6 +68,18 @@
 				<Anchors>
 					<Anchor point="TOPLEFT" x="106" y="-41"/>
 				</Anchors>
+				<Frames>
+					<Frame parentKey="MyHealPredictionBar" inherits="MyHealPredictionBarTemplate"/>
+					<Frame parentKey="OtherHealPredictionBar" inherits="OtherHealPredictionBarTemplate"/>
+					<Frame parentKey="HealAbsorbBar" inherits="HealAbsorbBarTemplate"/>
+					<Frame parentKey="TotalAbsorbBar" inherits="TotalAbsorbBarTemplate"/>
+				</Frames>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture parentKey="OverAbsorbGlow" inherits="OverAbsorbGlowTemplate"/>
+						<Texture parentKey="OverHealAbsorbGlow" inherits="OverHealAbsorbGlowTemplate"/>
+					</Layer>											
+				</Layers>
 				<Scripts>
 					<OnLoad>
 						self:InitializeTextStatusBar()
