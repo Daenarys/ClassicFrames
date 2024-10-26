@@ -39,6 +39,7 @@ function CfTargetFrame_OnLoad(self, unit)
 	end
 
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
+	self:UnregisterEvent("UNIT_NAME_UPDATE")
 	self:EnableMouse(false)
 end
 
