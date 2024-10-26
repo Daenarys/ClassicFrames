@@ -1,11 +1,11 @@
 CfPowerBarColor = {};
-CfPowerBarColor["MANA"] =				{ r = 0.00, g = 0.00, b = 1.00, atlasElementName="Mana" };
-CfPowerBarColor["RAGE"] =				{ r = 1.00, g = 0.00, b = 0.00, fullPowerAnim=true, atlasElementName="Rage" };
-CfPowerBarColor["FOCUS"] =			{ r = 1.00, g = 0.50, b = 0.25, fullPowerAnim=true, atlasElementName="Focus" };
-CfPowerBarColor["ENERGY"] =			{ r = 1.00, g = 1.00, b = 0.00, fullPowerAnim=true, atlasElementName="Energy" };
+CfPowerBarColor["MANA"] =				{ r = 0.00, g = 0.00, b = 1.00 };
+CfPowerBarColor["RAGE"] =				{ r = 1.00, g = 0.00, b = 0.00, fullPowerAnim=true };
+CfPowerBarColor["FOCUS"] =			{ r = 1.00, g = 0.50, b = 0.25, fullPowerAnim=true };
+CfPowerBarColor["ENERGY"] =			{ r = 1.00, g = 1.00, b = 0.00, fullPowerAnim=true };
 CfPowerBarColor["COMBO_POINTS"] =		{ r = 1.00, g = 0.96, b = 0.41 };
 CfPowerBarColor["RUNES"] =			{ r = 0.50, g = 0.50, b = 0.50 };
-CfPowerBarColor["RUNIC_POWER"] =		{ r = 0.00, g = 0.82, b = 1.00, fullPowerAnim=true, atlasElementName="RunicPower" };
+CfPowerBarColor["RUNIC_POWER"] =		{ r = 0.00, g = 0.82, b = 1.00, fullPowerAnim=true };
 CfPowerBarColor["SOUL_SHARDS"] =		{ r = 0.50, g = 0.32, b = 0.55 };
 CfPowerBarColor["LUNAR_POWER"] =		{ r = 0.30, g = 0.52, b = 0.90, atlas="_Druid-LunarBar" };
 CfPowerBarColor["HOLY_POWER"] =		{ r = 0.95, g = 0.90, b = 0.60 };
