@@ -107,6 +107,7 @@ skins\Wardrobe.lua
 skins\WorkOrders.lua
 skins\WorldMap.lua
 skins\ZoneMap.lua
+skins\unitframes\UnitFrame.xml
 skins\unitframes\PlayerFrame.xml
 skins\unitframes\TargetFrame.xml
 skins\unitframes\BossFrame.lua
@@ -114,7 +115,6 @@ skins\unitframes\CastBar.lua
 skins\unitframes\NamePlate.lua
 skins\unitframes\PartyFrame.lua
 skins\unitframes\PetFrame.lua
-skins\unitframes\UnitFrame.lua
 skins\unitframes\classbars\ClassPowerBar.xml
 skins\unitframes\classbars\Combo.xml
 skins\unitframes\classbars\DK.xml

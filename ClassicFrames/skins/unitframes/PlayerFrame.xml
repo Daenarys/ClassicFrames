@@ -12,12 +12,25 @@
 					<Color r="0" g="0" b="0" a="0.5"/>
 				</Texture>
 			</Layer>
+			<Layer level="ARTWORK">
+				<Texture name="$parentTotalAbsorbBar" inherits="CfTotalAbsorbBarTemplate"/>
+			</Layer>
+			<Layer level="ARTWORK" textureSubLevel="1">
+				<Texture name="$parentTotalAbsorbBarOverlay" inherits="CfTotalAbsorbBarOverlayTemplate"/>
+			</Layer>
 		</Layers>
 		<Frames>
 			<Frame setAllPoints="true">
 				<Frames>
 					<Frame setAllPoints="true">
 						<Layers>
+							<Layer level="BACKGROUND">
+								<Texture name="$parentMyHealPredictionBar" inherits="CfMyHealPredictionBarTemplate"/>
+								<Texture name="$parentOtherHealPredictionBar" inherits="CfOtherHealPredictionBarTemplate"/>
+								<Texture name="$parentHealAbsorbBar" inherits="CfHealAbsorbBarTemplate"/>
+								<Texture name="$parentHealAbsorbBarLeftShadow" inherits="CfHealAbsorbBarLeftShadowTemplate"/>
+								<Texture name="$parentHealAbsorbBarRightShadow" inherits="CfHealAbsorbBarRightShadowTemplate"/>
+							</Layer>
 							<Layer level="BORDER">
 								<FontString name="$parentHealthBarText" inherits="TextStatusBarText">
 									<Anchors>
@@ -50,11 +63,15 @@
 									</Anchors>
 								</FontString>
 							</Layer>
+							<Layer level="ARTWORK" textureSubLevel="1">
+								<Texture name="$parentOverAbsorbGlow" inherits="CfOverAbsorbGlowTemplate"/>
+								<Texture name="$parentOverHealAbsorbGlow" inherits="CfOverHealAbsorbGlowTemplate"/>
+							</Layer>
 						</Layers>
 					</Frame>
 				</Frames>
 			</Frame>
-			<StatusBar parentKey="PlayerFrameHealthBarAnimatedLoss" mixin="AnimatedHealthLossMixin" hidden="true">
+			<StatusBar parentKey="PlayerFrameHealthBarAnimatedLoss" mixin="CfAnimatedHealthLossMixin" hidden="true">
 				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
 				<Scripts>
 					<OnLoad method="OnLoad"/>
@@ -65,18 +82,6 @@
 				<Anchors>
 					<Anchor point="TOPLEFT" x="106" y="-41"/>
 				</Anchors>
-				<Frames>
-					<Frame parentKey="MyHealPredictionBar" inherits="MyHealPredictionBarTemplate"/>
-					<Frame parentKey="OtherHealPredictionBar" inherits="OtherHealPredictionBarTemplate"/>
-					<Frame parentKey="HealAbsorbBar" inherits="HealAbsorbBarTemplate"/>
-					<Frame parentKey="TotalAbsorbBar" inherits="TotalAbsorbBarTemplate"/>
-				</Frames>
-				<Layers>
-					<Layer level="ARTWORK">
-						<Texture parentKey="OverAbsorbGlow" inherits="OverAbsorbGlowTemplate"/>
-						<Texture parentKey="OverHealAbsorbGlow" inherits="OverHealAbsorbGlowTemplate"/>
-					</Layer>											
-				</Layers>
 				<Scripts>
 					<OnLoad>
 						self:InitializeTextStatusBar()
@@ -86,9 +91,9 @@
 						self:SetMouseClickEnabled(false)
 						self:GetParent().PlayerFrameHealthBarAnimatedLoss:SetUnitHealthBar("player", self)
 					</OnLoad>
-					<OnValueChanged function="UnitFrameHealthBar_OnValueChanged"/>
+					<OnValueChanged function="CfUnitFrameHealthBar_OnValueChanged"/>
 					<OnSizeChanged>
-						UnitFrameHealPredictionBars_UpdateSize(self:GetParent())
+						CfUnitFrameHealPredictionBars_UpdateSize(self:GetParent())
 					</OnSizeChanged>
 				</Scripts>
 				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
