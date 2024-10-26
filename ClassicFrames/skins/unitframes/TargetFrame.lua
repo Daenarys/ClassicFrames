@@ -39,7 +39,6 @@ function CfTargetFrame_OnLoad(self, unit)
 	end
 
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
-	self:UnregisterEvent("UNIT_NAME_UPDATE")
 	self:EnableMouse(false)
 end
 
@@ -47,7 +46,9 @@ function CfTargetFrame_OnEvent(self, event, ...)
 	UnitFrame_OnEvent(self, event, ...)
 
 	if (event == "PLAYER_ENTERING_WORLD") then
-		UnitFrame_Update(self)
+		if (UnitExists(self.unit)) then
+			UnitFrame_Update(self)
+		end
 	end
 end
 

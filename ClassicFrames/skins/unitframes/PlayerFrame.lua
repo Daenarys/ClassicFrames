@@ -21,7 +21,6 @@ function CfPlayerFrame_OnLoad(self)
 	CfPlayerFrameHealthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
-	self:UnregisterEvent("UNIT_NAME_UPDATE")
 	self:EnableMouse(false)
 end
 
