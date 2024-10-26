@@ -44,6 +44,9 @@ PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface/CHARAC
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer:SetAlpha(0)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea:SetAlpha(0)
 
+PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer.HealthBar:EnableMouse(false)
+PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea.ManaBar:EnableMouse(false)
+
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:ClearAllPoints()
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:SetPoint("CENTER", PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator, "TOPLEFT", 54, -46)
