@@ -742,21 +742,20 @@ hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
 	manaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 
 	if ( info ) then
-		local playerDeadOrGhost = (manaBar.unit == "player" and (UnitIsDead("player") or UnitIsGhost("player")))
-		manaBar:GetStatusBarTexture():SetDesaturated(playerDeadOrGhost)
-		manaBar:GetStatusBarTexture():SetAlpha(playerDeadOrGhost and 0.5 or 1)
-		if ( info.atlas ) then
-			manaBar:SetStatusBarTexture(info.atlas)
-			manaBar:SetStatusBarColor(1, 1, 1)
-		else
-			if ( playerDeadOrGhost ) then
-				manaBar:SetStatusBarColor(0.6, 0.6, 0.6, 0.5)
+		if ( not manaBar.lockColor ) then
+			local playerDeadOrGhost = (manaBar.unit == "player" and (UnitIsDead("player") or UnitIsGhost("player")))
+			if ( info.atlas ) then
+				manaBar:SetStatusBarTexture(info.atlas)
+				manaBar:SetStatusBarColor(1, 1, 1)
+				manaBar:GetStatusBarTexture():SetDesaturated(playerDeadOrGhost)
+				manaBar:GetStatusBarTexture():SetAlpha(playerDeadOrGhost and 0.5 or 1)
 			else
-				manaBar:SetStatusBarColor(info.r, info.g, info.b)
+				if ( playerDeadOrGhost ) then
+					manaBar:SetStatusBarColor(0.6, 0.6, 0.6, 0.5)
+				else
+					manaBar:SetStatusBarColor(info.r, info.g, info.b)
+				end
 			end
-		end
-		if (manaBar.Spark) then
-			manaBar.Spark:SetAlpha(0)
 		end
 	else
 		if ( not altR ) then
