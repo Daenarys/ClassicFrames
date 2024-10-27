@@ -5,10 +5,9 @@ function CfTargetFrame_OnLoad(self, unit)
 	_G[thisName.."ManaBar"].LeftText = _G[thisName.."ManaBarTextLeft"];
 	_G[thisName.."ManaBar"].RightText = _G[thisName.."ManaBarTextRight"];
 
-	CfUnitFrame_Initialize(self, unit, nil, nil,
+	CfUnitFrame_Initialize(self, unit,
 		_G[thisName.."HealthBar"], _G[thisName.."HealthBarText"],
 		_G[thisName.."ManaBar"], _G[thisName.."ManaBarText"],
-		nil, nil, nil,
 		_G[thisName.."MyHealPredictionBar"], _G[thisName.."OtherHealPredictionBar"],
 		_G[thisName.."TotalAbsorbBar"], _G[thisName.."TotalAbsorbBarOverlay"], _G[thisName.."OverAbsorbGlow"],
 		_G[thisName.."OverHealAbsorbGlow"], _G[thisName.."HealAbsorbBar"],

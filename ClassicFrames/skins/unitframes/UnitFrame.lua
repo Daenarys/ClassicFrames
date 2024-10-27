@@ -37,16 +37,11 @@ CfPowerBarColor[13] = CfPowerBarColor["INSANITY"];
 CfPowerBarColor[17] = CfPowerBarColor["FURY"];
 CfPowerBarColor[18] = CfPowerBarColor["PAIN"];
 
-function CfUnitFrame_Initialize(self, unit, name, portrait, healthbar, healthtext, manabar, manatext, threatIndicator, threatFeedbackUnit, threatNumericIndicator,
-		myHealPredictionBar, otherHealPredictionBar, totalAbsorbBar, totalAbsorbBarOverlay, overAbsorbGlow, overHealAbsorbGlow, healAbsorbBar, healAbsorbBarLeftShadow,
+function CfUnitFrame_Initialize(self, unit, healthbar, healthtext, manabar, manatext, myHealPredictionBar, otherHealPredictionBar, totalAbsorbBar, totalAbsorbBarOverlay, overAbsorbGlow, overHealAbsorbGlow, healAbsorbBar, healAbsorbBarLeftShadow,
 		healAbsorbBarRightShadow)
 	self.unit = unit;
-	self.name = name;
-	self.portrait = portrait;
 	self.healthbar = healthbar;
 	self.manabar = manabar;
-	self.threatIndicator = threatIndicator;
-	self.threatNumericIndicator = threatNumericIndicator;
 	self.myHealPredictionBar = myHealPredictionBar;
 	self.otherHealPredictionBar = otherHealPredictionBar
 	self.totalAbsorbBar = totalAbsorbBar;

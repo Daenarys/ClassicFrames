@@ -4,10 +4,9 @@ function CfPlayerFrame_OnLoad(self)
 	CfPlayerFrameManaBar.LeftText = CfPlayerFrameManaBarTextLeft
 	CfPlayerFrameManaBar.RightText = CfPlayerFrameManaBarTextRight
 
-	CfUnitFrame_Initialize(self, "player", nil, nil,
+	CfUnitFrame_Initialize(self, "player",
 		CfPlayerFrameHealthBar, CfPlayerFrameHealthBarText,
 		CfPlayerFrameManaBar, CfPlayerFrameManaBarText,
-		nil, nil, nil,
 		CfPlayerFrameMyHealPredictionBar, CfPlayerFrameOtherHealPredictionBar,
 		CfPlayerFrameTotalAbsorbBar, CfPlayerFrameTotalAbsorbBarOverlay, CfPlayerFrameOverAbsorbGlow,
 		CfPlayerFrameOverHealAbsorbGlow, CfPlayerFrameHealAbsorbBar, CfPlayerFrameHealAbsorbBarLeftShadow,
