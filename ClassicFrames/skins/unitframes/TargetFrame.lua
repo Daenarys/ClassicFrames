@@ -5,14 +5,14 @@ function CfTargetFrame_OnLoad(self, unit)
 	_G[thisName.."ManaBar"].LeftText = _G[thisName.."ManaBarTextLeft"];
 	_G[thisName.."ManaBar"].RightText = _G[thisName.."ManaBarTextRight"];
 
-	UnitFrame_Initialize(self, unit, nil, nil, nil,
+	CfUnitFrame_Initialize(self, unit, nil, nil,
 		_G[thisName.."HealthBar"], _G[thisName.."HealthBarText"],
 		_G[thisName.."ManaBar"], _G[thisName.."ManaBarText"],
 		nil, nil, nil,
-		_G[thisName.."HealthBar"].MyHealPredictionBar, _G[thisName.."HealthBar"].OtherHealPredictionBar,
-		_G[thisName.."HealthBar"].TotalAbsorbBar, _G[thisName.."HealthBar"].OverAbsorbGlow,
-		_G[thisName.."HealthBar"].OverHealAbsorbGlow, _G[thisName.."HealthBar"].HealAbsorbBar,
-		nil, nil)
+		_G[thisName.."MyHealPredictionBar"], _G[thisName.."OtherHealPredictionBar"],
+		_G[thisName.."TotalAbsorbBar"], _G[thisName.."TotalAbsorbBarOverlay"], _G[thisName.."OverAbsorbGlow"],
+		_G[thisName.."OverHealAbsorbGlow"], _G[thisName.."HealAbsorbBar"],
+		_G[thisName.."HealAbsorbBarLeftShadow"], _G[thisName.."HealAbsorbBarRightShadow"])
 
 	if CfTargetFrame then
 		CfTargetFrameHealthBarText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
@@ -23,7 +23,7 @@ function CfTargetFrame_OnLoad(self, unit)
 		CfTargetFrameManaBarTextRight:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
 		CfTargetFrameDeadText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
 		CfTargetFrameUnconsciousText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfTargetFrameHealthBar.OverAbsorbGlow:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfTargetFrameOverAbsorbGlow:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
 	end
 
 	if CfFocusFrame then
@@ -35,7 +35,7 @@ function CfTargetFrame_OnLoad(self, unit)
 		CfFocusFrameManaBarTextRight:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
 		CfFocusFrameDeadText:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
 		CfFocusFrameUnconsciousText:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfFocusFrameHealthBar.OverAbsorbGlow:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfFocusFrameOverAbsorbGlow:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
 	end
 
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
@@ -43,11 +43,11 @@ function CfTargetFrame_OnLoad(self, unit)
 end
 
 function CfTargetFrame_OnEvent(self, event, ...)
-	UnitFrame_OnEvent(self, event, ...)
+	CfUnitFrame_OnEvent(self, event, ...)
 
 	if (event == "PLAYER_ENTERING_WORLD") then
 		if (UnitExists(self.unit)) then
-			UnitFrame_Update(self)
+			CfUnitFrame_Update(self)
 		end
 	end
 end
@@ -323,7 +323,7 @@ end)
 
 hooksecurefunc(TargetFrame, "Update", function(self)
 	if (UnitExists(self.unit)) then
-		UnitFrame_Update(CfTargetFrame)
+		CfUnitFrame_Update(CfTargetFrame)
 	end
 end)
 
@@ -346,7 +346,7 @@ end)
 
 hooksecurefunc(FocusFrame, "Update", function(self)
 	if (UnitExists(self.unit)) then
-		UnitFrame_Update(CfFocusFrame)
+		CfUnitFrame_Update(CfFocusFrame)
 	end
 end)
 
