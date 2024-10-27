@@ -666,7 +666,7 @@ function CfUnitFrameManaBar_OnEvent(self, event, ...)
 			self:SetScript("OnUpdate", nil)
 		end
 	elseif ( event == "PLAYER_ALIVE"  or event == "PLAYER_DEAD" or event == "PLAYER_UNGHOST" ) then
-		UnitFrameManaBar_UpdateType(self)
+		CfUnitFrameManaBar_UpdateType(self)
 	else
 		if ( not self.ignoreNoUnit or UnitGUID(self.unit) ) then
 			CfUnitFrameManaBar_Update(self, ...)
