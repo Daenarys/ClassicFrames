@@ -335,10 +335,13 @@ function CfUnitFrameManaBar_UpdateType(manaBar)
 	if ( not manaBar ) then
 		return;
 	end
+
 	local unitFrame = manaBar:GetParent()
 	local powerType, powerToken, altR, altG, altB = UnitPowerType(manaBar.unit)
 	local info = CfPowerBarColor[powerToken]
+
 	manaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+
 	if ( info ) then
 		if ( not manaBar.lockColor ) then
 			local playerDeadOrGhost = (manaBar.unit == "player" and (UnitIsDead("player") or UnitIsGhost("player")))
@@ -372,6 +375,7 @@ function CfUnitFrameManaBar_UpdateType(manaBar)
 			end
 		end
 	end
+
 	if ( manaBar.powerType ~= powerType or manaBar.powerType ~= powerType ) then
 		manaBar.powerType = powerType;
 		manaBar.powerToken = powerToken;
@@ -754,6 +758,9 @@ hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
 			else
 				manaBar:SetStatusBarColor(info.r, info.g, info.b);
 			end
+		end
+		if ( manaBar.Spark ) then
+			manaBar.Spark:SetAlpha(0)
 		end
 	else
 		if ( not altR ) then
