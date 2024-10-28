@@ -470,8 +470,14 @@ PlayerFrame:HookScript("OnUpdate", function(self)
 	end
 end)
 
-hooksecurefunc(PlayerFrameBottomManagedFramesContainer, "Layout", function(self)
-	if self then
-		self:Hide()
+hooksecurefunc(PlayerFrameBottomManagedFramesContainer, "Layout", function()
+	local classPowerBar = PlayerFrame.classPowerBar
+	if (classPowerBar) then
+		classPowerBar:UnregisterAllEvents()
+		classPowerBar:Hide()
+	end
+	if (RuneFrame) then
+		RuneFrame:UnregisterAllEvents()
+		RuneFrame:Hide()
 	end
 end)
