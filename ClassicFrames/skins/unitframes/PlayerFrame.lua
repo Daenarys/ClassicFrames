@@ -4,13 +4,13 @@ function CfPlayerFrame_OnLoad(self)
 	CfPlayerFrameManaBar.LeftText = CfPlayerFrameManaBarTextLeft
 	CfPlayerFrameManaBar.RightText = CfPlayerFrameManaBarTextRight
 
-	CfUnitFrame_Initialize(self, "player",
+	UnitFrame_Initialize(self, "player", nil, nil, nil,
 		CfPlayerFrameHealthBar, CfPlayerFrameHealthBarText,
 		CfPlayerFrameManaBar, CfPlayerFrameManaBarText,
-		CfPlayerFrameMyHealPredictionBar, CfPlayerFrameOtherHealPredictionBar,
-		CfPlayerFrameTotalAbsorbBar, CfPlayerFrameTotalAbsorbBarOverlay, CfPlayerFrameOverAbsorbGlow,
-		CfPlayerFrameOverHealAbsorbGlow, CfPlayerFrameHealAbsorbBar, CfPlayerFrameHealAbsorbBarLeftShadow,
-		CfPlayerFrameHealAbsorbBarRightShadow)
+		nil, nil, nil,
+		CfPlayerFrameHealthBar.MyHealPredictionBar, CfPlayerFrameHealthBar.OtherHealPredictionBar,
+		CfPlayerFrameHealthBar.TotalAbsorbBar, CfPlayerFrameHealthBar.OverAbsorbGlow,
+		CfPlayerFrameHealthBar.OverHealAbsorbGlow, CfPlayerFrameHealthBar.HealAbsorbBar, nil, nil)
 
 	CfPlayerFrameHealthBarText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	CfPlayerFrameHealthBarTextLeft:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
@@ -18,18 +18,18 @@ function CfPlayerFrame_OnLoad(self)
 	CfPlayerFrameManaBarText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	CfPlayerFrameManaBarTextLeft:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	CfPlayerFrameManaBarTextRight:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
-	CfPlayerFrameOverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+	CfPlayerFrameHealthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
 	self:EnableMouse(false)
 end
 
 function CfPlayerFrame_OnEvent(self, event, ...)
-	CfUnitFrame_OnEvent(self, event, ...)
+	UnitFrame_OnEvent(self, event, ...)
 
 	if (event == "PLAYER_ENTERING_WORLD") then
 		if (UnitExists("player")) then
-			CfUnitFrame_Update(self)
+			UnitFrame_Update(self)
 		end
 	end
 end
@@ -228,7 +228,7 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	CfPlayerFrameBackground:SetSize(119, 41)
 	PlayerLevelText:Show()
 
-	CfUnitFrame_SetUnit(CfPlayerFrame, "player", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
+	UnitFrame_SetUnit(CfPlayerFrame, "player", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
 
 	local _, class = UnitClass("player")
 	if ( CfPlayerFrame.CfClassPowerBar ) then
@@ -274,7 +274,7 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	CfPlayerFrameBackground:SetSize(114, 41)
 	PlayerLevelText:Hide()
 
-	CfUnitFrame_SetUnit(CfPlayerFrame, "vehicle", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
+	UnitFrame_SetUnit(CfPlayerFrame, "vehicle", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
 
 	local _, class = UnitClass("player")
 	if ( CfPlayerFrame.CfClassPowerBar ) then
