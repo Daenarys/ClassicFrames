@@ -44,7 +44,6 @@ PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface/CHARAC
 
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer:SetAlpha(0)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea:SetAlpha(0)
-
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer.HealthBar:EnableMouse(false)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea.ManaBar:EnableMouse(false)
 
@@ -443,6 +442,18 @@ hooksecurefunc("PlayerFrame_UpdateStatus", function()
 	end
 end)
 
+hooksecurefunc(PlayerFrameBottomManagedFramesContainer, "Layout", function()
+	local classPowerBar = PlayerFrame.classPowerBar
+	if (classPowerBar) then
+		classPowerBar:UnregisterAllEvents()
+		classPowerBar:Hide()
+	end
+	if (RuneFrame) then
+		RuneFrame:UnregisterAllEvents()
+		RuneFrame:Hide()
+	end
+end)
+
 PlayerFrame:HookScript("OnUpdate", function(self)
 	if (self.PlayerFrameContent.PlayerFrameContentMain.StatusTexture:IsShown()) then
 		local alpha = 255
@@ -467,17 +478,5 @@ PlayerFrame:HookScript("OnUpdate", function(self)
 		if (self.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow:IsShown()) then
 			self.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow:SetAlpha(alpha)
 		end
-	end
-end)
-
-hooksecurefunc(PlayerFrameBottomManagedFramesContainer, "Layout", function()
-	local classPowerBar = PlayerFrame.classPowerBar
-	if (classPowerBar) then
-		classPowerBar:UnregisterAllEvents()
-		classPowerBar:Hide()
-	end
-	if (RuneFrame) then
-		RuneFrame:UnregisterAllEvents()
-		RuneFrame:Hide()
 	end
 end)
