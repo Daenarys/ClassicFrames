@@ -8,10 +8,9 @@ function CfTargetFrame_OnLoad(self, unit)
 	CfUnitFrame_Initialize(self, unit,
 		_G[thisName.."HealthBar"], _G[thisName.."HealthBarText"],
 		_G[thisName.."ManaBar"], _G[thisName.."ManaBarText"],
-		_G[thisName.."MyHealPredictionBar"], _G[thisName.."OtherHealPredictionBar"],
-		_G[thisName.."TotalAbsorbBar"], _G[thisName.."TotalAbsorbBarOverlay"], _G[thisName.."OverAbsorbGlow"],
-		_G[thisName.."OverHealAbsorbGlow"], _G[thisName.."HealAbsorbBar"],
-		_G[thisName.."HealAbsorbBarLeftShadow"], _G[thisName.."HealAbsorbBarRightShadow"])
+		_G[thisName.."HealthBar"].MyHealPredictionBar, _G[thisName.."HealthBar"].OtherHealPredictionBar,
+		_G[thisName.."HealthBar"].TotalAbsorbBar, _G[thisName.."HealthBar"].OverAbsorbGlow,
+		_G[thisName.."HealthBar"].OverHealAbsorbGlow, _G[thisName.."HealthBar"].HealAbsorbBar)
 
 	if CfTargetFrame then
 		CfTargetFrameHealthBarText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
@@ -22,7 +21,7 @@ function CfTargetFrame_OnLoad(self, unit)
 		CfTargetFrameManaBarTextRight:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
 		CfTargetFrameDeadText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
 		CfTargetFrameUnconsciousText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfTargetFrameOverAbsorbGlow:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfTargetFrameHealthBar.OverAbsorbGlow:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
 	end
 
 	if CfFocusFrame then
@@ -34,7 +33,7 @@ function CfTargetFrame_OnLoad(self, unit)
 		CfFocusFrameManaBarTextRight:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
 		CfFocusFrameDeadText:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
 		CfFocusFrameUnconsciousText:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfFocusFrameOverAbsorbGlow:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
+		CfFocusFrameHealthBar.OverAbsorbGlow:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
 	end
 
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
