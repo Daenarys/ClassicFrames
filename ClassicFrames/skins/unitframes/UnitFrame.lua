@@ -118,8 +118,6 @@ function CfUnitFrameHealPredictionBars_UpdateSize(self)
 	CfUnitFrameHealPredictionBars_Update(self)
 end
 
---WARNING: This function is very similar to the function CompactUnitFrame_UpdateHealPrediction in CompactUnitFrame.lua.
---If you are making changes here, it is possible you may want to make changes there as well.
 local MAX_INCOMING_HEAL_OVERFLOW = 1.0;
 function CfUnitFrameHealPredictionBars_Update(frame)
 	if ( not frame.myHealPredictionBar and not frame.otherHealPredictionBar and not frame.healAbsorbBar and not frame.totalAbsorbBar ) then
@@ -238,12 +236,6 @@ function CfUnitFrameHealPredictionBars_Update(frame)
 	end
 end
 
---[[
-	Previous way to set the mana bar type was by coloring the mana bar (or using an atlas texture for
-	certain cases).  Current way uses atlas textures exclusively, with a mask (done in each frame)
-	making the older existing atlas textures fit to the frame shape.  Once all unit frames have been
-	converted to the new flow, this method and any associated data pieces can be removed safely.
-]]--
 function CfUnitFrameManaBar_UpdateType(manaBar)
 	if ( not manaBar ) then
 		return;
@@ -549,3 +541,32 @@ function CfUnitFrameManaBar_Update(statusbar, unit)
 	end
 	statusbar:UpdateTextString()
 end
+
+hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
+	if ( not manaBar ) then
+		return
+	end
+
+	local powerType, powerToken, altR, altG, altB = UnitPowerType(manaBar.unit)
+	local info = PowerBarColor[powerToken]
+
+	manaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+
+	if ( info ) then
+		if ( info.atlas ) then
+			manaBar:SetStatusBarTexture(info.atlas)
+			manaBar:SetStatusBarColor(1, 1, 1)
+		else
+			manaBar:SetStatusBarColor(info.r, info.g, info.b)
+		end
+		if ( manaBar.Spark ) then
+			manaBar.Spark:SetAlpha(0)
+		end
+	else
+		if ( not altR ) then
+			info = PowerBarColor[powerType] or PowerBarColor["MANA"]
+		else
+			manaBar:SetStatusBarColor(altR, altG, altB)
+		end
+	end
+end)
