@@ -1,3 +1,10 @@
+local ManaBarFrequentUpdateUnitTypes = {
+	"player",
+	"vehicle",
+	"target",
+	"focus"
+};
+
 function CfUnitFrame_Initialize(self, unit, healthbar, healthtext, manabar, manatext,
 	myHealPredictionBar, otherHealPredictionBar, totalAbsorbBar, overAbsorbGlow, overHealAbsorbGlow, healAbsorbBar)
 	self.unit = unit;
@@ -31,6 +38,15 @@ function CfUnitFrame_Initialize(self, unit, healthbar, healthtext, manabar, mana
 	end
 
 	CfUnitFrameHealthBar_Initialize(unit, healthbar, healthtext, true)
+
+	local manaBarFrequentUpdates = false;
+	for _, unitType in ipairs(ManaBarFrequentUpdateUnitTypes) do
+		if (unit == unitType) then
+			manaBarFrequentUpdates = true;
+			break;
+		end
+	end
+
 	CfUnitFrameManaBar_Initialize(unit, manabar, manatext, manaBarFrequentUpdates)
 	CfUnitFrame_Update(self)
 
