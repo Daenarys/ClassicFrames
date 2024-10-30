@@ -1,3 +1,5 @@
+if not _G.CommunitiesFrame then return end
+
 CommunitiesFrame:HookScript("OnUpdate", function(self)
 	local displayMode = self:GetDisplayMode();
 	if displayMode == COMMUNITIES_FRAME_DISPLAY_MODES.MINIMIZED then
