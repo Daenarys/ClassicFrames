@@ -66,10 +66,10 @@
 					<Anchor point="TOPLEFT" x="106" y="-41"/>
 				</Anchors>
 				<Frames>
-					<Frame parentKey="MyHealPredictionBar" inherits="MyHealPredictionBarTemplate"/>
-					<Frame parentKey="OtherHealPredictionBar" inherits="OtherHealPredictionBarTemplate"/>
-					<Frame parentKey="HealAbsorbBar" inherits="HealAbsorbBarTemplate"/>
-					<Frame parentKey="TotalAbsorbBar" inherits="TotalAbsorbBarTemplate"/>
+					<Frame parentKey="MyHealPredictionBar" inherits="PlayerFrameBarSegmentTemplate, MyHealPredictionBarTemplate"/>
+					<Frame parentKey="OtherHealPredictionBar" inherits="PlayerFrameBarSegmentTemplate, OtherHealPredictionBarTemplate"/>
+					<Frame parentKey="HealAbsorbBar" inherits="PlayerFrameBarSegmentTemplate, HealAbsorbBarTemplate"/>
+					<Frame parentKey="TotalAbsorbBar" inherits="PlayerFrameBarSegmentTemplate, TotalAbsorbBarTemplate"/>
 				</Frames>
 				<Layers>
 					<Layer level="ARTWORK">

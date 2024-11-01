@@ -70,10 +70,10 @@
 					<Anchor point="TOPRIGHT" x="-106" y="-41"/>
 				</Anchors>
 				<Frames>
-					<Frame parentKey="MyHealPredictionBar" inherits="MyHealPredictionBarTemplate"/>
-					<Frame parentKey="OtherHealPredictionBar" inherits="OtherHealPredictionBarTemplate"/>
-					<Frame parentKey="HealAbsorbBar" inherits="HealAbsorbBarTemplate"/>
-					<Frame parentKey="TotalAbsorbBar" inherits="TotalAbsorbBarTemplate"/>
+					<Frame parentKey="MyHealPredictionBar" inherits="TargetFrameBarSegmentTemplate, MyHealPredictionBarTemplate"/>
+					<Frame parentKey="OtherHealPredictionBar" inherits="TargetFrameBarSegmentTemplate, OtherHealPredictionBarTemplate"/>
+					<Frame parentKey="HealAbsorbBar" inherits="TargetFrameBarSegmentTemplate, HealAbsorbBarTemplate"/>
+					<Frame parentKey="TotalAbsorbBar" inherits="TargetFrameBarSegmentTemplate, TotalAbsorbBarTemplate"/>
 				</Frames>
 				<Layers>
 					<Layer level="ARTWORK">
