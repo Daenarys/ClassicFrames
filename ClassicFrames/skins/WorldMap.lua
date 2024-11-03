@@ -127,12 +127,6 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 	elseif style == POIButtonUtil.Style.WorldQuest then
 		local info = C_QuestLog.GetQuestTagInfo(questID)
 		if info then
-			if (poiButton.EmissaryRing == nil) then
-				poiButton.EmissaryRing = poiButton:CreateTexture(nil, "BACKGROUND")
-				poiButton.EmissaryRing:SetAtlas("worldquest-emissary-ring", true)
-				poiButton.EmissaryRing:SetPoint("CENTER", 0, -1)
-				poiButton.EmissaryRing:Hide()
-			end
 			if (poiButton.Display.Icon:GetAtlas() == "Worldquest-icon") then
 				poiButton.Display.Icon:SetAtlas("worldquest-questmarker-questbang")
 				poiButton.Display.Icon:SetSize(6, 15)
@@ -179,15 +173,4 @@ hooksecurefunc(VignettePinMixin, "OnAcquired", function(self)
 			self.HighlightTexture:SetAtlas("DemonInvasion5", true)
 		end
 	end
-end)
-
-hooksecurefunc(WorldQuestPinMixin, "RefreshVisuals", function(self)
-	local bountyQuestID = self.dataProvider:GetBountyInfo()
-	self.EmissaryRing:SetShown(bountyQuestID and C_QuestLog.IsQuestCriteriaForBounty(self.questID, bountyQuestID))
-end)
-
-hooksecurefunc(MapPinAnimatedHighlightMixin, "SetHighlightShown", function(self)
-	self:SetShown(false)
-	self.BackHighlight:SetShown(false)
-	self.TopHighlight:SetShown(false)
 end)
