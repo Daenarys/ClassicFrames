@@ -15,6 +15,11 @@ PVEFrame.TitleContainer:SetPoint("TOPRIGHT", PVEFrame, "TOPRIGHT", -58, 0)
 ApplyTitleBg(PVEFrame)
 ApplyNineSlicePortrait(PVEFrame)
 
+PVEFrameTab2:ClearAllPoints()
+PVEFrameTab2:SetPoint("LEFT", PVEFrameTab1, "RIGHT", -16, 0)
+PVEFrameTab3:ClearAllPoints()
+PVEFrameTab3:SetPoint("LEFT", PVEFrameTab2, "RIGHT", -16, 0)
+
 for i = 1, 4 do
 	ApplyBottomTab(_G['PVEFrameTab'..i])
 
@@ -28,12 +33,18 @@ GroupFinderFrame:HookScript("OnShow", function()
 end)
 
 PVEFrame:HookScript("OnShow", function(self)
-	self.tab2:ClearAllPoints()
-	self.tab2:SetPoint("LEFT", self.tab1, "RIGHT", -16, 0)
-	self.tab3:ClearAllPoints()
-	self.tab3:SetPoint("LEFT", self.tab2, "RIGHT", -16, 0)
-	self.tab4:ClearAllPoints()
-	self.tab4:SetPoint("LEFT", self.tab3, "RIGHT", -16, 0)
+	if self:TimerunningEnabled() then
+		self.tab4:Hide()
+	else
+		if self.tab4:IsShown() then
+			self.tab4:ClearAllPoints()
+			if self.tab2:IsShown() and not self.tab3:IsShown() then
+				self.tab4:SetPoint("LEFT", self.tab2, "RIGHT", -16, 0)
+			elseif self.tab2:IsShown() and self.tab3:IsShown() then
+				self.tab4:SetPoint("LEFT", self.tab3, "RIGHT", -16, 0)
+			end
+		end
+	end
 end)
 
 LFDQueueFrameRandomScrollFrame.ScrollBar:SetSize(25, 560)
