@@ -15,13 +15,6 @@ PVEFrame.TitleContainer:SetPoint("TOPRIGHT", PVEFrame, "TOPRIGHT", -58, 0)
 ApplyTitleBg(PVEFrame)
 ApplyNineSlicePortrait(PVEFrame)
 
-PVEFrameTab2:ClearAllPoints()
-PVEFrameTab2:SetPoint("LEFT", PVEFrameTab1, "RIGHT", -16, 0)
-PVEFrameTab3:ClearAllPoints()
-PVEFrameTab3:SetPoint("LEFT", PVEFrameTab2, "RIGHT", -16, 0)
-PVEFrameTab4:ClearAllPoints()
-PVEFrameTab4:SetPoint("LEFT", PVEFrameTab3, "RIGHT", -16, 0)
-
 for i = 1, 4 do
 	ApplyBottomTab(_G['PVEFrameTab'..i])
 
@@ -35,8 +28,12 @@ GroupFinderFrame:HookScript("OnShow", function()
 end)
 
 PVEFrame:HookScript("OnShow", function(self)
-	self.tab3:SetShown(UnitLevel("player") == GetMaxLevelForExpansionLevel(LE_EXPANSION_WAR_WITHIN))
-	self.tab4:SetShown(UnitLevel("player") == GetMaxLevelForExpansionLevel(LE_EXPANSION_WAR_WITHIN))
+	self.tab2:ClearAllPoints()
+	self.tab2:SetPoint("LEFT", self.tab1, "RIGHT", -16, 0)
+	self.tab3:ClearAllPoints()
+	self.tab3:SetPoint("LEFT", self.tab2, "RIGHT", -16, 0)
+	self.tab4:ClearAllPoints()
+	self.tab4:SetPoint("LEFT", self.tab3, "RIGHT", -16, 0)
 end)
 
 LFDQueueFrameRandomScrollFrame.ScrollBar:SetSize(25, 560)
