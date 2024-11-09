@@ -6,8 +6,6 @@ for _, frame in _G.pairs(_G.BossTargetFrameContainer.BossTargetFrames) do
 	local FrameManaBar = frame.TargetFrameContent.TargetFrameContentMain.ManaBar;
 	local FrameNameText = frame.TargetFrameContent.TargetFrameContentMain.Name;
 
-	frame:SetScale(0.75)
-
 	FrameHealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 	FrameHealthBar:SetStatusBarColor(0, 1, 0)
 	FrameHealthBar:SetSize(119, 12)
