@@ -44,6 +44,7 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 	if not self.modules then
 		return
 	end
+
 	local prevModule = nil
 	for i, module in ipairs(self.modules) do
 		local heightUsed = module:GetContentsHeight()
@@ -56,7 +57,6 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 			prevModule = module
 		end
 	end
-
 end)
 
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block)
