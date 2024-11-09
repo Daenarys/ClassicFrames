@@ -11,6 +11,8 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 	frame.VehicleTexture:ClearAllPoints()
 	frame.VehicleTexture:SetPoint("TOPLEFT", -8, -2)
 	frame.VehicleTexture:SetDrawLayer("ARTWORK", 7)
+	frame.Portrait:ClearAllPoints()
+	frame.Portrait:SetPoint("TOPLEFT", 7, -14)
 	frame.NotPresentIcon:ClearAllPoints()
 	frame.NotPresentIcon:SetPoint("LEFT", frame, "RIGHT", 1, -3)
 	frame.PartyMemberOverlay.LeaderIcon:SetSize(16, 16)
@@ -24,10 +26,11 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 	frame.PartyMemberOverlay.GuideIcon:SetPoint("TOPLEFT", 0, -8)
 	frame.PartyMemberOverlay.PVPIcon:ClearAllPoints()
 	frame.PartyMemberOverlay.PVPIcon:SetPoint("TOPLEFT", -9, -23)
+	frame.PartyMemberOverlay.RoleIcon:SetSize(19, 19)
+	frame.PartyMemberOverlay.RoleIcon:ClearAllPoints()
+	frame.PartyMemberOverlay.RoleIcon:SetPoint("TOPLEFT", 7, -41)
 	frame.PartyMemberOverlay.Disconnect:ClearAllPoints()
-	frame.PartyMemberOverlay.Disconnect:SetPoint("LEFT", -7, -9)
-	frame.Portrait:ClearAllPoints()
-	frame.Portrait:SetPoint("TOPLEFT", 7, -14)
+	frame.PartyMemberOverlay.Disconnect:SetPoint("LEFT", -7, -10)
 	frame.HealthBarContainer:SetFrameLevel(2)
 	frame.HealthBarContainer.HealthBar.OverAbsorbGlow:SetDrawLayer("ARTWORK", 7)
 	frame.HealthBarContainer.HealthBar.OverAbsorbGlow:SetParent(frame)
@@ -42,8 +45,6 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 	hooksecurefunc(frame, "ToPlayerArt", function(self)
 		self.Texture:SetTexture("Interface\\TargetingFrame\\UI-PartyFrame")
 
-		self.Name:SetWidth(0)
-
 		self.Flash:SetSize(128, 64)
 		self.Flash:SetTexture("Interface\\TargetingFrame\\UI-PartyFrame-Flash")
 		self.Flash:SetPoint("TOPLEFT", -3, -6)
@@ -57,59 +58,43 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 		self.PartyMemberOverlay.Status:SetDrawLayer("ARTWORK", 0)
 
 		self.HealthBarContainer.HealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-		self.HealthBarContainer.HealthBarMask:Hide()
-
 		self.HealthBarContainer.HealthBar.Background:SetSize(72, 20)
 		self.HealthBarContainer.HealthBar.Background:ClearAllPoints()
 		self.HealthBarContainer.HealthBar.Background:SetPoint("TOPLEFT", self, 45, -19)
 		self.HealthBarContainer.HealthBar.Background:SetColorTexture(0, 0, 0, 0.5)
 		self.HealthBarContainer.HealthBar.Background:SetDrawLayer("BACKGROUND", -7)
 		self.HealthBarContainer.HealthBar.Background:Show()
-		
-		self.ManaBar.ManaBarMask:Hide()
 
 		if not UnitIsConnected(self:GetUnit()) then
 			self.HealthBarContainer.HealthBar:SetStatusBarColor(0.5, 0.5, 0.5)
-			self.HealthBarContainer.LeftText:SetAlpha(0)
-			self.HealthBarContainer.RightText:SetAlpha(0)
-			self.HealthBarContainer.CenterText:SetAlpha(0)
-			self.ManaBar:SetAlpha(0)
-			self.ManaBar.LeftText:SetAlpha(0)
-			self.ManaBar.RightText:SetAlpha(0)
-			self.ManaBar.CenterText:SetAlpha(0)
+			self.ManaBar:SetStatusBarColor(0.5, 0.5, 0.5)
 		else
 			self.HealthBarContainer.HealthBar:SetStatusBarColor(0, 1, 0)
-			self.HealthBarContainer.LeftText:SetAlpha(1)
-			self.HealthBarContainer.RightText:SetAlpha(1)
-			self.HealthBarContainer.CenterText:SetAlpha(1)
-			self.ManaBar:SetAlpha(1)
-			self.ManaBar.LeftText:SetAlpha(1)
-			self.ManaBar.RightText:SetAlpha(1)
-			self.ManaBar.CenterText:SetAlpha(1)
 		end
 	end)
 
 	hooksecurefunc(frame, "UpdateNameTextAnchors", function(self)
+		self.Name:SetWidth(0)
 		self.Name:SetPoint("TOPLEFT", self, "TOPLEFT", 49, -6.5)
 	end)
 
 	hooksecurefunc(frame, "UpdateAssignedRoles", function(self)
-		local roleIcon = self.PartyMemberOverlay.RoleIcon;
-		local role = UnitGroupRolesAssigned(self:GetUnit())
+		local icon = self.PartyMemberOverlay.RoleIcon
+		local role = UnitGroupRolesAssignedEnum(self:GetUnit())
 
-		if IsInInstance() then
-			roleIcon:SetSize(19, 19)
-			roleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
-			roleIcon:ClearAllPoints()
-			roleIcon:SetPoint("TOPLEFT", 7, -41)
-			if ( role == "TANK" or role == "HEALER" or role == "DAMAGER") then
-				roleIcon:SetTexCoord(GetTexCoordsForRoleSmallCircle(role))
-				roleIcon:Show()
-			else
-				roleIcon:Hide()
-			end
+		icon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
+
+		if role == Enum.LFGRole.Tank then
+			icon:SetTexCoord(GetTexCoordsForRoleSmallCircle("TANK"))
+			icon:Show()
+		elseif role == Enum.LFGRole.Healer then
+			icon:SetTexCoord(GetTexCoordsForRoleSmallCircle("HEALER"))
+			icon:Show()
+		elseif role == Enum.LFGRole.Damage then
+			icon:SetTexCoord(GetTexCoordsForRoleSmallCircle("DAMAGER"))
+			icon:Show()
 		else
-			roleIcon:Hide()
+			icon:Hide()
 		end
 	end)
 
@@ -124,8 +109,8 @@ end
 hooksecurefunc("CompactUnitFrame_UpdateCenterStatusIcon", function(frame)
 	if ( frame.centerStatusIcon ) then
 		if ( frame.optionTable.displayInOtherGroup and UnitInOtherParty(frame.unit) ) then
-			frame.centerStatusIcon.texture:SetTexture("Interface\\LFGFrame\\LFG-Eye");
-			frame.centerStatusIcon.texture:SetTexCoord(0.125, 0.25, 0.25, 0.5);
+			frame.centerStatusIcon.texture:SetTexture("Interface\\LFGFrame\\LFG-Eye")
+			frame.centerStatusIcon.texture:SetTexCoord(0.125, 0.25, 0.25, 0.5)
 		end
 	end
 end)
