@@ -523,62 +523,61 @@ end
 
 function ApplyDropDown(frame)
 	frame.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
-	frame.Background:SetTexCoord(0.480469, 0.964844, 0.00390625, 0.144531)
+	frame.Background:SetTexCoord(0.386719, 0.816406, 0.00390625, 0.164062)
 	frame.Background:ClearAllPoints()
-	frame.Background:SetPoint("TOPLEFT", -2, 1)
-	frame.Background:SetPoint("BOTTOMRIGHT", 2, -4)
+	frame.Background:SetPoint("TOPLEFT", -9, 8)
+	frame.Background:SetPoint("BOTTOMRIGHT", 8, -9)
 
-	frame.Arrow:SetSize(22, 22)
+	frame.Arrow:SetSize(23, 22)
 	frame.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
-	frame.Arrow:SetTexCoord(0.199219, 0.308594, 0.832031, 0.941406)
+	frame.Arrow:SetTexCoord(0.824219, 0.914062, 0.00390625, 0.0898438)
 	frame.Arrow:ClearAllPoints()
-	frame.Arrow:SetPoint("RIGHT", -2, -1)
+	frame.Arrow:SetPoint("RIGHT", -1, 0)
 
-	frame.Text:SetFontObject(GameFontHighlightSmall)
-	frame.Text:SetPoint("TOPLEFT", 10, -8)
+	frame.Text:ClearAllPoints()
+	frame.Text:SetPoint("TOPRIGHT", frame.Arrow, "LEFT")
+	frame.Text:SetPoint("TOPLEFT", 9, -7)
 
 	hooksecurefunc(frame, "OnButtonStateChanged", function(self)
-		self.Arrow:SetSize(22, 22)
+		self.Arrow:SetSize(23, 22)
 		self.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
 		if self:IsEnabled() then
 			if self:IsDownOver() then
-				self.Arrow:SetTexCoord(0.199219, 0.308594, 0.714844, 0.824219)
+				self.Arrow:SetTexCoord(0.777344, 0.867188, 0.28125, 0.367188)
 			elseif self:IsOver() then
-				self.Arrow:SetTexCoord(0.808594, 0.917969, 0.269531, 0.378906)
+				self.Arrow:SetTexCoord(0.582031, 0.671875, 0.28125, 0.367188)
 			elseif self:IsDown() then
-				self.Arrow:SetTexCoord(0.199219, 0.308594, 0.597656, 0.707031)
+				self.Arrow:SetTexCoord(0.679688, 0.769531, 0.28125, 0.367188)
 			else
-				self.Arrow:SetTexCoord(0.199219, 0.308594, 0.832031, 0.941406)
+				self.Arrow:SetTexCoord(0.824219, 0.914062, 0.00390625, 0.0898438)
 			end
 		else
-			self.Arrow:SetTexCoord(0.808594, 0.917969, 0.152344, 0.261719)
+			self.Arrow:SetTexCoord(0.902344, 0.992188, 0.171875, 0.257812)
 		end
 	end)
 end
 
 function ApplyFilterDropDown(frame)
 	frame.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
-	frame.Background:SetTexCoord(0.660156, 0.980469, 0.480469, 0.589844)
+	frame.Background:SetTexCoord(0.582031, 0.894531, 0.171875, 0.273438)
 	frame.Background:ClearAllPoints()
-	frame.Background:SetPoint("TOPLEFT", -3, 1)
-	frame.Background:SetPoint("BOTTOMRIGHT", 3, -5)
-
-	frame.Text:SetFontObject(GameFontHighlightSmall)
+	frame.Background:SetPoint("TOPLEFT", -2, 2)
+	frame.Background:SetPoint("BOTTOMRIGHT", 2, -2)
 
 	hooksecurefunc(frame, "OnButtonStateChanged", function(self)
 		self.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
 		if self:IsEnabled() then
 			if self:IsDownOver() then
-				self.Background:SetTexCoord(0.332031, 0.652344, 0.480469, 0.589844)
+				self.Background:SetTexCoord(0.00390625, 0.316406, 0.496094, 0.597656)
 			elseif self:IsOver() then
-				self.Background:SetTexCoord(0.480469, 0.800781, 0.269531, 0.378906)
+				self.Background:SetTexCoord(0.324219, 0.636719, 0.386719, 0.488281)
 			elseif self:IsDown() then
-				self.Background:SetTexCoord(0.00390625, 0.324219, 0.480469, 0.589844)
+				self.Background:SetTexCoord(0.644531, 0.957031, 0.386719, 0.488281)
 			else
-				self.Background:SetTexCoord(0.660156, 0.980469, 0.480469, 0.589844)
+				self.Background:SetTexCoord(0.582031, 0.894531, 0.171875, 0.273438)
 			end
 		else
-			self.Background:SetTexCoord(0.480469, 0.800781, 0.152344, 0.261719)
+			self.Background:SetTexCoord(0.00390625, 0.316406, 0.386719, 0.488281)
 		end
 	end)
 end
