@@ -522,6 +522,8 @@ function ApplySearchBox(frame)
 end
 
 function ApplyDropDown(frame)
+	frame:SetHeight(24)
+
 	frame.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
 	frame.Background:SetTexCoord(0.386719, 0.816406, 0.00390625, 0.164062)
 	frame.Background:ClearAllPoints()
@@ -558,6 +560,8 @@ function ApplyDropDown(frame)
 end
 
 function ApplyFilterDropDown(frame)
+	frame:SetHeight(22)
+
 	frame.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
 	frame.Background:SetTexCoord(0.582031, 0.894531, 0.171875, 0.273438)
 	frame.Background:ClearAllPoints()
