@@ -564,6 +564,8 @@ function ApplyFilterDropDown(frame)
 	frame.Background:SetPoint("TOPLEFT", -2, 2)
 	frame.Background:SetPoint("BOTTOMRIGHT", 2, -2)
 
+	frame.Text:SetFontObject(GameFontHighlight)
+
 	hooksecurefunc(frame, "OnButtonStateChanged", function(self)
 		self.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
 		if self:IsEnabled() then
