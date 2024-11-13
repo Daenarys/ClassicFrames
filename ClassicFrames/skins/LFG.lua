@@ -753,3 +753,10 @@ hooksecurefunc("GroupFinderFrame_EvaluateButtonVisibility", function(self)
 		self.groupButton3:SetPoint("TOP", self.groupButton2, "BOTTOM", 0, -30)
 	end
 end)
+
+hooksecurefunc("LFGRewardsFrame_UpdateFrame", function(parentFrame)
+	if parentFrame.title:GetText() == "Random Timewalking Dungeon (Classic)" then
+		parentFrame.title:SetText(LFG_TYPE_RANDOM_TIMEWALKER_DUNGEON)
+		parentFrame.description:SetText(LFD_TIMEWALKER_RANDOM_EXPLANATION)
+	end
+end)
