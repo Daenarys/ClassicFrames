@@ -522,12 +522,10 @@ function ApplySearchBox(frame)
 end
 
 function ApplyDropDown(frame)
-	frame:SetHeight(24)
-
 	frame.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
 	frame.Background:SetTexCoord(0.386719, 0.816406, 0.00390625, 0.164062)
 	frame.Background:ClearAllPoints()
-	frame.Background:SetPoint("TOPLEFT", -9, 8)
+	frame.Background:SetPoint("TOPLEFT", -9, 7)
 	frame.Background:SetPoint("BOTTOMRIGHT", 8, -9)
 
 	frame.Arrow:SetSize(23, 22)
@@ -535,10 +533,6 @@ function ApplyDropDown(frame)
 	frame.Arrow:SetTexCoord(0.824219, 0.914062, 0.00390625, 0.0898438)
 	frame.Arrow:ClearAllPoints()
 	frame.Arrow:SetPoint("RIGHT", -1, 0)
-
-	frame.Text:ClearAllPoints()
-	frame.Text:SetPoint("TOPRIGHT", frame.Arrow, "LEFT")
-	frame.Text:SetPoint("TOPLEFT", 9, -7)
 
 	hooksecurefunc(frame, "OnButtonStateChanged", function(self)
 		self.Arrow:SetSize(23, 22)
