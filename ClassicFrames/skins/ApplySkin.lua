@@ -560,8 +560,6 @@ function ApplyDropDown(frame)
 end
 
 function ApplyFilterDropDown(frame)
-	frame:SetHeight(22)
-
 	frame.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
 	frame.Background:SetTexCoord(0.582031, 0.894531, 0.171875, 0.273438)
 	frame.Background:ClearAllPoints()
@@ -569,8 +567,6 @@ function ApplyFilterDropDown(frame)
 	frame.Background:SetPoint("BOTTOMRIGHT", 2, -2)
 
 	frame.Text:SetFontObject(GameFontHighlight)
-	frame.Text:ClearAllPoints()
-	frame.Text:SetPoint("TOP", 0, -2)
 
 	hooksecurefunc(frame, "OnButtonStateChanged", function(self)
 		self.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
