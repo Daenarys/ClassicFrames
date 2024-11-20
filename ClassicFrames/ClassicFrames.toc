@@ -101,7 +101,6 @@ skins\Torghast.lua
 skins\TotemFrame.lua
 skins\Trade.lua
 skins\TradingPost.lua
-skins\UIParent.lua
 skins\UIWidget.lua
 skins\VoidStorage.lua
 skins\Wardrobe.lua
