@@ -42,6 +42,13 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 	frame.ManaBar.RightText:SetParent(frame)
 	frame.ManaBar.CenterText:SetParent(frame)
 
+	if (frame.Background == nil) then
+		frame.Background = frame:CreateTexture(nil, "BACKGROUND", nil, -7)
+		frame.Background:SetSize(72, 20)
+		frame.Background:SetPoint("TOPLEFT", 45, -19)
+		frame.Background:SetColorTexture(0, 0, 0, 0.5)
+	end
+
 	hooksecurefunc(frame, "ToPlayerArt", function(self)
 		self.Texture:SetTexture("Interface\\TargetingFrame\\UI-PartyFrame")
 
@@ -58,12 +65,6 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 		self.PartyMemberOverlay.Status:SetDrawLayer("ARTWORK", 0)
 
 		self.HealthBarContainer.HealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-		self.HealthBarContainer.HealthBar.Background:SetSize(72, 20)
-		self.HealthBarContainer.HealthBar.Background:ClearAllPoints()
-		self.HealthBarContainer.HealthBar.Background:SetPoint("TOPLEFT", self, 45, -19)
-		self.HealthBarContainer.HealthBar.Background:SetColorTexture(0, 0, 0, 0.5)
-		self.HealthBarContainer.HealthBar.Background:SetDrawLayer("BACKGROUND", -7)
-		self.HealthBarContainer.HealthBar.Background:Show()
 
 		if not UnitIsConnected(self:GetUnit()) then
 			self.HealthBarContainer.HealthBar:SetStatusBarColor(0.5, 0.5, 0.5)
@@ -75,7 +76,7 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 
 	hooksecurefunc(frame, "UpdateNameTextAnchors", function(self)
 		self.Name:SetWidth(0)
-		self.Name:SetPoint("TOPLEFT", self, "TOPLEFT", 49, -6.5)
+		self.Name:SetPoint("TOPLEFT", 49, -7)
 	end)
 
 	hooksecurefunc(frame, "UpdateAssignedRoles", function(self)
