@@ -63,7 +63,6 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		self.MaximizeMinimizeFrame:SetSize(32, 32)
 		self.MaximizeMinimizeFrame:ClearAllPoints()
 		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 8.5, 0)
-		self.MaximizeMinimizeFrame:SetFrameLevel(2)
 
 		self.MaximizeMinimizeFrame.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
 		self.MaximizeMinimizeFrame.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
