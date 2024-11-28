@@ -2,7 +2,7 @@ local f = CreateFrame("Frame")
 f:RegisterEvent("ADDON_LOADED")
 f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_GuildBankUI" then
-		ApplyCloseButton(GuildBankFrame.CloseButton)
+		ApplyCloseButtonOld(GuildBankFrame.CloseButton)
 
 		GuildBankFrameTab2:ClearAllPoints()
 		GuildBankFrameTab2:SetPoint("LEFT", GuildBankFrameTab1, "RIGHT", -16, 0)
