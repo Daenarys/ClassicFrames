@@ -11,8 +11,7 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 
 		self.MaximizeMinimizeFrame:SetSize(32, 32)
 		self.MaximizeMinimizeFrame:ClearAllPoints()
-		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 8.5, 0)
-		self.MaximizeMinimizeFrame:SetFrameLevel(2)
+		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
 
 		self.MaximizeMinimizeFrame.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
 		self.MaximizeMinimizeFrame.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
@@ -24,8 +23,15 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		self.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
 		self.MaximizeMinimizeFrame.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 
+		if (self.ButtonFrameEdge == nil) then
+			self.ButtonFrameEdge = self.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
+			self.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
+			self.ButtonFrameEdge:ClearAllPoints()
+			self.ButtonFrameEdge:SetPoint("CENTER", self.MaximizeMinimizeFrame, "LEFT", 6, 0)
+		end
+
 		ApplyTitleBg(self)
-		ApplyNineSliceNoPortraitMinimizable(self)
+		ApplyNineSliceNoPortrait(self)
 
 		self.Chat.ScrollBar:SetSize(25, 560)
 		self.Chat.ScrollBar:ClearAllPoints()
@@ -69,6 +75,13 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		self.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
 		self.MaximizeMinimizeFrame.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 
+		if (self.ButtonFrameEdge == nil) then
+			self.ButtonFrameEdge = self.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
+			self.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
+			self.ButtonFrameEdge:ClearAllPoints()
+			self.ButtonFrameEdge:SetPoint("CENTER", self.MaximizeMinimizeFrame, "LEFT", 6, 0)
+		end
+
 		self.PortraitContainer.CircleMask:Hide()
 
 		CommunitiesFramePortrait:SetSize(61, 61)
@@ -95,7 +108,7 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		self.TitleContainer:SetPoint("TOPRIGHT", self, "TOPRIGHT", -58, 0)
 
 		ApplyTitleBg(self)
-		ApplyNineSlicePortraitMinimizable(self)
+		ApplyNineSlicePortrait(self)
 		
 		CommunitiesFrameCommunitiesList.ScrollBar:SetSize(25, 560)
 		CommunitiesFrameCommunitiesList.ScrollBar:ClearAllPoints()
