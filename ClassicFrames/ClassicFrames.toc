@@ -1,7 +1,7 @@
 ## Interface: 110005
 ## IconTexture: Interface/Icons/INV_Sword_2H_AshbringerCorrupt
 ## Title: Classic Frames
-## Notes: Restores the pre 10.x UI and Unit Frames
+## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
 ## Version: 2.42
 ## OptionalDeps: SexyMap
