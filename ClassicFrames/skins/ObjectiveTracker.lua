@@ -52,7 +52,7 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 			if prevModule then
 				module:SetPoint("TOP", prevModule, "BOTTOM", 0, -self.moduleSpacing)
 			else
-				module:SetPoint("TOP", 0, 0)
+				module:SetPoint("TOP")
 			end
 			prevModule = module
 		end
