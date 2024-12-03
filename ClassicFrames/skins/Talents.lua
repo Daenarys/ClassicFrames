@@ -45,7 +45,11 @@ f:SetScript("OnEvent", function(self, event, name)
 			self.tabs[2]:ClearAllPoints()
 			self.tabs[2]:SetPoint("LEFT", self.tabs[1], "RIGHT", -15, 0)
 			self.tabs[3]:ClearAllPoints()
-			self.tabs[3]:SetPoint("LEFT", self.tabs[2], "RIGHT", -15, 0)
+			if not self.tabs[2]:IsShown() then
+				self.tabs[3]:SetPoint("LEFT", self.tabs[1], "RIGHT", -15, 0)
+			else
+				self.tabs[3]:SetPoint("LEFT", self.tabs[2], "RIGHT", -15, 0)
+			end
         end)
 
         hooksecurefunc(PlayerSpellsFrame.SpecFrame, 'UpdateSpecFrame', function(frame)
