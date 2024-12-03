@@ -15,7 +15,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournal.TitleContainer:SetPoint("TOPRIGHT", EncounterJournal, "TOPRIGHT", -58, 0)
 
 		EncounterJournalMonthlyActivitiesFrame.HelpButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
-		EncounterJournalMonthlyActivitiesFrame.ThemeContainer:SetFrameLevel(1)
 
 		ApplyTitleBg(EncounterJournal)
 		ApplyNineSlicePortrait(EncounterJournal)
