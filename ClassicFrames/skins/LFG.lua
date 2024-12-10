@@ -37,7 +37,7 @@ PVEFrame:HookScript("OnShow", function(self)
 		self.tab4:Hide()
 	else
 		self.tab3:SetShown(UnitLevel("player") == GetMaxLevelForExpansionLevel(LE_EXPANSION_WAR_WITHIN))
-		self.tab4:SetShown(UnitLevel("player") == GetMaxLevelForExpansionLevel(LE_EXPANSION_DRAGONFLIGHT))
+		self.tab4:SetShown(UnitLevel("player") >= GetMaxLevelForExpansionLevel(LE_EXPANSION_DRAGONFLIGHT))
 		if self.tab4:IsShown() then
 			self.tab4:ClearAllPoints()
 			if self.tab2:IsShown() and not self.tab3:IsShown() then
