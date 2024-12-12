@@ -121,12 +121,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyFilterDropDown(HeirloomsJournal.FilterDropdown)
 		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
 
-		hooksecurefunc("MountJournal_InitMountButton", function(button)
-			button.name:SetSize(147, 25)
-			button.name:ClearAllPoints()
-			button.name:SetPoint("TOPLEFT", button.icon, "TOPRIGHT", 10, -5)
-		end)
-
 		MountJournal.MountDisplay.ModelScene.ControlFrame:Show()
 		MountJournal.MountDisplay.ModelScene.ControlFrame:SetAlpha(1)
 
