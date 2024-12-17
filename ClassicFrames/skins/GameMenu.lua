@@ -83,46 +83,64 @@ hooksecurefunc(GameMenuFrame, "Layout", function(self)
 		elseif (text == _G["BLIZZARD_STORE"]) then
 			button:SetPoint("TOPLEFT", 26, -54)
 		elseif (text == _G["GAMEMENU_NEW_BUTTON"]) then
-			button:SetPoint("TOPLEFT", 26, -76)
+			if C_StorePublic.IsEnabled() then
+				button:SetPoint("TOPLEFT", 26, -76)
+			else
+				button:SetPoint("TOPLEFT", 26, -54)
+			end
 		elseif (text == _G["GAMEMENU_OPTIONS"]) then
-			if C_SplashScreen.CanViewSplashScreen() and not IsCharacterNewlyBoosted() then
+			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
 				button:SetPoint("TOPLEFT", 26, -113)
+			elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+				button:SetPoint("TOPLEFT", 26, -69)
 			else
 				button:SetPoint("TOPLEFT", 26, -91)
 			end
 		elseif (text == _G["HUD_EDIT_MODE_MENU"]) then
-			if C_SplashScreen.CanViewSplashScreen() and not IsCharacterNewlyBoosted() then
+			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
 				button:SetPoint("TOPLEFT", 26, -135)
+			elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+				button:SetPoint("TOPLEFT", 26, -91)
 			else
 				button:SetPoint("TOPLEFT", 26, -113)
 			end
 		elseif (text == _G["MACROS"]) then
-			if C_SplashScreen.CanViewSplashScreen() and not IsCharacterNewlyBoosted() then
+			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
 				button:SetPoint("TOPLEFT", 26, -157)
+		elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+				button:SetPoint("TOPLEFT", 26, -113)
 			else
 				button:SetPoint("TOPLEFT", 26, -135)
 			end
 		elseif (text == _G["ADDONS"]) then
-			if C_SplashScreen.CanViewSplashScreen() and not IsCharacterNewlyBoosted() then
+			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
 				button:SetPoint("TOPLEFT", 26, -179)
+			elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+				button:SetPoint("TOPLEFT", 26, -135)
 			else
 				button:SetPoint("TOPLEFT", 26, -157)
 			end
 		elseif (text == _G["LOG_OUT"]) then
-			if C_SplashScreen.CanViewSplashScreen() and not IsCharacterNewlyBoosted() then
+			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
 				button:SetPoint("TOPLEFT", 26, -216)
+			elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+				button:SetPoint("TOPLEFT", 26, -172)
 			else
 				button:SetPoint("TOPLEFT", 26, -194)
 			end
 		elseif (text == _G["EXIT_GAME"]) then
-			if C_SplashScreen.CanViewSplashScreen() and not IsCharacterNewlyBoosted() then
+			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
 				button:SetPoint("TOPLEFT", 26, -238)
+			elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+				button:SetPoint("TOPLEFT", 26, -194)
 			else
 				button:SetPoint("TOPLEFT", 26, -216)
 			end
 		elseif (text == _G["RETURN_TO_GAME"]) then
-			if C_SplashScreen.CanViewSplashScreen() and not IsCharacterNewlyBoosted() then
+			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
 				button:SetPoint("TOPLEFT", 26, -275)
+			elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+				button:SetPoint("TOPLEFT", 26, -231)
 			else
 				button:SetPoint("TOPLEFT", 26, -253)
 			end
