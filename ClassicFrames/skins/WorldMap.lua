@@ -136,10 +136,6 @@ hooksecurefunc(POIButtonMixin, "UpdateButtonStyle", function(poiButton)
 				poiButton.Display.Icon:SetSize(17, 14)
 			end
 		end
-	elseif style == POIButtonUtil.Style.AreaPOI then
-		if poiButton.Display.SubTypeIcon then
-			poiButton.Display.SubTypeIcon:SetAlpha(0)
-		end
 	end
 end)
 
@@ -158,19 +154,6 @@ hooksecurefunc(BaseMapPoiPinMixin, "OnAcquired", function(self)
 		elseif (self.Texture:GetAtlas() == "TaxiNode_Undiscovered") then
 			self.Texture:SetSize(18, 18)
 			self.HighlightTexture:SetSize(18, 18)
-		-- vignettes
-		elseif (self.Texture:GetAtlas() == "vignettekillboss") then
-			self.Texture:SetAtlas("DemonInvasion5", true)
-			self.HighlightTexture:SetAtlas("DemonInvasion5", true)
-		end
-	end
-end)
-
-hooksecurefunc(VignettePinMixin, "OnAcquired", function(self)
-	if self.Texture then
-		if (self.Texture:GetAtlas() == "vignettekillboss") then
-			self.Texture:SetAtlas("DemonInvasion5", true)
-			self.HighlightTexture:SetAtlas("DemonInvasion5", true)
 		end
 	end
 end)
