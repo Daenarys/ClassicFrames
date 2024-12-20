@@ -215,8 +215,6 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	StatusTexture:SetPoint("TOPLEFT", 16, -12)
 	StatusTexture:SetBlendMode("ADD")
 
-	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:ClearAllPoints()
-	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMLEFT", CfPlayerFrame, "TOPLEFT", 97, -20)
 	self.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon:SetPoint("TOPLEFT", 76, -19)
 
 	CfPlayerFrameHealthBar:SetWidth(119)
@@ -257,8 +255,6 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	local StatusTexture = self.PlayerFrameContent.PlayerFrameContentMain.StatusTexture
 	StatusTexture:Hide()
 
-	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:ClearAllPoints()
-	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMLEFT", CfPlayerFrame, "TOPLEFT", 97, -13)
 	self.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon:SetPoint("TOPLEFT", 76, -19)
 
 	PlayerName:SetParent(self.PlayerFrameContainer)
