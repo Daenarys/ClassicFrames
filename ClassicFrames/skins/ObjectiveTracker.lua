@@ -90,7 +90,3 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", 
 		end
 	end
 end)
-
-if ScenarioObjectiveTracker.MawBuffsBlock.Container then
-	ScenarioObjectiveTracker.MawBuffsBlock.Container:SetPoint("TOPRIGHT", -17, 3)
-end
