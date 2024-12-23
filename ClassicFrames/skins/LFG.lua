@@ -470,21 +470,11 @@ hooksecurefunc('LFGDungeonReadyDialog_UpdateRewards', function(dungeonID, role)
 	for i = 1, LFD_MAX_REWARDS do
 		local reward = LFGDungeonReadyDialogRewardsFrame.Rewards[i]
 		reward:SetSize(40, 40)
-	end
-
-	if LFGDungeonReadyDialogRewardsFrameReward1 then
-		LFGDungeonReadyDialogRewardsFrameReward1Texture:SetSize(30, 30)
-		LFGDungeonReadyDialogRewardsFrameReward1Texture:SetPoint("CENTER", -3, 3)
-		LFGDungeonReadyDialogRewardsFrameReward1Border:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-REWARDRING")
-		LFGDungeonReadyDialogRewardsFrameReward1Border:SetTexCoord(0, 0.675, 0, 0.675)
-		LFGDungeonReadyDialogRewardsFrameReward1Border:SetAllPoints()
-	end
-	if LFGDungeonReadyDialogRewardsFrameReward2 then
-		LFGDungeonReadyDialogRewardsFrameReward2Texture:SetSize(30, 30)
-		LFGDungeonReadyDialogRewardsFrameReward2Texture:SetPoint("CENTER", -3, 3)
-		LFGDungeonReadyDialogRewardsFrameReward2Border:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-REWARDRING")
-		LFGDungeonReadyDialogRewardsFrameReward2Border:SetTexCoord(0, 0.675, 0, 0.675)
-		LFGDungeonReadyDialogRewardsFrameReward2Border:SetAllPoints()
+		reward.texture:SetSize(30, 30)
+		reward.texture:SetPoint("CENTER", -3, 3)
+		_G['LFGDungeonReadyDialogRewardsFrameReward'..i..'Border']:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-REWARDRING")
+		_G['LFGDungeonReadyDialogRewardsFrameReward'..i..'Border']:SetTexCoord(0, 0.675, 0, 0.675)
+		_G['LFGDungeonReadyDialogRewardsFrameReward'..i..'Border']:SetAllPoints()
 	end
 end)
 
