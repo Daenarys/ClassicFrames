@@ -464,14 +464,9 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 	end
 end)
 
-hooksecurefunc('LFGDungeonReadyDialog_UpdateRewards', function(dungeonID, role)
-	local doneToday, moneyAmount, moneyVar, experienceGained, experienceVar, numRewards, spellID = GetLFGDungeonRewards(dungeonID)
-
+hooksecurefunc('LFGDungeonReadyDialog_UpdateRewards', function()
 	for i = 1, LFD_MAX_REWARDS do
 		local reward = LFGDungeonReadyDialogRewardsFrame.Rewards[i]
-		reward:SetSize(40, 40)
-		reward.texture:SetSize(30, 30)
-		reward.texture:SetPoint("CENTER", -3, 3)
 		_G['LFGDungeonReadyDialogRewardsFrameReward'..i..'Border']:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-REWARDRING")
 		_G['LFGDungeonReadyDialogRewardsFrameReward'..i..'Border']:SetTexCoord(0, 0.675, 0, 0.675)
 		_G['LFGDungeonReadyDialogRewardsFrameReward'..i..'Border']:SetAllPoints()
@@ -751,11 +746,9 @@ hooksecurefunc("ScenarioQueueFrameRandom_UpdateFrame", function()
 end)
 
 hooksecurefunc("ScenarioQueueFrame_SetTypeRandom", function()
-	local queueFrame = ScenarioQueueFrame
-
-	queueFrame.Bg:SetSize(512, 512)
-	queueFrame.Bg:ClearAllPoints()
-	queueFrame.Bg:SetPoint("TOPLEFT", 4, -75)
+	ScenarioQueueFrame.Bg:SetSize(512, 512)
+	ScenarioQueueFrame.Bg:ClearAllPoints()
+	ScenarioQueueFrame.Bg:SetPoint("TOPLEFT", 4, -75)
 end)
 
 hooksecurefunc("GroupFinderFrame_EvaluateButtonVisibility", function(self)
