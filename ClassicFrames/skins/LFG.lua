@@ -467,6 +467,9 @@ end)
 hooksecurefunc('LFGDungeonReadyDialog_UpdateRewards', function()
 	for i = 1, LFD_MAX_REWARDS do
 		local reward = LFGDungeonReadyDialogRewardsFrame.Rewards[i]
+		reward:SetSize(40, 40)
+		reward.texture:SetSize(30, 30)
+		reward.texture:SetPoint("CENTER", -3, 3)
 		_G['LFGDungeonReadyDialogRewardsFrameReward'..i..'Border']:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-REWARDRING")
 		_G['LFGDungeonReadyDialogRewardsFrameReward'..i..'Border']:SetTexCoord(0, 0.675, 0, 0.675)
 		_G['LFGDungeonReadyDialogRewardsFrameReward'..i..'Border']:SetAllPoints()
