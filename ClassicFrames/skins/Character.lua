@@ -133,9 +133,7 @@ hooksecurefunc(CharacterFrame, "UpdatePortrait", function(self)
 end)
 
 hooksecurefunc(CharacterFrame, "UpdateSize", function(self)
-	if ReputationFrame:IsShown() then
-		self:SetWidth(338)
-	elseif TokenFrame:IsShown() then
+	if ReputationFrame:IsShown() or TokenFrame:IsShown() then
 		self:SetWidth(338)
 	end
 end)
