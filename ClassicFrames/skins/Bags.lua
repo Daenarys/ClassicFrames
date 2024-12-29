@@ -36,13 +36,6 @@ if ContainerFrame1MoneyFrame.Border then
 	ContainerFrame1MoneyFrame.Border:Hide()
 end
 
-if BagItemAutoSortButton then
-	BagItemAutoSortButton:SetNormalTexture("Interface\\AddOns\\ClassicFrames\\icons\\Bags")
-	BagItemAutoSortButton:GetNormalTexture():SetTexCoord(0.3125, 0.421875, 0.539062, 0.640625)
-	BagItemAutoSortButton:SetPushedTexture("Interface\\AddOns\\ClassicFrames\\icons\\Bags")
-	BagItemAutoSortButton:GetPushedTexture():SetTexCoord(0.164062, 0.273438, 0.835938, 0.9375)
-end
-
 if BagItemSearchBox then
 	ApplySearchBox(BagItemSearchBox)
 end

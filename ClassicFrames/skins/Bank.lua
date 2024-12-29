@@ -33,13 +33,6 @@ for i = 1, 3 do
 	end)
 end
 
-if BankItemAutoSortButton then
-	BankItemAutoSortButton:SetNormalTexture("Interface\\AddOns\\ClassicFrames\\icons\\Bags")
-	BankItemAutoSortButton:GetNormalTexture():SetTexCoord(0.3125, 0.421875, 0.539062, 0.640625)
-	BankItemAutoSortButton:SetPushedTexture("Interface\\AddOns\\ClassicFrames\\icons\\Bags")
-	BankItemAutoSortButton:GetPushedTexture():SetTexCoord(0.164062, 0.273438, 0.835938, 0.9375)
-end
-
 ApplySearchBox(BankItemSearchBox)
 
 hooksecurefunc(BankFrame, "Show", function()
