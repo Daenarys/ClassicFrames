@@ -65,13 +65,6 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 		self.PartyMemberOverlay.Status:SetDrawLayer("ARTWORK", 0)
 
 		self.HealthBarContainer.HealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-
-		if not UnitIsConnected(self:GetUnit()) then
-			self.HealthBarContainer.HealthBar:SetStatusBarColor(0.5, 0.5, 0.5)
-			self.ManaBar:SetStatusBarColor(0.5, 0.5, 0.5)
-		else
-			self.HealthBarContainer.HealthBar:SetStatusBarColor(0, 1, 0)
-		end
 	end)
 
 	hooksecurefunc(frame, "UpdateNameTextAnchors", function(self)
