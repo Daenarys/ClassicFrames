@@ -20,7 +20,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(WardrobeTransmogFrame.OutfitDropdown)
 
 		WardrobeTransmogFrame.ModelScene.ControlFrame:HookScript("OnShow", function(self)
-			ApplyControlFrame(self)
+			self:SetPoint("TOP")
 		end)
 	end
 end)

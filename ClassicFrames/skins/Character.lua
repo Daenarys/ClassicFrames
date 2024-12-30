@@ -144,7 +144,7 @@ hooksecurefunc(CharacterFrame, "UpdateTitle", function(self)
 end)
 
 CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
-	ApplyControlFrame(self)
+	self:SetPoint("TOP")
 end)
 
 CharacterFrame:HookScript("OnShow", function()

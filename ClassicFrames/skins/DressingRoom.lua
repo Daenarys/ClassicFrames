@@ -55,5 +55,5 @@ SideDressUpFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-Mi
 ApplyDropDown(DressUpFrameOutfitDropdown)
 
 DressUpFrame.ModelScene.ControlFrame:HookScript("OnShow", function(self)
-	ApplyControlFrame(self)
+	self:SetPoint("TOP")
 end)

@@ -369,11 +369,6 @@ function ApplyTopTab(frame)
 	frame.Text:SetPoint("BOTTOM", 0, 6)
 end
 
-function ApplyControlFrame(frame)
-	frame:ClearAllPoints()
-	frame:SetPoint("TOP")
-end
-
 function ApplySearchBox(frame)
 	frame.Left:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonSearch")
 	frame.Left:SetTexCoord(0.886719, 0.949219, 0.0078125, 0.320312)
