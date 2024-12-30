@@ -20,8 +20,7 @@ CfPowerBarColor["AMMOSLOT"] = { r = 0.80, g = 0.60, b = 0.00 };
 CfPowerBarColor["FUEL"] = { r = 0.0, g = 0.55, b = 0.5 };
 CfPowerBarColor["STAGGER"] = { {r = 0.52, g = 1.0, b = 0.52}, {r = 1.0, g = 0.98, b = 0.72}, {r = 1.0, g = 0.42, b = 0.42},};
 
--- these are mostly needed for a fallback case (in case the code tries to index a power token that is missing from the table,
--- it will try to index by power type instead)
+-- these are mostly needed for a fallback case
 CfPowerBarColor[0] = CfPowerBarColor["MANA"];
 CfPowerBarColor[1] = CfPowerBarColor["RAGE"];
 CfPowerBarColor[2] = CfPowerBarColor["FOCUS"];
