@@ -20,7 +20,8 @@ CfPowerBarColor["AMMOSLOT"] = { r = 0.80, g = 0.60, b = 0.00 };
 CfPowerBarColor["FUEL"] = { r = 0.0, g = 0.55, b = 0.5 };
 CfPowerBarColor["STAGGER"] = { {r = 0.52, g = 1.0, b = 0.52}, {r = 1.0, g = 0.98, b = 0.72}, {r = 1.0, g = 0.42, b = 0.42},};
 
--- these are mostly needed for a fallback case
+-- these are mostly needed for a fallback case (in case the code tries to index a power token that is missing from the table,
+-- it will try to index by power type instead)
 CfPowerBarColor[0] = CfPowerBarColor["MANA"];
 CfPowerBarColor[1] = CfPowerBarColor["RAGE"];
 CfPowerBarColor[2] = CfPowerBarColor["FOCUS"];
@@ -36,65 +37,58 @@ CfPowerBarColor[13] = CfPowerBarColor["INSANITY"];
 CfPowerBarColor[17] = CfPowerBarColor["FURY"];
 CfPowerBarColor[18] = CfPowerBarColor["PAIN"];
 
+local ManaBarFrequentUpdateUnitTypes = {
+	"player",
+	"vehicle",
+	"target",
+	"focus"
+};
+
 function CfUnitFrame_Initialize(self, unit, healthbar, healthtext, manabar, manatext,
-		myHealPredictionBar, otherHealPredictionBar, totalAbsorbBar, totalAbsorbBarOverlay, overAbsorbGlow, overHealAbsorbGlow, healAbsorbBar, healAbsorbBarLeftShadow,
-		healAbsorbBarRightShadow)
+	myHealPredictionBar, otherHealPredictionBar, totalAbsorbBar, overAbsorbGlow, overHealAbsorbGlow, healAbsorbBar)
 	self.unit = unit;
 	self.healthbar = healthbar;
 	self.manabar = manabar;
 	self.myHealPredictionBar = myHealPredictionBar;
 	self.otherHealPredictionBar = otherHealPredictionBar
 	self.totalAbsorbBar = totalAbsorbBar;
-	self.totalAbsorbBarOverlay = totalAbsorbBarOverlay;
 	self.overAbsorbGlow = overAbsorbGlow;
 	self.overHealAbsorbGlow = overHealAbsorbGlow;
 	self.healAbsorbBar = healAbsorbBar;
-	self.healAbsorbBarLeftShadow = healAbsorbBarLeftShadow;
-	self.healAbsorbBarRightShadow = healAbsorbBarRightShadow;
-	if ( self.myHealPredictionBar ) then
-		self.myHealPredictionBar:ClearAllPoints()
-	end
-	if ( self.otherHealPredictionBar ) then
-		self.otherHealPredictionBar:ClearAllPoints()
-	end
-	if ( self.totalAbsorbBar ) then
-		self.totalAbsorbBar:ClearAllPoints()
-	end
 
-	if ( self.totalAbsorbBarOverlay ) then
-		self.totalAbsorbBar.overlay = self.totalAbsorbBarOverlay;
-		self.totalAbsorbBarOverlay:SetAllPoints(self.totalAbsorbBar)
-		self.totalAbsorbBarOverlay.tileSize = 32;
-	end
-	if ( self.overAbsorbGlow ) then
+	if (self.overAbsorbGlow) then
 		self.overAbsorbGlow:ClearAllPoints()
 		self.overAbsorbGlow:SetPoint("TOPLEFT", self.healthbar, "TOPRIGHT", -7, 0)
 		self.overAbsorbGlow:SetPoint("BOTTOMLEFT", self.healthbar, "BOTTOMRIGHT", -7, 0)
 	end
-	if ( self.healAbsorbBar ) then
-		self.healAbsorbBar:ClearAllPoints()
-		self.healAbsorbBar:SetTexture("Interface\\RaidFrame\\Absorb-Fill", true, true)
-	end
-	if ( self.overHealAbsorbGlow ) then
+	if (self.overHealAbsorbGlow) then
 		self.overHealAbsorbGlow:ClearAllPoints()
 		self.overHealAbsorbGlow:SetPoint("BOTTOMRIGHT", self.healthbar, "BOTTOMLEFT", 7, 0)
 		self.overHealAbsorbGlow:SetPoint("TOPRIGHT", self.healthbar, "TOPLEFT", 7, 0)
 	end
-	if ( healAbsorbBarLeftShadow ) then
-		self.healAbsorbBarLeftShadow:ClearAllPoints()
-	end
-	if ( healAbsorbBarRightShadow ) then
-		self.healAbsorbBarRightShadow:ClearAllPoints()
-	end
+
 	if (self.healthbar) then
 		self.healthbar.capNumericDisplay = true;
+		self.healthbar.unitFrame = self;
 	end
 	if (self.manabar) then
 		self.manabar.capNumericDisplay = true;
+		self.manabar.unitFrame = self;
 	end
+
 	CfUnitFrameHealthBar_Initialize(unit, healthbar, healthtext, true)
-	CfUnitFrameManaBar_Initialize(unit, manabar, manatext, (unit == "player" or unit == "pet" or unit == "vehicle" or unit == "target" or unit == "focus"))
+
+	local manaBarFrequentUpdates = false;
+	for _, unitType in ipairs(ManaBarFrequentUpdateUnitTypes) do
+		if (unit == unitType) then
+			manaBarFrequentUpdates = true;
+			break;
+		end
+	end
+
+	CfUnitFrameManaBar_Initialize(unit, manabar, manatext, manaBarFrequentUpdates)
 	CfUnitFrame_Update(self)
+
 	self:RegisterEvent("UNIT_DISPLAYPOWER")
 	if ( self.healAbsorbBar ) then
 		self:RegisterUnitEvent("UNIT_HEAL_ABSORB_AMOUNT_CHANGED", unit)
@@ -131,6 +125,7 @@ function CfUnitFrame_SetUnit(self, unit, healthbar, manabar)
 	end
 
 	self.unit = unit;
+
 	CfUnitFrameHealthBar_SetUnit(healthbar, unit)
 	if ( manabar ) then
 		manabar.unit = unit;
@@ -147,46 +142,39 @@ function CfUnitFrame_Update(self, isParty)
 end
 
 function CfUnitFrame_OnEvent(self, event, ...)
-	local eventUnit = ...
+	local eventUnit, arg2 = ...
 
 	local unit = self.unit;
 	if ( eventUnit == unit ) then
-		if ( event == "UNIT_DISPLAYPOWER" ) then
+	if ( event == "UNIT_DISPLAYPOWER" ) then
 			if ( self.manabar ) then
 				CfUnitFrameManaBar_UpdateType(self.manabar)
 			end
 		elseif ( event == "UNIT_MAXHEALTH" ) then
 			CfUnitFrameHealPredictionBars_UpdateMax(self)
-			CfUnitFrameHealPredictionBars_Update(self)
 		elseif ( event == "UNIT_HEAL_PREDICTION" ) then
 			CfUnitFrameHealPredictionBars_Update(self)
 		elseif ( event == "UNIT_ABSORB_AMOUNT_CHANGED" ) then
 			CfUnitFrameHealPredictionBars_Update(self)
 		elseif ( event == "UNIT_HEAL_ABSORB_AMOUNT_CHANGED" ) then
 			CfUnitFrameHealPredictionBars_Update(self)
+		elseif ( event == "UNIT_MAX_HEALTH_MODIFIERS_CHANGED" ) then
+			CfUnitFrameHealthBar_OnUpdate(self.healthbar)
 		end
 	end
 end
 
 function CfUnitFrameHealPredictionBars_UpdateMax(self)
-	if ( not self.myHealPredictionBar ) then
-		return;
-	end
-
 	CfUnitFrameHealPredictionBars_Update(self)
 end
 
 function CfUnitFrameHealPredictionBars_UpdateSize(self)
-	if ( not self.myHealPredictionBar or not self.otherHealPredictionBar ) then
-		return;
-	end
-
 	CfUnitFrameHealPredictionBars_Update(self)
 end
 
 local MAX_INCOMING_HEAL_OVERFLOW = 1.0;
 function CfUnitFrameHealPredictionBars_Update(frame)
-	if ( not frame.myHealPredictionBar ) then
+	if ( not frame.myHealPredictionBar and not frame.otherHealPredictionBar and not frame.healAbsorbBar and not frame.totalAbsorbBar ) then
 		return;
 	end
 
@@ -253,94 +241,44 @@ function CfUnitFrameHealPredictionBars_Update(frame)
 		if ( myCurrentHealAbsorb > allIncomingHeal ) then
 			local shownHealAbsorb = myCurrentHealAbsorb - allIncomingHeal;
 			local shownHealAbsorbPercent = shownHealAbsorb / maxHealth;
-
-			healAbsorbTexture = CfUnitFrameUtil_UpdateFillBar(frame, healthTexture, frame.healAbsorbBar, shownHealAbsorb, -shownHealAbsorbPercent)
-
-			if ( allIncomingHeal > 0 ) then
-				frame.healAbsorbBarLeftShadow:Hide()
-			else
-				frame.healAbsorbBarLeftShadow:SetPoint("TOPLEFT", healAbsorbTexture, "TOPLEFT", 0, 0)
-				frame.healAbsorbBarLeftShadow:SetPoint("BOTTOMLEFT", healAbsorbTexture, "BOTTOMLEFT", 0, 0)
-				frame.healAbsorbBarLeftShadow:Show()
-			end
-
-			if ( totalAbsorb > 0 ) then
-				frame.healAbsorbBarRightShadow:SetPoint("TOPLEFT", healAbsorbTexture, "TOPRIGHT", -8, 0)
-				frame.healAbsorbBarRightShadow:SetPoint("BOTTOMLEFT", healAbsorbTexture, "BOTTOMRIGHT", -8, 0)
-				frame.healAbsorbBarRightShadow:Show()
-			else
-				frame.healAbsorbBarRightShadow:Hide()
-			end
+			healAbsorbTexture = frame.healAbsorbBar:UpdateFillPosition(healthTexture, shownHealAbsorb, -shownHealAbsorbPercent)
+			frame.healAbsorbBar.LeftShadow:SetShown(allIncomingHeal <= 0)
+			frame.healAbsorbBar.RightShadow:SetShown(totalAbsorb > 0)
 		else
 			frame.healAbsorbBar:Hide()
-			frame.healAbsorbBarLeftShadow:Hide()
-			frame.healAbsorbBarRightShadow:Hide()
 		end
 	end
 
-	local incomingHealTexture = CfUnitFrameUtil_UpdateFillBar(frame, healthTexture, frame.myHealPredictionBar, myIncomingHeal, -myCurrentHealAbsorbPercent)
+	local incomingHealTexture;
+	if ( frame.myHealPredictionBar ) then
+		incomingHealTexture = frame.myHealPredictionBar:UpdateFillPosition(healthTexture, myIncomingHeal, -myCurrentHealAbsorbPercent)
+	end
 
-	if (myIncomingHeal > 0) then
-		incomingHealTexture = CfUnitFrameUtil_UpdateFillBar(frame, incomingHealTexture, frame.otherHealPredictionBar, otherIncomingHeal)
-	else
-		incomingHealTexture = CfUnitFrameUtil_UpdateFillBar(frame, healthTexture, frame.otherHealPredictionBar, otherIncomingHeal, -myCurrentHealAbsorbPercent)
+	local otherHealLeftTexture = (myIncomingHeal > 0) and incomingHealTexture or healthTexture;
+	local xOffset = (myIncomingHeal > 0) and 0 or -myCurrentHealAbsorbPercent;
+
+	if ( frame.otherHealPredictionBar ) then
+		incomingHealTexture = frame.otherHealPredictionBar:UpdateFillPosition(otherHealLeftTexture, otherIncomingHeal, xOffset)
 	end
 
 	local appendTexture = nil;
 	if ( healAbsorbTexture ) then
 		appendTexture = healAbsorbTexture;
 	else
-		appendTexture = incomingHealTexture;
-	end
-	CfUnitFrameUtil_UpdateFillBar(frame, appendTexture, frame.totalAbsorbBar, totalAbsorb)
-end
-
-function CfUnitFrameUtil_UpdateFillBarBase(frame, realbar, previousTexture, bar, amount, barOffsetXPercent)
-	if ( amount == 0 ) then
-		bar:Hide()
-		if ( bar.overlay ) then
-			bar.overlay:Hide()
-		end
-		return previousTexture;
+		appendTexture = incomingHealTexture or healthTexture;
 	end
 
-	local barOffsetX = 0;
-	if ( barOffsetXPercent ) then
-		local realbarSizeX = realbar:GetWidth()
-		barOffsetX = realbarSizeX * barOffsetXPercent;
+	if ( frame.totalAbsorbBar ) then
+		frame.totalAbsorbBar:UpdateFillPosition(appendTexture, totalAbsorb)
 	end
-
-	bar:SetPoint("TOPLEFT", previousTexture, "TOPRIGHT", barOffsetX, 0)
-	bar:SetPoint("BOTTOMLEFT", previousTexture, "BOTTOMRIGHT", barOffsetX, 0)
-
-	local totalWidth, totalHeight = realbar:GetSize()
-	local _, totalMax = realbar:GetMinMaxValues()
-
-	local barSize = (amount / totalMax) * totalWidth;
-	bar:SetWidth(barSize)
-	bar:Show()
-	if ( bar.overlay ) then
-		bar.overlay:SetTexCoord(0, barSize / bar.overlay.tileSize, 0, totalHeight / bar.overlay.tileSize)
-		bar.overlay:Show()
-	end
-	return bar;
-end
-
-function CfUnitFrameUtil_UpdateFillBar(frame, previousTexture, bar, amount, barOffsetXPercent)
-	return CfUnitFrameUtil_UpdateFillBarBase(frame, frame.healthbar, previousTexture, bar, amount, barOffsetXPercent)
-end
-
-function CfUnitFrameUtil_UpdateManaFillBar(frame, previousTexture, bar, amount, barOffsetXPercent)
-	return CfUnitFrameUtil_UpdateFillBarBase(frame, frame.manabar, previousTexture, bar, amount, barOffsetXPercent)
 end
 
 function CfUnitFrameManaBar_UpdateType(manaBar)
 	if ( not manaBar ) then
 		return;
 	end
-	local unitFrame = manaBar:GetParent()
+
 	local powerType, powerToken, altR, altG, altB = UnitPowerType(manaBar.unit)
-	local prefix = _G[powerToken];
 	local info = CfPowerBarColor[powerToken];
 
 	manaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
@@ -353,7 +291,6 @@ function CfUnitFrameManaBar_UpdateType(manaBar)
 			if ( info.atlas ) then
 				manaBar:SetStatusBarTexture(info.atlas)
 				manaBar:SetStatusBarColor(1, 1, 1)
-
 			else
 				if ( playerDeadOrGhost ) then
 					manaBar:SetStatusBarColor(0.6, 0.6, 0.6, 0.5)
@@ -379,7 +316,8 @@ function CfUnitFrameManaBar_UpdateType(manaBar)
 			end
 		end
 	end
-	if ( manaBar.powerType ~= powerType or manaBar.powerType ~= powerType ) then
+
+	if ( manaBar.powerType ~= powerType ) then
 		manaBar.powerType = powerType;
 		manaBar.powerToken = powerToken;
 		if ( manaBar.FullPowerFrame ) then
@@ -389,7 +327,7 @@ function CfUnitFrameManaBar_UpdateType(manaBar)
 			manaBar.FeedbackFrame:StopFeedbackAnim()
 		end
 		manaBar.currValue = UnitPower("player", powerType)
-		unitFrame.predictedPowerCost = 0;
+		manaBar.unitFrame.predictedPowerCost = 0;
 	end
 
 	manaBar:UpdateTextString()
@@ -407,7 +345,7 @@ function CfUnitFrameHealthBar_Initialize(unit, statusbar, statustext, frequentUp
 	if ( frequentUpdates ) then
 		statusbar:RegisterEvent("VARIABLES_LOADED")
 	end
-	
+
 	CfUnitFrameHealthBar_RefreshUpdateEvent(statusbar)
 
 	statusbar:RegisterUnitEvent("UNIT_MAXHEALTH", unit)
@@ -457,7 +395,7 @@ function CfUnitFrameHealthBar_OnUpdate(self)
 				self:SetValue(currValue)
 				self.currValue = currValue;
 				self:UpdateTextString()
-				CfUnitFrameHealPredictionBars_Update(self:GetParent())
+				CfUnitFrameHealPredictionBars_Update(self.unitFrame)
 			end
 		end
 
@@ -504,7 +442,7 @@ function CfUnitFrameHealthBar_Update(statusbar, unit)
 		end
 	end
 	statusbar:UpdateTextString()
-	CfUnitFrameHealPredictionBars_Update(statusbar:GetParent())
+	CfUnitFrameHealPredictionBars_Update(statusbar.unitFrame)
 end
 
 function CfUnitFrameHealthBar_OnValueChanged(self, value)
@@ -539,6 +477,8 @@ function CfUnitFrameManaBar_Initialize(unit, statusbar, statustext, frequentUpda
 	end
 	statusbar:RegisterEvent("UNIT_DISPLAYPOWER")
 	statusbar:RegisterUnitEvent("UNIT_MAXPOWER", unit)
+	statusbar:RegisterUnitEvent("PLAYER_GAINS_VEHICLE_DATA", unit)
+	statusbar:RegisterUnitEvent("PLAYER_LOSES_VEHICLE_DATA", unit)
 	if ( statusbar.unit == "player" ) then
 		statusbar:RegisterEvent("PLAYER_DEAD")
 		statusbar:RegisterEvent("PLAYER_ALIVE")
@@ -561,6 +501,8 @@ function CfUnitFrameManaBar_OnEvent(self, event, ...)
 		end
 	elseif ( event == "PLAYER_ALIVE"  or event == "PLAYER_DEAD" or event == "PLAYER_UNGHOST" ) then
 		CfUnitFrameManaBar_UpdateType(self)
+	elseif ( event == "PLAYER_GAINS_VEHICLE_DATA"  or event == "PLAYER_LOSES_VEHICLE_DATA" ) then
+		CfUnitFrameManaBar_UpdateType(self)
 	else
 		if ( not self.ignoreNoUnit or UnitGUID(self.unit) ) then
 			CfUnitFrameManaBar_Update(self, ...)
@@ -570,7 +512,7 @@ end
 
 function CfUnitFrameManaBar_OnUpdate(self)
 	if ( not self.disconnected and not self.lockValues ) then
-		local predictedCost = self:GetParent().predictedPowerCost;
+		local predictedCost = self.unitFrame.predictedPowerCost;
 		local currValue = UnitPower(self.unit, self.powerType)
 		if (predictedCost) then
 			currValue = currValue - predictedCost;
@@ -578,7 +520,7 @@ function CfUnitFrameManaBar_OnUpdate(self)
 		if ( currValue ~= self.currValue or self.forceUpdate ) then
 			self.forceUpdate = nil;
 			if ( not self.ignoreNoUnit or UnitGUID(self.unit) ) then
-				if ( self.FeedbackFrame ) then
+				if ( self.FeedbackFrame and self.FeedbackFrame.maxValue ) then
 					local oldValue = self.currValue or 0;
 					if ( self.FeedbackFrame.maxValue ~= 0 and math.abs(currValue - oldValue) / self.FeedbackFrame.maxValue > 0.1 ) then
 						self.FeedbackFrame:StartFeedbackAnim(oldValue, currValue)
@@ -615,7 +557,7 @@ function CfUnitFrameManaBar_Update(statusbar, unit)
 				statusbar:SetStatusBarColor(0.5, 0.5, 0.5)
 			end
 		else
-			local predictedCost = statusbar:GetParent().predictedPowerCost;
+			local predictedCost = statusbar.unitFrame.predictedPowerCost;
 			local currValue = UnitPower(unit, statusbar.powerType)
 			if (predictedCost) then
 				currValue = currValue - predictedCost;

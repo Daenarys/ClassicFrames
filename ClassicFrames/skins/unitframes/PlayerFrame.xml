@@ -12,25 +12,12 @@
 					<Color r="0" g="0" b="0" a="0.5"/>
 				</Texture>
 			</Layer>
-			<Layer level="ARTWORK">
-				<Texture name="$parentTotalAbsorbBar" inherits="CfTotalAbsorbBarTemplate"/>
-			</Layer>
-			<Layer level="ARTWORK" textureSubLevel="1">
-				<Texture name="$parentTotalAbsorbBarOverlay" inherits="CfTotalAbsorbBarOverlayTemplate"/>
-			</Layer>
 		</Layers>
 		<Frames>
 			<Frame setAllPoints="true">
 				<Frames>
 					<Frame setAllPoints="true">
 						<Layers>
-							<Layer level="BACKGROUND">
-								<Texture name="$parentMyHealPredictionBar" inherits="CfMyHealPredictionBarTemplate"/>
-								<Texture name="$parentOtherHealPredictionBar" inherits="CfOtherHealPredictionBarTemplate"/>
-								<Texture name="$parentHealAbsorbBar" inherits="CfHealAbsorbBarTemplate"/>
-								<Texture name="$parentHealAbsorbBarLeftShadow" inherits="CfHealAbsorbBarLeftShadowTemplate"/>
-								<Texture name="$parentHealAbsorbBarRightShadow" inherits="CfHealAbsorbBarRightShadowTemplate"/>
-							</Layer>
 							<Layer level="BORDER">
 								<FontString name="$parentHealthBarText" inherits="TextStatusBarText">
 									<Anchors>
@@ -63,10 +50,6 @@
 									</Anchors>
 								</FontString>
 							</Layer>
-							<Layer level="ARTWORK" textureSubLevel="1">
-								<Texture name="$parentOverAbsorbGlow" inherits="CfOverAbsorbGlowTemplate"/>
-								<Texture name="$parentOverHealAbsorbGlow" inherits="CfOverHealAbsorbGlowTemplate"/>
-							</Layer>
 						</Layers>
 					</Frame>
 				</Frames>
@@ -82,6 +65,18 @@
 				<Anchors>
 					<Anchor point="TOPLEFT" x="106" y="-41"/>
 				</Anchors>
+				<Frames>
+					<Frame parentKey="MyHealPredictionBar" inherits="PlayerFrameBarSegmentTemplate, MyHealPredictionBarTemplate"/>
+					<Frame parentKey="OtherHealPredictionBar" inherits="PlayerFrameBarSegmentTemplate, OtherHealPredictionBarTemplate"/>
+					<Frame parentKey="HealAbsorbBar" inherits="PlayerFrameBarSegmentTemplate, HealAbsorbBarTemplate"/>
+					<Frame parentKey="TotalAbsorbBar" inherits="PlayerFrameBarSegmentTemplate, TotalAbsorbBarTemplate"/>
+				</Frames>
+				<Layers>
+					<Layer level="ARTWORK">
+						<Texture parentKey="OverAbsorbGlow" inherits="OverAbsorbGlowTemplate"/>
+						<Texture parentKey="OverHealAbsorbGlow" inherits="OverHealAbsorbGlowTemplate"/>
+					</Layer>											
+				</Layers>
 				<Scripts>
 					<OnLoad>
 						self:InitializeTextStatusBar()
