@@ -353,7 +353,6 @@ function CfUnitFrameManaBar_UpdateType(manaBar)
 			if ( info.atlas ) then
 				manaBar:SetStatusBarTexture(info.atlas)
 				manaBar:SetStatusBarColor(1, 1, 1)
-
 			else
 				if ( playerDeadOrGhost ) then
 					manaBar:SetStatusBarColor(0.6, 0.6, 0.6, 0.5)
@@ -407,7 +406,7 @@ function CfUnitFrameHealthBar_Initialize(unit, statusbar, statustext, frequentUp
 	if ( frequentUpdates ) then
 		statusbar:RegisterEvent("VARIABLES_LOADED")
 	end
-	
+
 	CfUnitFrameHealthBar_RefreshUpdateEvent(statusbar)
 
 	statusbar:RegisterUnitEvent("UNIT_MAXHEALTH", unit)
