@@ -13,8 +13,6 @@
 	<Texture name="CfHealAbsorbBarRightShadowTemplate" virtual="true" file="Interface\RaidFrame\Absorb-Edge">
 		<TexCoords left="1" right="0" top="0" bottom="1"/>
 	</Texture>
-
-	<!--The tile size is set up in UnitFrame_Initialize-->
 	<Texture name="CfTotalAbsorbBarOverlayTemplate" virtual="true" file="Interface\RaidFrame\Shield-Overlay" vertTile="true" horizTile="true"/>
 	<Texture name="CfOverAbsorbGlowTemplate" virtual="true" file="Interface\RaidFrame\Shield-Overshield" alphaMode="ADD">
 		<Size x="16" y="0"/>
