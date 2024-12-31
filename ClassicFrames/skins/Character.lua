@@ -45,7 +45,7 @@ ReputationFrame.ReputationDetailFrame.CloseButton:SetNormalTexture("Interface\\B
 ReputationFrame.ReputationDetailFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 ReputationFrame.ReputationDetailFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 ReputationFrame.ReputationDetailFrame.CloseButton:ClearAllPoints()
-ReputationFrame.ReputationDetailFrame.CloseButton:SetPoint("TOPRIGHT", -3, -3)
+ReputationFrame.ReputationDetailFrame.CloseButton:SetPoint("TOPRIGHT", -2, -3)
 
 if (ReputationDetailCorner == nil) then
 	ReputationFrame.ReputationDetailFrame:CreateTexture("ReputationDetailCorner", "OVERLAY")
@@ -88,7 +88,7 @@ select(5, TokenFramePopup:GetChildren()):SetNormalTexture("Interface\\Buttons\\U
 select(5, TokenFramePopup:GetChildren()):SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 select(5, TokenFramePopup:GetChildren()):SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 select(5, TokenFramePopup:GetChildren()):ClearAllPoints()
-select(5, TokenFramePopup:GetChildren()):SetPoint("TOPRIGHT", -3, -3)
+select(5, TokenFramePopup:GetChildren()):SetPoint("TOPRIGHT", -2, -3)
 
 if (TokenFramePopupCorner == nil) then
 	TokenFramePopup:CreateTexture("TokenFramePopupCorner", "OVERLAY")
