@@ -389,7 +389,7 @@ function ApplyDropDown(frame)
 
 	frame.Arrow:SetSize(23, 22)
 	frame.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
-	frame.Arrow:SetTexCoord(0.824219, 0.914062, 0.00390625, 0.0898438)
+	frame.Arrow:SetTexCoord(0.902344, 0.992188, 0.171875, 0.257812)
 	frame.Arrow:ClearAllPoints()
 	frame.Arrow:SetPoint("RIGHT", -1, 0)
 
@@ -400,16 +400,16 @@ function ApplyDropDown(frame)
 		self.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
 		if self:IsEnabled() then
 			if self:IsDownOver() then
-				self.Arrow:SetTexCoord(0.777344, 0.867188, 0.28125, 0.367188)
+				self.Arrow:SetTexCoord(0.875, 0.964844, 0.28125, 0.367188)
 			elseif self:IsOver() then
-				self.Arrow:SetTexCoord(0.582031, 0.671875, 0.28125, 0.367188)
-			elseif self:IsDown() then
 				self.Arrow:SetTexCoord(0.679688, 0.769531, 0.28125, 0.367188)
+			elseif self:IsDown() then
+				self.Arrow:SetTexCoord(0.777344, 0.867188, 0.28125, 0.367188)
 			else
-				self.Arrow:SetTexCoord(0.824219, 0.914062, 0.00390625, 0.0898438)
+				self.Arrow:SetTexCoord(0.902344, 0.992188, 0.171875, 0.257812)
 			end
 		else
-			self.Arrow:SetTexCoord(0.902344, 0.992188, 0.171875, 0.257812)
+			self.Arrow:SetTexCoord(0.582031, 0.671875, 0.28125, 0.367188)
 		end
 	end)
 end
