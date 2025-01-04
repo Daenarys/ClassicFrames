@@ -7,10 +7,9 @@ function CfPlayerFrame_OnLoad(self)
 	CfUnitFrame_Initialize(self, "player",
 		CfPlayerFrameHealthBar, CfPlayerFrameHealthBarText,
 		CfPlayerFrameManaBar, CfPlayerFrameManaBarText,
-		CfPlayerFrameMyHealPredictionBar, CfPlayerFrameOtherHealPredictionBar,
-		CfPlayerFrameTotalAbsorbBar, CfPlayerFrameTotalAbsorbBarOverlay, CfPlayerFrameOverAbsorbGlow,
-		CfPlayerFrameOverHealAbsorbGlow, CfPlayerFrameHealAbsorbBar, CfPlayerFrameHealAbsorbBarLeftShadow,
-		CfPlayerFrameHealAbsorbBarRightShadow)
+		CfPlayerFrameHealthBar.MyHealPredictionBar, CfPlayerFrameHealthBar.OtherHealPredictionBar,
+		CfPlayerFrameHealthBar.TotalAbsorbBar, CfPlayerFrameHealthBar.OverAbsorbGlow,
+		CfPlayerFrameHealthBar.OverHealAbsorbGlow, CfPlayerFrameHealthBar.HealAbsorbBar)
 
 	CfPlayerFrameHealthBarText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	CfPlayerFrameHealthBarTextLeft:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
@@ -18,7 +17,7 @@ function CfPlayerFrame_OnLoad(self)
 	CfPlayerFrameManaBarText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	CfPlayerFrameManaBarTextLeft:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	CfPlayerFrameManaBarTextRight:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
-	CfPlayerFrameOverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+	CfPlayerFrameHealthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
 	self:EnableMouse(false)
