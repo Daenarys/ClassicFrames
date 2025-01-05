@@ -378,7 +378,7 @@ function CfUnitFrameManaBar_UpdateType(manaBar)
 			end
 		end
 	end
-	if ( manaBar.powerType ~= powerType or manaBar.powerType ~= powerType ) then
+	if ( manaBar.powerType ~= powerType ) then
 		manaBar.powerType = powerType;
 		manaBar.powerToken = powerToken;
 		if ( manaBar.FullPowerFrame ) then
@@ -538,6 +538,8 @@ function CfUnitFrameManaBar_Initialize(unit, statusbar, statustext, frequentUpda
 	end
 	statusbar:RegisterEvent("UNIT_DISPLAYPOWER")
 	statusbar:RegisterUnitEvent("UNIT_MAXPOWER", unit)
+	statusbar:RegisterUnitEvent("PLAYER_GAINS_VEHICLE_DATA", unit)
+	statusbar:RegisterUnitEvent("PLAYER_LOSES_VEHICLE_DATA", unit)
 	if ( statusbar.unit == "player" ) then
 		statusbar:RegisterEvent("PLAYER_DEAD")
 		statusbar:RegisterEvent("PLAYER_ALIVE")
@@ -560,6 +562,8 @@ function CfUnitFrameManaBar_OnEvent(self, event, ...)
 		end
 	elseif ( event == "PLAYER_ALIVE"  or event == "PLAYER_DEAD" or event == "PLAYER_UNGHOST" ) then
 		CfUnitFrameManaBar_UpdateType(self)
+	elseif ( event == "PLAYER_GAINS_VEHICLE_DATA"  or event == "PLAYER_LOSES_VEHICLE_DATA" ) then
+		CfUnitFrameManaBar_UpdateType(self)
 	else
 		if ( not self.ignoreNoUnit or UnitGUID(self.unit) ) then
 			CfUnitFrameManaBar_Update(self, ...)
@@ -577,7 +581,7 @@ function CfUnitFrameManaBar_OnUpdate(self)
 		if ( currValue ~= self.currValue or self.forceUpdate ) then
 			self.forceUpdate = nil;
 			if ( not self.ignoreNoUnit or UnitGUID(self.unit) ) then
-				if ( self.FeedbackFrame ) then
+				if ( self.FeedbackFrame and self.FeedbackFrame.maxValue ) then
 					local oldValue = self.currValue or 0;
 					if ( self.FeedbackFrame.maxValue ~= 0 and math.abs(currValue - oldValue) / self.FeedbackFrame.maxValue > 0.1 ) then
 						self.FeedbackFrame:StartFeedbackAnim(oldValue, currValue)
