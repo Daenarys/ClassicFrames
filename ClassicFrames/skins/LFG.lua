@@ -763,7 +763,7 @@ hooksecurefunc("GroupFinderFrame_EvaluateButtonVisibility", function(self)
 end)
 
 hooksecurefunc("LFGRewardsFrame_UpdateFrame", function(parentFrame, dungeonID)
-	if (dungeonID == 995 or dungeonID == 1146 or dungeonID == 2634) then
+	if (dungeonID == 2634 or dungeonID == 744 or dungeonID == 995 or dungeonID == 1146 or dungeonID == 1453 or dungeonID == 1971 or dungeonID == 2274) then
 		parentFrame.title:SetText(LFG_TYPE_RANDOM_TIMEWALKER_DUNGEON)
 		parentFrame.description:SetText(LFD_TIMEWALKER_RANDOM_EXPLANATION)
 	end
