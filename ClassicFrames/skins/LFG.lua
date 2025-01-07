@@ -310,38 +310,6 @@ ApplyScrollBarArrow(RaidFinderQueueFrameScrollFrame.ScrollBar)
 ApplyScrollBarTrack(RaidFinderQueueFrameScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(RaidFinderQueueFrameScrollFrame.ScrollBar.Track.Thumb)
 
-for _, roleButton in pairs({
-	_G.LFDRoleCheckPopupRoleButtonDPS,
-	_G.LFDRoleCheckPopupRoleButtonHealer,
-	_G.LFDRoleCheckPopupRoleButtonTank,
-	_G.LFDQueueFrameRoleButtonHealer,
-	_G.LFDQueueFrameRoleButtonDPS,
-	_G.LFDQueueFrameRoleButtonLeader,
-	_G.LFDQueueFrameRoleButtonTank,
-	_G.RaidFinderQueueFrameRoleButtonHealer,
-	_G.RaidFinderQueueFrameRoleButtonDPS,
-	_G.RaidFinderQueueFrameRoleButtonLeader,
-	_G.RaidFinderQueueFrameRoleButtonTank,
-	_G.LFGInvitePopupRoleButtonTank,
-	_G.LFGInvitePopupRoleButtonHealer,
-	_G.LFGInvitePopupRoleButtonDPS,
-	_G.LFGListApplicationDialog.TankButton,
-	_G.LFGListApplicationDialog.HealerButton,
-	_G.LFGListApplicationDialog.DamagerButton
-}) do
-	local checkButton = roleButton.checkButton or roleButton.CheckButton
-
-	checkButton:SetSize(24, 24)
-	checkButton:SetScale(1)
-	checkButton:ClearAllPoints()
-	checkButton:SetPoint("BOTTOMLEFT", -5, -5)
-	checkButton:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
-	checkButton:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
-	checkButton:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
-	checkButton:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
-	checkButton:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
-end
-
 ApplySearchBox(LFGListFrame.EntryCreation.ActivityFinder.Dialog.EntryBox)
 ApplySearchBox(LFGListFrame.EntryCreation.ItemLevel.EditBox)
 ApplySearchBox(LFGListFrame.EntryCreation.VoiceChat.EditBox)
