@@ -64,7 +64,7 @@ for _, f in next, WorldMapFrame.overlayFrames do
 	end
 end
 
-local Dropdown, Tracking, Pin, MapLegend = unpack(WorldMapFrame.overlayFrames)
+local Dropdown, Tracking, Pin = unpack(WorldMapFrame.overlayFrames)
 ApplyDropDown(Dropdown)
 Tracking.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 Tracking.Icon:SetTexture("Interface\\Minimap\\Tracking\\None")
@@ -86,6 +86,7 @@ Tracking:HookScript("OnMouseUp", function(self)
 	self.Icon:SetPoint("TOPLEFT", 6, -6)
 	self.IconOverlay:Hide()
 end)
+Pin:SetPoint("TOPRIGHT", WorldMapFrame.ScrollContainer, "TOPRIGHT", -36, -2)
 Pin.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 Pin.Icon:SetPoint("TOPLEFT", 6, -6)
 Pin:HookScript("OnMouseDown", function(self)
@@ -94,4 +95,3 @@ end)
 Pin:HookScript("OnMouseUp", function(self)
 	self.Icon:SetPoint("TOPLEFT", 6, -6)
 end)
-MapLegend:Hide()
