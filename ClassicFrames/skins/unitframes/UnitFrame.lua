@@ -93,7 +93,7 @@ function CfUnitFrame_Initialize(self, unit, healthbar, healthtext, manabar, mana
 		self.manabar.capNumericDisplay = true;
 	end
 	CfUnitFrameHealthBar_Initialize(unit, healthbar, healthtext, true)
-	CfUnitFrameManaBar_Initialize(unit, manabar, manatext, (unit == "player" or unit == "pet" or unit == "vehicle" or unit == "target" or unit == "focus"))
+	CfUnitFrameManaBar_Initialize(unit, manabar, manatext, (unit == "player" or unit == "vehicle" or unit == "target" or unit == "focus"))
 	CfUnitFrame_Update(self)
 	self:RegisterEvent("UNIT_DISPLAYPOWER")
 	if ( self.healAbsorbBar ) then
