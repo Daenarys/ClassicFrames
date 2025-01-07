@@ -147,7 +147,7 @@ function CfUnitFrame_Update(self, isParty)
 end
 
 function CfUnitFrame_OnEvent(self, event, ...)
-	local eventUnit, arg2 = ...
+	local eventUnit = ...
 
 	local unit = self.unit;
 	if ( eventUnit == unit ) then
