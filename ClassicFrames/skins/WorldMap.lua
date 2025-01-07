@@ -76,6 +76,10 @@ if (Tracking.IconOverlay == nil) then
 	Tracking.IconOverlay:SetColorTexture(0, 0, 0, 0.5)
 	Tracking.IconOverlay:Hide()
 end
+hooksecurefunc(Tracking, "RefreshFilterCounter", function(self)
+	self.FilterCounter:Hide()
+	self.FilterCounterBanner:Hide()
+end)
 Tracking:HookScript("OnMouseDown", function(self)
 	self.Icon:SetTexture("Interface\\Minimap\\Tracking\\None")
 	self.Icon:SetPoint("TOPLEFT", 8, -8)
