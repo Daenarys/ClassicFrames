@@ -11,15 +11,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		WeeklyRewardsFrame.CloseButton:SetPoint("TOPRIGHT", -5, -2)
 		UIPanelCloseButton_SetBorderAtlas(WeeklyRewardsFrame.CloseButton, "UI-Frame-Oribos-ExitButtonBorder", -1, 1)
 
-		WeeklyRewardsFrame.BorderContainer.TopDecor:SetAlpha(0)
-
-		hooksecurefunc(WeeklyRewardsFrame, "UpdateOverlay", function()
-			local overlay = WeeklyRewardsFrame.Overlay
-			if overlay then
-				ApplyDialogBorder(WeeklyRewardsFrame.Overlay.NineSlice)
-			end
-		end)
-
 		WeeklyRewardsFrame:HookScript("OnShow", function(self)
 			self:ClearAllPoints()
 			self:SetPoint("CENTER", 0, 39)
