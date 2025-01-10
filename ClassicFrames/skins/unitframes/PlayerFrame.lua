@@ -279,7 +279,7 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	FrameFlash:SetDrawLayer("BACKGROUND")
 
 	local StatusTexture = self.PlayerFrameContent.PlayerFrameContentMain.StatusTexture
-	StatusTexture:SetAlpha(0)
+	StatusTexture:Hide()
 
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:ClearAllPoints()
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMLEFT", CfPlayerFrame, "TOPLEFT", 97, -13)
