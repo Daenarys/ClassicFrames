@@ -16,6 +16,18 @@ local function SetCollapsed(self, collapsed)
 	end
 end
 
+local function HandleQuestIcons(_, block)
+	if not block.ItemButton then return end
+
+	if not block.ItemButton.IsSkinned then
+		block.ItemButton:SetNormalTexture("Interface\\Buttons\\UI-Quickslot2")
+		block.ItemButton:SetPushedTexture("Interface\\Buttons\\UI-Quickslot-Depress")
+		block.ItemButton:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square", "ADD")
+		block.ItemButton.Glow:SetAlpha(0)
+		block.ItemButton.IsSkinned = true
+	end
+end
+
 local trackers = {
 	_G.AchievementObjectiveTracker,
 	_G.AdventureObjectiveTracker,
@@ -38,6 +50,7 @@ for _, tracker in pairs(trackers) do
 	tracker.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Red-Highlight", "ADD")
 	SetCollapsed(tracker.Header, _G.ObjectiveTrackerFrame.isCollapsed)
 	hooksecurefunc(tracker.Header, 'SetCollapsed', SetCollapsed)
+	hooksecurefunc(tracker, 'AddBlock', HandleQuestIcons)
 end
 
 hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
