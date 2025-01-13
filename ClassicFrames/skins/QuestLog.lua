@@ -23,7 +23,11 @@ hooksecurefunc('QuestLogQuests_Update', function()
 		if not button.IsSkinned then
 			if button.Text then
 				button.Text:ClearAllPoints()
-				button.Text:SetPoint("BOTTOMLEFT", button.Background, "LEFT", 30, 5)
+				if button.CollapseButton:IsShown() then
+					button.Text:SetPoint("BOTTOMLEFT", button.Background, "LEFT", 30, 5)
+				else
+					button.Text:SetPoint("BOTTOMLEFT", button.Background, "LEFT", 16, 5)
+				end
 			end
 			if button.Progress then
 				button.Progress:ClearAllPoints()
