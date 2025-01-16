@@ -593,8 +593,6 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 			hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIconForGarrison", function(self)
 				local garrisonType = C_Garrison.GetLandingPageGarrisonType()
 
-				self:SetScale(1)
-
 				if (garrisonType == Enum.GarrisonType.Type_9_0_Garrison) then
 					self:ClearAllPoints()
 					self:SetPoint("TOPLEFT", 32, -106)
