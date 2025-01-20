@@ -38,6 +38,7 @@ for _, tracker in pairs(trackers) do
 	tracker.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Red-Highlight", "ADD")
 	SetCollapsed(tracker.Header, _G.ObjectiveTrackerFrame.isCollapsed)
 	hooksecurefunc(tracker.Header, 'SetCollapsed', SetCollapsed)
+	tracker.ContentsFrame:SetPoint("RIGHT", -8, 0)
 end
 
 hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
@@ -51,8 +52,18 @@ hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
 		if heightUsed > 0 then
 			if prevModule then
 				module:SetPoint("TOP", prevModule, "BOTTOM", 0, -self.moduleSpacing)
+				if module == ScenarioObjectiveTracker then
+					module:SetPoint("LEFT", self, "LEFT", -15, 0)
+				else
+					module:SetPoint("LEFT", self, "LEFT", 5, 0)
+				end
 			else
 				module:SetPoint("TOP")
+				if module == ScenarioObjectiveTracker then
+					module:SetPoint("LEFT", self, "LEFT", -15, 0)
+				else
+					module:SetPoint("LEFT", self, "LEFT", 5, 0)
+				end
 			end
 			prevModule = module
 		end
