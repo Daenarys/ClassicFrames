@@ -1,27 +1,20 @@
 if not _G.QuestScrollFrame then return end
 
-if QuestMapFrame.QuestsFrame.CampaignOverview.Header.BackButton then
-	QuestMapFrame.QuestsFrame.CampaignOverview.Header.BackButton:ClearAllPoints()
-	QuestMapFrame.QuestsFrame.CampaignOverview.Header.BackButton:SetPoint("RIGHT", QuestMapFrame.QuestsFrame.CampaignOverview.Header.Background, "RIGHT", -10, 7)
+if QuestMapFrame.CampaignOverview.Header.BackButton then
+	QuestMapFrame.CampaignOverview.Header.BackButton:ClearAllPoints()
+	QuestMapFrame.CampaignOverview.Header.BackButton:SetPoint("RIGHT", QuestMapFrame.CampaignOverview.Header.Background, "RIGHT", -10, 7)
 end
 
 QuestScrollFrame.SearchBox:Hide()
 QuestScrollFrame.BorderFrame.Shadow:SetAlpha(0)
 QuestScrollFrame.BorderFrame.TopDetail:SetAlpha(0)
-QuestScrollFrame.SettingsDropdown:Hide()
-QuestMapFrame.QuestsFrame.CampaignOverview.BorderFrame.TopDetail:SetAlpha(0)
+QuestMapFrame.CampaignOverview.BorderFrame.TopDetail:SetAlpha(0)
 QuestMapFrame.DetailsFrame.BorderFrame.TopDetail:SetAlpha(0)
-
-
-hooksecurefunc(QuestMapFrame, 'ValidateTabs', function(self)
-	self.QuestsTab:Hide()
-	self.EventsTab:Hide()
-	self.MapLegendTab:Hide()
-end)
+QuestMapFrame.SettingsDropdown:Hide()
 
 QuestScrollFrame:SetPoint("TOPLEFT")
 QuestScrollFrame.BorderFrame:SetPoint("TOPLEFT", -3, 3)
-QuestMapFrame.QuestsFrame.CampaignOverview.BorderFrame:SetPoint("TOPLEFT", -3, 3)
+QuestMapFrame.CampaignOverview.BorderFrame:SetPoint("TOPLEFT", -3, 3)
 
 ApplySearchBox(QuestScrollFrame.SearchBox)
 
