@@ -33,18 +33,12 @@ GroupFinderFrame:HookScript("OnShow", function()
 end)
 
 PVEFrame:HookScript("OnShow", function(self)
-	if self:TimerunningEnabled() then
-		self.tab4:Hide()
-	else
-		self.tab3:SetShown(UnitLevel("player") == GetMaxLevelForExpansionLevel(LE_EXPANSION_WAR_WITHIN))
-		self.tab4:SetShown(UnitLevel("player") >= GetMaxLevelForExpansionLevel(LE_EXPANSION_DRAGONFLIGHT))
-		if self.tab4:IsShown() then
-			self.tab4:ClearAllPoints()
-			if self.tab2:IsShown() and not self.tab3:IsShown() then
-				self.tab4:SetPoint("LEFT", self.tab2, "RIGHT", -16, 0)
-			elseif self.tab2:IsShown() and self.tab3:IsShown() then
-				self.tab4:SetPoint("LEFT", self.tab3, "RIGHT", -16, 0)
-			end
+	if self.tab4:IsShown() then
+		self.tab4:ClearAllPoints()
+		if self.tab2:IsShown() and not self.tab3:IsShown() then
+			self.tab4:SetPoint("LEFT", self.tab2, "RIGHT", -16, 0)
+		elseif self.tab2:IsShown() and self.tab3:IsShown() then
+			self.tab4:SetPoint("LEFT", self.tab3, "RIGHT", -16, 0)
 		end
 	end
 end)
