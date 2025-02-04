@@ -33,6 +33,10 @@ GroupFinderFrame:HookScript("OnShow", function()
 end)
 
 PVEFrame:HookScript("OnShow", function(self)
+	if not self:TimerunningEnabled() then
+		self.tab3:SetShown(UnitLevel("player") == GetMaxLevelForExpansionLevel(LE_EXPANSION_WAR_WITHIN))
+		self.tab4:SetShown(UnitLevel("player") == GetMaxLevelForExpansionLevel(LE_EXPANSION_WAR_WITHIN))
+	end
 	if self.tab4:IsShown() then
 		self.tab4:ClearAllPoints()
 		if self.tab2:IsShown() and not self.tab3:IsShown() then
