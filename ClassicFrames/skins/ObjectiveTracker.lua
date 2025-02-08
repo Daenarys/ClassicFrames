@@ -84,8 +84,14 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function
 	block.FinalBG:SetPoint("TOPLEFT", 4, -5)
 	if bit.band(flags, SCENARIO_FLAG_SUPRESS_STAGE_TEXT) == SCENARIO_FLAG_SUPRESS_STAGE_TEXT then
 		block.Stage:SetSize(172, 36)
+		block.Stage:SetPoint("TOPLEFT", 14, -19)
 	else
 		block.Stage:SetSize(172, 18)
+		if block.Name:GetStringWidth() > block.Name:GetWrappedWidth() then
+			block.Stage:SetPoint("TOPLEFT", 14, -11)
+		else
+			block.Stage:SetPoint("TOPLEFT", 14, -19)
+		end
 	end
 end)
 
