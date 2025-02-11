@@ -8,10 +8,47 @@ function LootFrame_OnLoad(self)
 	self:RegisterEvent("LOOT_SLOT_CHANGED")
 	self:RegisterEvent("LOOT_CLOSED")
 
+	--skin
 	ButtonFrameTemplate_HideButtonBar(self)
 	ApplyCloseButton(self.CloseButton)
 	ApplyTitleBg(self)
 	ApplyNineSlicePortrait(self)
+
+	self.NineSlice.TopLeftCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameMetalCornerTopLeft")
+	self.NineSlice.TopRightCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameMetalCornerTopRight")
+	self.NineSlice.BottomLeftCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameMetalCornerBottomLeft")
+	self.NineSlice.BottomRightCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameMetalCornerBottomRight")
+
+	--[[ WOW8-76190 Corners for nine slice template are too large to accommodate 
+	the loot frame, causing overlaps between the pieces. Until an artist can adjust
+	the atlas, cull the overlaps so the composition appears to fit.]]--
+	
+	-- Maps each of the four corners to a UV relative to their corner.
+	local function MapNineSliceCornerUVs(nineSlice, topLeftRelUV, topRightRelUV, botLeftRelUV, botRightRelUV)
+		if (nineSlice) then
+			-- relU,relV expected relative to corner. dirU,dirV translate accordingly.
+			local function MapTextureUV(texture, relU, relV, dirU, dirV)
+				if (texture) then
+					local cullU = 1.0 - Saturate(relU)
+					local cullV = 1.0 - Saturate(relV)
+					local startU = cullU * Saturate(dirU)
+					local startV = cullV * Saturate(dirV)
+					local endU = startU + (1.0 - cullU)
+					local endV = startV + (1.0 - cullV)
+					texture:SetTexCoord(startU, endU, startV, endV)
+					texture:SetWidth(128 * relU)
+					texture:SetHeight(128 * relV)
+				end
+			end
+
+			MapTextureUV(nineSlice.TopLeftCorner, topLeftRelUV[1], topLeftRelUV[2], 0, 0)
+			MapTextureUV(nineSlice.TopRightCorner, topRightRelUV[1], topRightRelUV[2], 1.0, 0)
+			MapTextureUV(nineSlice.BottomLeftCorner, botLeftRelUV[1], botLeftRelUV[2], 0, 1.0)
+			MapTextureUV(nineSlice.BottomRightCorner, botRightRelUV[1], botRightRelUV[2], 1.0, 1.0)
+		end
+	end
+
+	MapNineSliceCornerUVs(self.NineSlice, {.65, .6}, {.25, .4}, {.55, .4}, {.35, .4})
 end
 
 function LootFrame_OnEvent(self, event, ...)

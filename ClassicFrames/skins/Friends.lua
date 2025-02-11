@@ -153,6 +153,7 @@ if (RaidInfoDetailCorner == nil) then
 end
 
 ApplyDialogBorder(RaidInfoFrame.Border)
+ApplyDialogHeader(RaidInfoFrame.Header)
 
 RaidFrame.RoleCount.TankIcon:SetAtlas("groupfinder-icon-role-large-tank")
 RaidFrame.RoleCount.HealerIcon:SetAtlas("groupfinder-icon-role-large-heal")

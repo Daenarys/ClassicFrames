@@ -37,6 +37,7 @@ ApplyScrollBarTrack(ChatConfigCombatSettingsFilters.ScrollBar.Track)
 ApplyScrollBarThumb(ChatConfigCombatSettingsFilters.ScrollBar.Track.Thumb)
 
 ApplyDialogBorder(ChatConfigFrame.Border)
+ApplyDialogHeader(ChatConfigFrame.Header)
 
 ChatConfigFrame:HookScript("OnShow", function(self)
     self:ClearAllPoints()
