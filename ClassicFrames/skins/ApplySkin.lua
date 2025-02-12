@@ -186,6 +186,13 @@ function ApplyDialogHeader(frame)
 	frame.LeftBG:Hide()
 	frame.RightBG:Hide()
 	frame.CenterBG:Hide()
+
+	if (frame.CfHeader == nil) then
+		frame.CfHeader = frame:CreateTexture(nil, "ARTWORK")
+		frame.CfHeader:SetSize(300, 64)
+		frame.CfHeader:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
+		frame.CfHeader:SetPoint("TOP")
+	end
 end
 
 function ApplyScrollBarArrow(frame)

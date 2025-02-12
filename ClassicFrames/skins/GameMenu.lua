@@ -13,7 +13,7 @@ end
 if (GameMenuFrameHeaderText == nil) then
 	GameMenuFrameHeaderText = GameMenuFrame:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 	GameMenuFrameHeaderText:SetText(MAINMENU_BUTTON)
-	GameMenuFrameHeaderText:SetPoint("TOP", GameMenuFrameHeader, "TOP", 0, -14)
+	GameMenuFrameHeaderText:SetPoint("TOP", GameMenuFrameHeader, "TOP", 0, -13)
 end
 
 GameMenuFrame:HookScript("OnShow", function(self)
