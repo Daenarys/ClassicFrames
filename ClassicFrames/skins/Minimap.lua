@@ -568,33 +568,40 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 		TimeManagerClockTicker:SetPoint("CENTER", TimeManagerClockButton, "CENTER", 3, 1)
 
 		if not (C_AddOns.IsAddOnLoaded("ClassicUI")) then
-			ExpansionLandingPageMinimapButton:ClearAllPoints()
-			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 32, -118)
-
-			local _, className = UnitClass("player")
-			ExpansionLandingPageMinimapButton:GetNormalTexture():SetAtlas("legionmission-landingbutton-"..className.."-up", true)
-			ExpansionLandingPageMinimapButton:GetPushedTexture():SetAtlas("legionmission-landingbutton-"..className.."-down", true)
-			ExpansionLandingPageMinimapButton:GetHighlightTexture():SetTexture(136477, "ADD")
-			ExpansionLandingPageMinimapButton.LoopingGlow:SetAtlas("GarrLanding-CircleGlow", true)
+			if (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "dragonflight-landingbutton-up") then
+				ExpansionLandingPageMinimapButton:SetScale(0.85)
+				ExpansionLandingPageMinimapButton:ClearAllPoints()
+				ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 42, -144)
+			elseif (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "warwithin-landingbutton-up") then
+				ExpansionLandingPageMinimapButton:SetScale(0.84)
+				ExpansionLandingPageMinimapButton:ClearAllPoints()
+				ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 45, -143)
+			end
 
 			hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIcon", function(self)
-				self:ClearAllPoints()
-				self:SetPoint("TOPLEFT", 32, -118)
-
-				self:GetNormalTexture():SetAtlas("legionmission-landingbutton-"..className.."-up", true)
-				self:GetPushedTexture():SetAtlas("legionmission-landingbutton-"..className.."-down", true)
-				self:GetHighlightTexture():SetTexture(136477, "ADD")
-				self.LoopingGlow:SetAtlas("GarrLanding-CircleGlow", true)
+				if (self:GetNormalTexture():GetAtlas() == "dragonflight-landingbutton-up") then
+					self:SetScale(0.85)
+					self:ClearAllPoints()
+					self:SetPoint("TOPLEFT", 42, -144)
+				elseif (self:GetNormalTexture():GetAtlas() == "warwithin-landingbutton-up") then
+					self:SetScale(0.84)
+					self:ClearAllPoints()
+					self:SetPoint("TOPLEFT", 45, -143)
+				end
 			end)
 
 			hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIconForGarrison", function(self)
-				self:ClearAllPoints()
-				self:SetPoint("TOPLEFT", 32, -118)
+				local garrisonType = C_Garrison.GetLandingPageGarrisonType()
 
-				self:GetNormalTexture():SetAtlas("legionmission-landingbutton-"..className.."-up", true)
-				self:GetPushedTexture():SetAtlas("legionmission-landingbutton-"..className.."-down", true)
-				self:GetHighlightTexture():SetTexture(136477, "ADD")
-				self.LoopingGlow:SetAtlas("GarrLanding-CircleGlow", true)
+				self:SetScale(1)
+
+				if (garrisonType == Enum.GarrisonType.Type_9_0_Garrison) then
+					self:ClearAllPoints()
+					self:SetPoint("TOPLEFT", 32, -106)
+				else
+					self:ClearAllPoints()
+					self:SetPoint("TOPLEFT", 32, -118)
+				end
 			end)
 		end
 	end
