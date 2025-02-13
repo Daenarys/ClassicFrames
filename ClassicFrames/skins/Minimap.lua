@@ -571,14 +571,9 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 			ExpansionLandingPageMinimapButton:ClearAllPoints()
 			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 32, -118)
 
-			ExpansionLandingPageMinimapButton.faction = UnitFactionGroup("player")
-			if ( ExpansionLandingPageMinimapButton.faction == "Horde" ) then
-				ExpansionLandingPageMinimapButton:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Up", true)
-				ExpansionLandingPageMinimapButton:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Down", true)
-			else
-				ExpansionLandingPageMinimapButton:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Up", true)
-				ExpansionLandingPageMinimapButton:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Down", true)
-			end
+			local _, className = UnitClass("player")
+			ExpansionLandingPageMinimapButton:GetNormalTexture():SetAtlas("legionmission-landingbutton-"..className.."-up", true)
+			ExpansionLandingPageMinimapButton:GetPushedTexture():SetAtlas("legionmission-landingbutton-"..className.."-down", true)
 			ExpansionLandingPageMinimapButton:GetHighlightTexture():SetTexture(136477, "ADD")
 			ExpansionLandingPageMinimapButton.LoopingGlow:SetAtlas("GarrLanding-CircleGlow", true)
 
@@ -586,14 +581,8 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 				self:ClearAllPoints()
 				self:SetPoint("TOPLEFT", 32, -118)
 
-				self.faction = UnitFactionGroup("player")
-				if ( self.faction == "Horde" ) then
-					self:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Up", true)
-					self:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Down", true)
-				else
-					self:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Up", true)
-					self:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Down", true)
-				end
+				self:GetNormalTexture():SetAtlas("legionmission-landingbutton-"..className.."-up", true)
+				self:GetPushedTexture():SetAtlas("legionmission-landingbutton-"..className.."-down", true)
 				self:GetHighlightTexture():SetTexture(136477, "ADD")
 				self.LoopingGlow:SetAtlas("GarrLanding-CircleGlow", true)
 			end)
@@ -602,14 +591,8 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 				self:ClearAllPoints()
 				self:SetPoint("TOPLEFT", 32, -118)
 
-				self.faction = UnitFactionGroup("player")
-				if ( self.faction == "Horde" ) then
-					self:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Up", true)
-					self:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Horde-Down", true)
-				else
-					self:GetNormalTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Up", true)
-					self:GetPushedTexture():SetAtlas("GarrLanding-MinimapIcon-Alliance-Down", true)
-				end
+				self:GetNormalTexture():SetAtlas("legionmission-landingbutton-"..className.."-up", true)
+				self:GetPushedTexture():SetAtlas("legionmission-landingbutton-"..className.."-down", true)
 				self:GetHighlightTexture():SetTexture(136477, "ADD")
 				self.LoopingGlow:SetAtlas("GarrLanding-CircleGlow", true)
 			end)
