@@ -6,8 +6,8 @@
 ## Version: 2.54
 ## OptionalDeps: SexyMap
 embeds.xml
-skins\AccountStore.lua
 skins\ApplySkin.lua
+skins\AccountStore.lua
 skins\Achievements.lua
 skins\AddOnList.lua
 skins\AlliedRaces.lua
