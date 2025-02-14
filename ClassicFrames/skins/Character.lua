@@ -55,8 +55,8 @@ hooksecurefunc(CharacterFrame, "UpdateSize", function(self)
 end)
 
 hooksecurefunc(CharacterFrame, "UpdateTitle", function(self)
-	self.TitleText:SetText(UnitPVPName("player"))
-	self.TitleText:SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+	CharacterFrameTitleText:SetText(UnitPVPName("player"))
+	CharacterFrameTitleText:SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
 end)
 
 CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
@@ -72,17 +72,6 @@ hooksecurefunc("PaperDollFrame_SetLevel", function()
 	CharacterLevelText:SetPoint("TOP", 0, -30)
 	CharacterLevelText:SetFontObject("GameFontNormalSmall")
 end)
-
-for i = 1, 2 do
-	hooksecurefunc(_G['CharacterFrameTab'..i], "OnClick", function(self)
-		local name = self:GetName()
-		if ( name == "CharacterFrameTab1" ) then
-			CharacterFrame:Expand()
-		elseif ( name == "CharacterFrameTab2" ) then
-			CharacterFrame:Expand()
-		end
-	end)
-end
 
 ReputationFrame:HookScript("OnShow", function(self)
 	if not ReputationListScrollFrame:IsShown() then

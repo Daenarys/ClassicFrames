@@ -94,7 +94,6 @@ ApplyDialogBorder(LFDRoleCheckPopup.Border)
 ApplyDialogBorder(LFGDungeonReadyStatus.Border)
 ApplyDialogBorder(LFGInvitePopup.Border)
 ApplyDialogBorder(LFGListApplicationDialog.Border)
-ApplyDialogBorder(LFGListCreateRoleDialog.Border)
 ApplyDialogBorder(LFGListInviteDialog.Border)
 
 LFDQueueFrameRoleButtonLeader:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
@@ -176,9 +175,6 @@ for _, roleButton in pairs({
 	_G.LFDQueueFrameRoleButtonDPS,
 	_G.LFDQueueFrameRoleButtonLeader,
 	_G.LFDQueueFrameRoleButtonTank,
-	_G.LFGListCreateRoleDialog.DamagerButton,
-	_G.LFGListCreateRoleDialog.HealerButton,
-	_G.LFGListCreateRoleDialog.TankButton,
 	_G.LFGInvitePopupRoleButtonTank,
 	_G.LFGInvitePopupRoleButtonHealer,
 	_G.LFGInvitePopupRoleButtonDPS,
