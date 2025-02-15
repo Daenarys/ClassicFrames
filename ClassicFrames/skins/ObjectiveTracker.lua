@@ -83,6 +83,9 @@ end)
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", function(block)
 	if block.WidgetContainer.widgetFrames then
 		for _, widgetFrame in pairs(block.WidgetContainer.widgetFrames) do
+			if widgetFrame.HeaderText then
+				widgetFrame.HeaderText:SetFontObject("QuestTitleFont")
+			end
 			if widgetFrame.Frame then
 				if (widgetFrame.Frame:GetAtlas() == "evergreen-scenario-frame") then
 					block.WidgetContainer:SetPoint("TOPLEFT", -2, 0)
