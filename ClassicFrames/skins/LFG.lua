@@ -356,10 +356,6 @@ ApplyDropDown(LFGListEntryCreationActivityDropdown)
 ApplyDropDown(LFGListEntryCreationPlayStyleDropdown)
 ApplyFilterDropDown(LFGListFrame.SearchPanel.FilterButton)
 
-ApplySeparator(LFDQueueFrameFindGroupButton)
-ApplySeparator(ScenarioQueueFrameFindGroupButton)
-ApplySeparator(RaidFinderFrameFindRaidButton)
-
 LFDQueueFrameTypeDropdown:SetPoint("BOTTOMLEFT", 134, 292)
 LFDQueueFrameTypeDropdown.Text:SetJustifyH("RIGHT")
 RaidFinderQueueFrameSelectionDropdown:SetPoint("BOTTOMLEFT", 134, 294)
