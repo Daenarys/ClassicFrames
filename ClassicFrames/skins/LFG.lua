@@ -349,8 +349,8 @@ ApplySearchBox(LFGListFrame.EntryCreation.PVPRating.EditBox)
 ApplySearchBox(LFGListFrame.SearchPanel.SearchBox)
 
 ApplyDropDown(LFDQueueFrameTypeDropdown)
-ApplyDropDown(RaidFinderQueueFrameSelectionDropdown)
 ApplyDropDown(ScenarioQueueFrameTypeDropdown)
+ApplyDropDown(RaidFinderQueueFrameSelectionDropdown)
 ApplyDropDown(LFGListEntryCreationGroupDropdown)
 ApplyDropDown(LFGListEntryCreationActivityDropdown)
 ApplyDropDown(LFGListEntryCreationPlayStyleDropdown)
@@ -359,6 +359,11 @@ ApplyFilterDropDown(LFGListFrame.SearchPanel.FilterButton)
 ApplySeparator(LFDQueueFrameFindGroupButton)
 ApplySeparator(ScenarioQueueFrameFindGroupButton)
 ApplySeparator(RaidFinderFrameFindRaidButton)
+
+LFDQueueFrameTypeDropdown:SetPoint("BOTTOMLEFT", 134, 292)
+LFDQueueFrameTypeDropdown.Text:SetJustifyH("RIGHT")
+RaidFinderQueueFrameSelectionDropdown:SetPoint("BOTTOMLEFT", 134, 294)
+RaidFinderQueueFrameSelectionDropdown.Text:SetJustifyH("RIGHT")
 
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then

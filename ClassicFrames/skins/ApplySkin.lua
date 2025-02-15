@@ -368,62 +368,62 @@ function ApplySearchBox(frame)
 end
 
 function ApplyDropDown(frame)
-	frame.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
-	frame.Background:SetTexCoord(0.386719, 0.816406, 0.00390625, 0.164062)
-	frame.Background:ClearAllPoints()
-	frame.Background:SetPoint("TOPLEFT", -9, 7)
-	frame.Background:SetPoint("BOTTOMRIGHT", 8, -9)
+	frame.Background:Hide()
 
-	frame.Arrow:SetSize(23, 22)
-	frame.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
-	frame.Arrow:SetTexCoord(0.902344, 0.992188, 0.171875, 0.257812)
+	if (frame.Left == nil) then
+		frame.Left = frame:CreateTexture(nil, "ARTWORK")
+		frame.Left:SetSize(25, 64)
+		frame.Left:SetTexture("Interface\\Glues\\CharacterCreate\\CharacterCreate-LabelFrame")
+		frame.Left:SetTexCoord(0, 0.1953125, 0, 1)
+		frame.Left:SetPoint("TOPLEFT", -17, 17)
+	end
+
+	if (frame.Right == nil) then
+		frame.Right = frame:CreateTexture(nil, "ARTWORK")
+		frame.Right:SetSize(25, 64)
+		frame.Right:SetTexture("Interface\\Glues\\CharacterCreate\\CharacterCreate-LabelFrame")
+		frame.Right:SetTexCoord(0.8046875, 1, 0, 1)
+		frame.Right:SetPoint("TOPRIGHT", 13, 17)
+	end
+
+	if (frame.Middle == nil) then
+		frame.Middle = frame:CreateTexture(nil, "ARTWORK")
+		frame.Middle:SetTexture("Interface\\Glues\\CharacterCreate\\CharacterCreate-LabelFrame")
+		frame.Middle:SetTexCoord(0.1953125, 0.8046875, 0, 1)
+		frame.Middle:SetPoint("LEFT", frame.Left, "RIGHT")
+		frame.Middle:SetPoint("RIGHT", frame.Right, "LEFT")
+	end
+
+	frame.Arrow:SetSize(24, 24)
+	frame.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Up")
 	frame.Arrow:ClearAllPoints()
-	frame.Arrow:SetPoint("RIGHT", -1, 0)
+	frame.Arrow:SetPoint("TOPRIGHT", frame.Right, "TOPRIGHT", -16, -18)
 
 	frame.Text:SetFontObject(GameFontHighlightSmall)
 
+	frame:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
+	frame:GetHighlightTexture():SetSize(24, 24)
+	frame:GetHighlightTexture():ClearAllPoints()
+	frame:GetHighlightTexture():SetPoint("RIGHT", frame.Arrow, "RIGHT")
+
 	hooksecurefunc(frame, "OnButtonStateChanged", function(self)
-		self.Arrow:SetSize(23, 22)
-		self.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+		self.Arrow:SetSize(24, 24)
+		self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Up")
 		if self:IsEnabled() then
 			if self:IsDownOver() then
-				self.Arrow:SetTexCoord(0.875, 0.964844, 0.28125, 0.367188)
+				self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Down")
 			elseif self:IsOver() then
-				self.Arrow:SetTexCoord(0.679688, 0.769531, 0.28125, 0.367188)
+				self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Up")
 			elseif self:IsDown() then
-				self.Arrow:SetTexCoord(0.777344, 0.867188, 0.28125, 0.367188)
+				self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Down")
 			else
-				self.Arrow:SetTexCoord(0.902344, 0.992188, 0.171875, 0.257812)
+				self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Up")
 			end
 		else
-			self.Arrow:SetTexCoord(0.582031, 0.671875, 0.28125, 0.367188)
+			self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Disabled")
 		end
 	end)
 end
 
 function ApplyFilterDropDown(frame)
-	frame.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
-	frame.Background:SetTexCoord(0.582031, 0.894531, 0.171875, 0.273438)
-	frame.Background:ClearAllPoints()
-	frame.Background:SetPoint("TOPLEFT", -2, 2)
-	frame.Background:SetPoint("BOTTOMRIGHT", 2, -2)
-
-	frame.Text:SetFontObject(GameFontHighlightSmall)
-
-	hooksecurefunc(frame, "OnButtonStateChanged", function(self)
-		self.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
-		if self:IsEnabled() then
-			if self:IsDownOver() then
-				self.Background:SetTexCoord(0.00390625, 0.316406, 0.496094, 0.597656)
-			elseif self:IsOver() then
-				self.Background:SetTexCoord(0.324219, 0.636719, 0.386719, 0.488281)
-			elseif self:IsDown() then
-				self.Background:SetTexCoord(0.644531, 0.957031, 0.386719, 0.488281)
-			else
-				self.Background:SetTexCoord(0.582031, 0.894531, 0.171875, 0.273438)
-			end
-		else
-			self.Background:SetTexCoord(0.00390625, 0.316406, 0.386719, 0.488281)
-		end
-	end)
 end
