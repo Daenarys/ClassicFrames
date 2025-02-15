@@ -358,8 +358,10 @@ ApplyFilterDropDown(LFGListFrame.SearchPanel.FilterButton)
 
 LFDQueueFrameTypeDropdown:SetPoint("BOTTOMLEFT", 134, 292)
 LFDQueueFrameTypeDropdown.Text:SetJustifyH("RIGHT")
+LFDQueueFrameTypeDropdown.Text:SetPoint("TOPRIGHT", LFDQueueFrameTypeDropdown.Arrow, "LEFT", -3, 0)
 RaidFinderQueueFrameSelectionDropdown:SetPoint("BOTTOMLEFT", 134, 294)
 RaidFinderQueueFrameSelectionDropdown.Text:SetJustifyH("RIGHT")
+RaidFinderQueueFrameSelectionDropdown.Text:SetPoint("TOPRIGHT", RaidFinderQueueFrameSelectionDropdown.Arrow, "LEFT", -3, 0)
 
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then
