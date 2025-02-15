@@ -410,11 +410,7 @@ function ApplyDropDown(frame)
 		self.Arrow:SetSize(24, 24)
 		self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Up")
 		if self:IsEnabled() then
-			if self:IsDownOver() then
-				self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Down")
-			elseif self:IsOver() then
-				self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Up")
-			elseif self:IsDown() then
+			if self:IsDown() then
 				self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Down")
 			else
 				self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Up")
