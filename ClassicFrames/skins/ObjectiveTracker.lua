@@ -34,7 +34,7 @@ for _, tracker in pairs(trackers) do
 	tracker.Header.Background:SetPoint("TOPLEFT", -19, 14)
 	tracker.Header.Text:SetPoint("LEFT", 14, 0)
 	tracker.Header.MinimizeButton:SetSize(15, 14)
-	tracker.Header.MinimizeButton:SetPoint("RIGHT", -6, 1)
+	tracker.Header.MinimizeButton:SetPoint("RIGHT", -15, 0)
 	tracker.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Red-Highlight", "ADD")
 	SetCollapsed(tracker.Header, _G.ObjectiveTrackerFrame.isCollapsed)
 	hooksecurefunc(tracker.Header, 'SetCollapsed', SetCollapsed)
@@ -72,7 +72,6 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function
 	block.FinalBG:SetAtlas("ScenarioTrackerToast-FinalFiligree", true)
 	block.FinalBG:ClearAllPoints()
 	block.FinalBG:SetPoint("TOPLEFT", 4, -5)
-	block.Stage:SetFontObject("QuestTitleFont")
 	if bit.band(flags, SCENARIO_FLAG_SUPRESS_STAGE_TEXT) == SCENARIO_FLAG_SUPRESS_STAGE_TEXT then
 		block.Stage:SetSize(172, 36)
 	else
@@ -83,9 +82,6 @@ end)
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", function(block)
 	if block.WidgetContainer.widgetFrames then
 		for _, widgetFrame in pairs(block.WidgetContainer.widgetFrames) do
-			if widgetFrame.HeaderText then
-				widgetFrame.HeaderText:SetFontObject("QuestTitleFont")
-			end
 			if widgetFrame.Frame then
 				if (widgetFrame.Frame:GetAtlas() == "evergreen-scenario-frame") then
 					block.WidgetContainer:SetPoint("TOPLEFT", -2, 0)
