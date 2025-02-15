@@ -5,7 +5,6 @@ ApplyDialogHeader(GameMenuFrame.Header)
 
 GameMenuFrame.Header:SetWidth(139.3777)
 GameMenuFrame.Header.Text:SetFontObject("GameFontNormal")
-GameMenuFrame.Header.Text:SetPoint("TOP", 0, -12)
 
 GameMenuFrame:HookScript("OnShow", function(self)
 	self.topPadding = 33
