@@ -148,6 +148,26 @@ function ApplyNineSliceNoPortrait(frame)
 	frame.NineSlice.RightEdge:SetPoint("BOTTOMRIGHT", frame.NineSlice.BottomRightCorner, "TOPRIGHT")
 end
 
+function ApplySeparator(frame)
+	if (frame.LeftSeparator == nil) then
+		frame.LeftSeparator = frame:CreateTexture(frame:GetName() and frame:GetName().."_LeftSeparator" or nil, "BORDER")
+		frame.LeftSeparator:SetTexture("Interface\\FrameGeneral\\UI-Frame")
+		frame.LeftSeparator:SetTexCoord(0.24218750, 0.32812500, 0.63281250, 0.82812500)
+		frame.LeftSeparator:SetWidth(11)
+		frame.LeftSeparator:SetHeight(25)
+		frame.LeftSeparator:SetPoint("TOPRIGHT", frame, "TOPLEFT", 6, 1)
+	end
+
+	if (frame.RightSeparator == nil) then
+		frame.RightSeparator = frame:CreateTexture(frame:GetName() and frame:GetName().."_RightSeparator" or nil, "BORDER")
+		frame.RightSeparator:SetTexture("Interface\\FrameGeneral\\UI-Frame")
+		frame.RightSeparator:SetTexCoord(0.90625000, 0.99218750, 0.00781250, 0.20312500)
+		frame.RightSeparator:SetWidth(11)
+		frame.RightSeparator:SetHeight(25)
+		frame.RightSeparator:SetPoint("TOPLEFT", frame, "TOPRIGHT", -6, 1)
+	end
+end
+
 function ApplyDialogBorder(frame)
 	frame.TopEdge:SetSize(32, 32)
 	frame.TopEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal", true)
