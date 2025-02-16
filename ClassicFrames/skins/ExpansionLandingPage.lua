@@ -36,6 +36,8 @@ ExpansionLandingPage:HookScript("OnShow", function(self)
 			ApplyScrollBarThumb(child.MajorFactionList.ScrollBar.Track.Thumb)
 	 	end
 	    if WarWithinLandingOverlayMixin and child.OnLoad == WarWithinLandingOverlayMixin.OnLoad then
+	    	child:SetPoint("CENTER", -47, 32)
+
 	    	child.CloseButton:SetSize(32, 32)
 			child.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 			child.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
