@@ -64,20 +64,20 @@ ApplyScrollBarArrow(QuestMapDetailsScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestMapDetailsScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestMapDetailsScrollFrame.ScrollBar.Track.Thumb)
 
-QuestMapFrame.CampaignOverview.ScrollFrame.ScrollBar:SetSize(25, 560)
-QuestMapFrame.CampaignOverview.ScrollFrame.ScrollBar:ClearAllPoints()
-QuestMapFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -2, 3)
-QuestMapFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", -2, -3)
+QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetSize(25, 560)
+QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:ClearAllPoints()
+QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -2, 3)
+QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", -2, -3)
 
-if (QuestMapFrame.CampaignOverview.ScrollFrame.ScrollBar.BG == nil) then
-	QuestMapFrame.CampaignOverview.ScrollFrame.ScrollBar.BG = QuestMapFrame.CampaignOverview.ScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	QuestMapFrame.CampaignOverview.ScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
-	QuestMapFrame.CampaignOverview.ScrollFrame.ScrollBar.BG:SetAllPoints()
+if (QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.BG == nil) then
+	QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.BG = QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
+	QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
+	QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.BG:SetAllPoints()
 end
 
-ApplyScrollBarArrow(QuestMapFrame.CampaignOverview.ScrollFrame.ScrollBar)
-ApplyScrollBarTrack(QuestMapFrame.CampaignOverview.ScrollFrame.ScrollBar.Track)
-ApplyScrollBarThumb(QuestMapFrame.CampaignOverview.ScrollFrame.ScrollBar.Track.Thumb)
+ApplyScrollBarArrow(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar)
+ApplyScrollBarTrack(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.Track)
+ApplyScrollBarThumb(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.Track.Thumb)
 
 QuestDetailScrollFrame.ScrollBar:SetSize(25, 560)
 QuestDetailScrollFrame.ScrollBar:ClearAllPoints()
