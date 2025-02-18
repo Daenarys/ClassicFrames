@@ -44,7 +44,6 @@ end)
 hooksecurefunc('AddonList_Update', function()
 	for _, child in next, { AddonList.ScrollBox.ScrollTarget:GetChildren() } do
 		if not child.IsSkinned then
-			child.Enabled:SetSize(24, 24)
 			child.Enabled:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
 			child.Enabled:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
 			child.Enabled:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
