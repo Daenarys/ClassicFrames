@@ -31,10 +31,6 @@ function ApplyTitleBgNoPortrait(frame)
 end
 
 function ApplyNineSlicePortrait(frame)
-	if (frame.Bg:GetTexture() == 374155) then
-		frame.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-	end
-
 	if (frame.TopTileStreaks) then
 		frame.TopTileStreaks:ClearAllPoints()
 		frame.TopTileStreaks:SetPoint("TOPLEFT", 0, -21)
@@ -95,6 +91,12 @@ function ApplyNineSlicePortrait(frame)
 end
 
 function ApplyNineSliceNoPortrait(frame)
+	if (frame.TopTileStreaks) then
+		frame.TopTileStreaks:ClearAllPoints()
+		frame.TopTileStreaks:SetPoint("TOPLEFT", 6, -21)
+		frame.TopTileStreaks:SetPoint("TOPRIGHT", -2, -21)
+	end
+
 	frame.NineSlice.TopEdge:SetSize(256, 28)
 	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
 	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.43750000, 0.65625000)
