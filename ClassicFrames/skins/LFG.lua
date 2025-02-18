@@ -356,6 +356,10 @@ ApplyDropDown(LFGListEntryCreationActivityDropdown)
 ApplyDropDown(LFGListEntryCreationPlayStyleDropdown)
 ApplyFilterDropDown(LFGListFrame.SearchPanel.FilterButton)
 
+ApplySeparator(LFDQueueFrameFindGroupButton)
+ApplySeparator(ScenarioQueueFrameFindGroupButton)
+ApplySeparator(RaidFinderFrameFindRaidButton)
+
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then
 		button.background:SetTexture("Interface\\LFGFrame\\UI-LFG-ICONS-ROLEBACKGROUNDS")
@@ -765,7 +769,4 @@ hooksecurefunc("LFGRewardsFrame_UpdateFrame", function(parentFrame, dungeonID)
 		parentFrame.title:SetText(LFG_TYPE_RANDOM_TIMEWALKER_DUNGEON)
 		parentFrame.description:SetText(LFD_TIMEWALKER_RANDOM_EXPLANATION)
 	end
-
-	parentFrame.title:ClearAllPoints()
-	parentFrame.title:SetPoint("TOPLEFT", 10, -8)
 end)
