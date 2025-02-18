@@ -356,10 +356,6 @@ ApplyDropDown(LFGListEntryCreationActivityDropdown)
 ApplyDropDown(LFGListEntryCreationPlayStyleDropdown)
 ApplyFilterDropDown(LFGListFrame.SearchPanel.FilterButton)
 
-ApplySeparator(LFDQueueFrameFindGroupButton)
-ApplySeparator(ScenarioQueueFrameFindGroupButton)
-ApplySeparator(RaidFinderFrameFindRaidButton)
-
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then
 		button.background:SetTexture("Interface\\LFGFrame\\UI-LFG-ICONS-ROLEBACKGROUNDS")
