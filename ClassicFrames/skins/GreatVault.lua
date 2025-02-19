@@ -16,10 +16,5 @@ f:SetScript("OnEvent", function(self, event, name)
 				ApplyDialogBorder(self.Overlay.NineSlice)
 			end
 		end)
-
-		WeeklyRewardsFrame:HookScript("OnShow", function(self)
-			self:ClearAllPoints()
-			self:SetPoint("CENTER", 0, 39)
-		end)
 	end
 end)
