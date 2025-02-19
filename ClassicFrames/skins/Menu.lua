@@ -17,15 +17,6 @@ local function OpenMenu(manager, region, menuDescription)
 				Backdrop2:SetPoint("BOTTOMRIGHT")
 			end
 		end)
-		for i = 1, Menu:GetNumChildren() do
-			local child = select(i, Menu:GetChildren())
-			if child.MinLevel then
-				ApplySearchBox(child.MinLevel)
-			end
-			if child.MaxLevel then
-				ApplySearchBox(child.MaxLevel)
-			end
-		end
 		if Menu.ScrollBar then
 			Menu.ScrollBar.Track.Begin:Hide()
 			Menu.ScrollBar.Track.End:Hide()
