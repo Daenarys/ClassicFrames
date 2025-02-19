@@ -42,12 +42,6 @@ ApplyScrollBarArrow(PaperDollFrame.EquipmentManagerPane.ScrollBar)
 ApplyScrollBarTrack(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track)
 ApplyScrollBarThumb(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track.Thumb)
 
-CharacterFrame:HookScript("OnShow", function(self)
-	if not ReputationFrame:IsShown() or TokenFrame:IsShown() then
-		self:Expand()
-	end
-end)
-
 hooksecurefunc(CharacterFrame, "UpdateSize", function(self)
 	if ReputationFrame:IsShown() then
 		self:SetWidth(338)
