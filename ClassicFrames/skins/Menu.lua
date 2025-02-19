@@ -4,7 +4,7 @@ local function OpenMenu(manager, region, menuDescription)
 		select(1, Menu:GetRegions()):SetAlpha(0)
 		if (Backdrop == nil) then
 			Backdrop = CreateFrame("Frame", nil, Menu, "TooltipBackdropTemplate")
-			Backdrop:SetFrameLevel(0)
+			Backdrop:SetFrameLevel(1)
 			Backdrop:SetPoint("TOPLEFT")
 			Backdrop:SetPoint("BOTTOMRIGHT")
 		end
@@ -12,7 +12,7 @@ local function OpenMenu(manager, region, menuDescription)
 			select(1, self:GetRegions()):SetAlpha(0)
 			if (Backdrop2 == nil) then
 				Backdrop2 = CreateFrame("Frame", nil, self, "TooltipBackdropTemplate")
-				Backdrop2:SetFrameLevel(0)
+				Backdrop2:SetFrameLevel(1)
 				Backdrop2:SetPoint("TOPLEFT")
 				Backdrop2:SetPoint("BOTTOMRIGHT")
 			end
