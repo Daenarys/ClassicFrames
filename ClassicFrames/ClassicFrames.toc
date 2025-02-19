@@ -39,7 +39,6 @@ skins\Delves.lua
 skins\Deprecated.lua
 skins\DragonTalents.lua
 skins\DressingRoom.lua
-skins\DropDown.lua
 skins\EditMode.lua
 skins\EncounterJournal.lua
 skins\ExpansionLandingPage.lua
@@ -67,6 +66,7 @@ skins\Loot.xml
 skins\Macro.lua
 skins\Mail.lua
 skins\MajorRenown.lua
+skins\Menu.lua
 skins\Merchant.lua
 skins\Minimap.lua
 skins\MirrorTimers.lua
