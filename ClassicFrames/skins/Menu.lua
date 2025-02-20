@@ -1,35 +1,30 @@
-local MenuManagerProxy = Menu.GetManager()
+local function OpenMenu(self)
+	local Menu = self:GetOpenMenu()
+	if Menu then
+		if Menu.ScrollBar then
+			Menu.ScrollBar.Track.Begin:Hide()
+			Menu.ScrollBar.Track.End:Hide()
+			Menu.ScrollBar.Track.Middle:Hide()
 
-hooksecurefunc(MenuManagerProxy, 'OpenMenu', function()
-	local MenuFrame = MenuManagerProxy:GetOpenMenu()
-	if MenuFrame then
-		for i = 1, MenuFrame:GetNumChildren() do
-			local child = select(i, MenuFrame:GetChildren())
-			if child.MinLevel then
-				ApplySearchBox(child.MinLevel)
-			end
-			if child.MaxLevel then
-				ApplySearchBox(child.MaxLevel)
-			end
-		end
-		if MenuFrame.ScrollBar then
-			MenuFrame.ScrollBar.Track.Begin:Hide()
-			MenuFrame.ScrollBar.Track.End:Hide()
-			MenuFrame.ScrollBar.Track.Middle:Hide()
+			ApplyScrollBarThumb(Menu.ScrollBar.Track.Thumb)
 
-			ApplyScrollBarThumb(MenuFrame.ScrollBar.Track.Thumb)
+			Menu.ScrollBar.Back:SetSize(18, 16)
+			Menu.ScrollBar.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
+			Menu.ScrollBar.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
+			Menu.ScrollBar.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
+			Menu.ScrollBar.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
 
-			MenuFrame.ScrollBar.Back:SetSize(18, 16)
-			MenuFrame.ScrollBar.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
-			MenuFrame.ScrollBar.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
-			MenuFrame.ScrollBar.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
-			MenuFrame.ScrollBar.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
-
-			MenuFrame.ScrollBar.Forward:SetSize(18, 16)
-			MenuFrame.ScrollBar.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
-			MenuFrame.ScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
-			MenuFrame.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
-			MenuFrame.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
+			Menu.ScrollBar.Forward:SetSize(18, 16)
+			Menu.ScrollBar.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
+			Menu.ScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
+			Menu.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
+			Menu.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
 		end
 	end
-end)
+end
+
+local Manager = _G.Menu.GetManager()
+if Manager then
+	hooksecurefunc(Manager, 'OpenMenu', OpenMenu)
+	hooksecurefunc(Manager, 'OpenContextMenu', OpenMenu)
+end
