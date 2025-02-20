@@ -413,7 +413,9 @@ function ApplyDropDown(frame)
 	frame.Arrow:SetPoint("TOPRIGHT", frame.Right, "TOPRIGHT", -16, -18)
 
 	frame.Text:SetFontObject(GameFontHighlightSmall)
-	frame.Text:SetPoint("TOPLEFT", 9, -9)
+	frame.Text:ClearAllPoints()
+	frame.Text:SetPoint("RIGHT", frame.Right, "RIGHT", -43, 2)
+	frame.Text:SetPoint("LEFT", frame.Left, "LEFT", 27, 2)
 
 	frame:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
 	frame:GetHighlightTexture():SetSize(24, 24)
