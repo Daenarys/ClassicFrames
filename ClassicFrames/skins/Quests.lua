@@ -11,6 +11,8 @@ if _G.QuestFrame then
 	QuestFrame.TitleContainer:SetPoint("TOPLEFT", QuestFrame, "TOPLEFT", 73, -1)
 	QuestFrame.TitleContainer:SetPoint("TOPRIGHT", QuestFrame, "TOPRIGHT", -47, 1)
 
+	QuestFrameTitleText:SetTextColor(255, 255, 255, 1)
+
 	ApplyTitleBg(QuestFrame)
 	ApplyNineSlicePortrait(QuestFrame)
 end

@@ -12,6 +12,8 @@ GossipFrame.TitleContainer:ClearAllPoints()
 GossipFrame.TitleContainer:SetPoint("TOPLEFT", GossipFrame, "TOPLEFT", 66, -1)
 GossipFrame.TitleContainer:SetPoint("TOPRIGHT", GossipFrame, "TOPRIGHT", -60, 1)
 
+GossipFrameTitleText:SetTextColor(255, 255, 255, 1)
+
 ApplyTitleBg(GossipFrame)
 ApplyNineSlicePortrait(GossipFrame)
 

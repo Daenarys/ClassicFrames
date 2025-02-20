@@ -1,21 +1,6 @@
-local function OpenMenu(manager, region, menuDescription)
-	local Menu = manager:GetOpenMenu()
+local function OpenMenu(self)
+	local Menu = self:GetOpenMenu()
 	if Menu then
-		select(1, Menu:GetRegions()):SetAlpha(0)
-		if (Backdrop == nil) then
-			Backdrop = CreateFrame("Frame", nil, Menu, "TooltipBackdropTemplate")
-			Backdrop:SetPoint("TOPLEFT")
-			Backdrop:SetPoint("BOTTOMRIGHT")
-			Backdrop:SetFrameLevel(Menu:GetFrameLevel() - 1)
-		end
-		menuDescription:AddMenuAcquiredCallback(function(self)
-			select(1, self:GetRegions()):SetAlpha(0)
-			if (Backdrop2 == nil) then
-				Backdrop2 = CreateFrame("Frame", nil, self, "TooltipBackdropTemplate")
-				Backdrop2:SetPoint("TOPLEFT")
-				Backdrop2:SetPoint("BOTTOMRIGHT")
-			end
-		end)
 		if Menu.ScrollBar then
 			Menu.ScrollBar.Track.Begin:Hide()
 			Menu.ScrollBar.Track.End:Hide()

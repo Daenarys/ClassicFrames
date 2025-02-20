@@ -6,14 +6,14 @@ ItemTextFrame:DisableDrawLayer("OVERLAY")
 
 ItemTextFrame.PortraitContainer.CircleMask:Hide()
 
+ItemTextFramePortrait:SetTexture("Interface\\Spellbook\\Spellbook-Icon")
 ItemTextFramePortrait:SetSize(58, 58)
 ItemTextFramePortrait:ClearAllPoints()
 ItemTextFramePortrait:SetPoint("TOPLEFT", -5, 5)
-ItemTextFramePortrait:SetTexture("Interface\\Spellbook\\Spellbook-Icon")
 
+ItemTextFrameTitleText:SetWidth(225)
 ItemTextFrameTitleText:ClearAllPoints()
 ItemTextFrameTitleText:SetPoint("CENTER", -10, 0)
-ItemTextFrameTitleText:SetWidth(225)
 
 ApplyTitleBg(ItemTextFrame)
 ApplyNineSlicePortrait(ItemTextFrame)

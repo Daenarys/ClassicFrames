@@ -8,7 +8,5 @@ if _G.CurrencyTransferMenu then
 	ApplyTitleBgNoPortrait(CurrencyTransferMenu)
 	ApplyNineSliceNoPortrait(CurrencyTransferMenu)
 
-	CurrencyTransferMenu.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-
 	ApplyDropDown(CurrencyTransferMenu.SourceSelector.Dropdown)
 end
