@@ -163,4 +163,5 @@ ApplySearchBox(RecruitAFriendRecruitmentFrame.EditBox)
 ApplyDropDown(FriendsFrameStatusDropdown)
 ApplyDropDown(WhoFrameDropdown)
 
-FriendsFrameStatusDropdown:SetWidth(55)
+FriendsFrameStatusDropdown.Text:ClearAllPoints()
+FriendsFrameStatusDropdown.Text:SetPoint("LEFT", FriendsFrameStatusDropdown.Left, "LEFT", 27, 1)
