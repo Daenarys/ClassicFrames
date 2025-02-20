@@ -1,5 +1,7 @@
 if not _G.AddonList then return end
 
+AddonList:SetSize(500, 478)
+
 ApplyCloseButton(AddonListCloseButton)
 
 AddonList.TitleContainer:ClearAllPoints()
@@ -11,8 +13,8 @@ ApplyNineSliceNoPortrait(AddonList)
 
 AddonList.ScrollBar:SetSize(25, 560)
 AddonList.ScrollBar:ClearAllPoints()
-AddonList.ScrollBar:SetPoint("TOPLEFT", AddonList.ScrollBox, "TOPRIGHT", -2, 2)
-AddonList.ScrollBar:SetPoint("BOTTOMLEFT", AddonList.ScrollBox, "BOTTOMRIGHT", -2, -1)
+AddonList.ScrollBar:SetPoint("TOPLEFT", AddonList.ScrollBox, "TOPRIGHT", 5, 3)
+AddonList.ScrollBar:SetPoint("BOTTOMLEFT", AddonList.ScrollBox, "BOTTOMRIGHT", -5, -1)
 
 if (AddonList.ScrollBar.BG == nil) then
 	AddonList.ScrollBar.BG = AddonList.ScrollBar:CreateTexture(nil, "BACKGROUND")
@@ -24,7 +26,31 @@ ApplyScrollBarArrow(AddonList.ScrollBar)
 ApplyScrollBarTrack(AddonList.ScrollBar.Track)
 ApplyScrollBarThumb(AddonList.ScrollBar.Track.Thumb)
 
+AddonList.ForceLoad:SetSize(32, 32)
+AddonList.ForceLoad:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+AddonList.ForceLoad:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+AddonList.ForceLoad:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+AddonList.ForceLoad:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+AddonList.ForceLoad:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
+
 ApplyDropDown(AddonList.Dropdown)
+
+hooksecurefunc(AddonList, "UpdatePerformance", function(self)
+	self.Performance:Hide()
+end)
+
+hooksecurefunc('AddonList_Update', function()
+	for _, child in next, { AddonList.ScrollBox.ScrollTarget:GetChildren() } do
+		if not child.IsSkinned then
+			child.Enabled:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+			child.Enabled:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+			child.Enabled:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+			child.Enabled:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+			child.Enabled:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
+			child.IsSkinned = true
+		end
+	end
+end)
 
 AddonList:HookScript("OnShow", function(self)
 	self:ClearAllPoints()
