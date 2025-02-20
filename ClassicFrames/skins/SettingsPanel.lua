@@ -52,6 +52,21 @@ ApplyScrollBarThumb(SettingsPanel.CategoryList.ScrollBar.Track.Thumb)
 
 ApplySearchBox(SettingsPanel.SearchBox)
 
+hooksecurefunc(SettingsPanel.Container.SettingsList.ScrollBox, "Update", function(self)
+	for _, child in next, { self.ScrollTarget:GetChildren() } do
+		if not child.IsSkinned then
+			if child.Checkbox then
+				child.Checkbox:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+				child.Checkbox:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+				child.Checkbox:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+				child.Checkbox:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+				child.Checkbox:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
+			end
+			child.IsSkinned = true
+		end
+	end
+end)
+
 SettingsPanel:HookScript("OnShow", function(self)
 	self:ClearAllPoints()
 	self:SetPoint("CENTER", 0, 5)
