@@ -162,3 +162,5 @@ RaidFrame.RoleCount.DamagerIcon:SetAtlas("groupfinder-icon-role-large-dps")
 ApplySearchBox(RecruitAFriendRecruitmentFrame.EditBox)
 ApplyDropDown(FriendsFrameStatusDropdown)
 ApplyDropDown(WhoFrameDropdown)
+
+FriendsFrameStatusDropdown:SetWidth(55)
