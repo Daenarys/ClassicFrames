@@ -5,6 +5,17 @@ function ApplyCloseButton(frame)
 	frame:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 	frame:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 	frame:ClearAllPoints()
+	frame:SetPoint("TOPRIGHT", 5.6, 5)
+	frame:SetFrameLevel(2)
+end
+
+function ApplyCloseButtonOld(frame)
+	frame:SetSize(32, 32)
+	frame:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
+	frame:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
+	frame:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
+	frame:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+	frame:ClearAllPoints()
 	frame:SetPoint("TOPRIGHT", 4, 5)
 end
 
@@ -12,7 +23,7 @@ function ApplyTitleBg(frame)
 	if (frame.TitleBg == nil) then
 		frame.TitleBg = frame:CreateTexture(nil, "BACKGROUND")
 		frame.TitleBg:SetAtlas("_UI-Frame-TitleTileBg", false)
-		frame.TitleBg:SetSize(256, 17)
+		frame.TitleBg:SetSize(256, 18)
 		frame.TitleBg:SetHorizTile(true)
 		frame.TitleBg:SetPoint("TOPLEFT", 2, -3)
 		frame.TitleBg:SetPoint("TOPRIGHT", -25, -3)
@@ -31,170 +42,190 @@ function ApplyTitleBgNoPortrait(frame)
 end
 
 function ApplyNineSlicePortrait(frame)
-	if (frame.TopTileStreaks) then
+	if frame.TopTileStreaks then
 		frame.TopTileStreaks:ClearAllPoints()
 		frame.TopTileStreaks:SetPoint("TOPLEFT", 0, -21)
 		frame.TopTileStreaks:SetPoint("TOPRIGHT", -2, -21)
 	end
 
-	frame.NineSlice.TopEdge:SetSize(256, 28)
-	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
-	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.43750000, 0.65625000)
-	frame.NineSlice.TopEdge:ClearAllPoints()
-	frame.NineSlice.TopEdge:SetPoint("TOPLEFT", frame.NineSlice.TopLeftCorner, "TOPRIGHT", 0, -10)
-	frame.NineSlice.TopEdge:SetPoint("TOPRIGHT", frame.NineSlice.TopRightCorner, "TOPLEFT")
+	frame.NineSlice.TopEdge:SetSize(128, 132)
+	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
+	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
 
-	frame.NineSlice.TopLeftCorner:SetSize(78, 78)
-	frame.NineSlice.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.TopLeftCorner:SetTexCoord(0.00781250, 0.61718750, 0.00781250, 0.61718750)
-	frame.NineSlice.TopLeftCorner:ClearAllPoints()
-	frame.NineSlice.TopLeftCorner:SetPoint("TOPLEFT", -14, 11)
+	frame.NineSlice.TopLeftCorner:SetSize(132, 132)
+	frame.NineSlice.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.TopLeftCorner:SetTexCoord(0.263671875, 0.521484375, 0.263671875, 0.521484375)
 
-	frame.NineSlice.TopRightCorner:SetSize(33, 33)
-	frame.NineSlice.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.TopRightCorner:SetTexCoord(0.63281250, 0.89062500, 0.00781250, 0.26562500)
-	frame.NineSlice.TopRightCorner:ClearAllPoints()
-	frame.NineSlice.TopRightCorner:SetPoint("TOPRIGHT", 0, 1)
+	frame.NineSlice.TopRightCorner:SetSize(132, 132)
+	frame.NineSlice.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.TopRightCorner:SetTexCoord(0.001953125, 0.259765625, 0.263671875, 0.521484375)
 
-	frame.NineSlice.BottomEdge:SetSize(256, 9)
-	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
-	frame.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.20312500, 0.27343750)
-	frame.NineSlice.BottomEdge:ClearAllPoints()
-	frame.NineSlice.BottomEdge:SetPoint("BOTTOMLEFT", frame.NineSlice.BottomLeftCorner, "BOTTOMRIGHT")
-	frame.NineSlice.BottomEdge:SetPoint("BOTTOMRIGHT", frame.NineSlice.BottomRightCorner, "BOTTOMLEFT")
+	frame.NineSlice.BottomEdge:SetSize(128, 132)
+	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
+	frame.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.001953125, 0.259765625)
 
-	frame.NineSlice.BottomLeftCorner:SetSize(14, 14)
-	frame.NineSlice.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.BottomLeftCorner:SetTexCoord(0.00781250, 0.11718750, 0.63281250, 0.74218750)
-	frame.NineSlice.BottomLeftCorner:ClearAllPoints()
-	frame.NineSlice.BottomLeftCorner:SetPoint("BOTTOMLEFT", -6, -5)
+	frame.NineSlice.BottomLeftCorner:SetSize(132, 132)
+	frame.NineSlice.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.BottomLeftCorner:SetTexCoord(0.001953125, 0.259765625, 0.001953125, 0.259765625)
 
-	frame.NineSlice.BottomRightCorner:SetSize(11, 11)
-	frame.NineSlice.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.BottomRightCorner:SetTexCoord(0.13281250, 0.21875000, 0.89843750, 0.98437500)
-	frame.NineSlice.BottomRightCorner:ClearAllPoints()
-	frame.NineSlice.BottomRightCorner:SetPoint("BOTTOMRIGHT", 0, -5)
+	frame.NineSlice.BottomRightCorner:SetSize(132, 132)
+	frame.NineSlice.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.BottomRightCorner:SetTexCoord(0.263671875, 0.521484375, 0.001953125, 0.259765625)
 
-	frame.NineSlice.LeftEdge:SetSize(16, 256)
-	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\!UI-Frame", false, true)
-	frame.NineSlice.LeftEdge:SetTexCoord(0.35937500, 0.60937500, 0, 1)
-	frame.NineSlice.LeftEdge:ClearAllPoints()
-	frame.NineSlice.LeftEdge:SetPoint("TOPLEFT", frame.NineSlice.TopLeftCorner, "BOTTOMLEFT", 8, 0)
-	frame.NineSlice.LeftEdge:SetPoint("BOTTOMLEFT", frame.NineSlice.BottomLeftCorner, "TOPLEFT")
+	frame.NineSlice.LeftEdge:SetSize(132, 128)
+	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
+	frame.NineSlice.LeftEdge:SetTexCoord(0.001953125, 0.259765625, 0, 1)
 
-	frame.NineSlice.RightEdge:SetSize(10, 256)
-	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\!UI-Frame", false, true)
-	frame.NineSlice.RightEdge:SetTexCoord(0.17187500, 0.32812500, 0, 1)
-	frame.NineSlice.RightEdge:ClearAllPoints()
-	frame.NineSlice.RightEdge:SetPoint("TOPRIGHT", frame.NineSlice.TopRightCorner, "BOTTOMRIGHT", 1, 0)
-	frame.NineSlice.RightEdge:SetPoint("BOTTOMRIGHT", frame.NineSlice.BottomRightCorner, "TOPRIGHT")
+	frame.NineSlice.RightEdge:SetSize(132, 132)
+	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
+	frame.NineSlice.RightEdge:SetTexCoord(0.263671875, 0.521484375, 0, 1)
+end
+
+function ApplyNineSlicePortraitMinimizable(frame)
+	frame.NineSlice.TopEdge:SetSize(128, 132)
+	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
+	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
+
+	frame.NineSlice.TopLeftCorner:SetSize(132, 132)
+	frame.NineSlice.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.TopLeftCorner:SetTexCoord(0.263671875, 0.521484375, 0.263671875, 0.521484375)
+
+	frame.NineSlice.TopRightCorner:SetSize(132, 132)
+	frame.NineSlice.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.TopRightCorner:SetTexCoord(0.001953125, 0.259765625, 0.525390625, 0.783203125)
+
+	frame.NineSlice.BottomEdge:SetSize(128, 132)
+	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
+	frame.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.001953125, 0.259765625)
+
+	frame.NineSlice.BottomLeftCorner:SetSize(132, 132)
+	frame.NineSlice.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.BottomLeftCorner:SetTexCoord(0.001953125, 0.259765625, 0.001953125, 0.259765625)
+
+	frame.NineSlice.BottomRightCorner:SetSize(132, 132)
+	frame.NineSlice.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.BottomRightCorner:SetTexCoord(0.263671875, 0.521484375, 0.001953125, 0.259765625)
+
+	frame.NineSlice.LeftEdge:SetSize(132, 128)
+	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
+	frame.NineSlice.LeftEdge:SetTexCoord(0.001953125, 0.259765625, 0, 1)
+
+	frame.NineSlice.RightEdge:SetSize(132, 132)
+	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
+	frame.NineSlice.RightEdge:SetTexCoord(0.263671875, 0.521484375, 0, 1)
 end
 
 function ApplyNineSliceNoPortrait(frame)
-	if (frame.TopTileStreaks) then
-		frame.TopTileStreaks:ClearAllPoints()
-		frame.TopTileStreaks:SetPoint("TOPLEFT", 6, -21)
-		frame.TopTileStreaks:SetPoint("TOPRIGHT", -2, -21)
-	end
+	frame.NineSlice.TopEdge:SetSize(128, 132)
+	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
+	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
 
-	frame.NineSlice.TopEdge:SetSize(256, 28)
-	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
-	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.43750000, 0.65625000)
-	frame.NineSlice.TopEdge:ClearAllPoints()
-	frame.NineSlice.TopEdge:SetPoint("TOPLEFT", frame.NineSlice.TopLeftCorner, "TOPRIGHT")
-	frame.NineSlice.TopEdge:SetPoint("TOPRIGHT", frame.NineSlice.TopRightCorner, "TOPLEFT")
+	frame.NineSlice.TopLeftCorner:SetSize(132, 132)
+	frame.NineSlice.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.TopLeftCorner:SetTexCoord(0.525390625, 0.783203125, 0.001953125, 0.259765625)
 
-	frame.NineSlice.TopLeftCorner:SetSize(32, 32)
-	frame.NineSlice.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.TopLeftCorner:SetTexCoord(0.63281250, 0.88281250, 0.28125000, 0.53125000)
-	frame.NineSlice.TopLeftCorner:ClearAllPoints()
-	frame.NineSlice.TopLeftCorner:SetPoint("TOPLEFT", 0, 1)
+	frame.NineSlice.TopRightCorner:SetSize(132, 132)
+	frame.NineSlice.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.TopRightCorner:SetTexCoord(0.001953125, 0.259765625, 0.263671875, 0.521484375)
 
-	frame.NineSlice.TopRightCorner:SetSize(33, 33)
-	frame.NineSlice.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.TopRightCorner:SetTexCoord(0.63281250, 0.89062500, 0.00781250, 0.26562500)
-	frame.NineSlice.TopRightCorner:ClearAllPoints()
-	frame.NineSlice.TopRightCorner:SetPoint("TOPRIGHT", 0, 1)
+	frame.NineSlice.BottomEdge:SetSize(128, 132)
+	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
+	frame.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.001953125, 0.259765625)
 
-	frame.NineSlice.BottomEdge:SetSize(256, 9)
-	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
-	frame.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.20312500, 0.27343750)
-	frame.NineSlice.BottomEdge:ClearAllPoints()
-	frame.NineSlice.BottomEdge:SetPoint("BOTTOMLEFT", frame.NineSlice.BottomLeftCorner, "BOTTOMRIGHT")
-	frame.NineSlice.BottomEdge:SetPoint("BOTTOMRIGHT", frame.NineSlice.BottomRightCorner, "BOTTOMLEFT")
+	frame.NineSlice.BottomLeftCorner:SetSize(132, 132)
+	frame.NineSlice.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.BottomLeftCorner:SetTexCoord(0.001953125, 0.259765625, 0.001953125, 0.259765625)
 
-	frame.NineSlice.BottomLeftCorner:SetSize(14, 14)
-	frame.NineSlice.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.BottomLeftCorner:SetTexCoord(0.00781250, 0.11718750, 0.63281250, 0.74218750)
-	frame.NineSlice.BottomLeftCorner:ClearAllPoints()
-	frame.NineSlice.BottomLeftCorner:SetPoint("BOTTOMLEFT", 0, -5)
+	frame.NineSlice.BottomRightCorner:SetSize(132, 132)
+	frame.NineSlice.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.BottomRightCorner:SetTexCoord(0.263671875, 0.521484375, 0.001953125, 0.259765625)
 
-	frame.NineSlice.BottomRightCorner:SetSize(11, 11)
-	frame.NineSlice.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.BottomRightCorner:SetTexCoord(0.13281250, 0.21875000, 0.89843750, 0.98437500)
-	frame.NineSlice.BottomRightCorner:ClearAllPoints()
-	frame.NineSlice.BottomRightCorner:SetPoint("BOTTOMRIGHT", 0, -5)
+	frame.NineSlice.LeftEdge:SetSize(132, 128)
+	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
+	frame.NineSlice.LeftEdge:SetTexCoord(0.001953125, 0.259765625, 0, 1)
 
-	frame.NineSlice.LeftEdge:SetSize(16, 256)
-	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\!UI-Frame", false, true)
-	frame.NineSlice.LeftEdge:SetTexCoord(0.35937500, 0.60937500, 0, 1)
-	frame.NineSlice.LeftEdge:ClearAllPoints()
-	frame.NineSlice.LeftEdge:SetPoint("TOPLEFT", frame.NineSlice.TopLeftCorner, "BOTTOMLEFT")
-	frame.NineSlice.LeftEdge:SetPoint("BOTTOMLEFT", frame.NineSlice.BottomLeftCorner, "TOPLEFT")
+	frame.NineSlice.RightEdge:SetSize(132, 132)
+	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
+	frame.NineSlice.RightEdge:SetTexCoord(0.263671875, 0.521484375, 0, 1)
+end
 
-	frame.NineSlice.RightEdge:SetSize(10, 256)
-	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\!UI-Frame", false, true)
-	frame.NineSlice.RightEdge:SetTexCoord(0.17187500, 0.32812500, 0, 1)
-	frame.NineSlice.RightEdge:ClearAllPoints()
-	frame.NineSlice.RightEdge:SetPoint("TOPRIGHT", frame.NineSlice.TopRightCorner, "BOTTOMRIGHT", 1, 0)
-	frame.NineSlice.RightEdge:SetPoint("BOTTOMRIGHT", frame.NineSlice.BottomRightCorner, "TOPRIGHT")
+function ApplyNineSliceNoPortraitMinimizable(frame)
+	frame.NineSlice.TopEdge:SetSize(128, 132)
+	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
+	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
+
+	frame.NineSlice.TopLeftCorner:SetSize(132, 132)
+	frame.NineSlice.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.TopLeftCorner:SetTexCoord(0.525390625, 0.783203125, 0.001953125, 0.259765625)
+
+	frame.NineSlice.TopRightCorner:SetSize(132, 132)
+	frame.NineSlice.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.TopRightCorner:SetTexCoord(0.001953125, 0.259765625, 0.525390625, 0.783203125)
+
+	frame.NineSlice.BottomEdge:SetSize(128, 132)
+	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
+	frame.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.001953125, 0.259765625)
+
+	frame.NineSlice.BottomLeftCorner:SetSize(132, 132)
+	frame.NineSlice.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.BottomLeftCorner:SetTexCoord(0.001953125, 0.259765625, 0.001953125, 0.259765625)
+
+	frame.NineSlice.BottomRightCorner:SetSize(132, 132)
+	frame.NineSlice.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameMetal")
+	frame.NineSlice.BottomRightCorner:SetTexCoord(0.263671875, 0.521484375, 0.001953125, 0.259765625)
+
+	frame.NineSlice.LeftEdge:SetSize(132, 128)
+	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
+	frame.NineSlice.LeftEdge:SetTexCoord(0.001953125, 0.259765625, 0, 1)
+
+	frame.NineSlice.RightEdge:SetSize(132, 132)
+	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
+	frame.NineSlice.RightEdge:SetTexCoord(0.263671875, 0.521484375, 0, 1)
 end
 
 function ApplyDialogBorder(frame)
 	frame.TopEdge:SetSize(32, 32)
-	frame.TopEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal", true)
+	frame.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetal", true)
 	frame.TopEdge:SetTexCoord(0, 0.5, 0.13671875, 0.26171875)
 
 	frame.TopLeftCorner:SetSize(32, 32)
-	frame.TopLeftCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
+	frame.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetal")
 	frame.TopLeftCorner:SetTexCoord(0.015625, 0.515625, 0.53515625, 0.66015625)
 
 	frame.TopRightCorner:SetSize(32, 32)
-	frame.TopRightCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
+	frame.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetal")
 	frame.TopRightCorner:SetTexCoord(0.015625, 0.515625, 0.66796875, 0.79296875)
 
 	frame.BottomEdge:SetSize(32, 32)
-	frame.BottomEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal", true)
+	frame.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetal", true)
 	frame.BottomEdge:SetTexCoord(0, 0.5, 0.00390625, 0.12890625)
 
 	frame.BottomLeftCorner:SetSize(32, 32)
-	frame.BottomLeftCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
+	frame.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetal")
 	frame.BottomLeftCorner:SetTexCoord(0.015625, 0.515625, 0.26953125, 0.39453125)
 
 	frame.BottomRightCorner:SetSize(32, 32)
-	frame.BottomRightCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
+	frame.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetal")
 	frame.BottomRightCorner:SetTexCoord(0.015625, 0.515625, 0.40234375, 0.52734375)
 
 	frame.LeftEdge:SetSize(32, 32)
-	frame.LeftEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalVertical", false, true)
+	frame.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetalVertical", false, true)
 	frame.LeftEdge:SetTexCoord(0.0078125, 0.2578125, 0, 1)
 
 	frame.RightEdge:SetSize(32, 32)
-	frame.RightEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalVertical", false, true)
+	frame.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameDiamondMetalVertical", false, true)
 	frame.RightEdge:SetTexCoord(0.2734375, 0.5234375, 0, 1)
 end
 
 function ApplyDialogHeader(frame)
-	frame.LeftBG:Hide()
-	frame.RightBG:Hide()
-	frame.CenterBG:Hide()
+	frame.LeftBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalHeader")
+	frame.LeftBG:SetTexCoord(0.0078125, 0.507812, 0.316406, 0.621094)
 
-	if (frame.CfHeader == nil) then
-		frame.CfHeader = frame:CreateTexture(nil, "ARTWORK")
-		frame.CfHeader:SetSize(300, 64)
-		frame.CfHeader:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
-		frame.CfHeader:SetPoint("TOP")
-	end
+	frame.CenterBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalHeader")
+	frame.CenterBG:SetTexCoord(0, 0.5, 0.00390625, 0.308594)
+
+	frame.RightBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalHeader")
+	frame.RightBG:SetTexCoord(0.0078125, 0.507812, 0.628906, 0.933594)
 end
 
 function ApplyScrollBarArrow(frame)
@@ -350,149 +381,62 @@ function ApplySearchBox(frame)
 end
 
 function ApplyDropDown(frame)
-	frame.Background:Hide()
+	frame.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+	frame.Background:SetTexCoord(0.386719, 0.816406, 0.00390625, 0.164062)
+	frame.Background:ClearAllPoints()
+	frame.Background:SetPoint("TOPLEFT", -9, 7)
+	frame.Background:SetPoint("BOTTOMRIGHT", 8, -9)
 
-	if (frame.Left == nil) then
-		frame.Left = frame:CreateTexture(nil, "ARTWORK")
-		frame.Left:SetSize(25, 64)
-		frame.Left:SetTexture("Interface\\Glues\\CharacterCreate\\CharacterCreate-LabelFrame")
-		frame.Left:SetTexCoord(0, 0.1953125, 0, 1)
-		frame.Left:SetPoint("TOPLEFT", -17, 17)
-	end
-
-	if (frame.Right == nil) then
-		frame.Right = frame:CreateTexture(nil, "ARTWORK")
-		frame.Right:SetSize(25, 64)
-		frame.Right:SetTexture("Interface\\Glues\\CharacterCreate\\CharacterCreate-LabelFrame")
-		frame.Right:SetTexCoord(0.8046875, 1, 0, 1)
-		frame.Right:SetPoint("TOPRIGHT", 13, 17)
-	end
-
-	if (frame.Middle == nil) then
-		frame.Middle = frame:CreateTexture(nil, "ARTWORK")
-		frame.Middle:SetTexture("Interface\\Glues\\CharacterCreate\\CharacterCreate-LabelFrame")
-		frame.Middle:SetTexCoord(0.1953125, 0.8046875, 0, 1)
-		frame.Middle:SetPoint("LEFT", frame.Left, "RIGHT")
-		frame.Middle:SetPoint("RIGHT", frame.Right, "LEFT")
-	end
-
-	frame.Arrow:SetSize(24, 24)
-	frame.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Up")
+	frame.Arrow:SetSize(23, 22)
+	frame.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+	frame.Arrow:SetTexCoord(0.902344, 0.992188, 0.171875, 0.257812)
 	frame.Arrow:ClearAllPoints()
-	frame.Arrow:SetPoint("TOPRIGHT", frame.Right, "TOPRIGHT", -16, -18)
+	frame.Arrow:SetPoint("RIGHT", -1, 0)
 
 	frame.Text:SetFontObject(GameFontHighlightSmall)
-	frame.Text:SetPoint("TOPLEFT", 9, -9)
-
-	frame:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
-	frame:GetHighlightTexture():SetSize(24, 24)
-	frame:GetHighlightTexture():ClearAllPoints()
-	frame:GetHighlightTexture():SetPoint("RIGHT", frame.Arrow, "RIGHT")
 
 	hooksecurefunc(frame, "OnButtonStateChanged", function(self)
-		self.Arrow:SetSize(24, 24)
-		self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Up")
+		self.Arrow:SetSize(23, 22)
+		self.Arrow:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
 		if self:IsEnabled() then
-			if self:IsDown() then
-				self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Down")
+			if self:IsDownOver() then
+				self.Arrow:SetTexCoord(0.875, 0.964844, 0.28125, 0.367188)
+			elseif self:IsOver() then
+				self.Arrow:SetTexCoord(0.679688, 0.769531, 0.28125, 0.367188)
+			elseif self:IsDown() then
+				self.Arrow:SetTexCoord(0.777344, 0.867188, 0.28125, 0.367188)
 			else
-				self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Up")
+				self.Arrow:SetTexCoord(0.902344, 0.992188, 0.171875, 0.257812)
 			end
 		else
-			self.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Disabled")
+			self.Arrow:SetTexCoord(0.582031, 0.671875, 0.28125, 0.367188)
 		end
 	end)
 end
 
 function ApplyFilterDropDown(frame)
-	frame.Background:Hide()
-
-	if (frame.TopLeft == nil) then
-		frame.TopLeft = frame:CreateTexture(nil, "BACKGROUND")
-		frame.TopLeft:SetSize(12, 6)
-		frame.TopLeft:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
-		frame.TopLeft:SetTexCoord(0, 0.09375, 0, 0.1875)
-		frame.TopLeft:SetPoint("TOPLEFT", -1, 2)
-	end
-
-	if (frame.TopRight == nil) then
-		frame.TopRight = frame:CreateTexture(nil, "BACKGROUND")
-		frame.TopRight:SetSize(12, 6)
-		frame.TopRight:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
-		frame.TopRight:SetTexCoord(0.53125, 0.625, 0, 0.1875)
-		frame.TopRight:SetPoint("TOPRIGHT", 1, 2)
-	end
-
-	if (frame.BottomLeft == nil) then
-		frame.BottomLeft = frame:CreateTexture(nil, "BACKGROUND")
-		frame.BottomLeft:SetSize(12, 6)
-		frame.BottomLeft:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
-		frame.BottomLeft:SetTexCoord(0, 0.09375, 0.625, 0.8125)
-		frame.BottomLeft:SetPoint("BOTTOMLEFT", -1, -2)
-	end
-
-	if (frame.BottomRight == nil) then
-		frame.BottomRight = frame:CreateTexture(nil, "BACKGROUND")
-		frame.BottomRight:SetSize(12, 6)
-		frame.BottomRight:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
-		frame.BottomRight:SetTexCoord(0.53125, 0.625, 0.625, 0.8125)
-		frame.BottomRight:SetPoint("BOTTOMRIGHT", 1, -2)
-	end
-
-	if (frame.TopMiddle == nil) then
-		frame.TopMiddle = frame:CreateTexture(nil, "BACKGROUND")
-		frame.TopMiddle:SetSize(56, 6)
-		frame.TopMiddle:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
-		frame.TopMiddle:SetTexCoord(0.09375, 0.53125, 0, 0.1875)
-		frame.TopMiddle:SetPoint("TOPLEFT", frame.TopLeft, "TOPRIGHT")
-		frame.TopMiddle:SetPoint("BOTTOMRIGHT", frame.TopRight, "BOTTOMLEFT")
-	end
-
-	if (frame.MiddleLeft == nil) then
-		frame.MiddleLeft = frame:CreateTexture(nil, "BACKGROUND")
-		frame.MiddleLeft:SetSize(12, 14)
-		frame.MiddleLeft:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
-		frame.MiddleLeft:SetTexCoord(0, 0.09375, 0.1875, 0.625)
-		frame.MiddleLeft:SetPoint("TOPRIGHT", frame.TopLeft, "BOTTOMRIGHT")
-		frame.MiddleLeft:SetPoint("BOTTOMLEFT", frame.BottomLeft, "TOPLEFT")
-	end
-
-	if (frame.MiddleRight == nil) then
-		frame.MiddleRight = frame:CreateTexture(nil, "BACKGROUND")
-		frame.MiddleRight:SetSize(12, 14)
-		frame.MiddleRight:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
-		frame.MiddleRight:SetTexCoord(0.53125, 0.625, 0.1875, 0.625)
-		frame.MiddleRight:SetPoint("TOPRIGHT", frame.TopRight, "BOTTOMRIGHT")
-		frame.MiddleRight:SetPoint("BOTTOMLEFT", frame.BottomRight, "TOPLEFT")
-	end
-
-	if (frame.BottomMiddle == nil) then
-		frame.BottomMiddle = frame:CreateTexture(nil, "BACKGROUND")
-		frame.BottomMiddle:SetSize(56, 6)
-		frame.BottomMiddle:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
-		frame.BottomMiddle:SetTexCoord(0.09375, 0.53125, 0.625, 0.8125)
-		frame.BottomMiddle:SetPoint("TOPLEFT", frame.BottomLeft, "TOPRIGHT")
-		frame.BottomMiddle:SetPoint("BOTTOMRIGHT", frame.BottomRight, "BOTTOMLEFT")
-	end
-
-	if (frame.MiddleMiddle == nil) then
-		frame.MiddleMiddle = frame:CreateTexture(nil, "BACKGROUND")
-		frame.MiddleMiddle:SetSize(56, 14)
-		frame.MiddleMiddle:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
-		frame.MiddleMiddle:SetTexCoord(0.09375, 0.53125, 0.1875, 0.625)
-		frame.MiddleMiddle:SetPoint("TOPLEFT", frame.TopLeft, "BOTTOMRIGHT")
-		frame.MiddleMiddle:SetPoint("BOTTOMRIGHT", frame.BottomRight, "TOPLEFT")
-	end
-
-	if (frame.Icon == nil) then
-		frame.Icon = frame:CreateTexture(nil, "ARTWORK")
-		frame.Icon:SetSize(10, 12)
-		frame.Icon:SetTexture("Interface\\ChatFrame\\ChatFrameExpandArrow")
-		frame.Icon:SetPoint("RIGHT", -5, 0)
-	end
+	frame.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+	frame.Background:SetTexCoord(0.582031, 0.894531, 0.171875, 0.273438)
+	frame.Background:ClearAllPoints()
+	frame.Background:SetPoint("TOPLEFT", -2, 2)
+	frame.Background:SetPoint("BOTTOMRIGHT", 2, -2)
 
 	frame.Text:SetFontObject(GameFontHighlightSmall)
 
-	frame:SetHighlightTexture("Interface\\Buttons\\UI-Silver-Button-Highlight", "ADD")
-	frame:GetHighlightTexture():SetTexCoord(0, 1, 0.03, 0.7175)
+	hooksecurefunc(frame, "OnButtonStateChanged", function(self)
+		self.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
+		if self:IsEnabled() then
+			if self:IsDownOver() then
+				self.Background:SetTexCoord(0.00390625, 0.316406, 0.496094, 0.597656)
+			elseif self:IsOver() then
+				self.Background:SetTexCoord(0.324219, 0.636719, 0.386719, 0.488281)
+			elseif self:IsDown() then
+				self.Background:SetTexCoord(0.644531, 0.957031, 0.386719, 0.488281)
+			else
+				self.Background:SetTexCoord(0.582031, 0.894531, 0.171875, 0.273438)
+			end
+		else
+			self.Background:SetTexCoord(0.00390625, 0.316406, 0.386719, 0.488281)
+		end
+	end)
 end
