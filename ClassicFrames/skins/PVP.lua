@@ -11,6 +11,27 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(HonorFrame.SpecificScrollBar.Track)
 		ApplyScrollBarThumb(HonorFrame.SpecificScrollBar.Track.Thumb)
 
+		for _, roleButton in pairs({
+			_G.HonorFrame.DPSIcon,
+			_G.HonorFrame.HealerIcon,
+			_G.HonorFrame.TankIcon,
+			_G.ConquestFrame.DPSIcon,
+			_G.ConquestFrame.HealerIcon,
+			_G.ConquestFrame.TankIcon,
+		}) do
+			local checkButton = roleButton.checkButton or roleButton.CheckButton
+
+			checkButton:SetSize(24, 24)
+			checkButton:SetScale(1)
+			checkButton:ClearAllPoints()
+			checkButton:SetPoint("BOTTOMLEFT", -5, -5)
+			checkButton:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+			checkButton:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+			checkButton:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+			checkButton:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+			checkButton:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
+		end
+
 		HonorFrame.DPSIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 		HonorFrame.DPSIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"))
 		HonorFrame.DPSIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")

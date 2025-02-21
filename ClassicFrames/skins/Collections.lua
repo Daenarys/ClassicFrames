@@ -36,10 +36,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end)
 
-		CollectionsJournalTab6:ClearAllPoints()
-		CollectionsJournalTab6:SetPoint("LEFT", CollectionsJournalTab5, "RIGHT", -16, 0)
-
-		for i = 1,6 do
+		for i = 1,5 do
 			ApplyBottomTab(_G['CollectionsJournalTab'..i])
 
 			_G["CollectionsJournalTab"..i]:HookScript("OnShow", function(self)
