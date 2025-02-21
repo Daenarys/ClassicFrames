@@ -308,38 +308,6 @@ ApplyScrollBarArrow(RaidFinderQueueFrameScrollFrame.ScrollBar)
 ApplyScrollBarTrack(RaidFinderQueueFrameScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(RaidFinderQueueFrameScrollFrame.ScrollBar.Track.Thumb)
 
-for _, roleButton in pairs({
-	_G.LFDRoleCheckPopupRoleButtonDPS,
-	_G.LFDRoleCheckPopupRoleButtonHealer,
-	_G.LFDRoleCheckPopupRoleButtonTank,
-	_G.LFDQueueFrameRoleButtonHealer,
-	_G.LFDQueueFrameRoleButtonDPS,
-	_G.LFDQueueFrameRoleButtonLeader,
-	_G.LFDQueueFrameRoleButtonTank,
-	_G.RaidFinderQueueFrameRoleButtonHealer,
-	_G.RaidFinderQueueFrameRoleButtonDPS,
-	_G.RaidFinderQueueFrameRoleButtonLeader,
-	_G.RaidFinderQueueFrameRoleButtonTank,
-	_G.LFGInvitePopupRoleButtonTank,
-	_G.LFGInvitePopupRoleButtonHealer,
-	_G.LFGInvitePopupRoleButtonDPS,
-	_G.LFGListApplicationDialog.TankButton,
-	_G.LFGListApplicationDialog.HealerButton,
-	_G.LFGListApplicationDialog.DamagerButton
-}) do
-	local checkButton = roleButton.checkButton or roleButton.CheckButton
-
-	checkButton:SetSize(24, 24)
-	checkButton:SetScale(1)
-	checkButton:ClearAllPoints()
-	checkButton:SetPoint("BOTTOMLEFT", -5, -5)
-	checkButton:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
-	checkButton:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
-	checkButton:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
-	checkButton:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
-	checkButton:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
-end
-
 ApplySearchBox(LFGListFrame.EntryCreation.ActivityFinder.Dialog.EntryBox)
 ApplySearchBox(LFGListFrame.EntryCreation.ItemLevel.EditBox)
 ApplySearchBox(LFGListFrame.EntryCreation.VoiceChat.EditBox)
@@ -355,11 +323,6 @@ ApplyDropDown(LFGListEntryCreationGroupDropdown)
 ApplyDropDown(LFGListEntryCreationActivityDropdown)
 ApplyDropDown(LFGListEntryCreationPlayStyleDropdown)
 ApplyFilterDropDown(LFGListFrame.SearchPanel.FilterButton)
-
-LFDQueueFrameTypeDropdown:SetPoint("BOTTOMLEFT", 134, 292)
-LFDQueueFrameTypeDropdown.Text:SetJustifyH("RIGHT")
-RaidFinderQueueFrameSelectionDropdown:SetPoint("BOTTOMLEFT", 134, 294)
-RaidFinderQueueFrameSelectionDropdown.Text:SetJustifyH("RIGHT")
 
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then
@@ -770,4 +733,6 @@ hooksecurefunc("LFGRewardsFrame_UpdateFrame", function(parentFrame, dungeonID)
 		parentFrame.title:SetText(LFG_TYPE_RANDOM_TIMEWALKER_DUNGEON)
 		parentFrame.description:SetText(LFD_TIMEWALKER_RANDOM_EXPLANATION)
 	end
+	parentFrame.title:ClearAllPoints()
+	parentFrame.title:SetPoint("TOPLEFT", 10, -8)
 end)

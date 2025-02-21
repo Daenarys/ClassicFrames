@@ -36,7 +36,10 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end)
 
-		for i = 1,5 do
+		CollectionsJournalTab6:ClearAllPoints()
+		CollectionsJournalTab6:SetPoint("LEFT", CollectionsJournalTab5, "RIGHT", -16, 0)
+
+		for i = 1,6 do
 			ApplyBottomTab(_G['CollectionsJournalTab'..i])
 
 			_G["CollectionsJournalTab"..i]:HookScript("OnShow", function(self)
@@ -103,6 +106,12 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarArrow(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar)
 		ApplyScrollBarTrack(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.Track)
 		ApplyScrollBarThumb(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.Track.Thumb)
+		
+		WarbandSceneJournal.IconsFrame.Icons.Controls.ShowOwned.Checkbox:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+		WarbandSceneJournal.IconsFrame.Icons.Controls.ShowOwned.Checkbox:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+		WarbandSceneJournal.IconsFrame.Icons.Controls.ShowOwned.Checkbox:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+		WarbandSceneJournal.IconsFrame.Icons.Controls.ShowOwned.Checkbox:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+		WarbandSceneJournal.IconsFrame.Icons.Controls.ShowOwned.Checkbox:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
 
 		ApplySearchBox(MountJournalSearchBox)
 		ApplySearchBox(PetJournalSearchBox)
