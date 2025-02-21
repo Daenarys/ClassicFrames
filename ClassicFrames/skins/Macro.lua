@@ -7,8 +7,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		MacroFrame.PortraitContainer.CircleMask:Hide()
 
 		MacroFramePortrait:SetSize(61, 61)
-		MacroFramePortrait:ClearAllPoints()
-		MacroFramePortrait:SetPoint("TOPLEFT", -6, 8)
 
 		MacroFrame.TitleContainer:ClearAllPoints()
 		MacroFrame.TitleContainer:SetPoint("TOPLEFT", MacroFrame, "TOPLEFT", 58, 0)
