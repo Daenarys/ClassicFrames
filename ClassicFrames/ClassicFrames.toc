@@ -1,4 +1,4 @@
-## Interface: 110100
+## Interface: 110007
 ## IconTexture: Interface/Icons/INV_Sword_2H_AshbringerCorrupt
 ## Title: Classic Frames
 ## Notes: Restores the classic UI and Unit Frames
@@ -22,7 +22,6 @@ skins\BlackMarket.lua
 skins\Buffs.lua
 skins\Calendar.lua
 skins\Catalyst.lua
-skins\Channel.lua
 skins\Character.lua
 skins\Chat.lua
 skins\ChromieTime.lua
