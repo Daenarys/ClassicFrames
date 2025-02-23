@@ -229,7 +229,7 @@ local function SkinFrame(frame)
 		highLevelTexture:SetSize(16, 16)
 		highLevelTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Skull")
 		highLevelTexture:ClearAllPoints()
-		highLevelTexture:SetPoint("CENTER", 82, -21)
+		highLevelTexture:SetPoint("CENTER", 81, -21)
 	end)
 
 	if (frame.totFrame) then
