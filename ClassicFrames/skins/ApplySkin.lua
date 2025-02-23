@@ -151,54 +151,46 @@ function ApplyNineSliceNoPortrait(frame)
 end
 
 function ApplyDialogBorder(frame)
-	frame.TopEdge:SetSize(32, 32)
-	frame.TopEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal", true)
+	frame.TopEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
 	frame.TopEdge:SetTexCoord(0, 0.5, 0.13671875, 0.26171875)
 
-	frame.TopLeftCorner:SetSize(32, 32)
 	frame.TopLeftCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
 	frame.TopLeftCorner:SetTexCoord(0.015625, 0.515625, 0.53515625, 0.66015625)
 
-	frame.TopRightCorner:SetSize(32, 32)
 	frame.TopRightCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
 	frame.TopRightCorner:SetTexCoord(0.015625, 0.515625, 0.66796875, 0.79296875)
 
-	frame.BottomEdge:SetSize(32, 32)
-	frame.BottomEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal", true)
+	frame.BottomEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
 	frame.BottomEdge:SetTexCoord(0, 0.5, 0.00390625, 0.12890625)
 
-	frame.BottomLeftCorner:SetSize(32, 32)
 	frame.BottomLeftCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
 	frame.BottomLeftCorner:SetTexCoord(0.015625, 0.515625, 0.26953125, 0.39453125)
 
-	frame.BottomRightCorner:SetSize(32, 32)
 	frame.BottomRightCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
 	frame.BottomRightCorner:SetTexCoord(0.015625, 0.515625, 0.40234375, 0.52734375)
 
-	frame.LeftEdge:SetSize(32, 32)
-	frame.LeftEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalVertical", false, true)
+	frame.LeftEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalVertical")
 	frame.LeftEdge:SetTexCoord(0.0078125, 0.2578125, 0, 1)
 
-	frame.RightEdge:SetSize(32, 32)
-	frame.RightEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalVertical", false, true)
+	frame.RightEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalVertical")
 	frame.RightEdge:SetTexCoord(0.2734375, 0.5234375, 0, 1)
 end
 
 function ApplyDialogHeader(frame)
-	frame.LeftBG:Hide()
-	frame.RightBG:Hide()
-	frame.CenterBG:Hide()
+	frame.LeftBG:SetSize(14, 40)
+	frame.LeftBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
+	frame.LeftBG:SetTexCoord(0.2265625, 0.28125, 0, 0.625)
+	frame.LeftBG:SetTexelSnappingBias(1)
 
-	if (frame.CfHeader == nil) then
-		frame.CfHeader = frame:CreateTexture(nil, "ARTWORK")
-		frame.CfHeader:SetHeight(64)
-		frame.CfHeader:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
-		frame.CfHeader:SetPoint("TOP")
-	end
+	frame.CenterBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
+	frame.CenterBG:SetTexCoord(0.28125, 0.71484375, 0, 0.625)
+	frame.CenterBG:SetHorizTile(false)
+	frame.CenterBG:SetTexelSnappingBias(1)
 
-	hooksecurefunc(frame, "UpdateWidth", function()
-		frame.CfHeader:SetWidth(frame.Text:GetWidth() + 250)
-	end)
+	frame.RightBG:SetSize(14, 40)
+	frame.RightBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
+	frame.RightBG:SetTexCoord(0.71484375, 0.76953125, 0, 0.625)
+	frame.RightBG:SetTexelSnappingBias(1)
 end
 
 function ApplyScrollBarArrow(frame)
