@@ -22,8 +22,9 @@ hooksecurefunc('QuestLogQuests_Update', function()
 	for button in _G.QuestScrollFrame.campaignHeaderFramePool:EnumerateActive() do
 		if not button.IsSkinned then
 			if button.Text then
+				local campaign = button:GetCampaign()
 				button.Text:ClearAllPoints()
-				if button.CollapseButton:IsShown() then
+				if campaign:IsContainerCampaign() then
 					button.Text:SetPoint("BOTTOMLEFT", button.Background, "LEFT", 30, 5)
 				else
 					button.Text:SetPoint("BOTTOMLEFT", button.Background, "LEFT", 16, 5)
