@@ -8,6 +8,7 @@ QuestMapFrame.DetailsFrame.BorderFrame.TopDetail:SetAlpha(0)
 QuestMapFrame.SettingsDropdown:Hide()
 
 QuestScrollFrame:SetPoint("TOPLEFT")
+QuestScrollFrame.Background:SetPoint("BOTTOMRIGHT", 25, 0)
 QuestScrollFrame.BorderFrame:SetPoint("TOPLEFT", -3, 3)
 QuestMapFrame.CampaignOverview.BorderFrame:SetPoint("TOPLEFT", -3, 3)
 

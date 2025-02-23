@@ -39,12 +39,6 @@ QuestScrollFrame.ScrollBar:ClearAllPoints()
 QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -2, 3)
 QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", -2, -3)
 
-if (QuestScrollFrame.ScrollBar.BG == nil) then
-	QuestScrollFrame.ScrollBar.BG = QuestScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	QuestScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
-	QuestScrollFrame.ScrollBar.BG:SetAllPoints()
-end
-
 ApplyScrollBarArrow(QuestScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestScrollFrame.ScrollBar.Track.Thumb)
