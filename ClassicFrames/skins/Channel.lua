@@ -9,8 +9,8 @@ ChannelFramePortrait:ClearAllPoints()
 ChannelFramePortrait:SetPoint("TOPLEFT", -6, 8)
 
 ChannelFrame.TitleContainer:ClearAllPoints()
-ChannelFrame.TitleContainer:SetPoint("TOPLEFT", ChannelFrame, "TOPLEFT", 66, -1)
-ChannelFrame.TitleContainer:SetPoint("TOPRIGHT", ChannelFrame, "TOPRIGHT", -60, 1)
+ChannelFrame.TitleContainer:SetPoint("TOPLEFT", ChannelFrame, "TOPLEFT", 60, 0)
+ChannelFrame.TitleContainer:SetPoint("TOPRIGHT", ChannelFrame, "TOPRIGHT", -60, 0)
 
 ApplyTitleBg(ChannelFrame)
 ApplyNineSlicePortrait(ChannelFrame)

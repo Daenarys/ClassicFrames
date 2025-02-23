@@ -8,8 +8,8 @@ if _G.GuildRegistrarFrame then
 	GuildRegistrarFramePortrait:SetPoint("TOPLEFT", -6, 8)
 
 	GuildRegistrarFrame.TitleContainer:ClearAllPoints()
-	GuildRegistrarFrame.TitleContainer:SetPoint("TOPLEFT", GuildRegistrarFrame, "TOPLEFT", 66, -1)
-	GuildRegistrarFrame.TitleContainer:SetPoint("TOPRIGHT", GuildRegistrarFrame, "TOPRIGHT", -60, 1)
+	GuildRegistrarFrame.TitleContainer:SetPoint("TOPLEFT", GuildRegistrarFrame, "TOPLEFT", 58, 0)
+	GuildRegistrarFrame.TitleContainer:SetPoint("TOPRIGHT", GuildRegistrarFrame, "TOPRIGHT", -58, 0)
 
 	ApplyTitleBg(GuildRegistrarFrame)
 	ApplyNineSlicePortrait(GuildRegistrarFrame)
@@ -34,8 +34,8 @@ if _G.PetitionFrame then
 	PetitionFramePortrait:SetPoint("TOPLEFT", -6, 8)
 
 	PetitionFrame.TitleContainer:ClearAllPoints()
-	PetitionFrame.TitleContainer:SetPoint("TOPLEFT", PetitionFrame, "TOPLEFT", 66, -1)
-	PetitionFrame.TitleContainer:SetPoint("TOPRIGHT", PetitionFrame, "TOPRIGHT", -60, 1)
+	PetitionFrame.TitleContainer:SetPoint("TOPLEFT", PetitionFrame, "TOPLEFT", 58, 0)
+	PetitionFrame.TitleContainer:SetPoint("TOPRIGHT", PetitionFrame, "TOPRIGHT", -58, 0)
 
 	ApplyTitleBg(PetitionFrame)
 	ApplyNineSlicePortrait(PetitionFrame)

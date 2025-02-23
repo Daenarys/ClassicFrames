@@ -9,8 +9,8 @@ AccountStoreFramePortrait:ClearAllPoints()
 AccountStoreFramePortrait:SetPoint("TOPLEFT", -6, 8)
 
 AccountStoreFrame.TitleContainer:ClearAllPoints()
-AccountStoreFrame.TitleContainer:SetPoint("TOPLEFT", AccountStoreFrame, "TOPLEFT", 66, -1)
-AccountStoreFrame.TitleContainer:SetPoint("TOPRIGHT", AccountStoreFrame, "TOPRIGHT", -60, 1)
+AccountStoreFrame.TitleContainer:SetPoint("TOPLEFT", AccountStoreFrame, "TOPLEFT", 58, 0)
+AccountStoreFrame.TitleContainer:SetPoint("TOPRIGHT", AccountStoreFrame, "TOPRIGHT", -58, 0)
 
 ApplyTitleBg(AccountStoreFrame)
 ApplyNineSlicePortrait(AccountStoreFrame)
