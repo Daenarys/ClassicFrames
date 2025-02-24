@@ -370,7 +370,7 @@ function ApplyDropDown(frame)
 	frame.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonDropdownClassic")
 	frame.Background:SetTexCoord(0.386719, 0.816406, 0.00390625, 0.164062)
 	frame.Background:ClearAllPoints()
-	frame.Background:SetPoint("TOPLEFT", -9, 8)
+	frame.Background:SetPoint("TOPLEFT", -9, 7)
 	frame.Background:SetPoint("BOTTOMRIGHT", 8, -9)
 
 	frame.Arrow:SetSize(23, 22)
