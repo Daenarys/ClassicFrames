@@ -120,6 +120,8 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 
 	CompactRaidFrameManager.toggleButtonBack:SetAlpha(0)
 	CompactRaidFrameManager.toggleButtonForward:SetAlpha(0)
+	CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -9, -35)
+	CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -9, -35)
 
 	if (CompactRaidFrameManager.TopLeft == nil) then
 		CompactRaidFrameManager.TopLeft = CompactRaidFrameManager:CreateTexture(nil, "ARTWORK")
@@ -185,6 +187,6 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 		CompactRaidFrameManager.ToggleButton:SetSize(16, 64)
 		CompactRaidFrameManager.ToggleButton:SetTexture("Interface\\RaidFrame\\RaidPanel-Toggle")
 		CompactRaidFrameManager.ToggleButton:SetTexCoord(0, 0.5, 0, 1)
-		CompactRaidFrameManager.ToggleButton:SetPoint("CENTER", CompactRaidFrameManager.toggleButtonForward, "CENTER", -1, 0)
+		CompactRaidFrameManager.ToggleButton:SetPoint("CENTER", CompactRaidFrameManager.toggleButtonForward, "CENTER")
 	end
 end)
