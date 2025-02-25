@@ -141,14 +141,14 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 		CompactRaidFrameManager.BottomLeft = CompactRaidFrameManager:CreateTexture(nil, "ARTWORK")
 		CompactRaidFrameManager.BottomLeft:SetSize(32, 32)
 		CompactRaidFrameManager.BottomLeft:SetTexture("Interface\\RaidFrame\\RaidPanel-BottomLeft")
-		CompactRaidFrameManager.BottomLeft:SetPoint("BOTTOMLEFT", -5, -90)
+		CompactRaidFrameManager.BottomLeft:SetPoint("BOTTOMLEFT", -5, -75)
 	end
 
 	if (CompactRaidFrameManager.BottomRight == nil) then
 		CompactRaidFrameManager.BottomRight = CompactRaidFrameManager:CreateTexture(nil, "ARTWORK")
 		CompactRaidFrameManager.BottomRight:SetSize(32, 32)
 		CompactRaidFrameManager.BottomRight:SetTexture("Interface\\RaidFrame\\RaidPanel-BottomRight")
-		CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT", 0, -90)
+		CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT", 0, -75)
 	end
 
 	if (CompactRaidFrameManager.Top == nil) then
