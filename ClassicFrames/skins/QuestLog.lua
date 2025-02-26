@@ -14,11 +14,15 @@ QuestMapFrame.QuestsFrame.CampaignOverview.BorderFrame.TopDetail:SetAlpha(0)
 
 ApplySearchBox(QuestScrollFrame.SearchBox)
 
-hooksecurefunc(QuestScrollFrame, 'UpdateBackground', function(self)
-	if (self.Background:GetAtlas() == "QuestLog-main-background") then
-		self.Background:SetAtlas("QuestLogBackground")
-	elseif (self.Background:GetAtlas() == "QuestLog-empty-quest-background") then
-		self.Background:SetAtlas("NoQuestsBackground")
+hooksecurefunc('QuestLogQuests_Update', function()
+	for button in _G.QuestScrollFrame.titleFramePool:EnumerateActive() do
+		if not button.IsSkinned then
+			if button.Checkbox then
+				button.Checkbox.CheckMark:SetSize(26, 26)
+				button.Checkbox.CheckMark:SetTexture("Interface\\Buttons\\UI-CheckBox-Check")
+			end
+			button.IsSkinned = true
+		end
 	end
 end)
 
@@ -26,4 +30,12 @@ hooksecurefunc(QuestMapFrame, 'ValidateTabs', function(self)
 	self.QuestsTab:Hide()
 	self.EventsTab:Hide()
 	self.MapLegendTab:Hide()
+end)
+
+hooksecurefunc(QuestScrollFrame, 'UpdateBackground', function(self)
+	if (self.Background:GetAtlas() == "QuestLog-main-background") then
+		self.Background:SetAtlas("QuestLogBackground")
+	elseif (self.Background:GetAtlas() == "QuestLog-empty-quest-background") then
+		self.Background:SetAtlas("NoQuestsBackground")
+	end
 end)
