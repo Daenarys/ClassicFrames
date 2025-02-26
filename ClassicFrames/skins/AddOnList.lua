@@ -41,19 +41,6 @@ hooksecurefunc(AddonList, "UpdatePerformance", function(self)
 	self.Performance:Hide()
 end)
 
-hooksecurefunc('AddonList_Update', function()
-	for _, child in next, { AddonList.ScrollBox.ScrollTarget:GetChildren() } do
-		if not child.IsSkinned then
-			child.Enabled:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
-			child.Enabled:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
-			child.Enabled:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
-			child.Enabled:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
-			child.Enabled:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
-			child.IsSkinned = true
-		end
-	end
-end)
-
 AddonList:HookScript("OnShow", function(self)
 	self:ClearAllPoints()
 	self:SetPoint("CENTER", 0, 24)
