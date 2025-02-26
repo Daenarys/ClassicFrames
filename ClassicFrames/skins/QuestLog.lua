@@ -18,8 +18,7 @@ hooksecurefunc('QuestLogQuests_Update', function()
 	for button in _G.QuestScrollFrame.titleFramePool:EnumerateActive() do
 		if not button.IsSkinned then
 			if button.Checkbox then
-				button.Checkbox.CheckMark:SetSize(26, 26)
-				button.Checkbox.CheckMark:SetTexture("Interface\\Buttons\\UI-CheckBox-Check")
+				button.Checkbox:Hide()
 			end
 			button.IsSkinned = true
 		end
