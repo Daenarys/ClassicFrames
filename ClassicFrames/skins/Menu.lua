@@ -4,8 +4,8 @@ local function OpenMenu(manager, _, menuDescription)
 		select(1, Menu:GetRegions()):SetAlpha(0)
 		if (Backdrop == nil) then
 			Backdrop = CreateFrame("Frame", nil, Menu, "TooltipBackdropTemplate")
-			Backdrop:SetPoint("TOPLEFT")
-			Backdrop:SetPoint("BOTTOMRIGHT")
+			Backdrop:SetPoint("TOPLEFT", -5, 0)
+			Backdrop:SetPoint("BOTTOMRIGHT", 5, 5)
 			Backdrop:SetFrameLevel(Menu:GetFrameLevel() - 1)
 		end
 		menuDescription:AddMenuAcquiredCallback(function(self)
