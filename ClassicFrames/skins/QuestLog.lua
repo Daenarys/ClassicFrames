@@ -20,6 +20,10 @@ hooksecurefunc('QuestLogQuests_Update', function()
 			if button.Checkbox then
 				button.Checkbox:Hide()
 			end
+			if button.TagTexture then
+				button.TagTexture:ClearAllPoints()
+				button.TagTexture:SetPoint("RIGHT", 8, 0)
+			end
 			button.IsSkinned = true
 		end
 	end
