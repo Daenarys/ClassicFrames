@@ -14,21 +14,6 @@ QuestMapFrame.QuestsFrame.CampaignOverview.BorderFrame.TopDetail:SetAlpha(0)
 
 ApplySearchBox(QuestScrollFrame.SearchBox)
 
-hooksecurefunc('QuestLogQuests_Update', function()
-	for button in _G.QuestScrollFrame.titleFramePool:EnumerateActive() do
-		if not button.IsSkinned then
-			if button.Checkbox then
-				button.Checkbox:Hide()
-			end
-			if button.TagTexture then
-				button.TagTexture:ClearAllPoints()
-				button.TagTexture:SetPoint("RIGHT", 8, 0)
-			end
-			button.IsSkinned = true
-		end
-	end
-end)
-
 hooksecurefunc(QuestMapFrame, 'ValidateTabs', function(self)
 	self.QuestsTab:Hide()
 	self.EventsTab:Hide()
