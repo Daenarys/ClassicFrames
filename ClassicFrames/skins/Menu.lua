@@ -12,8 +12,8 @@ local function OpenMenu(manager, _, menuDescription)
 			select(1, self:GetRegions()):SetAlpha(0)
 			if (Backdrop2 == nil) then
 				Backdrop2 = CreateFrame("Frame", nil, self, "TooltipBackdropTemplate")
-				Backdrop2:SetPoint("TOPLEFT")
-				Backdrop2:SetPoint("BOTTOMRIGHT")
+				Backdrop2:SetPoint("TOPLEFT", 0, 0)
+				Backdrop2:SetPoint("BOTTOMRIGHT", 0, 5)
 			end
 		end)
 		for i = 1, Menu:GetNumChildren() do
