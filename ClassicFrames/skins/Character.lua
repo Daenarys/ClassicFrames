@@ -47,6 +47,24 @@ ReputationFrame.ReputationDetailFrame.CloseButton:SetHighlightTexture("Interface
 ReputationFrame.ReputationDetailFrame.CloseButton:ClearAllPoints()
 ReputationFrame.ReputationDetailFrame.CloseButton:SetPoint("TOPRIGHT", -2, -3)
 
+ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Track.Begin:Hide()
+ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Track.End:Hide()
+ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Track.Middle:Hide()
+
+ApplyScrollBarThumb(ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Track.Thumb)
+
+ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Back:SetSize(18, 16)
+ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
+ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
+ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
+ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
+
+ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Forward:SetSize(18, 16)
+ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
+ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
+ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
+ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
+
 if (ReputationDetailCorner == nil) then
 	ReputationFrame.ReputationDetailFrame:CreateTexture("ReputationDetailCorner", "OVERLAY")
 	ReputationDetailCorner:SetSize(32, 32)
