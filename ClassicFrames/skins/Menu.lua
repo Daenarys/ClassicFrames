@@ -6,7 +6,7 @@ local function OpenMenu(manager, _, menuDescription)
 			Backdrop = CreateFrame("Frame", nil, Menu, "TooltipBackdropTemplate")
 			Backdrop:SetFrameLevel(1)
 			Backdrop:SetPoint("TOPLEFT")
-			Backdrop:SetPoint("BOTTOMRIGHT")
+			Backdrop:SetPoint("BOTTOMRIGHT", 0, 6)
 		end
 		menuDescription:AddMenuAcquiredCallback(function(self)
 			select(1, self:GetRegions()):SetAlpha(0)
@@ -14,7 +14,7 @@ local function OpenMenu(manager, _, menuDescription)
 				Backdrop2 = CreateFrame("Frame", nil, self, "TooltipBackdropTemplate")
 				Backdrop2:SetFrameLevel(1)
 				Backdrop2:SetPoint("TOPLEFT")
-				Backdrop2:SetPoint("BOTTOMRIGHT")
+				Backdrop2:SetPoint("BOTTOMRIGHT", 0, 6)
 			end
 		end)
 		for i = 1, Menu:GetNumChildren() do
