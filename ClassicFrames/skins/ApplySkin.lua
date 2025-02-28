@@ -43,7 +43,7 @@ end
 
 function ApplyNineSlicePortrait(frame)
 	frame.NineSlice.TopEdge:SetSize(128, 132)
-	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal")
+	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
 	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
 
 	frame.NineSlice.TopLeftCorner:SetSize(132, 132)
@@ -55,7 +55,7 @@ function ApplyNineSlicePortrait(frame)
 	frame.NineSlice.TopRightCorner:SetTexCoord(0.001953125, 0.259765625, 0.263671875, 0.521484375)
 
 	frame.NineSlice.BottomEdge:SetSize(128, 132)
-	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal")
+	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
 	frame.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.001953125, 0.259765625)
 
 	frame.NineSlice.BottomLeftCorner:SetSize(132, 132)
@@ -67,17 +67,17 @@ function ApplyNineSlicePortrait(frame)
 	frame.NineSlice.BottomRightCorner:SetTexCoord(0.263671875, 0.521484375, 0.001953125, 0.259765625)
 
 	frame.NineSlice.LeftEdge:SetSize(132, 128)
-	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical")
+	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
 	frame.NineSlice.LeftEdge:SetTexCoord(0.001953125, 0.259765625, 0, 1)
 
 	frame.NineSlice.RightEdge:SetSize(132, 128)
-	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical")
+	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
 	frame.NineSlice.RightEdge:SetTexCoord(0.263671875, 0.521484375, 0, 1)
 end
 
 function ApplyNineSlicePortraitMinimizable(frame)
 	frame.NineSlice.TopEdge:SetSize(128, 132)
-	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal")
+	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
 	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
 
 	frame.NineSlice.TopLeftCorner:SetSize(132, 132)
@@ -89,7 +89,7 @@ function ApplyNineSlicePortraitMinimizable(frame)
 	frame.NineSlice.TopRightCorner:SetTexCoord(0.001953125, 0.259765625, 0.525390625, 0.783203125)
 
 	frame.NineSlice.BottomEdge:SetSize(128, 132)
-	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal")
+	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
 	frame.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.001953125, 0.259765625)
 
 	frame.NineSlice.BottomLeftCorner:SetSize(132, 132)
@@ -101,17 +101,17 @@ function ApplyNineSlicePortraitMinimizable(frame)
 	frame.NineSlice.BottomRightCorner:SetTexCoord(0.263671875, 0.521484375, 0.001953125, 0.259765625)
 
 	frame.NineSlice.LeftEdge:SetSize(132, 128)
-	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical")
+	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
 	frame.NineSlice.LeftEdge:SetTexCoord(0.001953125, 0.259765625, 0, 1)
 
 	frame.NineSlice.RightEdge:SetSize(132, 128)
-	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical")
+	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
 	frame.NineSlice.RightEdge:SetTexCoord(0.263671875, 0.521484375, 0, 1)
 end
 
 function ApplyNineSliceNoPortrait(frame)
 	frame.NineSlice.TopEdge:SetSize(128, 132)
-	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal")
+	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
 	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
 
 	frame.NineSlice.TopLeftCorner:SetSize(132, 132)
@@ -123,7 +123,7 @@ function ApplyNineSliceNoPortrait(frame)
 	frame.NineSlice.TopRightCorner:SetTexCoord(0.001953125, 0.259765625, 0.263671875, 0.521484375)
 
 	frame.NineSlice.BottomEdge:SetSize(128, 132)
-	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal")
+	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
 	frame.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.001953125, 0.259765625)
 
 	frame.NineSlice.BottomLeftCorner:SetSize(132, 132)
@@ -135,17 +135,17 @@ function ApplyNineSliceNoPortrait(frame)
 	frame.NineSlice.BottomRightCorner:SetTexCoord(0.263671875, 0.521484375, 0.001953125, 0.259765625)
 
 	frame.NineSlice.LeftEdge:SetSize(132, 128)
-	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical")
+	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
 	frame.NineSlice.LeftEdge:SetTexCoord(0.001953125, 0.259765625, 0, 1)
 
 	frame.NineSlice.RightEdge:SetSize(132, 128)
-	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical")
+	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
 	frame.NineSlice.RightEdge:SetTexCoord(0.263671875, 0.521484375, 0, 1)
 end
 
 function ApplyNineSliceNoPortraitMinimizable(frame)
 	frame.NineSlice.TopEdge:SetSize(128, 132)
-	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal")
+	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
 	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
 
 	frame.NineSlice.TopLeftCorner:SetSize(132, 132)
@@ -157,7 +157,7 @@ function ApplyNineSliceNoPortraitMinimizable(frame)
 	frame.NineSlice.TopRightCorner:SetTexCoord(0.001953125, 0.259765625, 0.525390625, 0.783203125)
 
 	frame.NineSlice.BottomEdge:SetSize(128, 132)
-	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal")
+	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
 	frame.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.001953125, 0.259765625)
 
 	frame.NineSlice.BottomLeftCorner:SetSize(132, 132)
@@ -169,11 +169,11 @@ function ApplyNineSliceNoPortraitMinimizable(frame)
 	frame.NineSlice.BottomRightCorner:SetTexCoord(0.263671875, 0.521484375, 0.001953125, 0.259765625)
 
 	frame.NineSlice.LeftEdge:SetSize(132, 128)
-	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical")
+	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
 	frame.NineSlice.LeftEdge:SetTexCoord(0.001953125, 0.259765625, 0, 1)
 
 	frame.NineSlice.RightEdge:SetSize(132, 128)
-	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical")
+	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
 	frame.NineSlice.RightEdge:SetTexCoord(0.263671875, 0.521484375, 0, 1)
 end
 
