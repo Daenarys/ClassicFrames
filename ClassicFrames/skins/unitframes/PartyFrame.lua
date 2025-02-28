@@ -154,7 +154,8 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 	if (CompactRaidFrameManager.Top == nil) then
 		CompactRaidFrameManager.Top = CompactRaidFrameManager:CreateTexture(nil, "ARTWORK")
 		CompactRaidFrameManager.Top:SetSize(0, 16)
-		CompactRaidFrameManager.Top:SetTexture("Interface\\RaidFrame\\RaidPanel-UpperMiddle", true)
+		CompactRaidFrameManager.Top:SetTexture("Interface\\RaidFrame\\RaidPanel-UpperMiddle")
+		CompactRaidFrameManager.Top:SetHorizTile(true)
 		CompactRaidFrameManager.Top:SetPoint("TOPLEFT", CompactRaidFrameManager.TopLeft, "TOPRIGHT", 0, 1)
 		CompactRaidFrameManager.Top:SetPoint("TOPRIGHT", CompactRaidFrameManager.TopRight, "TOPLEFT", 0, 1)
 	end
@@ -162,7 +163,8 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 	if (CompactRaidFrameManager.Bottom == nil) then
 		CompactRaidFrameManager.Bottom = CompactRaidFrameManager:CreateTexture(nil, "ARTWORK")
 		CompactRaidFrameManager.Bottom:SetSize(0, 16)
-		CompactRaidFrameManager.Bottom:SetTexture("Interface\\RaidFrame\\RaidPanel-BottomMiddle", true)
+		CompactRaidFrameManager.Bottom:SetTexture("Interface\\RaidFrame\\RaidPanel-BottomMiddle")
+		CompactRaidFrameManager.Bottom:SetHorizTile(true)
 		CompactRaidFrameManager.Bottom:SetPoint("BOTTOMLEFT", CompactRaidFrameManager.BottomLeft, "BOTTOMRIGHT", 0, -4)
 		CompactRaidFrameManager.Bottom:SetPoint("BOTTOMRIGHT", CompactRaidFrameManager.BottomRight, "BOTTOMLEFT", 0, -4)
 	end
@@ -170,14 +172,17 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 	if (CompactRaidFrameManager.Right == nil) then
 		CompactRaidFrameManager.Right = CompactRaidFrameManager:CreateTexture(nil, "ARTWORK")
 		CompactRaidFrameManager.Right:SetSize(16, 0)
-		CompactRaidFrameManager.Right:SetTexture("Interface\\RaidFrame\\RaidPanel-Right", false, true)
+		CompactRaidFrameManager.Right:SetTexture("Interface\\RaidFrame\\RaidPanel-Right")
+		CompactRaidFrameManager.Right:SetVertTile(true)
 		CompactRaidFrameManager.Right:SetPoint("TOPRIGHT", CompactRaidFrameManager.TopRight, "BOTTOMRIGHT", 2, 0)
 		CompactRaidFrameManager.Right:SetPoint("BOTTOMRIGHT", CompactRaidFrameManager.BottomRight, "TOPRIGHT", 2, 0)
 	end
 
 	if (CompactRaidFrameManager.Bg == nil) then
 		CompactRaidFrameManager.Bg = CompactRaidFrameManager:CreateTexture(nil, "BACKGROUND")
-		CompactRaidFrameManager.Bg:SetTexture("Interface\\FrameGeneral\\UI-Background-Rock", true, true)
+		CompactRaidFrameManager.Bg:SetTexture("Interface\\FrameGeneral\\UI-Background-Rock")
+		CompactRaidFrameManager.Bg:SetHorizTile(true)
+		CompactRaidFrameManager.Bg:SetVertTile(true)
 		CompactRaidFrameManager.Bg:SetPoint("TOPLEFT", CompactRaidFrameManager.TopLeft, "TOPLEFT", 7, -6)
 		CompactRaidFrameManager.Bg:SetPoint("BOTTOMRIGHT", CompactRaidFrameManager.BottomRight, "BOTTOMRIGHT", -7, 7)
 	end
