@@ -12,8 +12,6 @@ QuestMapFrame.DetailsFrame.BorderFrame.TopDetail:SetAlpha(0)
 QuestMapFrame.QuestsFrame.CampaignOverview.BorderFrame:SetPoint("TOPLEFT", -3, 3)
 QuestMapFrame.QuestsFrame.CampaignOverview.BorderFrame.TopDetail:SetAlpha(0)
 
-ApplySearchBox(QuestScrollFrame.SearchBox)
-
 hooksecurefunc(QuestMapFrame, 'ValidateTabs', function(self)
 	self.QuestsTab:Hide()
 	self.EventsTab:Hide()
