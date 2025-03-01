@@ -1,7 +1,6 @@
 if not _G.QuestScrollFrame then return end
 
 QuestScrollFrame:SetPoint("TOPLEFT")
-QuestScrollFrame.Background:SetPoint("BOTTOMRIGHT", 25, 0)
 QuestScrollFrame.BorderFrame:SetPoint("TOPLEFT", -3, 3)
 QuestScrollFrame.BorderFrame.Shadow:SetAlpha(0)
 QuestScrollFrame.BorderFrame.TopDetail:SetAlpha(0)
