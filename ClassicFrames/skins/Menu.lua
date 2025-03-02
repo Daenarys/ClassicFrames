@@ -1,22 +1,6 @@
-local function OpenMenu(manager, _, menuDescription)
+local function OpenMenu(manager)
 	local Menu = manager:GetOpenMenu()
 	if Menu then
-		select(1, Menu:GetRegions()):SetAlpha(0)
-		if (Backdrop == nil) then
-			Backdrop = CreateFrame("Frame", nil, Menu, "TooltipBackdropTemplate")
-			Backdrop:SetPoint("TOPLEFT")
-			Backdrop:SetPoint("BOTTOMRIGHT", 0, 6)
-			Backdrop.NineSlice:SetFrameLevel(1)
-		end
-		menuDescription:AddMenuAcquiredCallback(function(self)
-			select(1, self:GetRegions()):SetAlpha(0)
-			if (Backdrop2 == nil) then
-				Backdrop2 = CreateFrame("Frame", nil, self, "TooltipBackdropTemplate")
-				Backdrop2:SetPoint("TOPLEFT")
-				Backdrop2:SetPoint("BOTTOMRIGHT", 0, 6)
-				Backdrop2.NineSlice:SetFrameLevel(1)
-			end
-		end)
 		for i = 1, Menu:GetNumChildren() do
 			local child = select(i, Menu:GetChildren())
 			if child.MinLevel then
