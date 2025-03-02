@@ -209,12 +209,5 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(AuctionHouseFrame.CommoditiesSellFrame.Duration.Dropdown)
 		ApplyDropDown(AuctionHouseFrame.ItemSellFrame.Duration.Dropdown)
 		ApplyFilterDropDown(AuctionHouseFrame.SearchBar.FilterButton)
-
-		hooksecurefunc(AuctionHouseFrame, "Show", function()
-			if ContainerFrame1MoneyFrame then
-				ContainerFrame1MoneyFrame:ClearAllPoints()
-				ContainerFrame1MoneyFrame:SetPoint("TOPRIGHT", ContainerFrame1, "TOPRIGHT", -2, -272)
-			end
-		end)
 	end
 end)

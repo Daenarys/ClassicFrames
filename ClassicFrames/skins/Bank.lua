@@ -33,13 +33,6 @@ if _G.BankFrame then
 	end
 
 	ApplySearchBox(BankItemSearchBox)
-
-	hooksecurefunc(BankFrame, "Show", function()
-		if ContainerFrame1MoneyFrame then
-			ContainerFrame1MoneyFrame:ClearAllPoints()
-			ContainerFrame1MoneyFrame:SetPoint("TOPRIGHT", ContainerFrame1, "TOPRIGHT", -2, -272)
-		end
-	end)
 end
 
 if _G.AccountBankPanel then

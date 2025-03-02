@@ -147,9 +147,6 @@ hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
 		bgTextureTop:Show()
 		bgTextureBottom:Hide()
 
-		_G[name.."MoneyFrame"]:ClearAllPoints()
-		_G[name.."MoneyFrame"]:SetPoint("TOPRIGHT", frame, "TOPRIGHT", -2, BACKPACK_MONEY_OFFSET_DEFAULT - (ROW_HEIGHT * extraRows))
-
 		-- Hide unused textures
 		for i=1, MAX_MIDDLE_TEXTURES do
 			_G[name.."BackgroundMiddle"..i]:SetTexture("Interface\\ContainerFrame\\UI-Bag-Components")
@@ -423,4 +420,9 @@ end)
 
 hooksecurefunc(ContainerFrame1, "SetSearchBoxPoint", function(self, searchBox)
 	searchBox:SetPoint("TOPLEFT", self, "TOPLEFT", 54, -37)
+end)
+
+hooksecurefunc(ContainerFrame1, "UpdateCurrencyFrames", function(self)
+	self.MoneyFrame:ClearAllPoints()
+	self.MoneyFrame:SetPoint("TOPRIGHT", self, "TOPRIGHT", -2, -272)
 end)

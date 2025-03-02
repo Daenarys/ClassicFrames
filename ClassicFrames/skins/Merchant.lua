@@ -81,11 +81,6 @@ hooksecurefunc("MerchantFrame_UpdateMerchantInfo", function()
 	MerchantGuildBankRepairButton:DisableDrawLayer("BACKGROUND")
 	MerchantGuildBankRepairButton.Icon:SetTexture("Interface\\MerchantFrame\\UI-Merchant-RepairIcons")
 	MerchantGuildBankRepairButton.Icon:SetTexCoord(0.5625, 0.84375, 0, 0.5625)
-
-	if ContainerFrame1MoneyFrame then
-		ContainerFrame1MoneyFrame:ClearAllPoints()
-		ContainerFrame1MoneyFrame:SetPoint("TOPRIGHT", ContainerFrame1, "TOPRIGHT", -2, -272)
-	end
 end)
 
 hooksecurefunc("MerchantFrame_UpdateBuybackInfo", function()

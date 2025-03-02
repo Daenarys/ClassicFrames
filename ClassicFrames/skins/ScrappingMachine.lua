@@ -16,12 +16,5 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(ScrappingMachineFrame)
 		ApplyNineSlicePortrait(ScrappingMachineFrame)
-
-		hooksecurefunc(ScrappingMachineFrame, "Show", function()
-			if ContainerFrame1MoneyFrame then
-				ContainerFrame1MoneyFrame:ClearAllPoints()
-				ContainerFrame1MoneyFrame:SetPoint("TOPRIGHT", ContainerFrame1, "TOPRIGHT", -2, -272)
-			end
-		end)
 	end
 end)
