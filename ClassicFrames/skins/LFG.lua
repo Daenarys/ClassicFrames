@@ -341,6 +341,7 @@ for _, roleButton in pairs({
 end
 
 ApplySearchBox(LFGListFrame.EntryCreation.ActivityFinder.Dialog.EntryBox)
+ApplySearchBox(LFGListFrame.EntryCreation.MythicPlusRating.EditBox)
 ApplySearchBox(LFGListFrame.EntryCreation.ItemLevel.EditBox)
 ApplySearchBox(LFGListFrame.EntryCreation.VoiceChat.EditBox)
 ApplySearchBox(LFGListFrame.EntryCreation.Name)
