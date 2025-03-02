@@ -120,8 +120,8 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 
 	CompactRaidFrameManager.toggleButtonBack:SetAlpha(0)
 	CompactRaidFrameManager.toggleButtonForward:SetAlpha(0)
-	CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -9, -30)
-	CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -9, -30)
+	CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -9, -33)
+	CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -9, -33)
 
 	if (CompactRaidFrameManager.TopLeft == nil) then
 		CompactRaidFrameManager.TopLeft = CompactRaidFrameManager:CreateTexture(nil, "ARTWORK")
