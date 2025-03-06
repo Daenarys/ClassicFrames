@@ -253,8 +253,9 @@ local function SkinFrame(frame)
 		end
 
 		frame.totFrame:SetFrameStrata("HIGH")
-		frame.totFrame:ClearAllPoints()
-		frame.totFrame:SetPoint("BOTTOMRIGHT", 12, -18)
+		if frame == TargetFrame then
+			frame.totFrame:SetPoint("TOPRIGHT", frame, "BOTTOMRIGHT", 12, 31)
+		end
 
 		if (frame.totFrame.Background == nil) then
 			frame.totFrame.Background = frame.totFrame.HealthBar:CreateTexture(nil, "BACKGROUND")
@@ -274,7 +275,7 @@ local function SkinFrame(frame)
 
 		frame.totFrame.Name:SetWidth(100)
 		frame.totFrame.Name:ClearAllPoints()
-		frame.totFrame.Name:SetPoint("BOTTOMLEFT", 42, 6)
+		frame.totFrame.Name:SetPoint("BOTTOMLEFT", 42, 7)
 		
 		frame.totFrame.HealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 		frame.totFrame.HealthBar:SetStatusBarColor(0, 1, 0)
@@ -350,18 +351,12 @@ hooksecurefunc(FocusFrame, "Update", function(self)
 end)
 
 hooksecurefunc(FocusFrame, "SetSmallSize", function(self, smallSize)
-	if ( smallSize ) then
-		self.TargetFrameContent.TargetFrameContentMain.Name:SetFontObject(FocusFontSmall)
-		self.TargetFrameContent.TargetFrameContentMain.Name:ClearAllPoints()
-		self.TargetFrameContent.TargetFrameContentMain.Name:SetPoint("TOPLEFT", 36, -29)
+	self.smallSize = smallSize
+	if (self.smallSize) then
+		self.totFrame:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT", 29, 25)
 	else
-		self.TargetFrameContent.TargetFrameContentMain.Name:SetFontObject(GameFontNormalSmall)
-		self.TargetFrameContent.TargetFrameContentMain.Name:ClearAllPoints()
-		self.TargetFrameContent.TargetFrameContentMain.Name:SetPoint("TOPLEFT", 36, -30)
+		self.totFrame:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT", 12, 31)
 	end
-
-	self.totFrame:ClearAllPoints()
-	self.totFrame:SetPoint("BOTTOMRIGHT", 29, -24)
 end)
 
 hooksecurefunc('TargetFrame_UpdateBuffAnchor', function(self, buff, index, numDebuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
