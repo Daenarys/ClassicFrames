@@ -40,7 +40,7 @@ PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:SetFrameLevel(5)
 PlayerFrame.PlayerFrameContainer.PlayerPortrait:SetSize(64, 64)
 PlayerFrame.PlayerFrameContainer.PlayerPortrait:ClearAllPoints()
 PlayerFrame.PlayerFrameContainer.PlayerPortrait:SetPoint("TOPLEFT", 23, -16)
-PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface/CHARACTERFRAME/TempPortraitAlphaMask", "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")
+PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask")
 
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer:SetAlpha(0)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea:SetAlpha(0)
@@ -293,7 +293,7 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 
 	PlayerName:SetParent(self.PlayerFrameContainer)
 	PlayerName:ClearAllPoints()
-	PlayerName:SetPoint("TOPLEFT", self.PlayerFrameContainer, "TOPLEFT", 97, -25.5)
+	PlayerName:SetPoint("TOPLEFT", self.PlayerFrameContainer, "TOPLEFT", 97, -26)
 
 	CfPlayerFrameHealthBar:SetWidth(100)
 	CfPlayerFrameHealthBar:SetPoint("TOPLEFT",119,-41)
@@ -480,6 +480,10 @@ hooksecurefunc(PlayerFrameBottomManagedFramesContainer, "Layout", function()
 	if (RuneFrame) then
 		RuneFrame:UnregisterAllEvents()
 		RuneFrame:Hide()
+	end
+	if (TotemFrame) then
+		TotemFrame:ClearAllPoints()
+		TotemFrame:SetPoint("TOPLEFT", PlayerFrame, "TOPLEFT", -5, -91)
 	end
 end)
 
