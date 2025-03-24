@@ -43,6 +43,7 @@ skins\EditMode.lua
 skins\EncounterJournal.lua
 skins\ExpansionLandingPage.lua
 skins\FlightMap.lua
+skins\FrameRate.lua
 skins\Friends.lua
 skins\GameMenu.lua
 skins\GarrisonCapacitive.lua
