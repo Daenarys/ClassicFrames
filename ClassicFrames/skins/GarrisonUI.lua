@@ -3,7 +3,7 @@ f:RegisterEvent("ADDON_LOADED")
 f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_GarrisonUI" then
 		if _G.GarrisonBuildingFrame then
-			ApplyCloseButtonOld(GarrisonBuildingFrame.CloseButton)
+			ApplyCloseButton(GarrisonBuildingFrame.CloseButton)
 
 			GarrisonBuildingFrameTutorialButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 
@@ -13,7 +13,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			end)
 		end
 		if _G.GarrisonMissionFrame then
-			ApplyCloseButtonOld(GarrisonMissionFrame.CloseButton)
+			ApplyCloseButton(GarrisonMissionFrame.CloseButton)
 
 			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
@@ -76,7 +76,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyNineSlicePortrait(GarrisonRecruiterFrame)
 		end
 		if _G.GarrisonShipyardFrame then
-			ApplyCloseButtonOld(GarrisonShipyardFrame.BorderFrame.CloseButton2)
+			ApplyCloseButton(GarrisonShipyardFrame.BorderFrame.CloseButton2)
 
 			GarrisonShipyardFrameFollowers.ScrollBar:SetSize(25, 560)
 			GarrisonShipyardFrameFollowers.ScrollBar:ClearAllPoints()
@@ -108,7 +108,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			end)
 		end
 		if _G.OrderHallMissionFrame then
-			ApplyCloseButtonOld(OrderHallMissionFrame.CloseButton)
+			ApplyCloseButton(OrderHallMissionFrame.CloseButton)
 
 			OrderHallMissionFrame.MissionTab.MissionPage.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 			OrderHallMissionFrame.MissionTab.MissionPage.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
@@ -167,7 +167,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			end)
 		end
 		if _G.BFAMissionFrame then
-			ApplyCloseButtonOld(BFAMissionFrame.CloseButton)
+			ApplyCloseButton(BFAMissionFrame.CloseButton)
 
 			BFAMissionFrame.MissionTab.MissionPage.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 			BFAMissionFrame.MissionTab.MissionPage.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
@@ -305,7 +305,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplySearchBox(GarrisonLandingPageFollowerList.SearchBox)
 		end
 		if _G.GarrisonRecruitSelectFrame then
-			ApplyCloseButtonOld(GarrisonRecruitSelectFrame.CloseButton)
+			ApplyCloseButton(GarrisonRecruitSelectFrame.CloseButton)
 
 			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:SetSize(25, 560)
 			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:ClearAllPoints()
