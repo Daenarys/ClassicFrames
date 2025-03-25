@@ -5,6 +5,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		TimeManagerFrame:SetWidth(190)
 
 		ApplyCloseButton(TimeManagerFrameCloseButton)
+		TimeManagerFrameCloseButton:SetFrameLevel(4)
 
 		TimeManagerFrame.PortraitContainer.CircleMask:Hide()
 
