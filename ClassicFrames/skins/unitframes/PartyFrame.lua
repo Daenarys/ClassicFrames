@@ -203,23 +203,3 @@ end)
 hooksecurefunc("CompactRaidFrameManager_Collapse", function()
 	CompactRaidFrameManager.ToggleButton:SetTexCoord(0, 0.5, 0, 1)
 end)
-
-CompactRaidFrameManager.toggleButtonBack:HookScript("OnMouseUp", function()
-	CompactRaidFrameManager.ToggleButton:ClearAllPoints()
-	CompactRaidFrameManager.ToggleButton:SetPoint("CENTER", CompactRaidFrameManager.toggleButtonForward, "CENTER")
-end)
-
-CompactRaidFrameManager.toggleButtonBack:HookScript("OnMouseDown", function()
-	CompactRaidFrameManager.ToggleButton:ClearAllPoints()
-	CompactRaidFrameManager.ToggleButton:SetPoint("CENTER", CompactRaidFrameManager.toggleButtonForward, "CENTER", 1, 0)
-end)
-
-CompactRaidFrameManager.toggleButtonForward:HookScript("OnMouseUp", function()
-	CompactRaidFrameManager.ToggleButton:ClearAllPoints()
-	CompactRaidFrameManager.ToggleButton:SetPoint("CENTER", CompactRaidFrameManager.toggleButtonForward, "CENTER")
-end)
-
-CompactRaidFrameManager.toggleButtonForward:HookScript("OnMouseDown", function()
-	CompactRaidFrameManager.ToggleButton:ClearAllPoints()
-	CompactRaidFrameManager.ToggleButton:SetPoint("CENTER", CompactRaidFrameManager.toggleButtonForward, "CENTER", 1, 0)
-end)
