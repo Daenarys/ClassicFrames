@@ -1,7 +1,6 @@
 for i = 1, NUM_CHAT_WINDOWS do
     -- hide default buttons
     ChatFrameChannelButton:Hide()
-    ChatFrameMenuButton:Hide()
     TextToSpeechButtonFrame:Hide()
 
     -- hide chat window scrollbars
@@ -63,8 +62,7 @@ for i = 1, NUM_CHAT_WINDOWS do
         MessageFrameScrollButton_OnLoad(ChatFrameButtonFrameBottomButton)
         ChatFrameButtonFrameBottomButton:SetScript("OnUpdate", MessageFrameScrollButton_OnUpdate)
         ChatFrameButtonFrameBottomButton:SetScript("OnClick", function(self, button)
-            if (self:GetButtonState() == "PUSHED") then
-            else
+            if not (self:GetButtonState() == "PUSHED") then
                 PlaySound(SOUNDKIT.IG_CHAT_BOTTOM)
                 self:GetParent():GetParent():ScrollToBottom()
             end
@@ -91,32 +89,13 @@ for i = 1, NUM_CHAT_WINDOWS do
         end
     end
 
-    local ChatFrameButtonFrameMenuButton = _G["ChatFrame"..i.."ButtonFrameMenuButton"]
-    if (ChatFrameButtonFrameMenuButton == nil) then
-        ChatFrameButtonFrameMenuButton = CreateFrame("Button", _G["ChatFrame"..i.."ButtonFrameMenuButton"], _G["ChatFrame"..i.."ButtonFrame"])
-        ChatFrameButtonFrameMenuButton:SetSize(32, 32)
-        ChatFrameButtonFrameMenuButton:SetNormalTexture("Interface\\ChatFrame\\UI-ChatIcon-Chat-Up")
-        ChatFrameButtonFrameMenuButton:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIcon-Chat-Down")
-        ChatFrameButtonFrameMenuButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-Chat-Disabled")
-        ChatFrameButtonFrameMenuButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
-        ChatFrameButtonFrameMenuButton:SetScript("OnClick", function(self, button)
-            PlaySound(SOUNDKIT.IG_CHAT_EMOTE_BUTTON)
-            ChatFrame_ToggleMenu()
-
-            if ChatMenu:IsShown() and HelpTip:IsShowingAny(self) then
-                HelpTip:HideAll(self)
-            end
-        end)
-    end
-
     ChatFrameButtonFrameUpButton:ClearAllPoints()
-    ChatFrameButtonFrameUpButton:SetPoint("BOTTOM", ChatFrameButtonFrameDownButton, "TOP", 0, 0)
+    ChatFrameButtonFrameUpButton:SetPoint("BOTTOM", ChatFrameButtonFrameDownButton, "TOP")
     ChatFrameButtonFrameDownButton:ClearAllPoints()
     ChatFrameButtonFrameDownButton:SetPoint("BOTTOM", ChatFrameButtonFrameBottomButton, "TOP", 0, -2)
     ChatFrameButtonFrameBottomButton:ClearAllPoints()
     ChatFrameButtonFrameBottomButton:SetPoint("BOTTOM", _G["ChatFrame"..i.."ButtonFrame"], "BOTTOM", 0, -7)
-    ChatFrameButtonFrameMenuButton:ClearAllPoints()
-    ChatFrameButtonFrameMenuButton:SetPoint("BOTTOM", ChatFrameButtonFrameUpButton, "TOP", 0, 0)
+    ChatFrameMenuButton:SetPoint("BOTTOM", 0, 87)
 
     hooksecurefunc("ChatFrame_OnUpdate", ChatFrameButtonFrameBottomButton.func_ChatFrame_OnUpdate)
 end
