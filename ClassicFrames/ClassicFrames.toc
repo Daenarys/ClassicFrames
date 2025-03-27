@@ -6,6 +6,7 @@
 ## OptionalDeps: SexyMap
 skins\ApplySkin.lua
 skins\Achievements.lua
+skins\AddonList.lua
 skins\Buffs.lua
 skins\Character.lua
 skins\Chat.lua
