@@ -5,5 +5,13 @@ f:SetScript("OnEvent", function(self, event, name)
 		CollectionsJournalPortrait:SetSize(60, 60)
 		CollectionsJournalPortrait:ClearAllPoints()
 		CollectionsJournalPortrait:SetPoint("TOPLEFT", -6, 7)
+
+		ApplyDropDown(HeirloomsJournal.ClassDropdown)
+		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
+		ApplyFilterDropDown(MountJournal.FilterDropdown)
+		ApplyFilterDropDown(PetJournal.FilterDropdown)
+		ApplyFilterDropDown(ToyBox.FilterDropdown)
+		ApplyFilterDropDown(HeirloomsJournal.FilterDropdown)
+		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
 	end
 end)

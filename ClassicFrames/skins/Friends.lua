@@ -13,3 +13,6 @@ FriendsFrameTab3:SetPoint("LEFT", FriendsFrameTab2, "RIGHT", -15, 0)
 
 FriendsFrameTab4:ClearAllPoints()
 FriendsFrameTab4:SetPoint("LEFT", FriendsFrameTab3, "RIGHT", -15, 0)
+
+ApplyDropDown(FriendsFrameStatusDropdown)
+ApplyDropDown(WhoFrameDropdown)
