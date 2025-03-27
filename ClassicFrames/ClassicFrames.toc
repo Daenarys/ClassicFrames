@@ -7,9 +7,12 @@
 skins\ApplySkin.lua
 skins\Achievements.lua
 skins\AddonList.lua
+skins\AuctionHouse.lua
 skins\Buffs.lua
+skins\Calendar.lua
 skins\Character.lua
 skins\Chat.lua
+skins\ClassTrainer.lua
 skins\Collections.lua
 skins\Communities.lua
 skins\DebugTools.lua

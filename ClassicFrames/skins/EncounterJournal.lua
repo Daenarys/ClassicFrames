@@ -199,5 +199,10 @@ f:SetScript("OnEvent", function(self, event, name)
 				EncounterJournal.raidsTab.selectedGlow:SetVertexColor(1, 0.4, 0)
 			end
 		end)
+
+		ApplyDropDown(EncounterJournalInstanceSelect.ExpansionDropdown)
+		ApplyDropDown(EncounterJournalEncounterFrameInfo.LootContainer.filter)
+		ApplyDropDown(EncounterJournalEncounterFrameInfo.LootContainer.slotFilter)
+		ApplyDropDown(EncounterJournalEncounterFrameInfoDifficulty)
 	end
 end)

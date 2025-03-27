@@ -6,5 +6,9 @@ f:SetScript("OnEvent", function(self, event, name)
 		TimeManagerAlarmMessageEditBox:SetWidth(160)
 		TimeManagerMilitaryTimeCheck:ClearAllPoints()
 		TimeManagerMilitaryTimeCheck:SetPoint("TOPLEFT", 155, -190)
+
+		ApplyDropDown(TimeManagerAlarmTimeFrame.HourDropdown)
+		ApplyDropDown(TimeManagerAlarmTimeFrame.MinuteDropdown)
+		ApplyDropDown(TimeManagerAlarmTimeFrame.AMPMDropdown)
 	end
 end)
