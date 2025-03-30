@@ -1,9 +1,8 @@
 if not _G.CharacterFrame then return end
 
-CharacterFrameTitleText:ClearAllPoints()
-CharacterFrameTitleText:SetPoint("TOP", 0, -4)
-CharacterFrameTitleText:SetPoint("LEFT", 60, 0)
-CharacterFrameTitleText:SetPoint("RIGHT", -60, 0)
+CharacterFrame.TitleContainer:ClearAllPoints()
+CharacterFrame.TitleContainer:SetPoint("TOPLEFT", CharacterFrame, "TOPLEFT", 58, 0)
+CharacterFrame.TitleContainer:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -58, 0)
 
 CharacterFramePortrait:SetSize(60, 60)
 CharacterFramePortrait:ClearAllPoints()
@@ -41,6 +40,8 @@ PaperDollFrame.EquipmentManagerPane.ScrollBar:SetPoint("BOTTOMLEFT", PaperDollFr
 ApplyScrollBarArrow(PaperDollFrame.EquipmentManagerPane.ScrollBar)
 ApplyScrollBarTrack(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track)
 ApplyScrollBarThumb(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track.Thumb)
+
+ApplyDropDown(GearManagerPopupFrame.BorderBox.IconTypeDropdown)
 
 hooksecurefunc(CharacterFrame, "UpdateSize", function(self)
 	if ReputationFrame:IsShown() then
