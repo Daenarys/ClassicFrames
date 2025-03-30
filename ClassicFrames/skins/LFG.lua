@@ -195,6 +195,12 @@ for _, roleButton in pairs({
 	checkButton:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
 end
 
+ApplyDropDown(LFDQueueFrameTypeDropdown)
+ApplyDropDown(LFGListEntryCreationGroupDropdown)
+ApplyDropDown(LFGListEntryCreationActivityDropdown)
+ApplyDropDown(LFGListEntryCreationPlayStyleDropdown)
+ApplyFilterDropDown(LFGListFrame.SearchPanel.FilterButton)
+
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then
 		button.background:SetTexture("Interface\\LFGFrame\\UI-LFG-ICONS-ROLEBACKGROUNDS")
