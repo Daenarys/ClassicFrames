@@ -6,8 +6,6 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		self.MaximizeMinimizeFrame:ClearAllPoints()
 		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
 
-		self.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Panel-SmallerButton-Disabled")
-
 		if not self.ButtonFrameEdge then
 			self.ButtonFrameEdge = self.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
 			self.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
@@ -24,10 +22,10 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		ApplyScrollBarTrack(CommunitiesFrame.Chat.ScrollBar.Track)
 		ApplyScrollBarThumb(CommunitiesFrame.Chat.ScrollBar.Track.Thumb)
 	else
+		self.PortraitFrame:SetParent(self.PortraitOverlay)
+
 		self.MaximizeMinimizeFrame:ClearAllPoints()
 		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
-
-		self.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Panel-SmallerButton-Disabled")
 
 		if not self.ButtonFrameEdge then
 			self.ButtonFrameEdge = self.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
