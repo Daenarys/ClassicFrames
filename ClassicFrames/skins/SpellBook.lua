@@ -6,7 +6,7 @@ SpellBookFramePortrait:SetPoint("TOPLEFT", -6, 7)
 
 hooksecurefunc("SpellBookFrame_Update", function()
 	-- Make sure the correct tab is selected
-	for i=1,5 do
+	for i=1,3 do
 		local tab = _G["SpellBookFrameTabButton"..i]
 		if ( tab.bookType == SpellBookFrame.bookType ) then
 			PanelTemplates_SelectTab(tab)
