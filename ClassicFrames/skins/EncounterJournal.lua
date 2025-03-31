@@ -37,6 +37,9 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTierTab(EncounterJournal.dungeonsTab)
 		ApplyTierTab(EncounterJournal.raidsTab)
 
+		EncounterJournal.PortraitContainer:SetFrameLevel(1)
+		EncounterJournal.PortraitContainer.CircleMask:Hide()
+
 		EncounterJournalPortrait:SetSize(60, 60)
 		EncounterJournalPortrait:ClearAllPoints()
 		EncounterJournalPortrait:SetPoint("TOPLEFT", -6, 7)
@@ -52,6 +55,26 @@ f:SetScript("OnEvent", function(self, event, name)
 
 			EncounterJournalInstanceSelect.Title:ClearAllPoints()
 			EncounterJournalInstanceSelect.Title:SetPoint("TOPLEFT", 10, -15)
+
+			if EncounterJournal.selectedTab == EncounterJournal.dungeonsTab:GetID() then
+				PanelTemplates_SelectTab(EncounterJournal.dungeonsTab)
+				EncounterJournal.dungeonsTab:GetFontString():SetTextColor(NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b)
+				EncounterJournal.dungeonsTab:SetHeight(36)
+				EncounterJournal.dungeonsTab.selectedGlow:SetVertexColor(1, 0.4, 0)
+				EncounterJournal.dungeonsTab.selectedGlow:Show()
+				EncounterJournal.raidsTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+				EncounterJournal.raidsTab:SetHeight(32)
+				EncounterJournal.raidsTab.selectedGlow:Hide()
+			elseif EncounterJournal.selectedTab == EncounterJournal.raidsTab:GetID() then
+				PanelTemplates_SelectTab(EncounterJournal.raidsTab)
+				EncounterJournal.dungeonsTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
+				EncounterJournal.dungeonsTab:SetHeight(32)
+				EncounterJournal.dungeonsTab.selectedGlow:Hide()
+				EncounterJournal.raidsTab:GetFontString():SetTextColor(NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b)
+				EncounterJournal.raidsTab:SetHeight(36)
+				EncounterJournal.raidsTab.selectedGlow:SetVertexColor(1, 0.4, 0)
+				EncounterJournal.raidsTab.selectedGlow:Show()
+			end
 		end)
 
 		EncounterJournalEncounterFrame:HookScript("OnShow", function()
@@ -184,8 +207,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			if ( id == EncounterJournal.dungeonsTab:GetID() ) then
 				EncounterJournal.dungeonsTab:GetFontString():SetTextColor(NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b)
 				EncounterJournal.dungeonsTab:SetHeight(36)
-				EncounterJournal.dungeonsTab.selectedGlow:Show()
 				EncounterJournal.dungeonsTab.selectedGlow:SetVertexColor(1, 0.4, 0)
+				EncounterJournal.dungeonsTab.selectedGlow:Show()
 				EncounterJournal.raidsTab:GetFontString():SetTextColor(HIGHLIGHT_FONT_COLOR.r, HIGHLIGHT_FONT_COLOR.g, HIGHLIGHT_FONT_COLOR.b)
 				EncounterJournal.raidsTab:SetHeight(32)
 				EncounterJournal.raidsTab.selectedGlow:Hide()
@@ -195,8 +218,8 @@ f:SetScript("OnEvent", function(self, event, name)
 				EncounterJournal.dungeonsTab.selectedGlow:Hide()
 				EncounterJournal.raidsTab:GetFontString():SetTextColor(NORMAL_FONT_COLOR.r, NORMAL_FONT_COLOR.g, NORMAL_FONT_COLOR.b)
 				EncounterJournal.raidsTab:SetHeight(36)
-				EncounterJournal.raidsTab.selectedGlow:Show()
 				EncounterJournal.raidsTab.selectedGlow:SetVertexColor(1, 0.4, 0)
+				EncounterJournal.raidsTab.selectedGlow:Show()
 			end
 		end)
 
