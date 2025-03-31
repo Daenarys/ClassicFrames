@@ -20,6 +20,7 @@ skins\EncounterJournal.lua
 skins\Friends.lua
 skins\Gossip.lua
 skins\LFG.lua
+skins\Macro.lua
 skins\Minimap.lua
 skins\PVP.lua
 skins\Quests.lua
