@@ -180,9 +180,7 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 
 	if (CompactRaidFrameManager.Bg == nil) then
 		CompactRaidFrameManager.Bg = CompactRaidFrameManager:CreateTexture(nil, "BACKGROUND")
-		CompactRaidFrameManager.Bg:SetTexture("Interface\\FrameGeneral\\UI-Background-Rock")
-		CompactRaidFrameManager.Bg:SetHorizTile(true)
-		CompactRaidFrameManager.Bg:SetVertTile(true)
+		CompactRaidFrameManager.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 		CompactRaidFrameManager.Bg:SetPoint("TOPLEFT", CompactRaidFrameManager.TopLeft, "TOPLEFT", 7, -6)
 		CompactRaidFrameManager.Bg:SetPoint("BOTTOMRIGHT", CompactRaidFrameManager.BottomRight, "BOTTOMRIGHT", -7, 7)
 	end
