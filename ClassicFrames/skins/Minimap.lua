@@ -9,7 +9,7 @@ end
 
 MinimapCluster:SetScale(1)
 MinimapCluster:SetSize(192, 192)
-MinimapCluster:SetHitRectInsets(30, 10, 0, 30)
+MinimapCluster.BorderTop:Hide()
 Minimap:SetParent(MinimapCluster)
 Minimap:SetSize(140, 140)
 Minimap:ClearAllPoints()
@@ -23,6 +23,12 @@ MinimapBorder:SetTexCoord(0.25, 1, 0.125, 0.875)
 MinimapBorder:ClearAllPoints()
 MinimapBorder:SetAllPoints(MinimapBackdrop)
 MinimapBorder:SetDrawLayer("ARTWORK", 7)
+MinimapBackdrop:CreateTexture("MinimapBorderTop", "ARTWORK")
+MinimapBorderTop:SetSize(192, 32)
+MinimapBorderTop:ClearAllPoints()
+MinimapBorderTop:SetPoint("TOPRIGHT", MinimapCluster, "TOPRIGHT")
+MinimapBorderTop:SetTexture("Interface\\Minimap\\UI-Minimap-Border")
+MinimapBorderTop:SetTexCoord(0.25, 1, 0, 0.125)
 MinimapCompassTexture:SetSize(256, 256)
 MinimapCompassTexture:SetTexture("Interface\\Minimap\\CompassRing", "OVERLAY")
 MinimapCompassTexture:ClearAllPoints()
@@ -451,8 +457,6 @@ if (MiniMapInstanceDifficulty) == nil then
 	GuildInstanceDifficulty:SetScript("OnLeave", GameTooltip_Hide)
 end
 
-MinimapCluster.BorderTop:Hide()
-
 CreateFrame("Button", "MinimapZoneTextButton", MinimapCluster)
 MinimapZoneTextButton:SetSize(140, 12)
 MinimapZoneTextButton:ClearAllPoints()
@@ -465,12 +469,6 @@ MinimapZoneText:ClearAllPoints()
 MinimapZoneText:SetPoint("CENTER", MinimapZoneTextButton, "TOP", 0, -6)
 MinimapZoneText:SetDrawLayer("BACKGROUND")
 MinimapZoneText:SetJustifyH("CENTER")
-MinimapBackdrop:CreateTexture("MinimapBorderTop", "ARTWORK")
-MinimapBorderTop:SetSize(192, 32)
-MinimapBorderTop:ClearAllPoints()
-MinimapBorderTop:SetPoint("TOPRIGHT", MinimapCluster, "TOPRIGHT")
-MinimapBorderTop:SetTexture("Interface\\Minimap\\UI-Minimap-Border")
-MinimapBorderTop:SetTexCoord(0.25, 1, 0, 0.125)
 
 MiniMapWorldMapButton = MinimapCluster.ZoneTextButton
 MiniMapWorldMapButton:SetSize(32, 32)
