@@ -24,6 +24,7 @@ skins\Macro.lua
 skins\Minimap.lua
 skins\PVP.lua
 skins\Quests.lua
+skins\Report.lua
 skins\ScriptError.lua
 skins\SettingsPanel.lua
 skins\SpellBook.lua
