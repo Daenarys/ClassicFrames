@@ -25,12 +25,10 @@ skins\Macro.lua
 skins\Minimap.lua
 skins\ModelPreview.lua
 skins\PVP.lua
-skins\Quests.lua
 skins\Report.lua
 skins\ScriptError.lua
 skins\SettingsPanel.lua
 skins\SpellBook.lua
-skins\Talents.lua
 skins\TimeManager.lua
 skins\Wardrobe.lua
 skins\WorldMap.lua

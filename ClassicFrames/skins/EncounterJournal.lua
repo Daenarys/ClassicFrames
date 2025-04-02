@@ -37,13 +37,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTierTab(EncounterJournal.dungeonsTab)
 		ApplyTierTab(EncounterJournal.raidsTab)
 
-		EncounterJournal.PortraitContainer:SetFrameLevel(1)
-		EncounterJournal.PortraitContainer.CircleMask:Hide()
-
-		EncounterJournalPortrait:SetSize(60, 60)
-		EncounterJournalPortrait:ClearAllPoints()
-		EncounterJournalPortrait:SetPoint("TOPLEFT", -6, 7)
-
 		EncounterJournal:HookScript("OnShow", function()
 			EncounterJournal.raidsTab:ClearAllPoints()
 			EncounterJournal.raidsTab:SetPoint("BOTTOMRIGHT", EncounterJournalInstanceSelect, "TOPRIGHT", -35, -45)

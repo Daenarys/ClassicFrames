@@ -1,9 +1,5 @@
 if not _G.PVEFrame then return end
 
-PVEFramePortrait:SetSize(60, 60)
-PVEFramePortrait:ClearAllPoints()
-PVEFramePortrait:SetPoint("TOPLEFT", -6, 7)
-
 GroupFinderFrame:HookScript("OnShow", function()
 	SetPortraitToTexture(PVEFramePortrait, "Interface\\LFGFrame\\UI-LFG-PORTRAIT")
 end)

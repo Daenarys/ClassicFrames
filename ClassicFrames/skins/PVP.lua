@@ -62,8 +62,3 @@ for _, roleButton in pairs({
 	checkButton:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
 	checkButton:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
 end
-
-_G.PVPFrame:HookScript("OnShow", function(self)
-	self:ClearAllPoints()
-	self:SetPoint("TOPLEFT", 16, -116)
-end)
