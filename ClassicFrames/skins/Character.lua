@@ -19,8 +19,8 @@ CharacterStatsPane.ScrollBox:SetPoint("TOPLEFT", 1, -1)
 
 CharacterStatsPane.ScrollBar:SetSize(25, 560)
 CharacterStatsPane.ScrollBar:ClearAllPoints()
-CharacterStatsPane.ScrollBar:SetPoint("TOPLEFT", CharacterStatsPane.ScrollBox, "TOPRIGHT", 0, 1)
-CharacterStatsPane.ScrollBar:SetPoint("BOTTOMLEFT", CharacterStatsPane.ScrollBox, "BOTTOMRIGHT", 3, -5)
+CharacterStatsPane.ScrollBar:SetPoint("TOPLEFT", CharacterStatsPane.ScrollBox, "TOPRIGHT", 1, 1)
+CharacterStatsPane.ScrollBar:SetPoint("BOTTOMLEFT", CharacterStatsPane.ScrollBox, "BOTTOMRIGHT", 4, -5)
 
 ApplyScrollBarArrow(CharacterStatsPane.ScrollBar)
 ApplyScrollBarTrack(CharacterStatsPane.ScrollBar.Track)
