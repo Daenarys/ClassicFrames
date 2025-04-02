@@ -23,6 +23,7 @@ skins\Gossip.lua
 skins\LFG.lua
 skins\Macro.lua
 skins\Minimap.lua
+skins\ModelPreview.lua
 skins\PVP.lua
 skins\Quests.lua
 skins\Report.lua
