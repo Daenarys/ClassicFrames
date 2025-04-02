@@ -31,6 +31,7 @@ skins\SpellBook.lua
 skins\Talents.lua
 skins\TimeManager.lua
 skins\Wardrobe.lua
+skins\WorldMap.lua
 skins\unitframes\BossFrame.lua
 skins\unitframes\FocusFrame.lua
 skins\unitframes\PartyFrame.lua
