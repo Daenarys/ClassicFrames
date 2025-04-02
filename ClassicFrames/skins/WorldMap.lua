@@ -3,3 +3,4 @@ if not _G.WorldMapFrame then return end
 ApplyDropDown(WorldMapZoneMinimapDropdown)
 ApplyDropDown(WorldMapContinentDropdown)
 ApplyDropDown(WorldMapZoneDropdown)
+ApplyDropDown(WorldMapFrame.WorldMapLevelDropDown)
