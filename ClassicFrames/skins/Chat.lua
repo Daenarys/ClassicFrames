@@ -42,5 +42,5 @@ end)
 
 _G.FriendsMicroButton:HookScript("OnUpdate", function(self)
     self:ClearAllPoints()
-    self:SetPoint("LEFT", GeneralDockManager, "LEFT", -35, -1)
+    self:SetPoint("LEFT", GeneralDockManager, "LEFT", -35, 0)
 end)
