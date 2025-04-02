@@ -1,8 +1,5 @@
 if not _G.CharacterFrame then return end
 
-CharacterFrame.PortraitContainer:SetFrameLevel(1)
-CharacterFrame.PortraitContainer.CircleMask:Hide()
-
 CharacterFramePortrait:SetSize(60, 60)
 CharacterFramePortrait:ClearAllPoints()
 CharacterFramePortrait:SetPoint("TOPLEFT", -6, 7)
