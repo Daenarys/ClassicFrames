@@ -1,12 +1,14 @@
 if not _G.CharacterFrame then return end
 
-CharacterFrame.TitleContainer:ClearAllPoints()
-CharacterFrame.TitleContainer:SetPoint("TOPLEFT", CharacterFrame, "TOPLEFT", 58, 0)
-CharacterFrame.TitleContainer:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -58, 0)
+CharacterFrame.PortraitContainer.CircleMask:Hide()
 
 CharacterFramePortrait:SetSize(60, 60)
 CharacterFramePortrait:ClearAllPoints()
 CharacterFramePortrait:SetPoint("TOPLEFT", -6, 7)
+
+CharacterFrame.TitleContainer:ClearAllPoints()
+CharacterFrame.TitleContainer:SetPoint("TOPLEFT", CharacterFrame, "TOPLEFT", 58, 0)
+CharacterFrame.TitleContainer:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -58, 0)
 
 ApplyDialogBorder(ReputationDetailFrame.Border)
 ApplyDialogBorder(TokenFramePopup.Border)
