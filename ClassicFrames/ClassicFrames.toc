@@ -18,6 +18,7 @@ skins\Communities.lua
 skins\DebugTools.lua
 skins\EncounterJournal.lua
 skins\Friends.lua
+skins\GameMenu.lua
 skins\Gossip.lua
 skins\LFG.lua
 skins\Macro.lua
