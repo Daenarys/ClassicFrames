@@ -309,7 +309,6 @@ function LootFrame_Show(self)
 	end
 
 	LootFrame_Update()
-	LootFramePortraitOverlay:SetTexture("Interface\\TargetingFrame\\TargetDead")
 end
 
 function LootFrame_OnShow(self)
@@ -317,7 +316,6 @@ function LootFrame_OnShow(self)
 		PlaySound(SOUNDKIT.LOOT_WINDOW_OPEN_EMPTY)
 	elseif( IsFishingLoot() ) then
 		PlaySound(SOUNDKIT.FISHING_REEL_IN)
-		LootFramePortraitOverlay:SetTexture("Interface\\LootFrame\\FishingLoot-Icon")
 	end
 end
 
