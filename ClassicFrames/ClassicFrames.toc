@@ -12,6 +12,7 @@ skins\Buffs.lua
 skins\Calendar.lua
 skins\Character.lua
 skins\Chat.lua
+skins\Cinematic.lua
 skins\ClassTrainer.lua
 skins\Collections.lua
 skins\Communities.lua
