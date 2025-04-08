@@ -5,7 +5,9 @@ GroupFinderFrame:HookScript("OnShow", function()
 end)
 
 hooksecurefunc("LFGRewardsFrame_UpdateFrame", function()
-	LFDQueueFrameBackground:SetTexture("Interface\\LFGFrame\\UI-LFG-BACKGROUND-HEROIC")
+	if (LFDQueueFrameBackground:GetTexture() == 337492) then
+		LFDQueueFrameBackground:SetTexture("Interface\\LFGFrame\\UI-LFG-BACKGROUND-HEROIC")
+	end
 end)
 
 LFDQueueFrameSpecific.ScrollBar:SetSize(25, 560)
