@@ -4,6 +4,7 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_AuctionHouseUI" then
 		AuctionHouseFrameBuyTab:SetPoint("BOTTOMLEFT", 20, -31)
 
+		ApplyDialogBorder(AuctionHouseFrame.BuyDialog.Border)
 		ApplyDropDown(AuctionHouseFrame.CommoditiesSellFrame.Duration.Dropdown)
 		ApplyDropDown(AuctionHouseFrame.ItemSellFrame.Duration.Dropdown)
 		ApplyFilterDropDown(AuctionHouseFrame.SearchBar.FilterButton)
