@@ -43,13 +43,6 @@ MiniMapWorldMapButton:GetHighlightTexture():SetSize(28, 28)
 MiniMapWorldMapButton:GetHighlightTexture():ClearAllPoints()
 MiniMapWorldMapButton:GetHighlightTexture():SetPoint("TOPRIGHT", MiniMapWorldMapButton, "TOPRIGHT")
 
-MiniMapWorldMapButton:SetScript("OnEnter", function(self)
-	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip_SetTitle(GameTooltip, self.tooltipText)
-	GameTooltip:Show()
-end)
-MiniMapWorldMapButton:SetScript("OnLeave", GameTooltip_Hide)
-
 Minimap:HookScript("OnEvent", function(self, event, ...)
 	TimeManagerClockTicker:ClearAllPoints()
 	TimeManagerClockTicker:SetPoint("CENTER", TimeManagerClockButton, "CENTER", 3, 1)
