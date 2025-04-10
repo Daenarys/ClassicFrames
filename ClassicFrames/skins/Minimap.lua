@@ -529,7 +529,6 @@ MinimapZoneTextButton:SetScript("OnLeave", function()
 end)
 
 MiniMapWorldMapButton.tooltipText = MicroButtonTooltipText(WORLDMAP_BUTTON, "TOGGLEWORLDMAP")
-MiniMapWorldMapButton.newbieText = NEWBIE_TOOLTIP_WORLDMAP
 MiniMapWorldMapButton:RegisterEvent("UPDATE_BINDINGS")
 
 MiniMapWorldMapButton:SetScript("OnEnter", function(self)
@@ -542,7 +541,6 @@ MiniMapWorldMapButton:SetScript("OnLeave", GameTooltip_Hide)
 
 MiniMapWorldMapButton:SetScript("OnEvent", function(self)
 	self.tooltipText = MicroButtonTooltipText(WORLDMAP_BUTTON, "TOGGLEWORLDMAP")
-	self.newbieText = NEWBIE_TOOLTIP_WORLDMAP
 end)
 
 Minimap:HookScript("OnEvent", function(self, event, ...)
