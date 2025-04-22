@@ -350,12 +350,14 @@ ApplySearchBox(LFGListFrame.EntryCreation.PVPRating.EditBox)
 ApplySearchBox(LFGListFrame.SearchPanel.SearchBox)
 
 ApplyDropDown(LFDQueueFrameTypeDropdown)
-ApplyDropDown(ScenarioQueueFrameTypeDropdown)
 ApplyDropDown(RaidFinderQueueFrameSelectionDropdown)
 ApplyDropDown(LFGListEntryCreationGroupDropdown)
 ApplyDropDown(LFGListEntryCreationActivityDropdown)
 ApplyDropDown(LFGListEntryCreationPlayStyleDropdown)
 ApplyFilterDropDown(LFGListFrame.SearchPanel.FilterButton)
+
+LFDQueueFrameTypeDropdown:SetWidth(195)
+RaidFinderQueueFrameSelectionDropdown:SetWidth(195)
 
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then
@@ -734,24 +736,6 @@ for _, rolePollButton in pairs({
 	checkButton.CheckedTexture:SetTexture("Interface\\Buttons\\UI-RadioButton")
 	checkButton.CheckedTexture:SetTexCoord(0.25, 0.5, 0, 1)
 end
-
-ScenarioQueueFrameRandomScrollFrame.ScrollBar:SetAlpha(0)
-
-hooksecurefunc("ScenarioQueueFrameRandom_UpdateFrame", function()
-	local dungeonID = ScenarioQueueFrame.type
-
-	if ( LFG_IsHeroicScenario(dungeonID) ) then
-		ScenarioQueueFrame.Bg:SetTexture("Interface\\LFGFrame\\UI-LFG-SCENARIO-Heroic-Old")
-	else
-		ScenarioQueueFrame.Bg:SetTexture("Interface\\LFGFrame\\UI-LFG-SCENARIO-Random-Old")
-	end
-end)
-
-hooksecurefunc("ScenarioQueueFrame_SetTypeRandom", function()
-	ScenarioQueueFrame.Bg:SetSize(512, 512)
-	ScenarioQueueFrame.Bg:ClearAllPoints()
-	ScenarioQueueFrame.Bg:SetPoint("TOPLEFT", 4, -75)
-end)
 
 hooksecurefunc("GroupFinderFrame_EvaluateButtonVisibility", function(self)
 	if not PlayerGetTimerunningSeasonID() then
