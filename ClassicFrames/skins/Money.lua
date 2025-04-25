@@ -1,16 +1,16 @@
 local function CreateMoneyButtonNormalTexture (button, iconWidth)
-	local texture = button:CreateTexture();
-	texture:SetTexture("Interface\\MoneyFrame\\UI-MoneyIcons");
-	texture:SetWidth(iconWidth);
-	texture:SetHeight(iconWidth);
-	texture:SetPoint("RIGHT");
-	button:SetNormalTexture(texture);
+	local texture = button:CreateTexture()
+	texture:SetTexture("Interface\\MoneyFrame\\UI-MoneyIcons")
+	texture:SetWidth(iconWidth)
+	texture:SetHeight(iconWidth)
+	texture:SetPoint("RIGHT")
+	button:SetNormalTexture(texture)
 	
 	return texture;
 end
 
 local function GetMoneyFrame(frameOrName)
-	local argType = type(frameOrName);
+	local argType = type(frameOrName)
 	if argType == "table" then
 		return frameOrName;
 	elseif argType == "string" then
