@@ -71,7 +71,6 @@ skins\Merchant.lua
 skins\Minimap.lua
 skins\MirrorTimers.lua
 skins\ModelPreview.lua
-skins\Money.lua
 skins\NewPlayerGuide.lua
 skins\ObjectiveTracker.lua
 skins\Opacity.lua
