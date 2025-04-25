@@ -375,10 +375,10 @@ function ApplyDropDown(frame)
 	frame.Arrow:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Up")
 	frame.Arrow:ClearAllPoints()
 	frame.Arrow:SetPoint("TOPRIGHT", frame.Right, "TOPRIGHT", -16, -18)
-	frame.Arrow:SetTexelSnappingBias(0)
 
 	frame.Text:SetFontObject(GameFontHighlightSmall)
 	frame.Text:SetPoint("TOPLEFT", 9, -8)
+	frame.Text:SetPoint("TOPRIGHT", frame.Arrow, "LEFT", -3, 0)
 
 	frame:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
 	frame:GetHighlightTexture():SetSize(24, 24)
