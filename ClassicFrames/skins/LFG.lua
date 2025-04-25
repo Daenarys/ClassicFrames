@@ -365,7 +365,7 @@ LFDQueueFrameTypeDropdownName:SetPoint("RIGHT", LFDQueueFrameTypeDropdown, "LEFT
 RaidFinderQueueFrameSelectionDropdown:SetWidth(195)
 RaidFinderQueueFrameSelectionDropdown:SetPoint("BOTTOMLEFT", 135, 293)
 RaidFinderQueueFrameSelectionDropdown.Text:SetJustifyH("RIGHT")
-RaidFinderQueueFrameSelectionDropdown.Text:SetPoint("TOPLEFT", 9, -7)
+RaidFinderQueueFrameSelectionDropdown.Text:SetPoint("TOPLEFT", 9, -6)
 RaidFinderQueueFrameSelectionDropdownName:SetPoint("RIGHT", RaidFinderQueueFrameSelectionDropdown, "LEFT", -18, 0)
 
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
