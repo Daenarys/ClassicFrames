@@ -58,9 +58,9 @@ f:SetScript("OnEvent", function(self, event, name)
 			else
 				self.tabs[3]:SetPoint("LEFT", self.tabs[2], "RIGHT", -15, 0)
 			end
-        end)
+		end)
 
-        hooksecurefunc(PlayerSpellsFrame.SpecFrame, 'UpdateSpecFrame', function(frame)
+		hooksecurefunc(PlayerSpellsFrame.SpecFrame, 'UpdateSpecFrame', function(frame)
 			for specContentFrame in frame.SpecContentFramePool:EnumerateActive() do
 				local role = GetSpecializationRole(specContentFrame.specIndex, false, false)
 
