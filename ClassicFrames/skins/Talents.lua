@@ -69,10 +69,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end)
 
-		hooksecurefunc(PlayerSpellsFrame.TalentsFrame.HeroTalentsContainer, 'UpdateHeroTalentUI', function(frame)
-			frame:SetShown(false)
-		end)
-
 		ApplyDialogBorder(ClassTalentLoadoutCreateDialog.Border)
 		ApplyDialogBorder(ClassTalentLoadoutImportDialog.Border)
 
