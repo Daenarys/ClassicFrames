@@ -193,11 +193,3 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 		CompactRaidFrameManager.ToggleButton:SetPoint("CENTER", CompactRaidFrameManager.toggleButtonForward, "CENTER")
 	end
 end)
-
-hooksecurefunc("CompactRaidFrameManager_Expand", function()
-	CompactRaidFrameManager.ToggleButton:SetTexCoord(0.5, 1, 0, 1)
-end)
-
-hooksecurefunc("CompactRaidFrameManager_Collapse", function()
-	CompactRaidFrameManager.ToggleButton:SetTexCoord(0, 0.5, 0, 1)
-end)
