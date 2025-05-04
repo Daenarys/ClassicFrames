@@ -7,7 +7,6 @@
 ## OptionalDeps: SexyMap
 embeds.xml
 skins\ApplySkin.lua
-skins\AccountStore.lua
 skins\Achievements.lua
 skins\AddOnList.lua
 skins\AlliedRaces.lua
