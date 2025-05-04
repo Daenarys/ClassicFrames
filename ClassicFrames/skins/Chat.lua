@@ -1,8 +1,8 @@
-for i = 1, NUM_CHAT_WINDOWS do
-    -- hide default buttons
-    ChatFrameChannelButton:Hide()
-    TextToSpeechButtonFrame:Hide()
+-- hide default buttons
+ChatFrameChannelButton:Hide()
+TextToSpeechButtonFrame:Hide()
 
+for i = 1, NUM_CHAT_WINDOWS do
     -- hide chat window scrollbars
     local b = _G["ChatFrame"..i].ScrollBar b:UnregisterAllEvents() b:SetScript("OnShow", b.Hide) b:Hide()
     local c = _G["ChatFrame"..i].ScrollToBottomButton c:UnregisterAllEvents() c:SetScript("OnShow", c.Hide) c:Hide()
