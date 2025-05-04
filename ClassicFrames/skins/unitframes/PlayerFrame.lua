@@ -38,7 +38,6 @@ PlayerFrame.PlayerFrameContainer:SetFrameLevel(4)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:SetFrameLevel(5)
 
 PlayerFrame.PlayerFrameContainer.PlayerPortrait:SetSize(64, 64)
-PlayerFrame.PlayerFrameContainer.PlayerPortrait:ClearAllPoints()
 PlayerFrame.PlayerFrameContainer.PlayerPortrait:SetPoint("TOPLEFT", 23, -16)
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetSize(64, 64)
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask")
