@@ -64,8 +64,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			for specContentFrame in frame.SpecContentFramePool:EnumerateActive() do
 				local role = GetSpecializationRole(specContentFrame.specIndex, false, false)
 
-				specContentFrame.RoleIcon:SetTexCoord(GetTexCoordsForRole(role))
 				specContentFrame.RoleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+				specContentFrame.RoleIcon:SetTexCoord(GetTexCoordsForRole(role))
 			end
 		end)
 
