@@ -115,13 +115,16 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 		bg:SetAlpha(0)
 	end
 
-	local displayFrame = CompactRaidFrameManager.displayFrame;
-	local container = displayFrame.optionsFlowContainer;
+	CompactRaidFrameContainer.dividerVerticalPool:ReleaseAll()
+	CompactRaidFrameContainer.dividerHorizontalPool:ReleaseAll()
+
+	local displayFrame = CompactRaidFrameManager.displayFrame
+	local container = displayFrame.optionsFlowContainer
 
 	CompactRaidFrameManager.toggleButtonBack:SetAlpha(0)
 	CompactRaidFrameManager.toggleButtonForward:SetAlpha(0)
-	CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -13, 0)
-	CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -13, 0)
+	CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -13, 3)
+	CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -13, 3)
 
 	if (CompactRaidFrameManager.TopLeft == nil) then
 		CompactRaidFrameManager.TopLeft = CompactRaidFrameManager:CreateTexture(nil, "ARTWORK")
@@ -141,14 +144,14 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 		CompactRaidFrameManager.BottomLeft = CompactRaidFrameManager:CreateTexture(nil, "ARTWORK")
 		CompactRaidFrameManager.BottomLeft:SetSize(32, 32)
 		CompactRaidFrameManager.BottomLeft:SetTexture("Interface\\RaidFrame\\RaidPanel-BottomLeft")
-		CompactRaidFrameManager.BottomLeft:SetPoint("BOTTOMLEFT", -5, 0)
+		CompactRaidFrameManager.BottomLeft:SetPoint("BOTTOMLEFT", -5, 7)
 	end
 
 	if (CompactRaidFrameManager.BottomRight == nil) then
 		CompactRaidFrameManager.BottomRight = CompactRaidFrameManager:CreateTexture(nil, "ARTWORK")
 		CompactRaidFrameManager.BottomRight:SetSize(32, 32)
 		CompactRaidFrameManager.BottomRight:SetTexture("Interface\\RaidFrame\\RaidPanel-BottomRight")
-		CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT", -4, 0)
+		CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT", -4, 7)
 	end
 
 	if (CompactRaidFrameManager.Top == nil) then
