@@ -115,6 +115,9 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 		bg:SetAlpha(0)
 	end
 
+	CompactRaidFrameContainer.dividerVerticalPool:ReleaseAll()
+	CompactRaidFrameContainer.dividerHorizontalPool:ReleaseAll()
+
 	CompactRaidFrameManager.toggleButtonBack:SetAlpha(0)
 	CompactRaidFrameManager.toggleButtonForward:SetAlpha(0)
 	CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -13, 0)
