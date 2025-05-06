@@ -21,6 +21,7 @@ skins\BlackMarket.lua
 skins\Buffs.lua
 skins\Calendar.lua
 skins\Catalyst.lua
+skins\Channel.lua
 skins\Character.lua
 skins\Chat.lua
 skins\ChromieTime.lua
@@ -47,6 +48,7 @@ skins\GameMenu.lua
 skins\GarrisonCapacitive.lua
 skins\GarrisonUI.lua
 skins\Gossip.lua
+skins\GreatVault.lua
 skins\GroupLoot.lua
 skins\GuildBank.lua
 skins\GuildPetition.lua

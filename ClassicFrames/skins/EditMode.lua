@@ -8,6 +8,7 @@ EditModeManagerFrame.CloseButton:SetPoint("TOPRIGHT", -5 , -6)
 
 EditModeSystemSettingsDialog.CloseButton:ClearAllPoints()
 EditModeSystemSettingsDialog.CloseButton:SetPoint("TOPRIGHT", -5 , -6)
+EditModeSystemSettingsDialog.CloseButton:SetFrameLevel(510)
 
 EditModeManagerFrame.Tutorial.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 
