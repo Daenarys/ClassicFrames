@@ -11,6 +11,8 @@ AddonList.TitleContainer:SetPoint("TOPRIGHT", AddonList, "TOPRIGHT", -58, 0)
 ApplyTitleBgNoPortrait(AddonList)
 ApplyNineSliceNoPortrait(AddonList)
 
+AddonList.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
 AddonList.ScrollBar:SetSize(25, 560)
 AddonList.ScrollBar:ClearAllPoints()
 AddonList.ScrollBar:SetPoint("TOPLEFT", AddonList.ScrollBox, "TOPRIGHT", 5, 3)
