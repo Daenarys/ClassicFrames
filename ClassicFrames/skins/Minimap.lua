@@ -1,4 +1,4 @@
-if (IsAddOnLoaded("SexyMap")) then return end
+if (C_AddOns.IsAddOnLoaded("SexyMap")) then return end
 
 -- minimap
 MinimapZoomIn:ClearAllPoints()
