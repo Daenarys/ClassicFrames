@@ -194,6 +194,7 @@ for _, roleButton in pairs({
 end
 
 ApplyDropDown(LFDQueueFrameTypeDropdown)
+ApplyDropDown(ScenarioQueueFrameTypeDropdown)
 ApplyDropDown(LFGListEntryCreationGroupDropdown)
 ApplyDropDown(LFGListEntryCreationActivityDropdown)
 ApplyDropDown(LFGListEntryCreationPlayStyleDropdown)
