@@ -10,6 +10,7 @@ skins\AddonList.lua
 skins\AuctionHouse.lua
 skins\Buffs.lua
 skins\Calendar.lua
+skins\Challenges.lua
 skins\Character.lua
 skins\Chat.lua
 skins\Cinematic.lua
