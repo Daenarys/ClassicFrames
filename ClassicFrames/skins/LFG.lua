@@ -206,8 +206,10 @@ LFDQueueFrameTypeDropdown.Text:ClearAllPoints()
 LFDQueueFrameTypeDropdown.Text:SetJustifyH("RIGHT")
 LFDQueueFrameTypeDropdown.Text:SetPoint("TOPLEFT", 9, -7)
 LFDQueueFrameTypeDropdown.Text:SetPoint("TOPRIGHT", LFDQueueFrameTypeDropdown.Arrow, "LEFT", -2, 0)
-
 LFDQueueFrameTypeDropdownName:SetPoint("RIGHT", LFDQueueFrameTypeDropdown, "LEFT", -18, -1)
+
+ScenarioQueueFrameTypeDropdown:SetPoint("TOPLEFT", 135, -40)
+ScenarioQueueFrameTypeDropdownName:SetPoint("RIGHT", ScenarioQueueFrameTypeDropdown, "LEFT", -18, -1)
 
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then
@@ -559,4 +561,11 @@ hooksecurefunc("LFGRewardsFrame_SetItemButton", function(parentFrame, _, index, 
 			roleIcon = frame.roleIcon2
 		end
 	end
+end)
+
+hooksecurefunc("GroupFinderFrame_EvaluateButtonVisibility", function(self)
+	self.groupButton1:SetPoint("TOPLEFT", 10, -70)
+	self.groupButton4:SetPoint("TOP", self.groupButton1, "BOTTOM", 0, -23)
+	self.groupButton2:SetPoint("TOP", self.groupButton4, "BOTTOM", 0, -23)
+	self.groupButton3:SetPoint("TOP", self.groupButton2, "BOTTOM", 0, -23)
 end)
