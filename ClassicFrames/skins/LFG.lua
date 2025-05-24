@@ -64,6 +64,8 @@ ApplyScrollBarArrow(LFGListFrame.ApplicationViewer.ScrollBar)
 ApplyScrollBarTrack(LFGListFrame.ApplicationViewer.ScrollBar.Track)
 ApplyScrollBarThumb(LFGListFrame.ApplicationViewer.ScrollBar.Track.Thumb)
 
+LFGDungeonReadyDialog.Border:Hide()
+
 LFGDungeonReadyDialogCloseButton:SetSize(32, 32)
 LFGDungeonReadyDialogCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 LFGDungeonReadyDialogCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-HideButton-Up")
@@ -86,13 +88,22 @@ LFGDungeonReadyStatusCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Pan
 LFGDungeonReadyStatusCloseButton:ClearAllPoints()
 LFGDungeonReadyStatusCloseButton:SetPoint("TOPRIGHT", -2, -2)
 
-LFGListInviteDialog.RoleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 ApplyDialogBorder(LFDReadyCheckPopup.Border)
 ApplyDialogBorder(LFDRoleCheckPopup.Border)
 ApplyDialogBorder(LFGDungeonReadyStatus.Border)
 ApplyDialogBorder(LFGInvitePopup.Border)
 ApplyDialogBorder(LFGListApplicationDialog.Border)
 ApplyDialogBorder(LFGListInviteDialog.Border)
+
+LFGDungeonReadyDialogRoleIconLeaderIcon:SetSize(19, 19)
+LFGDungeonReadyDialogRoleIconLeaderIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
+LFGDungeonReadyDialogRoleIconLeaderIcon:SetTexCoord(0, 0.296875, 0.015625, 0.3125)
+LFGDungeonReadyDialogRoleIconLeaderIcon:ClearAllPoints()
+LFGDungeonReadyDialogRoleIconLeaderIcon:SetPoint("TOPLEFT", 0, -4)
+
+LFGListInviteDialog.RoleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+LFGDungeonReadyStatusRoleless.ready.texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+LFGDungeonReadyStatusRoleless.ready.texture:SetTexCoord(0.5234375, 0.78125, 0, 0.2578125)
 
 LFDQueueFrameRoleButtonLeader:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFDQueueFrameRoleButtonLeader:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("GUIDE"))
@@ -257,32 +268,6 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		Mixin(LFGDungeonReadyDialog, BackdropTemplateMixin)
 	end
 
-	LFGDungeonReadyDialog.Border:Hide()
-
-	local DUNGEON_BACKDROP_TABLE = {
-		bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
-		edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
-		tile = true,
-		edge = true,
-		tileSize = 32,
-		edgeSize = 32,
-		insets = { left = 11, right = 12, top = 12, bottom = 11 }}
-	
-	local RAID_BACKDROP_TABLE = {
-		bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
-		edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Gold-Border",
-		tile = true,
-		edge = true,
-		tileSize = 32,
-		edgeSize = 32,
-		insets = { left = 11, right = 12, top = 12, bottom = 11 }}
-
-	LFGDungeonReadyDialogRoleIconTexture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-	LFGDungeonReadyDialogRoleIconTexture:SetAllPoints()
-
-	LFGDungeonReadyDialogRoleIconLeaderIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
-	LFGDungeonReadyDialogRoleIconLeaderIcon:SetTexCoord(0, 0.296875, 0.015625, 0.3125)
-
 	if (LFGDungeonReadyDialog.filigree == nil) then
 		LFGDungeonReadyDialog.filigree = LFGDungeonReadyDialog:CreateTexture(nil, "OVERLAY")
 	end
@@ -296,7 +281,7 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		LFGDungeonReadyDialog.bottomArt:SetTexture("Interface\\LFGFrame\\LFR-Texture")
 		LFGDungeonReadyDialog.bottomArt:SetTexCoord(0.00195313, 0.55273438, 0.29296875, 0.57812500)
 		LFGDungeonReadyDialog.bottomArt:SetSize(282, 73)
-		LFGDungeonReadyDialog:SetBackdrop(RAID_BACKDROP_TABLE)
+		LFGDungeonReadyDialog:SetBackdrop(BACKDROP_GOLD_DIALOG_32_32)
 	else
 		LFGDungeonReadyDialog.background:SetTexture("Interface\\LFGFrame\\UI-LFG-BACKGROUND-RANDOMDUNGEON")
 		LFGDungeonReadyDialog.filigree:SetTexture("Interface\\LFGFrame\\UI-LFG-FILIGREE")
@@ -311,7 +296,16 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 			LFGDungeonReadyDialog.bottomArt:SetTexCoord(0.0, 0.5605, 0.0, 0.5625)
 		end
 		LFGDungeonReadyDialog.bottomArt:SetSize(287, 72)
-		LFGDungeonReadyDialog:SetBackdrop(DUNGEON_BACKDROP_TABLE)
+		LFGDungeonReadyDialog:SetBackdrop(BACKDROP_DIALOG_32_32)
+	end
+
+	if ( subtypeID == LFG_SUBTYPEID_SCENARIO ) then
+		LFGDungeonReadyDialog.background:SetDrawLayer("BACKGROUND")
+		if ( LFG_IsHeroicScenario(id) ) then
+			LFGDungeonReadyDialog.background:SetTexture("Interface\\LFGFrame\\UI-LFG-BACKGROUND-HeroicScenario")
+		else
+			LFGDungeonReadyDialog.background:SetTexture("Interface\\LFGFrame\\UI-LFG-BACKGROUND-RandomScenario")
+		end
 	end
 
 	if ( subtypeID == LFG_SUBTYPEID_SCENARIO or subtypeID == LFG_SUBTYPEID_FLEXRAID ) then
@@ -320,14 +314,15 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		LFGDungeonReadyDialogRewardsFrame:SetPoint("BOTTOMLEFT", LFGDungeonReadyDialogRoleIcon, "BOTTOMRIGHT", 19, 15)
 	end
 
-	if _G.LFGDungeonReadyDialogRoleIcon:IsShown() then
-		local _, _, _, _, _, _, role = GetLFGProposal()
+	if LFGDungeonReadyDialogRoleIcon then
+		LFGDungeonReadyDialogRoleIconTexture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		LFGDungeonReadyDialogRoleIconTexture:SetAllPoints()
 		if role == 'DAMAGER' then
-			_G.LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("DAMAGER"))
+			LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("DAMAGER"))
 		elseif role == 'TANK' then
-			_G.LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("TANK"))
+			LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("TANK"))
 		elseif role == 'HEALER' then
-			_G.LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("HEALER"))
+			LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("HEALER"))
 		end
 	end
 
@@ -419,14 +414,7 @@ hooksecurefunc('LFGDungeonReadyStatusIndividual_UpdateIcon', function(button)
 	local isLeader, role, level, responded, accepted, name, class = GetLFGProposalMember(button:GetID())
 
 	button.texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-
-	if role == 'DAMAGER' then
-		button.texture:SetTexCoord(GetTexCoordsForRole("DAMAGER"))
-	elseif role == 'TANK' then
-		button.texture:SetTexCoord(GetTexCoordsForRole("TANK"))
-	elseif role == 'HEALER' then
-		button.texture:SetTexCoord(GetTexCoordsForRole("HEALER"))
-	end
+	button.texture:SetTexCoord(GetTexCoordsForRole(role))
 
 	button.statusIcon:SetSize(30, 30)
 	button.statusIcon:SetTexture("Interface\\RaidFrame\\ReadyCheck-Waiting")
@@ -446,14 +434,7 @@ hooksecurefunc('LFGDungeonReadyStatusGrouped_UpdateIcon', function(button, butto
 	local isLeader, role, level, responded, accepted, name, class = GetLFGProposalMember(button:GetID())
 
 	button.texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-
-	if buttonRole == 'DAMAGER' then
-		button.texture:SetTexCoord(GetTexCoordsForRole("DAMAGER"))
-	elseif buttonRole == 'TANK' then
-		button.texture:SetTexCoord(GetTexCoordsForRole("TANK"))
-	elseif buttonRole == 'HEALER' then
-		button.texture:SetTexCoord(GetTexCoordsForRole("HEALER"))
-	end
+	button.texture:SetTexCoord(GetTexCoordsForRole(buttonRole))
 
 	button.statusIcon:SetSize(30, 30)
 	button.statusIcon:SetTexture("Interface\\RaidFrame\\ReadyCheck-Waiting")
