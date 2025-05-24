@@ -6,7 +6,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalInstanceSelect.ScrollBox:SetPoint("TOPLEFT", 17, -58)
 
 		EncounterJournalInstanceSelect.ScrollBar:ClearAllPoints()
-		EncounterJournalInstanceSelect.ScrollBar:SetPoint("TOPLEFT", EncounterJournalInstanceSelect.ScrollBox, "TOPRIGHT", 11, 6)
+		EncounterJournalInstanceSelect.ScrollBar:SetPoint("TOPLEFT", EncounterJournalInstanceSelect.ScrollBox, "TOPRIGHT", 11, 4)
 		EncounterJournalInstanceSelect.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalInstanceSelect.ScrollBox, "BOTTOMRIGHT", 11, -1)
 
 		EncounterJournalInstanceSelect.ScrollBar.Track.Begin:Hide()
