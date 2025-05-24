@@ -220,6 +220,10 @@ LFDQueueFrameTypeDropdown.Text:SetPoint("TOPRIGHT", LFDQueueFrameTypeDropdown.Ar
 LFDQueueFrameTypeDropdownName:SetPoint("RIGHT", LFDQueueFrameTypeDropdown, "LEFT", -18, -1)
 
 ScenarioQueueFrameTypeDropdown:SetPoint("TOPLEFT", 135, -40)
+ScenarioQueueFrameTypeDropdown.Text:ClearAllPoints()
+ScenarioQueueFrameTypeDropdown.Text:SetJustifyH("RIGHT")
+ScenarioQueueFrameTypeDropdown.Text:SetPoint("TOPLEFT", 9, -7)
+ScenarioQueueFrameTypeDropdown.Text:SetPoint("TOPRIGHT", ScenarioQueueFrameTypeDropdown.Arrow, "LEFT", -2, 0)
 ScenarioQueueFrameTypeDropdownName:SetPoint("RIGHT", ScenarioQueueFrameTypeDropdown, "LEFT", -18, -1)
 
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
