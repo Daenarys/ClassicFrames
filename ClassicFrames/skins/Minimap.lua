@@ -99,6 +99,14 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 		end
 	end
 
+	--Pet Battle PvP Queue
+	local pbStatus = C_PetBattles.GetPVPMatchmakingInfo();
+	if ( pbStatus ) then
+		if ( pbStatus == "queued" ) then
+			animateEye = true;
+		end
+	end
+
 	if ( animateEye ) then
 		EyeTemplate_StartAnimating(MiniMapLFGFrame.eye)
 	else
