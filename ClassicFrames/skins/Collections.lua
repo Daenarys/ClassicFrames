@@ -23,6 +23,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		
 		ApplyDropDown(HeirloomsJournal.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
+		ApplyDropDown(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
+
 		ApplyFilterDropDown(MountJournal.FilterDropdown)
 		ApplyFilterDropDown(PetJournal.FilterDropdown)
 		ApplyFilterDropDown(ToyBox.FilterDropdown)
