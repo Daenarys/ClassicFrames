@@ -1,7 +1,5 @@
 if not _G.FriendsFrame then return end
 
-FriendsFrameIcon:SetTexture("Interface\\FriendsFrame\\Battlenet-Portrait")
-
 FriendsFrame.TitleContainer:ClearAllPoints()
 FriendsFrame.TitleContainer:SetPoint("TOPLEFT", FriendsFrame, "TOPLEFT", 58, 0)
 FriendsFrame.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame, "TOPRIGHT", -58, 0)
@@ -14,6 +12,18 @@ FriendsFrameTab3:ClearAllPoints()
 FriendsFrameTab3:SetPoint("LEFT", FriendsFrameTab2, "RIGHT", -15, 0)
 FriendsFrameTab4:ClearAllPoints()
 FriendsFrameTab4:SetPoint("LEFT", FriendsFrameTab3, "RIGHT", -15, 0)
+
+hooksecurefunc("FriendsFrame_Update", function()
+	if ( FriendsFrame.selectedTab == 1 ) then
+		FriendsFrameIcon:SetTexture("Interface\\FriendsFrame\\Battlenet-Portrait")
+	elseif ( FriendsFrame.selectedTab == 2 ) then
+		FriendsFrameIcon:SetTexture("Interface\\FriendsFrame\\Battlenet-Portrait")
+	elseif ( FriendsFrame.selectedTab == 3 ) then
+		FriendsFrameIcon:SetTexture("Interface\\FriendsFrame\\Battlenet-Portrait")
+	elseif ( FriendsFrame.selectedTab == 4 ) then
+		FriendsFrameIcon:SetTexture("Interface\\LFGFrame\\UI-LFR-PORTRAIT")
+	end
+end)
 
 ApplyDropDown(FriendsFrameStatusDropdown)
 ApplyDropDown(WhoFrameDropdown)
