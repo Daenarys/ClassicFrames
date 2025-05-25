@@ -10,6 +10,10 @@ MiniMapTracking:ClearAllPoints()
 MiniMapTracking:SetPoint("TOPLEFT", 9, -45)
 MiniMapTrackingIcon:SetTexture("Interface\\Minimap\\Tracking\\None")
 
+hooksecurefunc("MiniMapTracking_Update", function()
+	MiniMapTrackingIcon:SetTexture("Interface\\Minimap\\Tracking\\None")
+end)
+
 MiniMapTrackingButton:SetScript("OnMouseDown", function()
 	MiniMapTrackingIcon:SetPoint("TOPLEFT", MiniMapTracking, "TOPLEFT", 8, -8)
 	MiniMapTrackingIconOverlay:Show()
