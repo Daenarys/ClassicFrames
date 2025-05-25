@@ -4,9 +4,7 @@ SettingsPanel.CloseButton:Hide()
 
 SettingsPanelTitleBg:SetPoint("TOPRIGHT", -10, 0)
 
-SettingsPanel.NineSlice.RightEdge:ClearAllPoints()
 SettingsPanel.NineSlice.RightEdge:SetPoint("TOPRIGHT", SettingsPanel.NineSlice.TopRightCorner, "BOTTOMRIGHT", 1, 0)
-SettingsPanel.NineSlice.RightEdge:SetPoint("BOTTOMRIGHT", SettingsPanel.NineSlice.BottomRightCorner, "TOPRIGHT")
 
 SettingsPanel.Container.SettingsList.ScrollBar:SetSize(25, 560)
 SettingsPanel.Container.SettingsList.ScrollBar:ClearAllPoints()

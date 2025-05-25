@@ -37,17 +37,17 @@ end
 
 function ApplyDialogHeader(frame)
 	frame.LeftBG:SetSize(14, 40)
-	frame.LeftBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
+	frame.LeftBG:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Header")
 	frame.LeftBG:SetTexCoord(0.2265625, 0.28125, 0, 0.625)
 	frame.LeftBG:SetTexelSnappingBias(1)
 
 	frame.RightBG:SetSize(14, 40)
-	frame.RightBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
+	frame.RightBG:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Header")
 	frame.RightBG:SetTexCoord(0.71484375, 0.76953125, 0, 0.625)
 	frame.RightBG:SetTexelSnappingBias(1)
 	frame.RightBG:SetPoint("RIGHT", -1, 0)
 
-	frame.CenterBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
+	frame.CenterBG:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Header")
 	frame.CenterBG:SetTexCoord(0.28125, 0.71484375, 0, 0.625)
 	frame.CenterBG:SetHorizTile(false)
 	frame.CenterBG:SetTexelSnappingBias(1)
