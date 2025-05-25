@@ -4,12 +4,6 @@ GroupFinderFrame:HookScript("OnShow", function()
 	SetPortraitToTexture(PVEFramePortrait, "Interface\\LFGFrame\\UI-LFG-PORTRAIT")
 end)
 
-hooksecurefunc("LFGRewardsFrame_UpdateFrame", function()
-	if (LFDQueueFrameBackground:GetTexture() == 337492) then
-		LFDQueueFrameBackground:SetTexture("Interface\\LFGFrame\\UI-LFG-BACKGROUND-HEROIC")
-	end
-end)
-
 LFDQueueFrameSpecific.ScrollBar:SetSize(25, 560)
 LFDQueueFrameSpecific.ScrollBar:ClearAllPoints()
 LFDQueueFrameSpecific.ScrollBar:SetPoint("TOPLEFT", LFDQueueFrameSpecific.ScrollBox, "TOPRIGHT", 2, 3)
@@ -18,6 +12,15 @@ LFDQueueFrameSpecific.ScrollBar:SetPoint("BOTTOMLEFT", LFDQueueFrameSpecific.Scr
 ApplyScrollBarArrow(LFDQueueFrameSpecific.ScrollBar)
 ApplyScrollBarTrack(LFDQueueFrameSpecific.ScrollBar.Track)
 ApplyScrollBarThumb(LFDQueueFrameSpecific.ScrollBar.Track.Thumb)
+
+ScenarioQueueFrameSpecific.ScrollBar:SetSize(25, 560)
+ScenarioQueueFrameSpecific.ScrollBar:ClearAllPoints()
+ScenarioQueueFrameSpecific.ScrollBar:SetPoint("TOPLEFT", ScenarioQueueFrameSpecificScrollFrame, "TOPRIGHT", 2, 3)
+ScenarioQueueFrameSpecific.ScrollBar:SetPoint("BOTTOMLEFT", ScenarioQueueFrameSpecificScrollFrame, "BOTTOMRIGHT", 5, -1)
+
+ApplyScrollBarArrow(ScenarioQueueFrameSpecific.ScrollBar)
+ApplyScrollBarTrack(ScenarioQueueFrameSpecific.ScrollBar.Track)
+ApplyScrollBarThumb(ScenarioQueueFrameSpecific.ScrollBar.Track.Thumb)
 
 LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar:SetSize(25, 560)
 LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar:ClearAllPoints()
@@ -219,12 +222,10 @@ LFDQueueFrameTypeDropdown.Text:SetPoint("TOPLEFT", 9, -7)
 LFDQueueFrameTypeDropdown.Text:SetPoint("TOPRIGHT", LFDQueueFrameTypeDropdown.Arrow, "LEFT", -2, 0)
 LFDQueueFrameTypeDropdownName:SetPoint("RIGHT", LFDQueueFrameTypeDropdown, "LEFT", -18, -1)
 
-ScenarioQueueFrameTypeDropdown:SetPoint("TOPLEFT", 135, -40)
-ScenarioQueueFrameTypeDropdown.Text:ClearAllPoints()
+ScenarioQueueFrameTypeDropdown:SetWidth(195)
+ScenarioQueueFrameTypeDropdown:SetPoint("TOPLEFT", 135, -41)
 ScenarioQueueFrameTypeDropdown.Text:SetJustifyH("RIGHT")
-ScenarioQueueFrameTypeDropdown.Text:SetPoint("TOPLEFT", 9, -7)
-ScenarioQueueFrameTypeDropdown.Text:SetPoint("TOPRIGHT", ScenarioQueueFrameTypeDropdown.Arrow, "LEFT", -2, 0)
-ScenarioQueueFrameTypeDropdownName:SetPoint("RIGHT", ScenarioQueueFrameTypeDropdown, "LEFT", -18, -1)
+ScenarioQueueFrameTypeDropdownName:SetPoint("RIGHT", ScenarioQueueFrameTypeDropdown, "LEFT", -19, -1)
 
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then
