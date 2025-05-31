@@ -20,7 +20,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarArrow(PetJournal.ScrollBar)
 		ApplyScrollBarTrack(PetJournal.ScrollBar.Track)
 		ApplyScrollBarThumb(PetJournal.ScrollBar.Track.Thumb)
-		
+
 		ApplyDropDown(HeirloomsJournal.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
