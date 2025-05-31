@@ -32,6 +32,7 @@ skins\Report.lua
 skins\ScriptError.lua
 skins\SettingsPanel.lua
 skins\SpellBook.lua
+skins\SpellFlyout.lua
 skins\TimeManager.lua
 skins\Wardrobe.lua
 skins\WorldMap.lua
