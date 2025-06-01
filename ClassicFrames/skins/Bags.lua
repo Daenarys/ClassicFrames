@@ -15,7 +15,6 @@ local CONTAINER_SPACING = 0;
 local VISIBLE_CONTAINER_SPACING = 3;
 local CONTAINER_SCALE = 0.75;
 local BACKPACK_HEIGHT = 256;
-local BACKPACK_MONEY_OFFSET_DEFAULT = -231;
 local BACKPACK_BASE_HEIGHT = 256;
 local BACKPACK_DEFAULT_TOPHEIGHT = 256;
 local BACKPACK_EXTENDED_TOPHEIGHT = 226;
@@ -199,8 +198,6 @@ hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
 			end
 			tokenFrame:SetSize(183, 32)
 			tokenFrame.Border:Hide()
-			tokenFrame:ClearAllPoints()
-			tokenFrame:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 9, 0)
 			frame:SetHeight(BACKPACK_HEIGHT+BACKPACK_TOKENFRAME_HEIGHT)
 		else
 			frame:SetHeight(BACKPACK_HEIGHT)
@@ -423,6 +420,19 @@ hooksecurefunc(ContainerFrame1, "SetSearchBoxPoint", function(self, searchBox)
 end)
 
 hooksecurefunc(ContainerFrame1, "UpdateCurrencyFrames", function(self)
-	self.MoneyFrame:ClearAllPoints()
-	self.MoneyFrame:SetPoint("TOPRIGHT", self, "TOPRIGHT", -2, -272)
+	local tokenFrame = ContainerFrameSettingsManager:GetTokenTrackerIfShown(self)
+
+	if tokenFrame then
+		tokenFrame:ClearAllPoints()
+		tokenFrame:SetPoint("BOTTOMLEFT", self, "BOTTOMLEFT", 9, 0)
+		tokenFrame:SetPoint("BOTTOMRIGHT", self, "BOTTOMRIGHT", -9, 0)
+
+		self.MoneyFrame:ClearAllPoints()
+		self.MoneyFrame:SetPoint("BOTTOMRIGHT", tokenFrame, "TOPRIGHT", 7, 2)
+		self.MoneyFrame:SetPoint("BOTTOMLEFT", tokenFrame, "TOPLEFT", -7, 2)
+	else
+		self.MoneyFrame:ClearAllPoints()
+		self.MoneyFrame:SetPoint("BOTTOMLEFT", self, "BOTTOMLEFT", 2, 12)
+		self.MoneyFrame:SetPoint("BOTTOMRIGHT", self, "BOTTOMRIGHT", -2, 12)
+	end
 end)
