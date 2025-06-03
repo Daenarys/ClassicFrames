@@ -3,7 +3,7 @@ if not _G.ExpansionLandingPage then return end
 ExpansionLandingPage:HookScript("OnShow", function(self)
 	for _, child in next, { self.Overlay:GetChildren() } do
 		if DragonflightLandingOverlayMixin and child.OnLoad == DragonflightLandingOverlayMixin.OnLoad then
-	    	child.CloseButton:SetSize(32, 32)
+			child.CloseButton:SetSize(32, 32)
 			child.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 			child.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
 			child.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
@@ -36,9 +36,9 @@ ExpansionLandingPage:HookScript("OnShow", function(self)
 			ApplyScrollBarThumb(child.MajorFactionList.ScrollBar.Track.Thumb)
 	 	end
 	    if WarWithinLandingOverlayMixin and child.OnLoad == WarWithinLandingOverlayMixin.OnLoad then
-	    	child:SetPoint("CENTER", -47, 32)
+			child:SetPoint("CENTER", -47, 32)
 
-	    	child.CloseButton:SetSize(32, 32)
+			child.CloseButton:SetSize(32, 32)
 			child.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 			child.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
 			child.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
