@@ -1,6 +1,8 @@
 if (C_AddOns.IsAddOnLoaded("SexyMap")) then return end
 
 -- minimap
+MinimapZoneText:SetPoint("CENTER", MinimapZoneTextButton, "TOP", 0, -6)
+
 MiniMapTrackingIcon:SetTexture("Interface\\Minimap\\Tracking\\None")
 
 hooksecurefunc("MiniMapTracking_Update", function()
