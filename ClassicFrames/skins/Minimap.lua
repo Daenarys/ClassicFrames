@@ -29,8 +29,11 @@ end)
 --lfg eye
 MiniMapLFGFrame:ClearAllPoints()
 MiniMapLFGFrame:SetPoint("TOPLEFT", 22, -100)
-
 MiniMapLFGFrameBorder:SetParent(MiniMapLFGFrame.eye)
+
+MiniMapBattlefieldFrame:ClearAllPoints()
+MiniMapBattlefieldFrame:SetPoint("TOPLEFT", MinimapBackdrop, "TOPLEFT", 22, -100)
+MiniMapBattlefieldFrameBorder:SetParent(MiniMapBattlefieldFrame.Eye)
 
 QueueStatusFrame:HookScript("OnShow", function(self)
 	self:ClearAllPoints()
