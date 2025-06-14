@@ -1,8 +1,9 @@
 if (C_AddOns.IsAddOnLoaded("SexyMap")) then return end
 
--- minimap
+-- zone
 MinimapZoneText:SetPoint("CENTER", MinimapZoneTextButton, "TOP", 0, -6)
 
+--tracking
 MiniMapTrackingIcon:SetTexture("Interface\\Minimap\\Tracking\\None")
 
 hooksecurefunc("MiniMapTracking_Update", function()
@@ -18,17 +19,17 @@ MiniMapTrackingButton:SetScript("OnMouseUp", function()
 	MiniMapTrackingIconOverlay:Hide()
 end)
 
+-- calendar
 GameTimeFrame:ClearAllPoints()
 GameTimeFrame:SetPoint("TOPRIGHT", Minimap, "TOPRIGHT", 20, -2)
-GameTimeFrame:GetFontString():ClearAllPoints()
-GameTimeFrame:GetFontString():SetPoint("CENTER", -1, -1)
 
+-- clock
 Minimap:HookScript("OnEvent", function(self, event, ...)
 	TimeManagerClockTicker:ClearAllPoints()
 	TimeManagerClockTicker:SetPoint("CENTER", TimeManagerClockButton, "CENTER", 3, 1)
 end)
 
---lfg eye
+-- lfg eye
 MiniMapLFGFrame:ClearAllPoints()
 MiniMapLFGFrame:SetPoint("TOPLEFT", 22, -100)
 MiniMapLFGFrameBorder:SetParent(MiniMapLFGFrame.eye)
