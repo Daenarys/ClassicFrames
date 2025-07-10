@@ -9,8 +9,6 @@ ModelPreviewFrame.TitleContainer:SetPoint("TOPRIGHT", ModelPreviewFrame, "TOPRIG
 ApplyTitleBgNoPortrait(ModelPreviewFrame)
 ApplyNineSliceNoPortrait(ModelPreviewFrame)
 
-ModelPreviewFrame.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-
 ModelPreviewFrame.Display.ModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self:SetPoint("TOP")
 end)
