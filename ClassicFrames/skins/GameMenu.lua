@@ -10,7 +10,7 @@ GameMenuFrame:HookScript("OnShow", function(self)
 	self.topPadding = 33
 	self.leftPadding = 26
 	self.rightPadding = 26
-	self.bottomPadding = 8
+	self.bottomPadding = 11
 
 	for button in self.buttonPool:EnumerateActive() do
 		if not button.IsSkinned then

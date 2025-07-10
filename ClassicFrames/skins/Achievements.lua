@@ -110,5 +110,18 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplySearchBox(AchievementFrame.SearchBox)
 		ApplyFilterDropDown(AchievementFrameFilterDropdown)
+
+		hooksecurefunc('AchievementFrameSummary_Refresh', function()
+			for i = 1, ACHIEVEMENTUI_MAX_SUMMARY_ACHIEVEMENTS do
+				local button = _G["AchievementFrameSummaryAchievement"..i];
+				if ( button ) then
+					if ( button.accountWide ) then
+						button.TitleBar:SetAlpha(1)
+					else
+						button.TitleBar:SetAlpha(0.5)
+					end
+				end
+			end
+		end)
 	end
 end)
