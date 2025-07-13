@@ -1,7 +1,26 @@
+local CF_EJ_TIER_DATA =
+{
+	[1] = { backgroundTexture = "Interface\\EncounterJournal\\UI-EJ-Classic"},
+	[2] = { backgroundTexture = "Interface\\EncounterJournal\\UI-EJ-BurningCrusade"},
+	[3] = { backgroundTexture = "Interface\\EncounterJournal\\UI-EJ-WrathoftheLichKing"},
+	[4] = { backgroundTexture = "Interface\\EncounterJournal\\UI-EJ-Cataclysm"},
+	[5] = { backgroundTexture = "Interface\\EncounterJournal\\UI-EJ-MistsofPandaria"},
+}
+
 local f = CreateFrame("Frame")
 f:RegisterEvent("ADDON_LOADED")
 f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_EncounterJournal" then
+		EncounterJournal:HookScript("OnShow", function()
+			local tierData = CF_EJ_TIER_DATA[EJ_GetCurrentTier()]
+			EncounterJournal.instanceSelect.bg:SetTexture(tierData.backgroundTexture)
+		end)
+
+		hooksecurefunc("EncounterJournal_SetupExpansionDropdown", function()
+			local tierData = CF_EJ_TIER_DATA[EJ_GetCurrentTier()]
+			EncounterJournal.instanceSelect.bg:SetTexture(tierData.backgroundTexture)
+		end)
+
 		EncounterJournalInstanceSelect.ScrollBox:ClearAllPoints()
 		EncounterJournalInstanceSelect.ScrollBox:SetPoint("TOPLEFT", 17, -58)
 
