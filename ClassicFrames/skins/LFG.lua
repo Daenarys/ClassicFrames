@@ -550,10 +550,10 @@ hooksecurefunc("LFGRewardsFrame_SetItemButton", function(parentFrame, _, index, 
 end)
 
 hooksecurefunc("GroupFinderFrame_EvaluateButtonVisibility", function(self)
-	self.groupButton1:SetPoint("TOPLEFT", 10, -70)
-	self.groupButton4:SetPoint("TOP", self.groupButton1, "BOTTOM", 0, -23)
-	self.groupButton2:SetPoint("TOP", self.groupButton4, "BOTTOM", 0, -23)
-	self.groupButton3:SetPoint("TOP", self.groupButton2, "BOTTOM", 0, -23)
+	self.groupButton1:SetPoint("TOPLEFT", 10, -101)
+	self.groupButton4:SetPoint("TOP", self.groupButton1, "BOTTOM", 0, -30)
+	--self.groupButton2:SetPoint("TOP", self.groupButton4, "BOTTOM", 0, -23)
+	self.groupButton3:SetPoint("TOP", self.groupButton4, "BOTTOM", 0, -30)
 end)
 
 hooksecurefunc("LFGRewardsFrame_UpdateFrame", function(parentFrame)
