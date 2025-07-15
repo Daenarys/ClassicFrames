@@ -215,21 +215,14 @@ hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
 		else
 			bgTexture1Slot:Hide()
 			bgTextureTop:Show()
-	
-			-- Not the backpack
-			-- Set whether or not its a bank bag
-			local bagTextureSuffix = "";
-			if ( id > NUM_BAG_FRAMES ) then
-				bagTextureSuffix = "-Bank";
-			end
 			
 			-- Set textures
-			bgTextureTop:SetTexture("Interface\\ContainerFrame\\UI-Bag-Components"..bagTextureSuffix)
+			bgTextureTop:SetTexture("Interface\\ContainerFrame\\UI-Bag-Components")
 			for i=1, MAX_MIDDLE_TEXTURES do
-				_G[name.."BackgroundMiddle"..i]:SetTexture("Interface\\ContainerFrame\\UI-Bag-Components"..bagTextureSuffix)
+				_G[name.."BackgroundMiddle"..i]:SetTexture("Interface\\ContainerFrame\\UI-Bag-Components")
 				_G[name.."BackgroundMiddle"..i]:Hide()
 			end
-			bgTextureBottom:SetTexture("Interface\\ContainerFrame\\UI-Bag-Components"..bagTextureSuffix)
+			bgTextureBottom:SetTexture("Interface\\ContainerFrame\\UI-Bag-Components")
 						
 			local bgTextureCount, height;
 			-- Subtract one, since the top texture contains one row already
