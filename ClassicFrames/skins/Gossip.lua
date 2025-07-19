@@ -2,6 +2,10 @@ if not _G.GossipFrame then return end
 
 GossipFrame:SetHeight(496)
 
+GossipFrame.TitleText:ClearAllPoints()
+GossipFrame.TitleText:SetPoint("TOPLEFT", GossipFrame, "TOPLEFT", 65, -6)
+GossipFrame.TitleText:SetPoint("TOPRIGHT", GossipFrame, "TOPRIGHT", -60, 6)
+
 GossipFrame.TitleText:SetTextColor(255, 255, 255, 1)
 
  _G.select(18, _G.GossipFrame:GetRegions()):SetSize(510, 620)
