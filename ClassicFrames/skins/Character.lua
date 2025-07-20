@@ -1,5 +1,14 @@
 if not _G.CharacterFrame then return end
 
+CharacterFrame.PortraitContainer.CircleMask:Hide()
+
+CharacterFramePortrait:SetSize(61, 61)
+CharacterFramePortrait:ClearAllPoints()
+CharacterFramePortrait:SetPoint("TOPLEFT", -6, 8)
+
+CharacterFramePortraitFrame:SetParent(CharacterFrame.PortraitContainer)
+CharacterFramePortraitFrame:SetDrawLayer("OVERLAY", 1)
+
 CharacterFrame.TitleContainer:ClearAllPoints()
 CharacterFrame.TitleContainer:SetPoint("TOPLEFT", CharacterFrame, "TOPLEFT", 58, 0)
 CharacterFrame.TitleContainer:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -58, 0)
