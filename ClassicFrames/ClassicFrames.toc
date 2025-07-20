@@ -8,6 +8,7 @@ skins\ApplySkin.lua
 skins\Achievements.lua
 skins\AddonList.lua
 skins\AuctionHouse.lua
+skins\Bank.lua
 skins\Buffs.lua
 skins\Calendar.lua
 skins\Challenges.lua
@@ -30,6 +31,7 @@ skins\Minimap.lua
 skins\ModelPreview.lua
 skins\PVP.lua
 skins\Quest.lua
+skins\Reforge.lua
 skins\Report.lua
 skins\ScriptError.lua
 skins\SettingsPanel.lua
