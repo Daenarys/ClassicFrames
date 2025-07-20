@@ -25,6 +25,7 @@ skins\Friends.lua
 skins\GameMenu.lua
 skins\Glyphs.lua
 skins\Gossip.lua
+skins\Inspect.lua
 skins\ItemText.lua
 skins\LFG.lua
 skins\Macro.lua
