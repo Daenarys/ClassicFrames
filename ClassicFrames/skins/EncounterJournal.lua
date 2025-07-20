@@ -11,6 +11,15 @@ local f = CreateFrame("Frame")
 f:RegisterEvent("ADDON_LOADED")
 f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_EncounterJournal" then
+		EncounterJournal.PortraitContainer.CircleMask:Hide()
+
+		EncounterJournalPortrait:SetSize(61, 61)
+		EncounterJournalPortrait:ClearAllPoints()
+		EncounterJournalPortrait:SetPoint("TOPLEFT", -6, 8)
+
+		EncounterJournalPortraitFrame:SetParent(EncounterJournal.PortraitContainer)
+		EncounterJournalPortraitFrame:SetDrawLayer("OVERLAY", 1)
+		
 		EncounterJournal:HookScript("OnShow", function()
 			local tierData = CF_EJ_TIER_DATA[EJ_GetCurrentTier()]
 			EncounterJournal.instanceSelect.bg:SetTexture(tierData.backgroundTexture)

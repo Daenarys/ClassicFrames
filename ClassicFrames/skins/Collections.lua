@@ -2,6 +2,15 @@ local f = CreateFrame("Frame")
 f:RegisterEvent("ADDON_LOADED")
 f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_Collections" then
+		CollectionsJournal.PortraitContainer.CircleMask:Hide()
+
+		CollectionsJournalPortrait:SetSize(61, 61)
+		CollectionsJournalPortrait:ClearAllPoints()
+		CollectionsJournalPortrait:SetPoint("TOPLEFT", -6, 8)
+
+		CollectionsJournalPortraitFrame:SetParent(CollectionsJournal.PortraitContainer)
+		CollectionsJournalPortraitFrame:SetDrawLayer("OVERLAY", 1)
+		
 		MountJournal.ScrollBar:ClearAllPoints()
 		MountJournal.ScrollBar:SetPoint("TOPLEFT", MountJournal.ScrollBox, "TOPRIGHT", 1, 36)
 		MountJournal.ScrollBar:SetPoint("BOTTOMLEFT", MountJournal.ScrollBox, "BOTTOMRIGHT", 4, -4)

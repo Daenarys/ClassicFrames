@@ -1,5 +1,14 @@
 if not _G.PVEFrame then return end
 
+PVEFrame.PortraitContainer.CircleMask:Hide()
+
+PVEFramePortrait:SetSize(61, 61)
+PVEFramePortrait:ClearAllPoints()
+PVEFramePortrait:SetPoint("TOPLEFT", -6, 8)
+
+PVEFramePortraitFrame:SetParent(PVEFrame.PortraitContainer)
+PVEFramePortraitFrame:SetDrawLayer("OVERLAY", 1)
+
 GroupFinderFrame:HookScript("OnShow", function()
 	SetPortraitToTexture(PVEFramePortrait, "Interface\\LFGFrame\\UI-LFG-PORTRAIT")
 end)

@@ -1,5 +1,14 @@
 if not _G.FriendsFrame then return end
 
+FriendsFrame.PortraitContainer.CircleMask:Hide()
+
+FriendsFramePortrait:SetSize(61, 61)
+FriendsFramePortrait:ClearAllPoints()
+FriendsFramePortrait:SetPoint("TOPLEFT", -6, 8)
+
+FriendsFramePortraitFrame:SetParent(FriendsFrame.PortraitContainer)
+FriendsFramePortraitFrame:SetDrawLayer("OVERLAY", 1)
+
 FriendsFrame.TitleContainer:ClearAllPoints()
 FriendsFrame.TitleContainer:SetPoint("TOPLEFT", FriendsFrame, "TOPLEFT", 58, 0)
 FriendsFrame.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame, "TOPRIGHT", -58, 0)

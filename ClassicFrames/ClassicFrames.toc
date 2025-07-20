@@ -25,14 +25,17 @@ skins\Glyphs.lua
 skins\Gossip.lua
 skins\LFG.lua
 skins\Macro.lua
+skins\Merchant.lua
 skins\Minimap.lua
 skins\ModelPreview.lua
 skins\PVP.lua
+skins\Quest.lua
 skins\Report.lua
 skins\ScriptError.lua
 skins\SettingsPanel.lua
 skins\SpellBook.lua
 skins\SpellFlyout.lua
+skins\Talents.lua
 skins\TimeManager.lua
 skins\Wardrobe.lua
 skins\WorldMap.lua
