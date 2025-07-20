@@ -10,5 +10,9 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		PlayerTalentFramePortraitFrame:SetParent(PlayerTalentFrame.PortraitContainer)
 		PlayerTalentFramePortraitFrame:SetDrawLayer("OVERLAY", 1)
+
+		PlayerTalentFrame.TitleContainer:ClearAllPoints()
+		PlayerTalentFrame.TitleContainer:SetPoint("TOPLEFT", PlayerTalentFrame, "TOPLEFT", 58, 0)
+		PlayerTalentFrame.TitleContainer:SetPoint("TOPRIGHT", PlayerTalentFrame, "TOPRIGHT", -58, 0)
 	end
 end)
