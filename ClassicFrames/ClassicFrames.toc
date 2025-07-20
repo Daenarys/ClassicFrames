@@ -19,6 +19,7 @@ skins\ClassTrainer.lua
 skins\Collections.lua
 skins\Communities.lua
 skins\DebugTools.lua
+skins\DressingRoom.lua
 skins\EncounterJournal.lua
 skins\Friends.lua
 skins\GameMenu.lua
@@ -37,6 +38,8 @@ skins\ScriptError.lua
 skins\SettingsPanel.lua
 skins\SpellBook.lua
 skins\SpellFlyout.lua
+skins\Stable.lua
+skins\Tabard.lua
 skins\Talents.lua
 skins\TimeManager.lua
 skins\Wardrobe.lua
