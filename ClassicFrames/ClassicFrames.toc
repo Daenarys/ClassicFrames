@@ -101,6 +101,7 @@ skins\TradingPost.lua
 skins\UIWidget.lua
 skins\VoidStorage.lua
 skins\Wardrobe.lua
+skins\WatchFrame.lua
 skins\WorkOrders.lua
 skins\WorldMap.lua
 skins\ZoneMap.lua
