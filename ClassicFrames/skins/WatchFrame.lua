@@ -10,14 +10,13 @@ hooksecurefunc("WatchFrame_DisplayTrackedQuests", function()
 
 	for i = 1, numQuestWatches do
 		local questIndex = GetQuestIndexForWatch(i)
-		if ( questIndex ) then
-			local title, level, questTag, isHeader, isCollapsed, isComplete, frequency, questID, startEvent, displayQuestID, isOnMap, hasLocalPOI, isTask, isBounty, isStory, isHidden, isScaling = GetQuestLogTitle(questIndex)
+		local title, level, questTag, isHeader, isCollapsed, isComplete, frequency, questID, startEvent, displayQuestID, isOnMap, hasLocalPOI, isTask, isBounty, isStory, isHidden, isScaling = GetQuestLogTitle(questIndex)
 
-			if (GetSuperTrackedQuestID() == 0) then
-				SetSuperTrackedQuestID(questID)
-			end
+		if (GetSuperTrackedQuestID() == 0) then
+			SetSuperTrackedQuestID(questID)
 		end
 	end
+
 	local trackedQuestID = GetSuperTrackedQuestID()
 	if ( trackedQuestID ) then
 		QuestPOI_SelectButtonByQuestId(WatchFrameLines, trackedQuestID)
