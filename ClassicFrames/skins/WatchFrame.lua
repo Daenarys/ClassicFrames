@@ -1,10 +1,7 @@
 if not _G.WatchFrame then return end
 
 hooksecurefunc("WatchFrame_DisplayTrackedQuests", function()
-	local questIndex;
 	local numQuestWatches = GetNumQuestWatches()
-	local title, level, questTag, isHeader, isCollapsed, isComplete, isDaily, questID;
-	local frequency, startEvent, displayQuestID, isOnMap, hasLocalPOI, isTask, isBounty, isStory, isHidden, isScaling;
 
 	-- if supertracked quest is not in the quest log anymore, stop supertracking it
 	if ( GetQuestLogIndexByID(GetSuperTrackedQuestID()) == 0 ) then
@@ -12,9 +9,9 @@ hooksecurefunc("WatchFrame_DisplayTrackedQuests", function()
 	end
 
 	for i = 1, numQuestWatches do
-		questIndex = GetQuestIndexForWatch(i)
+		local questIndex = GetQuestIndexForWatch(i)
 		if ( questIndex ) then
-			title, level, questTag, isHeader, isCollapsed, isComplete, frequency, questID, startEvent, displayQuestID, isOnMap, hasLocalPOI, isTask, isBounty, isStory, isHidden, isScaling = GetQuestLogTitle(questIndex)
+			local title, level, questTag, isHeader, isCollapsed, isComplete, frequency, questID, startEvent, displayQuestID, isOnMap, hasLocalPOI, isTask, isBounty, isStory, isHidden, isScaling = GetQuestLogTitle(questIndex)
 
 			if (GetSuperTrackedQuestID() == 0) then
 				SetSuperTrackedQuestID(questID)
