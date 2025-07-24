@@ -26,6 +26,7 @@ skins\GameMenu.lua
 skins\Glyphs.lua
 skins\Gossip.lua
 skins\Inspect.lua
+skins\ItemSocketing.lua
 skins\ItemText.lua
 skins\LFG.lua
 skins\Macro.lua
