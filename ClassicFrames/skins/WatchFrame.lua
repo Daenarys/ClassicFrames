@@ -23,16 +23,6 @@ hooksecurefunc("WatchFrame_DisplayTrackedQuests", function()
 	end
 end)
 
-hooksecurefunc("QuestPOI_UpdateButtonStyle", function(poiButton)
-	local isSuperTracked = poiButton.questID == GetSuperTrackedQuestID()
-
-	if isSuperTracked then
-		poiButton.selected = true
-	else
-		poiButton.selected = nil
-	end
-end)
-
 hooksecurefunc("QuestPOIButton_OnClick", function(self)
 	SetSuperTrackedQuestID(self.questID)
 end)
