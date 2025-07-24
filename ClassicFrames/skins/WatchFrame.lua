@@ -23,6 +23,27 @@ hooksecurefunc("WatchFrame_DisplayTrackedQuests", function()
 	end
 end)
 
+hooksecurefunc("QuestPOI_UpdateButtonStyle", function(poiButton)
+	local isSuperTracked = poiButton.questID == GetSuperTrackedQuestID()
+
+	if isSuperTracked then
+		poiButton:GetNormalTexture():SetTexCoord(0.500, 0.625, 0.375, 0.5)
+		poiButton:GetPushedTexture():SetTexCoord(0.375, 0.500, 0.375, 0.5)
+	else
+		if poiButton.style == "numeric" then
+			poiButton:GetNormalTexture():SetTexCoord(0.875, 1.00, 0.375, 0.5)
+			poiButton:GetPushedTexture():SetTexCoord(0.750, 0.875, 0.375, 0.5)
+		else
+			poiButton:GetNormalTexture():SetTexCoord(0.500, 0.625, 0.875, 1)
+			poiButton:GetPushedTexture():SetTexCoord(0.500, 0.625, 0.875, 1)
+		end
+	end
+
+	if poiButton.Glow then
+		poiButton.Glow:SetShown(isSuperTracked)
+	end
+end)
+
 hooksecurefunc("QuestPOIButton_OnClick", function(self)
 	SetSuperTrackedQuestID(self.questID)
 end)
