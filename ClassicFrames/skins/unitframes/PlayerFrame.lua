@@ -15,7 +15,3 @@ PlayerFrameManaBarTextRight:SetFontObject(SystemFont_Outline_Small)
 PlayerFrameManaBarText:SetTextColor(1, 1, 1)
 PlayerFrameManaBarTextLeft:SetTextColor(1, 1, 1)
 PlayerFrameManaBarTextRight:SetTextColor(1, 1, 1)
-
-hooksecurefunc("PlayerFrame_UpdatePvPStatus", function()
-	PlayerPVPIcon:Hide()
-end)
