@@ -40,7 +40,6 @@ skins\Report.lua
 skins\ScriptError.lua
 skins\SettingsPanel.lua
 skins\SpellBook.lua
-skins\SpellFlyout.lua
 skins\Stable.lua
 skins\Tabard.lua
 skins\Talents.lua
