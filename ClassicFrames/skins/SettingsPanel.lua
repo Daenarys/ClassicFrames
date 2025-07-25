@@ -28,8 +28,3 @@ SettingsPanel.Container.SettingsList.ScrollBar.Track.Middle:Hide()
 
 ApplyScrollBarArrow(SettingsPanel.Container.SettingsList.ScrollBar)
 ApplyScrollBarThumb(SettingsPanel.Container.SettingsList.ScrollBar.Track.Thumb)
-
-_G.SettingsPanel:HookScript("OnShow", function(self)
-	self:ClearAllPoints()
-	self:SetPoint("CENTER", 0, 5)
-end)
