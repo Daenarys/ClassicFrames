@@ -4,9 +4,9 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_PVPUI" then
 		PVPQueueFrame:HookScript("OnShow", function()
 			if (UnitFactionGroup("player") == PLAYER_FACTION_GROUP[0]) then
-				SetPortraitToTexture(PVEFramePortrait, "Interface\\Icons\\INV_BannerPVP_01");
+				SetPortraitToTexture(PVEFramePortrait, "Interface\\Icons\\INV_BannerPVP_01")
 			else
-				SetPortraitToTexture(PVEFramePortrait, "Interface\\Icons\\INV_BannerPVP_02");
+				SetPortraitToTexture(PVEFramePortrait, "Interface\\Icons\\INV_BannerPVP_02")
 			end
 		end)
 
