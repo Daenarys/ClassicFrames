@@ -16,10 +16,5 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(FlightMapFrame)
 		ApplyNineSlicePortrait(FlightMapFrame.BorderFrame)
-
-		FlightMapFrame:HookScript("OnShow", function(self)
-			self:ClearAllPoints()
-			self:SetPoint("CENTER")
-		end)
 	end
 end)

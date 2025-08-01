@@ -6,11 +6,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyCloseButton(GarrisonBuildingFrame.CloseButton)
 
 			GarrisonBuildingFrameTutorialButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
-
-			_G.GarrisonBuildingFrame:HookScript("OnShow", function(self)
-				self:ClearAllPoints()
-				self:SetPoint("CENTER")
-			end)
 		end
 		if _G.GarrisonMissionFrame then
 			ApplyCloseButton(GarrisonMissionFrame.CloseButton)
@@ -53,11 +48,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarThumb(GarrisonMissionFrameFollowers.ScrollBar.Track.Thumb)
 
 			ApplySearchBox(GarrisonMissionFrameFollowers.SearchBox)
-
-			_G.GarrisonMissionFrame:HookScript("OnShow", function(self)
-				self:ClearAllPoints()
-				self:SetPoint("CENTER")
-			end)
 		end
 		if _G.GarrisonRecruiterFrame then
 			ApplyCloseButton(GarrisonRecruiterFrameCloseButton)
@@ -101,11 +91,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 4, 5)
 
 			ApplySearchBox(GarrisonShipyardFrameFollowers.SearchBox)
-
-			_G.GarrisonShipyardFrame:HookScript("OnShow", function(self)
-				self:ClearAllPoints()
-				self:SetPoint("CENTER")
-			end)
 		end
 		if _G.OrderHallMissionFrame then
 			ApplyCloseButton(OrderHallMissionFrame.CloseButton)
@@ -160,11 +145,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 
 			ApplySearchBox(OrderHallMissionFrameFollowers.SearchBox)
-
-			_G.OrderHallMissionFrame:HookScript("OnShow", function(self)
-				self:ClearAllPoints()
-				self:SetPoint("CENTER")
-			end)
 		end
 		if _G.BFAMissionFrame then
 			ApplyCloseButton(BFAMissionFrame.CloseButton)
@@ -219,11 +199,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 
 			ApplySearchBox(BFAMissionFrameFollowers.SearchBox)
-
-			_G.BFAMissionFrame:HookScript("OnShow", function(self)
-				self:ClearAllPoints()
-				self:SetPoint("CENTER")
-			end)
 		end
 		if _G.CovenantMissionFrame then
 			CovenantMissionFrame.CloseButton:SetSize(32, 32)
@@ -246,11 +221,6 @@ f:SetScript("OnEvent", function(self, event, name)
 					CovenantMissionFrameTab2:SetPoint("LEFT", CovenantMissionFrameTab1, "RIGHT", -15, 0)
 				end)
 			end
-
-			_G.CovenantMissionFrame:HookScript("OnShow", function(self)
-				self:ClearAllPoints()
-				self:SetPoint("CENTER")
-			end)
 		end
 		if _G.GarrisonLandingPage then
 			GarrisonLandingPage.CloseButton:SetSize(32, 32)
@@ -327,17 +297,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarThumb(GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track.Thumb)
 
 			ApplySearchBox(GarrisonRecruitSelectFrame.FollowerList.SearchBox)
-
-			GarrisonRecruitSelectFrame:HookScript("OnShow", function(self)
-				self:ClearAllPoints()
-				self:SetPoint("CENTER")
-			end)
-		end
-		if _G.GarrisonMonumentFrame then
-			GarrisonMonumentFrame:HookScript("OnShow", function(self)
-				self:ClearAllPoints()
-				self:SetPoint("BOTTOM", 0 , 125)
-			end)
 		end
 	end
 end)

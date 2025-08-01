@@ -135,11 +135,6 @@ for i = 1, 3 do
 	end)
 end
 
-PVPMatchScoreboard:HookScript("OnShow", function(self)
-	self:ClearAllPoints()
-	self:SetPoint("CENTER")
-end)
-
 PVPMatchResults.CloseButton:SetSize(32, 32)
 PVPMatchResults.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 PVPMatchResults.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
@@ -173,11 +168,6 @@ for i = 1, 3 do
 		PVPScoreFrameTab3:SetWidth(40 + PVPScoreFrameTab3:GetFontString():GetStringWidth())
 	end)
 end
-
-PVPMatchResults:HookScript("OnShow", function(self)
-	self:ClearAllPoints()
-	self:SetPoint("CENTER")
-end)
 
 ReadyStatus.CloseButton:SetSize(32, 32)
 ReadyStatus.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
