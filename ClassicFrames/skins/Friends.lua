@@ -125,6 +125,14 @@ ApplyScrollBarArrow(QuickJoinFrame.ScrollBar)
 ApplyScrollBarTrack(QuickJoinFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuickJoinFrame.ScrollBar.Track.Thumb)
 
+AddFriendFrame.CloseButton:SetSize(32, 32)
+AddFriendFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
+AddFriendFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
+AddFriendFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
+AddFriendFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+AddFriendFrame.CloseButton:ClearAllPoints()
+AddFriendFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
+
 ApplyDialogBorder(AddFriendFrame.Border)
 ApplyDialogBorder(FriendsFrameBattlenetFrame.BroadcastFrame.Border)
 
