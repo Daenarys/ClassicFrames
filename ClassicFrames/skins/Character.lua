@@ -2,6 +2,8 @@ if not _G.CharacterFrame then return end
 
 ApplyCloseButton(CharacterFrameCloseButton)
 
+CharacterFrame.Background:Hide()
+
 CharacterFrame.PortraitContainer.CircleMask:Hide()
 
 CharacterFramePortrait:SetSize(61, 61)
@@ -27,8 +29,6 @@ for i = 1, 3 do
 		self:SetWidth(40 + self:GetFontString():GetStringWidth())
 	end)
 end
-
-CharacterFrame.Background:Hide()
 
 ReputationFrame.ScrollBar:SetSize(25, 560)
 ReputationFrame.ScrollBar:ClearAllPoints()
@@ -72,21 +72,6 @@ if (ReputationDetailCorner == nil) then
 	ReputationDetailCorner:SetPoint("TOPRIGHT", -6, -7)
 end
 
-if (ReputationFrame.FactionLabel == nil) then
-	ReputationFrame.FactionLabel = ReputationFrame:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
-	ReputationFrame.FactionLabel:SetText(FACTION)
-	ReputationFrame.FactionLabel:SetPoint("TOPLEFT", 70, -42)
-end
-
-if (ReputationFrame.StandingLabel == nil) then
-	ReputationFrame.StandingLabel = ReputationFrame:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
-	ReputationFrame.StandingLabel:SetText(STANDING)
-	ReputationFrame.StandingLabel:SetPoint("TOPLEFT", 215, -42)
-end
-
-ReputationFrame.filterDropdown:Hide()
-TokenFrame.filterDropdown:Hide()
-
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
 
 TokenFrame.ScrollBar:SetSize(25, 560)
@@ -98,7 +83,8 @@ ApplyScrollBarArrow(TokenFrame.ScrollBar)
 ApplyScrollBarTrack(TokenFrame.ScrollBar.Track)
 ApplyScrollBarThumb(TokenFrame.ScrollBar.Track.Thumb)
 
-TokenFrame.CurrencyTransferLogToggleButton:Hide()
+TokenFrame.CurrencyTransferLogToggleButton:ClearAllPoints()
+TokenFrame.CurrencyTransferLogToggleButton:SetPoint("TOPRIGHT", -11, -32)
 
 select(5, TokenFramePopup:GetChildren()):SetSize(32, 32)
 select(5, TokenFramePopup:GetChildren()):SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
@@ -145,21 +131,8 @@ ApplyScrollBarTrack(GearManagerPopupFrame.IconSelector.ScrollBar.Track)
 ApplyScrollBarThumb(GearManagerPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 
 ApplyDropDown(GearManagerPopupFrame.BorderBox.IconTypeDropdown)
-
-hooksecurefunc(CharacterFrame, "UpdatePortrait", function(self)
-	self:SetPortraitToSpecIcon()
-end)
-
-hooksecurefunc(CharacterFrame, "UpdateSize", function(self)
-	if ReputationFrame:IsShown() or TokenFrame:IsShown() then
-		self:SetWidth(338)
-	end
-end)
-
-hooksecurefunc(CharacterFrame, "UpdateTitle", function(self)
-	self:SetTitleColor(HIGHLIGHT_FONT_COLOR)
-	self:SetTitle(UnitPVPName("player"))
-end)
+ApplyDropDown(ReputationFrame.filterDropdown)
+ApplyDropDown(TokenFrame.filterDropdown)
 
 CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self:SetPoint("TOP")

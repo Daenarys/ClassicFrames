@@ -1,15 +1,37 @@
-if not _G.CurrencyTransferMenu then return end
+if _G.CurrencyTransferLog then
+	ApplyCloseButton(CurrencyTransferLogCloseButton)
 
-ApplyCloseButton(CurrencyTransferMenuCloseButton)
+	CurrencyTransferLog.TitleContainer:ClearAllPoints()
+	CurrencyTransferLog.TitleContainer:SetPoint("TOPLEFT", CurrencyTransferLog, "TOPLEFT", 58, 0)
+	CurrencyTransferLog.TitleContainer:SetPoint("TOPRIGHT", CurrencyTransferLog, "TOPRIGHT", -58, 0)
 
-CurrencyTransferMenu.TitleContainer:ClearAllPoints()
-CurrencyTransferMenu.TitleContainer:SetPoint("TOPLEFT", CurrencyTransferMenu, "TOPLEFT", 58, 0)
-CurrencyTransferMenu.TitleContainer:SetPoint("TOPRIGHT", CurrencyTransferMenu, "TOPRIGHT", -58, 0)
+	ApplyTitleBgNoPortrait(CurrencyTransferLog)
+	ApplyNineSliceNoPortrait(CurrencyTransferLog)
 
-ApplyTitleBgNoPortrait(CurrencyTransferMenu)
-ApplyNineSliceNoPortrait(CurrencyTransferMenu)
+	CurrencyTransferLog.Background:Hide()
 
-CurrencyTransferMenu.Background:Hide()
-CurrencyTransferMenu.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+	CurrencyTransferLog.ScrollBar:SetSize(25, 560)
+	CurrencyTransferLog.ScrollBar:ClearAllPoints()
+	CurrencyTransferLog.ScrollBar:SetPoint("TOPLEFT", CurrencyTransferLog.ScrollBox, "TOPRIGHT", -2, 2)
+	CurrencyTransferLog.ScrollBar:SetPoint("BOTTOMLEFT", CurrencyTransferLog.ScrollBox, "BOTTOMRIGHT", -2, -2)
 
-ApplyDropDown(CurrencyTransferMenu.Content.SourceSelector.Dropdown)
+	ApplyScrollBarArrow(CurrencyTransferLog.ScrollBar)
+	ApplyScrollBarTrack(CurrencyTransferLog.ScrollBar.Track)
+	ApplyScrollBarThumb(CurrencyTransferLog.ScrollBar.Track.Thumb)
+end
+
+if _G.CurrencyTransferMenu then
+	ApplyCloseButton(CurrencyTransferMenuCloseButton)
+
+	CurrencyTransferMenu.TitleContainer:ClearAllPoints()
+	CurrencyTransferMenu.TitleContainer:SetPoint("TOPLEFT", CurrencyTransferMenu, "TOPLEFT", 58, 0)
+	CurrencyTransferMenu.TitleContainer:SetPoint("TOPRIGHT", CurrencyTransferMenu, "TOPRIGHT", -58, 0)
+
+	ApplyTitleBgNoPortrait(CurrencyTransferMenu)
+	ApplyNineSliceNoPortrait(CurrencyTransferMenu)
+
+	CurrencyTransferMenu.Background:Hide()
+	CurrencyTransferMenu.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+
+	ApplyDropDown(CurrencyTransferMenu.Content.SourceSelector.Dropdown)
+end
