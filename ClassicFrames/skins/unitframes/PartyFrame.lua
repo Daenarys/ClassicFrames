@@ -122,7 +122,7 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 		CompactRaidFrameManager.TopLeft = CompactRaidFrameManager:CreateTexture(nil, "ARTWORK")
 		CompactRaidFrameManager.TopLeft:SetSize(32, 32)
 		CompactRaidFrameManager.TopLeft:SetTexture("Interface\\RaidFrame\\RaidPanel-UpperLeft")
-		CompactRaidFrameManager.TopLeft:SetPoint("TOPLEFT", -5, 0)
+		CompactRaidFrameManager.TopLeft:SetPoint("TOPLEFT", -10, 0)
 	end
 
 	if (CompactRaidFrameManager.TopRight == nil) then
@@ -136,7 +136,7 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 		CompactRaidFrameManager.BottomLeft = CompactRaidFrameManager:CreateTexture(nil, "ARTWORK")
 		CompactRaidFrameManager.BottomLeft:SetSize(32, 32)
 		CompactRaidFrameManager.BottomLeft:SetTexture("Interface\\RaidFrame\\RaidPanel-BottomLeft")
-		CompactRaidFrameManager.BottomLeft:SetPoint("BOTTOMLEFT", -5, 0)
+		CompactRaidFrameManager.BottomLeft:SetPoint("BOTTOMLEFT", -10, 0)
 	end
 
 	if (CompactRaidFrameManager.BottomRight == nil) then
@@ -176,8 +176,8 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 	if (CompactRaidFrameManager.Bg == nil) then
 		CompactRaidFrameManager.Bg = CompactRaidFrameManager:CreateTexture(nil, "BACKGROUND")
 		CompactRaidFrameManager.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-		CompactRaidFrameManager.Bg:SetPoint("TOPLEFT", CompactRaidFrameManager.TopLeft, "TOPLEFT", 5, -6)
-		CompactRaidFrameManager.Bg:SetPoint("BOTTOMRIGHT", CompactRaidFrameManager.BottomRight, "BOTTOMRIGHT", -5, 7)
+		CompactRaidFrameManager.Bg:SetPoint("TOPLEFT", CompactRaidFrameManager.TopLeft, "TOPLEFT", 7, -6)
+		CompactRaidFrameManager.Bg:SetPoint("BOTTOMRIGHT", CompactRaidFrameManager.BottomRight, "BOTTOMRIGHT", -7, 7)
 	end
 
 	if (CompactRaidFrameManager.ToggleButton == nil) then
