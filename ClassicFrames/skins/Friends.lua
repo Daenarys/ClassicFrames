@@ -42,24 +42,6 @@ for i = 1, 4 do
 	end)
 end
 
-for i = 1, 3 do
-	ApplyTopTab(_G['FriendsTabHeaderTab'..i])
-
-	_G["FriendsTabHeaderTab"..i]:HookScript("OnShow", function(self)
-		if _G["FriendsTabHeaderTab"..i] == FriendsTabHeaderTab1 then
-			self:SetWidth(31 + self:GetFontString():GetStringWidth())
-		elseif _G["FriendsTabHeaderTab"..i] == FriendsTabHeaderTab2 then
-			self:SetWidth(29 + self:GetFontString():GetStringWidth())
-			self:ClearAllPoints()
-			self:SetPoint("LEFT", FriendsTabHeaderTab1, "RIGHT")
-		elseif _G["FriendsTabHeaderTab"..i] == FriendsTabHeaderTab3 then
-			self:SetWidth(32 + self:GetFontString():GetStringWidth())
-			self:ClearAllPoints()
-			self:SetPoint("LEFT", FriendsTabHeaderTab2, "RIGHT")
-		end
-	end)
-end
-
 FriendsListFrame.ScrollBar:SetSize(25, 560)
 FriendsListFrame.ScrollBar:ClearAllPoints()
 FriendsListFrame.ScrollBar:SetPoint("TOPLEFT", FriendsListFrame.ScrollBox, "TOPRIGHT", -2, 1)
@@ -69,14 +51,23 @@ ApplyScrollBarArrow(FriendsListFrame.ScrollBar)
 ApplyScrollBarTrack(FriendsListFrame.ScrollBar.Track)
 ApplyScrollBarThumb(FriendsListFrame.ScrollBar.Track.Thumb)
 
-IgnoreListFrame.ScrollBar:SetSize(25, 560)
-IgnoreListFrame.ScrollBar:ClearAllPoints()
-IgnoreListFrame.ScrollBar:SetPoint("TOPLEFT", IgnoreListFrame.ScrollBox, "TOPRIGHT", -2, 1)
-IgnoreListFrame.ScrollBar:SetPoint("BOTTOMLEFT", IgnoreListFrame.ScrollBox, "BOTTOMRIGHT", 1, -1)
+ApplyCloseButton(FriendsFrame.IgnoreListWindow.CloseButton)
 
-ApplyScrollBarArrow(IgnoreListFrame.ScrollBar)
-ApplyScrollBarTrack(IgnoreListFrame.ScrollBar.Track)
-ApplyScrollBarThumb(IgnoreListFrame.ScrollBar.Track.Thumb)
+FriendsFrame.IgnoreListWindow.TitleContainer:ClearAllPoints()
+FriendsFrame.IgnoreListWindow.TitleContainer:SetPoint("TOPLEFT", FriendsFrame.IgnoreListWindow, "TOPLEFT", 58, 0)
+FriendsFrame.IgnoreListWindow.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame.IgnoreListWindow, "TOPRIGHT", -58, 0)
+
+ApplyTitleBg(FriendsFrame.IgnoreListWindow)
+ApplyNineSliceNoPortrait(FriendsFrame.IgnoreListWindow)
+
+FriendsFrame.IgnoreListWindow.ScrollBar:SetSize(25, 560)
+FriendsFrame.IgnoreListWindow.ScrollBar:ClearAllPoints()
+FriendsFrame.IgnoreListWindow.ScrollBar:SetPoint("TOPLEFT", FriendsFrame.IgnoreListWindow.ScrollBox, "TOPRIGHT", -2, 1)
+FriendsFrame.IgnoreListWindow.ScrollBar:SetPoint("BOTTOMLEFT", FriendsFrame.IgnoreListWindow.ScrollBox, "BOTTOMRIGHT", 1, -1)
+
+ApplyScrollBarArrow(FriendsFrame.IgnoreListWindow.ScrollBar)
+ApplyScrollBarTrack(FriendsFrame.IgnoreListWindow.ScrollBar.Track)
+ApplyScrollBarThumb(FriendsFrame.IgnoreListWindow.ScrollBar.Track.Thumb)
 
 RecruitAFriendFrame.RecruitList.ScrollBar:SetSize(25, 560)
 RecruitAFriendFrame.RecruitList.ScrollBar:ClearAllPoints()
