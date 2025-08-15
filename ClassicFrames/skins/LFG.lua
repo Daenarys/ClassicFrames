@@ -33,7 +33,7 @@ GroupFinderFrame:HookScript("OnShow", function()
 end)
 
 PVEFrame:HookScript("OnShow", function(self)
-	if not self:TimerunningEnabled() then
+	if not TimerunningUtil.TimerunningEnabledForPlayer() then
 		self.tab3:SetShown(UnitLevel("player") == GetMaxLevelForExpansionLevel(LE_EXPANSION_WAR_WITHIN))
 		self.tab4:SetShown(UnitLevel("player") == GetMaxLevelForExpansionLevel(LE_EXPANSION_WAR_WITHIN))
 	end
@@ -745,14 +745,6 @@ for _, rolePollButton in pairs({
 	checkButton.CheckedTexture:SetTexture("Interface\\Buttons\\UI-RadioButton")
 	checkButton.CheckedTexture:SetTexCoord(0.25, 0.5, 0, 1)
 end
-
-hooksecurefunc("GroupFinderFrame_EvaluateButtonVisibility", function(self)
-	if not PlayerGetTimerunningSeasonID() then
-		self.groupButton1:SetPoint("TOPLEFT", 10, -101)
-		self.groupButton2:SetPoint("TOP", self.groupButton1, "BOTTOM", 0, -30)
-		self.groupButton3:SetPoint("TOP", self.groupButton2, "BOTTOM", 0, -30)
-	end
-end)
 
 hooksecurefunc("LFGRewardsFrame_UpdateFrame", function(parentFrame, dungeonID)
 	if (dungeonID == 2634 or dungeonID == 744 or dungeonID == 995 or dungeonID == 1146 or dungeonID == 1453 or dungeonID == 1971 or dungeonID == 2274 or dungeonID == 2874) then

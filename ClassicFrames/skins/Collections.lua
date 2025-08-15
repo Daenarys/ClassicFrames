@@ -29,7 +29,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		hooksecurefunc("CollectionsJournal_CheckAndDisplayHeirloomsTab", function()
 			CollectionsJournalTab5:ClearAllPoints()
-			if PlayerGetTimerunningSeasonID() then
+			if PlayerIsTimerunning() then
 				CollectionsJournalTab5:SetPoint("LEFT", CollectionsJournalTab3, "RIGHT", -16, 0)
 			else
 				CollectionsJournalTab5:SetPoint("LEFT", CollectionsJournalTab4, "RIGHT", -16, 0)
