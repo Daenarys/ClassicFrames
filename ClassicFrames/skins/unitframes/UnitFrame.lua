@@ -414,7 +414,7 @@ function CfUnitFrameHealthBar_Initialize(unit, statusbar, statustext, frequentUp
 end
 
 function CfUnitFrameHealthBar_RefreshUpdateEvent(self)
-	if ( GetCVarBool("predictedHealth") and self.frequentUpdates ) then
+	if ( self.frequentUpdates ) then
 		self:SetScript("OnUpdate", CfUnitFrameHealthBar_OnUpdate)
 		self:UnregisterEvent("UNIT_HEALTH")
 	else
