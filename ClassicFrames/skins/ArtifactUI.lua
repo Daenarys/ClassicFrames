@@ -24,5 +24,7 @@ f:SetScript("OnEvent", function(self, event, name)
 				end
 			end)
 		end
+	elseif name == "Blizzard_RemixArtifactUI" then
+		ApplyCloseButton(RemixArtifactFrame.CloseButton)
 	end
 end)
