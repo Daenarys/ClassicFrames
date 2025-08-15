@@ -29,7 +29,11 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournalSuggestTab:ClearAllPoints()
 			EncounterJournalSuggestTab:SetPoint("LEFT", EncounterJournalMonthlyActivitiesTab, "RIGHT", -15, 0)
 			EncounterJournalDungeonTab:ClearAllPoints()
-			EncounterJournalDungeonTab:SetPoint("LEFT", EncounterJournalSuggestTab, "RIGHT", -15, 0)
+			if PlayerIsTimerunning() then
+				EncounterJournalDungeonTab:SetPoint("LEFT", EncounterJournalMonthlyActivitiesTab, "RIGHT", -15, 0)
+			else
+				EncounterJournalDungeonTab:SetPoint("LEFT", EncounterJournalSuggestTab, "RIGHT", -15, 0)
+			end
 			EncounterJournalRaidTab:ClearAllPoints()
 			EncounterJournalRaidTab:SetPoint("LEFT", EncounterJournalDungeonTab, "RIGHT", -15, 0)
 			EncounterJournalLootJournalTab:ClearAllPoints()
