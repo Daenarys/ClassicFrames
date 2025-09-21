@@ -20,6 +20,7 @@ skins\Bank.lua
 skins\BlackMarket.lua
 skins\Buffs.lua
 skins\Calendar.lua
+skins\CatalogShop.lua
 skins\Catalyst.lua
 skins\Character.lua
 skins\Chat.lua
