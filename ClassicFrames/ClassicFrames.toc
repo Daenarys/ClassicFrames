@@ -37,7 +37,7 @@ skins\DeathRecap.lua
 skins\DebugTools.lua
 skins\Delves.lua
 skins\Deprecated.lua
-skins\DragonTalents.lua
+
 skins\DressingRoom.lua
 skins\EditMode.lua
 skins\EncounterJournal.lua
@@ -87,6 +87,7 @@ skins\RuneForge.lua
 skins\ScrappingMachine.lua
 skins\ScriptError.lua
 skins\SettingsPanel.lua
+skins\Skyriding.lua
 skins\SplashScreen.lua
 skins\Stable.lua
 skins\StaticPopup.lua
