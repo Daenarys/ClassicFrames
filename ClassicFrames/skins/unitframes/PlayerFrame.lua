@@ -252,6 +252,15 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	PlayerLevelText:Show()
 
 	CfUnitFrame_SetUnit(CfPlayerFrame, "player", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
+
+	local _, class = UnitClass("player")
+	if ( CfPlayerFrame.CfClassPowerBar ) then
+		CfPlayerFrame.CfClassPowerBar:Setup()
+	elseif ( class == "DEATHKNIGHT" ) then
+		CfRuneFrame:Show()
+	end
+
+	ComboPointPlayerFrame:Setup()
 end)
 
 hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
@@ -295,6 +304,15 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	PlayerLevelText:Hide()
 
 	CfUnitFrame_SetUnit(CfPlayerFrame, "vehicle", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
+
+	local _, class = UnitClass("player")
+	if ( CfPlayerFrame.CfClassPowerBar ) then
+		CfPlayerFrame.CfClassPowerBar:Hide()
+	elseif ( class == "DEATHKNIGHT" ) then
+		CfRuneFrame:Hide()
+	end
+
+	ComboPointPlayerFrame:Setup()
 end)
 
 hooksecurefunc("PlayerFrame_UpdateLevel", function()
@@ -456,26 +474,17 @@ end)
 
 hooksecurefunc(PlayerFrameBottomManagedFramesContainer, "Layout", function()
 	local classPowerBar = PlayerFrame.classPowerBar
-	if classPowerBar then
-		if (select(2, UnitClass('player')) == 'DRUID') then
-			classPowerBar:SetPoint("TOP", 0, 10)
-		elseif (select(2, UnitClass('player')) == 'MAGE') then
-			classPowerBar:SetPoint("TOP", 0, 10)
-		elseif (select(2, UnitClass('player')) == 'MONK') then
-			classPowerBar:SetPoint("TOP", 0, 10)
-		elseif (select(2, UnitClass('player')) == 'PALADIN') then
-			classPowerBar:SetPoint("TOP", 0, 10)
-		elseif (select(2, UnitClass('player')) == 'ROGUE') then
-			classPowerBar:SetPoint("TOP", 0, 12)
-		elseif (select(2, UnitClass('player')) == 'WARLOCK') then
-			classPowerBar:SetPoint("TOP", 0, 6)
-		end
-	elseif (select(2, UnitClass('player')) == 'DEATHKNIGHT') then
-		RuneFrame:SetPoint("TOP", 0, 11)
-	elseif (select(2, UnitClass('player')) == 'EVOKER') then
-		EssencePlayerFrame:SetPoint("TOP", 0, 10)
-	else
-		return
+	if (classPowerBar) then
+		classPowerBar:UnregisterAllEvents()
+		classPowerBar:Hide()
+	end
+	if (RuneFrame) then
+		RuneFrame:UnregisterAllEvents()
+		RuneFrame:Hide()
+	end
+	if (TotemFrame) then
+		TotemFrame:ClearAllPoints()
+		TotemFrame:SetPoint("TOPLEFT", PlayerFrame, "TOPLEFT", -5, -91)
 	end
 end)
 
