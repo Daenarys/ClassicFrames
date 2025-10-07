@@ -102,7 +102,7 @@ function CfRuneFrameMixin:OnSpentAnimStopped()
 end
 
 function CfRuneFrameMixin:UpdateRunes(isSpecChange)
-	local specIndex = GetSpecialization()
+	local specIndex = C_SpecializationInfo.GetSpecialization()
 	table.sort(self.runeIndexes, RuneComparison)
 
 	if not isSpecChange and GetCVarBool("enableRuneSpentAnim") then

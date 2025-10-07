@@ -65,7 +65,7 @@ function WarlockPowerBar_UpdatePower(self)
 
 	local shardPower = WarlockPowerBar_UnitPower(self:GetUnit())
 
-	if GetSpecialization() ~= SPEC_WARLOCK_DESTRUCTION then
+	if C_SpecializationInfo.GetSpecialization() ~= SPEC_WARLOCK_DESTRUCTION then
 		shardPower = math.floor(shardPower)
 	end
 

@@ -72,7 +72,7 @@ end
 
 function CfClassPowerBar:Setup()
 	local _, class = UnitClass("player")
-	local spec = GetSpecialization()
+	local spec = C_SpecializationInfo.GetSpecialization()
 	local showBar = false
 
 	if ( class == self.class ) then
