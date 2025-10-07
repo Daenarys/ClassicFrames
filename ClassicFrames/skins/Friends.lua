@@ -69,6 +69,15 @@ ApplyScrollBarArrow(FriendsFrame.IgnoreListWindow.ScrollBar)
 ApplyScrollBarTrack(FriendsFrame.IgnoreListWindow.ScrollBar.Track)
 ApplyScrollBarThumb(FriendsFrame.IgnoreListWindow.ScrollBar.Track.Thumb)
 
+RecentAlliesFrame.List.ScrollBar:SetSize(25, 560)
+RecentAlliesFrame.List.ScrollBar:ClearAllPoints()
+RecentAlliesFrame.List.ScrollBar:SetPoint("TOPLEFT", RecentAlliesFrame.List.ScrollBox, "TOPRIGHT", -2, 1)
+RecentAlliesFrame.List.ScrollBar:SetPoint("BOTTOMLEFT", RecentAlliesFrame.List.ScrollBox, "BOTTOMRIGHT", 1, -3)
+
+ApplyScrollBarArrow(RecentAlliesFrame.List.ScrollBar)
+ApplyScrollBarTrack(RecentAlliesFrame.List.ScrollBar.Track)
+ApplyScrollBarThumb(RecentAlliesFrame.List.ScrollBar.Track.Thumb)
+
 RecruitAFriendFrame.RecruitList.ScrollBar:SetSize(25, 560)
 RecruitAFriendFrame.RecruitList.ScrollBar:ClearAllPoints()
 RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("TOPLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "TOPRIGHT", -2, 1)
