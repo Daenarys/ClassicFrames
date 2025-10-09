@@ -188,3 +188,6 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer",function()
 		CompactRaidFrameManager.ToggleButton:SetPoint("CENTER", CompactRaidFrameManager.toggleButtonForward, "CENTER")
 	end
 end)
+
+ApplyDropDown(CompactRaidFrameManagerDisplayFrameModeControlDropdown)
+ApplyDropDown(CompactRaidFrameManagerDisplayFrameRestrictPingsDropdown)
