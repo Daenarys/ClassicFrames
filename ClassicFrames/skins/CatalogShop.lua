@@ -14,3 +14,38 @@ CatalogShopFrame.TitleContainer:SetPoint("TOPRIGHT", CatalogShopFrame, "TOPRIGHT
 
 ApplyTitleBg(CatalogShopFrame)
 ApplyNineSlicePortrait(CatalogShopFrame)
+
+CatalogShopFrame.BackgroundContainer:SetPoint("TOPLEFT", 1, -25)
+CatalogShopFrame.ForegroundContainer:SetPoint("TOPLEFT", 1, -25)
+
+CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar:SetSize(25, 560)
+CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar:ClearAllPoints()
+CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar:SetPoint("TOPLEFT", CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBox, "TOPRIGHT", -6, -2)
+CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar:SetPoint("BOTTOMLEFT", CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBox, "BOTTOMRIGHT", -3, 0)
+
+CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track:ClearAllPoints()
+CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
+CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
+
+CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.Begin:Hide()
+CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.End:Hide()
+CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.Middle:Hide()
+
+ApplyScrollBarArrow(CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar)
+ApplyScrollBarThumb(CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.Thumb)
+
+CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar:SetSize(25, 560)
+CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar:ClearAllPoints()
+CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar:SetPoint("TOPLEFT", CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBox, "TOPRIGHT", -6, -2)
+CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar:SetPoint("BOTTOMLEFT", CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBox, "BOTTOMRIGHT", -3, 0)
+
+CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track:ClearAllPoints()
+CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
+CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
+
+CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.Begin:Hide()
+CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.End:Hide()
+CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.Middle:Hide()
+
+ApplyScrollBarArrow(CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar)
+ApplyScrollBarThumb(CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.Thumb)
