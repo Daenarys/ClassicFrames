@@ -289,50 +289,6 @@ function ApplyBottomTab(frame)
 	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", -3, 0)
 end
 
-function ApplyTopTab(frame)
-	frame.LeftActive:SetSize(16, 32)
-	frame.LeftActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
-	frame.LeftActive:SetTexCoord(0, 0.25, 0, 1)
-	frame.LeftActive:SetPoint("BOTTOMLEFT", 0, -3)
-
-	frame.RightActive:SetSize(16, 32)
-	frame.RightActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
-	frame.RightActive:SetTexCoord(0.75, 1, 0, 1)
-	frame.RightActive:SetPoint("BOTTOMRIGHT", 0, -3)
-
-	frame.MiddleActive:SetSize(32, 32)
-	frame.MiddleActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
-	frame.MiddleActive:SetTexCoord(0.25, 0.75, 0, 1)
-	frame.MiddleActive:SetHorizTile(false)
-
-	frame.Left:SetSize(16, 32)
-	frame.Left:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
-	frame.Left:SetTexCoord(0, 0.25, 0, 1)
-	frame.Left:SetPoint("BOTTOMLEFT")
-
-	frame.Right:SetSize(16, 32)
-	frame.Right:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
-	frame.Right:SetTexCoord(0.75, 1, 0, 1)
-	frame.Right:SetPoint("TOPRIGHT")
-
-	frame.Middle:SetSize(32, 32)
-	frame.Middle:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
-	frame.Middle:SetTexCoord(0.25, 0.75, 0, 1)
-	frame.Middle:SetHorizTile(false)
-
-	frame.LeftHighlight:Hide()
-	frame.MiddleHighlight:Hide()
-	frame.RightHighlight:Hide()
-
-	frame:SetHighlightTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-Highlight")
-	frame:GetHighlightTexture():ClearAllPoints()
-	frame:GetHighlightTexture():SetPoint("TOPLEFT", 2, -8)
-	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", 2, -8)
-
-	frame.Text:ClearAllPoints()
-	frame.Text:SetPoint("BOTTOM", 0, 6)
-end
-
 function ApplySearchBox(frame)
 	frame.Left:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonSearch")
 	frame.Left:SetTexCoord(0.886719, 0.949219, 0.0078125, 0.320312)

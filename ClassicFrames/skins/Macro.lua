@@ -17,19 +17,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(MacroFrame)
 		ApplyNineSlicePortrait(MacroFrame)
 
-		MacroFrameTab2:ClearAllPoints()
-		MacroFrameTab2:SetPoint("LEFT", MacroFrameTab1, "RIGHT")
-
-		for i = 1, 2 do
-			ApplyTopTab(_G['MacroFrameTab'..i])
-
-			_G["MacroFrameTab"..i]:HookScript("OnShow", function(self)
-				MacroFrameTab1:SetWidth(17 + MacroFrameTab1:GetFontString():GetStringWidth())
-				MacroFrameTab2:SetWidth(21 + MacroFrameTab2:GetFontString():GetStringWidth())
-				MacroFrameTab2.Text:SetWidth(0)
-			end)
-		end
-
 		MacroFrame.MacroSelector.ScrollBar:SetSize(25, 560)
 		MacroFrame.MacroSelector.ScrollBar:ClearAllPoints()
 		MacroFrame.MacroSelector.ScrollBar:SetPoint("TOPLEFT", MacroFrame.MacroSelector, "TOPRIGHT", -24, 3)
