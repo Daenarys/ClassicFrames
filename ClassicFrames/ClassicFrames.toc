@@ -31,13 +31,13 @@ skins\ClickBindings.lua
 skins\Collections.lua
 skins\ColorPicker.lua
 skins\Communities.lua
+skins\CooldownViewer.lua
 skins\Covenant.lua
 skins\CurrencyTransfer.lua
 skins\DeathRecap.lua
 skins\DebugTools.lua
 skins\Delves.lua
 skins\Deprecated.lua
-
 skins\DressingRoom.lua
 skins\EditMode.lua
 skins\EncounterJournal.lua
@@ -87,7 +87,7 @@ skins\RuneForge.lua
 skins\ScrappingMachine.lua
 skins\ScriptError.lua
 skins\SettingsPanel.lua
-skins\Skyriding.lua
+skins\SkyridingTalents.lua
 skins\SplashScreen.lua
 skins\Stable.lua
 skins\StaticPopup.lua
