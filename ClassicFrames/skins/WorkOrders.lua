@@ -73,8 +73,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar.Track)
 		ApplyScrollBarThumb(ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar.Track.Thumb)
 
-		ApplySearchBox(ProfessionsCustomerOrdersFrame.BrowseOrders.SearchBar.SearchBox)
-		ApplySearchBox(ProfessionsCustomerOrdersFrame.Form.OrderRecipientTarget)
 		ApplyDropDown(ProfessionsCustomerOrdersFrame.Form.OrderRecipientDropdown)
 		ApplyDropDown(ProfessionsCustomerOrdersFrame.Form.PaymentContainer.DurationDropdown)
 		ApplyDropDown(ProfessionsCustomerOrdersFrame.Form.MinimumQuality.Dropdown)

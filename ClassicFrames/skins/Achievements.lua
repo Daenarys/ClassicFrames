@@ -108,7 +108,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(AchievementFrame.SearchResults.ScrollBar.Track)
 		ApplyScrollBarThumb(AchievementFrame.SearchResults.ScrollBar.Track.Thumb)
 
-		ApplySearchBox(AchievementFrame.SearchBox)
 		ApplyFilterDropDown(AchievementFrameFilterDropdown)
 
 		hooksecurefunc('AchievementFrameSummary_Refresh', function()

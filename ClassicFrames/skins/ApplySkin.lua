@@ -289,17 +289,6 @@ function ApplyBottomTab(frame)
 	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", -3, 0)
 end
 
-function ApplySearchBox(frame)
-	frame.Left:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonSearch")
-	frame.Left:SetTexCoord(0.886719, 0.949219, 0.0078125, 0.320312)
-
-	frame.Right:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonSearch")
-	frame.Right:SetTexCoord(0.00390625, 0.0664062, 0.335938, 0.648438)
-
-	frame.Middle:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\CommonSearch")
-	frame.Middle:SetTexCoord(0.00390625, 0.878906, 0.0078125, 0.320312)
-end
-
 function ApplyDropDown(frame)
 	frame.Background:Hide()
 

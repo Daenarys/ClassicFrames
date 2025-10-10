@@ -336,15 +336,6 @@ for _, roleButton in pairs({
 	checkButton:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
 end
 
-ApplySearchBox(LFGListFrame.EntryCreation.ActivityFinder.Dialog.EntryBox)
-ApplySearchBox(LFGListFrame.EntryCreation.MythicPlusRating.EditBox)
-ApplySearchBox(LFGListFrame.EntryCreation.ItemLevel.EditBox)
-ApplySearchBox(LFGListFrame.EntryCreation.VoiceChat.EditBox)
-ApplySearchBox(LFGListFrame.EntryCreation.Name)
-ApplySearchBox(LFGListFrame.EntryCreation.PvpItemLevel.EditBox)
-ApplySearchBox(LFGListFrame.EntryCreation.PVPRating.EditBox)
-ApplySearchBox(LFGListFrame.SearchPanel.SearchBox)
-
 ApplyDropDown(LFDQueueFrameTypeDropdown)
 ApplyDropDown(RaidFinderQueueFrameSelectionDropdown)
 ApplyDropDown(LFGListEntryCreationGroupDropdown)

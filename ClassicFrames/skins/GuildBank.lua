@@ -39,7 +39,5 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarArrow(GuildBankInfoScrollFrame.ScrollBar)
 		ApplyScrollBarTrack(GuildBankInfoScrollFrame.ScrollBar.Track)
 		ApplyScrollBarThumb(GuildBankInfoScrollFrame.ScrollBar.Track.Thumb)
-
-		ApplySearchBox(GuildItemSearchBox)
 	end
 end)

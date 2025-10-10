@@ -23,5 +23,3 @@ CooldownViewerSettings.CooldownScroll.ScrollBar:SetPoint("BOTTOMLEFT", CooldownV
 ApplyScrollBarArrow(CooldownViewerSettings.CooldownScroll.ScrollBar)
 ApplyScrollBarTrack(CooldownViewerSettings.CooldownScroll.ScrollBar.Track)
 ApplyScrollBarThumb(CooldownViewerSettings.CooldownScroll.ScrollBar.Track.Thumb)
-
-ApplySearchBox(CooldownViewerSettings.SearchBox)

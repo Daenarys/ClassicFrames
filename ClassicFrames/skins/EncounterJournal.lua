@@ -329,6 +329,5 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(EncounterJournalEncounterFrameInfo.LootContainer.filter)
 		ApplyDropDown(EncounterJournalEncounterFrameInfo.LootContainer.slotFilter)
 		ApplyDropDown(EncounterJournalEncounterFrameInfoDifficulty)
-		ApplySearchBox(EncounterJournalSearchBox)
 	end
 end)

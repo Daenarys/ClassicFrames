@@ -46,8 +46,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarArrow(GarrisonMissionFrameFollowers.ScrollBar)
 			ApplyScrollBarTrack(GarrisonMissionFrameFollowers.ScrollBar.Track)
 			ApplyScrollBarThumb(GarrisonMissionFrameFollowers.ScrollBar.Track.Thumb)
-
-			ApplySearchBox(GarrisonMissionFrameFollowers.SearchBox)
 		end
 		if _G.GarrisonRecruiterFrame then
 			ApplyCloseButton(GarrisonRecruiterFrameCloseButton)
@@ -89,8 +87,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:ClearAllPoints()
 			GarrisonShipyardFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 4, 5)
-
-			ApplySearchBox(GarrisonShipyardFrameFollowers.SearchBox)
 		end
 		if _G.OrderHallMissionFrame then
 			ApplyCloseButton(OrderHallMissionFrame.CloseButton)
@@ -143,8 +139,6 @@ f:SetScript("OnEvent", function(self, event, name)
 					OrderHallMissionFrameTab3:SetPoint("LEFT", OrderHallMissionFrameTab2, "RIGHT", -15, 0)
 				end)
 			end
-
-			ApplySearchBox(OrderHallMissionFrameFollowers.SearchBox)
 		end
 		if _G.BFAMissionFrame then
 			ApplyCloseButton(BFAMissionFrame.CloseButton)
@@ -197,8 +191,6 @@ f:SetScript("OnEvent", function(self, event, name)
 					BFAMissionFrameTab3:SetPoint("LEFT", BFAMissionFrameTab2, "RIGHT", -15, 0)
 				end)
 			end
-
-			ApplySearchBox(BFAMissionFrameFollowers.SearchBox)
 		end
 		if _G.CovenantMissionFrame then
 			CovenantMissionFrame.CloseButton:SetSize(32, 32)
@@ -271,8 +263,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarArrow(GarrisonLandingPageFollowerList.ScrollBar)
 			ApplyScrollBarTrack(GarrisonLandingPageFollowerList.ScrollBar.Track)
 			ApplyScrollBarThumb(GarrisonLandingPageFollowerList.ScrollBar.Track.Thumb)
-
-			ApplySearchBox(GarrisonLandingPageFollowerList.SearchBox)
 		end
 		if _G.GarrisonRecruitSelectFrame then
 			ApplyCloseButton(GarrisonRecruitSelectFrame.CloseButton)
@@ -295,8 +285,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarArrow(GarrisonRecruitSelectFrame.FollowerList.ScrollBar)
 			ApplyScrollBarTrack(GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track)
 			ApplyScrollBarThumb(GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track.Thumb)
-
-			ApplySearchBox(GarrisonRecruitSelectFrame.FollowerList.SearchBox)
 		end
 	end
 end)

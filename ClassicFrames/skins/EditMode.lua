@@ -62,8 +62,6 @@ ApplyDialogBorder(EditModeSystemSettingsDialog.Border)
 ApplyDialogBorder(EditModeNewLayoutDialog.Border)
 ApplyDialogBorder(EditModeImportLayoutDialog.Border)
 ApplyDialogBorder(EditModeUnsavedChangesDialog.Border)
-ApplySearchBox(EditModeImportLayoutDialog.LayoutNameEditBox)
-ApplySearchBox(EditModeNewLayoutDialog.LayoutNameEditBox)
 ApplyDropDown(EditModeManagerFrame.LayoutDropdown)
 
 EditModeSystemSettingsDialog:HookScript("OnShow", function(self)

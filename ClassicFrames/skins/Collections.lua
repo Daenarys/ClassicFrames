@@ -92,12 +92,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.Track)
 		ApplyScrollBarThumb(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.Track.Thumb)
 
-		ApplySearchBox(MountJournalSearchBox)
-		ApplySearchBox(PetJournalSearchBox)
-		ApplySearchBox(ToyBox.searchBox)
-		ApplySearchBox(HeirloomsJournalSearchBox)
-		ApplySearchBox(WardrobeCollectionFrameSearchBox)
-
 		ApplyDropDown(HeirloomsJournal.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)

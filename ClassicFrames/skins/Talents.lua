@@ -72,11 +72,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDialogBorder(ClassTalentLoadoutCreateDialog.Border)
 		ApplyDialogBorder(ClassTalentLoadoutImportDialog.Border)
 
-		ApplySearchBox(PlayerSpellsFrame.TalentsFrame.SearchBox)
-		ApplySearchBox(PlayerSpellsFrame.SpellBookFrame.SearchBox)
-		ApplySearchBox(ClassTalentLoadoutCreateDialog.NameControl.EditBox)
-		ApplySearchBox(ClassTalentLoadoutImportDialog.NameControl.EditBox)
-
 		ApplyDropDown(PlayerSpellsFrame.TalentsFrame.LoadSystem.Dropdown)
 
 		ApplyCloseButton(HeroTalentsSelectionDialog.CloseButton)

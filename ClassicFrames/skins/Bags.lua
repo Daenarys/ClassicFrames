@@ -35,10 +35,6 @@ if ContainerFrame1MoneyFrame.Border then
 	ContainerFrame1MoneyFrame.Border:Hide()
 end
 
-if BagItemSearchBox then
-	ApplySearchBox(BagItemSearchBox)
-end
-
 for i = 1, _G.NUM_CONTAINER_FRAMES do
 	_G['ContainerFrame'..i].NineSlice:Hide()
 	_G['ContainerFrame'..i].Bg:Hide()

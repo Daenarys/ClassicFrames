@@ -32,6 +32,5 @@ if (StableFrame.StabledPetList.ScrollBar.BG == nil) then
 	StableFrame.StabledPetList.ScrollBar.BG:SetAllPoints()
 end
 
-ApplySearchBox(StableFrame.StabledPetList.FilterBar.SearchBox)
 ApplyDropDown(StableFrame.PetModelScene.PetInfo.Specialization)
 ApplyFilterDropDown(StableFrame.StabledPetList.FilterBar.FilterDropdown)
