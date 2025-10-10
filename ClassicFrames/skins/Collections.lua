@@ -47,6 +47,12 @@ f:SetScript("OnEvent", function(self, event, name)
 			end)
 		end
 
+		WarbandSceneJournal.IconsFrame.Icons.Controls.ShowOwned.Checkbox:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+		WarbandSceneJournal.IconsFrame.Icons.Controls.ShowOwned.Checkbox:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+		WarbandSceneJournal.IconsFrame.Icons.Controls.ShowOwned.Checkbox:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+		WarbandSceneJournal.IconsFrame.Icons.Controls.ShowOwned.Checkbox:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+		WarbandSceneJournal.IconsFrame.Icons.Controls.ShowOwned.Checkbox:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
+
 		MountJournal.ScrollBar:SetSize(25, 560)
 		MountJournal.ScrollBar:ClearAllPoints()
 		MountJournal.ScrollBar:SetPoint("TOPLEFT", MountJournal.ScrollBox, "TOPRIGHT", 1, 36)
