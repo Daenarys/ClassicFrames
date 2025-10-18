@@ -54,6 +54,7 @@ skins\GuildBank.lua
 skins\GuildPetition.lua
 skins\Help.lua
 skins\HelpTip.lua
+skins\Housing.lua
 skins\Inspect.lua
 skins\IslandsQueue.lua
 skins\ItemRefTooltip.lua
