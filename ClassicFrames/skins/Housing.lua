@@ -26,6 +26,7 @@ a:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar.Track)
 		ApplyScrollBarThumb(HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar.Track.Thumb)
 
+		ApplyDropDown(HousingDashboardFrame.HouseInfoContent.HouseDropdown)
 		ApplyFilterDropDown(HousingDashboardFrame.CatalogContent.Filters.FilterDropdown)
 	end
 end)
