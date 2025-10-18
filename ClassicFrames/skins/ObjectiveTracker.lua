@@ -1,9 +1,5 @@
 if not _G.ObjectiveTrackerFrame then return end
 
-if ObjectiveTrackerFrame.Header then
-	ObjectiveTrackerFrame.Header:Hide()
-end
-
 local function SetCollapsed(self, collapsed)
 	self.MinimizeButton:SetNormalTexture("Interface\\Buttons\\QuestTrackerButtons")
 	self.MinimizeButton:SetPushedTexture("Interface\\Buttons\\QuestTrackerButtons")
@@ -41,9 +37,9 @@ for _, tracker in pairs(trackers) do
 	tracker.ContentsFrame:SetPoint("RIGHT", -8, 0)
 end
 
-hooksecurefunc(ObjectiveTrackerFrame, "Update", function(self)
-	if not self.modules then
-		return
+hooksecurefunc(ObjectiveTrackerFrame, "Show", function(self)
+	if self.Header then
+		self.Header:Hide()
 	end
 
 	local prevModule = nil
