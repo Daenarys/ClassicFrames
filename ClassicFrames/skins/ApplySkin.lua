@@ -433,9 +433,7 @@ function ApplyFilterDropDown(frame)
 		frame.Icon:SetPoint("RIGHT", -5, 0)
 	end
 
-	frame.Text:SetFontObject(GameFontHighlightSmall)
-	frame.Text:ClearAllPoints()
-	frame.Text:SetPoint("CENTER", 0, -1)
+	frame.Text:SetTextColor(VERY_LIGHT_GRAY_COLOR:GetRGB())
 
 	frame:SetHighlightTexture("Interface\\Buttons\\UI-Silver-Button-Highlight", "ADD")
 	frame:GetHighlightTexture():SetTexCoord(0, 1, 0.03, 0.7175)
