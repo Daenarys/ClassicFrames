@@ -56,6 +56,15 @@ local c = CreateFrame("Frame")
 c:RegisterEvent("ADDON_LOADED")
 c:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_HousingCornerstone" then
+		if HousingCornerstonePurchaseFrame then
+			HousingCornerstonePurchaseFrameCloseButton:SetSize(32, 32)
+			HousingCornerstonePurchaseFrameCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
+			HousingCornerstonePurchaseFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
+			HousingCornerstonePurchaseFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
+			HousingCornerstonePurchaseFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+			HousingCornerstonePurchaseFrameCloseButton:ClearAllPoints()
+			HousingCornerstonePurchaseFrameCloseButton:SetPoint("TOPRIGHT", 5, 5)
+		end
 		if HousingCornerstoneVisitorFrame then
 			HousingCornerstoneVisitorFrameCloseButton:SetSize(32, 32)
 			HousingCornerstoneVisitorFrameCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
@@ -63,7 +72,7 @@ c:SetScript("OnEvent", function(self, event, name)
 			HousingCornerstoneVisitorFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 			HousingCornerstoneVisitorFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 			HousingCornerstoneVisitorFrameCloseButton:ClearAllPoints()
-			HousingCornerstoneVisitorFrameCloseButton:SetPoint("TOPRIGHT", 4, 4)
+			HousingCornerstoneVisitorFrameCloseButton:SetPoint("TOPRIGHT", 5, 5)
 		end
 	end
 end)
