@@ -20,7 +20,7 @@ PVEFrameTab2:SetPoint("LEFT", PVEFrameTab1, "RIGHT", -16, 0)
 PVEFrameTab3:ClearAllPoints()
 PVEFrameTab3:SetPoint("LEFT", PVEFrameTab2, "RIGHT", -16, 0)
 
-for i = 1, 4 do
+for i = 1, 3 do
 	ApplyBottomTab(_G['PVEFrameTab'..i])
 
 	_G["PVEFrameTab"..i]:HookScript("OnShow", function(self)
@@ -29,18 +29,7 @@ for i = 1, 4 do
 end
 
 GroupFinderFrame:HookScript("OnShow", function()
-	SetPortraitToTexture(PVEFramePortrait, "Interface\\LFGFrame\\UI-LFG-PORTRAIT")
-end)
-
-PVEFrame:HookScript("OnShow", function(self)
-	if self.tab4:IsShown() then
-		self.tab4:ClearAllPoints()
-		if self.tab2:IsShown() and not self.tab3:IsShown() then
-			self.tab4:SetPoint("LEFT", self.tab2, "RIGHT", -16, 0)
-		elseif self.tab2:IsShown() and self.tab3:IsShown() then
-			self.tab4:SetPoint("LEFT", self.tab3, "RIGHT", -16, 0)
-		end
-	end
+	PVEFrame:GetPortrait():SetTexture("Interface\\LFGFrame\\UI-LFG-PORTRAIT")
 end)
 
 LFDQueueFrameRandomScrollFrame.ScrollBar:SetSize(25, 560)
