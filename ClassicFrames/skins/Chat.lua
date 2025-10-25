@@ -16,7 +16,6 @@ for i = 1, NUM_CHAT_WINDOWS do
         ChatFrameButtonFrameUpButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollUp-Disabled")
         ChatFrameButtonFrameUpButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
         MessageFrameScrollButtonMixin.OnLoad(ChatFrameButtonFrameUpButton)
-        MessageFrameScrollButtonMixin.OnUpdate(ChatFrameButtonFrameUpButton)
         ChatFrameButtonFrameUpButton:SetScript("OnClick", function(self, button)
             if (self:GetButtonState() == "PUSHED") then
                 self.clickDelay = MESSAGE_SCROLLBUTTON_INITIAL_DELAY
@@ -36,7 +35,6 @@ for i = 1, NUM_CHAT_WINDOWS do
         ChatFrameButtonFrameDownButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Disabled")
         ChatFrameButtonFrameDownButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
         MessageFrameScrollButtonMixin.OnLoad(ChatFrameButtonFrameDownButton)
-        MessageFrameScrollButtonMixin.OnUpdate(ChatFrameButtonFrameDownButton)
         ChatFrameButtonFrameDownButton:SetScript("OnClick", function(self, button)
             if (self:GetButtonState() == "PUSHED") then
                 self.clickDelay = MESSAGE_SCROLLBUTTON_INITIAL_DELAY
@@ -60,7 +58,6 @@ for i = 1, NUM_CHAT_WINDOWS do
         ChatFrameButtonFrameBottomButtonFlash:SetAllPoints(ChatFrameButtonFrameBottomButton)
         ChatFrameButtonFrameBottomButtonFlash:Hide()
         MessageFrameScrollButtonMixin.OnLoad(ChatFrameButtonFrameBottomButton)
-        MessageFrameScrollButtonMixin.OnUpdate(ChatFrameButtonFrameBottomButton)
         ChatFrameButtonFrameBottomButton:SetScript("OnClick", function(self, button)
             if not (self:GetButtonState() == "PUSHED") then
                 PlaySound(SOUNDKIT.IG_CHAT_BOTTOM)
