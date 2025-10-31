@@ -60,6 +60,9 @@ f:SetScript("OnEvent", function(self, event, name)
 		ConquestFrame.TankIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 
 		ApplyDropDown(HonorFrameTypeDropdown)
+
+		HonorFrameTypeDropdown.Text:SetJustifyH("RIGHT")
+		HonorFrameTypeDropdown.Text:SetPoint("TOPLEFT", 9, -7)
 	end
 end)
 
