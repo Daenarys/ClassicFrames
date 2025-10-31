@@ -68,7 +68,6 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function
 	block.FinalBG:SetAtlas("ScenarioTrackerToast-FinalFiligree", true)
 	block.FinalBG:ClearAllPoints()
 	block.FinalBG:SetPoint("TOPLEFT", 4, -5)
-	block.Stage:SetFontObject("QuestTitleFont")
 	if bit.band(flags, SCENARIO_FLAG_SUPRESS_STAGE_TEXT) == SCENARIO_FLAG_SUPRESS_STAGE_TEXT then
 		block.Stage:SetSize(172, 36)
 		block.Stage:SetPoint("TOPLEFT", 14, -19)
