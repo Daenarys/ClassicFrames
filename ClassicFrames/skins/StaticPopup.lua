@@ -5,7 +5,7 @@ for i = 1, 4 do
 
 	if (_G["StaticPopup"..i].BG.Bg == nil) then
 		_G["StaticPopup"..i].BG.Bg = _G["StaticPopup"..i].BG:CreateTexture(nil, "BACKGROUND")
-		_G["StaticPopup"..i].BG.Bg:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Background")
+		_G["StaticPopup"..i].BG.Bg:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Background-Dark")
 		_G["StaticPopup"..i].BG.Bg:SetPoint("TOPLEFT", _G["StaticPopup"..i].BG, "TOPLEFT", 7, -7)
 		_G["StaticPopup"..i].BG.Bg:SetPoint("BOTTOMRIGHT", _G["StaticPopup"..i].BG, "BOTTOMRIGHT", -7, 7)
 	end
