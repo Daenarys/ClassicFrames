@@ -37,7 +37,7 @@ for _, tracker in pairs(trackers) do
 	tracker.ContentsFrame:SetPoint("RIGHT", -8, 0)
 end
 
-hooksecurefunc(ObjectiveTrackerFrame, "Show", function(self)
+hooksecurefunc(ObjectiveTrackerFrameMixin, "Update", function(self)
 	if self.Header then
 		self.Header:Hide()
 	end

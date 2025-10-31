@@ -90,9 +90,6 @@ d:SetScript("OnEvent", function(self, event, name)
 		HousingHouseSettingsFrame.CloseButton:SetPoint("TOPRIGHT", -4, -4)
 
 		ApplyDropDown(HousingHouseSettingsFrame.HouseOwnerDropdown)
-		ApplyFilterDropDown(HousingHouseSettingsFrame.PlotAccess.AccessTypeDropdown)
-		ApplyFilterDropDown(HousingHouseSettingsFrame.HouseAccess.AccessTypeDropdown)
-
 	end
 end)
 
