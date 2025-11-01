@@ -42,5 +42,6 @@ hooksecurefunc("FCFTab_UpdateAlpha", function(chatFrame)
 end)
 
 _G.FriendsMicroButton:HookScript("OnUpdate", function(self)
-    self:SetPoint("TOP")
+    self:ClearAllPoints()
+    self:SetPoint("TOPRIGHT", ChatFrame1Background, "TOPLEFT", 0, 32)
 end)
