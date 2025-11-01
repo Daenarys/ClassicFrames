@@ -41,6 +41,7 @@ skins\ScriptError.lua
 skins\SettingsPanel.lua
 skins\SpellBook.lua
 skins\Stable.lua
+skins\StaticPopup.lua
 skins\Tabard.lua
 skins\Talents.lua
 skins\TimeManager.lua
