@@ -1,6 +1,6 @@
-local a = CreateFrame("Frame")
-a:RegisterEvent("ADDON_LOADED")
-a:SetScript("OnEvent", function(self, event, name)
+local f = CreateFrame("Frame")
+f:RegisterEvent("ADDON_LOADED")
+f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_HousingDashboard" then
 		ApplyCloseButton(HousingDashboardFrameCloseButton)
 
@@ -28,13 +28,7 @@ a:SetScript("OnEvent", function(self, event, name)
 
 		ApplyDropDown(HousingDashboardFrame.HouseInfoContent.HouseDropdown)
 		ApplyFilterDropDown(HousingDashboardFrame.CatalogContent.Filters.FilterDropdown)
-	end
-end)
-
-local b = CreateFrame("Frame")
-b:RegisterEvent("ADDON_LOADED")
-b:SetScript("OnEvent", function(self, event, name)
-	if name == "Blizzard_HousingHouseFinder" then
+	elseif name == "Blizzard_HousingHouseFinder" then
 		ApplyCloseButton(HouseFinderFrameCloseButton)
 
 		HouseFinderFrame.PortraitContainer.CircleMask:Hide()
@@ -49,54 +43,9 @@ b:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(HouseFinderFrame)
 		ApplyNineSlicePortrait(HouseFinderFrame)
-	end
-end)
-
-local c = CreateFrame("Frame")
-c:RegisterEvent("ADDON_LOADED")
-c:SetScript("OnEvent", function(self, event, name)
-	if name == "Blizzard_HousingCornerstone" then
-		if HousingCornerstonePurchaseFrame then
-			HousingCornerstonePurchaseFrameCloseButton:SetSize(32, 32)
-			HousingCornerstonePurchaseFrameCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-			HousingCornerstonePurchaseFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			HousingCornerstonePurchaseFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			HousingCornerstonePurchaseFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-			HousingCornerstonePurchaseFrameCloseButton:ClearAllPoints()
-			HousingCornerstonePurchaseFrameCloseButton:SetPoint("TOPRIGHT", 5, 5)
-		end
-		if HousingCornerstoneVisitorFrame then
-			HousingCornerstoneVisitorFrameCloseButton:SetSize(32, 32)
-			HousingCornerstoneVisitorFrameCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-			HousingCornerstoneVisitorFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			HousingCornerstoneVisitorFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			HousingCornerstoneVisitorFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-			HousingCornerstoneVisitorFrameCloseButton:ClearAllPoints()
-			HousingCornerstoneVisitorFrameCloseButton:SetPoint("TOPRIGHT", 5, 5)
-		end
-	end
-end)
-
-local d = CreateFrame("Frame")
-d:RegisterEvent("ADDON_LOADED")
-d:SetScript("OnEvent", function(self, event, name)
-	if name == "Blizzard_HousingHouseSettings" then
-		HousingHouseSettingsFrame.CloseButton:SetSize(32, 32)
-		HousingHouseSettingsFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-		HousingHouseSettingsFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-		HousingHouseSettingsFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-		HousingHouseSettingsFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-		HousingHouseSettingsFrame.CloseButton:ClearAllPoints()
-		HousingHouseSettingsFrame.CloseButton:SetPoint("TOPRIGHT", -4, -4)
-
+	elseif name == "Blizzard_HousingHouseSettings" then
 		ApplyDropDown(HousingHouseSettingsFrame.HouseOwnerDropdown)
-	end
-end)
-
-local e = CreateFrame("Frame")
-e:RegisterEvent("ADDON_LOADED")
-e:SetScript("OnEvent", function(self, event, name)
-	if name == "Blizzard_HouseEditor" then
+	elseif name == "Blizzard_HouseEditor" then
 		HouseEditorFrame.StoragePanel.OptionsContainer.ScrollBar:SetSize(25, 560)
 		HouseEditorFrame.StoragePanel.OptionsContainer.ScrollBar:ClearAllPoints()
 		HouseEditorFrame.StoragePanel.OptionsContainer.ScrollBar:SetPoint("TOPLEFT", HouseEditorFrame.StoragePanel.OptionsContainer.ScrollBox, "TOPRIGHT", -2, 2)
