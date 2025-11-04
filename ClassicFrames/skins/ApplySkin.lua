@@ -439,8 +439,4 @@ function ApplyFilterDropDown(frame)
 
 	frame:SetHighlightTexture("Interface\\Buttons\\UI-Silver-Button-Highlight", "ADD")
 	frame:GetHighlightTexture():SetTexCoord(0, 1, 0.03, 0.7175)
-
-	frame:HookScript("OnEnable", function(self)
-		self.Text:SetFontObject(GameFontHighlightSmall)
-	end)
 end
