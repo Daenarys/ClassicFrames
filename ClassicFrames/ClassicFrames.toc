@@ -1,4 +1,4 @@
-## Interface: 110205
+## Interface: 110207
 ## IconTexture: Interface/Icons/INV_Sword_2H_AshbringerCorrupt
 ## Title: Classic Frames
 ## Notes: Restores the classic UI and Unit Frames
@@ -53,6 +53,7 @@ skins\GuildBank.lua
 skins\GuildPetition.lua
 skins\Help.lua
 skins\HelpTip.lua
+skins\Housing.lua
 skins\Inspect.lua
 skins\IslandsQueue.lua
 skins\ItemRefTooltip.lua
