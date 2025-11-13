@@ -28,6 +28,28 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyDropDown(HousingDashboardFrame.HouseInfoContent.HouseDropdown)
 		ApplyFilterDropDown(HousingDashboardFrame.CatalogContent.Filters.FilterDropdown)
+	elseif name == "Blizzard_HousingBulletinBoard" then
+		HousingBulletinBoardFrame.ResidentsTab.ScrollBar:SetSize(25, 560)
+		HousingBulletinBoardFrame.ResidentsTab.ScrollBar:ClearAllPoints()
+		HousingBulletinBoardFrame.ResidentsTab.ScrollBar:SetPoint("TOPLEFT", HousingBulletinBoardFrame.ResidentsTab, "TOPRIGHT", -31, -108)
+		HousingBulletinBoardFrame.ResidentsTab.ScrollBar:SetPoint("BOTTOMLEFT", HousingBulletinBoardFrame.ResidentsTab, "BOTTOMRIGHT", -31, 43)
+
+		if (HousingBulletinBoardFrame.ResidentsTab.ScrollBar.BG == nil) then
+			HousingBulletinBoardFrame.ResidentsTab.ScrollBar.BG = HousingBulletinBoardFrame.ResidentsTab.ScrollBar:CreateTexture(nil, "BACKGROUND")
+			HousingBulletinBoardFrame.ResidentsTab.ScrollBar.BG:SetColorTexture(0, 0, 0, .1)
+			HousingBulletinBoardFrame.ResidentsTab.ScrollBar.BG:SetAllPoints()
+		end
+
+		HousingBulletinBoardFrame.ResidentsTab.ScrollBar.Track:ClearAllPoints()
+		HousingBulletinBoardFrame.ResidentsTab.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
+		HousingBulletinBoardFrame.ResidentsTab.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
+
+		HousingBulletinBoardFrame.ResidentsTab.ScrollBar.Track.Begin:Hide()
+		HousingBulletinBoardFrame.ResidentsTab.ScrollBar.Track.End:Hide()
+		HousingBulletinBoardFrame.ResidentsTab.ScrollBar.Track.Middle:Hide()
+
+		ApplyScrollBarArrow(HousingBulletinBoardFrame.ResidentsTab.ScrollBar)
+		ApplyScrollBarThumb(HousingBulletinBoardFrame.ResidentsTab.ScrollBar.Track.Thumb)
 	elseif name == "Blizzard_HousingHouseFinder" then
 		ApplyCloseButton(HouseFinderFrameCloseButton)
 
