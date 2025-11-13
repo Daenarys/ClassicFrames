@@ -100,6 +100,7 @@ skins\Torghast.lua
 skins\TotemFrame.lua
 skins\Trade.lua
 skins\TradingPost.lua
+skins\TurnStrafe.lua
 skins\UIWidget.lua
 skins\Wardrobe.lua
 skins\WorkOrders.lua
