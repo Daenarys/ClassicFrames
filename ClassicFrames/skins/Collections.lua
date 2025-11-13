@@ -36,10 +36,11 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end)
 
-		CollectionsJournalTab6:ClearAllPoints()
-		CollectionsJournalTab6:SetPoint("LEFT", CollectionsJournalTab5, "RIGHT", -16, 0)
+		if CollectionsJournalTab6 then
+			CollectionsJournalTab6:Hide()
+		end
 
-		for i = 1,6 do
+		for i = 1,5 do
 			ApplyBottomTab(_G['CollectionsJournalTab'..i])
 
 			_G["CollectionsJournalTab"..i]:HookScript("OnShow", function(self)
@@ -102,5 +103,18 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyFilterDropDown(ToyBox.FilterDropdown)
 		ApplyFilterDropDown(HeirloomsJournal.FilterDropdown)
 		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
+
+		hooksecurefunc(WardrobeCollectionFrame, "SetContainer", function(self, parent)
+			if parent == CollectionsJournal then
+				self.ItemsCollectionFrame.ModelR1C1:SetPoint("TOP", -238, -85)
+				self.ItemsCollectionFrame.PagingFrame:SetPoint("BOTTOM", 22, 38)
+				self.ItemsCollectionFrame.SlotsFrame:SetPoint("TOPLEFT", 18, -20)
+				self.ItemsCollectionFrame.WeaponDropdown:SetPoint("TOPRIGHT", -20, -23)
+			end
+		end)
+
+		hooksecurefunc(WardrobeCollectionFrame, "SetTab", function(self)
+			self.ClassDropdown:Hide()
+		end)
 	end
 end)
