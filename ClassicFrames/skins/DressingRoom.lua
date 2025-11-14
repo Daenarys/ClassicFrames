@@ -58,7 +58,7 @@ SideDressUpFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-Minim
 SideDressUpFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 SideDressUpFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 
-ApplyDropDown(DressUpFrameOutfitDropdown)
+ApplyDropDown(DressUpFrameCustomSetDropdown)
 
 DressUpFrame.ModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self:SetPoint("TOP")
