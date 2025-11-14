@@ -11,6 +11,15 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(HonorFrame.SpecificScrollBar.Track)
 		ApplyScrollBarThumb(HonorFrame.SpecificScrollBar.Track.Thumb)
 
+		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetSize(25, 560)
+		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:ClearAllPoints()
+		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetPoint("TOPLEFT", TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBox, "TOPRIGHT", -2, 3)
+		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetPoint("BOTTOMLEFT", TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBox, "BOTTOMRIGHT", 1, -1)
+
+		ApplyScrollBarArrow(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar)
+		ApplyScrollBarTrack(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar.Track)
+		ApplyScrollBarThumb(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar.Track.Thumb)
+
 		for _, roleButton in pairs({
 			_G.HonorFrame.RoleList.DPSIcon,
 			_G.HonorFrame.RoleList.HealerIcon,
