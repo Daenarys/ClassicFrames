@@ -19,6 +19,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(EncounterJournal)
 		ApplyNineSlicePortrait(EncounterJournal)
 
+		ApplyBottomTab(EncounterJournalJourneysTab)
 		ApplyBottomTab(EncounterJournalMonthlyActivitiesTab)
 		ApplyBottomTab(EncounterJournalSuggestTab)
 		ApplyBottomTab(EncounterJournalDungeonTab)
@@ -27,8 +28,14 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyBottomTab(EncounterJournal.TutorialsTab)
 
 		EncounterJournal:HookScript("OnShow", function(self)
+			EncounterJournalMonthlyActivitiesTab:ClearAllPoints()
+			EncounterJournalMonthlyActivitiesTab:SetPoint("LEFT", EncounterJournalJourneysTab, "RIGHT", -15, 0)
 			EncounterJournalSuggestTab:ClearAllPoints()
-			EncounterJournalSuggestTab:SetPoint("LEFT", EncounterJournalMonthlyActivitiesTab, "RIGHT", -15, 0)
+			if EncounterJournalMonthlyActivitiesTab:IsShown() then
+				EncounterJournalSuggestTab:SetPoint("LEFT", EncounterJournalMonthlyActivitiesTab, "RIGHT", -15, 0)
+			else
+				EncounterJournalSuggestTab:SetPoint("LEFT", EncounterJournalJourneysTab, "RIGHT", -15, 0)
+			end
 			EncounterJournalDungeonTab:ClearAllPoints()
 			if PlayerIsTimerunning() then
 				EncounterJournalDungeonTab:SetPoint("LEFT", EncounterJournalMonthlyActivitiesTab, "RIGHT", -15, 0)
@@ -42,6 +49,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournal.TutorialsTab:ClearAllPoints()
 			EncounterJournal.TutorialsTab:SetPoint("LEFT", EncounterJournalLootJournalTab, "RIGHT", -15, 0)
 
+			EncounterJournalJourneysTab:SetWidth(40 + EncounterJournalJourneysTab:GetFontString():GetStringWidth())
 			EncounterJournalMonthlyActivitiesTab:SetWidth(40 + EncounterJournalMonthlyActivitiesTab:GetFontString():GetStringWidth())
 			EncounterJournalSuggestTab:SetWidth(40 + EncounterJournalSuggestTab:GetFontString():GetStringWidth())
 			EncounterJournalDungeonTab:SetWidth(40 + EncounterJournalDungeonTab:GetFontString():GetStringWidth())
@@ -72,6 +80,26 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarArrow(EncounterJournalSearchResults.ScrollBar)
 		ApplyScrollBarTrack(EncounterJournalSearchResults.ScrollBar.Track)
 		ApplyScrollBarThumb(EncounterJournalSearchResults.ScrollBar.Track.Thumb)
+
+		EncounterJournalJourneysFrame.ScrollBar:SetWidth(20)
+
+		EncounterJournalJourneysFrame.ScrollBar.Track.Begin:Hide()
+		EncounterJournalJourneysFrame.ScrollBar.Track.End:Hide()
+		EncounterJournalJourneysFrame.ScrollBar.Track.Middle:Hide()
+
+		ApplyScrollBarThumb(EncounterJournalJourneysFrame.ScrollBar.Track.Thumb)
+
+		EncounterJournalJourneysFrame.ScrollBar.Back:SetSize(18, 16)
+		EncounterJournalJourneysFrame.ScrollBar.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
+		EncounterJournalJourneysFrame.ScrollBar.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
+		EncounterJournalJourneysFrame.ScrollBar.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
+		EncounterJournalJourneysFrame.ScrollBar.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
+
+		EncounterJournalJourneysFrame.ScrollBar.Forward:SetSize(18, 16)
+		EncounterJournalJourneysFrame.ScrollBar.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
+		EncounterJournalJourneysFrame.ScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
+		EncounterJournalJourneysFrame.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
+		EncounterJournalJourneysFrame.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
 		
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar:SetWidth(20)
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar:ClearAllPoints()
