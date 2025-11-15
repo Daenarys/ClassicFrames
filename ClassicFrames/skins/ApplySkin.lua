@@ -295,16 +295,6 @@ end
 function ApplyTopTabNew(frame)
 	frame:SetHeight(32)
 
-	frame.Left:SetAlpha(0)
-	frame.LeftActive:SetAlpha(0)
-	frame.LeftHighlight:SetAlpha(0)
-	frame.Right:SetAlpha(0)
-	frame.RightActive:SetAlpha(0)
-	frame.RightHighlight:SetAlpha(0)
-	frame.Middle:SetAlpha(0)
-	frame.MiddleActive:SetAlpha(0)
-	frame.MiddleHighlight:SetAlpha(0)
-
 	if (frame.LeftDisabled == nil) then
 		frame.LeftDisabled = frame:CreateTexture(nil, "BACKGROUND")
 		frame.LeftDisabled:SetSize(16, 32)
@@ -357,6 +347,10 @@ function ApplyTopTabNew(frame)
 		frame.CfMiddle:SetPoint("TOPRIGHT", frame.CfRight, "TOPLEFT")
 	end
 
+	frame.LeftHighlight:Hide()
+	frame.MiddleHighlight:Hide()
+	frame.RightHighlight:Hide()
+
 	frame:SetHighlightTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-Highlight")
 	frame:GetHighlightTexture():ClearAllPoints()
 	frame:GetHighlightTexture():SetPoint("TOPLEFT", 0, -5)
@@ -367,6 +361,13 @@ function ApplyTopTabNew(frame)
 
 	hooksecurefunc(frame, "SetTabSelected", function(frame, isSelected)
 		frame.isSelected = isSelected
+
+		frame.Left:Hide()
+		frame.Middle:Hide()
+		frame.Right:Hide()
+		frame.LeftActive:Hide()
+		frame.RightActive:Hide()
+		frame.MiddleActive:Hide()
 
 		frame.CfLeft:SetShown(not isSelected)
 		frame.CfMiddle:SetShown(not isSelected)
