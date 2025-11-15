@@ -92,6 +92,8 @@ ApplyScrollBarArrow(FriendsFrame.IgnoreListWindow.ScrollBar)
 ApplyScrollBarTrack(FriendsFrame.IgnoreListWindow.ScrollBar.Track)
 ApplyScrollBarThumb(FriendsFrame.IgnoreListWindow.ScrollBar.Track.Thumb)
 
+ApplyDialogBorder(FriendsFrameBattlenetFrame.BroadcastFrame.Border)
+
 RecentAlliesFrame.List.ScrollBar:SetSize(25, 560)
 RecentAlliesFrame.List.ScrollBar:ClearAllPoints()
 RecentAlliesFrame.List.ScrollBar:SetPoint("TOPLEFT", RecentAlliesFrame.List.ScrollBox, "TOPRIGHT", -2, 1)
@@ -132,8 +134,6 @@ ApplyDialogBorder(RecruitAFriendRewardsFrame.Border)
 
 WhoFrameColumnHeader4Middle:SetWidth(48)
 
-WhoFrameDropdown:SetPoint("TOPLEFT", 0, -2)
-
 WhoFrame.ScrollBar:SetSize(25, 560)
 WhoFrame.ScrollBar:ClearAllPoints()
 WhoFrame.ScrollBar:SetPoint("TOPLEFT", WhoFrame.ScrollBox, "TOPRIGHT", -2, 1)
@@ -161,7 +161,6 @@ AddFriendFrame.CloseButton:ClearAllPoints()
 AddFriendFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
 
 ApplyDialogBorder(AddFriendFrame.Border)
-ApplyDialogBorder(FriendsFrameBattlenetFrame.BroadcastFrame.Border)
 
 RaidInfoFrame.ScrollBar:SetSize(25, 560)
 RaidInfoFrame.ScrollBar:ClearAllPoints()
@@ -196,3 +195,10 @@ RaidFrame.RoleCount.DamagerIcon:SetAtlas("groupfinder-icon-role-large-dps")
 
 ApplyDropDown(FriendsFrameStatusDropdown)
 ApplyDropDown(WhoFrameDropdown)
+
+FriendsFrameStatusDropdown:SetWidth(43)
+FriendsFrameStatusDropdown:SetPoint("RIGHT", FriendsFrameBattlenetFrame, "LEFT", -5, 0)
+FriendsFrameStatusDropdown.Text:ClearAllPoints()
+FriendsFrameStatusDropdown.Text:SetPoint("CENTER", -7, -2)
+
+WhoFrameDropdown:SetPoint("TOPLEFT", 0, -2)
