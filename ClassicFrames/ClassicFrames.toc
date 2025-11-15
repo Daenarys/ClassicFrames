@@ -83,6 +83,7 @@ skins\Quests.lua
 skins\QuickKeybind.lua
 skins\ReadyCheck.lua
 skins\Report.lua
+skins\RPE.lua
 skins\RuneForge.lua
 skins\ScrappingMachine.lua
 skins\ScriptError.lua
