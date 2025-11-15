@@ -48,8 +48,22 @@ for i = 1, 4 do
 	end)
 end
 
+FriendsTabHeader.TabSystem:SetPoint("TOPLEFT", 18, -54)
+
+for i = 1, FriendsTabHeader.TabSystem:GetNumChildren() do
+	local tab = select(i, FriendsTabHeader.TabSystem:GetChildren())
+
+	ApplyTopTabNew(tab)
+end
+
 hooksecurefunc(FriendsTabHeader.TabSystem, 'Layout', function(self)
-	self.tabs[1]:SetWidth(36 + self.tabs[1]:GetFontString():GetStringWidth())
+	self.tabs[1]:SetWidth(31 + self.tabs[1]:GetFontString():GetStringWidth())
+	self.tabs[2]:SetWidth(29 + self.tabs[2]:GetFontString():GetStringWidth())
+	self.tabs[2]:ClearAllPoints()
+	self.tabs[2]:SetPoint("LEFT", self.tabs[1], "RIGHT")
+	self.tabs[3]:SetWidth(32 + self.tabs[3]:GetFontString():GetStringWidth())
+	self.tabs[3]:ClearAllPoints()
+	self.tabs[3]:SetPoint("LEFT", self.tabs[2], "RIGHT")
 end)
 
 FriendsListFrame.ScrollBar:SetSize(25, 560)

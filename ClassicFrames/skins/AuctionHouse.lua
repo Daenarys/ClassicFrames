@@ -32,6 +32,17 @@ f:SetScript("OnEvent", function(self, event, name)
 			AuctionHouseFrameAuctionsTab:SetWidth(63 + AuctionHouseFrameAuctionsTab:GetFontString():GetStringWidth())
 		end)
 
+		ApplyTopTab(AuctionHouseFrameAuctionsFrameAuctionsTab)
+		ApplyTopTab(AuctionHouseFrameAuctionsFrameBidsTab)
+
+		AuctionHouseFrameAuctionsFrameAuctionsTab:HookScript("OnShow", function(self)
+			self:SetWidth(55 + self:GetFontString():GetStringWidth())
+		end)
+
+		AuctionHouseFrameAuctionsFrameBidsTab:HookScript("OnShow", function(self)
+			self:SetWidth(78 + self:GetFontString():GetStringWidth())
+		end)
+
 		AuctionHouseFrame.CategoriesList.ScrollBar:SetSize(25, 560)
 		AuctionHouseFrame.CategoriesList.ScrollBar:ClearAllPoints()
 		AuctionHouseFrame.CategoriesList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrame.CategoriesList.ScrollBox, "TOPRIGHT", -1, 3)

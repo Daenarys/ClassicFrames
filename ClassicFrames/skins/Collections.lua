@@ -48,6 +48,21 @@ f:SetScript("OnEvent", function(self, event, name)
 			end)
 		end
 
+		WardrobeCollectionFrameTab2:ClearAllPoints()
+		WardrobeCollectionFrameTab2:SetPoint("LEFT", WardrobeCollectionFrameTab1, "RIGHT")
+
+		for i = 1, 2 do
+			ApplyTopTab(_G['WardrobeCollectionFrameTab'..i])
+
+			_G["WardrobeCollectionFrameTab"..i]:HookScript("OnShow", function(self)
+				if _G["WardrobeCollectionFrameTab"..i] == WardrobeCollectionFrameTab1 then
+					self:SetWidth(58 + self:GetFontString():GetStringWidth())
+				elseif _G["WardrobeCollectionFrameTab"..i] == WardrobeCollectionFrameTab2 then
+					self:SetWidth(66 + self:GetFontString():GetStringWidth())
+				end
+			end)
+		end
+
 		MountJournal.ScrollBar:SetSize(25, 560)
 		MountJournal.ScrollBar:ClearAllPoints()
 		MountJournal.ScrollBar:SetPoint("TOPLEFT", MountJournal.ScrollBox, "TOPRIGHT", 1, 36)
@@ -94,7 +109,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.Track.Thumb)
 
 		ApplyDropDown(HeirloomsJournal.ClassDropdown)
-		ApplyDropDown(WardrobeCollectionFrame.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
 
