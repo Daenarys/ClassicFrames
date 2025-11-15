@@ -6,7 +6,7 @@ for i = 1, NUM_CHAT_WINDOWS do
     -- hide chat window scrollbars
     local b = _G["ChatFrame"..i].ScrollBar b:UnregisterAllEvents() b:SetScript("OnShow", b.Hide) b:Hide()
     local c = _G["ChatFrame"..i].ScrollToBottomButton c:UnregisterAllEvents() c:SetScript("OnShow", c.Hide) c:Hide()
-    
+
     local ChatFrameButtonFrameUpButton = _G["ChatFrame"..i.."ButtonFrameUpButton"]
     if (ChatFrameButtonFrameUpButton == nil) then
         ChatFrameButtonFrameUpButton = CreateFrame("Button", _G["ChatFrame"..i.."ButtonFrameUpButton"], _G["ChatFrame"..i.."ButtonFrame"])
@@ -16,9 +16,9 @@ for i = 1, NUM_CHAT_WINDOWS do
         ChatFrameButtonFrameUpButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollUp-Disabled")
         ChatFrameButtonFrameUpButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
         MessageFrameScrollButtonMixin.OnLoad(ChatFrameButtonFrameUpButton)
-        ChatFrameButtonFrameUpButton:SetScript("OnClick", function(self, button)
+        ChatFrameButtonFrameUpButton:SetScript("OnClick", function(self)
             if (self:GetButtonState() == "PUSHED") then
-                self.clickDelay = MESSAGE_SCROLLBUTTON_INITIAL_DELAY
+                self.clickDelay = MessageFrameScrollButtonConstants.InitialScrollDelay
             else
                 PlaySound(SOUNDKIT.IG_CHAT_SCROLL_UP)
                 self:GetParent():GetParent():ScrollUp()
@@ -35,9 +35,9 @@ for i = 1, NUM_CHAT_WINDOWS do
         ChatFrameButtonFrameDownButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Disabled")
         ChatFrameButtonFrameDownButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
         MessageFrameScrollButtonMixin.OnLoad(ChatFrameButtonFrameDownButton)
-        ChatFrameButtonFrameDownButton:SetScript("OnClick", function(self, button)
+        ChatFrameButtonFrameDownButton:SetScript("OnClick", function(self)
             if (self:GetButtonState() == "PUSHED") then
-                self.clickDelay = MESSAGE_SCROLLBUTTON_INITIAL_DELAY
+                self.clickDelay = MessageFrameScrollButtonConstants.InitialScrollDelay
             else
                 PlaySound(SOUNDKIT.IG_CHAT_SCROLL_DOWN)
                 self:GetParent():GetParent():ScrollDown()
@@ -58,14 +58,14 @@ for i = 1, NUM_CHAT_WINDOWS do
         ChatFrameButtonFrameBottomButtonFlash:SetAllPoints(ChatFrameButtonFrameBottomButton)
         ChatFrameButtonFrameBottomButtonFlash:Hide()
         MessageFrameScrollButtonMixin.OnLoad(ChatFrameButtonFrameBottomButton)
-        ChatFrameButtonFrameBottomButton:SetScript("OnClick", function(self, button)
+        ChatFrameButtonFrameBottomButton:SetScript("OnClick", function(self)
             if not (self:GetButtonState() == "PUSHED") then
                 PlaySound(SOUNDKIT.IG_CHAT_BOTTOM)
                 self:GetParent():GetParent():ScrollToBottom()
             end
         end)
-                
-        ChatFrameButtonFrameBottomButton.func_ChatFrame_OnUpdate = function(self, elapsedSec) 
+       
+        ChatFrameButtonFrameBottomButton.OnUpdate = function(self, elapsedSec) 
             local oldflash = ChatFrameButtonFrameBottomButtonFlash
             local flash = self.ScrollToBottomButton.Flash
             if oldflash and flash then
@@ -94,7 +94,7 @@ for i = 1, NUM_CHAT_WINDOWS do
     ChatFrameButtonFrameBottomButton:SetPoint("BOTTOM", _G["ChatFrame"..i.."ButtonFrame"], "BOTTOM", 0, -7)
     ChatFrameMenuButton:SetPoint("BOTTOM", 0, 87)
 
-    _G["ChatFrame"..i]:HookScript("OnUpdate", ChatFrameButtonFrameBottomButton.func_ChatFrame_OnUpdate)
+    _G["ChatFrame"..i]:HookScript("OnUpdate", ChatFrameButtonFrameBottomButton.OnUpdate)
 end
 
 QuickJoinToastButton:HookScript("OnUpdate", function(self)
