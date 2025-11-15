@@ -30,7 +30,7 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 			self.ButtonFrameEdge:SetPoint("CENTER", self.MaximizeMinimizeFrame, "LEFT", 6, 0)
 		end
 
-		ApplyTitleBg(self)
+		ApplyTitleBgNoPortrait(self)
 		ApplyNineSliceNoPortrait(self)
 
 		self.Chat.ScrollBar:SetSize(25, 560)

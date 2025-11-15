@@ -60,6 +60,12 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end)
 
+		for i = 1, PlayerSpellsFrame.SpellBookFrame.CategoryTabSystem:GetNumChildren() do
+			local tab = select(i, PlayerSpellsFrame.SpellBookFrame.CategoryTabSystem:GetChildren())
+
+			ApplyTopTabNew(tab)
+		end
+
 		hooksecurefunc(PlayerSpellsFrame.SpecFrame, 'UpdateSpecFrame', function(frame)
 			for specContentFrame in frame.SpecContentFramePool:EnumerateActive() do
 				local role = GetSpecializationRole(specContentFrame.specIndex, false, false)

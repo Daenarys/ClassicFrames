@@ -1,7 +1,6 @@
 if not _G.FriendsFrame then return end
 
 FriendsFrame:SetWidth(338)
-WhoFrameColumnHeader1:SetWidth(83)
 
 FriendsFrameBattlenetFrame:ClearAllPoints()
 FriendsFrameBattlenetFrame:SetPoint("TOPLEFT", FriendsTabHeader, "TOPLEFT", 109, -26)
@@ -16,7 +15,7 @@ FriendsFramePortrait:SetPoint("TOPLEFT", -6, 8)
 
 FriendsFrame.TitleContainer:ClearAllPoints()
 FriendsFrame.TitleContainer:SetPoint("TOPLEFT", FriendsFrame, "TOPLEFT", 58, 0)
-FriendsFrame.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame, "TOPRIGHT", -24, 0)
+FriendsFrame.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame, "TOPRIGHT", -58, 0)
 
 ApplyTitleBg(FriendsFrame)
 ApplyNineSlicePortrait(FriendsFrame)
@@ -48,8 +47,22 @@ for i = 1, 4 do
 	end)
 end
 
+FriendsTabHeader.TabSystem:SetPoint("TOPLEFT", 18, -54)
+
+for i = 1, FriendsTabHeader.TabSystem:GetNumChildren() do
+	local tab = select(i, FriendsTabHeader.TabSystem:GetChildren())
+
+	ApplyTopTabNew(tab)
+end
+
 hooksecurefunc(FriendsTabHeader.TabSystem, 'Layout', function(self)
-	self.tabs[1]:SetWidth(36 + self.tabs[1]:GetFontString():GetStringWidth())
+	self.tabs[1]:SetWidth(31 + self.tabs[1]:GetFontString():GetStringWidth())
+	self.tabs[2]:SetWidth(29 + self.tabs[2]:GetFontString():GetStringWidth())
+	self.tabs[2]:ClearAllPoints()
+	self.tabs[2]:SetPoint("LEFT", self.tabs[1], "RIGHT")
+	self.tabs[3]:SetWidth(32 + self.tabs[3]:GetFontString():GetStringWidth())
+	self.tabs[3]:ClearAllPoints()
+	self.tabs[3]:SetPoint("LEFT", self.tabs[2], "RIGHT")
 end)
 
 FriendsListFrame.ScrollBar:SetSize(25, 560)
@@ -67,7 +80,7 @@ FriendsFrame.IgnoreListWindow.TitleContainer:ClearAllPoints()
 FriendsFrame.IgnoreListWindow.TitleContainer:SetPoint("TOPLEFT", FriendsFrame.IgnoreListWindow, "TOPLEFT", 58, 0)
 FriendsFrame.IgnoreListWindow.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame.IgnoreListWindow, "TOPRIGHT", -58, 0)
 
-ApplyTitleBg(FriendsFrame.IgnoreListWindow)
+ApplyTitleBgNoPortrait(FriendsFrame.IgnoreListWindow)
 ApplyNineSliceNoPortrait(FriendsFrame.IgnoreListWindow)
 
 FriendsFrame.IgnoreListWindow.ScrollBar:SetSize(25, 560)
@@ -78,6 +91,8 @@ FriendsFrame.IgnoreListWindow.ScrollBar:SetPoint("BOTTOMLEFT", FriendsFrame.Igno
 ApplyScrollBarArrow(FriendsFrame.IgnoreListWindow.ScrollBar)
 ApplyScrollBarTrack(FriendsFrame.IgnoreListWindow.ScrollBar.Track)
 ApplyScrollBarThumb(FriendsFrame.IgnoreListWindow.ScrollBar.Track.Thumb)
+
+ApplyDialogBorder(FriendsFrameBattlenetFrame.BroadcastFrame.Border)
 
 RecentAlliesFrame.List.ScrollBar:SetSize(25, 560)
 RecentAlliesFrame.List.ScrollBar:ClearAllPoints()
@@ -117,6 +132,8 @@ RecruitAFriendRewardsFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
 
 ApplyDialogBorder(RecruitAFriendRewardsFrame.Border)
 
+WhoFrameColumnHeader4Middle:SetWidth(48)
+
 WhoFrame.ScrollBar:SetSize(25, 560)
 WhoFrame.ScrollBar:ClearAllPoints()
 WhoFrame.ScrollBar:SetPoint("TOPLEFT", WhoFrame.ScrollBox, "TOPRIGHT", -2, 1)
@@ -144,7 +161,6 @@ AddFriendFrame.CloseButton:ClearAllPoints()
 AddFriendFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
 
 ApplyDialogBorder(AddFriendFrame.Border)
-ApplyDialogBorder(FriendsFrameBattlenetFrame.BroadcastFrame.Border)
 
 RaidInfoFrame.ScrollBar:SetSize(25, 560)
 RaidInfoFrame.ScrollBar:ClearAllPoints()
@@ -179,3 +195,10 @@ RaidFrame.RoleCount.DamagerIcon:SetAtlas("groupfinder-icon-role-large-dps")
 
 ApplyDropDown(FriendsFrameStatusDropdown)
 ApplyDropDown(WhoFrameDropdown)
+
+FriendsFrameStatusDropdown:SetWidth(43)
+FriendsFrameStatusDropdown:SetPoint("RIGHT", FriendsFrameBattlenetFrame, "LEFT", -5, 0)
+FriendsFrameStatusDropdown.Text:ClearAllPoints()
+FriendsFrameStatusDropdown.Text:SetPoint("CENTER", -7, -2)
+
+WhoFrameDropdown:SetPoint("TOPLEFT", 0, -2)

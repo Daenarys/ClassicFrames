@@ -44,6 +44,8 @@ for i = 1, 2 do
 end
 
 ApplyDropDown(MerchantFrame.FilterDropdown)
+MerchantFrame.FilterDropdown.Text:SetJustifyH("RIGHT")
+MerchantFrame.FilterDropdown.Text:SetPoint("TOPLEFT", 9, -7)
 
 hooksecurefunc("MerchantFrame_UpdateMerchantInfo", function()
 	MerchantBuyBackItemItemButton.UndoFrame:Hide()
