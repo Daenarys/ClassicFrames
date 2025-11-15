@@ -16,7 +16,7 @@ FriendsFramePortrait:SetPoint("TOPLEFT", -6, 8)
 
 FriendsFrame.TitleContainer:ClearAllPoints()
 FriendsFrame.TitleContainer:SetPoint("TOPLEFT", FriendsFrame, "TOPLEFT", 58, 0)
-FriendsFrame.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame, "TOPRIGHT", -24, 0)
+FriendsFrame.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame, "TOPRIGHT", -58, 0)
 
 ApplyTitleBg(FriendsFrame)
 ApplyNineSlicePortrait(FriendsFrame)
