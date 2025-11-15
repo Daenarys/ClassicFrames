@@ -80,7 +80,7 @@ FriendsFrame.IgnoreListWindow.TitleContainer:ClearAllPoints()
 FriendsFrame.IgnoreListWindow.TitleContainer:SetPoint("TOPLEFT", FriendsFrame.IgnoreListWindow, "TOPLEFT", 58, 0)
 FriendsFrame.IgnoreListWindow.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame.IgnoreListWindow, "TOPRIGHT", -58, 0)
 
-ApplyTitleBg(FriendsFrame.IgnoreListWindow)
+ApplyTitleBgNoPortrait(FriendsFrame.IgnoreListWindow)
 ApplyNineSliceNoPortrait(FriendsFrame.IgnoreListWindow)
 
 FriendsFrame.IgnoreListWindow.ScrollBar:SetSize(25, 560)

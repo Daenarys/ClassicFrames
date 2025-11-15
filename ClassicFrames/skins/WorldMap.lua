@@ -64,7 +64,7 @@ hooksecurefunc(WorldMapFrame, "Maximize", function(self)
 		self.BorderFrame.ButtonFrameEdge:SetPoint("CENTER", self.BorderFrame.MaximizeMinimizeFrame, "LEFT", 6, 0)
 	end
 
-	ApplyTitleBg(self)
+	ApplyTitleBgNoPortrait(self)
 	ApplyNineSliceNoPortrait(self.BorderFrame)
 end)
 
