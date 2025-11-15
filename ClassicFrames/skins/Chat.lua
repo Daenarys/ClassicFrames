@@ -15,10 +15,10 @@ for i = 1, NUM_CHAT_WINDOWS do
         ChatFrameButtonFrameUpButton:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollUp-Down")
         ChatFrameButtonFrameUpButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollUp-Disabled")
         ChatFrameButtonFrameUpButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
-        MessageFrameScrollButtonMixin.OnLoad(ChatFrameButtonFrameUpButton)
+        MessageFrameScrollButton_OnLoad(ChatFrameButtonFrameUpButton)
         ChatFrameButtonFrameUpButton:SetScript("OnClick", function(self)
             if (self:GetButtonState() == "PUSHED") then
-                self.clickDelay = MessageFrameScrollButtonConstants.InitialScrollDelay
+                self.clickDelay = MESSAGE_SCROLLBUTTON_INITIAL_DELAY
             else
                 PlaySound(SOUNDKIT.IG_CHAT_SCROLL_UP)
                 self:GetParent():GetParent():ScrollUp()
@@ -34,10 +34,10 @@ for i = 1, NUM_CHAT_WINDOWS do
         ChatFrameButtonFrameDownButton:SetPushedTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Down")
         ChatFrameButtonFrameDownButton:SetDisabledTexture("Interface\\ChatFrame\\UI-ChatIcon-ScrollDown-Disabled")
         ChatFrameButtonFrameDownButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
-        MessageFrameScrollButtonMixin.OnLoad(ChatFrameButtonFrameDownButton)
+        MessageFrameScrollButton_OnLoad(ChatFrameButtonFrameDownButton)
         ChatFrameButtonFrameDownButton:SetScript("OnClick", function(self)
             if (self:GetButtonState() == "PUSHED") then
-                self.clickDelay = MessageFrameScrollButtonConstants.InitialScrollDelay
+                self.clickDelay = MESSAGE_SCROLLBUTTON_INITIAL_DELAY
             else
                 PlaySound(SOUNDKIT.IG_CHAT_SCROLL_DOWN)
                 self:GetParent():GetParent():ScrollDown()
@@ -57,7 +57,7 @@ for i = 1, NUM_CHAT_WINDOWS do
         ChatFrameButtonFrameBottomButtonFlash:SetTexture("Interface\\ChatFrame\\UI-ChatIcon-BlinkHilight")
         ChatFrameButtonFrameBottomButtonFlash:SetAllPoints(ChatFrameButtonFrameBottomButton)
         ChatFrameButtonFrameBottomButtonFlash:Hide()
-        MessageFrameScrollButtonMixin.OnLoad(ChatFrameButtonFrameBottomButton)
+        MessageFrameScrollButton_OnLoad(ChatFrameButtonFrameBottomButton)
         ChatFrameButtonFrameBottomButton:SetScript("OnClick", function(self)
             if not (self:GetButtonState() == "PUSHED") then
                 PlaySound(SOUNDKIT.IG_CHAT_BOTTOM)
