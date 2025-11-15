@@ -248,6 +248,135 @@ function ApplyScrollBarThumb(frame)
 	frame.downEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom-Disabled"
 end
 
+function ApplyTopTab(frame)
+	frame.LeftActive:SetSize(16, 32)
+	frame.LeftActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
+	frame.LeftActive:SetTexCoord(0, 0.25, 0, 1)
+	frame.LeftActive:SetPoint("BOTTOMLEFT", 0, -3)
+
+	frame.RightActive:SetSize(16, 32)
+	frame.RightActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
+	frame.RightActive:SetTexCoord(0.75, 1, 0, 1)
+	frame.RightActive:SetPoint("BOTTOMRIGHT", 0, -3)
+
+	frame.MiddleActive:SetSize(32, 32)
+	frame.MiddleActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
+	frame.MiddleActive:SetTexCoord(0.25, 0.75, 0, 1)
+	frame.MiddleActive:SetHorizTile(false)
+
+	frame.Left:SetSize(16, 32)
+	frame.Left:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
+	frame.Left:SetTexCoord(0, 0.25, 0, 1)
+	frame.Left:SetPoint("BOTTOMLEFT")
+
+	frame.Right:SetSize(16, 32)
+	frame.Right:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
+	frame.Right:SetTexCoord(0.75, 1, 0, 1)
+	frame.Right:SetPoint("TOPRIGHT")
+
+	frame.Middle:SetSize(32, 32)
+	frame.Middle:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
+	frame.Middle:SetTexCoord(0.25, 0.75, 0, 1)
+	frame.Middle:SetHorizTile(false)
+
+	frame.LeftHighlight:Hide()
+	frame.MiddleHighlight:Hide()
+	frame.RightHighlight:Hide()
+
+	frame:SetHighlightTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-Highlight")
+	frame:GetHighlightTexture():ClearAllPoints()
+	frame:GetHighlightTexture():SetPoint("TOPLEFT", 2, -8)
+	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", 2, -8)
+
+	frame.Text:ClearAllPoints()
+	frame.Text:SetPoint("BOTTOM", 0, 6)
+end
+
+function ApplyTopTabNew(frame)
+	frame:SetHeight(32)
+
+	frame.Left:SetAlpha(0)
+	frame.LeftActive:SetAlpha(0)
+	frame.LeftHighlight:SetAlpha(0)
+	frame.Right:SetAlpha(0)
+	frame.RightActive:SetAlpha(0)
+	frame.RightHighlight:SetAlpha(0)
+	frame.Middle:SetAlpha(0)
+	frame.MiddleActive:SetAlpha(0)
+	frame.MiddleHighlight:SetAlpha(0)
+
+	if (frame.LeftDisabled == nil) then
+		frame.LeftDisabled = frame:CreateTexture(nil, "BACKGROUND")
+		frame.LeftDisabled:SetSize(16, 32)
+		frame.LeftDisabled:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
+		frame.LeftDisabled:SetTexCoord(0, 0.25, 0, 1)
+		frame.LeftDisabled:SetPoint("BOTTOMLEFT")
+	end
+
+	if (frame.RightDisabled == nil) then
+		frame.RightDisabled = frame:CreateTexture(nil, "BACKGROUND")
+		frame.RightDisabled:SetSize(16, 32)
+		frame.RightDisabled:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
+		frame.RightDisabled:SetTexCoord(0.75, 1, 0, 1)
+		frame.RightDisabled:SetPoint("BOTTOMRIGHT")
+	end
+
+	if (frame.MiddleDisabled == nil) then
+		frame.MiddleDisabled = frame:CreateTexture(nil, "BACKGROUND")
+		frame.MiddleDisabled:SetSize(32, 32)
+		frame.MiddleDisabled:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
+		frame.MiddleDisabled:SetTexCoord(0.25, 0.75, 0, 1)
+		frame.MiddleDisabled:SetHorizTile(false)
+		frame.MiddleDisabled:SetPoint("TOPLEFT", frame.LeftDisabled, "TOPRIGHT")
+		frame.MiddleDisabled:SetPoint("TOPRIGHT", frame.RightDisabled, "TOPLEFT")
+	end
+
+	if (frame.CfLeft == nil) then
+		frame.CfLeft = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfLeft:SetSize(16, 32)
+		frame.CfLeft:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
+		frame.CfLeft:SetTexCoord(0, 0.25, 0, 1)
+		frame.CfLeft:SetPoint("BOTTOMLEFT", 0, 3)
+	end
+
+	if (frame.CfRight == nil) then
+		frame.CfRight = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfRight:SetSize(16, 32)
+		frame.CfRight:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
+		frame.CfRight:SetTexCoord(0.75, 1, 0, 1)
+		frame.CfRight:SetPoint("BOTTOMRIGHT", 0, 3)
+	end
+
+	if (frame.CfMiddle == nil) then
+		frame.CfMiddle = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfMiddle:SetSize(32, 32)
+		frame.CfMiddle:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
+		frame.CfMiddle:SetTexCoord(0.25, 0.75, 0, 1)
+		frame.CfMiddle:SetHorizTile(false)
+		frame.CfMiddle:SetPoint("TOPLEFT", frame.CfLeft, "TOPRIGHT")
+		frame.CfMiddle:SetPoint("TOPRIGHT", frame.CfRight, "TOPLEFT")
+	end
+
+	frame:SetHighlightTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-Highlight")
+	frame:GetHighlightTexture():ClearAllPoints()
+	frame:GetHighlightTexture():SetPoint("TOPLEFT", 0, -5)
+	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", 0, -5)
+
+	frame.Text:ClearAllPoints()
+	frame.Text:SetPoint("BOTTOM", 0, 9)
+
+	hooksecurefunc(frame, "SetTabSelected", function(frame, isSelected)
+		frame.isSelected = isSelected
+
+		frame.CfLeft:SetShown(not isSelected)
+		frame.CfMiddle:SetShown(not isSelected)
+		frame.CfRight:SetShown(not isSelected)
+		frame.LeftDisabled:SetShown(isSelected)
+		frame.MiddleDisabled:SetShown(isSelected)
+		frame.RightDisabled:SetShown(isSelected)
+	end)
+end
+
 function ApplyBottomTab(frame)
 	frame.LeftActive:SetSize(20, 35)
 	frame.LeftActive:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
