@@ -1,7 +1,6 @@
 if not _G.FriendsFrame then return end
 
 FriendsFrame:SetWidth(338)
-WhoFrameColumnHeader1:SetWidth(83)
 
 FriendsFrameBattlenetFrame:ClearAllPoints()
 FriendsFrameBattlenetFrame:SetPoint("TOPLEFT", FriendsTabHeader, "TOPLEFT", 109, -26)
@@ -130,6 +129,10 @@ RecruitAFriendRewardsFrame.CloseButton:ClearAllPoints()
 RecruitAFriendRewardsFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
 
 ApplyDialogBorder(RecruitAFriendRewardsFrame.Border)
+
+WhoFrameColumnHeader4Middle:SetWidth(48)
+
+WhoFrameDropdown:SetPoint("TOPLEFT", 0, -2)
 
 WhoFrame.ScrollBar:SetSize(25, 560)
 WhoFrame.ScrollBar:ClearAllPoints()
