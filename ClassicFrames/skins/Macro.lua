@@ -12,8 +12,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		MacroFrame.TitleContainer:SetPoint("TOPLEFT", MacroFrame, "TOPLEFT", 58, 0)
 		MacroFrame.TitleContainer:SetPoint("TOPRIGHT", MacroFrame, "TOPRIGHT", -58, 0)
 
-		MacroFrameTitleText:SetText(CREATE_MACROS)
-
 		ApplyTitleBg(MacroFrame)
 		ApplyNineSlicePortrait(MacroFrame)
 
