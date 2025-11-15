@@ -2,9 +2,6 @@ if not _G.FriendsFrame then return end
 
 FriendsFrame:SetWidth(338)
 
-FriendsFrameBattlenetFrame:ClearAllPoints()
-FriendsFrameBattlenetFrame:SetPoint("TOPLEFT", FriendsTabHeader, "TOPLEFT", 109, -26)
-
 ApplyCloseButton(FriendsFrameCloseButton)
 
 FriendsFrame.PortraitContainer.CircleMask:Hide()
@@ -20,12 +17,17 @@ FriendsFrame.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame, "TOPRIGHT", -58, 
 ApplyTitleBg(FriendsFrame)
 ApplyNineSlicePortrait(FriendsFrame)
 
+FriendsFrameBattlenetFrame:ClearAllPoints()
+FriendsFrameBattlenetFrame:SetPoint("TOPLEFT", FriendsTabHeader, "TOPLEFT", 109, -26)
+
+FriendsFrameBattlenetFrame.ContactsMenuButton.Icon:Hide()
+FriendsFrameBattlenetFrame.ContactsMenuButton:SetNormalTexture("Interface\\FriendsFrame\\broadcast-normal")
+FriendsFrameBattlenetFrame.ContactsMenuButton:SetPushedTexture("Interface\\FriendsFrame\\broadcast-press")
+
 FriendsFrameTab2:ClearAllPoints()
 FriendsFrameTab2:SetPoint("LEFT", FriendsFrameTab1, "RIGHT", -15, 0)
-
 FriendsFrameTab3:ClearAllPoints()
 FriendsFrameTab3:SetPoint("LEFT", FriendsFrameTab2, "RIGHT", -15, 0)
-
 FriendsFrameTab4:ClearAllPoints()
 FriendsFrameTab4:SetPoint("LEFT", FriendsFrameTab3, "RIGHT", -15, 0)
 
