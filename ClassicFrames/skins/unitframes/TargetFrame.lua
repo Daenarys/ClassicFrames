@@ -191,7 +191,7 @@ local function SkinFrame(frame)
 			CfTargetFrameManaBar.pauseUpdates = true;
 		else
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
-			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-TargetingFrame")
+			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
 			self.TargetFrameContainer.FrameTexture:ClearAllPoints()
 			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -4)
@@ -224,7 +224,7 @@ local function SkinFrame(frame)
 
 		levelText:SetParent(contextual)
 		levelText:ClearAllPoints()
-		levelText:SetPoint("CENTER", 82, -20)
+		levelText:SetPoint("CENTER", 82, -21)
 
 		highLevelTexture:SetSize(16, 16)
 		highLevelTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Skull")
@@ -269,7 +269,7 @@ local function SkinFrame(frame)
 		frame.totFrame.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetofTargetFrame")
 		frame.totFrame.FrameTexture:SetTexCoord(0.015625, 0.7265625, 0, 0.703125)
 		frame.totFrame.FrameTexture:ClearAllPoints()
-		frame.totFrame.FrameTexture:SetPoint("TOPLEFT")
+		frame.totFrame.FrameTexture:SetPoint("TOPLEFT", 0, 0)
 
 		frame.totFrame.Portrait:SetSize(35, 35)
 

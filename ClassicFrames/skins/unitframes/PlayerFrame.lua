@@ -210,14 +210,14 @@ end
 
 hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	self.PlayerFrameContainer.FrameTexture:SetSize(232, 100)
-	self.PlayerFrameContainer.FrameTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-TargetingFrame")
+	self.PlayerFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
 	self.PlayerFrameContainer.FrameTexture:SetTexCoord(1, 0.09375, 0, 0.78125)
 	self.PlayerFrameContainer.FrameTexture:ClearAllPoints()
 	self.PlayerFrameContainer.FrameTexture:SetPoint("TOPLEFT", -19, -4)
 	self.PlayerFrameContainer.FrameTexture:SetDrawLayer("BORDER")
 
 	self.PlayerFrameContainer.AlternatePowerFrameTexture:SetSize(232, 100)
-	self.PlayerFrameContainer.AlternatePowerFrameTexture:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-TargetingFrame")
+	self.PlayerFrameContainer.AlternatePowerFrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
 	self.PlayerFrameContainer.AlternatePowerFrameTexture:SetTexCoord(1, 0.09375, 0, 0.78125)
 	self.PlayerFrameContainer.AlternatePowerFrameTexture:ClearAllPoints()
 	self.PlayerFrameContainer.AlternatePowerFrameTexture:SetPoint("TOPLEFT", -19, -4)
@@ -319,7 +319,7 @@ hooksecurefunc("PlayerFrame_UpdateLevel", function()
 	PlayerLevelText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	PlayerLevelText:SetDrawLayer("ARTWORK")
 	PlayerLevelText:ClearAllPoints()
-	PlayerLevelText:SetPoint("CENTER", -82, -20)
+	PlayerLevelText:SetPoint("CENTER", -80, -21)
 end)
 
 hooksecurefunc("PlayerFrame_UpdatePartyLeader", function()
@@ -398,10 +398,10 @@ end)
 
 local PlayerRestIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
 PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestIcon = PlayerRestIcon
-PlayerRestIcon:SetSize(31, 33)
+PlayerRestIcon:SetSize(31, 31)
 PlayerRestIcon:SetTexture("Interface\\CharacterFrame\\UI-StateIcon")
 PlayerRestIcon:SetTexCoord(0, 0.5, 0, 0.421875)
-PlayerRestIcon:SetPoint("TOPLEFT", 18, -53)
+PlayerRestIcon:SetPoint("TOPLEFT", 20, -54)
 
 local PlayerRestGlow = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
 PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow = PlayerRestGlow
@@ -413,7 +413,7 @@ PlayerRestGlow:SetPoint("TOPLEFT", PlayerRestIcon, "TOPLEFT")
 
 local PlayerAttackIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
 PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PlayerAttackIcon = PlayerAttackIcon
-PlayerAttackIcon:SetSize(32, 32)
+PlayerAttackIcon:SetSize(32, 31)
 PlayerAttackIcon:SetTexture("Interface\\CharacterFrame\\UI-StateIcon")
 PlayerAttackIcon:SetTexCoord(0.5, 1.0, 0, 0.484375)
 PlayerAttackIcon:SetPoint("TOPLEFT", PlayerRestIcon, "TOPLEFT", 1, 1)
