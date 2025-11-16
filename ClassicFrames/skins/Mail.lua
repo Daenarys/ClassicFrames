@@ -3,13 +3,13 @@ if _G.MailFrame then
 
 	MailFrame.PortraitContainer.CircleMask:Hide()
 
-	MailFramePortrait:SetSize(61, 61)
+	MailFramePortrait:SetSize(58, 58)
 	MailFramePortrait:ClearAllPoints()
-	MailFramePortrait:SetPoint("TOPLEFT", -6, 8)
+	MailFramePortrait:SetPoint("TOPLEFT", -5, 7)
 
 	MailFrame.TitleContainer:ClearAllPoints()
 	MailFrame.TitleContainer:SetPoint("TOPLEFT", MailFrame, "TOPLEFT", 58, 0)
-	MailFrame.TitleContainer:SetPoint("TOPRIGHT", MailFrame, "TOPRIGHT", -24, 0)
+	MailFrame.TitleContainer:SetPoint("TOPRIGHT", MailFrame, "TOPRIGHT", -13, 0)
 
 	ApplyTitleBg(MailFrame)
 	ApplyNineSlicePortrait(MailFrame)
