@@ -69,6 +69,7 @@ skins\MajorRenown.lua
 skins\Merchant.lua
 skins\Minimap.lua
 skins\MirrorTimers.lua
+skins\Money.lua
 skins\NewPlayerGuide.lua
 skins\ObjectiveTracker.lua
 skins\Opacity.lua
