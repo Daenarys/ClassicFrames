@@ -130,7 +130,6 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer", function()
 		CompactRaidFrameManager.TopRight = CompactRaidFrameManager:CreateTexture(nil, "ARTWORK")
 		CompactRaidFrameManager.TopRight:SetSize(32, 32)
 		CompactRaidFrameManager.TopRight:SetTexture("Interface\\RaidFrame\\RaidPanel-UpperRight")
-		CompactRaidFrameManager.TopRight:SetPoint("TOPRIGHT")
 	end
 
 	if (CompactRaidFrameManager.BottomLeft == nil) then
@@ -144,7 +143,6 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer", function()
 		CompactRaidFrameManager.BottomRight = CompactRaidFrameManager:CreateTexture(nil, "ARTWORK")
 		CompactRaidFrameManager.BottomRight:SetSize(32, 32)
 		CompactRaidFrameManager.BottomRight:SetTexture("Interface\\RaidFrame\\RaidPanel-BottomRight")
-		CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT")
 	end
 
 	if (CompactRaidFrameManager.Top == nil) then
@@ -191,15 +189,18 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer", function()
 
 	if ( CompactRaidFrameManager.collapsed ) then
 		if isLeaderOrAssist then
-			CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT", 0, 206)
-			CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -9, 104)
-			CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -9, 104)
+			CompactRaidFrameManager.TopRight:SetPoint("TOPRIGHT", -4, 0)
+			CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT", -4, 206)
+			CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -13, 104)
+			CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -13, 104)
 		else
-			CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT", 0, 140)
-			CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -9, 70)
-			CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -9, 70)
+			CompactRaidFrameManager.TopRight:SetPoint("TOPRIGHT", -4, 0)
+			CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT", -4, 140)
+			CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -13, 70)
+			CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -13, 70)
 		end
 	else
+		CompactRaidFrameManager.TopRight:SetPoint("TOPRIGHT")
 		CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT")
 		CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -9, 0)
 		CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -9, 0)
@@ -213,15 +214,18 @@ hooksecurefunc("CompactRaidFrameManager_Toggle",function()
 
 	if ( CompactRaidFrameManager.collapsed ) then
 		if isLeaderOrAssist then
-			CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT", 0, 206)
-			CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -9, 104)
-			CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -9, 104)
+			CompactRaidFrameManager.TopRight:SetPoint("TOPRIGHT", -4, 0)
+			CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT", -4, 206)
+			CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -13, 104)
+			CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -13, 104)
 		else
-			CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT", 0, 140)
-			CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -9, 70)
-			CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -9, 70)
+			CompactRaidFrameManager.TopRight:SetPoint("TOPRIGHT", -4, 0)
+			CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT", -4, 140)
+			CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -13, 70)
+			CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -13, 70)
 		end
 	else
+		CompactRaidFrameManager.TopRight:SetPoint("TOPRIGHT")
 		CompactRaidFrameManager.BottomRight:SetPoint("BOTTOMRIGHT")
 		CompactRaidFrameManager.toggleButtonBack:SetPoint("RIGHT", -9, 0)
 		CompactRaidFrameManager.toggleButtonForward:SetPoint("RIGHT", -9, 0)
