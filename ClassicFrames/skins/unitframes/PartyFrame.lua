@@ -187,8 +187,13 @@ hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer", function()
 		CompactRaidFrameManager.ToggleButton:SetPoint("CENTER", CompactRaidFrameManager.toggleButtonForward, "CENTER")
 	end
 
-	CompactRaidFrameContainer.dividerVerticalPool:ReleaseAll()
-	CompactRaidFrameContainer.dividerHorizontalPool:ReleaseAll()
+	if CompactRaidFrameContainer.dividerVerticalPool then
+		CompactRaidFrameContainer.dividerVerticalPool:ReleaseAll()
+	end
+
+	if CompactRaidFrameContainer.dividerHorizontalPool then
+		CompactRaidFrameContainer.dividerHorizontalPool:ReleaseAll()
+	end
 
 	if ( CompactRaidFrameManager.collapsed ) then
 		if isLeaderOrAssist then
