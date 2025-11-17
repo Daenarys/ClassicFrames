@@ -9,7 +9,7 @@ MerchantFramePortrait:ClearAllPoints()
 MerchantFramePortrait:SetPoint("TOPLEFT", -6, 8)
 
 MerchantFrame.TitleContainer:ClearAllPoints()
-MerchantFrame.TitleContainer:SetPoint("TOPLEFT", MerchantFrame, "TOPLEFT", 58, 0)
+MerchantFrame.TitleContainer:SetPoint("TOPLEFT", MerchantFrame, "TOPLEFT", 57, 0)
 MerchantFrame.TitleContainer:SetPoint("TOPRIGHT", MerchantFrame, "TOPRIGHT", -58, 0)
 
 ApplyTitleBg(MerchantFrame)
