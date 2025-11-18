@@ -56,11 +56,3 @@ end)
 hooksecurefunc(AddonList, "UpdatePerformance", function(self)
 	self.Performance:Hide()
 end)
-
-hooksecurefunc(AddonList, "SetPoint", function(self)
-	if self.changing then return end
-	self.changing = true
-	self:ClearAllPoints()
-	self:SetPoint("CENTER", 0, 24)
-	self.changing = false
-end)
