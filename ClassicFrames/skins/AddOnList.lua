@@ -33,6 +33,9 @@ AddonList.ForceLoad:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-C
 AddonList.SearchBox:Hide()
 ApplyDropDown(AddonList.Dropdown)
 
+AddonList.Dropdown.Text:SetJustifyH("RIGHT")
+AddonList.Dropdown.Text:SetPoint("TOPLEFT", 9, -7)
+
 hooksecurefunc('AddonList_Update', function()
 	for _, child in next, { AddonList.ScrollBox.ScrollTarget:GetChildren() } do
 		if not child.IsSkinned then
