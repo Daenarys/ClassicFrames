@@ -5,8 +5,8 @@ AddonList:SetSize(500, 478)
 ApplyCloseButton(AddonListCloseButton)
 
 AddonList.TitleContainer:ClearAllPoints()
-AddonList.TitleContainer:SetPoint("TOPLEFT", AddonList, "TOPLEFT", 58, 1)
-AddonList.TitleContainer:SetPoint("TOPRIGHT", AddonList, "TOPRIGHT", -58, 1)
+AddonList.TitleContainer:SetPoint("TOPLEFT", AddonList, "TOPLEFT", 58, 0)
+AddonList.TitleContainer:SetPoint("TOPRIGHT", AddonList, "TOPRIGHT", -58, 0)
 
 ApplyTitleBgNoPortrait(AddonList)
 ApplyNineSliceNoPortrait(AddonList)
