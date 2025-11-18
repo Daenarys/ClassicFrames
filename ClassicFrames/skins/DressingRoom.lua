@@ -60,6 +60,16 @@ SideDressUpFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-Mi
 
 ApplyDropDown(DressUpFrameOutfitDropdown)
 
+hooksecurefunc(DressUpFrame, "ConfigureSize", function(self, isMinimized)
+	if isMinimized then
+		self.OutfitDropdown:SetPoint("TOP", -37, -29)
+	else
+		self.OutfitDropdown:SetWidth(178)
+		self.OutfitDropdown:SetPoint("TOP", -23, -29)
+	end
+end)
+
+
 DressUpFrame.ModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self:SetPoint("TOP")
 end)
