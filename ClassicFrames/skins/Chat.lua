@@ -99,7 +99,7 @@ end
 
 hooksecurefunc("ChatEdit_UpdateNewcomerEditBoxHint", function(editBox)
     editBox.NewcomerHint:SetShown(false)
-    editBox:SetAlpha(0.35)
+    editBox:SetAlpha(0.25)
 end)
 
 QuickJoinToastButton:HookScript("OnUpdate", function(self)
