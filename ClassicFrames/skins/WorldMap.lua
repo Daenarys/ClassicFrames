@@ -78,6 +78,9 @@ end
 
 local Dropdown, Tracking, Pin = unpack(WorldMapFrame.overlayFrames)
 ApplyDropDown(Dropdown)
+Dropdown:SetWidth(145)
+Dropdown.Text:SetJustifyH("RIGHT")
+Dropdown.Text:SetPoint("TOPLEFT", 9, -7)
 Tracking.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 Tracking.Icon:SetTexture("Interface\\Minimap\\Tracking\\None")
 Tracking.Icon:SetPoint("TOPLEFT", 6, -6)
