@@ -14,8 +14,16 @@ f:SetScript("OnEvent", function(self, event, name)
 		HousingDashboardFrame.TitleContainer:SetPoint("TOPLEFT", HousingDashboardFrame, "TOPLEFT", 58, 0)
 		HousingDashboardFrame.TitleContainer:SetPoint("TOPRIGHT", HousingDashboardFrame, "TOPRIGHT", -58, 0)
 
-		ApplyTitleBg(HousingDashboardFrame)
 		ApplyNineSlicePortrait(HousingDashboardFrame)
+
+		if (HousingDashboardFrame.NineSlice.TitleBg == nil) then
+			HousingDashboardFrame.NineSlice.TitleBg = HousingDashboardFrame.NineSlice:CreateTexture(nil, "BACKGROUND")
+			HousingDashboardFrame.NineSlice.TitleBg:SetAtlas("_UI-Frame-TitleTileBg", false)
+			HousingDashboardFrame.NineSlice.TitleBg:SetSize(256, 17)
+			HousingDashboardFrame.NineSlice.TitleBg:SetHorizTile(true)
+			HousingDashboardFrame.NineSlice.TitleBg:SetPoint("TOPLEFT", 54, -3)
+			HousingDashboardFrame.NineSlice.TitleBg:SetPoint("TOPRIGHT", -25, -3)
+		end
 
 		HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar:SetSize(25, 560)
 		HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar:ClearAllPoints()
