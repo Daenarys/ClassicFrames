@@ -38,6 +38,29 @@ AddonList.Dropdown:SetPoint("TOPLEFT", 18, -31)
 AddonList.Dropdown.Text:SetJustifyH("RIGHT")
 AddonList.Dropdown.Text:SetPoint("TOPLEFT", 9, -7)
 
+hooksecurefunc('AddonList_Update', function()
+	for _, child in next, { AddonList.ScrollBox.ScrollTarget:GetChildren() } do
+		if not child.IsSkinned then
+			if child.Enabled then
+				child.Enabled:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+				child.Enabled:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+				child.Enabled:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+				child.Enabled:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+				child.Enabled:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
+			end
+			child.IsSkinned = true
+		end
+	end
+end)
+
 hooksecurefunc(AddonList, "UpdatePerformance", function(self)
 	self.Performance:Hide()
+end)
+
+hooksecurefunc(AddonList, "SetPoint", function(self)
+	if self.changing then return end
+	self.changing = true
+	self:ClearAllPoints()
+	self:SetPoint("CENTER", 0, 24)
+	self.changing = false
 end)
