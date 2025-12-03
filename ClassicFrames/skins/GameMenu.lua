@@ -106,7 +106,7 @@ hooksecurefunc(GameMenuFrame, "Layout", function(self)
 		elseif (text == _G["MACROS"]) then
 			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
 				button:SetPoint("TOPLEFT", 26, -157)
-		elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+			elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
 				button:SetPoint("TOPLEFT", 26, -113)
 			else
 				button:SetPoint("TOPLEFT", 26, -135)
