@@ -97,11 +97,6 @@ for i = 1, NUM_CHAT_WINDOWS do
     _G["ChatFrame"..i]:HookScript("OnUpdate", ChatFrameButtonFrameBottomButton.OnUpdate)
 end
 
-hooksecurefunc("ChatEdit_UpdateNewcomerEditBoxHint", function(editBox)
-    editBox.NewcomerHint:SetShown(false)
-    editBox:SetAlpha(0.25)
-end)
-
 QuickJoinToastButton:HookScript("OnUpdate", function(self)
     self:ClearAllPoints()
     self:SetPoint("BOTTOMLEFT", ChatAlertFrame, "BOTTOMLEFT")
