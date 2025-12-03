@@ -94,6 +94,11 @@ for i = 1, NUM_CHAT_WINDOWS do
     ChatFrameButtonFrameBottomButton:SetPoint("BOTTOM", _G["ChatFrame"..i.."ButtonFrame"], "BOTTOM", 0, -7)
     ChatFrameMenuButton:SetPoint("BOTTOM", 0, 87)
 
+    hooksecurefunc(_G["ChatFrame"..i].editBox, "UpdateNewcomerEditBoxHint", function(self)
+        self.NewcomerHint:SetShown(false)
+        self:SetAlpha(0.25)
+    end)
+
     _G["ChatFrame"..i]:HookScript("OnUpdate", ChatFrameButtonFrameBottomButton.OnUpdate)
 end
 
