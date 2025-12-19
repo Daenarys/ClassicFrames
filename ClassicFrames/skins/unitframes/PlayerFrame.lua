@@ -1,37 +1,5 @@
 function CfPlayerFrame_OnLoad(self)
-	CfPlayerFrameHealthBar.LeftText = CfPlayerFrameHealthBarTextLeft
-	CfPlayerFrameHealthBar.RightText = CfPlayerFrameHealthBarTextRight
-	CfPlayerFrameManaBar.LeftText = CfPlayerFrameManaBarTextLeft
-	CfPlayerFrameManaBar.RightText = CfPlayerFrameManaBarTextRight
-
-	CfUnitFrame_Initialize(self, "player",
-		CfPlayerFrameHealthBar, CfPlayerFrameHealthBarText,
-		CfPlayerFrameManaBar, CfPlayerFrameManaBarText,
-		CfPlayerFrameMyHealPredictionBar, CfPlayerFrameOtherHealPredictionBar,
-		CfPlayerFrameTotalAbsorbBar, CfPlayerFrameTotalAbsorbBarOverlay, CfPlayerFrameOverAbsorbGlow,
-		CfPlayerFrameOverHealAbsorbGlow, CfPlayerFrameHealAbsorbBar, CfPlayerFrameHealAbsorbBarLeftShadow,
-		CfPlayerFrameHealAbsorbBarRightShadow)
-
-	CfPlayerFrameHealthBarText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
-	CfPlayerFrameHealthBarTextLeft:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
-	CfPlayerFrameHealthBarTextRight:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
-	CfPlayerFrameManaBarText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
-	CfPlayerFrameManaBarTextLeft:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
-	CfPlayerFrameManaBarTextRight:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
-	CfPlayerFrameOverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
-
-	self:RegisterEvent("PLAYER_ENTERING_WORLD")
 	self:EnableMouse(false)
-end
-
-function CfPlayerFrame_OnEvent(self, event, ...)
-	CfUnitFrame_OnEvent(self, event, ...)
-
-	if (event == "PLAYER_ENTERING_WORLD") then
-		if (UnitExists("player")) then
-			CfUnitFrame_Update(self)
-		end
-	end
 end
 
 PlayerFrame.PlayerFrameContainer:SetFrameLevel(4)
@@ -42,11 +10,6 @@ PlayerFrame.PlayerFrameContainer.PlayerPortrait:SetPoint("TOPLEFT", 23, -16)
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetSize(64, 64)
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask")
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetPoint("TOPLEFT", 23, -16)
-
-PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer:SetAlpha(0)
-PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea:SetAlpha(0)
-PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer.HealthBar:EnableMouse(false)
-PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea.ManaBar:EnableMouse(false)
 
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:ClearAllPoints()
@@ -244,14 +207,8 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMLEFT", CfPlayerFrame, "TOPLEFT", 97, -20)
 	self.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon:SetPoint("TOPLEFT", 76, -19)
 
-	CfPlayerFrameHealthBar:SetWidth(119)
-	CfPlayerFrameHealthBar:SetPoint("TOPLEFT",106,-41)
-	CfPlayerFrameManaBar:SetWidth(119)
-	CfPlayerFrameManaBar:SetPoint("TOPLEFT",106,-52)
 	CfPlayerFrameBackground:SetSize(119, 41)
 	PlayerLevelText:Show()
-
-	CfUnitFrame_SetUnit(CfPlayerFrame, "player", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
 
 	local _, class = UnitClass("player")
 	if ( CfPlayerFrame.CfClassPowerBar ) then
@@ -296,14 +253,8 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	PlayerName:ClearAllPoints()
 	PlayerName:SetPoint("TOPLEFT", self.PlayerFrameContainer, "TOPLEFT", 97, -26)
 
-	CfPlayerFrameHealthBar:SetWidth(100)
-	CfPlayerFrameHealthBar:SetPoint("TOPLEFT",119,-41)
-	CfPlayerFrameManaBar:SetWidth(100)
-	CfPlayerFrameManaBar:SetPoint("TOPLEFT",119,-52)
 	CfPlayerFrameBackground:SetSize(114, 41)
 	PlayerLevelText:Hide()
-
-	CfUnitFrame_SetUnit(CfPlayerFrame, "vehicle", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
 
 	local _, class = UnitClass("player")
 	if ( CfPlayerFrame.CfClassPowerBar ) then
@@ -485,6 +436,10 @@ hooksecurefunc(PlayerFrameBottomManagedFramesContainer, "Layout", function()
 	if (TotemFrame) then
 		TotemFrame:ClearAllPoints()
 		TotemFrame:SetPoint("TOPLEFT", PlayerFrame, "TOPLEFT", -5, -91)
+	end
+	if (WarlockPowerFrame) then
+		WarlockPowerFrame:UnregisterAllEvents()
+		WarlockPowerFrame:Hide()
 	end
 end)
 
