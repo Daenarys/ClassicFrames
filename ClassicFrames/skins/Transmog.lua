@@ -69,5 +69,16 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyFilterDropDown(TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.FilterButton)
 		ApplyFilterDropDown(TransmogFrame.WardrobeCollection.TabContent.SetsFrame.FilterButton)
+
+		TransmogFrame.OutfitPopup.IconSelector.ScrollBar:SetSize(25, 560)
+		TransmogFrame.OutfitPopup.IconSelector.ScrollBar:ClearAllPoints()
+		TransmogFrame.OutfitPopup.IconSelector.ScrollBar:SetPoint("TOPLEFT", TransmogFrame.OutfitPopup.IconSelector, "TOPRIGHT", -28, 3)
+		TransmogFrame.OutfitPopup.IconSelector.ScrollBar:SetPoint("BOTTOMLEFT", TransmogFrame.OutfitPopup.IconSelector, "BOTTOMRIGHT", -25, -3)
+
+		ApplyScrollBarArrow(TransmogFrame.OutfitPopup.IconSelector.ScrollBar)
+		ApplyScrollBarTrack(TransmogFrame.OutfitPopup.IconSelector.ScrollBar.Track)
+		ApplyScrollBarThumb(TransmogFrame.OutfitPopup.IconSelector.ScrollBar.Track.Thumb)
+
+		ApplyDropDown(TransmogFrame.OutfitPopup.BorderBox.IconTypeDropdown)
 	end
 end)
