@@ -1,6 +1,9 @@
 CfClassPowerBar = {}
 
 function CfClassPowerBar:OnLoad()
+	-- Initialize these variables in the class-specific OnLoad mixin function. Also make sure to implement
+	-- an UpdatePower() mixin function that handles UI changes for whenever the power display changes
+
 	self:Setup()
 end
 
@@ -44,6 +47,7 @@ function CfClassPowerBar:OnEvent(event, ...)
 			return false -- Preserve previous behavior by not handling this event here.
 		end
 
+		-- Preserve previous behavior by always handling this event, even if this doesn't call UpdatePower
 		if ( self:UsesPowerToken(powerToken) ) then
 			self:UpdatePower()
 		end
