@@ -2,6 +2,10 @@ function CfPlayerFrame_OnLoad(self)
 	self:EnableMouse(false)
 end
 
+local healthBarContainer = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer
+local healthBar = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer.HealthBar
+local manaBar = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea.ManaBar
+
 PlayerFrame.PlayerFrameContainer:SetFrameLevel(4)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:SetFrameLevel(5)
 
@@ -14,6 +18,14 @@ PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetPoint("TOPLEFT", 23, -16)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:ClearAllPoints()
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:SetPoint("CENTER", PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator, "TOPLEFT", 54, -46)
+
+healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
+healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
+healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
+
+manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
+manaBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
+manaBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 
 local groupIndicator = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator
 if groupIndicator then
@@ -202,6 +214,22 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	StatusTexture:ClearAllPoints()
 	StatusTexture:SetPoint("TOPLEFT", 16, -12)
 	StatusTexture:SetBlendMode("ADD")
+
+	healthBarContainer.HealthBarMask:ClearAllPoints()
+	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBar, "TOPLEFT", 1, 0)
+	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", healthBar, "BOTTOMRIGHT", -1, -1)
+
+	healthBar.TextString:SetPoint("CENTER", healthBar, "CENTER")
+	healthBar.LeftText:SetPoint("LEFT", healthBar, "LEFT", 6, 0)
+	healthBar.RightText:SetPoint("RIGHT", healthBar, "RIGHT", -4, 0)
+
+	manaBar.ManaBarMask:ClearAllPoints()
+	manaBar.ManaBarMask:SetPoint("TOPLEFT", manaBar, "TOPLEFT", 1, 0)
+	manaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", manaBar, "BOTTOMRIGHT", -1, -1)
+
+	manaBar.TextString:SetPoint("CENTER", manaBar, "CENTER", 0, 3)
+	manaBar.LeftText:SetPoint("LEFT", manaBar, "LEFT", 6, 3)
+	manaBar.RightText:SetPoint("RIGHT", manaBar, "RIGHT", -4, 3)
 
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:ClearAllPoints()
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMLEFT", CfPlayerFrame, "TOPLEFT", 97, -20)

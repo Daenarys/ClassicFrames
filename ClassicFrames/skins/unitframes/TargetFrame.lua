@@ -5,7 +5,8 @@ end
 local function SkinFrame(frame)
 	local contextual = frame.TargetFrameContent.TargetFrameContentContextual;
 	local contentMain = frame.TargetFrameContent.TargetFrameContentMain;
-	local FrameHealthBar = contentMain.HealthBarsContainer;
+	local FrameHealthBarContainer = contentMain.HealthBarsContainer
+	local FrameHealthBar = contentMain.HealthBarsContainer.HealthBar
 	local FrameManaBar = contentMain.ManaBar;
 
 	contextual:SetFrameStrata("MEDIUM")
@@ -78,6 +79,29 @@ local function SkinFrame(frame)
 
 		CfFocusFrameBackground:SetSize(119, 25)
 		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
+
+		FrameHealthBarContainer.HealthBarMask:ClearAllPoints()
+		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", FrameHealthBar, "TOPLEFT", 1, 0)
+		FrameHealthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", FrameHealthBar, "BOTTOMRIGHT", -1, -1)
+
+		FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBar, "CENTER")
+		FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBar, "LEFT", 5, 0)
+		FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBar, "RIGHT", -7, 0)
+
+		FrameHealthBar.TextString:SetParent(frame.TargetFrameContainer)
+		FrameHealthBarContainer.RightText:SetParent(frame.TargetFrameContainer)
+		FrameHealthBarContainer.LeftText:SetParent(frame.TargetFrameContainer)
+		FrameHealthBarContainer.DeadText:SetParent(frame.TargetFrameContainer)
+
+		FrameManaBar.ManaBarMask:Hide()
+
+		FrameManaBar.TextString:SetPoint("CENTER", FrameManaBar, "CENTER", -4, 3)
+		FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 5, 3)
+		FrameManaBar.RightText:SetPoint("RIGHT", FrameManaBar, "RIGHT", -15, 3)
+
+		FrameManaBar.TextString:SetParent(frame.TargetFrameContainer)
+		FrameManaBar.RightText:SetParent(frame.TargetFrameContainer)
+		FrameManaBar.LeftText:SetParent(frame.TargetFrameContainer)
 
 		self.haveElite = nil;
 
