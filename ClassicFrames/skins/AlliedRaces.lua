@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_AlliedRacesUI" then
 		ApplyCloseButton(AlliedRacesFrameCloseButton)
 
-		AlliedRacesFrame.PortraitContainer.CircleMask:Hide()
-
 		AlliedRacesFramePortrait:SetSize(61, 61)
 		AlliedRacesFramePortrait:ClearAllPoints()
 		AlliedRacesFramePortrait:SetPoint("TOPLEFT", -6, 8)

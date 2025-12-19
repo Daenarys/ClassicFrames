@@ -2,8 +2,6 @@ if not _G.CatalogShopFrame then return end
 
 ApplyCloseButton(CatalogShopFrameCloseButton)
 
-CatalogShopFrame.PortraitContainer.CircleMask:Hide()
-
 CatalogShopFramePortrait:SetSize(61, 61)
 CatalogShopFramePortrait:ClearAllPoints()
 CatalogShopFramePortrait:SetPoint("TOPLEFT", -6, 8)

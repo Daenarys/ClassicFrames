@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_Collections" then
 		ApplyCloseButton(CollectionsJournalCloseButton)
 
-		CollectionsJournal.PortraitContainer.CircleMask:Hide()
-
 		CollectionsJournalPortrait:SetSize(61, 61)
 		CollectionsJournalPortrait:ClearAllPoints()
 		CollectionsJournalPortrait:SetPoint("TOPLEFT", -6, 8)

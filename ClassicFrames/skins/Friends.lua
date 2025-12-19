@@ -4,8 +4,6 @@ FriendsFrame:SetWidth(338)
 
 ApplyCloseButton(FriendsFrameCloseButton)
 
-FriendsFrame.PortraitContainer.CircleMask:Hide()
-
 FriendsFramePortrait:SetSize(61, 61)
 FriendsFramePortrait:ClearAllPoints()
 FriendsFramePortrait:SetPoint("TOPLEFT", -6, 8)

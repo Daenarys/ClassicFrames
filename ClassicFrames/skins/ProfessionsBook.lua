@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_ProfessionsBook" then
 		ApplyCloseButton(ProfessionsBookFrameCloseButton)
 
-		ProfessionsBookFrame.PortraitContainer.CircleMask:Hide()
-
 		ProfessionsBookFramePortrait:SetSize(61, 61)
 		ProfessionsBookFramePortrait:ClearAllPoints()
 		ProfessionsBookFramePortrait:SetPoint("TOPLEFT", -6, 8)

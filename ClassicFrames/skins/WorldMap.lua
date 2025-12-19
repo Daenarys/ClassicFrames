@@ -26,8 +26,6 @@ hooksecurefunc(WorldMapFrame, "Minimize", function(self)
 
 	self.BorderFrame.Tutorial.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 
-	self.BorderFrame.PortraitContainer.CircleMask:Hide()
-
 	WorldMapFramePortrait:SetSize(61, 61)
 	WorldMapFramePortrait:ClearAllPoints()
 	WorldMapFramePortrait:SetPoint("TOPLEFT", -6, 8)

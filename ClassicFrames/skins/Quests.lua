@@ -1,8 +1,6 @@
 if _G.QuestFrame then
 	ApplyCloseButton(QuestFrameCloseButton)
 
-	QuestFrame.PortraitContainer.CircleMask:Hide()
-
 	QuestFramePortrait:SetSize(61, 61)
 	QuestFramePortrait:ClearAllPoints()
 	QuestFramePortrait:SetPoint("TOPLEFT", -6, 8)
@@ -19,8 +17,6 @@ end
 
 if _G.QuestLogPopupDetailFrame then
 	ApplyCloseButton(QuestLogPopupDetailFrameCloseButton)
-
-	QuestLogPopupDetailFrame.PortraitContainer.CircleMask:Hide()
 
 	QuestLogPopupDetailFramePortrait:SetSize(61, 61)
 	QuestLogPopupDetailFramePortrait:ClearAllPoints()

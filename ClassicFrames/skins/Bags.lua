@@ -57,7 +57,6 @@ for i = 1, _G.NUM_CONTAINER_FRAMES do
 	_G['ContainerFrame'..i].PortraitButton:GetHighlightTexture():SetPoint("CENTER", -3, 3)
 
 	_G['ContainerFrame'..i].PortraitContainer:SetFrameLevel(0)
-	_G['ContainerFrame'..i].PortraitContainer.CircleMask:Hide()
 
 	_G['ContainerFrame'..i].CloseButton:SetSize(32, 32)
 	_G['ContainerFrame'..i].CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")

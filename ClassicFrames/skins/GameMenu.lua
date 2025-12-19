@@ -75,6 +75,10 @@ GameMenuFrame:HookScript("OnShow", function(self)
 end)
 
 hooksecurefunc(GameMenuFrame, "Layout", function(self)
+	local shop1Enabled = C_StorePublic.IsEnabled()
+	local shop2Enabled = C_CatalogShop.IsShop2Enabled()
+	local storeEnabled = shop1Enabled or shop2Enabled
+
 	for button in self.buttonPool:EnumerateActive() do
 		local text = button:GetText()
 		if (text == _G["GAMEMENU_SUPPORT"]) then
@@ -82,63 +86,63 @@ hooksecurefunc(GameMenuFrame, "Layout", function(self)
 		elseif (text == _G["BLIZZARD_STORE"]) then
 			button:SetPoint("TOPLEFT", 26, -54)
 		elseif (text == _G["GAMEMENU_NEW_BUTTON"]) then
-			if C_StorePublic.IsEnabled() then
+			if storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -76)
 			else
 				button:SetPoint("TOPLEFT", 26, -54)
 			end
 		elseif (text == _G["GAMEMENU_OPTIONS"]) then
-			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
+			if C_SplashScreen.CanViewSplashScreen() and storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -113)
-			elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+			elseif not C_SplashScreen.CanViewSplashScreen() and not storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -69)
 			else
 				button:SetPoint("TOPLEFT", 26, -91)
 			end
 		elseif (text == _G["HUD_EDIT_MODE_MENU"]) then
-			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
+			if C_SplashScreen.CanViewSplashScreen() and storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -135)
-			elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+			elseif not C_SplashScreen.CanViewSplashScreen() and not storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -91)
 			else
 				button:SetPoint("TOPLEFT", 26, -113)
 			end
 		elseif (text == _G["MACROS"]) then
-			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
+			if C_SplashScreen.CanViewSplashScreen() and storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -157)
-			elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+			elseif not C_SplashScreen.CanViewSplashScreen() and not storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -113)
 			else
 				button:SetPoint("TOPLEFT", 26, -135)
 			end
 		elseif (text == _G["ADDONS"]) then
-			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
+			if C_SplashScreen.CanViewSplashScreen() and storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -179)
-			elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+			elseif not C_SplashScreen.CanViewSplashScreen() and not storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -135)
 			else
 				button:SetPoint("TOPLEFT", 26, -157)
 			end
 		elseif (text == _G["LOG_OUT"]) then
-			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
+			if C_SplashScreen.CanViewSplashScreen() and storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -216)
-			elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+			elseif not C_SplashScreen.CanViewSplashScreen() and not storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -172)
 			else
 				button:SetPoint("TOPLEFT", 26, -194)
 			end
 		elseif (text == _G["EXIT_GAME"]) then
-			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
+			if C_SplashScreen.CanViewSplashScreen() and storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -238)
-			elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+			elseif not C_SplashScreen.CanViewSplashScreen() and not storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -194)
 			else
 				button:SetPoint("TOPLEFT", 26, -216)
 			end
 		elseif (text == _G["RETURN_TO_GAME"]) then
-			if C_SplashScreen.CanViewSplashScreen() and C_StorePublic.IsEnabled() then
+			if C_SplashScreen.CanViewSplashScreen() and storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -275)
-			elseif not C_SplashScreen.CanViewSplashScreen() and not C_StorePublic.IsEnabled() then
+			elseif not C_SplashScreen.CanViewSplashScreen() and not storeEnabled then
 				button:SetPoint("TOPLEFT", 26, -231)
 			else
 				button:SetPoint("TOPLEFT", 26, -253)

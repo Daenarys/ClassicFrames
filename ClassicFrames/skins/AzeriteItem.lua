@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_AzeriteUI" then
 		ApplyCloseButton(AzeriteEmpoweredItemUICloseButton)
 
-		AzeriteEmpoweredItemUI.BorderFrame.PortraitContainer.CircleMask:Hide()
-
 		AzeriteEmpoweredItemUIPortrait:SetSize(61, 61)
 		AzeriteEmpoweredItemUIPortrait:ClearAllPoints()
 		AzeriteEmpoweredItemUIPortrait:SetPoint("TOPLEFT", -6, 8)

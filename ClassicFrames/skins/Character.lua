@@ -2,8 +2,6 @@ if not _G.CharacterFrame then return end
 
 ApplyCloseButton(CharacterFrameCloseButton)
 
-CharacterFrame.PortraitContainer.CircleMask:Hide()
-
 CharacterFramePortrait:SetSize(61, 61)
 CharacterFramePortrait:ClearAllPoints()
 CharacterFramePortrait:SetPoint("TOPLEFT", -6, 8)
@@ -161,22 +159,4 @@ end)
 
 CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self:SetPoint("TOP")
-end)
-
-CharacterFrame:HookScript("OnShow", function()
-	CfPlayerFrameHealthBar.showNumeric = true;
-	CfPlayerFrameManaBar.showNumeric = true;
-	CfPlayerFrameHealthBar:ShowStatusBarText()
-	CfPlayerFrameManaBar:ShowStatusBarText()
-end)
-
-CharacterFrame:HookScript("OnHide", function()
-	CfPlayerFrameHealthBar.showNumeric = nil;
-	CfPlayerFrameManaBar.showNumeric = nil;
-	CfPlayerFrameHealthBar:HideStatusBarText()
-	CfPlayerFrameManaBar:HideStatusBarText()
-end)
-
-PaperDollFrame:HookScript("OnShow", function()
-	CharacterModelScene.ControlFrame:Hide()
 end)

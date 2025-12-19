@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_HousingDashboard" then
 		ApplyCloseButton(HousingDashboardFrameCloseButton)
 
-		HousingDashboardFrame.PortraitContainer.CircleMask:Hide()
-
 		HousingDashboardFramePortrait:SetSize(61, 61)
 		HousingDashboardFramePortrait:ClearAllPoints()
 		HousingDashboardFramePortrait:SetPoint("TOPLEFT", -6, 8)
@@ -38,8 +36,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyFilterDropDown(HousingDashboardFrame.CatalogContent.Filters.FilterDropdown)
 	elseif name == "Blizzard_HousingHouseFinder" then
 		ApplyCloseButton(HouseFinderFrameCloseButton)
-
-		HouseFinderFrame.PortraitContainer.CircleMask:Hide()
 
 		HouseFinderFramePortrait:SetSize(61, 61)
 		HouseFinderFramePortrait:ClearAllPoints()

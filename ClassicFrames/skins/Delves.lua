@@ -21,8 +21,6 @@ end)
 if DelvesCompanionAbilityListFrame then
 	ApplyCloseButton(DelvesCompanionAbilityListFrameCloseButton)
 
-	DelvesCompanionAbilityListFrame.PortraitContainer.CircleMask:Hide()
-
 	DelvesCompanionAbilityListFramePortrait:SetSize(61, 61)
 	DelvesCompanionAbilityListFramePortrait:ClearAllPoints()
 	DelvesCompanionAbilityListFramePortrait:SetPoint("TOPLEFT", -6, 8)

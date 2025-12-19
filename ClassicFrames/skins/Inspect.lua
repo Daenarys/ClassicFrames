@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_InspectUI" then
 		ApplyCloseButton(InspectFrameCloseButton)
 
-		InspectFrame.PortraitContainer.CircleMask:Hide()
-
 		InspectFramePortrait:SetSize(61, 61)
 		InspectFramePortrait:ClearAllPoints()
 		InspectFramePortrait:SetPoint("TOPLEFT", -6, 8)

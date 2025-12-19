@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_ItemInteractionUI" then
 		ApplyCloseButton(ItemInteractionFrameCloseButton)
 
-		ItemInteractionFrame.PortraitContainer.CircleMask:Hide()
-
 		ItemInteractionFramePortrait:SetSize(61, 61)
 		ItemInteractionFramePortrait:ClearAllPoints()
 		ItemInteractionFramePortrait:SetPoint("TOPLEFT", -6, 8)

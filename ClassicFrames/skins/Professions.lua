@@ -25,8 +25,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			ProfessionsFrame.ButtonFrameEdge:SetPoint("CENTER", ProfessionsFrame.MaximizeMinimize, "LEFT", 6, 0)
 		end
 
-		ProfessionsFrame.PortraitContainer.CircleMask:Hide()
-
 		ProfessionsFramePortrait:SetSize(61, 61)
 		ProfessionsFramePortrait:ClearAllPoints()
 		ProfessionsFramePortrait:SetPoint("TOPLEFT", -6, 8)

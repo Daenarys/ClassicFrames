@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_ProfessionsCustomerOrders" then
 		ApplyCloseButton(ProfessionsCustomerOrdersFrameCloseButton)
 
-		ProfessionsCustomerOrdersFrame.PortraitContainer.CircleMask:Hide()
-
 		ProfessionsCustomerOrdersFramePortrait:SetSize(61, 61)
 		ProfessionsCustomerOrdersFramePortrait:ClearAllPoints()
 		ProfessionsCustomerOrdersFramePortrait:SetPoint("TOPLEFT", -6, 8)

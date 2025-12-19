@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_EncounterJournal" then
 		ApplyCloseButton(EncounterJournalCloseButton)
 
-		EncounterJournal.PortraitContainer.CircleMask:Hide()
-
 		EncounterJournalPortrait:SetSize(61, 61)
 		EncounterJournalPortrait:ClearAllPoints()
 		EncounterJournalPortrait:SetPoint("TOPLEFT", -6, 8)

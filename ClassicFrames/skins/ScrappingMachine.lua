@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_ScrappingMachineUI" then
 		ApplyCloseButton(ScrappingMachineFrameCloseButton)
 
-		ScrappingMachineFrame.PortraitContainer.CircleMask:Hide()
-
 		ScrappingMachineFramePortrait:SetSize(61, 61)
 		ScrappingMachineFramePortrait:ClearAllPoints()
 		ScrappingMachineFramePortrait:SetPoint("TOPLEFT", -6, 8)

@@ -81,8 +81,6 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 			self.ButtonFrameEdge:SetPoint("CENTER", self.MaximizeMinimizeFrame, "LEFT", 6, 0)
 		end
 
-		self.PortraitContainer.CircleMask:Hide()
-
 		CommunitiesFramePortrait:SetSize(61, 61)
 		CommunitiesFramePortrait:ClearAllPoints()
 		CommunitiesFramePortrait:SetPoint("TOPLEFT", -6, 8)

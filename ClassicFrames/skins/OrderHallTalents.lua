@@ -9,8 +9,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			else
 				ApplyCloseButton(OrderHallTalentFrameCloseButton)
 
-				OrderHallTalentFrame.PortraitContainer.CircleMask:Hide()
-
 				OrderHallTalentFramePortrait:SetSize(61, 61)
 				OrderHallTalentFramePortrait:ClearAllPoints()
 				OrderHallTalentFramePortrait:SetPoint("TOPLEFT", -6, 8)

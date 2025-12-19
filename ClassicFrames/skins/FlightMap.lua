@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_FlightMap" then
 		ApplyCloseButton(FlightMapFrameCloseButton)
 
-		FlightMapFrame.BorderFrame.PortraitContainer.CircleMask:Hide()
-
 		FlightMapFramePortrait:SetSize(61, 61)
 		FlightMapFramePortrait:ClearAllPoints()
 		FlightMapFramePortrait:SetPoint("TOPLEFT", -6, 8)

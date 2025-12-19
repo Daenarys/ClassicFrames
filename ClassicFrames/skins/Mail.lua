@@ -1,8 +1,6 @@
 if _G.MailFrame then
 	ApplyCloseButton(MailFrameCloseButton)
 
-	MailFrame.PortraitContainer.CircleMask:Hide()
-
 	MailFramePortrait:SetSize(58, 58)
 	MailFramePortrait:ClearAllPoints()
 	MailFramePortrait:SetPoint("TOPLEFT", -5, 7)
@@ -38,8 +36,6 @@ end
 
 if _G.OpenMailFrame then
 	ApplyCloseButton(OpenMailFrameCloseButton)
-
-	OpenMailFrame.PortraitContainer.CircleMask:Hide()
 
 	OpenMailFramePortrait:SetSize(61, 61)
 	OpenMailFramePortrait:ClearAllPoints()

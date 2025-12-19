@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_MacroUI" then
 		ApplyCloseButton(MacroFrameCloseButton)
 
-		MacroFrame.PortraitContainer.CircleMask:Hide()
-
 		MacroFramePortrait:SetSize(61, 61)
 
 		MacroFrame.TitleContainer:ClearAllPoints()

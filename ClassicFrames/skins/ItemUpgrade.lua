@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_ItemUpgradeUI" then
 		ApplyCloseButton(ItemUpgradeFrameCloseButton)
 
-		ItemUpgradeFrame.PortraitContainer.CircleMask:Hide()
-
 		ItemUpgradeFramePortrait:SetSize(61, 61)
 		ItemUpgradeFramePortrait:ClearAllPoints()
 		ItemUpgradeFramePortrait:SetPoint("TOPLEFT", -6, 8)

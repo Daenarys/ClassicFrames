@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_AzeriteRespecUI" then
 		ApplyCloseButton(AzeriteRespecFrameCloseButton)
 
-		AzeriteRespecFrame.PortraitContainer.CircleMask:Hide()
-
 		AzeriteRespecFramePortrait:SetSize(61, 61)
 		AzeriteRespecFramePortrait:ClearAllPoints()
 		AzeriteRespecFramePortrait:SetPoint("TOPLEFT", -6, 8)

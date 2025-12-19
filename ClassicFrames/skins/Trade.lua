@@ -2,8 +2,6 @@ if not _G.TradeFrame then return end
 
 ApplyCloseButton(TradeFrameCloseButton)
 
-TradeFrame.PortraitContainer.CircleMask:Hide()
-
 TradeFramePortrait:SetSize(61, 61)
 TradeFramePortrait:ClearAllPoints()
 TradeFramePortrait:SetPoint("TOPLEFT", -6, 8)

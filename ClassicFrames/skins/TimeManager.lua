@@ -6,8 +6,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyCloseButton(TimeManagerFrameCloseButton)
 
-		TimeManagerFrame.PortraitContainer.CircleMask:Hide()
-
 		TimeManagerFramePortrait:SetSize(61, 61)
 		TimeManagerFramePortrait:ClearAllPoints()
 		TimeManagerFramePortrait:SetPoint("TOPLEFT", -6, 8)

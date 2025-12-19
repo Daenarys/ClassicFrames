@@ -2,8 +2,6 @@ if not _G.GossipFrame then return end
 
 ApplyCloseButton(GossipFrameCloseButton)
 
-GossipFrame.PortraitContainer.CircleMask:Hide()
-
 GossipFramePortrait:SetSize(61, 61)
 GossipFramePortrait:ClearAllPoints()
 GossipFramePortrait:SetPoint("TOPLEFT", -6, 8)

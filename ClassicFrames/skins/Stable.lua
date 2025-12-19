@@ -2,8 +2,6 @@ if not _G.StableFrame then return end
 
 ApplyCloseButton(StableFrameCloseButton)
 
-StableFrame.PortraitContainer.CircleMask:Hide()
-
 StableFramePortrait:SetSize(61, 61)
 StableFramePortrait:ClearAllPoints()
 StableFramePortrait:SetPoint("TOPLEFT", -6, 8)

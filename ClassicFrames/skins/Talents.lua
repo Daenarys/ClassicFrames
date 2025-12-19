@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_PlayerSpells" then
 		ApplyCloseButton(PlayerSpellsFrameCloseButton)
 
-		PlayerSpellsFrame.PortraitContainer.CircleMask:Hide()
-
 		PlayerSpellsFramePortrait:SetSize(61, 61)
 		PlayerSpellsFramePortrait:ClearAllPoints()
 		PlayerSpellsFramePortrait:SetPoint("TOPLEFT", -6, 8)

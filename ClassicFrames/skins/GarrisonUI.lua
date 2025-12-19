@@ -49,8 +49,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		end
 		if _G.GarrisonRecruiterFrame then
 			ApplyCloseButton(GarrisonRecruiterFrameCloseButton)
-			
-			GarrisonRecruiterFrame.PortraitContainer.CircleMask:Hide()
 
 			GarrisonRecruiterFramePortrait:SetSize(61, 61)
 			GarrisonRecruiterFramePortrait:ClearAllPoints()

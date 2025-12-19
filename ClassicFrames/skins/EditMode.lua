@@ -59,7 +59,7 @@ EditModeImportLayoutDialog.ImportBox.ScrollBar.Forward:SetHighlightAtlas("UI-Scr
 
 ApplyDialogBorder(EditModeManagerFrame.Border)
 ApplyDialogBorder(EditModeSystemSettingsDialog.Border)
-ApplyDialogBorder(EditModeNewLayoutDialog.Border)
+ApplyDialogBorder(EditModeLayoutDialog.Border)
 ApplyDialogBorder(EditModeImportLayoutDialog.Border)
 ApplyDialogBorder(EditModeUnsavedChangesDialog.Border)
 ApplyDropDown(EditModeManagerFrame.LayoutDropdown)

@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_NewPlayerExperienceGuide" then
 		ApplyCloseButton(GuideFrameCloseButton)
 
-		GuideFrame.PortraitContainer.CircleMask:Hide()
-
 		GuideFramePortrait:SetSize(61, 61)
 		GuideFramePortrait:ClearAllPoints()
 		GuideFramePortrait:SetPoint("TOPLEFT", -6, 8)

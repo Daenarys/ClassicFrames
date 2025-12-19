@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_IslandsQueueUI" then
 		ApplyCloseButton(IslandsQueueFrameCloseButton)
 
-		IslandsQueueFrame.PortraitContainer.CircleMask:Hide()
-
 		IslandsQueueFramePortrait:SetSize(61, 61)
 		IslandsQueueFramePortrait:ClearAllPoints()
 		IslandsQueueFramePortrait:SetPoint("TOPLEFT", -6, 8)

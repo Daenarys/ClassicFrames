@@ -2,8 +2,6 @@ if not _G.PVEFrame then return end
 
 ApplyCloseButton(PVEFrameCloseButton)
 
-PVEFrame.PortraitContainer.CircleMask:Hide()
-
 PVEFramePortrait:SetSize(61, 61)
 PVEFramePortrait:ClearAllPoints()
 PVEFramePortrait:SetPoint("TOPLEFT", -6, 8)
@@ -20,7 +18,7 @@ PVEFrameTab2:SetPoint("LEFT", PVEFrameTab1, "RIGHT", -16, 0)
 PVEFrameTab3:ClearAllPoints()
 PVEFrameTab3:SetPoint("LEFT", PVEFrameTab2, "RIGHT", -16, 0)
 
-for i = 1, 4 do
+for i = 1, 3 do
 	ApplyBottomTab(_G['PVEFrameTab'..i])
 
 	_G["PVEFrameTab"..i]:HookScript("OnShow", function(self)
@@ -29,18 +27,7 @@ for i = 1, 4 do
 end
 
 GroupFinderFrame:HookScript("OnShow", function()
-	SetPortraitToTexture(PVEFramePortrait, "Interface\\LFGFrame\\UI-LFG-PORTRAIT")
-end)
-
-PVEFrame:HookScript("OnShow", function(self)
-	if self.tab4:IsShown() then
-		self.tab4:ClearAllPoints()
-		if self.tab2:IsShown() and not self.tab3:IsShown() then
-			self.tab4:SetPoint("LEFT", self.tab2, "RIGHT", -16, 0)
-		elseif self.tab2:IsShown() and self.tab3:IsShown() then
-			self.tab4:SetPoint("LEFT", self.tab3, "RIGHT", -16, 0)
-		end
-	end
+	PVEFramePortrait:SetTexture("Interface\\LFGFrame\\UI-LFG-PORTRAIT")
 end)
 
 LFDQueueFrameRandomScrollFrame.ScrollBar:SetSize(25, 560)
@@ -133,13 +120,13 @@ LFGDungeonReadyStatusCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Pan
 LFGDungeonReadyStatusCloseButton:ClearAllPoints()
 LFGDungeonReadyStatusCloseButton:SetPoint("TOPRIGHT", -2, -2)
 
-ApplyDialogBorder(LFDReadyCheckPopup.Border)
 ApplyDialogBorder(LFDRoleCheckPopup.Border)
 ApplyDialogBorder(LFGDungeonReadyStatus.Border)
 ApplyDialogBorder(LFGInvitePopup.Border)
 ApplyDialogBorder(LFGListApplicationDialog.Border)
 ApplyDialogBorder(LFGListInviteDialog.Border)
 ApplyDialogBorder(LFGListFrame.EntryCreation.ActivityFinder.Dialog.Border)
+ApplyDialogBorder(LFGReadyCheckPopup.Border)
 
 LFGDungeonReadyDialogRoleIconLeaderIcon:SetSize(19, 19)
 LFGDungeonReadyDialogRoleIconLeaderIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")

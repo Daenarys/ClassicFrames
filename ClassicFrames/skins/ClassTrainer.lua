@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_TrainerUI" then
 		ApplyCloseButton(ClassTrainerFrameCloseButton)
 
-		ClassTrainerFrame.PortraitContainer.CircleMask:Hide()
-
 		ClassTrainerFramePortrait:SetSize(61, 61)
 		ClassTrainerFramePortrait:ClearAllPoints()
 		ClassTrainerFramePortrait:SetPoint("TOPLEFT", -6, 8)

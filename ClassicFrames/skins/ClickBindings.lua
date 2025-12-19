@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_ClickBindingUI" then
 		ApplyCloseButton(ClickBindingFrameCloseButton)
 
-		ClickBindingFrame.PortraitContainer.CircleMask:Hide()
-
 		ClickBindingFramePortrait:SetSize(61, 61)
 		ClickBindingFramePortrait:ClearAllPoints()
 		ClickBindingFramePortrait:SetPoint("TOPLEFT", -6, 8)

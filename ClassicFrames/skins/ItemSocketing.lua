@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_ItemSocketingUI" then
 		ApplyCloseButton(ItemSocketingFrameCloseButton)
 
-		ItemSocketingFrame.PortraitContainer.CircleMask:Hide()
-
 		ItemSocketingFramePortrait:SetSize(61, 61)
 		ItemSocketingFramePortrait:ClearAllPoints()
 		ItemSocketingFramePortrait:SetPoint("TOPLEFT", -6, 8)

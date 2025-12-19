@@ -2,8 +2,6 @@ if not _G.ItemTextFrame then return end
 
 ApplyCloseButton(ItemTextFrameCloseButton)
 
-ItemTextFrame.PortraitContainer.CircleMask:Hide()
-
 select(3, ItemTextFrame:GetRegions()):SetSize(58, 58)
 select(3, ItemTextFrame:GetRegions()):ClearAllPoints()
 select(3, ItemTextFrame:GetRegions()):SetPoint("TOPLEFT", -5, 5)

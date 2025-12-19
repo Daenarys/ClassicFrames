@@ -23,8 +23,6 @@ if (DressUpFrame.ButtonFrameEdge == nil) then
 	DressUpFrame.ButtonFrameEdge:SetPoint("CENTER", DressUpFrame.MaximizeMinimizeFrame, "LEFT", 6, 0)
 end
 
-DressUpFrame.PortraitContainer.CircleMask:Hide()
-
 DressUpFramePortrait:SetSize(61, 61)
 DressUpFramePortrait:ClearAllPoints()
 DressUpFramePortrait:SetPoint("TOPLEFT", -6, 8)
@@ -58,17 +56,7 @@ SideDressUpFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-Minim
 SideDressUpFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 SideDressUpFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 
-ApplyDropDown(DressUpFrameOutfitDropdown)
-
-hooksecurefunc(DressUpFrame, "ConfigureSize", function(self, isMinimized)
-	if isMinimized then
-		self.OutfitDropdown:SetPoint("TOP", -37, -29)
-	else
-		self.OutfitDropdown:SetWidth(178)
-		self.OutfitDropdown:SetPoint("TOP", -23, -29)
-	end
-end)
-
+ApplyDropDown(DressUpFrameCustomSetDropdown)
 
 DressUpFrame.ModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self:SetPoint("TOP")

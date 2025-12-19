@@ -7,17 +7,29 @@ f:SetScript("OnEvent", function(self, event, name)
 		HonorFrame.SpecificScrollBar:SetPoint("TOPLEFT", HonorFrame.SpecificScrollBox, "TOPRIGHT", -2, 3)
 		HonorFrame.SpecificScrollBar:SetPoint("BOTTOMLEFT", HonorFrame.SpecificScrollBox, "BOTTOMRIGHT", 1, -1)
 
-		ApplyScrollBarArrow(HonorFrame.SpecificScrollBar)
-		ApplyScrollBarTrack(HonorFrame.SpecificScrollBar.Track)
-		ApplyScrollBarThumb(HonorFrame.SpecificScrollBar.Track.Thumb)
+		ApplyScrollBarArrow(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar)
+		ApplyScrollBarTrack(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar.Track)
+		ApplyScrollBarThumb(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar.Track.Thumb)
+
+		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetSize(25, 560)
+		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:ClearAllPoints()
+		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetPoint("TOPLEFT", TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBox, "TOPRIGHT", -2, 3)
+		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetPoint("BOTTOMLEFT", TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBox, "BOTTOMRIGHT", 1, -1)
+
+		ApplyScrollBarArrow(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar)
+		ApplyScrollBarTrack(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar.Track)
+		ApplyScrollBarThumb(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar.Track.Thumb)
 
 		for _, roleButton in pairs({
-			_G.HonorFrame.DPSIcon,
-			_G.HonorFrame.HealerIcon,
-			_G.HonorFrame.TankIcon,
-			_G.ConquestFrame.DPSIcon,
-			_G.ConquestFrame.HealerIcon,
-			_G.ConquestFrame.TankIcon,
+			_G.HonorFrame.RoleList.DPSIcon,
+			_G.HonorFrame.RoleList.HealerIcon,
+			_G.HonorFrame.RoleList.TankIcon,
+			_G.ConquestFrame.RoleList.DPSIcon,
+			_G.ConquestFrame.RoleList.HealerIcon,
+			_G.ConquestFrame.RoleList.TankIcon,
+			_G.TrainingGroundsFrame.RoleList.DPSIcon,
+			_G.TrainingGroundsFrame.RoleList.HealerIcon,
+			_G.TrainingGroundsFrame.RoleList.TankIcon,
 		}) do
 			local checkButton = roleButton.checkButton or roleButton.CheckButton
 
@@ -32,37 +44,53 @@ f:SetScript("OnEvent", function(self, event, name)
 			checkButton:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
 		end
 
-		HonorFrame.DPSIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-		HonorFrame.DPSIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"))
-		HonorFrame.DPSIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-		HonorFrame.DPSIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"))
-		ConquestFrame.DPSIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-		ConquestFrame.DPSIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"))
-		ConquestFrame.DPSIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-		ConquestFrame.DPSIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"))
+		HonorFrame.RoleList.DPSIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		HonorFrame.RoleList.DPSIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"))
+		HonorFrame.RoleList.DPSIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		HonorFrame.RoleList.DPSIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"))
+		ConquestFrame.RoleList.DPSIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		ConquestFrame.RoleList.DPSIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"))
+		ConquestFrame.RoleList.DPSIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		ConquestFrame.RoleList.DPSIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"))
+		TrainingGroundsFrame.RoleList.DPSIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		TrainingGroundsFrame.RoleList.DPSIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"))
+		TrainingGroundsFrame.RoleList.DPSIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		TrainingGroundsFrame.RoleList.DPSIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("DAMAGER"))
 
-		HonorFrame.HealerIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-		HonorFrame.HealerIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("HEALER"))
-		HonorFrame.HealerIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-		HonorFrame.HealerIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("HEALER"))
-		ConquestFrame.HealerIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-		ConquestFrame.HealerIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("HEALER"))
-		ConquestFrame.HealerIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-		ConquestFrame.HealerIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("HEALER"))
+		HonorFrame.RoleList.HealerIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		HonorFrame.RoleList.HealerIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("HEALER"))
+		HonorFrame.RoleList.HealerIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		HonorFrame.RoleList.HealerIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("HEALER"))
+		ConquestFrame.RoleList.HealerIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		ConquestFrame.RoleList.HealerIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("HEALER"))
+		ConquestFrame.RoleList.HealerIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		ConquestFrame.RoleList.HealerIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("HEALER"))
+		TrainingGroundsFrame.RoleList.HealerIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		TrainingGroundsFrame.RoleList.HealerIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("HEALER"))
+		TrainingGroundsFrame.RoleList.HealerIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		TrainingGroundsFrame.RoleList.HealerIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("HEALER"))
 
-		HonorFrame.TankIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-		HonorFrame.TankIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
-		HonorFrame.TankIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-		HonorFrame.TankIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
-		ConquestFrame.TankIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-		ConquestFrame.TankIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
-		ConquestFrame.TankIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
-		ConquestFrame.TankIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
+		HonorFrame.RoleList.TankIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		HonorFrame.RoleList.TankIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
+		HonorFrame.RoleList.TankIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		HonorFrame.RoleList.TankIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
+		ConquestFrame.RoleList.TankIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		ConquestFrame.RoleList.TankIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
+		ConquestFrame.RoleList.TankIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		ConquestFrame.RoleList.TankIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
+		TrainingGroundsFrame.RoleList.TankIcon:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		TrainingGroundsFrame.RoleList.TankIcon:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
+		TrainingGroundsFrame.RoleList.TankIcon:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
+		TrainingGroundsFrame.RoleList.TankIcon:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 
 		ApplyDropDown(HonorFrameTypeDropdown)
+		ApplyDropDown(TrainingGroundsFrameTypeDropdown)
 
 		HonorFrameTypeDropdown.Text:SetJustifyH("RIGHT")
 		HonorFrameTypeDropdown.Text:SetPoint("TOPLEFT", 9, -7)
+
+		TrainingGroundsFrameTypeDropdown.Text:SetJustifyH("RIGHT")
+		TrainingGroundsFrameTypeDropdown.Text:SetPoint("TOPLEFT", 9, -7)
 	end
 end)
 

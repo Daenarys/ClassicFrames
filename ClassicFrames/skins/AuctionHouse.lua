@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_AuctionHouseUI" then
 		ApplyCloseButton(AuctionHouseFrameCloseButton)
 
-		AuctionHouseFrame.PortraitContainer.CircleMask:Hide()
-
 		AuctionHouseFramePortrait:SetSize(61, 61)
 		AuctionHouseFramePortrait:ClearAllPoints()
 		AuctionHouseFramePortrait:SetPoint("TOPLEFT", -6, 8)

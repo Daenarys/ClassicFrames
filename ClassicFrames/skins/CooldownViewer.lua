@@ -2,8 +2,6 @@ if not _G.CooldownViewerSettings then return end
 
 ApplyCloseButton(CooldownViewerSettingsCloseButton)
 
-CooldownViewerSettings.PortraitContainer.CircleMask:Hide()
-
 CooldownViewerSettingsPortrait:SetSize(61, 61)
 CooldownViewerSettingsPortrait:ClearAllPoints()
 CooldownViewerSettingsPortrait:SetPoint("TOPLEFT", -6, 8)

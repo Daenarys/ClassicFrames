@@ -2,8 +2,6 @@ if not _G.BankFrame then return end
 
 ApplyCloseButton(BankFrameCloseButton)
 
-BankFrame.PortraitContainer.CircleMask:Hide()
-
 BankFramePortrait:SetSize(61, 61)
 BankFramePortrait:ClearAllPoints()
 BankFramePortrait:SetPoint("TOPLEFT", -6, 8)

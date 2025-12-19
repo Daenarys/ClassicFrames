@@ -1,8 +1,6 @@
 if _G.GuildRegistrarFrame then
 	ApplyCloseButton(GuildRegistrarFrameCloseButton)
 
-	GuildRegistrarFrame.PortraitContainer.CircleMask:Hide()
-
 	GuildRegistrarFramePortrait:SetSize(61, 61)
 	GuildRegistrarFramePortrait:ClearAllPoints()
 	GuildRegistrarFramePortrait:SetPoint("TOPLEFT", -6, 8)
@@ -26,8 +24,6 @@ end
 
 if _G.PetitionFrame then
 	ApplyCloseButton(PetitionFrameCloseButton)
-
-	PetitionFrame.PortraitContainer.CircleMask:Hide()
 
 	PetitionFramePortrait:SetSize(61, 61)
 	PetitionFramePortrait:ClearAllPoints()

@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_GarrisonUI" then
 		ApplyCloseButton(GarrisonCapacitiveDisplayFrameCloseButton)
 
-		GarrisonCapacitiveDisplayFrame.PortraitContainer.CircleMask:Hide()
-
 		GarrisonCapacitiveDisplayFramePortrait:SetSize(61, 61)
 		GarrisonCapacitiveDisplayFramePortrait:ClearAllPoints()
 		GarrisonCapacitiveDisplayFramePortrait:SetPoint("TOPLEFT", -6, 8)
