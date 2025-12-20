@@ -31,6 +31,16 @@ local function SkinFrame(frame)
 	contentMain.Name:SetPoint("TOPLEFT", 36, -30)
 	contentMain.Name:SetJustifyH("CENTER")
 
+	FrameHealthBar.TextString:SetParent(frame.TargetFrameContainer)
+	FrameHealthBarContainer.RightText:SetParent(frame.TargetFrameContainer)
+	FrameHealthBarContainer.LeftText:SetParent(frame.TargetFrameContainer)
+	FrameHealthBarContainer.DeadText:SetParent(frame.TargetFrameContainer)
+	FrameHealthBarContainer.UnconsciousText:SetParent(frame.TargetFrameContainer)
+
+	FrameManaBar.TextString:SetParent(frame.TargetFrameContainer)
+	FrameManaBar.RightText:SetParent(frame.TargetFrameContainer)
+	FrameManaBar.LeftText:SetParent(frame.TargetFrameContainer)
+
 	contentMain.ReputationColor:SetSize(119, 19)
 	contentMain.ReputationColor:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-LevelBackground")
 	contentMain.ReputationColor:ClearAllPoints()
@@ -88,11 +98,8 @@ local function SkinFrame(frame)
 		FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBar, "LEFT", 5, 0)
 		FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBar, "RIGHT", -7, 0)
 
-		FrameHealthBar.TextString:SetParent(frame.TargetFrameContainer)
-		FrameHealthBarContainer.RightText:SetParent(frame.TargetFrameContainer)
-		FrameHealthBarContainer.LeftText:SetParent(frame.TargetFrameContainer)
-		FrameHealthBarContainer.DeadText:SetParent(frame.TargetFrameContainer)
-
+		FrameHealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		FrameHealthBar:SetStatusBarColor(0, 1, 0)
 		FrameManaBar.ManaBarMask:ClearAllPoints()
 		FrameManaBar.ManaBarMask:SetPoint("TOPLEFT", FrameManaBar, "TOPLEFT", -53, 3)
 		FrameManaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", FrameManaBar, "BOTTOMRIGHT", 50, 0)
@@ -100,10 +107,6 @@ local function SkinFrame(frame)
 		FrameManaBar.TextString:SetPoint("CENTER", FrameManaBar, "CENTER", -4, 3)
 		FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 5, 3)
 		FrameManaBar.RightText:SetPoint("RIGHT", FrameManaBar, "RIGHT", -15, 3)
-
-		FrameManaBar.TextString:SetParent(frame.TargetFrameContainer)
-		FrameManaBar.RightText:SetParent(frame.TargetFrameContainer)
-		FrameManaBar.LeftText:SetParent(frame.TargetFrameContainer)
 
 		self.haveElite = nil;
 

@@ -15,9 +15,10 @@ PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetSize(64, 64)
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask")
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetPoint("TOPLEFT", 23, -16)
 
-PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
-PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:ClearAllPoints()
-PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:SetPoint("CENTER", PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator, "TOPLEFT", 54, -46)
+healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
+healthBar.OverAbsorbGlow:ClearAllPoints()
+healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", healthBar, "TOPRIGHT", -7, 0)
+healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", healthBar, "BOTTOMRIGHT", -7, 0)
 
 healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
@@ -26,6 +27,10 @@ healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
+
+PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:ClearAllPoints()
+PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:SetPoint("CENTER", PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator, "TOPLEFT", 54, -46)
 
 local groupIndicator = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator
 if groupIndicator then
@@ -215,6 +220,8 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	StatusTexture:SetPoint("TOPLEFT", 16, -12)
 	StatusTexture:SetBlendMode("ADD")
 
+	healthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+	healthBar:SetStatusBarColor(0, 1, 0)
 	healthBarContainer.HealthBarMask:ClearAllPoints()
 	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBar, "TOPLEFT", 1, 0)
 	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", healthBar, "BOTTOMRIGHT", -1, -1)
@@ -223,6 +230,7 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	healthBar.LeftText:SetPoint("LEFT", healthBar, "LEFT", 6, 0)
 	healthBar.RightText:SetPoint("RIGHT", healthBar, "RIGHT", -4, 0)
 
+	manaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 	manaBar.ManaBarMask:ClearAllPoints()
 	manaBar.ManaBarMask:SetPoint("TOPLEFT", manaBar, "TOPLEFT", 1, 2)
 	manaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", manaBar, "BOTTOMRIGHT", -1, 0)
@@ -494,6 +502,35 @@ PlayerFrame:HookScript("OnUpdate", function(self)
 		end
 		if (self.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow:IsShown()) then
 			self.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow:SetAlpha(alpha)
+		end
+	end
+end)
+
+hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
+	if ( not manaBar ) then
+		return
+	end
+
+	local powerType, powerToken, altR, altG, altB = UnitPowerType(manaBar.unit)
+	local info = PowerBarColor[powerToken]
+
+	manaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+
+	if ( info ) then
+		if ( info.atlas ) then
+			manaBar:SetStatusBarTexture(info.atlas)
+			manaBar:SetStatusBarColor(1, 1, 1)
+		else
+			manaBar:SetStatusBarColor(info.r, info.g, info.b)
+		end
+		if ( manaBar.Spark ) then
+			manaBar.Spark:SetAlpha(0)
+		end
+	else
+		if ( not altR ) then
+			info = PowerBarColor[powerType] or PowerBarColor["MANA"]
+		else
+			manaBar:SetStatusBarColor(altR, altG, altB)
 		end
 	end
 end)
