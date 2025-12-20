@@ -224,8 +224,8 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	healthBar.RightText:SetPoint("RIGHT", healthBar, "RIGHT", -4, 0)
 
 	manaBar.ManaBarMask:ClearAllPoints()
-	manaBar.ManaBarMask:SetPoint("TOPLEFT", manaBar, "TOPLEFT", 1, 0)
-	manaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", manaBar, "BOTTOMRIGHT", -1, -1)
+	manaBar.ManaBarMask:SetPoint("TOPLEFT", manaBar, "TOPLEFT", 1, 2)
+	manaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", manaBar, "BOTTOMRIGHT", -1, 0)
 
 	manaBar.TextString:SetPoint("CENTER", manaBar, "CENTER", 0, 3)
 	manaBar.LeftText:SetPoint("LEFT", manaBar, "LEFT", 6, 3)

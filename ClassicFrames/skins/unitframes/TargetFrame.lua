@@ -81,8 +81,8 @@ local function SkinFrame(frame)
 		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
 
 		FrameHealthBarContainer.HealthBarMask:ClearAllPoints()
-		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", FrameHealthBar, "TOPLEFT", 1, 0)
-		FrameHealthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", FrameHealthBar, "BOTTOMRIGHT", -1, -1)
+		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", FrameHealthBar, "TOPLEFT", 3, 0)
+		FrameHealthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", FrameHealthBar, "BOTTOMRIGHT", 0, -1)
 
 		FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBar, "CENTER")
 		FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBar, "LEFT", 5, 0)
@@ -93,7 +93,9 @@ local function SkinFrame(frame)
 		FrameHealthBarContainer.LeftText:SetParent(frame.TargetFrameContainer)
 		FrameHealthBarContainer.DeadText:SetParent(frame.TargetFrameContainer)
 
-		FrameManaBar.ManaBarMask:Hide()
+		FrameManaBar.ManaBarMask:ClearAllPoints()
+		FrameManaBar.ManaBarMask:SetPoint("TOPLEFT", FrameManaBar, "TOPLEFT", -53, 3)
+		FrameManaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", FrameManaBar, "BOTTOMRIGHT", 50, 0)
 
 		FrameManaBar.TextString:SetPoint("CENTER", FrameManaBar, "CENTER", -4, 3)
 		FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 5, 3)
