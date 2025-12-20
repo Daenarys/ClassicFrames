@@ -91,7 +91,7 @@ local function SkinFrame(frame)
 		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
 
 		FrameHealthBarContainer.HealthBarMask:ClearAllPoints()
-		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", FrameHealthBar, "TOPLEFT", 3, 0)
+		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", FrameHealthBar, "TOPLEFT", 3, -2)
 		FrameHealthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", FrameHealthBar, "BOTTOMRIGHT", 0, -1)
 
 		FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBar, "CENTER")
