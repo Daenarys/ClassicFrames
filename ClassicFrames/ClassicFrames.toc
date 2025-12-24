@@ -105,7 +105,7 @@ skins\UIWidget.lua
 skins\WorkOrders.lua
 skins\WorldMap.lua
 skins\ZoneMap.lua
-skins\unitframes\UnitFrame.lua
+skins\unitframes\UnitFrame.xml
 skins\unitframes\PlayerFrame.xml
 skins\unitframes\TargetFrame.xml
 skins\unitframes\BossFrame.lua

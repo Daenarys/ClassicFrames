@@ -1,10 +1,38 @@
 function CfPlayerFrame_OnLoad(self)
+	CfPlayerFrameHealthBar.LeftText = CfPlayerFrameHealthBarTextLeft
+	CfPlayerFrameHealthBar.RightText = CfPlayerFrameHealthBarTextRight
+	CfPlayerFrameManaBar.LeftText = CfPlayerFrameManaBarTextLeft
+	CfPlayerFrameManaBar.RightText = CfPlayerFrameManaBarTextRight
+
+	CfUnitFrame_Initialize(self, "player",
+		CfPlayerFrameHealthBar, CfPlayerFrameHealthBarText,
+		CfPlayerFrameManaBar, CfPlayerFrameManaBarText,
+		CfPlayerFrameMyHealPredictionBar, CfPlayerFrameOtherHealPredictionBar,
+		CfPlayerFrameTotalAbsorbBar, CfPlayerFrameTotalAbsorbBarOverlay, CfPlayerFrameOverAbsorbGlow,
+		CfPlayerFrameOverHealAbsorbGlow, CfPlayerFrameHealAbsorbBar, CfPlayerFrameHealAbsorbBarLeftShadow,
+		CfPlayerFrameHealAbsorbBarRightShadow)
+
+	CfPlayerFrameHealthBarText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+	CfPlayerFrameHealthBarTextLeft:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+	CfPlayerFrameHealthBarTextRight:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+	CfPlayerFrameManaBarText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+	CfPlayerFrameManaBarTextLeft:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+	CfPlayerFrameManaBarTextRight:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+	CfPlayerFrameOverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
+
+	self:RegisterEvent("PLAYER_ENTERING_WORLD")
 	self:EnableMouse(false)
 end
 
-local healthBarContainer = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer
-local healthBar = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer.HealthBar
-local manaBar = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea.ManaBar
+function CfPlayerFrame_OnEvent(self, event, ...)
+	CfUnitFrame_OnEvent(self, event, ...)
+
+	if (event == "PLAYER_ENTERING_WORLD") then
+		if (UnitExists("player")) then
+			CfUnitFrame_Update(self)
+		end
+	end
+end
 
 PlayerFrame.PlayerFrameContainer:SetFrameLevel(4)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:SetFrameLevel(5)
@@ -15,13 +43,10 @@ PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetSize(64, 64)
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask")
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetPoint("TOPLEFT", 23, -16)
 
-healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
-healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
-healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
-
-manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
-manaBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
-manaBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
+PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer:SetAlpha(0)
+PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea:SetAlpha(0)
+PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer.HealthBar:EnableMouse(false)
+PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea.ManaBar:EnableMouse(false)
 
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:ClearAllPoints()
@@ -215,31 +240,18 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	StatusTexture:SetPoint("TOPLEFT", 16, -12)
 	StatusTexture:SetBlendMode("ADD")
 
-	healthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-	healthBar:SetStatusBarColor(0, 1, 0)
-	healthBarContainer.HealthBarMask:ClearAllPoints()
-	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBar, "TOPLEFT", 0, -1)
-	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", healthBar, "BOTTOMRIGHT", -1, 1)
-
-	healthBar.TextString:SetPoint("CENTER", healthBar, "CENTER")
-	healthBar.LeftText:SetPoint("LEFT", healthBar, "LEFT", 6, 0)
-	healthBar.RightText:SetPoint("RIGHT", healthBar, "RIGHT", -4, 0)
-
-	manaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-	manaBar.ManaBarMask:ClearAllPoints()
-	manaBar.ManaBarMask:SetPoint("TOPLEFT", manaBar, "TOPLEFT", 1, 2)
-	manaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", manaBar, "BOTTOMRIGHT", -1, 0)
-
-	manaBar.TextString:SetPoint("CENTER", manaBar, "CENTER", 0, 3)
-	manaBar.LeftText:SetPoint("LEFT", manaBar, "LEFT", 6, 3)
-	manaBar.RightText:SetPoint("RIGHT", manaBar, "RIGHT", -4, 3)
-
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:ClearAllPoints()
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMLEFT", CfPlayerFrame, "TOPLEFT", 97, -20)
 	self.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon:SetPoint("TOPLEFT", 76, -19)
 
+	CfPlayerFrameHealthBar:SetWidth(119)
+	CfPlayerFrameHealthBar:SetPoint("TOPLEFT",106,-41)
+	CfPlayerFrameManaBar:SetWidth(119)
+	CfPlayerFrameManaBar:SetPoint("TOPLEFT",106,-52)
 	CfPlayerFrameBackground:SetSize(119, 41)
 	PlayerLevelText:Show()
+
+	CfUnitFrame_SetUnit(CfPlayerFrame, "player", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
 
 	local _, class = UnitClass("player")
 	if ( CfPlayerFrame.CfClassPowerBar ) then
@@ -284,8 +296,14 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	PlayerName:ClearAllPoints()
 	PlayerName:SetPoint("TOPLEFT", self.PlayerFrameContainer, "TOPLEFT", 97, -26)
 
+	CfPlayerFrameHealthBar:SetWidth(100)
+	CfPlayerFrameHealthBar:SetPoint("TOPLEFT",119,-41)
+	CfPlayerFrameManaBar:SetWidth(100)
+	CfPlayerFrameManaBar:SetPoint("TOPLEFT",119,-52)
 	CfPlayerFrameBackground:SetSize(114, 41)
 	PlayerLevelText:Hide()
+
+	CfUnitFrame_SetUnit(CfPlayerFrame, "vehicle", CfPlayerFrameHealthBar, CfPlayerFrameManaBar)
 
 	local _, class = UnitClass("player")
 	if ( CfPlayerFrame.CfClassPowerBar ) then
@@ -468,10 +486,6 @@ hooksecurefunc(PlayerFrameBottomManagedFramesContainer, "Layout", function()
 		TotemFrame:ClearAllPoints()
 		TotemFrame:SetPoint("TOPLEFT", PlayerFrame, "TOPLEFT", -5, -91)
 	end
-	if (WarlockPowerFrame) then
-		WarlockPowerFrame:UnregisterAllEvents()
-		WarlockPowerFrame:Hide()
-	end
 end)
 
 PlayerFrame:HookScript("OnUpdate", function(self)
@@ -497,35 +511,6 @@ PlayerFrame:HookScript("OnUpdate", function(self)
 		end
 		if (self.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow:IsShown()) then
 			self.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow:SetAlpha(alpha)
-		end
-	end
-end)
-
-hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
-	if ( not manaBar ) then
-		return
-	end
-
-	local powerType, powerToken, altR, altG, altB = UnitPowerType(manaBar.unit)
-	local info = PowerBarColor[powerToken]
-
-	manaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-
-	if ( info ) then
-		if ( info.atlas ) then
-			manaBar:SetStatusBarTexture(info.atlas)
-			manaBar:SetStatusBarColor(1, 1, 1)
-		else
-			manaBar:SetStatusBarColor(info.r, info.g, info.b)
-		end
-		if ( manaBar.Spark ) then
-			manaBar.Spark:SetAlpha(0)
-		end
-	else
-		if ( not altR ) then
-			info = PowerBarColor[powerType] or PowerBarColor["MANA"]
-		else
-			manaBar:SetStatusBarColor(altR, altG, altB)
 		end
 	end
 end)
