@@ -86,9 +86,13 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(HonorFrameTypeDropdown)
 		ApplyDropDown(TrainingGroundsFrameTypeDropdown)
 
+		HonorFrameTypeDropdown:SetWidth(175)
+		HonorFrameTypeDropdown:SetPoint("BOTTOMRIGHT", HonorFrame.Inset, "TOPRIGHT", -11, 5)
 		HonorFrameTypeDropdown.Text:SetJustifyH("RIGHT")
 		HonorFrameTypeDropdown.Text:SetPoint("TOPLEFT", 9, -7)
 
+		TrainingGroundsFrameTypeDropdown:SetWidth(175)
+		TrainingGroundsFrameTypeDropdown:SetPoint("BOTTOMRIGHT", TrainingGroundsFrame.Inset, "TOPRIGHT", -11, 5)
 		TrainingGroundsFrameTypeDropdown.Text:SetJustifyH("RIGHT")
 		TrainingGroundsFrameTypeDropdown.Text:SetPoint("TOPLEFT", 9, -7)
 	end
