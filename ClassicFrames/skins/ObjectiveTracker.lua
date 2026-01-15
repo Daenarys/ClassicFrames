@@ -26,15 +26,57 @@ local trackers = {
 }
 
 for _, tracker in pairs(trackers) do
+	local function ObjectiveTracker_Collapse()
+		ObjectiveTrackerFrame.collapsed = true
+		for i = 1, #trackers do
+			local tracker = trackers[i]
+			if tracker then
+				tracker.ContentsFrame:Hide()
+				tracker.Header.Background:Hide()
+				tracker.Header.Text:Hide()
+			end
+		end
+		tracker.Header.CfTitle:Show()
+	end
+
+	local function ObjectiveTracker_Expand()
+		ObjectiveTrackerFrame.collapsed = nil
+		for i = 1, #trackers do
+			local tracker = trackers[i]
+			if tracker then
+				tracker.ContentsFrame:Show()
+				tracker.Header.Background:Show()
+				tracker.Header.Text:Show()
+			end
+		end
+		tracker.Header.CfTitle:Hide()
+	end
+
+	local function ObjectiveTracker_MinimizeButton_OnClick(self)
+		PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+		if ( ObjectiveTrackerFrame.collapsed ) then
+			ObjectiveTracker_Expand()
+		else
+			ObjectiveTracker_Collapse()
+		end
+	end
+
+	tracker.ContentsFrame:SetPoint("RIGHT", -8, 0)
 	tracker.Header.Background:SetAtlas("Objective-Header", true)
 	tracker.Header.Background:SetPoint("TOPLEFT", -19, 14)
 	tracker.Header.Text:SetPoint("LEFT", 14, 0)
 	tracker.Header.MinimizeButton:SetSize(15, 14)
 	tracker.Header.MinimizeButton:SetPoint("RIGHT", -6, 1)
 	tracker.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Red-Highlight", "ADD")
+	tracker.Header.MinimizeButton:HookScript("OnClick", ObjectiveTracker_MinimizeButton_OnClick)
 	SetCollapsed(tracker.Header, _G.ObjectiveTrackerFrame.isCollapsed)
 	hooksecurefunc(tracker.Header, 'SetCollapsed', SetCollapsed)
-	tracker.ContentsFrame:SetPoint("RIGHT", -8, 0)
+
+	local CfTitle = tracker.Header:CreateFontString(nil, "ARTWORK", "GameFontNormal")
+	tracker.Header.CfTitle = CfTitle
+	CfTitle:SetText(OBJECTIVES_TRACKER_LABEL)
+	CfTitle:SetPoint("RIGHT", tracker.Header.MinimizeButton, "LEFT", -3, 1)
+	CfTitle:Hide()
 end
 
 hooksecurefunc(ObjectiveTrackerContainerMixin, "Update", function(self)
@@ -48,8 +90,10 @@ hooksecurefunc(ObjectiveTrackerContainerMixin, "Update", function(self)
 		if heightUsed > 0 then
 			if prevModule then
 				module:SetPoint("TOP", prevModule, "BOTTOM", 0, -self.moduleSpacing)
+				module.Header.MinimizeButton:Hide()
 			else
 				module:SetPoint("TOP")
+				module.Header.MinimizeButton:Show()
 			end
 			prevModule = module
 		end
