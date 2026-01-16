@@ -66,9 +66,9 @@ function CfPaladinPowerBar:UpdatePower()
 	if ( self.delayedUpdate ) then
 		return
 	end
-
-	local numHolyPower = UnitPower( self:GetParent().unit, Enum.PowerType.HolyPower )
-	local maxHolyPower = UnitPowerMax( self:GetParent().unit, Enum.PowerType.HolyPower )
+	local unit = self:GetUnit()
+	local numHolyPower = UnitPower( unit, Enum.PowerType.HolyPower )
+	local maxHolyPower = UnitPowerMax( unit, Enum.PowerType.HolyPower )
 
 	for i=1,maxHolyPower do
 		local holyRune = self["rune"..i]

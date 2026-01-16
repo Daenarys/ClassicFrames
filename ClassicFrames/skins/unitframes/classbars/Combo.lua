@@ -45,7 +45,7 @@ function ComboPointPowerBar:Setup()
 	end
 
 	if showBar then
-		local unit = self:GetParent().unit
+		local unit = self:GetUnit()
 		self:RegisterUnitEvent("UNIT_POWER_FREQUENT", unit)
 		self:RegisterUnitEvent("UNIT_MAXPOWER", unit)
 		self:RegisterUnitEvent("UNIT_POWER_POINT_CHARGE", unit)
@@ -126,7 +126,7 @@ local function DetermineComboBonusVisibility(comboBonusIndex, max)
 end
 
 function ComboPointPowerBar:UpdateMaxPower()
-	local unit = self:GetParent().unit
+	local unit = self:GetUnit()
 	local maxComboPoints = UnitPowerMax(unit, Enum.PowerType.ComboPoints)
 
 	self.ComboPoints[6]:SetShown(maxComboPoints == 6 or maxComboPoints == 7)
@@ -178,7 +178,7 @@ function ComboPointPowerBar:UpdatePower()
 		return
 	end
 
-	local unit = self:GetParent().unit
+	local unit = self:GetUnit()
 	local comboPoints = UnitPower(unit, Enum.PowerType.ComboPoints)
 	local maxComboPoints = UnitPowerMax(unit, Enum.PowerType.ComboPoints)
 
@@ -220,7 +220,8 @@ function ComboPointPowerBar:UpdatePower()
 end
 
 function ComboPointPowerBar:UpdateChargedPowerPoints()
-	local chargedPowerPoints = GetUnitChargedPowerPoints(self:GetParent().unit)
+	local unit = self:GetUnit()
+	local chargedPowerPoints = GetUnitChargedPowerPoints(unit)
 	for i = 1, self.maxUsablePoints do
 		local comboPointFrame = self.ComboPoints[i]
 		local isCharged = chargedPowerPoints and tContains(chargedPowerPoints, i)
