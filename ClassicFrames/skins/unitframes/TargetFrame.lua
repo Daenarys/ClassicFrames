@@ -85,10 +85,10 @@ local function SkinFrame(frame)
 		self.TargetFrameContainer.BossPortraitFrameTexture:Hide()
 
 		CfTargetFrameBackground:SetSize(119, 25)
-		CfTargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 31)
+		CfTargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
 
 		CfFocusFrameBackground:SetSize(119, 25)
-		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 31)
+		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
 
 		FrameHealthBarContainer.HealthBarMask:ClearAllPoints()
 		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", FrameHealthBar, "TOPLEFT", 3, -6)
