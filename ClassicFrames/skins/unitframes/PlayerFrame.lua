@@ -89,6 +89,15 @@ if (_G.AlternatePowerBar) then
 		AlternatePowerBar.RightBorder:SetTexCoord(0.125, 0, 1, 0)
 		AlternatePowerBar.RightBorder:SetPoint("LEFT", AlternatePowerBar.Border, "RIGHT")
 	end
+
+	hooksecurefunc(AlternatePowerBar, "EvaluateUnit", function(self)
+		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		self:SetStatusBarColor(0, 0, 1)
+
+		if self.PowerBarMask then
+			self.PowerBarMask:Hide()
+		end
+	end)
 end
 
 if (_G.MonkStaggerBar) then
@@ -117,6 +126,11 @@ if (_G.MonkStaggerBar) then
 		MonkStaggerBar.Border:SetTexCoord(0, 1, 0, 0.5)
 		MonkStaggerBar.Border:SetPoint("TOPLEFT", -17, 0)
 	end
+
+	hooksecurefunc(MonkStaggerBar, "EvaluateUnit", function(self)
+		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		self:SetStatusBarColor(0, 0, 1)
+	end)
 end
 
 if (_G.EvokerEbonMightBar) then
@@ -158,6 +172,15 @@ if (_G.EvokerEbonMightBar) then
 		EvokerEbonMightBar.RightBorder:SetTexCoord(0.125, 0, 1, 0)
 		EvokerEbonMightBar.RightBorder:SetPoint("LEFT", EvokerEbonMightBar.Border, "RIGHT")
 	end
+
+	hooksecurefunc(EvokerEbonMightBar, "EvaluateUnit", function(self)
+		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		self:SetStatusBarColor(1, 0.5, 0.25)
+
+		if self.PowerBarMask then
+			self.PowerBarMask:Hide()
+		end
+	end)
 end
 
 hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)

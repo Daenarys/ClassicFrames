@@ -21,6 +21,8 @@ PetFrameFlash:SetTexCoord(0, 1, 1, 0)
 PetFrameFlash:SetDrawLayer("BACKGROUND")
 
 PetFrameHealthBar:SetSize(69, 8)
+PetFrameHealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+PetFrameHealthBar:SetStatusBarColor(0, 1, 0)
 PetFrameHealthBar:ClearAllPoints()
 PetFrameHealthBar:SetPoint("TOPLEFT", 47, -22)
 PetFrameHealthBar:SetFrameLevel(1)

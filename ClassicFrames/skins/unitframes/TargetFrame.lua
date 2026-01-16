@@ -250,6 +250,8 @@ local function SkinFrame(frame)
 		frame.totFrame.Name:ClearAllPoints()
 		frame.totFrame.Name:SetPoint("BOTTOMLEFT", 42, 7)
 		
+		frame.totFrame.HealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		frame.totFrame.HealthBar:SetStatusBarColor(0, 1, 0)
 		frame.totFrame.HealthBar:SetSize(46, 7)
 		frame.totFrame.HealthBar:ClearAllPoints()
 		frame.totFrame.HealthBar:SetPoint("TOPRIGHT", -29, -15)
