@@ -75,7 +75,7 @@ for _, tracker in pairs(trackers) do
 	local CfTitle = tracker.Header:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 	tracker.Header.CfTitle = CfTitle
 	CfTitle:SetText(OBJECTIVES_TRACKER_LABEL)
-	CfTitle:SetPoint("RIGHT", tracker.Header.MinimizeButton, "LEFT", -3, 1)
+	CfTitle:SetPoint("RIGHT", tracker.Header.MinimizeButton, "LEFT", -2, 1)
 	CfTitle:Hide()
 end
 
