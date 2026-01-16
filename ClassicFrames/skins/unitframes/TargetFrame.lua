@@ -1,60 +1,12 @@
-function CfTargetFrame_OnLoad(self, unit)
-	local thisName = self:GetName()
-	_G[thisName.."HealthBar"].LeftText = _G[thisName.."HealthBarTextLeft"];
-	_G[thisName.."HealthBar"].RightText = _G[thisName.."HealthBarTextRight"];
-	_G[thisName.."ManaBar"].LeftText = _G[thisName.."ManaBarTextLeft"];
-	_G[thisName.."ManaBar"].RightText = _G[thisName.."ManaBarTextRight"];
-
-	CfUnitFrame_Initialize(self, unit,
-		_G[thisName.."HealthBar"], _G[thisName.."HealthBarText"],
-		_G[thisName.."ManaBar"], _G[thisName.."ManaBarText"],
-		_G[thisName.."MyHealPredictionBar"], _G[thisName.."OtherHealPredictionBar"],
-		_G[thisName.."TotalAbsorbBar"], _G[thisName.."TotalAbsorbBarOverlay"], _G[thisName.."OverAbsorbGlow"],
-		_G[thisName.."OverHealAbsorbGlow"], _G[thisName.."HealAbsorbBar"],
-		_G[thisName.."HealAbsorbBarLeftShadow"], _G[thisName.."HealAbsorbBarRightShadow"])
-
-	if CfTargetFrame then
-		CfTargetFrameHealthBarText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfTargetFrameHealthBarTextLeft:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfTargetFrameHealthBarTextRight:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfTargetFrameManaBarText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfTargetFrameManaBarTextLeft:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfTargetFrameManaBarTextRight:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfTargetFrameDeadText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfTargetFrameUnconsciousText:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfTargetFrameOverAbsorbGlow:SetParent(TargetFrame.TargetFrameContent.TargetFrameContentContextual)
-	end
-
-	if CfFocusFrame then
-		CfFocusFrameHealthBarText:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfFocusFrameHealthBarTextLeft:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfFocusFrameHealthBarTextRight:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfFocusFrameManaBarText:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfFocusFrameManaBarTextLeft:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfFocusFrameManaBarTextRight:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfFocusFrameDeadText:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfFocusFrameUnconsciousText:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
-		CfFocusFrameOverAbsorbGlow:SetParent(FocusFrame.TargetFrameContent.TargetFrameContentContextual)
-	end
-
-	self:RegisterEvent("PLAYER_ENTERING_WORLD")
+function CfTargetFrame_OnLoad(self)
 	self:EnableMouse(false)
-end
-
-function CfTargetFrame_OnEvent(self, event, ...)
-	CfUnitFrame_OnEvent(self, event, ...)
-
-	if (event == "PLAYER_ENTERING_WORLD") then
-		if (UnitExists(self.unit)) then
-			CfUnitFrame_Update(self)
-		end
-	end
 end
 
 local function SkinFrame(frame)
 	local contextual = frame.TargetFrameContent.TargetFrameContentContextual;
 	local contentMain = frame.TargetFrameContent.TargetFrameContentMain;
-	local FrameHealthBar = contentMain.HealthBarsContainer;
+	local FrameHealthBarContainer = contentMain.HealthBarsContainer
+	local FrameHealthBar = contentMain.HealthBarsContainer.HealthBar
 	local FrameManaBar = contentMain.ManaBar;
 
 	contextual:SetFrameStrata("MEDIUM")
@@ -65,9 +17,6 @@ local function SkinFrame(frame)
 	frame.TargetFrameContainer.Portrait:SetSize(64, 64)
 	frame.TargetFrameContainer.Portrait:ClearAllPoints()
 	frame.TargetFrameContainer.Portrait:SetPoint("TOPRIGHT", -22, -16)
-
-	FrameHealthBar.HealthBar:EnableMouse(false)
-	FrameManaBar:EnableMouse(false)
 
 	contextual.NumericalThreat:SetParent(frame)
 	contextual.NumericalThreat:ClearAllPoints()
@@ -81,6 +30,16 @@ local function SkinFrame(frame)
 	contentMain.Name:ClearAllPoints()
 	contentMain.Name:SetPoint("TOPLEFT", 36, -30)
 	contentMain.Name:SetJustifyH("CENTER")
+
+	FrameHealthBar.TextString:SetParent(frame.TargetFrameContainer)
+	FrameHealthBarContainer.RightText:SetParent(frame.TargetFrameContainer)
+	FrameHealthBarContainer.LeftText:SetParent(frame.TargetFrameContainer)
+	FrameHealthBarContainer.DeadText:SetParent(frame.TargetFrameContainer)
+	FrameHealthBarContainer.UnconsciousText:SetParent(frame.TargetFrameContainer)
+
+	FrameManaBar.TextString:SetParent(frame.TargetFrameContainer)
+	FrameManaBar.RightText:SetParent(frame.TargetFrameContainer)
+	FrameManaBar.LeftText:SetParent(frame.TargetFrameContainer)
 
 	contentMain.ReputationColor:SetSize(119, 19)
 	contentMain.ReputationColor:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-LevelBackground")
@@ -121,8 +80,6 @@ local function SkinFrame(frame)
 	hooksecurefunc(frame, "CheckClassification", function(self)
 		local classification = UnitClassification(self.unit)
 
-		FrameHealthBar:SetAlpha(0)
-		FrameManaBar:SetAlpha(0)
 		contentMain.ReputationColor:Show()
 		contextual.BossIcon:Hide()
 		self.TargetFrameContainer.BossPortraitFrameTexture:Hide()
@@ -133,8 +90,25 @@ local function SkinFrame(frame)
 		CfFocusFrameBackground:SetSize(119, 25)
 		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
 
+		FrameHealthBarContainer.HealthBarMask:ClearAllPoints()
+		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", FrameHealthBar, "TOPLEFT", 3, -2)
+		FrameHealthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", FrameHealthBar, "BOTTOMRIGHT", 0, -1)
+
+		FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBar, "CENTER")
+		FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBar, "LEFT", 4, 0)
+		FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBar, "RIGHT", -7, 0)
+
+		FrameHealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		FrameHealthBar:SetStatusBarColor(0, 1, 0)
+		FrameManaBar.ManaBarMask:ClearAllPoints()
+		FrameManaBar.ManaBarMask:SetPoint("TOPLEFT", FrameManaBar, "TOPLEFT", -53, 3)
+		FrameManaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", FrameManaBar, "BOTTOMRIGHT", 50, 0)
+
+		FrameManaBar.TextString:SetPoint("CENTER", FrameManaBar, "CENTER", -4, 3)
+		FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 5, 3)
+		FrameManaBar.RightText:SetPoint("RIGHT", FrameManaBar, "RIGHT", -15, 3)
+
 		self.haveElite = nil;
-		CfTargetFrameManaBar.pauseUpdates = false;
 
 		if ( classification == "rareelite" ) then
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
@@ -188,7 +162,6 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -4)
 			contentMain.ReputationColor:Hide()
-			CfTargetFrameManaBar.pauseUpdates = true;
 		else
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
@@ -303,52 +276,6 @@ end
 
 SkinFrame(TargetFrame)
 SkinFrame(FocusFrame)
-
-hooksecurefunc(TargetFrame, "CheckDead", function(self)
-	if ((UnitHealth(self.unit) <= 0) and UnitIsConnected(self.unit)) then
-		CfTargetFrameBackground:SetAlpha(0.9)
-		if (UnitIsUnconscious(self.unit)) then
-			CfTargetFrameUnconsciousText:Show()
-			CfTargetFrameDeadText:Hide()
-		else
-			CfTargetFrameUnconsciousText:Hide()
-			CfTargetFrameDeadText:Show()
-		end
-	else
-		CfTargetFrameBackground:SetAlpha(1)
-		CfTargetFrameDeadText:Hide()
-		CfTargetFrameUnconsciousText:Hide()
-	end
-end)
-
-hooksecurefunc(TargetFrame, "Update", function(self)
-	if (UnitExists(self.unit)) then
-		CfUnitFrame_Update(CfTargetFrame)
-	end
-end)
-
-hooksecurefunc(FocusFrame, "CheckDead", function(self)
-	if ((UnitHealth(self.unit) <= 0) and UnitIsConnected(self.unit)) then
-		CfFocusFrameBackground:SetAlpha(0.9)
-		if (UnitIsUnconscious(self.unit)) then
-			CfFocusFrameUnconsciousText:Show()
-			CfFocusFrameDeadText:Hide()
-		else
-			CfFocusFrameUnconsciousText:Hide()
-			CfFocusFrameDeadText:Show()
-		end
-	else
-		CfFocusFrameBackground:SetAlpha(1)
-		CfFocusFrameDeadText:Hide()
-		CfFocusFrameUnconsciousText:Hide()
-	end
-end)
-
-hooksecurefunc(FocusFrame, "Update", function(self)
-	if (UnitExists(self.unit)) then
-		CfUnitFrame_Update(CfFocusFrame)
-	end
-end)
 
 hooksecurefunc(FocusFrame, "SetSmallSize", function(self, smallSize)
 	self.smallSize = smallSize
