@@ -16,7 +16,7 @@
 	</Button>
 	<Button name="CfPlayerFrame" inherits="CfPlayerFrameTemplate" parent="PlayerFrame">
 		<Anchors>
-			<Anchor point="TOPLEFT" x="-19" y="-4"/>
+			<Anchor point="TOPLEFT" x="-19" y="-8"/>
 		</Anchors>
 		<Scripts>
 			<OnLoad function="CfPlayerFrame_OnLoad"/>

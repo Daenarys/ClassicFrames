@@ -16,19 +16,19 @@ local function SkinFrame(frame)
 
 	frame.TargetFrameContainer.Portrait:SetSize(64, 64)
 	frame.TargetFrameContainer.Portrait:ClearAllPoints()
-	frame.TargetFrameContainer.Portrait:SetPoint("TOPRIGHT", -22, -16)
+	frame.TargetFrameContainer.Portrait:SetPoint("TOPRIGHT", -22, -20)
 
 	contextual.NumericalThreat:SetParent(frame)
 	contextual.NumericalThreat:ClearAllPoints()
-	contextual.NumericalThreat:SetPoint("BOTTOM", frame, "TOP", -30, -26)
+	contextual.NumericalThreat:SetPoint("BOTTOM", frame, "TOP", -30, -30)
 
 	contextual.RaidTargetIcon:ClearAllPoints()
-	contextual.RaidTargetIcon:SetPoint("CENTER", frame.TargetFrameContainer.Portrait, "TOP", 2, -2)
+	contextual.RaidTargetIcon:SetPoint("CENTER", frame.TargetFrameContainer.Portrait, "TOP", 2, -6)
 
 	contentMain.Name:SetParent(contextual)
 	contentMain.Name:SetWidth(100)
 	contentMain.Name:ClearAllPoints()
-	contentMain.Name:SetPoint("TOPLEFT", 36, -30)
+	contentMain.Name:SetPoint("TOPLEFT", 36, -34)
 	contentMain.Name:SetJustifyH("CENTER")
 
 	FrameHealthBar.TextString:SetParent(frame.TargetFrameContainer)
@@ -44,30 +44,30 @@ local function SkinFrame(frame)
 	contentMain.ReputationColor:SetSize(119, 19)
 	contentMain.ReputationColor:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-LevelBackground")
 	contentMain.ReputationColor:ClearAllPoints()
-	contentMain.ReputationColor:SetPoint("TOPRIGHT", -86, -26)
+	contentMain.ReputationColor:SetPoint("TOPRIGHT", -86, -30)
 
 	local leaderIcon = contextual.LeaderIcon;
 	leaderIcon:SetSize(16, 16)
 	leaderIcon:SetTexture("Interface\\GroupFrame\\UI-Group-LeaderIcon")
 	leaderIcon:ClearAllPoints()
-	leaderIcon:SetPoint("TOPRIGHT", -24, -14)
+	leaderIcon:SetPoint("TOPRIGHT", -24, -18)
 
 	local guideIcon = contextual.GuideIcon;
 	guideIcon:SetSize(19, 19)
 	guideIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
 	guideIcon:SetTexCoord(0, 0.296875, 0.015625, 0.3125)
 	guideIcon:ClearAllPoints()
-	guideIcon:SetPoint("TOPRIGHT", -20, -14)
+	guideIcon:SetPoint("TOPRIGHT", -20, -18)
 
 	local questIcon = contextual.QuestIcon;
 	questIcon:SetSize(32, 32)
 	questIcon:SetTexture("Interface\\TargetingFrame\\PortraitQuestBadge")
 	questIcon:ClearAllPoints()
-	questIcon:SetPoint("TOP", 32, -16)
+	questIcon:SetPoint("TOP", 32, -20)
 
 	if ComboFrame then
 		ComboFrame:ClearAllPoints()
-		ComboFrame:SetPoint("TOPRIGHT", TargetFrame, "TOPRIGHT", -24, -13)
+		ComboFrame:SetPoint("TOPRIGHT", TargetFrame, "TOPRIGHT", -24, -17)
 	end
 
 	hooksecurefunc(frame, "CheckBattlePet", function(self)
@@ -85,26 +85,26 @@ local function SkinFrame(frame)
 		self.TargetFrameContainer.BossPortraitFrameTexture:Hide()
 
 		CfTargetFrameBackground:SetSize(119, 25)
-		CfTargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
+		CfTargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 31)
 
 		CfFocusFrameBackground:SetSize(119, 25)
-		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
+		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 31)
 
 		FrameHealthBarContainer.HealthBarMask:ClearAllPoints()
-		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", FrameHealthBar, "TOPLEFT", 3, -2)
-		FrameHealthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", FrameHealthBar, "BOTTOMRIGHT", 0, -1)
+		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", FrameHealthBar, "TOPLEFT", 3, -6)
+		FrameHealthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", FrameHealthBar, "BOTTOMRIGHT", 0, -5)
 
-		FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBar, "CENTER")
-		FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBar, "LEFT", 4, 0)
-		FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBar, "RIGHT", -7, 0)
+		FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBar, "CENTER", 0, -4)
+		FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBar, "LEFT", 4, -5)
+		FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBar, "RIGHT", -7, -5)
 
 		FrameManaBar.ManaBarMask:ClearAllPoints()
 		FrameManaBar.ManaBarMask:SetPoint("TOPLEFT", FrameManaBar, "TOPLEFT", -53, 3)
-		FrameManaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", FrameManaBar, "BOTTOMRIGHT", 50, 0)
+		FrameManaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", FrameManaBar, "BOTTOMRIGHT", 50, -3)
 
-		FrameManaBar.TextString:SetPoint("CENTER", FrameManaBar, "CENTER", -4, 3)
-		FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 5, 3)
-		FrameManaBar.RightText:SetPoint("RIGHT", FrameManaBar, "RIGHT", -15, 3)
+		FrameManaBar.TextString:SetPoint("CENTER", FrameManaBar, "CENTER", -4, -1)
+		FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 5, -1)
+		FrameManaBar.RightText:SetPoint("RIGHT", FrameManaBar, "RIGHT", -15, -1)
 
 		self.haveElite = nil;
 
@@ -113,36 +113,36 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare-Elite")
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
 			self.TargetFrameContainer.FrameTexture:ClearAllPoints()
-			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -4)
+			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -8)
 			self.TargetFrameContainer.Flash:SetSize(242, 112)
 			self.TargetFrameContainer.Flash:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Flash")
 			self.TargetFrameContainer.Flash:SetTexCoord(0, 0.9453125, 0.181640625, 0.400390625)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
-			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -2, 5)
+			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -2, 1)
 			self.haveElite = true;
 		elseif ( classification == "worldboss" or classification == "elite" ) then
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Elite")
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
 			self.TargetFrameContainer.FrameTexture:ClearAllPoints()
-			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -4)
+			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -8)
 			self.TargetFrameContainer.Flash:SetSize(242, 112)
 			self.TargetFrameContainer.Flash:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Flash")
 			self.TargetFrameContainer.Flash:SetTexCoord(0, 0.9453125, 0.181640625, 0.400390625)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
-			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -2, 5)
+			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -2, 1)
 			self.haveElite = true;
 		elseif ( classification == "rare" ) then
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare")
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
 			self.TargetFrameContainer.FrameTexture:ClearAllPoints()
-			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -4)
+			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -8)
 			self.TargetFrameContainer.Flash:SetSize(242, 93)
 			self.TargetFrameContainer.Flash:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Flash")
 			self.TargetFrameContainer.Flash:SetTexCoord(0, 0.9453125, 0, 0.181640625)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
-			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -4)
+			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -8)
 			self.haveElite = true;
 		elseif ( classification == "minus" ) then
 			CfTargetFrameBackground:SetSize(119, 12)
@@ -153,24 +153,24 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Minus")
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
 			self.TargetFrameContainer.FrameTexture:ClearAllPoints()
-			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -4)
+			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -8)
 			self.TargetFrameContainer.Flash:SetSize(256, 128)
 			self.TargetFrameContainer.Flash:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Minus-Flash")
 			self.TargetFrameContainer.Flash:SetTexCoord(0, 1, 0, 1)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
-			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -4)
+			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -8)
 			contentMain.ReputationColor:Hide()
 		else
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
 			self.TargetFrameContainer.FrameTexture:SetTexCoord(0.09375, 1, 0, 0.78125)
 			self.TargetFrameContainer.FrameTexture:ClearAllPoints()
-			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -4)
+			self.TargetFrameContainer.FrameTexture:SetPoint("TOPLEFT", 20, -8)
 			self.TargetFrameContainer.Flash:SetSize(242, 93)
 			self.TargetFrameContainer.Flash:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Flash")
 			self.TargetFrameContainer.Flash:SetTexCoord(0, 0.9453125, 0, 0.181640625)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
-			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -4)
+			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -8)
 		end
 	end)
 
@@ -179,13 +179,13 @@ local function SkinFrame(frame)
 			local factionGroup = UnitFactionGroup(self.unit)
 			if (factionGroup == "Alliance") then
 				contextual.PvpIcon:ClearAllPoints()
-				contextual.PvpIcon:SetPoint("TOPRIGHT", -4, -24)
+				contextual.PvpIcon:SetPoint("TOPRIGHT", -4, -28)
 			elseif (factionGroup == "Horde") then
 				contextual.PvpIcon:ClearAllPoints()
-				contextual.PvpIcon:SetPoint("TOPRIGHT", 3, -22)
+				contextual.PvpIcon:SetPoint("TOPRIGHT", 3, -26)
 			end
 			contextual.PrestigePortrait:ClearAllPoints()
-			contextual.PrestigePortrait:SetPoint("TOPRIGHT", 5, -17)
+			contextual.PrestigePortrait:SetPoint("TOPRIGHT", 5, -21)
 		end
 	end)
 
@@ -195,12 +195,12 @@ local function SkinFrame(frame)
 
 		levelText:SetParent(contextual)
 		levelText:ClearAllPoints()
-		levelText:SetPoint("CENTER", 82, -21)
+		levelText:SetPoint("CENTER", 82, -25)
 
 		highLevelTexture:SetSize(16, 16)
 		highLevelTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Skull")
 		highLevelTexture:ClearAllPoints()
-		highLevelTexture:SetPoint("CENTER", 81, -21)
+		highLevelTexture:SetPoint("CENTER", 81, -25)
 	end)
 
 	if (frame.totFrame) then
@@ -225,7 +225,7 @@ local function SkinFrame(frame)
 
 		frame.totFrame:SetFrameStrata("HIGH")
 		if frame == TargetFrame then
-			frame.totFrame:SetPoint("TOPRIGHT", frame, "BOTTOMRIGHT", 12, 31)
+			frame.totFrame:SetPoint("TOPRIGHT", frame, "BOTTOMRIGHT", 12, 27)
 		end
 
 		if (frame.totFrame.Background == nil) then
@@ -278,9 +278,9 @@ SkinFrame(FocusFrame)
 hooksecurefunc(FocusFrame, "SetSmallSize", function(self, smallSize)
 	self.smallSize = smallSize
 	if (self.smallSize) then
-		self.totFrame:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT", 29, 25)
+		self.totFrame:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT", 29, 21)
 	else
-		self.totFrame:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT", 12, 31)
+		self.totFrame:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT", 12, 27)
 	end
 end)
 
