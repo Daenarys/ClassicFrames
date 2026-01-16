@@ -94,9 +94,11 @@ local function SkinFrame(frame)
 		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", FrameHealthBar, "TOPLEFT", 3, -6)
 		FrameHealthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", FrameHealthBar, "BOTTOMRIGHT", 0, -5)
 
-		FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBar, "CENTER", 0, -4)
+		FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBar, "CENTER", 0, -5)
 		FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBar, "LEFT", 4, -5)
 		FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBar, "RIGHT", -7, -5)
+		FrameHealthBarContainer.DeadText:SetPoint("CENTER", FrameHealthBar, "CENTER", 0, -5)
+		FrameHealthBarContainer.UnconsciousText:SetPoint("CENTER", FrameHealthBar, "CENTER", 0, -5)
 
 		FrameManaBar.ManaBarMask:ClearAllPoints()
 		FrameManaBar.ManaBarMask:SetPoint("TOPLEFT", FrameManaBar, "TOPLEFT", -53, 3)
