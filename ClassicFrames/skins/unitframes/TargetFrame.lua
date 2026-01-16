@@ -98,8 +98,6 @@ local function SkinFrame(frame)
 		FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBar, "LEFT", 4, 0)
 		FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBar, "RIGHT", -7, 0)
 
-		FrameHealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-		FrameHealthBar:SetStatusBarColor(0, 1, 0)
 		FrameManaBar.ManaBarMask:ClearAllPoints()
 		FrameManaBar.ManaBarMask:SetPoint("TOPLEFT", FrameManaBar, "TOPLEFT", -53, 3)
 		FrameManaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", FrameManaBar, "BOTTOMRIGHT", 50, 0)

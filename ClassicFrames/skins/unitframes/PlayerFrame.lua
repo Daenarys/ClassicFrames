@@ -215,8 +215,6 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	StatusTexture:SetPoint("TOPLEFT", 16, -12)
 	StatusTexture:SetBlendMode("ADD")
 
-	healthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-	healthBar:SetStatusBarColor(0, 1, 0)
 	healthBarContainer.HealthBarMask:ClearAllPoints()
 	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBar, "TOPLEFT", 0, -1)
 	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", healthBar, "BOTTOMRIGHT", -1, 1)
@@ -225,7 +223,6 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	healthBar.LeftText:SetPoint("LEFT", healthBar, "LEFT", 6, 0)
 	healthBar.RightText:SetPoint("RIGHT", healthBar, "RIGHT", -4, 0)
 
-	manaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 	manaBar.ManaBarMask:ClearAllPoints()
 	manaBar.ManaBarMask:SetPoint("TOPLEFT", manaBar, "TOPLEFT", 1, 2)
 	manaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", manaBar, "BOTTOMRIGHT", -1, 0)
@@ -497,35 +494,6 @@ PlayerFrame:HookScript("OnUpdate", function(self)
 		end
 		if (self.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow:IsShown()) then
 			self.PlayerFrameContent.PlayerFrameContentContextual.PlayerRestGlow:SetAlpha(alpha)
-		end
-	end
-end)
-
-hooksecurefunc("UnitFrameManaBar_UpdateType", function(manaBar)
-	if ( not manaBar ) then
-		return
-	end
-
-	local powerType, powerToken, altR, altG, altB = UnitPowerType(manaBar.unit)
-	local info = PowerBarColor[powerToken]
-
-	manaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-
-	if ( info ) then
-		if ( info.atlas ) then
-			manaBar:SetStatusBarTexture(info.atlas)
-			manaBar:SetStatusBarColor(1, 1, 1)
-		else
-			manaBar:SetStatusBarColor(info.r, info.g, info.b)
-		end
-		if ( manaBar.Spark ) then
-			manaBar.Spark:SetAlpha(0)
-		end
-	else
-		if ( not altR ) then
-			info = PowerBarColor[powerType] or PowerBarColor["MANA"]
-		else
-			manaBar:SetStatusBarColor(altR, altG, altB)
 		end
 	end
 end)
