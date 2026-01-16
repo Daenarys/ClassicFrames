@@ -105,7 +105,7 @@ local function SkinFrame(frame)
 		FrameManaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", FrameManaBar, "BOTTOMRIGHT", 50, -3)
 
 		FrameManaBar.TextString:SetPoint("CENTER", FrameManaBar, "CENTER", -4, -1)
-		FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 5, -1)
+		FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 4, -1)
 		FrameManaBar.RightText:SetPoint("RIGHT", FrameManaBar, "RIGHT", -15, -1)
 
 		self.haveElite = nil;
