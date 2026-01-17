@@ -110,6 +110,7 @@ skins\unitframes\PlayerFrame.xml
 skins\unitframes\TargetFrame.xml
 skins\unitframes\BossFrame.lua
 skins\unitframes\CastBar.lua
+skins\unitframes\NamePlate.xml
 skins\unitframes\PartyFrame.lua
 skins\unitframes\PetFrame.lua
 skins\unitframes\classbars\ClassPowerBar.xml
