@@ -11,6 +11,14 @@ end
 local function HandleNamePlateAdded(unit)
     local nameplate, frame = GetSafeNameplate(unit)
     if not frame then return end
+
+    frame.name:SetFontObject("SystemFont_LargeNamePlate")
+
+    hooksecurefunc(frame, "UpdateAnchors", function()
+        frame.name:ClearAllPoints()
+        frame.name:SetPoint("BOTTOM", frame.HealthBarsContainer, "TOP", 0, 4)
+        frame.name:SetJustifyH("CENTER")
+    end)
 end
 
 local frameAdded = CreateFrame("Frame")
