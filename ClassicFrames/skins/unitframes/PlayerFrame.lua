@@ -15,6 +15,12 @@ PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetSize(64, 64)
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask")
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetPoint("TOPLEFT", 23, -20)
 
+healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
+healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
+healthBar.OverAbsorbGlow:ClearAllPoints();
+healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", healthBar, "TOPRIGHT", -10, -8)
+healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", healthBar, "BOTTOMRIGHT", -10, -1)
+
 healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
