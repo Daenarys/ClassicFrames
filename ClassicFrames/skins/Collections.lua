@@ -121,5 +121,14 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyFilterDropDown(ToyBox.FilterDropdown)
 		ApplyFilterDropDown(HeirloomsJournal.FilterDropdown)
 		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
+
+		hooksecurefunc(WardrobeCollectionFrame, "SetTab", function(self, tabID)
+			if tabID == WARDROBE_TAB_ITEMS then
+				self.ItemsCollectionFrame.ModelR1C1:SetPoint("TOP", -238, -85)
+				self.ItemsCollectionFrame.PagingFrame:SetPoint("BOTTOM", 22, 38)
+				self.ItemsCollectionFrame.SlotsFrame:SetPoint("TOPLEFT", 18, -20)
+				self.ItemsCollectionFrame.WeaponDropdown:SetPoint("TOPRIGHT", -20, -23)
+			end
+		end)
 	end
 end)
