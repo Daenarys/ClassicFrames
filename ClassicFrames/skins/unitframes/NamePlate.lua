@@ -1,3 +1,12 @@
+hooksecurefunc(NamePlateClassificationFrameMixin, "UpdateClassificationIndicator", function(frame)
+    if (frame.classificationIndicator) then
+        local classification = frame:GetClassification()
+        if (classification == "rare") then
+            frame.classificationIndicator:SetAtlas("nameplates-icon-elite-silver")
+        end
+    end
+end)
+
 local function GetSafeNameplate(unit)
     local nameplate = C_NamePlate.GetNamePlateForUnit(unit, issecure())
     -- If there's no nameplate or the nameplate doesn't have a UnitFrame, return nils.
