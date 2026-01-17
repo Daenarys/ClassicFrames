@@ -53,7 +53,6 @@ for _, tracker in pairs(trackers) do
 	end
 
 	local function ObjectiveTracker_MinimizeButton_OnClick(self)
-		PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
 		if ( ObjectiveTrackerFrame.collapsed ) then
 			ObjectiveTracker_Expand()
 		else
