@@ -151,5 +151,12 @@ f:SetScript("OnEvent", function(self, event, name)
 				self.WeaponDropdown:SetEnabled(true)
 			end
 		end)
+
+		hooksecurefunc("CollectionsJournal_UpdateSelectedTab", function(self)
+			local selected = CollectionsJournal_GetTab(self)
+			if selected == 5 then
+				WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown:SetEnabled(false)
+			end
+		end)
 	end
 end)
