@@ -685,3 +685,100 @@ function ApplyButtonSeparator(frame)
 		end
 	end
 end
+
+function ApplyStretchButton(frame)
+	frame:SetHeight(22)
+	frame.Background:Hide()
+
+	if (frame.TopLeft == nil) then
+		frame.TopLeft = frame:CreateTexture(nil, "BACKGROUND")
+		frame.TopLeft:SetSize(12, 6)
+		frame.TopLeft:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
+		frame.TopLeft:SetTexCoord(0, 0.09375, 0, 0.1875)
+		frame.TopLeft:SetPoint("TOPLEFT")
+	end
+
+	if (frame.TopRight == nil) then
+		frame.TopRight = frame:CreateTexture(nil, "BACKGROUND")
+		frame.TopRight:SetSize(12, 6)
+		frame.TopRight:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
+		frame.TopRight:SetTexCoord(0.53125, 0.625, 0, 0.1875)
+		frame.TopRight:SetPoint("TOPRIGHT")
+	end
+
+	if (frame.BottomLeft == nil) then
+		frame.BottomLeft = frame:CreateTexture(nil, "BACKGROUND")
+		frame.BottomLeft:SetSize(12, 6)
+		frame.BottomLeft:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
+		frame.BottomLeft:SetTexCoord(0, 0.09375, 0.625, 0.8125)
+		frame.BottomLeft:SetPoint("BOTTOMLEFT")
+	end
+
+	if (frame.BottomRight == nil) then
+		frame.BottomRight = frame:CreateTexture(nil, "BACKGROUND")
+		frame.BottomRight:SetSize(12, 6)
+		frame.BottomRight:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
+		frame.BottomRight:SetTexCoord(0.53125, 0.625, 0.625, 0.8125)
+		frame.BottomRight:SetPoint("BOTTOMRIGHT")
+	end
+
+	if (frame.TopMiddle == nil) then
+		frame.TopMiddle = frame:CreateTexture(nil, "BACKGROUND")
+		frame.TopMiddle:SetSize(56, 6)
+		frame.TopMiddle:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
+		frame.TopMiddle:SetTexCoord(0.09375, 0.53125, 0, 0.1875)
+		frame.TopMiddle:SetPoint("TOPLEFT", frame.TopLeft, "TOPRIGHT")
+		frame.TopMiddle:SetPoint("BOTTOMRIGHT", frame.TopRight, "BOTTOMLEFT")
+	end
+
+	if (frame.MiddleLeft == nil) then
+		frame.MiddleLeft = frame:CreateTexture(nil, "BACKGROUND")
+		frame.MiddleLeft:SetSize(12, 14)
+		frame.MiddleLeft:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
+		frame.MiddleLeft:SetTexCoord(0, 0.09375, 0.1875, 0.625)
+		frame.MiddleLeft:SetPoint("TOPRIGHT", frame.TopLeft, "BOTTOMRIGHT")
+		frame.MiddleLeft:SetPoint("BOTTOMLEFT", frame.BottomLeft, "TOPLEFT")
+	end
+
+	if (frame.MiddleRight == nil) then
+		frame.MiddleRight = frame:CreateTexture(nil, "BACKGROUND")
+		frame.MiddleRight:SetSize(12, 14)
+		frame.MiddleRight:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
+		frame.MiddleRight:SetTexCoord(0.53125, 0.625, 0.1875, 0.625)
+		frame.MiddleRight:SetPoint("TOPRIGHT", frame.TopRight, "BOTTOMRIGHT")
+		frame.MiddleRight:SetPoint("BOTTOMLEFT", frame.BottomRight, "TOPLEFT")
+	end
+
+	if (frame.BottomMiddle == nil) then
+		frame.BottomMiddle = frame:CreateTexture(nil, "BACKGROUND")
+		frame.BottomMiddle:SetSize(56, 6)
+		frame.BottomMiddle:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
+		frame.BottomMiddle:SetTexCoord(0.09375, 0.53125, 0.625, 0.8125)
+		frame.BottomMiddle:SetPoint("TOPLEFT", frame.BottomLeft, "TOPRIGHT")
+		frame.BottomMiddle:SetPoint("BOTTOMRIGHT", frame.BottomRight, "BOTTOMLEFT")
+	end
+
+	if (frame.MiddleMiddle == nil) then
+		frame.MiddleMiddle = frame:CreateTexture(nil, "BACKGROUND")
+		frame.MiddleMiddle:SetSize(56, 14)
+		frame.MiddleMiddle:SetTexture("Interface\\Buttons\\UI-Silver-Button-Up")
+		frame.MiddleMiddle:SetTexCoord(0.09375, 0.53125, 0.1875, 0.625)
+		frame.MiddleMiddle:SetPoint("TOPLEFT", frame.TopLeft, "BOTTOMRIGHT")
+		frame.MiddleMiddle:SetPoint("BOTTOMRIGHT", frame.BottomRight, "TOPLEFT")
+	end
+
+	if (frame.Icon == nil) then
+		frame.Icon = frame:CreateTexture(nil, "ARTWORK")
+		frame.Icon:SetAtlas("friendslist-categorybutton-arrow-down", true)
+		frame.Icon:SetPoint("RIGHT", -5, -2)
+	end
+
+	frame.Arrow:Hide()
+
+	frame.Text:SetFontObject(GameFontHighlightSmall)
+	frame.Text:ClearAllPoints()
+	frame.Text:SetPoint("LEFT", 11, -1)
+
+	frame:SetHighlightTexture("Interface\\Buttons\\UI-Silver-Button-Highlight", "ADD")
+	frame:GetHighlightTexture():SetTexCoord(0, 1, 0.03, 0.7175)
+end

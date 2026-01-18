@@ -109,7 +109,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(HeirloomsJournal.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
-		ApplyDropDown(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
+		ApplyStretchButton(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
 
 		HeirloomsJournal.ClassDropdown:SetWidth(155)
 		HeirloomsJournal.ClassDropdown:SetPoint("TOPLEFT", 72, -31)
@@ -117,6 +117,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		HeirloomsJournal.ClassDropdown.Text:SetPoint("TOPLEFT", 9, -8)
 		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown:SetWidth(155)
 		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown.Text:SetJustifyH("RIGHT")
+		WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown:SetWidth(108)
 
 		ApplyFilterDropDown(MountJournal.FilterDropdown)
 		ApplyFilterDropDown(PetJournal.FilterDropdown)
@@ -143,7 +144,7 @@ f:SetScript("OnEvent", function(self, event, name)
 				_name, isActiveCategoryWeapon = C_TransmogCollection.GetCategoryInfo(self:GetActiveCategory())
 			end
 
-			self.WeaponDropdown:SetShown(true)
+			self.WeaponDropdown:Show()
 
 			if not isActiveCategoryWeapon then
 				self.WeaponDropdown:SetEnabled(false)
@@ -157,6 +158,10 @@ f:SetScript("OnEvent", function(self, event, name)
 			if selected == 5 then
 				WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown:SetEnabled(false)
 			end
+		end)
+
+		hooksecurefunc(WardrobeCollectionFrame.SetsCollectionFrame, "DisplaySet", function(self)
+			self.DetailsFrame.VariantSetsDropdown.PrecedingVariantIcon:Hide()
 		end)
 	end
 end)
