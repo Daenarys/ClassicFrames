@@ -27,7 +27,6 @@ local function HandleNamePlateAdded(unit)
         frame.name:ClearAllPoints()
         frame.name:SetPoint("BOTTOM", frame.HealthBarsContainer, "TOP", 0, 4)
         frame.name:SetJustifyH("CENTER")
-        PixelUtil.SetPoint(frame.AurasFrame.DebuffListFrame, "BOTTOM", frame.HealthBarsContainer.healthBar, "TOP", 0, 25)
     end)
 end
 
