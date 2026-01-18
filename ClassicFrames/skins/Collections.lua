@@ -122,6 +122,9 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyFilterDropDown(HeirloomsJournal.FilterDropdown)
 		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
 
+		ApplyButtonSeparator(MountJournalMountButton)
+		ApplyButtonSeparator(PetJournalSummonButton)
+
 		hooksecurefunc(WardrobeCollectionFrame, "SetTab", function(self, tabID)
 			if tabID == WARDROBE_TAB_ITEMS then
 				self.ItemsCollectionFrame.ModelR1C1:SetPoint("TOP", -238, -85)
