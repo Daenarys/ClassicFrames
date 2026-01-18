@@ -111,8 +111,10 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
 
+		HeirloomsJournal.ClassDropdown:SetWidth(155)
+		HeirloomsJournal.ClassDropdown:SetPoint("TOPLEFT", 72, -31)
 		HeirloomsJournal.ClassDropdown.Text:SetJustifyH("RIGHT")
-		HeirloomsJournal.ClassDropdown.Text:SetPoint("TOPLEFT", 9, -7)
+		HeirloomsJournal.ClassDropdown.Text:SetPoint("TOPLEFT", 9, -8)
 		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown.Text:SetJustifyH("RIGHT")
 		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown.Text:SetPoint("TOPLEFT", 9, -7)
 
