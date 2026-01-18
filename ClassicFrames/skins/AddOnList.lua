@@ -31,12 +31,17 @@ AddonList.ForceLoad:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
 AddonList.ForceLoad:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
 
 AddonList.SearchBox:Hide()
-ApplyDropDown(AddonList.Dropdown)
 
+ApplyDropDown(AddonList.Dropdown)
 AddonList.Dropdown:SetWidth(130)
 AddonList.Dropdown:SetPoint("TOPLEFT", 18, -31)
 AddonList.Dropdown.Text:SetJustifyH("RIGHT")
 AddonList.Dropdown.Text:SetPoint("TOPLEFT", 9, -7)
+
+ApplyButtonSeparator(AddonList.EnableAllButton)
+ApplyButtonSeparator(AddonList.DisableAllButton)
+ApplyButtonSeparator(AddonList.OkayButton)
+ApplyButtonSeparator(AddonList.CancelButton)
 
 hooksecurefunc('AddonList_Update', function()
 	for _, child in next, { AddonList.ScrollBox.ScrollTarget:GetChildren() } do
