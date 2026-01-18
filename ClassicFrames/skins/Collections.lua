@@ -115,8 +115,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		HeirloomsJournal.ClassDropdown:SetPoint("TOPLEFT", 72, -31)
 		HeirloomsJournal.ClassDropdown.Text:SetJustifyH("RIGHT")
 		HeirloomsJournal.ClassDropdown.Text:SetPoint("TOPLEFT", 9, -8)
+		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown:SetWidth(155)
 		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown.Text:SetJustifyH("RIGHT")
-		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown.Text:SetPoint("TOPLEFT", 9, -7)
 
 		ApplyFilterDropDown(MountJournal.FilterDropdown)
 		ApplyFilterDropDown(PetJournal.FilterDropdown)
@@ -132,7 +132,23 @@ f:SetScript("OnEvent", function(self, event, name)
 				self.ItemsCollectionFrame.ModelR1C1:SetPoint("TOP", -238, -85)
 				self.ItemsCollectionFrame.PagingFrame:SetPoint("BOTTOM", 22, 38)
 				self.ItemsCollectionFrame.SlotsFrame:SetPoint("TOPLEFT", 18, -20)
-				self.ItemsCollectionFrame.WeaponDropdown:SetPoint("TOPRIGHT", -20, -23)
+				self.ItemsCollectionFrame.WeaponDropdown:SetEnabled(false)
+				self.ItemsCollectionFrame.WeaponDropdown:SetPoint("TOPRIGHT", -23, -23)
+			end
+		end)
+
+		hooksecurefunc(WardrobeCollectionFrame.ItemsCollectionFrame, "SetActiveCategory", function(self)
+			local _name, isActiveCategoryWeapon;
+			if self.transmogLocation:IsAppearance() then
+				_name, isActiveCategoryWeapon = C_TransmogCollection.GetCategoryInfo(self:GetActiveCategory())
+			end
+
+			self.WeaponDropdown:SetShown(true)
+
+			if not isActiveCategoryWeapon then
+				self.WeaponDropdown:SetEnabled(false)
+			else
+				self.WeaponDropdown:SetEnabled(true)
 			end
 		end)
 	end
