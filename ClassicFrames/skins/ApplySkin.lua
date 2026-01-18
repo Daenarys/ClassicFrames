@@ -587,3 +587,101 @@ function ApplyFilterDropDown(frame)
 		self.Text:SetFontObject(GameFontHighlightSmall)
 	end)
 end
+
+function ApplyButtonSeparator(frame)
+	local leftHandled = false
+	local rightHandled = false
+
+	-- Find out where this button is anchored and adjust positions/separators as necessary
+	for i=1, frame:GetNumPoints() do
+		local point, relativeTo, relativePoint, offsetX, offsetY = frame:GetPoint(i)
+
+		if (relativeTo:GetObjectType() == "Button" and (point == "TOPLEFT" or point == "LEFT")) then
+
+			if (offsetX == 0 and offsetY == 0) then
+				frame:SetPoint(point, relativeTo, relativePoint, 1, 0)
+			end
+
+			if (relativeTo.RightSeparator) then
+				-- Modify separator to make it a Middle
+				frame.LeftSeparator = relativeTo.RightSeparator
+			else
+				-- Add a Middle separator
+				frame.LeftSeparator = frame:CreateTexture(frame:GetName() and frame:GetName().."_LeftSeparator" or nil, "BORDER")
+				relativeTo.RightSeparator = frame.LeftSeparator
+			end
+
+			frame.LeftSeparator:SetTexture("Interface\\FrameGeneral\\UI-Frame")
+			frame.LeftSeparator:SetTexCoord(0.00781250, 0.10937500, 0.75781250, 0.95312500)
+			frame.LeftSeparator:SetWidth(13)
+			frame.LeftSeparator:SetHeight(25)
+			frame.LeftSeparator:SetPoint("TOPRIGHT", frame, "TOPLEFT", 5, 1)
+
+			leftHandled = true
+
+		elseif (relativeTo:GetObjectType() == "Button" and (point == "TOPRIGHT" or point == "RIGHT")) then
+
+			if (offsetX == 0 and offsetY == 0) then
+				frame:SetPoint(point, relativeTo, relativePoint, -1, 0)
+			end
+
+			if (relativeTo.LeftSeparator) then
+				-- Modify separator to make it a Middle
+				frame.RightSeparator = relativeTo.LeftSeparator
+			else
+				-- Add a Middle separator
+				frame.RightSeparator = frame:CreateTexture(frame:GetName() and frame:GetName().."_RightSeparator" or nil, "BORDER")
+				relativeTo.LeftSeparator = frame.RightSeparator
+			end
+
+			frame.RightSeparator:SetTexture("Interface\\FrameGeneral\\UI-Frame")
+			frame.RightSeparator:SetTexCoord(0.00781250, 0.10937500, 0.75781250, 0.95312500)
+			frame.RightSeparator:SetWidth(13)
+			frame.RightSeparator:SetHeight(25)
+			frame.RightSeparator:SetPoint("TOPLEFT", frame, "TOPRIGHT", -5, 1)
+
+			rightHandled = true
+
+		elseif (point == "BOTTOMLEFT") then
+			if (offsetX == 0 and offsetY == 0) then
+				frame:SetPoint(point, relativeTo, relativePoint, 4, 4)
+			end
+			leftHandled = true
+		elseif (point == "BOTTOMRIGHT") then
+			if (offsetX == 0 and offsetY == 0) then
+				frame:SetPoint(point, relativeTo, relativePoint, -6, 4)
+			end
+			rightHandled = true
+		elseif (point == "BOTTOM") then
+			if (offsetY == 0) then
+				frame:SetPoint(point, relativeTo, relativePoint, 0, 4)
+			end
+		end
+	end
+
+	-- If this button didn't have a left anchor, add the left border texture
+	if (not leftHandled) then
+		if (not frame.LeftSeparator) then
+			-- Add a Left border
+			frame.LeftSeparator = frame:CreateTexture(frame:GetName() and frame:GetName().."_LeftSeparator" or nil, "BORDER")
+			frame.LeftSeparator:SetTexture("Interface\\FrameGeneral\\UI-Frame")
+			frame.LeftSeparator:SetTexCoord(0.24218750, 0.32812500, 0.63281250, 0.82812500)
+			frame.LeftSeparator:SetWidth(11)
+			frame.LeftSeparator:SetHeight(25)
+			frame.LeftSeparator:SetPoint("TOPRIGHT", frame, "TOPLEFT", 6, 1)
+		end
+	end
+
+	-- If this button didn't have a right anchor, add the right border texture
+	if (not rightHandled) then
+		if (not frame.RightSeparator) then
+			-- Add a Right border
+			frame.RightSeparator = frame:CreateTexture(frame:GetName() and frame:GetName().."_RightSeparator" or nil, "BORDER")
+			frame.RightSeparator:SetTexture("Interface\\FrameGeneral\\UI-Frame")
+			frame.RightSeparator:SetTexCoord(0.90625000, 0.99218750, 0.00781250, 0.20312500)
+			frame.RightSeparator:SetWidth(11)
+			frame.RightSeparator:SetHeight(25)
+			frame.RightSeparator:SetPoint("TOPLEFT", frame, "TOPRIGHT", -6, 1)
+		end
+	end
+end
