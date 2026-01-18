@@ -23,13 +23,19 @@ local function SkinFrame(frame)
 	contextual.NumericalThreat:SetPoint("BOTTOM", frame, "TOP", -30, -30)
 
 	contextual.RaidTargetIcon:ClearAllPoints()
-	contextual.RaidTargetIcon:SetPoint("CENTER", frame.TargetFrameContainer.Portrait, "TOP", 2, -6)
+	contextual.RaidTargetIcon:SetPoint("CENTER", frame.TargetFrameContainer.Portrait, "TOP", 1, -2)
 
 	contentMain.Name:SetParent(contextual)
 	contentMain.Name:SetWidth(100)
 	contentMain.Name:ClearAllPoints()
 	contentMain.Name:SetPoint("TOPLEFT", 36, -34)
 	contentMain.Name:SetJustifyH("CENTER")
+
+	FrameHealthBar.OverAbsorbGlow:SetParent(contextual)
+	FrameHealthBar.OverAbsorbGlow:RemoveMaskTexture(FrameHealthBarContainer.HealthBarMask)
+	FrameHealthBar.OverAbsorbGlow:ClearAllPoints();
+	FrameHealthBar.OverAbsorbGlow:SetPoint("TOPLEFT", FrameHealthBar, "TOPRIGHT", -10, -9)
+	FrameHealthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", FrameHealthBar, "BOTTOMRIGHT", -10, -1)
 
 	FrameHealthBar.TextString:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.RightText:SetParent(frame.TargetFrameContainer)
