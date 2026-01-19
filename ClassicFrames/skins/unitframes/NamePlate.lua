@@ -24,6 +24,10 @@ local function HandleNamePlateAdded(unit)
     frame.name:SetFontObject("SystemFont_LargeNamePlate")
 
     hooksecurefunc(frame, "UpdateAnchors", function()
+        frame.castBar:ClearAllPoints()
+        frame.castBar:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 24, 0)
+        frame.castBar:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -24, 0)
+
         frame.name:ClearAllPoints()
         frame.name:SetPoint("BOTTOM", frame.HealthBarsContainer, "TOP", 0, 4)
         frame.name:SetJustifyH("CENTER")
