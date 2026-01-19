@@ -64,11 +64,6 @@ ApplyDialogBorder(EditModeImportLayoutDialog.Border)
 ApplyDialogBorder(EditModeUnsavedChangesDialog.Border)
 ApplyDropDown(EditModeManagerFrame.LayoutDropdown)
 
-EditModeManagerFrame.LayoutDropdown:SetWidth(215)
-EditModeManagerFrame.LayoutDropdown:SetPoint("TOPLEFT", 23, -50)
-EditModeManagerFrame.LayoutDropdown.Text:SetPoint("TOPLEFT", 13, -8)
-EditModeManagerFrame.LayoutLabel:SetPoint("BOTTOMLEFT", EditModeManagerFrame.LayoutDropdown, "TOPLEFT", 1, -2)
-
 EditModeSystemSettingsDialog:HookScript("OnShow", function(self)
 	for _, frame in next, { self.Settings:GetChildren() } do
 		if frame.Dropdown then
