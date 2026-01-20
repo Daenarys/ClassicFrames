@@ -160,3 +160,7 @@ end)
 CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
 	self:SetPoint("TOP")
 end)
+
+PaperDollFrame:HookScript("OnShow", function()
+	CharacterModelScene.ControlFrame:Hide()
+end)
