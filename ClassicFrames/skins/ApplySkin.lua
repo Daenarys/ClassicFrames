@@ -1,8 +1,8 @@
 --[[
 local f = CreateFrame("Frame")
-f:RegisterEvent("PLAYER_ENTERING_WORLD")
+f:RegisterEvent("PLAYER_LOGIN")
 f:SetScript("OnEvent", function(self, event, name)
-	if event == "PLAYER_ENTERING_WORLD" then
+	if event == "PLAYER_LOGIN" then
 		PlayerFrame:ClearAllPoints()
 		PlayerFrame:SetPoint("TOPLEFT", 0, 4)
 		TargetFrame:ClearAllPoints()
