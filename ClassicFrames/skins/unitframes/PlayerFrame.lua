@@ -225,16 +225,8 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	StatusTexture:SetPoint("TOPLEFT", 16, -16)
 	StatusTexture:SetBlendMode("ADD")
 
-	healthBar:GetStatusBarTexture():SetAlpha(0)
-
-	if (healthBar.CfTexture == nil) then
-		healthBar.CfTexture = healthBar:CreateTexture(nil, "BACKGROUND")
-		healthBar.CfTexture:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
-		healthBar.CfTexture:SetPoint("TOPLEFT", healthBar:GetStatusBarTexture(), 0, -8)
-		healthBar.CfTexture:SetPoint("BOTTOMRIGHT", healthBar:GetStatusBarTexture(), "BOTTOMRIGHT", 0, -1)
-		healthBar.CfTexture:SetVertexColor(0, 1, 0)
-	end
-
+	healthBar:SetStatusBarTexture("Interface\\AddOns\\ClassicFrames\\icons\\ui-statusbar")
+	healthBar:SetStatusBarColor(0, 1, 0)
 	healthBarContainer.HealthBarMask:ClearAllPoints()
 	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBar, "TOPLEFT", 0, -4)
 	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", healthBar, "BOTTOMRIGHT", -1, -4)
