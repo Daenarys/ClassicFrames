@@ -482,10 +482,25 @@ hooksecurefunc("PlayerFrame_UpdateStatus", function()
 end)
 
 hooksecurefunc(PlayerFrameBottomManagedFramesContainer, "Layout", function()
-	local classPowerBar = PlayerFrame.classPowerBar
-	if (classPowerBar) then
-		classPowerBar:UnregisterAllEvents()
-		classPowerBar:Hide()
+	if (DruidComboPointBarFrame) then
+		DruidComboPointBarFrame:UnregisterAllEvents()
+		DruidComboPointBarFrame:Hide()
+	end
+	if (MageArcaneChargesFrame) then
+		MageArcaneChargesFrame:UnregisterAllEvents()
+		MageArcaneChargesFrame:Hide()
+	end
+	if (MonkHarmonyBarFrame) then
+		MonkHarmonyBarFrame:UnregisterAllEvents()
+		MonkHarmonyBarFrame:Hide()
+	end
+	if (PaladinPowerBarFrame) then
+		PaladinPowerBarFrame:UnregisterAllEvents()
+		PaladinPowerBarFrame:Hide()
+	end
+	if (RogueComboPointBarFrame) then
+		RogueComboPointBarFrame:UnregisterAllEvents()
+		RogueComboPointBarFrame:Hide()
 	end
 	if (RuneFrame) then
 		RuneFrame:UnregisterAllEvents()
