@@ -2,6 +2,10 @@ function CfPlayerFrame_OnLoad(self)
 	self:EnableMouse(false)
 end
 
+local healthBarContainer = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer
+local healthBar = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HealthBarsContainer.HealthBar
+local manaBar = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea.ManaBar
+
 PlayerFrame.PlayerFrameContainer:SetFrameLevel(4)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:SetFrameLevel(5)
 
