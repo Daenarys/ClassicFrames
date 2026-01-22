@@ -102,10 +102,10 @@ local function SetupBorderOnFrame(frame, hpBar)
     end
     if frame.newBorder then return end
     -- Create borders
-    local borderTop = CreateBorder(frame, 0, 0, 0, .8)  -- Black color
-    local borderBottom = CreateBorder(frame, 0, 0, 0, .8)
-    local borderLeft = CreateBorder(frame, 0, 0, 0, .8)
-    local borderRight = CreateBorder(frame, 0, 0, 0, .8)
+    local borderTop = CreateBorder(frame, 0, 0, 0, 1)
+    local borderBottom = CreateBorder(frame, 0, 0, 0, 1)
+    local borderLeft = CreateBorder(frame, 0, 0, 0, 1)
+    local borderRight = CreateBorder(frame, 0, 0, 0, 1)
 
     -- Store borders in a table
     frame["Textures"] = {borderTop, borderBottom, borderLeft, borderRight}
@@ -147,11 +147,11 @@ local function SetupBorderOnFrame(frame, hpBar)
 
         for _, border in ipairs(frame.Textures) do
             if isTarget then
-                border:SetColorTexture(1, 1, 1, .55)
+                border:SetColorTexture(1, 1, 1)
             elseif isFocus then
-                border:SetColorTexture(NamePlateConstants.FOCUS_TARGET_BORDER_COLOR)
+                border:SetColorTexture(1.0, 0.49, 0.039)
             else
-                border:SetColorTexture(0, 0, 0, .8)
+                border:SetColorTexture(0, 0, 0)
             end
         end
     end)
