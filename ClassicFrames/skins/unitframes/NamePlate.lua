@@ -14,6 +14,12 @@ local function SkinCastbar(self)
         self.Background:SetColorTexture(0.2, 0.2, 0.2, 0.85)
     end
 
+    if self.Text then
+        self.Text:SetIgnoreParentScale(true)
+        self.Text:ClearAllPoints()
+        self.Text:SetPoint("CENTER")
+    end
+
     hooksecurefunc(self, 'UpdateShownState', function()
         self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
         self.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
@@ -187,6 +193,8 @@ local function HandleNamePlateAdded(unit)
         frame.castBar:ClearAllPoints()
         frame.castBar:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", 26, 0)
         frame.castBar:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -26, 0)
+        frame.castBar.Icon:ClearAllPoints()
+        frame.castBar.Icon:SetPoint("CENTER", frame.castBar, "LEFT")
         frame.HealthBarsContainer:SetHeight(6)
         frame.name:ClearAllPoints()
         frame.name:SetPoint("BOTTOM", frame.HealthBarsContainer, "TOP", 0, 4)
