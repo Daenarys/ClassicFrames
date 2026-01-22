@@ -4,12 +4,30 @@ local function SetCollapsed(self, collapsed)
 	self.MinimizeButton:SetNormalTexture("Interface\\Buttons\\QuestTrackerButtons")
 	self.MinimizeButton:SetPushedTexture("Interface\\Buttons\\QuestTrackerButtons")
 	if collapsed then
+		self.Title:Show()
 		self.MinimizeButton:GetNormalTexture():SetTexCoord(0.273438, 0.390625, 0.765625, 0.984375)
 		self.MinimizeButton:GetPushedTexture():SetTexCoord(0.273438, 0.390625, 0.515625, 0.734375)
 	else
+		self.Title:Hide()
 		self.MinimizeButton:GetNormalTexture():SetTexCoord(0.140625, 0.257812, 0.546875, 0.765625)
 		self.MinimizeButton:GetPushedTexture():SetTexCoord(0.0078125, 0.125, 0.546875, 0.765625)
 	end
+end
+
+if ObjectiveTrackerFrame.Header then
+	ObjectiveTrackerFrame.Header.Background:Hide()
+	ObjectiveTrackerFrame.Header.Text:Hide()
+	ObjectiveTrackerFrame.Header.MinimizeButton:SetSize(15, 14)
+	ObjectiveTrackerFrame.Header.MinimizeButton:SetPoint("RIGHT", -6, 4)
+	ObjectiveTrackerFrame.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Red-Highlight", "ADD")
+
+	local title = ObjectiveTrackerFrame.Header:CreateFontString(nil, "ARTWORK", "GameFontNormal")
+	ObjectiveTrackerFrame.Header.Title = title
+	title:SetText(OBJECTIVES_TRACKER_LABEL)
+	title:SetPoint("RIGHT", ObjectiveTrackerFrame.Header.MinimizeButton, "LEFT", -2, 1)
+
+	SetCollapsed(ObjectiveTrackerFrame.Header, _G.ObjectiveTrackerFrame.isCollapsed)
+	hooksecurefunc(ObjectiveTrackerFrame.Header, 'SetCollapsed', SetCollapsed)
 end
 
 local trackers = {
@@ -26,75 +44,26 @@ local trackers = {
 }
 
 for _, tracker in pairs(trackers) do
-	local function ObjectiveTracker_Collapse()
-		ObjectiveTrackerFrame.collapsed = true
-		for i = 1, #trackers do
-			local tracker = trackers[i]
-			if tracker then
-				tracker.ContentsFrame:Hide()
-				tracker.Header.Background:Hide()
-				tracker.Header.Text:Hide()
-			end
-		end
-		tracker.Header.CfTitle:Show()
-	end
-
-	local function ObjectiveTracker_Expand()
-		ObjectiveTrackerFrame.collapsed = nil
-		for i = 1, #trackers do
-			local tracker = trackers[i]
-			if tracker then
-				tracker.ContentsFrame:Show()
-				tracker.Header.Background:Show()
-				tracker.Header.Text:Show()
-			end
-		end
-		tracker.Header.CfTitle:Hide()
-	end
-
-	local function ObjectiveTracker_MinimizeButton_OnClick(self)
-		if ( ObjectiveTrackerFrame.collapsed ) then
-			ObjectiveTracker_Expand()
-		else
-			ObjectiveTracker_Collapse()
-		end
-	end
-
 	tracker.ContentsFrame:SetPoint("RIGHT", -8, 0)
 	tracker.Header.Background:SetAtlas("Objective-Header", true)
 	tracker.Header.Background:SetPoint("TOPLEFT", -19, 14)
 	tracker.Header.Text:SetPoint("LEFT", 14, 0)
-	tracker.Header.MinimizeButton:SetSize(15, 14)
-	tracker.Header.MinimizeButton:SetPoint("RIGHT", -6, 1)
-	tracker.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Red-Highlight", "ADD")
-	tracker.Header.MinimizeButton:HookScript("OnClick", ObjectiveTracker_MinimizeButton_OnClick)
-	SetCollapsed(tracker.Header, _G.ObjectiveTrackerFrame.isCollapsed)
-	hooksecurefunc(tracker.Header, 'SetCollapsed', SetCollapsed)
-
-	local CfTitle = tracker.Header:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-	tracker.Header.CfTitle = CfTitle
-	CfTitle:SetText(OBJECTIVES_TRACKER_LABEL)
-	CfTitle:SetPoint("RIGHT", tracker.Header.MinimizeButton, "LEFT", -2, 1)
-	CfTitle:Hide()
 end
 
 hooksecurefunc(ObjectiveTrackerContainerMixin, "Update", function(self)
-	if self.Header then
-		self.Header:Hide()
-	end
-
 	local prevModule = nil
 	for i, module in ipairs(self.modules) do
 		local heightUsed = module:GetContentsHeight()
 		if heightUsed > 0 then
 			if prevModule then
 				module:SetPoint("TOP", prevModule, "BOTTOM", 0, -self.moduleSpacing)
-				module.Header.MinimizeButton:Hide()
 			else
 				module:SetPoint("TOP")
-				module.Header.MinimizeButton:Show()
 			end
 			prevModule = module
+		end
+		if module.Header.MinimizeButton then
+			module.Header.MinimizeButton:Hide()
 		end
 	end
 end)
