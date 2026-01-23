@@ -15,9 +15,9 @@ local function SkinCastbar(self)
     end
 
     if self.Text then
-        self.Text:SetIgnoreParentScale(true)
+        self.Text:SetTextHeight(12)
         self.Text:ClearAllPoints()
-        self.Text:SetPoint("CENTER")
+        self.Text:SetPoint("CENTER", 0, -1)
     end
 
     hooksecurefunc(self, 'UpdateShownState', function()
@@ -68,6 +68,12 @@ local function SkinCastbar(self)
     hooksecurefunc(self, 'SetIsHighlightedCastTarget', function()
         if self.CastTargetIndicator then
             self.CastTargetIndicator:Hide()
+        end
+    end)
+
+    hooksecurefunc(self, 'SetTargetNameTextShown', function()
+        if self.CastTargetNameText then
+            self.CastTargetNameText:Hide()
         end
     end)
 end
