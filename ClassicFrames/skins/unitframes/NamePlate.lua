@@ -90,7 +90,7 @@ local function CreateBorder(frame, r, g, b, a)
     return border
 end
 
-local function SetupBorderOnFrame(frame, hpBar)
+local function SkinBorder(frame, hpBar)
     if frame.border then
         frame.border:Hide()
     end
@@ -179,17 +179,8 @@ local function HandleNamePlateAdded(unit)
     local nameplate, frame = GetSafeNameplate(unit)
     if not frame then return end
 
-    if frame.castBar then
-        SkinCastbar(frame.castBar)
-    end
-
-    if frame.name then
-        frame.name:SetIgnoreParentScale(true)
-        frame.name:SetShadowColor(0, 0, 0)
-        frame.name:SetShadowOffset(1, -1)
-    end
-
-    SetupBorderOnFrame(frame.HealthBarsContainer, true)
+    SkinBorder(frame.HealthBarsContainer, true)
+    SkinCastbar(frame.castBar)
 
     hooksecurefunc(frame, "UpdateAnchors", function()
         frame.castBar:SetHeight(12)
@@ -201,9 +192,11 @@ local function HandleNamePlateAdded(unit)
         frame.castBar.Icon:ClearAllPoints()
         frame.castBar.Icon:SetPoint("CENTER", frame.castBar, "LEFT")
         frame.HealthBarsContainer:SetHeight(6)
+        frame.name:SetFontObject("SystemFont_LargeNamePlate")
         frame.name:ClearAllPoints()
-        frame.name:SetPoint("BOTTOM", frame.HealthBarsContainer, "TOP", 0, 4)
+        PixelUtil.SetPoint(frame.name, "BOTTOM", frame.HealthBarsContainer, "TOP", 0, 5)
         frame.name:SetJustifyH("CENTER")
+        PixelUtil.SetPoint(frame.AurasFrame.DebuffListFrame, "BOTTOM", frame.name, "TOP", 0, 10)
     end)
 end
 
