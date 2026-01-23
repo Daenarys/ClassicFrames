@@ -83,12 +83,6 @@ local function SkinCastbar(self)
             self.CastTargetIndicator:Hide()
         end
     end)
-
-    hooksecurefunc(self, 'SetTargetNameTextShown', function()
-        if self.CastTargetNameText then
-            self.CastTargetNameText:Hide()
-        end
-    end)
 end
 
 local function CreateBorder(frame, r, g, b, a)
