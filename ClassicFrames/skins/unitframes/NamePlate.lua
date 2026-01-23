@@ -198,18 +198,20 @@ local function HandleNamePlateAdded(unit)
         frame.castBar.Icon:ClearAllPoints()
         frame.castBar.Icon:SetPoint("CENTER", frame.castBar, "LEFT")
         frame.HealthBarsContainer:SetHeight(6)
-        frame.name:SetFontObject("SystemFont_LargeNamePlate")
+        frame.name:SetIgnoreParentScale(true)
+        frame.name:SetShadowOffset(1, -1)
+        frame.name:SetShadowColor(0, 0, 0, 1)
         frame.name:ClearAllPoints()
-        PixelUtil.SetPoint(frame.name, "BOTTOM", frame.HealthBarsContainer, "TOP", 0, 5)
+        frame.name:SetPoint("BOTTOM", frame.HealthBarsContainer, "TOP", 0, 4)
         frame.name:SetJustifyH("CENTER")
         PixelUtil.SetPoint(frame.AurasFrame.DebuffListFrame, "BOTTOM", frame.name, "TOP", 0, 10)
     end)
 end
 
-local frameAdded = CreateFrame("Frame")
-frameAdded:RegisterEvent("NAME_PLATE_UNIT_ADDED")
-frameAdded:SetScript("OnEvent", function(self, event, unit)
-    if C_CVar.GetCVar("nameplateStyle") == "5" then -- Legacy
+local f = CreateFrame("Frame")
+f:RegisterEvent("NAME_PLATE_UNIT_ADDED")
+f:SetScript("OnEvent", function(self, event, unit)
+    if C_CVar.GetCVar("nameplateStyle") == "5" then
         HandleNamePlateAdded(unit)
     end
 end)
