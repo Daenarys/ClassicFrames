@@ -210,7 +210,6 @@ hooksecurefunc(NamePlateAurasMixin, "RefreshList", function(self, listFrame, aur
 
     for auraItemFrame in self.auraItemFramePool:EnumerateActive() do
         if auraItemFrame:GetParent() == listFrame then
-            auraItemFrame:SetScale(1)
             if auraItemFrame.Cooldown then
                 local r1 = auraItemFrame.Cooldown:GetRegions()
                 if r1 and r1.GetObjectType and r1:GetObjectType() == "FontString" then
