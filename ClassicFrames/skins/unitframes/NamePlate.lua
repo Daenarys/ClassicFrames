@@ -179,6 +179,8 @@ local function HandleNamePlateAdded(unit)
 
     if frame.name then
         frame.name:SetIgnoreParentScale(true)
+        frame.name:SetShadowColor(0, 0, 0)
+        frame.name:SetShadowOffset(1, -1)
     end
 
     SetupBorderOnFrame(frame.HealthBarsContainer, true)
@@ -202,20 +204,5 @@ frameAdded:RegisterEvent("NAME_PLATE_UNIT_ADDED")
 frameAdded:SetScript("OnEvent", function(self, event, unit)
     if C_CVar.GetCVar("nameplateStyle") == "5" then -- Legacy
         HandleNamePlateAdded(unit)
-    end
-end)
-
-hooksecurefunc(NamePlateAurasMixin, "RefreshList", function(self, listFrame, auraList)
-    if self:IsForbidden() then return end
-
-    for auraItemFrame in self.auraItemFramePool:EnumerateActive() do
-        if auraItemFrame:GetParent() == listFrame then
-            if auraItemFrame.Cooldown then
-                local r1 = auraItemFrame.Cooldown:GetRegions()
-                if r1 and r1.GetObjectType and r1:GetObjectType() == "FontString" then
-                    r1:SetAlpha(0)
-                end
-            end
-        end
     end
 end)
