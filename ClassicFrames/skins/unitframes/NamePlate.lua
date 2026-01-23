@@ -99,7 +99,6 @@ local function SkinBorder(frame, hpBar)
         frame.healthBar.bgTexture:SetAlpha(0)
         frame.healthBar.selectedBorder:SetAlpha(0)
         frame.healthBar.deselectedOverlay:SetAlpha(0)
-        -- frame = frame.HealthBarsContainer
         if not frame.background then
             frame.background = frame:CreateTexture(nil, "BACKGROUND")
             frame.background:SetAllPoints(frame)
