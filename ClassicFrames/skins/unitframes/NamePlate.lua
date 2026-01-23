@@ -28,7 +28,6 @@ local function SkinCastbar(self)
     end
 
     if self.Text then
-        self.Text:SetTextHeight(12)
         self.Text:ClearAllPoints()
         self.Text:SetPoint("CENTER", 0, -1)
     end
@@ -186,7 +185,13 @@ local function HandleNamePlateAdded(unit)
     if not frame then return end
 
     SkinBorder(frame.HealthBarsContainer, true)
-    SkinCastbar(frame.castBar)
+
+    if frame.castBar then
+        if not frame.castBar.skinned then
+            SkinCastbar(frame.castBar)
+            frame.castBar.skinned = true
+        end
+    end
 
     hooksecurefunc(frame, "UpdateAnchors", function()
         frame.castBar:SetHeight(12)
@@ -197,6 +202,7 @@ local function HandleNamePlateAdded(unit)
         frame.castBar.Icon:SetSize(14, 14)
         frame.castBar.Icon:ClearAllPoints()
         frame.castBar.Icon:SetPoint("CENTER", frame.castBar, "LEFT")
+        frame.castBar.Text:SetTextHeight(12)
         frame.HealthBarsContainer:SetHeight(6)
         frame.name:SetIgnoreParentScale(true)
         frame.name:SetShadowOffset(1, -1)
