@@ -8,3 +8,11 @@ hooksecurefunc(TotemFrame, "Update", function(self)
 		child.Border:SetPoint("CENTER")
 	end
 end)
+
+hooksecurefunc(TotemFrame, "SetPoint", function(self)
+	if self.changing then return end
+	self.changing = true
+	self:ClearAllPoints()
+	self:SetPoint("TOPLEFT", PlayerFrame, "TOPLEFT", -5, -95)
+	self.changing = false
+end)

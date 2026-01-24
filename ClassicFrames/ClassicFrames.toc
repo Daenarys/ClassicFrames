@@ -96,7 +96,7 @@ skins\Talents.lua
 skins\TalkingHead.lua
 skins\TimeManager.lua
 skins\Torghast.lua
-skins\TotemFrame.lua
+skins\Totem.lua
 skins\Trade.lua
 skins\TradingPost.lua
 skins\Transmog.lua

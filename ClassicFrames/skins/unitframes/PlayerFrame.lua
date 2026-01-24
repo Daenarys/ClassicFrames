@@ -506,10 +506,6 @@ hooksecurefunc(PlayerFrameBottomManagedFramesContainer, "Layout", function()
 		RuneFrame:UnregisterAllEvents()
 		RuneFrame:Hide()
 	end
-	if (TotemFrame) then
-		TotemFrame:ClearAllPoints()
-		TotemFrame:SetPoint("TOPLEFT", PlayerFrame, "TOPLEFT", -5, -95)
-	end
 	if (WarlockPowerFrame) then
 		WarlockPowerFrame:UnregisterAllEvents()
 		WarlockPowerFrame:Hide()
