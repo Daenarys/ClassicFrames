@@ -101,15 +101,6 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 	end)
 end
 
-hooksecurefunc("CompactUnitFrame_UpdateCenterStatusIcon", function(frame)
-	if ( frame.centerStatusIcon ) then
-		if ( frame.optionTable.displayInOtherGroup and UnitInOtherParty(frame.unit) ) then
-			frame.centerStatusIcon.texture:SetTexture("Interface\\LFGFrame\\LFG-Eye")
-			frame.centerStatusIcon.texture:SetTexCoord(0.125, 0.25, 0.25, 0.5)
-		end
-	end
-end)
-
 hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer", function()
 	local isLeader = UnitIsGroupLeader("player")
 	local isAssist = UnitIsGroupAssistant("player")
@@ -250,3 +241,73 @@ end)
 
 ApplyDropDown(CompactRaidFrameManagerDisplayFrameModeControlDropdown)
 ApplyDropDown(CompactRaidFrameManagerDisplayFrameRestrictPingsDropdown)
+
+hooksecurefunc("CompactRaidGroup_UpdateLayout", function(frame)
+	if frame.borderFrame:IsShown() then
+		frame.borderFrame.Background:SetAlpha(0)
+
+		if (frame.borderFrame.TopLeft == nil) then
+			frame.borderFrame.TopLeft = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.TopLeft:SetSize(32, 32)
+			frame.borderFrame.TopLeft:SetTexture("Interface\\RaidFrame\\RaidBorder-UpperLeft")
+			frame.borderFrame.TopLeft:SetPoint("TOPLEFT", -5, 3)
+		end
+
+		if (frame.borderFrame.TopRight == nil) then
+			frame.borderFrame.TopRight = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.TopRight:SetSize(32, 32)
+			frame.borderFrame.TopRight:SetTexture("Interface\\RaidFrame\\RaidBorder-UpperRight")
+			frame.borderFrame.TopRight:SetPoint("TOPRIGHT", 5, 3)
+		end
+
+		if (frame.borderFrame.BottomLeft == nil) then
+			frame.borderFrame.BottomLeft = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.BottomLeft:SetSize(32, 32)
+			frame.borderFrame.BottomLeft:SetTexture("Interface\\RaidFrame\\RaidBorder-BottomLeft")
+			frame.borderFrame.BottomLeft:SetPoint("BOTTOMLEFT", -5, -5)
+		end
+
+		if (frame.borderFrame.BottomRight == nil) then
+			frame.borderFrame.BottomRight = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.BottomRight:SetSize(32, 32)
+			frame.borderFrame.BottomRight:SetTexture("Interface\\RaidFrame\\RaidBorder-BottomRight")
+			frame.borderFrame.BottomRight:SetPoint("BOTTOMRIGHT", 5, -5)
+		end
+
+		if (frame.borderFrame.Top == nil) then
+			frame.borderFrame.Top = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.Top:SetSize(0, 16)
+			frame.borderFrame.Top:SetTexture("Interface\\RaidFrame\\RaidBorder-UpperMiddle")
+			frame.borderFrame.Top:SetHorizTile(true)
+			frame.borderFrame.Top:SetPoint("TOPLEFT", frame.borderFrame.TopLeft, "TOPRIGHT", 0, 1)
+			frame.borderFrame.Top:SetPoint("TOPRIGHT", frame.borderFrame.TopRight, "TOPLEFT", 0, 1)
+		end
+
+		if (frame.borderFrame.Bottom == nil) then
+			frame.borderFrame.Bottom = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.Bottom:SetSize(0, 16)
+			frame.borderFrame.Bottom:SetTexture("Interface\\RaidFrame\\RaidBorder-BottomMiddle")
+			frame.borderFrame.Bottom:SetHorizTile(true)
+			frame.borderFrame.Bottom:SetPoint("BOTTOMLEFT", frame.borderFrame.BottomLeft, "BOTTOMRIGHT", 0, -4)
+			frame.borderFrame.Bottom:SetPoint("BOTTOMRIGHT", frame.borderFrame.BottomRight, "BOTTOMLEFT", 0, -4)
+		end
+
+		if (frame.borderFrame.Left == nil) then
+			frame.borderFrame.Left = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.Left:SetSize(16, 0)
+			frame.borderFrame.Left:SetTexture("Interface\\RaidFrame\\RaidBorder-Left")
+			frame.borderFrame.Left:SetVertTile(true)
+			frame.borderFrame.Left:SetPoint("TOPLEFT", frame.borderFrame.TopLeft, "BOTTOMLEFT", -1, 0)
+			frame.borderFrame.Left:SetPoint("BOTTOMLEFT", frame.borderFrame.BottomLeft, "TOPLEFT", -1, 0)
+		end
+
+		if (frame.borderFrame.Right == nil) then
+			frame.borderFrame.Right = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.Right:SetSize(16, 0)
+			frame.borderFrame.Right:SetTexture("Interface\\RaidFrame\\RaidBorder-Right")
+			frame.borderFrame.Right:SetVertTile(true)
+			frame.borderFrame.Right:SetPoint("TOPRIGHT", frame.borderFrame.TopRight, "BOTTOMRIGHT", 2, 0)
+			frame.borderFrame.Right:SetPoint("BOTTOMRIGHT", frame.borderFrame.BottomRight, "TOPRIGHT", 2, 0)
+		end
+	end
+end)
