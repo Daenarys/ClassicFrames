@@ -29,7 +29,8 @@ local function SkinCastbar(self)
 
     if self.Text then
         self.Text:ClearAllPoints()
-        self.Text:SetPoint("CENTER", 0, -1)
+        self.Text:SetPoint("TOPLEFT")
+        self.Text:SetPoint("BOTTOMRIGHT")
     end
 
     hooksecurefunc(self, 'UpdateShownState', function()
@@ -202,7 +203,7 @@ local function HandleNamePlateAdded(unit)
         frame.castBar.Icon:SetSize(14, 14)
         frame.castBar.Icon:ClearAllPoints()
         frame.castBar.Icon:SetPoint("CENTER", frame.castBar, "LEFT")
-        frame.castBar.Text:SetTextHeight(12)
+        frame.castBar.Text:SetTextHeight(11)
         frame.HealthBarsContainer:SetHeight(6)
         frame.name:SetIgnoreParentScale(true)
         frame.name:SetShadowOffset(1, -1)
