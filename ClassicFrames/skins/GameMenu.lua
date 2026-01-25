@@ -86,11 +86,7 @@ hooksecurefunc(GameMenuFrame, "Layout", function(self)
 		elseif (text == _G["BLIZZARD_STORE"]) then
 			button:SetPoint("TOPLEFT", 26, -54)
 		elseif (text == _G["GAMEMENU_NEW_BUTTON"]) then
-			if storeEnabled then
-				button:SetPoint("TOPLEFT", 26, -76)
-			else
-				button:SetPoint("TOPLEFT", 26, -54)
-			end
+			button:SetPoint("TOPLEFT", 26, -76)
 		elseif (text == _G["GAMEMENU_OPTIONS"]) then
 			if C_SplashScreen.CanViewSplashScreen() then
 				button:SetPoint("TOPLEFT", 26, -113)
