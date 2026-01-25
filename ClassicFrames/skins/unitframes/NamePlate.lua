@@ -98,20 +98,19 @@ local function CreateBorder(frame, r, g, b, a)
 end
 
 local function SkinBorder(frame, hpBar)
-    if frame.border then
-        frame.border:Hide()
+    if frame.healthBar:IsWidgetsOnlyMode() then return end
+
+    frame.healthBar.barTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-BarFill")
+    frame.healthBar.bgTexture:SetAlpha(0)
+    frame.healthBar.selectedBorder:SetAlpha(0)
+    frame.healthBar.deselectedOverlay:SetAlpha(0)
+
+    if not frame.background then
+        frame.background = frame:CreateTexture(nil, "BACKGROUND")
+        frame.background:SetAllPoints(frame)
+        frame.background:SetColorTexture(0.2, 0.2, 0.2, 0.85)
     end
-    if hpBar then
-        frame.healthBar.barTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-BarFill")
-        frame.healthBar.bgTexture:SetAlpha(0)
-        frame.healthBar.selectedBorder:SetAlpha(0)
-        frame.healthBar.deselectedOverlay:SetAlpha(0)
-        if not frame.background then
-            frame.background = frame:CreateTexture(nil, "BACKGROUND")
-            frame.background:SetAllPoints(frame)
-            frame.background:SetColorTexture(0.2, 0.2, 0.2, 0.85)
-        end
-    end
+
     if frame.newBorder then return end
     -- Create borders
     local borderTop = CreateBorder(frame, 0, 0, 0, 1)
@@ -182,13 +181,15 @@ local function HandleNamePlateAdded(unit)
     local nameplate, frame = GetSafeNameplate(unit)
     if not frame then return end
 
-    SkinBorder(frame.HealthBarsContainer, true)
-
     if frame.castBar then
         if not frame.castBar.skinned then
             SkinCastbar(frame.castBar)
             frame.castBar.skinned = true
         end
+    end
+
+    if frame.HealthBarsContainer then
+        SkinBorder(frame.HealthBarsContainer, true)
     end
 
     hooksecurefunc(frame, "UpdateAnchors", function()
