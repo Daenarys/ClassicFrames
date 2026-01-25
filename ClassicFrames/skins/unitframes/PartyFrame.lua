@@ -311,3 +311,19 @@ hooksecurefunc("CompactRaidGroup_UpdateLayout", function(frame)
 		end
 	end
 end)
+
+hooksecurefunc("CompactUnitFrame_UpdateRoleIcon", function(frame)
+	if not frame.roleIcon then
+		return
+	end
+
+	local role = UnitGroupRolesAssigned(frame.unit);
+	if ( frame.optionTable.displayRoleIcon and (role == "TANK" or role == "HEALER" or role == "DAMAGER") ) then
+		frame.roleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
+		frame.roleIcon:SetTexCoord(GetTexCoordsForRoleSmallCircle(role))
+		frame.roleIcon:Show()
+		frame.roleIcon:SetSize(12, 12)
+	else
+		frame.roleIcon:Hide()
+	end
+end)
