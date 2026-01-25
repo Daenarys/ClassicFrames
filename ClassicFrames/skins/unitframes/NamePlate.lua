@@ -155,13 +155,10 @@ local function SkinBorder(frame, hpBar)
 
     hooksecurefunc(frame.healthBar, "UpdateSelectionBorder", function()
         local isTarget = frame.healthBar:IsTarget()
-        local isFocus = frame.healthBar:IsFocus()
 
         for _, border in ipairs(frame.Textures) do
             if isTarget then
                 border:SetColorTexture(1, 1, 1)
-            elseif isFocus then
-                border:SetColorTexture(1.0, 0.49, 0.039)
             else
                 border:SetColorTexture(0, 0, 0)
             end
