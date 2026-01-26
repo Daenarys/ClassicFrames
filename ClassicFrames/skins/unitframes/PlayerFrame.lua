@@ -319,9 +319,17 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	StatusTexture:SetPoint("TOPLEFT", 16, -12)
 	StatusTexture:SetBlendMode("ADD")
 
+	healthBarContainer.HealthBarMask:ClearAllPoints()
+	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBar, "TOPLEFT", 0, -4)
+	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", healthBar, "BOTTOMRIGHT", -1, -4)
+
 	healthBar.TextString:SetPoint("CENTER", healthBar, "CENTER")
 	healthBar.LeftText:SetPoint("LEFT", healthBar, "LEFT", 6, 0)
 	healthBar.RightText:SetPoint("RIGHT", healthBar, "RIGHT", -4, 0)
+
+	manaBar.ManaBarMask:ClearAllPoints()
+	manaBar.ManaBarMask:SetPoint("TOPLEFT", manaBar, "TOPLEFT", 0, 3)
+	manaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", manaBar, "BOTTOMRIGHT", -1, -3)
 
 	manaBar.TextString:SetPoint("CENTER", manaBar, "CENTER", 0, 3)
 	manaBar.LeftText:SetPoint("LEFT", manaBar, "LEFT", 6, 3)
@@ -368,6 +376,14 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	StatusTexture:ClearAllPoints()
 	StatusTexture:SetPoint("TOPLEFT", -6, -4)
 	StatusTexture:SetDrawLayer("BACKGROUND")
+
+	healthBarContainer.HealthBarMask:ClearAllPoints()
+	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBar, "TOPLEFT", 7, -5)
+	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", healthBar, "BOTTOMRIGHT", -10, -3)
+
+	manaBar.ManaBarMask:ClearAllPoints()
+	manaBar.ManaBarMask:SetPoint("TOPLEFT", manaBar, "TOPLEFT", 7, 3)
+	manaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", manaBar, "BOTTOMRIGHT", -7, -3)
 
 	healthBar.TextString:SetPoint("CENTER", healthBar, "CENTER", -2, -1)
 	healthBar.LeftText:SetPoint("LEFT", healthBar, "LEFT", 0, -2)
