@@ -3,9 +3,7 @@ local function UpdateHealth(frame)
     local unit = frame.unit
     
     -- Don't update if unit doesn't exist
-    if not UnitExists(unit) then
-        return
-    end
+    if not UnitExists(unit) then return end
     
     -- Get health values directly - StatusBar can handle secret values
     -- The key is to NOT do any comparisons or arithmetic on these values
@@ -21,6 +19,7 @@ local function UpdatePower(frame)
     if not frame or not frame.unit or not frame.powerBar then return end
     local unit = frame.unit
 
+    -- Don't update if unit doesn't exist
     if not UnitExists(unit) then return end
 
     -- Get power values directly - StatusBar can handle secret values
@@ -33,8 +32,11 @@ local function UpdatePower(frame)
     frame.powerBar:Show()
     
     -- Set power color
-	local powerType, powerToken, altR, altG, altB = UnitPowerType(frame.unit)
+	local powerType, powerToken = UnitPowerType(frame.unit)
 	local info = CfPowerBarColor[powerToken]
+
+	frame.powerBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+
 	if info then
 		if info.atlas then
 			frame.powerBar:SetStatusBarTexture(info.atlas)
@@ -66,7 +68,6 @@ local function CreateUnitFrame(frame)
 	frame.powerBar = powerBar
 	powerBar:SetSize(119, 12)
 	powerBar:SetPoint("TOPRIGHT", -106, -52)
-	powerBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 	powerBar:SetMinMaxValues(0, 100)
 	powerBar:SetValue(100)
 
