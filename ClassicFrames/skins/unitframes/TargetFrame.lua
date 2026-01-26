@@ -35,8 +35,6 @@ local function UpdatePower(frame)
 	local powerType, powerToken = UnitPowerType(frame.unit)
 	local info = CfPowerBarColor[powerToken]
 
-	frame.powerBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-
 	if info then
 		if info.atlas then
 			frame.powerBar:SetStatusBarTexture(info.atlas)
@@ -68,6 +66,7 @@ local function CreateUnitFrame(frame)
 	frame.powerBar = powerBar
 	powerBar:SetSize(119, 12)
 	powerBar:SetPoint("TOPRIGHT", -106, -52)
+	powerBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 	powerBar:SetMinMaxValues(0, 100)
 	powerBar:SetValue(100)
 
