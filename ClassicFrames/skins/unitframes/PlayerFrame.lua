@@ -127,6 +127,16 @@ manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 
+healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
+healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
+healthBar.OverAbsorbGlow:ClearAllPoints()
+healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", healthBar, "TOPRIGHT", -10, -8)
+healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", healthBar, "BOTTOMRIGHT", -10, -1)
+
+manaBar.FullPowerFrame:SetSize(119, 12)
+manaBar.FullPowerFrame:ClearAllPoints()
+manaBar.FullPowerFrame:SetPoint("TOPRIGHT", manaBar, "TOPRIGHT", -3, 1)
+
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:ClearAllPoints()
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:SetPoint("CENTER", PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator, "TOPLEFT", 54, -46)
