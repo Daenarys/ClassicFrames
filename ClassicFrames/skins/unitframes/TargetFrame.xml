@@ -16,21 +16,21 @@
 	</Button>
 	<Button name="CfTargetFrame" inherits="CfTargetFrameTemplate" parent="TargetFrame">
 		<Anchors>
-			<Anchor point="TOPLEFT" x="20" y="-4"/>
+			<Anchor point="TOPLEFT" x="20" y="-8"/>
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				CfTargetFrame_OnLoad(self, "target")
+				CfTargetFrame_OnLoad(self)
 			</OnLoad>
 		</Scripts>
 	</Button>
 	<Button name="CfFocusFrame" inherits="CfTargetFrameTemplate" parent="FocusFrame">
 		<Anchors>
-			<Anchor point="TOPLEFT" x="20" y="-4"/>
+			<Anchor point="TOPLEFT" x="20" y="-8"/>
 		</Anchors>
 		<Scripts>
 			<OnLoad>
-				CfTargetFrame_OnLoad(self, "focus")
+				CfTargetFrame_OnLoad(self)
 			</OnLoad>
 		</Scripts>
 	</Button>
