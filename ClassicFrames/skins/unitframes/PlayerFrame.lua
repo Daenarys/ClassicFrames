@@ -319,6 +319,11 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	StatusTexture:SetPoint("TOPLEFT", 16, -12)
 	StatusTexture:SetBlendMode("ADD")
 
+	CfPlayerFrame.healthBar:SetWidth(119)
+	CfPlayerFrame.healthBar:SetPoint("TOPLEFT",106,-41)
+	CfPlayerFrame.powerBar:SetWidth(119)
+	CfPlayerFrame.powerBar:SetPoint("TOPLEFT",106,-52)
+
 	healthBarContainer.HealthBarMask:ClearAllPoints()
 	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBar, "TOPLEFT", 0, -4)
 	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", healthBar, "BOTTOMRIGHT", -1, -4)
@@ -376,6 +381,11 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	StatusTexture:ClearAllPoints()
 	StatusTexture:SetPoint("TOPLEFT", -6, -4)
 	StatusTexture:SetDrawLayer("BACKGROUND")
+
+	CfPlayerFrame.healthBar:SetWidth(100)
+	CfPlayerFrame.healthBar:SetPoint("TOPLEFT",119,-41)
+	CfPlayerFrame.powerBar:SetWidth(100)
+	CfPlayerFrame.powerBar:SetPoint("TOPLEFT",119,-52)
 
 	healthBarContainer.HealthBarMask:ClearAllPoints()
 	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBar, "TOPLEFT", 7, -5)
