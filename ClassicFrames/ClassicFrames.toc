@@ -1,6 +1,6 @@
 ## Interface: 120001
-## IconTexture: Interface/Icons/INV_Sword_2H_AshbringerCorrupt
-## Title: Classic Frames
+## IconAtlas: gmchat-icon-blizz
+## Title: Classic |cff00c0ffFrames
 ## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
 ## Version: 2.93
