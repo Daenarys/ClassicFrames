@@ -133,11 +133,6 @@ manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 
-manaBar.FullPowerFrame:SetParent(PlayerFrame.PlayerFrameContainer)
-manaBar.FullPowerFrame:SetSize(119, 12)
-manaBar.FullPowerFrame:ClearAllPoints()
-manaBar.FullPowerFrame:SetPoint("TOPRIGHT", manaBar, "TOPRIGHT", -3, 5)
-
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:ClearAllPoints()
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:SetPoint("CENTER", PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator, "TOPLEFT", 54, -46)
