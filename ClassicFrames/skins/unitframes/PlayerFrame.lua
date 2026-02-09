@@ -122,10 +122,21 @@ healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 
+healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
+healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
+healthBar.OverAbsorbGlow:ClearAllPoints()
+healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", healthBar, "TOPRIGHT", -10, -4)
+healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", healthBar, "BOTTOMRIGHT", -10, 3)
+
 manaBar:SetAlpha(0)
 manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
+
+manaBar.FullPowerFrame:SetParent(PlayerFrame.PlayerFrameContainer)
+manaBar.FullPowerFrame:SetSize(119, 12)
+manaBar.FullPowerFrame:ClearAllPoints()
+manaBar.FullPowerFrame:SetPoint("TOPRIGHT", manaBar, "TOPRIGHT", -3, 5)
 
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:ClearAllPoints()
@@ -276,15 +287,47 @@ if (_G.EvokerEbonMightBar) then
 		EvokerEbonMightBar.RightBorder:SetTexCoord(0.125, 0, 1, 0)
 		EvokerEbonMightBar.RightBorder:SetPoint("LEFT", EvokerEbonMightBar.Border, "RIGHT")
 	end
+end
 
-	hooksecurefunc(EvokerEbonMightBar, "EvaluateUnit", function(self)
-		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-		self:SetStatusBarColor(1, 0.5, 0.25)
+if (_G.DemonHunterSoulFragmentsBar) then
+	DemonHunterSoulFragmentsBar:SetSize(104, 12)
+	DemonHunterSoulFragmentsBar:ClearAllPoints()
+	DemonHunterSoulFragmentsBar:SetPoint("BOTTOMLEFT", 95, 19)
 
-		if self.PowerBarMask then
-			self.PowerBarMask:Hide()
-		end
-	end)
+	DemonHunterSoulFragmentsBarText:SetPoint("CENTER", 0, -1)
+	DemonHunterSoulFragmentsBar.LeftText:SetPoint("LEFT", 0, -1)
+	DemonHunterSoulFragmentsBar.RightText:SetPoint("RIGHT", 0, -1)
+
+	if (DemonHunterSoulFragmentsBar.Background == nil) then
+		DemonHunterSoulFragmentsBar.Background = DemonHunterSoulFragmentsBar:CreateTexture(nil, "BACKGROUND")
+		DemonHunterSoulFragmentsBar.Background:SetAllPoints()
+		DemonHunterSoulFragmentsBar.Background:SetColorTexture(0, 0, 0, 0.5)
+	end
+
+	if (DemonHunterSoulFragmentsBar.Border == nil) then
+		DemonHunterSoulFragmentsBar.Border = DemonHunterSoulFragmentsBar:CreateTexture(nil, "OVERLAY")
+		DemonHunterSoulFragmentsBar.Border:SetSize(0, 16)
+		DemonHunterSoulFragmentsBar.Border:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
+		DemonHunterSoulFragmentsBar.Border:SetTexCoord(0.125, 0.250, 1, 0)
+		DemonHunterSoulFragmentsBar.Border:SetPoint("TOPLEFT", 4, 0)
+		DemonHunterSoulFragmentsBar.Border:SetPoint("TOPRIGHT", -4, 0)
+	end
+
+	if (DemonHunterSoulFragmentsBar.LeftBorder == nil) then
+		DemonHunterSoulFragmentsBar.LeftBorder = DemonHunterSoulFragmentsBar:CreateTexture(nil, "OVERLAY")
+		DemonHunterSoulFragmentsBar.LeftBorder:SetSize(16, 16)
+		DemonHunterSoulFragmentsBar.LeftBorder:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
+		DemonHunterSoulFragmentsBar.LeftBorder:SetTexCoord(0, 0.125, 1, 0)
+		DemonHunterSoulFragmentsBar.LeftBorder:SetPoint("RIGHT", DemonHunterSoulFragmentsBar.Border, "LEFT")
+	end
+
+	if (DemonHunterSoulFragmentsBar.RightBorder == nil) then
+		DemonHunterSoulFragmentsBar.RightBorder = DemonHunterSoulFragmentsBar:CreateTexture(nil, "OVERLAY")
+		DemonHunterSoulFragmentsBar.RightBorder:SetSize(16, 16)
+		DemonHunterSoulFragmentsBar.RightBorder:SetTexture("Interface\\CharacterFrame\\UI-CharacterFrame-GroupIndicator")
+		DemonHunterSoulFragmentsBar.RightBorder:SetTexCoord(0.125, 0, 1, 0)
+		DemonHunterSoulFragmentsBar.RightBorder:SetPoint("LEFT", DemonHunterSoulFragmentsBar.Border, "RIGHT")
+	end
 end
 
 hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)

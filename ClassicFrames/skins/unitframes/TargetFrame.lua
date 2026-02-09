@@ -118,9 +118,6 @@ local function SkinFrame(frame)
 	local FrameHealthBar = contentMain.HealthBarsContainer.HealthBar
 	local FrameManaBar = contentMain.ManaBar
 
-	FrameHealthBar:SetAlpha(0)
-	FrameManaBar:SetAlpha(0)
-
 	contextual:SetFrameStrata("MEDIUM")
 	frame.TargetFrameContainer:SetFrameStrata("MEDIUM")
 
@@ -143,18 +140,20 @@ local function SkinFrame(frame)
 	contentMain.Name:SetPoint("TOPLEFT", 36, -30)
 	contentMain.Name:SetJustifyH("CENTER")
 
-	FrameHealthBar.OverAbsorbGlow:SetParent(contextual)
-	FrameHealthBar.OverAbsorbGlow:RemoveMaskTexture(FrameHealthBarContainer.HealthBarMask)
-	FrameHealthBar.OverAbsorbGlow:ClearAllPoints()
-	FrameHealthBar.OverAbsorbGlow:SetPoint("TOPLEFT", FrameHealthBar, "TOPRIGHT", -10, -9)
-	FrameHealthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", FrameHealthBar, "BOTTOMRIGHT", -10, -1)
-
+	FrameHealthBar:SetAlpha(0)
 	FrameHealthBar.TextString:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.RightText:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.LeftText:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.DeadText:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.UnconsciousText:SetParent(frame.TargetFrameContainer)
 
+	FrameHealthBar.OverAbsorbGlow:SetParent(contextual)
+	FrameHealthBar.OverAbsorbGlow:RemoveMaskTexture(FrameHealthBarContainer.HealthBarMask)
+	FrameHealthBar.OverAbsorbGlow:ClearAllPoints()
+	FrameHealthBar.OverAbsorbGlow:SetPoint("TOPLEFT", FrameHealthBar, "TOPRIGHT", -10, -5)
+	FrameHealthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", FrameHealthBar, "BOTTOMRIGHT", -10, 3)
+
+	FrameManaBar:SetAlpha(0)
 	FrameManaBar.TextString:SetParent(frame.TargetFrameContainer)
 	FrameManaBar.RightText:SetParent(frame.TargetFrameContainer)
 	FrameManaBar.LeftText:SetParent(frame.TargetFrameContainer)
