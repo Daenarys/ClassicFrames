@@ -1,16 +1,3 @@
---[[
-local f = CreateFrame("Frame")
-f:RegisterEvent("PLAYER_LOGIN")
-f:SetScript("OnEvent", function(self, event, name)
-	if event == "PLAYER_LOGIN" then
-		PlayerFrame:ClearAllPoints()
-		PlayerFrame:SetPoint("TOPLEFT", 0, 4)
-		TargetFrame:ClearAllPoints()
-		TargetFrame:SetPoint("TOPLEFT", 230, 4)
-	end
-end)
---]]
-
 function ApplyCloseButton(frame)
 	frame:SetSize(32, 32)
 	frame:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
