@@ -75,10 +75,6 @@ GameMenuFrame:HookScript("OnShow", function(self)
 end)
 
 hooksecurefunc(GameMenuFrame, "Layout", function(self)
-	local shop1Enabled = C_StorePublic.IsEnabled()
-	local shop2Enabled = C_CatalogShop.IsShop2Enabled()
-	local storeEnabled = shop1Enabled or shop2Enabled
-
 	for button in self.buttonPool:EnumerateActive() do
 		local text = button:GetText()
 		if (text == _G["GAMEMENU_SUPPORT"]) then
