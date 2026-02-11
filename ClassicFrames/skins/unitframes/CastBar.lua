@@ -97,13 +97,15 @@ local function SkinTargetCastbar(self)
         self.NewFlash:SetVertexColor(self:GetStatusBarColor())
     end)
 
-    hooksecurefunc(self, 'GetTypeInfo', function(barType)
-        if ( self.barType == "interrupted") then
+    hooksecurefunc(self, 'GetTypeInfo', function()
+        if issecretvalue(self.barType) then return end
+
+        if self.barType == CastingBarType.Interrupted then
             self:SetValue(100)
             self:SetStatusBarColor(1, 0, 0)
-        elseif (self.barType == "channel") then
+        elseif self.barType == CastingBarType.Channel then
             self:SetStatusBarColor(0, 1, 0)
-        elseif (self.barType == "uninterruptable") then
+        elseif self.barType == CastingBarType.Uninterruptable then
             self:SetStatusBarColor(0.7, 0.7, 0.7)
         else
             self:SetStatusBarColor(1, 0.7, 0)
