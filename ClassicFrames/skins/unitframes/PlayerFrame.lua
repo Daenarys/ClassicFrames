@@ -32,8 +32,10 @@ local function UpdatePower(frame)
     frame.powerBar:Show()
     
     -- Set power color
-	local powerType, powerToken = UnitPowerType(frame.unit)
+	local powerType, powerToken = UnitPowerType(unit)
 	local info = CfPowerBarColor[powerToken]
+
+	frame.powerBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 
 	if info then
 		if info.atlas then
