@@ -1,37 +1,37 @@
 local function UpdateHealth(frame)
-    if not frame or not frame.unit or not frame.healthBar then return end
-    local unit = frame.unit
-    
-    -- Don't update if unit doesn't exist
-    if not UnitExists(unit) then return end
-    
-    -- Get health values directly - StatusBar can handle secret values
-    -- The key is to NOT do any comparisons or arithmetic on these values
-    local hp = UnitHealth(unit)
-    local maxHP = UnitHealthMax(unit)
-    
-    -- Pass directly to StatusBar - it handles secret values gracefully
-    frame.healthBar:SetMinMaxValues(0, maxHP or 1)
-    frame.healthBar:SetValue(hp or 0)
+	if not frame or not frame.unit or not frame.healthBar then return end
+	local unit = frame.unit
+
+	-- Don't update if unit doesn't exist
+	if not UnitExists(unit) then return end
+
+	-- Get health values directly - StatusBar can handle secret values
+	-- The key is to NOT do any comparisons or arithmetic on these values
+	local hp = UnitHealth(unit)
+	local maxHP = UnitHealthMax(unit)
+
+	-- Pass directly to StatusBar - it handles secret values gracefully
+	frame.healthBar:SetMinMaxValues(0, maxHP or 1)
+	frame.healthBar:SetValue(hp or 0)
 end
 
 local function UpdatePower(frame)
-    if not frame or not frame.unit or not frame.powerBar then return end
-    local unit = frame.unit
+	if not frame or not frame.unit or not frame.powerBar then return end
+	local unit = frame.unit
 
-    -- Don't update if unit doesn't exist
-    if not UnitExists(unit) then return end
+	-- Don't update if unit doesn't exist
+	if not UnitExists(unit) then return end
 
-    -- Get power values directly - StatusBar can handle secret values
-    local p = UnitPower(unit)
-    local pMax = UnitPowerMax(unit)
+	-- Get power values directly - StatusBar can handle secret values
+	local p = UnitPower(unit)
+	local pMax = UnitPowerMax(unit)
 
-    -- Pass directly to StatusBar - it handles secret values gracefully
-    frame.powerBar:SetMinMaxValues(0, pMax or 1)
-    frame.powerBar:SetValue(p or 0)
-    frame.powerBar:Show()
-    
-    -- Set power color
+	-- Pass directly to StatusBar - it handles secret values gracefully
+	frame.powerBar:SetMinMaxValues(0, pMax or 1)
+	frame.powerBar:SetValue(p or 0)
+	frame.powerBar:Show()
+
+	-- Set power color
 	local powerType, powerToken = UnitPowerType(unit)
 	local info = CfPowerBarColor[powerToken]
 
@@ -48,7 +48,7 @@ local function UpdatePower(frame)
 end
 
 local function UpdateFrame(frame)
-    if not frame then return end
+	if not frame then return end
 
 	UpdateHealth(frame)
 	UpdatePower(frame)
@@ -72,7 +72,7 @@ local function CreateUnitFrame(frame)
 	powerBar:SetMinMaxValues(0, 100)
 	powerBar:SetValue(100)
 
-    -- Event handling
+	-- Event handling
 	frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 	frame:RegisterEvent("UNIT_HEALTH")
 	frame:RegisterEvent("UNIT_MAXHEALTH")
