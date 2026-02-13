@@ -29,7 +29,6 @@ local function UpdatePower(frame)
 	-- Pass directly to StatusBar - it handles secret values gracefully
 	frame.powerBar:SetMinMaxValues(0, pMax or 1)
 	frame.powerBar:SetValue(p or 0)
-	frame.powerBar:Show()
 
 	-- Set power color
 	local powerType, powerToken = UnitPowerType(unit)
