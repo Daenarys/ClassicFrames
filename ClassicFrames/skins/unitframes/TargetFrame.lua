@@ -81,6 +81,7 @@ local function CreateUnitFrame(frame)
 	frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 	frame:RegisterEvent("UNIT_HEALTH")
 	frame:RegisterEvent("UNIT_MAXHEALTH")
+	frame:RegisterEvent("UNIT_DISPLAYPOWER")
 	frame:RegisterEvent("UNIT_POWER_UPDATE")
 	frame:RegisterEvent("UNIT_POWER_FREQUENT")
 	frame:RegisterEvent("UNIT_MAXPOWER")
@@ -103,7 +104,7 @@ local function CreateUnitFrame(frame)
 		elseif arg1 == frame.unit then
 			if event == "UNIT_HEALTH" or event == "UNIT_MAXHEALTH" then
 				UpdateHealth(frame)
-			elseif event == "UNIT_POWER_UPDATE" or event == "UNIT_POWER_FREQUENT" or event == "UNIT_MAXPOWER" then
+			elseif event == "UNIT_DISPLAYPOWER" or event == "UNIT_POWER_UPDATE" or event == "UNIT_POWER_FREQUENT" or event == "UNIT_MAXPOWER" then
 				UpdatePower(frame)
 			end
 		end
