@@ -45,6 +45,11 @@ local function UpdatePower(frame)
 			frame.powerBar:SetStatusBarColor(info.r, info.g, info.b)
 		end
 	end
+
+	if frame.powerBar.powerType ~= powerType then
+		frame.powerBar.powerType = powerType
+		frame.powerBar.powerToken = powerToken
+	end
 end
 
 local function UpdateFrame(frame)
