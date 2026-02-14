@@ -360,8 +360,6 @@ function ApplyTopTabNew(frame)
 	frame.Text:SetPoint("BOTTOM", 0, 9)
 
 	hooksecurefunc(frame, "SetTabSelected", function(frame, isSelected)
-		frame.isSelected = isSelected
-
 		frame.Left:Hide()
 		frame.Middle:Hide()
 		frame.Right:Hide()
