@@ -51,6 +51,11 @@ local function SetLook(self)
     self.Icon:SetSize(16, 16)
 end
 
+local castbarColors = {}
+castbarColors.Standard = CreateColor(1.0, 0.7, 0.0, 1)
+castbarColors.Channel = CreateColor(0.0, 1.0, 0.0, 1)
+castbarColors.Uninterruptable = CreateColor(0.7, 0.7, 0.7, 1)
+
 local function SkinTargetCastbar(self)
     SetLook(self)
 
@@ -98,17 +103,12 @@ local function SkinTargetCastbar(self)
     end)
 
     hooksecurefunc(self, 'GetTypeInfo', function()
-        if issecretvalue(self.barType) then return end
-
-        if self.barType == CastingBarType.Interrupted then
-            self:SetValue(100)
-            self:SetStatusBarColor(1, 0, 0)
-        elseif self.barType == CastingBarType.Channel then
-            self:SetStatusBarColor(0, 1, 0)
-        elseif self.barType == CastingBarType.Uninterruptable then
-            self:SetStatusBarColor(0.7, 0.7, 0.7)
-        else
-            self:SetStatusBarColor(1, 0.7, 0)
+        if UnitCastingInfo(self.unit) then
+            local _, _, _, _, _, _, _, notInterruptible = UnitCastingInfo(self.unit)
+            self:GetStatusBarTexture():SetVertexColorFromBoolean(notInterruptible, castbarColors.Uninterruptable, castbarColors.Standard)
+        elseif UnitChannelInfo(self.unit) then
+            local _, _, _, _, _, _, notInterruptible = UnitChannelInfo(self.unit)
+            self:GetStatusBarTexture():SetVertexColorFromBoolean(notInterruptible, castbarColors.Uninterruptable, castbarColors.Channel)
         end
     end)
 end
