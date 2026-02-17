@@ -59,6 +59,16 @@ castbarColors.Uninterruptable = CreateColor(0.7, 0.7, 0.7, 1)
 local function SkinTargetCastbar(self)
     SetLook(self)
 
+    hooksecurefunc(self, 'HandleInterruptOrSpellFailed', function(_, event)
+        if ( self.Text ) then
+            if ( event == "UNIT_SPELLCAST_FAILED" ) then
+                self.Text:SetText(FAILED)
+            else
+                self.Text:SetText(INTERRUPTED)
+            end
+        end
+    end)
+
     hooksecurefunc(self, 'UpdateShownState', function()
         self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
         self.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
