@@ -30,6 +30,32 @@ if ObjectiveTrackerFrame.Header then
 	hooksecurefunc(ObjectiveTrackerFrame.Header, 'SetCollapsed', SetCollapsed)
 end
 
+local function HandleQuestIcons(_, block)
+	if not block.ItemButton then return end
+
+	if not block.ItemButton.IsSkinned then
+		block.ItemButton:SetNormalTexture("Interface\\Buttons\\UI-Quickslot2")
+		block.ItemButton:SetPushedTexture("Interface\\Buttons\\UI-Quickslot-Depress")
+		block.ItemButton:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square", "ADD")
+
+		if block.ItemButton.Cooldown then
+			block.ItemButton.Cooldown:SetHideCountdownNumbers(true)
+		end
+
+		if block.ItemButton.Glow then
+			block.ItemButton.Glow:SetAlpha(0)
+		end
+
+		if block.ItemButton.GlowAnim then
+			if block.ItemButton.GlowAnim:IsPlaying() then
+				block.ItemButton.GlowAnim:Stop()
+			end
+		end
+
+		block.ItemButton.IsSkinned = true
+	end
+end
+
 local trackers = {
 	_G.AchievementObjectiveTracker,
 	_G.AdventureObjectiveTracker,
@@ -48,6 +74,7 @@ for _, tracker in pairs(trackers) do
 	tracker.Header.Background:SetAtlas("Objective-Header", true)
 	tracker.Header.Background:SetPoint("TOPLEFT", -19, 14)
 	tracker.Header.Text:SetPoint("LEFT", 14, 0)
+	hooksecurefunc(tracker, 'AddBlock', HandleQuestIcons)
 end
 
 hooksecurefunc(ObjectiveTrackerContainerMixin, "Update", function(self)
