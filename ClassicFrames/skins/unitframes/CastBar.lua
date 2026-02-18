@@ -55,16 +55,19 @@ local castbarColors = {}
 castbarColors.Standard = CreateColor(1.0, 0.7, 0.0, 1)
 castbarColors.Channel = CreateColor(0.0, 1.0, 0.0, 1)
 castbarColors.Uninterruptable = CreateColor(0.7, 0.7, 0.7, 1)
+castbarColors.Interrupted = CreateColor(1, 0, 0, 1)
 
 local function SkinTargetCastbar(self)
     SetLook(self)
 
     hooksecurefunc(self, 'HandleInterruptOrSpellFailed', function(_, event)
-        if ( self.Text ) then
-            if ( event == "UNIT_SPELLCAST_FAILED" ) then
-                self.Text:SetText(FAILED)
-            else
-                self.Text:SetText(INTERRUPTED)
+        if ( (not self.FadeOutAnim or not self.FadeOutAnim:IsPlaying())) then
+            if ( self.Text ) then
+                if ( event == "UNIT_SPELLCAST_FAILED" ) then
+                    self.Text:SetText(FAILED)
+                else
+                    self.Text:SetText(INTERRUPTED)
+                end
             end
         end
     end)
@@ -87,6 +90,8 @@ local function SkinTargetCastbar(self)
 
     hooksecurefunc(self, 'PlayInterruptAnims', function()
         self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+        self:GetStatusBarTexture():SetVertexColor(castbarColors.Interrupted:GetRGBA())
+        self:SetValue(self.maxValue)
         self.Spark:Hide()
     end)
 
