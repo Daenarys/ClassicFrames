@@ -4,8 +4,10 @@
 ## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
 ## Version: 3.00
+## SavedVariables: ClassicFramesDB, ClassicFramesVersion
 ## OptionalDeps: SexyMap
 embeds.xml
+ClassicFrames.lua
 skins\ApplySkin.lua
 skins\Achievements.lua
 skins\AddOnList.lua
