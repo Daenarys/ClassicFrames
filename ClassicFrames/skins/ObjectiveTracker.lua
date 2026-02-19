@@ -131,6 +131,8 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", 
 					block.WidgetContainer:SetPoint("TOPLEFT", -2, 0)
 				elseif (widgetFrame.Frame:GetAtlas() == "thewarwithin-scenario-frame") then
 					block.WidgetContainer:SetPoint("TOPLEFT", -7, 2)
+				elseif (widgetFrame.Frame:GetAtlas() == "midnight-scenario-frame") then
+					block.WidgetContainer:SetPoint("TOPLEFT", 0, -2)
 				elseif (widgetFrame.Frame:GetAtlas() == "delves-scenario-frame") then
 					block.WidgetContainer:SetPoint("TOPLEFT", -7, 2)
 				else
