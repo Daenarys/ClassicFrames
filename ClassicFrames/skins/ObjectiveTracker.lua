@@ -42,14 +42,11 @@ local function HandleQuestIcons(_, block)
 			block.ItemButton.Cooldown:SetHideCountdownNumbers(true)
 		end
 
-		if block.ItemButton.Glow then
-			block.ItemButton.Glow:SetAlpha(0)
-		end
-
 		if block.ItemButton.GlowAnim then
-			if block.ItemButton.GlowAnim:IsPlaying() then
-				block.ItemButton.GlowAnim:Stop()
-			end
+			hooksecurefunc(block.ItemButton.GlowAnim, "BeginPlaying", function(self)
+				self.region:Hide()
+				self:SetLooping("NONE")
+			end)
 		end
 
 		block.ItemButton.IsSkinned = true
