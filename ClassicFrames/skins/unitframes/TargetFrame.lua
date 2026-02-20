@@ -60,21 +60,21 @@ end
 
 local function CreateUnitFrame(frame)
 	local healthBar = CreateFrame("StatusBar", nil, frame)
-	frame.healthBar = healthBar
 	healthBar:SetSize(119, 12)
 	healthBar:SetPoint("TOPRIGHT", -106, -41)
 	healthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 	healthBar:SetStatusBarColor(0, 1, 0)
 	healthBar:SetMinMaxValues(0, 100)
 	healthBar:SetValue(100)
+	frame.healthBar = healthBar
 
 	local powerBar = CreateFrame("StatusBar", nil, frame)
-	frame.powerBar = powerBar
 	powerBar:SetSize(119, 12)
 	powerBar:SetPoint("TOPRIGHT", -106, -52)
 	powerBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 	powerBar:SetMinMaxValues(0, 100)
 	powerBar:SetValue(100)
+	frame.powerBar = powerBar
 
 	-- Event handling
 	frame:RegisterEvent("PLAYER_ENTERING_WORLD")

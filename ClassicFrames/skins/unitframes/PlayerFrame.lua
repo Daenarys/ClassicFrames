@@ -31,7 +31,7 @@ local function UpdatePower(frame)
 	frame.powerBar:SetValue(p or 0)
 
 	-- Set power color
-	local powerType, powerToken = UnitPowerType(unit)
+	local powerType, powerToken, altR, altG, altB = UnitPowerType(unit)
 	local info = CfPowerBarColor[powerToken]
 
 	frame.powerBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
@@ -42,6 +42,12 @@ local function UpdatePower(frame)
 			frame.powerBar:SetStatusBarColor(1, 1, 1)
 		else
 			frame.powerBar:SetStatusBarColor(info.r, info.g, info.b)
+		end
+	else
+		if not altR then
+			info = CfPowerBarColor[powerType] or CfPowerBarColor["MANA"]
+		else
+			manaBar:SetStatusBarColor(altR, altG, altB)
 		end
 	end
 
@@ -60,21 +66,21 @@ end
 
 local function CreateUnitFrame(frame)
 	local healthBar = CreateFrame("StatusBar", nil, frame)
-	frame.healthBar = healthBar
 	healthBar:SetSize(119, 12)
 	healthBar:SetPoint("TOPLEFT", 106, -41)
 	healthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 	healthBar:SetStatusBarColor(0, 1, 0)
 	healthBar:SetMinMaxValues(0, 100)
 	healthBar:SetValue(100)
+	frame.healthBar = healthBar
 
 	local powerBar = CreateFrame("StatusBar", nil, frame)
-	frame.powerBar = powerBar
 	powerBar:SetSize(119, 12)
 	powerBar:SetPoint("TOPLEFT", 106, -52)
 	powerBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 	powerBar:SetMinMaxValues(0, 100)
 	powerBar:SetValue(100)
+	frame.powerBar = powerBar
 
 	-- Event handling
 	frame:RegisterEvent("PLAYER_ENTERING_WORLD")
@@ -84,16 +90,18 @@ local function CreateUnitFrame(frame)
 	frame:RegisterEvent("UNIT_POWER_UPDATE")
 	frame:RegisterEvent("UNIT_POWER_FREQUENT")
 	frame:RegisterEvent("UNIT_MAXPOWER")
+	frame:RegisterEvent("UNIT_ENTERED_VEHICLE")
+	frame:RegisterEvent("UNIT_EXITED_VEHICLE")
 
 	frame:SetScript("OnEvent", function(frame, event, arg1)
 		if event == "PLAYER_ENTERING_WORLD" then
 			UpdateFrame(frame)
-		elseif arg1 == frame.unit then
-			if event == "UNIT_HEALTH" or event == "UNIT_MAXHEALTH" then
-				UpdateHealth(frame)
-			elseif event == "UNIT_DISPLAYPOWER" or event == "UNIT_POWER_UPDATE" or event == "UNIT_POWER_FREQUENT" or event == "UNIT_MAXPOWER" then
-				UpdatePower(frame)
-			end
+		elseif event == "UNIT_HEALTH" or event == "UNIT_MAXHEALTH" then
+			UpdateHealth(frame)
+		elseif event == "UNIT_DISPLAYPOWER" or event == "UNIT_POWER_UPDATE" or event == "UNIT_POWER_FREQUENT" or event == "UNIT_MAXPOWER" then
+			UpdatePower(frame)
+		elseif event == "UNIT_ENTERED_VEHICLE" or event ==  "UNIT_EXITED_VEHICLE" then
+			UpdateFrame(frame)
 		end
 	end)
 
@@ -327,6 +335,8 @@ if (_G.DemonHunterSoulFragmentsBar) then
 end
 
 hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
+	CfPlayerFrame.unit = "player"
+
 	self.PlayerFrameContainer.FrameTexture:SetSize(232, 100)
 	self.PlayerFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
 	self.PlayerFrameContainer.FrameTexture:SetTexCoord(1, 0.09375, 0, 0.78125)
@@ -393,6 +403,8 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 end)
 
 hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
+	CfPlayerFrame.unit = "vehicle"
+
 	self.PlayerFrameContainer.VehicleFrameTexture:SetSize(240, 120)
 	self.PlayerFrameContainer.VehicleFrameTexture:SetTexture("Interface\\Vehicles\\UI-Vehicle-Frame")
 	self.PlayerFrameContainer.VehicleFrameTexture:ClearAllPoints()
