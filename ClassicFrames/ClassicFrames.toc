@@ -4,7 +4,7 @@
 ## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
 ## Version: 3.02
-## SavedVariables: ClassicFramesDB, ClassicFramesVersion
+## SavedVariables: ClassicFramesVersion
 ## OptionalDeps: SexyMap
 embeds.xml
 ClassicFrames.lua
