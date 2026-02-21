@@ -31,7 +31,7 @@ local function UpdatePower(frame)
 	frame.powerBar:SetValue(p or 0)
 
 	-- Set power color
-	local powerType, powerToken = UnitPowerType(unit)
+	local powerType, powerToken, altR, altG, altB = UnitPowerType(unit)
 	local info = CfPowerBarColor[powerToken]
 
 	frame.powerBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
@@ -42,6 +42,12 @@ local function UpdatePower(frame)
 			frame.powerBar:SetStatusBarColor(1, 1, 1)
 		else
 			frame.powerBar:SetStatusBarColor(info.r, info.g, info.b)
+		end
+	else
+		if not altR then
+			info = CfPowerBarColor[powerType] or CfPowerBarColor["MANA"]
+		else
+			manaBar:SetStatusBarColor(altR, altG, altB)
 		end
 	end
 
