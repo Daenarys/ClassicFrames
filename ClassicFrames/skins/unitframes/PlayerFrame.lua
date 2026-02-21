@@ -335,8 +335,6 @@ if (_G.DemonHunterSoulFragmentsBar) then
 end
 
 hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
-	CfPlayerFrame.unit = "player"
-
 	self.PlayerFrameContainer.FrameTexture:SetSize(232, 100)
 	self.PlayerFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
 	self.PlayerFrameContainer.FrameTexture:SetTexCoord(1, 0.09375, 0, 0.78125)
@@ -392,6 +390,8 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	CfPlayerFrameBackground:SetSize(119, 41)
 	PlayerLevelText:Show()
 
+	CfPlayerFrame.unit = "player"
+
 	local _, class = UnitClass("player")
 	if ( CfPlayerFrame.CfClassPowerBar ) then
 		CfPlayerFrame.CfClassPowerBar:Setup()
@@ -403,8 +403,6 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 end)
 
 hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
-	CfPlayerFrame.unit = "vehicle"
-
 	self.PlayerFrameContainer.VehicleFrameTexture:SetSize(240, 120)
 	self.PlayerFrameContainer.VehicleFrameTexture:SetTexture("Interface\\Vehicles\\UI-Vehicle-Frame")
 	self.PlayerFrameContainer.VehicleFrameTexture:ClearAllPoints()
@@ -456,6 +454,8 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 
 	CfPlayerFrameBackground:SetSize(114, 41)
 	PlayerLevelText:Hide()
+
+	CfPlayerFrame.unit = "vehicle"
 
 	local _, class = UnitClass("player")
 	if ( CfPlayerFrame.CfClassPowerBar ) then
