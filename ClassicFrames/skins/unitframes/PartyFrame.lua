@@ -250,28 +250,28 @@ hooksecurefunc("CompactRaidGroup_UpdateLayout", function(frame)
 			frame.borderFrame.TopLeft = frame.borderFrame:CreateTexture(nil, "ARTWORK")
 			frame.borderFrame.TopLeft:SetSize(32, 32)
 			frame.borderFrame.TopLeft:SetTexture("Interface\\RaidFrame\\RaidBorder-UpperLeft")
-			frame.borderFrame.TopLeft:SetPoint("TOPLEFT", -5, 3)
+			frame.borderFrame.TopLeft:SetPoint("TOPLEFT", -6, 3)
 		end
 
 		if (frame.borderFrame.TopRight == nil) then
 			frame.borderFrame.TopRight = frame.borderFrame:CreateTexture(nil, "ARTWORK")
 			frame.borderFrame.TopRight:SetSize(32, 32)
 			frame.borderFrame.TopRight:SetTexture("Interface\\RaidFrame\\RaidBorder-UpperRight")
-			frame.borderFrame.TopRight:SetPoint("TOPRIGHT", 5, 3)
+			frame.borderFrame.TopRight:SetPoint("TOPRIGHT", 6, 3)
 		end
 
 		if (frame.borderFrame.BottomLeft == nil) then
 			frame.borderFrame.BottomLeft = frame.borderFrame:CreateTexture(nil, "ARTWORK")
 			frame.borderFrame.BottomLeft:SetSize(32, 32)
 			frame.borderFrame.BottomLeft:SetTexture("Interface\\RaidFrame\\RaidBorder-BottomLeft")
-			frame.borderFrame.BottomLeft:SetPoint("BOTTOMLEFT", -5, -5)
+			frame.borderFrame.BottomLeft:SetPoint("BOTTOMLEFT", -6, -5)
 		end
 
 		if (frame.borderFrame.BottomRight == nil) then
 			frame.borderFrame.BottomRight = frame.borderFrame:CreateTexture(nil, "ARTWORK")
 			frame.borderFrame.BottomRight:SetSize(32, 32)
 			frame.borderFrame.BottomRight:SetTexture("Interface\\RaidFrame\\RaidBorder-BottomRight")
-			frame.borderFrame.BottomRight:SetPoint("BOTTOMRIGHT", 5, -5)
+			frame.borderFrame.BottomRight:SetPoint("BOTTOMRIGHT", 6, -5)
 		end
 
 		if (frame.borderFrame.Top == nil) then
