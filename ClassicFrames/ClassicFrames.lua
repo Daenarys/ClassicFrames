@@ -3,15 +3,23 @@ local CURRENT_VERSION = C_AddOns.GetAddOnMetadata(AddonName, 'Version')
 
 local frame = CreateFrame("Frame")
 frame:RegisterEvent("ADDON_LOADED")
-frame:SetScript("OnEvent", function()
-    --version update
-    if ClassicFramesVersion then
-        if ClassicFramesVersion ~= CURRENT_VERSION then
-            Addon:UpdateVersion()
+frame:SetScript("OnEvent", function(self, event, addOnName)
+    if event == "ADDON_LOADED" and addOnName then
+        if addOnName == "ClassicFrames" then
+            --create database
+            if not ClassicFramesDB then
+                ClassicFramesDB = {}
+            end
+
+            --version update
+            if ClassicFramesVersion then
+                if ClassicFramesVersion ~= CURRENT_VERSION then
+                    Addon:UpdateVersion()
+                end
+            else
+                ClassicFramesVersion = CURRENT_VERSION
+            end
         end
-    --new user
-    else
-        ClassicFramesVersion = CURRENT_VERSION
     end
 end)
 
