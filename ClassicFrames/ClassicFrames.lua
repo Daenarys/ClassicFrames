@@ -1,9 +1,9 @@
 local AddonName, Addon = ...
 local CURRENT_VERSION = C_AddOns.GetAddOnMetadata(AddonName, 'Version')
 
-local initFrame = CreateFrame("Frame")
-initFrame:RegisterEvent("PLAYER_LOGIN")
-initFrame:SetScript("OnEvent", function()
+local frame = CreateFrame("Frame")
+frame:RegisterEvent("ADDON_LOADED")
+frame:SetScript("OnEvent", function()
     --version update
     if ClassicFramesVersion then
         if ClassicFramesVersion ~= CURRENT_VERSION then
