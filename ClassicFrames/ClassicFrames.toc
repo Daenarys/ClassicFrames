@@ -70,6 +70,7 @@ skins\Mail.lua
 skins\Merchant.lua
 skins\Minimap.lua
 skins\MirrorTimers.lua
+skins\NameplateTutorial.lua
 skins\NewPlayerGuide.lua
 skins\ObjectiveTracker.lua
 skins\Opacity.lua
