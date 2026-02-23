@@ -4,7 +4,6 @@
 ## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
 ## Version: 3.02
-## SavedVariables: ClassicFramesVersion
 ## OptionalDeps: SexyMap
 embeds.xml
 ClassicFrames.lua
@@ -24,7 +23,6 @@ skins\Buffs.lua
 skins\Calendar.lua
 skins\CatalogShop.lua
 skins\Catalyst.lua
-skins\Channel.lua
 skins\Character.lua
 skins\Chat.lua
 skins\ChromieTime.lua

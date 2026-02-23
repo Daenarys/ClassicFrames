@@ -1,4 +1,68 @@
-local AddonName, Addon = ...
+local function UpdateHealth(frame)
+	if not frame or not frame.unit or not frame.healthBar then return end
+	local unit = frame.unit
+
+	-- Don't update if unit doesn't exist
+	if not UnitExists(unit) then return end
+
+	-- Get health values directly - StatusBar can handle secret values
+	-- The key is to NOT do any comparisons or arithmetic on these values
+	local hp = UnitHealth(unit)
+	local maxHP = UnitHealthMax(unit)
+
+	-- Pass directly to StatusBar - it handles secret values gracefully
+	frame.healthBar:SetMinMaxValues(0, maxHP or 1)
+	frame.healthBar:SetValue(hp or 0)
+end
+
+local function UpdatePower(frame)
+	if not frame or not frame.unit or not frame.powerBar then return end
+	local unit = frame.unit
+
+	-- Don't update if unit doesn't exist
+	if not UnitExists(unit) then return end
+
+	-- Get power values directly - StatusBar can handle secret values
+	local p = UnitPower(unit)
+	local pMax = UnitPowerMax(unit)
+
+	-- Pass directly to StatusBar - it handles secret values gracefully
+	frame.powerBar:SetMinMaxValues(0, pMax or 1)
+	frame.powerBar:SetValue(p or 0)
+
+	-- Set power color
+	local powerType, powerToken, altR, altG, altB = UnitPowerType(unit)
+	local info = CfPowerBarColor[powerToken]
+
+	frame.powerBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+
+	if info then
+		if info.atlas then
+			frame.powerBar:SetStatusBarTexture(info.atlas)
+			frame.powerBar:SetStatusBarColor(1, 1, 1)
+		else
+			frame.powerBar:SetStatusBarColor(info.r, info.g, info.b)
+		end
+	else
+		if not altR then
+			info = CfPowerBarColor[powerType] or CfPowerBarColor["MANA"]
+		else
+			manaBar:SetStatusBarColor(altR, altG, altB)
+		end
+	end
+
+	if frame.powerBar.powerType ~= powerType then
+		frame.powerBar.powerType = powerType
+		frame.powerBar.powerToken = powerToken
+	end
+end
+
+local function UpdateFrame(frame)
+	if not frame then return end
+
+	UpdateHealth(frame)
+	UpdatePower(frame)
+end
 
 local function CreateUnitFrame(frame)
 	local healthBar = CreateFrame("StatusBar", nil, frame)
@@ -31,22 +95,22 @@ local function CreateUnitFrame(frame)
 
 	frame:SetScript("OnEvent", function(frame, event, arg1)
 		if event == "PLAYER_ENTERING_WORLD" then
-			Addon:UpdateFrame(frame)
+			UpdateFrame(frame)
 		elseif event == "PLAYER_TARGET_CHANGED" then
 			if UnitExists(frame.unit) then
-				Addon:UpdateFrame(frame)
+				UpdateFrame(frame)
 			end
 		elseif event == "PLAYER_FOCUS_CHANGED" then
             if frame.unit == "focus" then
                 if UnitExists(frame.unit) then
-                    Addon:UpdateFrame(frame)
+                    UpdateFrame(frame)
                 end
             end
 		elseif arg1 == frame.unit then
 			if event == "UNIT_HEALTH" or event == "UNIT_MAXHEALTH" then
-				Addon:UpdateHealth(frame)
+				UpdateHealth(frame)
 			elseif event == "UNIT_DISPLAYPOWER" or event == "UNIT_POWER_UPDATE" or event == "UNIT_POWER_FREQUENT" or event == "UNIT_MAXPOWER" then
-				Addon:UpdatePower(frame)
+				UpdatePower(frame)
 			end
 		end
 	end)
