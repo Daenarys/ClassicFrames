@@ -267,6 +267,15 @@ hooksecurefunc("DefaultCompactUnitFrameSetup", function(frame)
 	end
 end)
 
+hooksecurefunc("CompactUnitFrame_UpdateAggroHighlight", function(frame)
+	if frame.aggroHighlight then
+		local status = UnitThreatSituation(frame.displayedUnit)
+		if ( status and status > 0 ) then
+			frame.aggroHighlight:SetVertexColor(GetThreatStatusColor(status))
+		end
+	end
+end)
+
 hooksecurefunc("CompactUnitFrame_UpdateHealthColor", function(frame)
 	if frame.background then
 		frame.background:SetTexture("Interface\\RaidFrame\\Raid-Bar-Hp-Bg")
