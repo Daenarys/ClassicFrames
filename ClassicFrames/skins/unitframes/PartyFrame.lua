@@ -101,6 +101,192 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 	end)
 end
 
+hooksecurefunc("CompactRaidGroup_UpdateLayout", function(frame)
+	if frame.borderFrame:IsShown() then
+		frame.borderFrame.Background:SetAlpha(0)
+
+		if (frame.borderFrame.TopLeft == nil) then
+			frame.borderFrame.TopLeft = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.TopLeft:SetSize(32, 32)
+			frame.borderFrame.TopLeft:SetTexture("Interface\\RaidFrame\\RaidBorder-UpperLeft")
+			frame.borderFrame.TopLeft:SetPoint("TOPLEFT", -5, 3)
+		end
+
+		if (frame.borderFrame.TopRight == nil) then
+			frame.borderFrame.TopRight = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.TopRight:SetSize(32, 32)
+			frame.borderFrame.TopRight:SetTexture("Interface\\RaidFrame\\RaidBorder-UpperRight")
+			frame.borderFrame.TopRight:SetPoint("TOPRIGHT", 5, 3)
+		end
+
+		if (frame.borderFrame.BottomLeft == nil) then
+			frame.borderFrame.BottomLeft = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.BottomLeft:SetSize(32, 32)
+			frame.borderFrame.BottomLeft:SetTexture("Interface\\RaidFrame\\RaidBorder-BottomLeft")
+			frame.borderFrame.BottomLeft:SetPoint("BOTTOMLEFT", -5, -5)
+		end
+
+		if (frame.borderFrame.BottomRight == nil) then
+			frame.borderFrame.BottomRight = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.BottomRight:SetSize(32, 32)
+			frame.borderFrame.BottomRight:SetTexture("Interface\\RaidFrame\\RaidBorder-BottomRight")
+			frame.borderFrame.BottomRight:SetPoint("BOTTOMRIGHT", 5, -5)
+		end
+
+		if (frame.borderFrame.Top == nil) then
+			frame.borderFrame.Top = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.Top:SetSize(0, 16)
+			frame.borderFrame.Top:SetTexture("Interface\\RaidFrame\\RaidBorder-UpperMiddle")
+			frame.borderFrame.Top:SetHorizTile(true)
+			frame.borderFrame.Top:SetPoint("TOPLEFT", frame.borderFrame.TopLeft, "TOPRIGHT", 0, 1)
+			frame.borderFrame.Top:SetPoint("TOPRIGHT", frame.borderFrame.TopRight, "TOPLEFT", 0, 1)
+		end
+
+		if (frame.borderFrame.Bottom == nil) then
+			frame.borderFrame.Bottom = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.Bottom:SetSize(0, 16)
+			frame.borderFrame.Bottom:SetTexture("Interface\\RaidFrame\\RaidBorder-BottomMiddle")
+			frame.borderFrame.Bottom:SetHorizTile(true)
+			frame.borderFrame.Bottom:SetPoint("BOTTOMLEFT", frame.borderFrame.BottomLeft, "BOTTOMRIGHT", 0, -4)
+			frame.borderFrame.Bottom:SetPoint("BOTTOMRIGHT", frame.borderFrame.BottomRight, "BOTTOMLEFT", 0, -4)
+		end
+
+		if (frame.borderFrame.Left == nil) then
+			frame.borderFrame.Left = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.Left:SetSize(16, 0)
+			frame.borderFrame.Left:SetTexture("Interface\\RaidFrame\\RaidBorder-Left")
+			frame.borderFrame.Left:SetVertTile(true)
+			frame.borderFrame.Left:SetPoint("TOPLEFT", frame.borderFrame.TopLeft, "BOTTOMLEFT", -1, 0)
+			frame.borderFrame.Left:SetPoint("BOTTOMLEFT", frame.borderFrame.BottomLeft, "TOPLEFT", -1, 0)
+		end
+
+		if (frame.borderFrame.Right == nil) then
+			frame.borderFrame.Right = frame.borderFrame:CreateTexture(nil, "ARTWORK")
+			frame.borderFrame.Right:SetSize(16, 0)
+			frame.borderFrame.Right:SetTexture("Interface\\RaidFrame\\RaidBorder-Right")
+			frame.borderFrame.Right:SetVertTile(true)
+			frame.borderFrame.Right:SetPoint("TOPRIGHT", frame.borderFrame.TopRight, "BOTTOMRIGHT", 2, 0)
+			frame.borderFrame.Right:SetPoint("BOTTOMRIGHT", frame.borderFrame.BottomRight, "TOPRIGHT", 2, 0)
+		end
+	end
+end)
+
+------The default setup function
+local texCoords = {
+	["Raid-AggroFrame"] = {  0.00781250, 0.55468750, 0.00781250, 0.27343750 },
+	["Raid-TargetFrame"] = { 0.00781250, 0.55468750, 0.28906250, 0.55468750 },
+}
+
+hooksecurefunc("DefaultCompactUnitFrameSetup", function(frame)
+	local displayBorder = EditModeManagerFrame:ShouldRaidFrameDisplayBorder(frame.groupType)
+	local isPowerBarShowing = frame.powerBar and frame.powerBar:IsShown()
+	local powerBarUsedHeight = isPowerBarShowing and 8 or 0
+
+	frame.healthBar:SetStatusBarTexture("Interface\\RaidFrame\\Raid-Bar-Hp-Fill")
+	frame.healthBar:GetStatusBarTexture():SetDrawLayer("BORDER")
+
+	frame.powerBar:SetStatusBarTexture("Interface\\RaidFrame\\Raid-Bar-Resource-Fill")
+	frame.powerBar:GetStatusBarTexture():SetDrawLayer("BORDER")
+	frame.powerBar.background:SetTexture("Interface\\RaidFrame\\Raid-Bar-Resource-Background")
+
+	frame.selectionHighlight:SetTexture("Interface\\RaidFrame\\Raid-FrameHighlights")
+	frame.selectionHighlight:SetTexCoord(unpack(texCoords["Raid-TargetFrame"]))
+	frame.selectionHighlight:SetAllPoints(frame)
+
+	frame.aggroHighlight:SetTexture("Interface\\RaidFrame\\Raid-FrameHighlights")
+	frame.aggroHighlight:SetTexCoord(unpack(texCoords["Raid-AggroFrame"]))
+	frame.aggroHighlight:SetAllPoints(frame)
+
+	if (frame.horizTopBorder == nil) then
+		frame.horizTopBorder = frame:CreateTexture(nil, "BORDER")
+		frame.horizTopBorder:ClearAllPoints()
+		frame.horizTopBorder:SetPoint("BOTTOMLEFT", frame, "TOPLEFT", 0, -7)
+		frame.horizTopBorder:SetPoint("BOTTOMRIGHT", frame, "TOPRIGHT", 0, -7)
+		frame.horizTopBorder:SetTexture("Interface\\RaidFrame\\Raid-HSeparator")
+		frame.horizTopBorder:SetHorizTile(true)
+		frame.horizTopBorder:SetHeight(8)
+	end
+
+	if (frame.horizBottomBorder == nil) then
+		frame.horizBottomBorder = frame:CreateTexture(nil, "BORDER")
+		frame.horizBottomBorder:ClearAllPoints()
+		frame.horizBottomBorder:SetPoint("TOPLEFT", frame, "BOTTOMLEFT", 0, 1)
+		frame.horizBottomBorder:SetPoint("TOPRIGHT", frame, "BOTTOMRIGHT", 0, 1)
+		frame.horizBottomBorder:SetTexture("Interface\\RaidFrame\\Raid-HSeparator")
+		frame.horizBottomBorder:SetHorizTile(true)
+		frame.horizBottomBorder:SetHeight(8)
+	end
+
+	if (frame.vertLeftBorder == nil) then
+		frame.vertLeftBorder = frame:CreateTexture(nil, "BORDER")
+		frame.vertLeftBorder:ClearAllPoints()
+		frame.vertLeftBorder:SetPoint("TOPRIGHT", frame, "TOPLEFT", 7, 0)
+		frame.vertLeftBorder:SetPoint("BOTTOMRIGHT", frame, "BOTTOMLEFT", 7, 0)
+		frame.vertLeftBorder:SetTexture("Interface\\RaidFrame\\Raid-VSeparator")
+		frame.vertLeftBorder:SetVertTile(true)
+		frame.vertLeftBorder:SetWidth(8)
+	end
+
+	if (frame.vertRightBorder == nil) then
+		frame.vertRightBorder = frame:CreateTexture(nil, "BORDER")
+		frame.vertRightBorder:ClearAllPoints()
+		frame.vertRightBorder:SetPoint("TOPLEFT", frame, "TOPRIGHT", -1, 0)
+		frame.vertRightBorder:SetPoint("BOTTOMLEFT", frame, "BOTTOMRIGHT", -1, 0)
+		frame.vertRightBorder:SetTexture("Interface\\RaidFrame\\Raid-VSeparator")
+		frame.vertRightBorder:SetVertTile(true)
+		frame.vertRightBorder:SetWidth(8)
+	end
+
+	if (frame.horizDivider == nil) then
+		frame.horizDivider = frame:CreateTexture(nil, "BORDER")
+		frame.horizDivider:ClearAllPoints()
+		frame.horizDivider:SetPoint("TOPLEFT", frame, "BOTTOMLEFT", 0, 1 + powerBarUsedHeight)
+		frame.horizDivider:SetPoint("TOPRIGHT", frame, "BOTTOMRIGHT", 0, 1 + powerBarUsedHeight)
+		frame.horizDivider:SetTexture("Interface\\RaidFrame\\Raid-HSeparator")
+		frame.horizDivider:SetHorizTile(true)
+		frame.horizDivider:SetHeight(8)
+	end
+
+	if ( displayBorder ) then
+		frame.horizTopBorder:Show()
+		frame.horizBottomBorder:Show()
+		frame.vertLeftBorder:Show()
+		frame.vertRightBorder:Show()
+		frame.horizDivider:Show()
+		if ( isPowerBarShowing ) then
+			frame.horizDivider:Show()
+		else
+			frame.horizDivider:Hide()
+		end
+	else
+		frame.horizTopBorder:Hide()
+		frame.horizBottomBorder:Hide()
+		frame.vertLeftBorder:Hide()
+		frame.vertRightBorder:Hide()
+		frame.horizDivider:Hide()
+	end
+end)
+
+hooksecurefunc("CompactUnitFrame_UpdateHealthColor", function(frame)
+	if frame.background then
+		frame.background:SetTexture("Interface\\RaidFrame\\Raid-Bar-Hp-Bg")
+		frame.background:SetTexCoord(0, 1, 0, 0.53125)
+	end
+end)
+
+hooksecurefunc("CompactUnitFrame_UpdateRoleIcon", function(frame)
+	if not frame.roleIcon then
+		return
+	end
+
+	local role = UnitGroupRolesAssigned(frame.unit)
+	if ( frame.optionTable.displayRoleIcon and (role == "TANK" or role == "HEALER" or role == "DAMAGER") ) then
+		frame.roleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
+		frame.roleIcon:SetTexCoord(GetTexCoordsForOldRoleSmallCircle(role))
+		frame.roleIcon:SetSize(12, 12)
+	end
+end)
+
 hooksecurefunc("CompactRaidFrameManager_UpdateOptionsFlowContainer", function()
 	local isLeader = UnitIsGroupLeader("player")
 	local isAssist = UnitIsGroupAssistant("player")
@@ -241,89 +427,3 @@ end)
 
 ApplyDropDown(CompactRaidFrameManagerDisplayFrameModeControlDropdown)
 ApplyDropDown(CompactRaidFrameManagerDisplayFrameRestrictPingsDropdown)
-
-hooksecurefunc("CompactRaidGroup_UpdateLayout", function(frame)
-	if frame.borderFrame:IsShown() then
-		frame.borderFrame.Background:SetAlpha(0)
-
-		if (frame.borderFrame.TopLeft == nil) then
-			frame.borderFrame.TopLeft = frame.borderFrame:CreateTexture(nil, "ARTWORK")
-			frame.borderFrame.TopLeft:SetSize(32, 32)
-			frame.borderFrame.TopLeft:SetTexture("Interface\\RaidFrame\\RaidBorder-UpperLeft")
-			frame.borderFrame.TopLeft:SetPoint("TOPLEFT", -6, 3)
-		end
-
-		if (frame.borderFrame.TopRight == nil) then
-			frame.borderFrame.TopRight = frame.borderFrame:CreateTexture(nil, "ARTWORK")
-			frame.borderFrame.TopRight:SetSize(32, 32)
-			frame.borderFrame.TopRight:SetTexture("Interface\\RaidFrame\\RaidBorder-UpperRight")
-			frame.borderFrame.TopRight:SetPoint("TOPRIGHT", 6, 3)
-		end
-
-		if (frame.borderFrame.BottomLeft == nil) then
-			frame.borderFrame.BottomLeft = frame.borderFrame:CreateTexture(nil, "ARTWORK")
-			frame.borderFrame.BottomLeft:SetSize(32, 32)
-			frame.borderFrame.BottomLeft:SetTexture("Interface\\RaidFrame\\RaidBorder-BottomLeft")
-			frame.borderFrame.BottomLeft:SetPoint("BOTTOMLEFT", -6, -5)
-		end
-
-		if (frame.borderFrame.BottomRight == nil) then
-			frame.borderFrame.BottomRight = frame.borderFrame:CreateTexture(nil, "ARTWORK")
-			frame.borderFrame.BottomRight:SetSize(32, 32)
-			frame.borderFrame.BottomRight:SetTexture("Interface\\RaidFrame\\RaidBorder-BottomRight")
-			frame.borderFrame.BottomRight:SetPoint("BOTTOMRIGHT", 6, -5)
-		end
-
-		if (frame.borderFrame.Top == nil) then
-			frame.borderFrame.Top = frame.borderFrame:CreateTexture(nil, "ARTWORK")
-			frame.borderFrame.Top:SetSize(0, 16)
-			frame.borderFrame.Top:SetTexture("Interface\\RaidFrame\\RaidBorder-UpperMiddle")
-			frame.borderFrame.Top:SetHorizTile(true)
-			frame.borderFrame.Top:SetPoint("TOPLEFT", frame.borderFrame.TopLeft, "TOPRIGHT", 0, 1)
-			frame.borderFrame.Top:SetPoint("TOPRIGHT", frame.borderFrame.TopRight, "TOPLEFT", 0, 1)
-		end
-
-		if (frame.borderFrame.Bottom == nil) then
-			frame.borderFrame.Bottom = frame.borderFrame:CreateTexture(nil, "ARTWORK")
-			frame.borderFrame.Bottom:SetSize(0, 16)
-			frame.borderFrame.Bottom:SetTexture("Interface\\RaidFrame\\RaidBorder-BottomMiddle")
-			frame.borderFrame.Bottom:SetHorizTile(true)
-			frame.borderFrame.Bottom:SetPoint("BOTTOMLEFT", frame.borderFrame.BottomLeft, "BOTTOMRIGHT", 0, -4)
-			frame.borderFrame.Bottom:SetPoint("BOTTOMRIGHT", frame.borderFrame.BottomRight, "BOTTOMLEFT", 0, -4)
-		end
-
-		if (frame.borderFrame.Left == nil) then
-			frame.borderFrame.Left = frame.borderFrame:CreateTexture(nil, "ARTWORK")
-			frame.borderFrame.Left:SetSize(16, 0)
-			frame.borderFrame.Left:SetTexture("Interface\\RaidFrame\\RaidBorder-Left")
-			frame.borderFrame.Left:SetVertTile(true)
-			frame.borderFrame.Left:SetPoint("TOPLEFT", frame.borderFrame.TopLeft, "BOTTOMLEFT", -1, 0)
-			frame.borderFrame.Left:SetPoint("BOTTOMLEFT", frame.borderFrame.BottomLeft, "TOPLEFT", -1, 0)
-		end
-
-		if (frame.borderFrame.Right == nil) then
-			frame.borderFrame.Right = frame.borderFrame:CreateTexture(nil, "ARTWORK")
-			frame.borderFrame.Right:SetSize(16, 0)
-			frame.borderFrame.Right:SetTexture("Interface\\RaidFrame\\RaidBorder-Right")
-			frame.borderFrame.Right:SetVertTile(true)
-			frame.borderFrame.Right:SetPoint("TOPRIGHT", frame.borderFrame.TopRight, "BOTTOMRIGHT", 2, 0)
-			frame.borderFrame.Right:SetPoint("BOTTOMRIGHT", frame.borderFrame.BottomRight, "TOPRIGHT", 2, 0)
-		end
-	end
-end)
-
-hooksecurefunc("CompactUnitFrame_UpdateRoleIcon", function(frame)
-	if not frame.roleIcon then
-		return
-	end
-
-	local role = UnitGroupRolesAssigned(frame.unit);
-	if ( frame.optionTable.displayRoleIcon and (role == "TANK" or role == "HEALER" or role == "DAMAGER") ) then
-		frame.roleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
-		frame.roleIcon:SetTexCoord(GetTexCoordsForRoleSmallCircle(role))
-		frame.roleIcon:Show()
-		frame.roleIcon:SetSize(12, 12)
-	else
-		frame.roleIcon:Hide()
-	end
-end)
