@@ -276,50 +276,6 @@ hooksecurefunc("CompactUnitFrame_UpdateAggroHighlight", function(frame)
 	end
 end)
 
-hooksecurefunc("CompactUnitFrame_UpdateCenterStatusIcon", function(frame)
-	if ( frame.centerStatusIcon ) then
-		if (frame.centerStatusIcon.border == nil) then
-			frame.centerStatusIcon.border = frame.centerStatusIcon:CreateTexture(nil, "BORDER")
-			frame.centerStatusIcon.border:SetAllPoints(frame.centerStatusIcon)
-		end
-		if ( frame.optionTable.displayInOtherGroup and UnitInOtherParty(frame.unit) ) then
-			frame.centerStatusIcon.texture:SetTexture("Interface\\LFGFrame\\LFG-Eye")
-			frame.centerStatusIcon.texture:SetTexCoord(0.125, 0.25, 0.25, 0.5)
-			frame.centerStatusIcon.border:SetTexture("Interface\\Common\\RingBorder")
-			frame.centerStatusIcon.border:Show()
-		elseif ( frame.optionTable.displayIncomingResurrect and UnitHasIncomingResurrection(frame.unit) ) then
-			frame.centerStatusIcon.texture:SetTexture("Interface\\RaidFrame\\Raid-Icon-Rez")
-			frame.centerStatusIcon.texture:SetTexCoord(0, 1, 0, 1)
-			frame.centerStatusIcon.border:Hide()
-		elseif ( frame.optionTable.displayIncomingSummon and C_IncomingSummon.HasIncomingSummon(frame.unit) ) then
-			local status = C_IncomingSummon.IncomingSummonStatus(frame.unit)
-			if(status == Enum.SummonStatus.Pending) then
-				frame.centerStatusIcon.texture:SetAtlas("Raid-Icon-SummonPending")
-				frame.centerStatusIcon.texture:SetTexCoord(0, 1, 0, 1)
-				frame.centerStatusIcon.border:Hide()
-			elseif( status == Enum.SummonStatus.Accepted ) then
-				frame.centerStatusIcon.texture:SetAtlas("Raid-Icon-SummonAccepted")
-				frame.centerStatusIcon.texture:SetTexCoord(0, 1, 0, 1)
-				frame.centerStatusIcon.border:Hide()
-			elseif( status == Enum.SummonStatus.Declined ) then
-				frame.centerStatusIcon.texture:SetAtlas("Raid-Icon-SummonDeclined")
-				frame.centerStatusIcon.texture:SetTexCoord(0, 1, 0, 1)
-				frame.centerStatusIcon.border:Hide()
-			end
-		else
-			if frame.inDistance and frame.optionTable.displayInOtherPhase then
-				local phaseReason = UnitPhaseReason(frame.unit)
-				if phaseReason then
-					frame.centerStatusIcon.texture:SetTexture("Interface\\TargetingFrame\\UI-PhasingIcon")
-					frame.centerStatusIcon.texture:SetTexCoord(0.15625, 0.84375, 0.15625, 0.84375)
-					frame.centerStatusIcon.border:Hide()
-					return
-				end
-			end
-		end
-	end
-end)
-
 hooksecurefunc("CompactUnitFrame_UpdateHealthColor", function(frame)
 	if frame.background then
 		frame.background:SetTexture("Interface\\RaidFrame\\Raid-Bar-Hp-Bg")
