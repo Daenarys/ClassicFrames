@@ -47,7 +47,7 @@ local function UpdatePower(frame)
 		if not altR then
 			info = CfPowerBarColor[powerType] or CfPowerBarColor["MANA"]
 		else
-			manaBar:SetStatusBarColor(altR, altG, altB)
+			frame.powerBar:SetStatusBarColor(altR, altG, altB)
 		end
 	end
 
