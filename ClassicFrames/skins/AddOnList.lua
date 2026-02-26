@@ -32,7 +32,7 @@ AddonList.ForceLoad:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-C
 
 AddonList.SearchBox:SetWidth(130)
 AddonList.SearchBox:ClearAllPoints()
-AddonList.SearchBox:SetPoint("TOP", -15, -31)
+AddonList.SearchBox:SetPoint("TOP", -15, -32)
 
 ApplyDropDown(AddonList.Dropdown)
 AddonList.Dropdown:SetWidth(130)
