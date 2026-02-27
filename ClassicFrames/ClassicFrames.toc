@@ -3,6 +3,6 @@
 ## Title: Classic |cff00c0ffFrames
 ## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
-## Version: 3.04
+## Version: 3.05
 embeds.xml
 ClassicFrames.lua
