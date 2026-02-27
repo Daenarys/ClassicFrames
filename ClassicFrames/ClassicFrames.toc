@@ -4,8 +4,6 @@
 ## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
 ## Version: 3.04
-## OptionalDeps: SexyMap
-embeds.xml
 skins\ApplySkin.lua
 skins\Achievements.lua
 skins\AddOnList.lua
@@ -65,7 +63,6 @@ skins\Loot.xml
 skins\Macro.lua
 skins\Mail.lua
 skins\Merchant.lua
-skins\Minimap.lua
 skins\MirrorTimers.lua
 skins\NameplateTutorial.lua
 skins\NewPlayerGuide.lua

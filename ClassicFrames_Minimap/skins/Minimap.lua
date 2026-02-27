@@ -1,4 +1,4 @@
-if (C_AddOns.IsAddOnLoaded("SexyMap")) then return end
+if not _G.MinimapCluster then return end
 
 local ldbi = LibStub ~= nil and LibStub:GetLibrary("LibDBIcon-1.0")
 if (ldbi ~= nil) then
