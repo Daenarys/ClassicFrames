@@ -1,8 +1,7 @@
 ## Interface: 120001
 ## IconAtlas: gmchat-icon-blizz
-## Title: Classic |cff00c0ffFrames|r Minimap
+## Title: Minimap
 ## Notes: Restores the classic Minimap
 ## Author: luckfore
 ## Dependencies: ClassicFrames
-embeds.xml
 skins\Minimap.lua
