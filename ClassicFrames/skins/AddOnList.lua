@@ -23,7 +23,7 @@ ApplyScrollBarTrack(AddonList.ScrollBar.Track)
 ApplyScrollBarThumb(AddonList.ScrollBar.Track.Thumb)
 
 AddonList.ForceLoad:SetSize(32, 32)
-AddonList.ForceLoad:SetPoint("TOP", 75, -30)
+AddonList.ForceLoad:SetPoint("TOP", 75, -29)
 AddonList.ForceLoad:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
 AddonList.ForceLoad:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
 AddonList.ForceLoad:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
