@@ -5,4 +5,4 @@
 ## Author: luckfore
 ## Version: 3.04
 embeds.xml
-skins\ApplySkin.lua
+ClassicFrames.lua
