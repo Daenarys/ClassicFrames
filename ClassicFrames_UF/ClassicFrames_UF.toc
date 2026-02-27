@@ -11,6 +11,7 @@ skins\BossFrame.lua
 skins\CastBar.lua
 skins\PartyFrame.lua
 skins\PetFrame.lua
+skins\TotemFrame.lua
 skins\classbars\ClassPowerBar.xml
 skins\classbars\Combo.xml
 skins\classbars\DK.xml
