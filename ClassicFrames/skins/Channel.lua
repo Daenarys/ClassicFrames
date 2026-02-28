@@ -2,8 +2,6 @@ if not _G.ChannelFrame then return end
 
 ApplyCloseButton(ChannelFrameCloseButton)
 
-ChannelFrame.PortraitContainer.CircleMask:Hide()
-
 ChannelFramePortrait:SetSize(61, 61)
 ChannelFramePortrait:ClearAllPoints()
 ChannelFramePortrait:SetPoint("TOPLEFT", -6, 8)
