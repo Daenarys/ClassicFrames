@@ -3,7 +3,7 @@
 ## Title: Classic |cff00c0ffFrames
 ## Notes: Restores the classic UI Frames
 ## Author: luckfore
-## Version: 3.05
+## Version: 3.06
 embeds.xml
 skins\ApplySkin.lua
 skins\Achievements.lua
