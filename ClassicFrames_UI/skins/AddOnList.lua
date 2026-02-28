@@ -11,8 +11,6 @@ AddonList.TitleContainer:SetPoint("TOPRIGHT", AddonList, "TOPRIGHT", -58, 0)
 ApplyTitleBgNoPortrait(AddonList)
 ApplyNineSliceNoPortrait(AddonList)
 
-AddonList.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-
 AddonList.ScrollBar:SetSize(25, 560)
 AddonList.ScrollBar:ClearAllPoints()
 AddonList.ScrollBar:SetPoint("TOPLEFT", AddonList.ScrollBox, "TOPRIGHT", 5, 3)
@@ -39,11 +37,6 @@ AddonList.Dropdown:SetWidth(130)
 AddonList.Dropdown:SetPoint("TOPLEFT", 18, -31)
 AddonList.Dropdown.Text:SetJustifyH("RIGHT")
 AddonList.Dropdown.Text:SetPoint("TOPLEFT", 9, -7)
-
-ApplyButtonSeparator(AddonList.EnableAllButton)
-ApplyButtonSeparator(AddonList.DisableAllButton)
-ApplyButtonSeparator(AddonList.OkayButton)
-ApplyButtonSeparator(AddonList.CancelButton)
 
 hooksecurefunc('AddonList_Update', function()
 	for _, child in next, { AddonList.ScrollBox.ScrollTarget:GetChildren() } do

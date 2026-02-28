@@ -1,13 +1,13 @@
 if not _G.EditModeManagerFrame then return end
 
-ApplyCloseButton(EditModeManagerFrame.CloseButton)
-ApplyCloseButton(EditModeSystemSettingsDialog.CloseButton)
+ApplyCloseButtonOld(EditModeManagerFrame.CloseButton)
+ApplyCloseButtonOld(EditModeSystemSettingsDialog.CloseButton)
 
 EditModeManagerFrame.CloseButton:ClearAllPoints()
-EditModeManagerFrame.CloseButton:SetPoint("TOPRIGHT", -5 , -6)
+EditModeManagerFrame.CloseButton:SetPoint("TOPRIGHT", -5, -6)
 
 EditModeSystemSettingsDialog.CloseButton:ClearAllPoints()
-EditModeSystemSettingsDialog.CloseButton:SetPoint("TOPRIGHT", -5 , -6)
+EditModeSystemSettingsDialog.CloseButton:SetPoint("TOPRIGHT", -5, -6)
 
 EditModeManagerFrame.Tutorial.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 
