@@ -36,7 +36,7 @@ if ObjectiveTrackerFrame.Header then
 	local title = ObjectiveTrackerFrame.Header:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 	ObjectiveTrackerFrame.Header.Title = title
 	title:SetText(OBJECTIVES_TRACKER_LABEL)
-	title:SetPoint("RIGHT", ObjectiveTrackerFrame.Header.MinimizeButton, "LEFT", -2, 1)
+	title:SetPoint("RIGHT", ObjectiveTrackerFrame.Header.MinimizeButton, "LEFT", -3, 0)
 
 	SetCollapsedHeader(ObjectiveTrackerFrame.Header, _G.ObjectiveTrackerFrame.isCollapsed)
 	hooksecurefunc(ObjectiveTrackerFrame.Header, 'SetCollapsed', SetCollapsedHeader)
