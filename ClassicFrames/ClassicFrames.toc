@@ -64,6 +64,7 @@ skins\LFG.lua
 skins\Loot.xml
 skins\Macro.lua
 skins\Mail.lua
+skins\Menu.lua
 skins\Merchant.lua
 skins\MirrorTimers.lua
 skins\NameplateTutorial.lua
