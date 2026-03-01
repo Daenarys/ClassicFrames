@@ -1,4 +1,4 @@
-local function SkinMenu(manager)
+local function SkinMenu(manager, _, menuDescription)
 	local menu = manager:GetOpenMenu()
 	if not menu then return end
 
@@ -9,6 +9,15 @@ local function SkinMenu(manager)
 		backdrop:SetPoint("TOPLEFT")
 		backdrop:SetPoint("BOTTOMRIGHT", 0, 6)
 	end
+
+	menuDescription:AddMenuAcquiredCallback(function(self)
+		select(1, self:GetRegions()):SetAlpha(0)
+		if (backdrop2 == nil) then
+			backdrop2 = CreateFrame("Frame", nil, self, "TooltipBackdropTemplate")
+			backdrop2:SetPoint("TOPLEFT")
+			backdrop2:SetPoint("BOTTOMRIGHT", 0, 6)
+		end
+	end)
 end
 
 local manager = _G.Menu.GetManager()
