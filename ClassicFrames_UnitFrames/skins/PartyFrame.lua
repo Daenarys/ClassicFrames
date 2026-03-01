@@ -102,42 +102,37 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 end
 
 hooksecurefunc("CompactRaidGroup_UpdateLayout", function(frame)
-	local firstUnitFrame = _G[frame:GetName().."Member1"]
 	local lastUnitFrame = _G[frame:GetName().."Member5"]
 
 	if frame.borderFrame:IsShown() then
-		frame.borderFrame:ClearAllPoints()
-		frame.borderFrame:SetPoint("TOPLEFT", firstUnitFrame, "TOPLEFT", -3, 5)
-		frame.borderFrame:SetPoint("BOTTOMRIGHT", lastUnitFrame, "BOTTOMRIGHT", 8, -6)
-
 		frame.borderFrame.Background:SetAlpha(0)
 
 		if (frame.borderFrame.TopLeft == nil) then
 			frame.borderFrame.TopLeft = frame.borderFrame:CreateTexture(nil, "ARTWORK")
 			frame.borderFrame.TopLeft:SetSize(32, 32)
 			frame.borderFrame.TopLeft:SetTexture("Interface\\RaidFrame\\RaidBorder-UpperLeft")
-			frame.borderFrame.TopLeft:SetPoint("TOPLEFT", -5, 0)
+			frame.borderFrame.TopLeft:SetPoint("TOPLEFT", -6, 3)
 		end
 
 		if (frame.borderFrame.TopRight == nil) then
 			frame.borderFrame.TopRight = frame.borderFrame:CreateTexture(nil, "ARTWORK")
 			frame.borderFrame.TopRight:SetSize(32, 32)
 			frame.borderFrame.TopRight:SetTexture("Interface\\RaidFrame\\RaidBorder-UpperRight")
-			frame.borderFrame.TopRight:SetPoint("TOPRIGHT")
+			frame.borderFrame.TopRight:SetPoint("TOPRIGHT", 6, 3)
 		end
 
 		if (frame.borderFrame.BottomLeft == nil) then
 			frame.borderFrame.BottomLeft = frame.borderFrame:CreateTexture(nil, "ARTWORK")
 			frame.borderFrame.BottomLeft:SetSize(32, 32)
 			frame.borderFrame.BottomLeft:SetTexture("Interface\\RaidFrame\\RaidBorder-BottomLeft")
-			frame.borderFrame.BottomLeft:SetPoint("BOTTOMLEFT", -5, 0)
+			frame.borderFrame.BottomLeft:SetPoint("BOTTOMLEFT", lastUnitFrame, "BOTTOMLEFT", -8, -6)
 		end
 
 		if (frame.borderFrame.BottomRight == nil) then
 			frame.borderFrame.BottomRight = frame.borderFrame:CreateTexture(nil, "ARTWORK")
 			frame.borderFrame.BottomRight:SetSize(32, 32)
 			frame.borderFrame.BottomRight:SetTexture("Interface\\RaidFrame\\RaidBorder-BottomRight")
-			frame.borderFrame.BottomRight:SetPoint("BOTTOMRIGHT")
+			frame.borderFrame.BottomRight:SetPoint("BOTTOMRIGHT", lastUnitFrame, "BOTTOMRIGHT", 8, -6)
 		end
 
 		if (frame.borderFrame.Top == nil) then
