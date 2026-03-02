@@ -399,6 +399,10 @@ end
 SkinFrame(TargetFrame)
 SkinFrame(FocusFrame)
 
+hooksecurefunc(FocusFrame,'SetSmallSize', function(self)
+	self.totFrame:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT", 25, 25)
+end)
+
 hooksecurefunc('TargetFrame_UpdateBuffAnchor', function(self, buff, index, numDebuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
 	--For mirroring vertically
 	local point, relativePoint
