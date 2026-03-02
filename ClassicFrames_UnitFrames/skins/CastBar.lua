@@ -1,7 +1,9 @@
 local function AdjustPosition(self)
     local parentFrame = self:GetParent()
     if (parentFrame.haveToT) then
-        if (parentFrame.buffsOnTop or parentFrame.auraRows <= 1) then
+        if (parentFrame == FocusFrame) then
+            self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 30, -45)
+        elseif (parentFrame.buffsOnTop or parentFrame.auraRows <= 1) then
             self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 45, -24)
         else
             self:SetPoint("TOPLEFT", parentFrame.spellbarAnchor, "BOTTOMLEFT", 20, -15)
