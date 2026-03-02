@@ -399,8 +399,12 @@ end
 SkinFrame(TargetFrame)
 SkinFrame(FocusFrame)
 
-hooksecurefunc(FocusFrame,'SetSmallSize', function(self)
-	self.totFrame:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT", 25, 25)
+hooksecurefunc(FocusFrame,'SetSmallSize', function(self, smallSize)
+	if (smallSize) then
+		self.totFrame:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT", 25, 25)
+	else
+		self.totFrame:SetPoint("TOPRIGHT", self, "BOTTOMRIGHT", 12, 31)
+	end
 end)
 
 hooksecurefunc('TargetFrame_UpdateBuffAnchor', function(self, buff, index, numDebuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
