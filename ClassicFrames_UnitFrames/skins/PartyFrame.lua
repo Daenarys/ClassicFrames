@@ -270,6 +270,8 @@ hooksecurefunc("DefaultCompactUnitFrameSetup", function(frame)
 end)
 
 hooksecurefunc("CompactUnitFrame_UpdateAggroHighlight", function(frame)
+	if frame:IsForbidden() then return end
+
 	if frame.aggroHighlight then
 		local status = UnitThreatSituation(frame.displayedUnit)
 		if ( status and status > 0 ) then
@@ -279,6 +281,8 @@ hooksecurefunc("CompactUnitFrame_UpdateAggroHighlight", function(frame)
 end)
 
 hooksecurefunc("CompactUnitFrame_UpdateHealthColor", function(frame)
+	if frame:IsForbidden() then return end
+
 	if frame.background then
 		frame.background:SetTexture("Interface\\RaidFrame\\Raid-Bar-Hp-Bg")
 		frame.background:SetTexCoord(0, 1, 0, 0.53125)
@@ -286,6 +290,8 @@ hooksecurefunc("CompactUnitFrame_UpdateHealthColor", function(frame)
 end)
 
 hooksecurefunc("CompactUnitFrame_UpdateRoleIcon", function(frame)
+	if frame:IsForbidden() then return end
+
 	if not frame.roleIcon then
 		return
 	end
