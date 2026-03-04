@@ -41,7 +41,6 @@ skins\TimeManager.lua
 skins\Transmog.lua
 skins\WorkOrders.lua
 skins\WorldMap.lua
-skins\unitframes\NamePlates.xml
 skins\unitframes\PartyFrame.lua
 skins\unitframes\PlayerFrame.lua
 skins\unitframes\TargetFrame.lua
