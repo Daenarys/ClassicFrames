@@ -6,7 +6,6 @@
 ## Version: 3.10
 skins\ApplySkin.lua
 skins\Achievements.lua
-skins\ActionBars.lua
 skins\AddOnList.lua
 skins\AuctionHouse.lua
 skins\Bank.lua
