@@ -83,6 +83,7 @@ end
 CharacterFrame.Background:Hide()
 ReputationFrame.filterDropdown:Hide()
 TokenFrame.CurrencyTransferLogToggleButton:Hide()
+TokenFrame.filterDropdown:Hide()
 
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
 
@@ -140,10 +141,6 @@ ApplyScrollBarTrack(GearManagerPopupFrame.IconSelector.ScrollBar.Track)
 ApplyScrollBarThumb(GearManagerPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 
 ApplyDropDown(GearManagerPopupFrame.BorderBox.IconTypeDropdown)
-ApplyDropDown(TokenFrame.filterDropdown)
-
-TokenFrame.filterDropdown:SetPoint("TOPRIGHT", -17, -29)
-TokenFrame.filterDropdown.Text:SetJustifyH("RIGHT")
 
 hooksecurefunc(CharacterFrame, "UpdatePortrait", function(self)
 	self:SetPortraitToSpecIcon()
