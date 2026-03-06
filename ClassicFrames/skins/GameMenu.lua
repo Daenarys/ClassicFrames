@@ -1,13 +1,16 @@
 if not _G.GameMenuFrame then return end
 
-GameMenuFrame.Header:SetWidth(141)
+ApplyDialogBorder(GameMenuFrame.Border)
+ApplyDialogHeader(GameMenuFrame.Header)
+
+GameMenuFrame.Header:SetWidth(139.3777)
 GameMenuFrame.Header.Text:SetFontObject("GameFontNormal")
 
 GameMenuFrame:HookScript("OnShow", function(self)
 	self.topPadding = 33
 	self.leftPadding = 26
 	self.rightPadding = 26
-	self.bottomPadding = 17
+	self.bottomPadding = 11
 
 	for button in self.buttonPool:EnumerateActive() do
 		if not button.IsSkinned then
@@ -41,7 +44,6 @@ GameMenuFrame:HookScript("OnShow", function(self)
 
 			if (button.CfMiddle == nil) then
 				button.CfMiddle = button:CreateTexture(nil, "BACKGROUND")
-				button.CfMiddle:SetSize(144, 21)
 				button.CfMiddle:SetPoint("TOPLEFT", button.CfLeft, "TOPRIGHT")
 				button.CfMiddle:SetPoint("BOTTOMRIGHT", button.CfRight, "BOTTOMLEFT")
 			end
