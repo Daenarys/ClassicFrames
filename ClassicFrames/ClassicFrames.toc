@@ -1,9 +1,10 @@
 ## Interface: 120001
-## IconAtlas: gmchat-icon-blizz
-## Title: Classic |cff00c0ffFrames
-## Notes: Restores the classic UI Frames
+## IconTexture: Interface/Icons/INV_Sword_2H_AshbringerCorrupt
+## Title: Classic Frames
+## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
 ## Version: 3.10
+## OptionalDeps: SexyMap
 embeds.xml
 skins\ApplySkin.lua
 skins\Achievements.lua
@@ -65,6 +66,7 @@ skins\Loot.xml
 skins\Macro.lua
 skins\Mail.lua
 skins\Merchant.lua
+skins\Minimap.lua
 skins\MirrorTimers.lua
 skins\NameplateTutorial.lua
 skins\NewPlayerGuide.lua
@@ -103,3 +105,18 @@ skins\UIWidget.lua
 skins\WorkOrders.lua
 skins\WorldMap.lua
 skins\ZoneMap.lua
+skins\unitframes\UnitFrame.lua
+skins\unitframes\PlayerFrame.xml
+skins\unitframes\TargetFrame.xml
+skins\unitframes\BossFrame.lua
+skins\unitframes\CastBar.lua
+skins\unitframes\PartyFrame.lua
+skins\unitframes\PetFrame.lua
+skins\unitframes\TotemFrame.lua
+skins\unitframes\classbars\ClassPowerBar.xml
+skins\unitframes\classbars\Combo.xml
+skins\unitframes\classbars\DK.xml
+skins\unitframes\classbars\Mage.xml
+skins\unitframes\classbars\Monk.xml
+skins\unitframes\classbars\Paladin.xml
+skins\unitframes\classbars\Warlock.xml

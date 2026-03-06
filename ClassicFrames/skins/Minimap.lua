@@ -1,4 +1,4 @@
-if not _G.MinimapCluster then return end
+if (C_AddOns.IsAddOnLoaded("SexyMap")) then return end
 
 MinimapCluster:SetScale(1)
 MinimapCluster:SetSize(192, 192)
