@@ -23,6 +23,5 @@ GossipFrame.GreetingPanel.ScrollBar:ClearAllPoints()
 GossipFrame.GreetingPanel.ScrollBar:SetPoint("TOPLEFT", GossipFrame.GreetingPanel.ScrollBox, "TOPRIGHT", 2, 3)
 GossipFrame.GreetingPanel.ScrollBar:SetPoint("BOTTOMLEFT", GossipFrame.GreetingPanel.ScrollBox, "BOTTOMRIGHT", 2, -2)
 
-ApplyScrollBarArrow(GossipFrame.GreetingPanel.ScrollBar)
-ApplyScrollBarTrack(GossipFrame.GreetingPanel.ScrollBar.Track)
+ApplyScrollBarOld(GossipFrame.GreetingPanel.ScrollBar)
 ApplyScrollBarThumb(GossipFrame.GreetingPanel.ScrollBar.Track.Thumb)
