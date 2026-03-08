@@ -42,6 +42,12 @@ function ApplyTitleBgNoPortrait(frame)
 end
 
 function ApplyNineSlicePortrait(frame)
+	if frame.TopTileStreaks then
+		frame.TopTileStreaks:ClearAllPoints()
+		frame.TopTileStreaks:SetPoint("TOPLEFT", 0, -21)
+		frame.TopTileStreaks:SetPoint("TOPRIGHT", -2, -21)
+	end
+
 	frame.NineSlice.TopEdge:SetSize(128, 132)
 	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
 	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
@@ -76,6 +82,12 @@ function ApplyNineSlicePortrait(frame)
 end
 
 function ApplyNineSlicePortraitMinimizable(frame)
+	if frame.TopTileStreaks then
+		frame.TopTileStreaks:ClearAllPoints()
+		frame.TopTileStreaks:SetPoint("TOPLEFT", 0, -21)
+		frame.TopTileStreaks:SetPoint("TOPRIGHT", -2, -21)
+	end
+
 	frame.NineSlice.TopEdge:SetSize(128, 132)
 	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
 	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
