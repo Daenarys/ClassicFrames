@@ -299,6 +299,15 @@ function ApplyScrollBarOld(frame)
 	frame.Forward:ClearAllPoints()
 	frame.Forward:SetPoint("BOTTOMLEFT", 5, 2)
 
+	if (frame.ThumbTexture == nil) then
+		frame.ThumbTexture = frame:CreateTexture(nil, "OVERLAY")
+		frame.ThumbTexture:SetSize(18, 24)
+		frame.ThumbTexture:SetTexture("Interface\\Buttons\\UI-ScrollBar-Knob")
+		frame.ThumbTexture:SetTexCoord(0.20, 0.80, 0.125, 0.875)
+		frame.ThumbTexture:SetPoint("TOP", frame.Track, "TOP", 0, 3)
+		frame.ThumbTexture:Hide()
+	end
+
 	frame.Track:ClearAllPoints()
 	frame.Track:SetPoint("TOPLEFT", 4, -22)
 	frame.Track:SetPoint("BOTTOMRIGHT", -4, 22)
@@ -318,6 +327,14 @@ function ApplyScrollBarOld(frame)
 	frame.Track.Middle:SetSize(31, 1)
 	frame.Track.Middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
 	frame.Track.Middle:SetTexCoord(0, 0.484375, 0.75, 1)
+
+	hooksecurefunc(frame, "Update", function()
+		if frame.Track.Thumb:IsShown() then
+			frame.ThumbTexture:Hide()
+		else
+			frame.ThumbTexture:Show()
+		end
+	end)
 end
 
 function ApplyTopTab(frame)
