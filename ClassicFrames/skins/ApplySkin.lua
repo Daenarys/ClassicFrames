@@ -42,12 +42,6 @@ function ApplyTitleBgNoPortrait(frame)
 end
 
 function ApplyNineSlicePortrait(frame)
-	if frame.TopTileStreaks then
-		frame.TopTileStreaks:ClearAllPoints()
-		frame.TopTileStreaks:SetPoint("TOPLEFT", 0, -21)
-		frame.TopTileStreaks:SetPoint("TOPRIGHT", -2, -21)
-	end
-
 	frame.NineSlice.TopEdge:SetSize(128, 132)
 	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
 	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
@@ -79,15 +73,13 @@ function ApplyNineSlicePortrait(frame)
 	frame.NineSlice.RightEdge:SetSize(132, 128)
 	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
 	frame.NineSlice.RightEdge:SetTexCoord(0.263671875, 0.521484375, 0, 1)
+
+	frame.TopTileStreaks:ClearAllPoints()
+	frame.TopTileStreaks:SetPoint("TOPLEFT", 0, -21)
+	frame.TopTileStreaks:SetPoint("TOPRIGHT", -2, -21)
 end
 
 function ApplyNineSlicePortraitMinimizable(frame)
-	if frame.TopTileStreaks then
-		frame.TopTileStreaks:ClearAllPoints()
-		frame.TopTileStreaks:SetPoint("TOPLEFT", 0, -21)
-		frame.TopTileStreaks:SetPoint("TOPRIGHT", -2, -21)
-	end
-
 	frame.NineSlice.TopEdge:SetSize(128, 132)
 	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalHorizontal", true)
 	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.263671875, 0.521484375)
@@ -119,6 +111,10 @@ function ApplyNineSlicePortraitMinimizable(frame)
 	frame.NineSlice.RightEdge:SetSize(132, 128)
 	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\UIFrameMetalVertical", false, true)
 	frame.NineSlice.RightEdge:SetTexCoord(0.263671875, 0.521484375, 0, 1)
+
+	frame.TopTileStreaks:ClearAllPoints()
+	frame.TopTileStreaks:SetPoint("TOPLEFT", 0, -21)
+	frame.TopTileStreaks:SetPoint("TOPRIGHT", -2, -21)
 end
 
 function ApplyNineSliceNoPortrait(frame)
@@ -280,69 +276,6 @@ function ApplyScrollBarThumb(frame)
 	frame.downBeginTexture = "UI-ScrollBar-Knob-EndCap-Top-Disabled"
 	frame.downMiddleTexture = "UI-ScrollBar-Knob-Center-Disabled"
 	frame.downEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom-Disabled"
-end
-
-function ApplyScrollBarOld(frame)
-	frame.Back:SetSize(18, 16)
-	frame.Back:SetNormalTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Up")
-	frame.Back:GetNormalTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Back:SetPushedTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Down")
-	frame.Back:GetPushedTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Back:SetDisabledTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Disabled")
-	frame.Back:GetDisabledTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Back:SetHighlightTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Highlight", "ADD")
-	frame.Back:GetHighlightTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Back:ClearAllPoints()
-	frame.Back:SetPoint("TOPLEFT", 4, -3)
-
-	frame.Forward:SetSize(18, 16)
-	frame.Forward:SetNormalTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Up")
-	frame.Forward:GetNormalTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Forward:SetPushedTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Down")
-	frame.Forward:GetPushedTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Forward:SetDisabledTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Disabled")
-	frame.Forward:GetDisabledTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Forward:SetHighlightTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Highlight", "ADD")
-	frame.Forward:GetHighlightTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Forward:ClearAllPoints()
-	frame.Forward:SetPoint("BOTTOMLEFT", 4, 2)
-
-	if (frame.ThumbTexture == nil) then
-		frame.ThumbTexture = frame:CreateTexture(nil, "OVERLAY")
-		frame.ThumbTexture:SetSize(18, 24)
-		frame.ThumbTexture:SetTexture("Interface\\Buttons\\UI-ScrollBar-Knob")
-		frame.ThumbTexture:SetTexCoord(0.20, 0.80, 0.125, 0.875)
-		frame.ThumbTexture:SetPoint("TOP", frame.Track, "TOP", 0, 3)
-		frame.ThumbTexture:Hide()
-	end
-
-	frame.Track:ClearAllPoints()
-	frame.Track:SetPoint("TOPLEFT", 4, -22)
-	frame.Track:SetPoint("BOTTOMRIGHT", -4, 22)
-	
-	frame.Track.Begin:SetSize(31, 102)
-	frame.Track.Begin:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
-	frame.Track.Begin:SetTexCoord(0, 0.484375, 0, 0.4)
-	frame.Track.Begin:ClearAllPoints()
-	frame.Track.Begin:SetPoint("TOPLEFT", -7, 24)
-
-	frame.Track.End:SetSize(31, 106)
-	frame.Track.End:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
-	frame.Track.End:SetTexCoord(0.515625, 1, 0, 0.4140625)
-	frame.Track.End:ClearAllPoints()
-	frame.Track.End:SetPoint("BOTTOMLEFT", -7, -22)
-
-	frame.Track.Middle:SetSize(31, 1)
-	frame.Track.Middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
-	frame.Track.Middle:SetTexCoord(0, 0.484375, 0.75, 1)
-
-	hooksecurefunc(frame, "Update", function()
-		if frame.Track.Thumb:IsShown() then
-			frame.ThumbTexture:Hide()
-		else
-			frame.ThumbTexture:Show()
-		end
-	end)
 end
 
 function ApplyTopTab(frame)

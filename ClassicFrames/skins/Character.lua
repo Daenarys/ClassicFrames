@@ -28,10 +28,11 @@ end
 
 ReputationFrame.ScrollBar:SetSize(25, 560)
 ReputationFrame.ScrollBar:ClearAllPoints()
-ReputationFrame.ScrollBar:SetPoint("TOPLEFT", ReputationFrame.ScrollBox, "TOPRIGHT", -4, 3)
-ReputationFrame.ScrollBar:SetPoint("BOTTOMLEFT", ReputationFrame.ScrollBox, "BOTTOMRIGHT", 4, -2)
+ReputationFrame.ScrollBar:SetPoint("TOPLEFT", ReputationFrame.ScrollBox, "TOPRIGHT", -1, 3)
+ReputationFrame.ScrollBar:SetPoint("BOTTOMLEFT", ReputationFrame.ScrollBox, "BOTTOMRIGHT", 2, -1)
 
-ApplyScrollBarOld(ReputationFrame.ScrollBar)
+ApplyScrollBarArrow(ReputationFrame.ScrollBar)
+ApplyScrollBarTrack(ReputationFrame.ScrollBar.Track)
 ApplyScrollBarThumb(ReputationFrame.ScrollBar.Track.Thumb)
 
 ReputationFrame.ReputationDetailFrame.CloseButton:SetSize(32, 32)
@@ -88,10 +89,11 @@ ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
 
 TokenFrame.ScrollBar:SetSize(25, 560)
 TokenFrame.ScrollBar:ClearAllPoints()
-TokenFrame.ScrollBar:SetPoint("TOPLEFT", TokenFrame.ScrollBox, "TOPRIGHT", -4, 3)
-TokenFrame.ScrollBar:SetPoint("BOTTOMLEFT", TokenFrame.ScrollBox, "BOTTOMRIGHT", 4, -2)
+TokenFrame.ScrollBar:SetPoint("TOPLEFT", TokenFrame.ScrollBox, "TOPRIGHT", -1, 3)
+TokenFrame.ScrollBar:SetPoint("BOTTOMLEFT", TokenFrame.ScrollBox, "BOTTOMRIGHT", 2, -1)
 
-ApplyScrollBarOld(TokenFrame.ScrollBar)
+ApplyScrollBarArrow(TokenFrame.ScrollBar)
+ApplyScrollBarTrack(TokenFrame.ScrollBar.Track)
 ApplyScrollBarThumb(TokenFrame.ScrollBar.Track.Thumb)
 
 select(5, TokenFramePopup:GetChildren()):SetSize(32, 32)
