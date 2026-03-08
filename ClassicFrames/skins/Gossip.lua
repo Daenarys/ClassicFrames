@@ -20,8 +20,8 @@ GossipFrame.GreetingPanel.ScrollBox:SetPoint("TOPLEFT", 5, -65)
 
 GossipFrame.GreetingPanel.ScrollBar:SetSize(25, 560)
 GossipFrame.GreetingPanel.ScrollBar:ClearAllPoints()
-GossipFrame.GreetingPanel.ScrollBar:SetPoint("TOPLEFT", GossipFrame.GreetingPanel.ScrollBox, "TOPRIGHT", 2, 3)
-GossipFrame.GreetingPanel.ScrollBar:SetPoint("BOTTOMLEFT", GossipFrame.GreetingPanel.ScrollBox, "BOTTOMRIGHT", 2, -2)
+GossipFrame.GreetingPanel.ScrollBar:SetPoint("TOPLEFT", GossipFrame.GreetingPanel.ScrollBox, "TOPRIGHT", 1, 3)
+GossipFrame.GreetingPanel.ScrollBar:SetPoint("BOTTOMLEFT", GossipFrame.GreetingPanel.ScrollBox, "BOTTOMRIGHT", 1, -2)
 
 ApplyScrollBarOld(GossipFrame.GreetingPanel.ScrollBar)
 ApplyScrollBarThumb(GossipFrame.GreetingPanel.ScrollBar.Track.Thumb)
