@@ -2,7 +2,7 @@ local f = CreateFrame("Frame")
 f:RegisterEvent("ADDON_LOADED")
 f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_BattlefieldMap" then
-		ApplyCloseButtonOld(BattlefieldMapFrame.BorderFrame.CloseButton)
+		ApplyCloseButton(BattlefieldMapFrame.BorderFrame.CloseButton)
 		BattlefieldMapFrame.BorderFrame.CloseButton:ClearAllPoints()
 		BattlefieldMapFrame.BorderFrame.CloseButton:SetPoint("TOPRIGHT", 5, 9)
 

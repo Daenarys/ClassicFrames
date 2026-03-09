@@ -6,8 +6,6 @@ ApplyNineSliceNoPortrait(SettingsPanel)
 
 SettingsPanel.CloseButton:Hide()
 
-SettingsPanel.NineSlice:SetFrameStrata("HIGH")
-
 SettingsPanel.Container.SettingsList.ScrollBar:SetSize(25, 560)
 SettingsPanel.Container.SettingsList.ScrollBar:ClearAllPoints()
 SettingsPanel.Container.SettingsList.ScrollBar:SetPoint("TOPLEFT", SettingsPanel.Container.SettingsList.ScrollBox, "TOPRIGHT", -4, 0)

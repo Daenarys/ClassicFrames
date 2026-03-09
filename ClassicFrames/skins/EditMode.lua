@@ -1,7 +1,7 @@
 if not _G.EditModeManagerFrame then return end
 
-ApplyCloseButtonOld(EditModeManagerFrame.CloseButton)
-ApplyCloseButtonOld(EditModeSystemSettingsDialog.CloseButton)
+ApplyCloseButton(EditModeManagerFrame.CloseButton)
+ApplyCloseButton(EditModeSystemSettingsDialog.CloseButton)
 
 EditModeManagerFrame.CloseButton:ClearAllPoints()
 EditModeManagerFrame.CloseButton:SetPoint("TOPRIGHT", -5, -6)

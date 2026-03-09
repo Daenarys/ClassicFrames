@@ -95,6 +95,10 @@ f:SetScript("OnEvent", function(self, event, name)
 		TrainingGroundsFrameTypeDropdown:SetPoint("BOTTOMRIGHT", TrainingGroundsFrame.Inset, "TOPRIGHT", -11, 5)
 		TrainingGroundsFrameTypeDropdown.Text:SetJustifyH("RIGHT")
 		TrainingGroundsFrameTypeDropdown.Text:SetPoint("TOPLEFT", 9, -7)
+
+		ApplyButtonSeparator(HonorFrameQueueButton)
+		ApplyButtonSeparator(ConquestJoinButton)
+		ApplyButtonSeparator(TrainingGroundsFrame.QueueButton)
 	end
 end)
 

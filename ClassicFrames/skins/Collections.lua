@@ -117,6 +117,9 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyFilterDropDown(HeirloomsJournal.FilterDropdown)
 		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
 
+		ApplyButtonSeparator(MountJournalMountButton)
+		ApplyButtonSeparator(PetJournalSummonButton)
+
 		HeirloomsJournal.ClassDropdown:SetWidth(155)
 		HeirloomsJournal.ClassDropdown:SetPoint("TOPLEFT", 72, -31)
 		HeirloomsJournal.ClassDropdown.Text:SetJustifyH("RIGHT")

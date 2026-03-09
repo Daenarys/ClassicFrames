@@ -342,6 +342,13 @@ RaidFinderQueueFrameSelectionDropdown.Text:SetJustifyH("RIGHT")
 RaidFinderQueueFrameSelectionDropdown.Text:SetPoint("TOPLEFT", 9, -6)
 RaidFinderQueueFrameSelectionDropdownName:SetPoint("RIGHT", RaidFinderQueueFrameSelectionDropdown, "LEFT", -18, 0)
 
+ApplyButtonSeparator(LFDQueueFrameFindGroupButton)
+ApplyButtonSeparator(RaidFinderFrameFindRaidButton)
+ApplyButtonSeparator(LFGListFrame.CategorySelection.StartGroupButton)
+ApplyButtonSeparator(LFGListFrame.CategorySelection.FindGroupButton)
+ApplyButtonSeparator(LFGListFrame.EntryCreation.CancelButton)
+ApplyButtonSeparator(LFGListFrame.EntryCreation.ListGroupButton)
+
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then
 		button.background:SetTexture("Interface\\LFGFrame\\UI-LFG-ICONS-ROLEBACKGROUNDS")
