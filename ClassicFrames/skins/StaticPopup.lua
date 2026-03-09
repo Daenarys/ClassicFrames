@@ -1,9 +1,10 @@
 for i = 1, 4 do
 	_G["StaticPopup"..i].BG:SetAlpha(0)
+	_G["StaticPopup"..i.."EditBox"].NineSlice:SetAlpha(0)
 
 	local border = CreateFrame("Frame", nil, _G["StaticPopup"..i], "DialogBorderDarkTemplate")
-
-	_G["StaticPopup"..i.."EditBox"].NineSlice:SetAlpha(0)
+	ApplyDialogBorder(border)
+	_G["StaticPopup"..i].Border = border
 
 	if (_G["StaticPopup"..i.."EditBox"].Left == nil) then
 		_G["StaticPopup"..i.."EditBox"].Left = _G["StaticPopup"..i.."EditBox"]:CreateTexture(nil, "BACKGROUND")
