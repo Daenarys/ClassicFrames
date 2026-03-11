@@ -67,11 +67,13 @@ local function SkinTargetCastbar(self)
     SetLook(self)
 
     hooksecurefunc(self, 'HandleInterruptOrSpellFailed', function(_, event)
-        if ( self.Text ) then
-            if ( event == "UNIT_SPELLCAST_FAILED" ) then
-                self.Text:SetText(FAILED)
-            else
-                self.Text:SetText(INTERRUPTED)
+        if ( (not self.FadeOutAnim or not self.FadeOutAnim:IsPlaying())) then
+            if ( self.Text ) then
+                if ( event == "UNIT_SPELLCAST_FAILED" ) then
+                    self.Text:SetText(FAILED)
+                else
+                    self.Text:SetText(INTERRUPTED)
+                end
             end
         end
     end)
