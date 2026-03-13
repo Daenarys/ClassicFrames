@@ -17,6 +17,5 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyDropDown(ItemUpgradeFrame.ItemInfo.Dropdown)
 		ItemUpgradeFrame.ItemInfo.Dropdown.Text:SetJustifyH("RIGHT")
-		ItemUpgradeFrame.ItemInfo.Dropdown.Text:SetPoint("TOPLEFT", 9, -6)
 	end
 end)
