@@ -13,6 +13,11 @@ CharacterFrame.TitleContainer:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -
 ApplyTitleBg(CharacterFrame)
 ApplyNineSlicePortrait(CharacterFrame)
 
+CharacterFrame.Background:Hide()
+ReputationFrame.filterDropdown:Hide()
+TokenFrame.CurrencyTransferLogToggleButton:Hide()
+TokenFrame.filterDropdown:Hide()
+
 CharacterFrameTab2:ClearAllPoints()
 CharacterFrameTab2:SetPoint("LEFT", CharacterFrameTab1, "RIGHT", -15, 0)
 CharacterFrameTab3:ClearAllPoints()
@@ -82,7 +87,6 @@ end
 
 hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
 	if not self.IsSkinned then
-
 		self.Left:Hide()
 		self.Right:Hide()
 		self.Middle:Hide()
@@ -101,6 +105,14 @@ hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
 			self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-MinusButton-Up")
 		end
 
+		hooksecurefunc(self, 'ToggleCollapsed', function()
+			if self:IsCollapsed() then
+				self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-PlusButton-Up")
+			else
+				self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-MinusButton-Up")
+			end
+		end)
+
 		self.HighlightLeft:Hide()
 		self.HighlightRight:Hide()
 		self.HighlightMiddle:Hide()
@@ -112,21 +124,10 @@ hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
 	end
 end)
 
-hooksecurefunc(ReputationHeaderMixin, 'ToggleCollapsed', function(self)
-	if not self.ExpandOrCollapseButton then return end
-
-	if self:IsCollapsed() then
-		self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-PlusButton-Up")
-	else
-		self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-MinusButton-Up")
-	end
-end)
-
-
-CharacterFrame.Background:Hide()
-ReputationFrame.filterDropdown:Hide()
-TokenFrame.CurrencyTransferLogToggleButton:Hide()
-TokenFrame.filterDropdown:Hide()
+local repview = ReputationFrame.ScrollBox:GetView()
+local topPadding, bottomPadding, leftPadding, rightPadding = 1, 0, 8, 10
+local elementSpacing = 0
+repview:SetPadding(topPadding, bottomPadding, leftPadding, rightPadding, elementSpacing)
 
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
 
@@ -158,6 +159,7 @@ ApplyDialogBorder(TokenFramePopup.Border)
 
 hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 	if not self.IsSkinned then
+		self.Name:SetPoint("LEFT", 22, 0)
 
 		if self.Left then
 			self.Left:SetSize(76, 16)
@@ -189,6 +191,27 @@ hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 			end
 		end)
 
+		if (self.ExpandIcon == nil) then
+			self.ExpandIcon = self:CreateTexture(nil, "ARTWORK")
+			self.ExpandIcon:SetSize(7, 7)
+			self.ExpandIcon:SetPoint("LEFT", 8, 0)
+			self.ExpandIcon:SetTexture("Interface\\Buttons\\UI-PlusMinus-Buttons")
+		end
+
+		if self:IsCollapsed() then
+			self.ExpandIcon:SetTexCoord(0, 0.4375, 0, 0.4375)
+		else
+			self.ExpandIcon:SetTexCoord(0.5625, 1, 0, 0.4375)
+		end
+
+		hooksecurefunc(self, 'ToggleCollapsed', function()
+			if self:IsCollapsed() then
+				self.ExpandIcon:SetTexCoord(0, 0.4375, 0, 0.4375)
+			else
+				self.ExpandIcon:SetTexCoord(0.5625, 1, 0, 0.4375)
+			end
+		end)
+
 		self.HighlightLeft:Hide()
 		self.HighlightRight:Hide()
 		self.HighlightMiddle:Hide()
@@ -196,12 +219,17 @@ hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 		self:SetHighlightTexture("Interface\\TokenFrame\\UI-TokenFrame-CategoryButton")
 		self:GetHighlightTexture():SetTexCoord(0, 1, 0.609375, 0.796875)
 		self:GetHighlightTexture():ClearAllPoints()
-		self:GetHighlightTexture():SetPoint("TOPLEFT", 3, -4)
-		self:GetHighlightTexture():SetPoint("BOTTOMRIGHT", -3, 4)
+		self:GetHighlightTexture():SetPoint("TOPLEFT", 3, -7)
+		self:GetHighlightTexture():SetPoint("BOTTOMRIGHT", -3, 7)
 
 		self.IsSkinned = true
 	end
 end)
+
+local tokenview = TokenFrame.ScrollBox:GetView()
+local topPadding, bottomPadding, leftPadding, rightPadding = -2, 0, 2, 3
+local elementSpacing = 0
+tokenview:SetPadding(topPadding, bottomPadding, leftPadding, rightPadding, elementSpacing)
 
 PaperDollFrame.TitleManagerPane.ScrollBar:SetSize(25, 560)
 PaperDollFrame.TitleManagerPane.ScrollBar:ClearAllPoints()
