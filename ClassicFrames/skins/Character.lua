@@ -87,11 +87,11 @@ end
 
 hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
 	if not self.IsSkinned then
+		self.Name:SetPoint("LEFT", 20, 0)
+
 		self.Left:Hide()
 		self.Right:Hide()
 		self.Middle:Hide()
-
-		self.Name:SetPoint("LEFT", 20, 0)
 
 		if (self.ExpandOrCollapseButton == nil) then
 			self.ExpandOrCollapseButton = self:CreateTexture(nil, "ARTWORK")
@@ -123,11 +123,6 @@ hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
 		self.IsSkinned = true
 	end
 end)
-
-local repview = ReputationFrame.ScrollBox:GetView()
-local topPadding, bottomPadding, leftPadding, rightPadding = 1, 0, 8, 10
-local elementSpacing = 0
-repview:SetPadding(topPadding, bottomPadding, leftPadding, rightPadding, elementSpacing)
 
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
 
@@ -225,11 +220,6 @@ hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 		self.IsSkinned = true
 	end
 end)
-
-local tokenview = TokenFrame.ScrollBox:GetView()
-local topPadding, bottomPadding, leftPadding, rightPadding = -2, 0, 2, 3
-local elementSpacing = 0
-tokenview:SetPadding(topPadding, bottomPadding, leftPadding, rightPadding, elementSpacing)
 
 PaperDollFrame.TitleManagerPane.ScrollBar:SetSize(25, 560)
 PaperDollFrame.TitleManagerPane.ScrollBar:ClearAllPoints()
