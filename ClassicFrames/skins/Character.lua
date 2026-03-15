@@ -80,6 +80,49 @@ if (ReputationFrame.StandingLabel == nil) then
 	ReputationFrame.StandingLabel:SetPoint("TOPLEFT", 215, -42)
 end
 
+hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
+	if not self.IsSkinned then
+
+		self.Left:Hide()
+		self.Right:Hide()
+		self.Middle:Hide()
+
+		self.Name:SetPoint("LEFT", 20, 0)
+
+		if (self.ExpandOrCollapseButton == nil) then
+			self.ExpandOrCollapseButton = self:CreateTexture(nil, "ARTWORK")
+			self.ExpandOrCollapseButton:SetSize(16, 16)
+			self.ExpandOrCollapseButton:SetPoint("LEFT")
+		end
+
+		if self:IsCollapsed() then
+			self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-PlusButton-Up")
+		else
+			self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-MinusButton-Up")
+		end
+
+		self.HighlightLeft:Hide()
+		self.HighlightRight:Hide()
+		self.HighlightMiddle:Hide()
+
+		self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		self:GetHighlightTexture():SetAllPoints(self.ExpandOrCollapseButton)
+
+		self.IsSkinned = true
+	end
+end)
+
+hooksecurefunc(ReputationHeaderMixin, 'ToggleCollapsed', function(self)
+	if not self.ExpandOrCollapseButton then return end
+
+	if self:IsCollapsed() then
+		self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-PlusButton-Up")
+	else
+		self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-MinusButton-Up")
+	end
+end)
+
+
 CharacterFrame.Background:Hide()
 ReputationFrame.filterDropdown:Hide()
 TokenFrame.CurrencyTransferLogToggleButton:Hide()
@@ -112,6 +155,53 @@ if (TokenFramePopupCorner == nil) then
 end
 
 ApplyDialogBorder(TokenFramePopup.Border)
+
+hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
+	if not self.IsSkinned then
+
+		if self.Left then
+			self.Left:SetSize(76, 16)
+			self.Left:ClearAllPoints()
+			self.Left:SetPoint("LEFT")
+			self.Left:SetTexture("Interface\\Buttons\\CollapsibleHeader")
+			self.Left:SetTexCoord(0.17578125, 0.47265625, 0.29687500, 0.54687500)
+		end
+
+		if self.Right then
+			self.Right:ClearAllPoints()
+			self.Right:SetPoint("RIGHT")
+		end
+
+		if self.Middle then
+			self.Middle:SetSize(0, 16)
+			self.Middle:ClearAllPoints()
+			self.Middle:SetPoint("TOPLEFT", self.Left, "TOPRIGHT", -20, 0)
+			self.Middle:SetPoint("BOTTOMRIGHT", self.Right, "BOTTOMLEFT", 20, 0)
+			self.Middle:SetTexture("Interface\\Buttons\\CollapsibleHeader")
+			self.Middle:SetTexCoord(0.48046875, 0.98046875, 0.01562500, 0.26562500)
+		end
+
+		hooksecurefunc(self, "UpdateCollapsedState", function()
+			if self.Right then
+				self.Right:SetSize(76, 16)
+				self.Right:SetTexture("Interface\\Buttons\\CollapsibleHeader")
+				self.Right:SetTexCoord(0.17578125, 0.47265625, 0.01562500, 0.26562500)
+			end
+		end)
+
+		self.HighlightLeft:Hide()
+		self.HighlightRight:Hide()
+		self.HighlightMiddle:Hide()
+
+		self:SetHighlightTexture("Interface\\TokenFrame\\UI-TokenFrame-CategoryButton")
+		self:GetHighlightTexture():SetTexCoord(0, 1, 0.609375, 0.796875)
+		self:GetHighlightTexture():ClearAllPoints()
+		self:GetHighlightTexture():SetPoint("TOPLEFT", 3, -4)
+		self:GetHighlightTexture():SetPoint("BOTTOMRIGHT", -3, 4)
+
+		self.IsSkinned = true
+	end
+end)
 
 PaperDollFrame.TitleManagerPane.ScrollBar:SetSize(25, 560)
 PaperDollFrame.TitleManagerPane.ScrollBar:ClearAllPoints()
