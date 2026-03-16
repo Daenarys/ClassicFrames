@@ -89,9 +89,9 @@ hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
 	if not self.IsSkinned then
 		self.Name:SetPoint("LEFT", 20, 0)
 
-		self.Left:Hide()
-		self.Right:Hide()
-		self.Middle:Hide()
+		self.Left:SetAlpha(0)
+		self.Right:SetAlpha(0)
+		self.Middle:SetAlpha(0)
 
 		if (self.ExpandOrCollapseButton == nil) then
 			self.ExpandOrCollapseButton = self:CreateTexture(nil, "ARTWORK")
@@ -113,9 +113,9 @@ hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
 			end
 		end)
 
-		self.HighlightLeft:Hide()
-		self.HighlightRight:Hide()
-		self.HighlightMiddle:Hide()
+		self.HighlightLeft:SetAlpha(0)
+		self.HighlightRight:SetAlpha(0)
+		self.HighlightMiddle:SetAlpha(0)
 
 		self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
 		self:GetHighlightTexture():SetAllPoints(self.ExpandOrCollapseButton)
@@ -150,8 +150,6 @@ if (TokenFramePopupCorner == nil) then
 	TokenFramePopupCorner:SetPoint("TOPRIGHT", -6, -7)
 end
 
-ApplyDialogBorder(TokenFramePopup.Border)
-
 hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 	if not self.IsSkinned then
 		self.Name:SetPoint("LEFT", 22, 0)
@@ -167,6 +165,12 @@ hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 		if self.Right then
 			self.Right:ClearAllPoints()
 			self.Right:SetPoint("RIGHT")
+
+			hooksecurefunc(self, "UpdateCollapsedState", function()
+				self.Right:SetSize(76, 16)
+				self.Right:SetTexture("Interface\\Buttons\\CollapsibleHeader")
+				self.Right:SetTexCoord(0.17578125, 0.47265625, 0.01562500, 0.26562500)
+			end)
 		end
 
 		if self.Middle then
@@ -177,14 +181,6 @@ hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 			self.Middle:SetTexture("Interface\\Buttons\\CollapsibleHeader")
 			self.Middle:SetTexCoord(0.48046875, 0.98046875, 0.01562500, 0.26562500)
 		end
-
-		hooksecurefunc(self, "UpdateCollapsedState", function()
-			if self.Right then
-				self.Right:SetSize(76, 16)
-				self.Right:SetTexture("Interface\\Buttons\\CollapsibleHeader")
-				self.Right:SetTexCoord(0.17578125, 0.47265625, 0.01562500, 0.26562500)
-			end
-		end)
 
 		if (self.ExpandIcon == nil) then
 			self.ExpandIcon = self:CreateTexture(nil, "ARTWORK")
@@ -207,9 +203,9 @@ hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 			end
 		end)
 
-		self.HighlightLeft:Hide()
-		self.HighlightRight:Hide()
-		self.HighlightMiddle:Hide()
+		self.HighlightLeft:SetAlpha(0)
+		self.HighlightRight:SetAlpha(0)
+		self.HighlightMiddle:SetAlpha(0)
 
 		self:SetHighlightTexture("Interface\\TokenFrame\\UI-TokenFrame-CategoryButton")
 		self:GetHighlightTexture():SetTexCoord(0, 1, 0.609375, 0.796875)
@@ -220,6 +216,8 @@ hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 		self.IsSkinned = true
 	end
 end)
+
+ApplyDialogBorder(TokenFramePopup.Border)
 
 PaperDollFrame.TitleManagerPane.ScrollBar:SetSize(25, 560)
 PaperDollFrame.TitleManagerPane.ScrollBar:ClearAllPoints()
