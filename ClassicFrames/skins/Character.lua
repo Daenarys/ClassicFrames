@@ -87,6 +87,8 @@ end
 
 hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
 	if not self.IsSkinned then
+		self:SetHitRectInsets(0, 267, 0, 0)
+
 		self.Name:SetPoint("LEFT", 20, 0)
 
 		self.Left:SetAlpha(0)
