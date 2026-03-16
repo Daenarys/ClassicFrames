@@ -99,20 +99,6 @@ hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
 			self.ExpandOrCollapseButton:SetPoint("LEFT")
 		end
 
-		if self:IsCollapsed() then
-			self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-PlusButton-Up")
-		else
-			self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-MinusButton-Up")
-		end
-
-		hooksecurefunc(self, 'ToggleCollapsed', function()
-			if self:IsCollapsed() then
-				self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-PlusButton-Up")
-			else
-				self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-MinusButton-Up")
-			end
-		end)
-
 		self.HighlightLeft:SetAlpha(0)
 		self.HighlightRight:SetAlpha(0)
 		self.HighlightMiddle:SetAlpha(0)
@@ -122,6 +108,20 @@ hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
 
 		self.IsSkinned = true
 	end
+
+	if self:IsCollapsed() then
+		self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-PlusButton-Up")
+	else
+		self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-MinusButton-Up")
+	end
+
+	hooksecurefunc(self, 'ToggleCollapsed', function()
+		if self:IsCollapsed() then
+			self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-PlusButton-Up")
+		else
+			self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-MinusButton-Up")
+		end
+	end)
 end)
 
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
@@ -189,20 +189,6 @@ hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 			self.ExpandIcon:SetTexture("Interface\\Buttons\\UI-PlusMinus-Buttons")
 		end
 
-		if self:IsCollapsed() then
-			self.ExpandIcon:SetTexCoord(0, 0.4375, 0, 0.4375)
-		else
-			self.ExpandIcon:SetTexCoord(0.5625, 1, 0, 0.4375)
-		end
-
-		hooksecurefunc(self, 'ToggleCollapsed', function()
-			if self:IsCollapsed() then
-				self.ExpandIcon:SetTexCoord(0, 0.4375, 0, 0.4375)
-			else
-				self.ExpandIcon:SetTexCoord(0.5625, 1, 0, 0.4375)
-			end
-		end)
-
 		self.HighlightLeft:SetAlpha(0)
 		self.HighlightRight:SetAlpha(0)
 		self.HighlightMiddle:SetAlpha(0)
@@ -215,6 +201,20 @@ hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 
 		self.IsSkinned = true
 	end
+
+	if self:IsCollapsed() then
+		self.ExpandIcon:SetTexCoord(0, 0.4375, 0, 0.4375)
+	else
+		self.ExpandIcon:SetTexCoord(0.5625, 1, 0, 0.4375)
+	end
+
+	hooksecurefunc(self, 'ToggleCollapsed', function()
+		if self:IsCollapsed() then
+			self.ExpandIcon:SetTexCoord(0, 0.4375, 0, 0.4375)
+		else
+			self.ExpandIcon:SetTexCoord(0.5625, 1, 0, 0.4375)
+		end
+	end)
 end)
 
 ApplyDialogBorder(TokenFramePopup.Border)
