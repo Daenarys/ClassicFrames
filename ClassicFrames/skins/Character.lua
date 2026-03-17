@@ -87,9 +87,8 @@ end
 
 hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
 	if not self.IsSkinned then
-		self.Name:SetPoint("LEFT", 20, 0)
-
 		self:SetHitRectInsets(0, 267, 0, 0)
+		self.Name:SetPoint("LEFT", 20, 0)
 
 		self.Left:SetAlpha(0)
 		self.Right:SetAlpha(0)
@@ -126,30 +125,30 @@ hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
 	end)
 end)
 
-hooksecurefunc(ReputationEntryMixin, 'Initialize', function(self)
-	if not self.IsSkinned then
+hooksecurefunc(ReputationEntryMixin, 'Initialize', function(self, elementData)
+	if (self.Content.Background == nil) then
+		self.Content.Background = self:CreateTexture(nil, "BACKGROUND")
+		self.Content.Background:SetSize(0, 21)
+		self.Content.Background:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ReputationBar")
+		self.Content.Background:SetTexCoord(0.0, 0.7578125, 0.0, 0.328125)
+		self.Content.Background:SetPoint("TOPRIGHT", self.Content.ReputationBar.LeftTexture, "TOPLEFT")
+		self.Content.Background:SetPoint("LEFT", 15, 0)
+		self.Content.Background:Hide()
+	end
+
+	self.Content.AccountWideIcon:SetPoint("LEFT", -7, 0)
+	self.Content.Name:SetPoint("LEFT", self.Content.AccountWideIcon, "RIGHT", 10, 0)
+
+	if elementData.isHeader and not elementData.isHeaderWithRep then
+		self.Content.Background:Hide()
+		self.Content.Name:SetFontObject(GameFontNormalLeft)
+	else
+		self.Content.Background:Show()
 		self.Content.Name:SetFontObject(GameFontHighlightSmall)
-
-		if (self.Content.Background == nil) then
-			self.Content.Background = self:CreateTexture(nil, "BACKGROUND")
-			self.Content.Background:SetSize(0, 21)
-			self.Content.Background:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ReputationBar")
-			self.Content.Background:SetTexCoord(0.0, 0.7578125, 0.0, 0.328125)
-			self.Content.Background:SetPoint("TOPRIGHT", self.Content.ReputationBar.LeftTexture, "TOPLEFT")
-			self.Content.Background:SetPoint("LEFT", 15, 0)
-		end
-
-		if self.ToggleCollapseButton then
-			self.Content.Background:Hide()
-			self.Content.Name:SetFontObject(GameFontHighlight)
-		else
-			self.Content.ReputationBar.LeftTexture:SetHeight(21)
-			self.Content.ReputationBar.LeftTexture:SetTexCoord(0.7578125, 1.0, 0.0, 0.328125)
-			self.Content.ReputationBar.RightTexture:SetHeight(21)
-			self.Content.ReputationBar.RightTexture:SetTexCoord(0.0, 0.1640625, 0.34375, 0.671875)
-		end
-
-		self.IsSkinned = true
+		self.Content.ReputationBar.LeftTexture:SetHeight(21)
+		self.Content.ReputationBar.LeftTexture:SetTexCoord(0.7578125, 1.0, 0.0, 0.328125)
+		self.Content.ReputationBar.RightTexture:SetHeight(21)
+		self.Content.ReputationBar.RightTexture:SetTexCoord(0.0, 0.1640625, 0.34375, 0.671875)
 	end
 end)
 
@@ -166,7 +165,7 @@ end)
 
 local repview = ReputationFrame.ScrollBox:GetView()
 if repview then
-	repview:SetPadding(1, 0, 8, 10, 0)
+	repview:SetPadding(1,1,8,8,0)
 end
 
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
