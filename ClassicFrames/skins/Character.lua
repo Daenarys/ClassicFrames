@@ -156,6 +156,14 @@ hooksecurefunc(ReputationEntryMixin, 'Initialize', function(self, elementData)
 	end
 end)
 
+hooksecurefunc(ReputationSubHeaderMixin, 'Initialize', function(self, elementData)
+	if elementData.isHeaderWithRep then
+		self.ToggleCollapseButton:SetPoint("LEFT", self.Content.AccountWideIcon, "RIGHT", 5, 1)
+	else
+		self.ToggleCollapseButton:SetPoint("LEFT", self.Content.AccountWideIcon, "RIGHT", 3, 0)
+	end
+end)
+
 hooksecurefunc(ReputationSubHeaderToggleCollapseButtonMixin, "RefreshIcon", function(self)
 	self:SetSize(16, 16)
 	if self:GetHeader():IsCollapsed() then
