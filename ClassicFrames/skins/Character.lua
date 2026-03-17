@@ -126,18 +126,22 @@ hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
 end)
 
 hooksecurefunc(ReputationEntryMixin, 'Initialize', function(self, elementData)
-	if (self.Content.Background == nil) then
-		self.Content.Background = self:CreateTexture(nil, "BACKGROUND")
-		self.Content.Background:SetSize(0, 21)
-		self.Content.Background:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ReputationBar")
-		self.Content.Background:SetTexCoord(0.0, 0.7578125, 0.0, 0.328125)
-		self.Content.Background:SetPoint("TOPRIGHT", self.Content.ReputationBar.LeftTexture, "TOPLEFT")
-		self.Content.Background:SetPoint("LEFT", 15, 0)
-		self.Content.Background:Hide()
-	end
+	if not self.IsSkinned then
+		if (self.Content.Background == nil) then
+			self.Content.Background = self:CreateTexture(nil, "BACKGROUND")
+			self.Content.Background:SetSize(0, 21)
+			self.Content.Background:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ReputationBar")
+			self.Content.Background:SetTexCoord(0.0, 0.7578125, 0.0, 0.328125)
+			self.Content.Background:SetPoint("TOPRIGHT", self.Content.ReputationBar.LeftTexture, "TOPLEFT")
+			self.Content.Background:SetPoint("LEFT", 15, 0)
+			self.Content.Background:Hide()
+		end
 
-	self.Content.AccountWideIcon:SetPoint("LEFT", -7, 0)
-	self.Content.Name:SetPoint("LEFT", self.Content.AccountWideIcon, "RIGHT", 10, 0)
+		self.Content.AccountWideIcon:SetPoint("LEFT", -7, 0)
+		self.Content.Name:SetPoint("LEFT", self.Content.AccountWideIcon, "RIGHT", 10, 0)
+
+		self.IsSkinned = true
+	end
 
 	if elementData.isHeader and not elementData.isHeaderWithRep then
 		self.Content.Background:Hide()
@@ -197,7 +201,7 @@ end
 hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 	if not self.IsSkinned then
 		self.Name:ClearAllPoints()
-		self.Name:SetPoint("LEFT", 22, 0)
+		self.Name:SetPoint("LEFT", 22, 1)
 
 		if self.Left then
 			self.Left:SetSize(76, 16)
@@ -228,10 +232,10 @@ hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 		end
 
 		if (self.ExpandIcon == nil) then
-			self.ExpandIcon = self:CreateTexture(nil, "ARTWORK")
+			self.ExpandIcon = self:CreateTexture(nil, "OVERLAY")
 			self.ExpandIcon:SetSize(7, 7)
-			self.ExpandIcon:SetPoint("LEFT", 8, 0)
 			self.ExpandIcon:SetTexture("Interface\\Buttons\\UI-PlusMinus-Buttons")
+			self.ExpandIcon:SetPoint("LEFT", 8, 0)
 		end
 
 		self.HighlightLeft:SetAlpha(0)
@@ -260,6 +264,25 @@ hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 			self.ExpandIcon:SetTexCoord(0.5625, 1, 0, 0.4375)
 		end
 	end)
+end)
+
+hooksecurefunc(TokenEntryMixin, 'Initialize', function(self)
+	if not self.IsSkinned then
+		self.Content.CurrencyIcon:SetSize(15, 15)
+
+		self.IsSkinned = true
+	end
+end)
+
+hooksecurefunc(TokenSubHeaderToggleCollapseButtonMixin, "RefreshIcon", function(self)
+	self:SetSize(16, 16)
+	if self:GetHeader():IsCollapsed() then
+		self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
+		self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Up")
+	else
+		self:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
+		self:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Up")
+	end
 end)
 
 local tokenview = TokenFrame.ScrollBox:GetView()
