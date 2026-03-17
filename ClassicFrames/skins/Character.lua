@@ -87,9 +87,9 @@ end
 
 hooksecurefunc(ReputationHeaderMixin, 'Initialize', function(self)
 	if not self.IsSkinned then
-		self:SetHitRectInsets(0, 267, 0, 0)
-
 		self.Name:SetPoint("LEFT", 20, 0)
+
+		self:SetHitRectInsets(0, 267, 0, 0)
 
 		self.Left:SetAlpha(0)
 		self.Right:SetAlpha(0)
@@ -142,13 +142,12 @@ hooksecurefunc(ReputationEntryMixin, 'Initialize', function(self)
 		if self.ToggleCollapseButton then
 			self.Content.Background:Hide()
 			self.Content.Name:SetFontObject(GameFontHighlight)
+		else
+			self.Content.ReputationBar.LeftTexture:SetHeight(21)
+			self.Content.ReputationBar.LeftTexture:SetTexCoord(0.7578125, 1.0, 0.0, 0.328125)
+			self.Content.ReputationBar.RightTexture:SetHeight(21)
+			self.Content.ReputationBar.RightTexture:SetTexCoord(0.0, 0.1640625, 0.34375, 0.671875)
 		end
-
-		self.Content.ReputationBar.LeftTexture:SetHeight(21)
-		self.Content.ReputationBar.LeftTexture:SetTexCoord(0.7578125, 1.0, 0.0, 0.328125)
-
-		self.Content.ReputationBar.RightTexture:SetHeight(21)
-		self.Content.ReputationBar.RightTexture:SetTexCoord(0.0, 0.1640625, 0.34375, 0.671875)
 
 		self.IsSkinned = true
 	end
@@ -164,6 +163,11 @@ hooksecurefunc(ReputationSubHeaderToggleCollapseButtonMixin, "RefreshIcon", func
 		self:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Up")
 	end
 end)
+
+local repview = ReputationFrame.ScrollBox:GetView()
+if repview then
+	repview:SetPadding(1, 0, 8, 10, 0)
+end
 
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
 
@@ -258,6 +262,11 @@ hooksecurefunc(TokenHeaderMixin, 'Initialize', function(self)
 		end
 	end)
 end)
+
+local tokenview = TokenFrame.ScrollBox:GetView()
+if tokenview then
+	tokenview:SetPadding(-2, 0, 2, 3, 0)
+end
 
 ApplyDialogBorder(TokenFramePopup.Border)
 
