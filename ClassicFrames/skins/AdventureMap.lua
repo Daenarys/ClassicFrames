@@ -13,9 +13,16 @@ f:SetScript("OnEvent", function(self, event, name)
 		AdventureMapQuestChoiceDialog.AcceptButton:SetPoint("BOTTOMLEFT", 6, 2)
 		AdventureMapQuestChoiceDialog.DeclineButton:SetPoint("BOTTOMRIGHT", -6, 2)
 
+		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetWidth(20)
 		AdventureMapQuestChoiceDialog.Details.ScrollBar:ClearAllPoints()
-		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetPoint("TOPLEFT", AdventureMapQuestChoiceDialog.Details, "TOPRIGHT", 8, -30)
-		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetPoint("BOTTOMLEFT", AdventureMapQuestChoiceDialog.Details, "BOTTOMRIGHT", -8, 10)
+		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetPoint("TOPLEFT", AdventureMapQuestChoiceDialog.Details, "TOPRIGHT", 0, -20)
+		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetPoint("BOTTOMLEFT", AdventureMapQuestChoiceDialog.Details, "BOTTOMRIGHT", 0, 10)
+
+		if (AdventureMapQuestChoiceDialog.Details.ScrollBar.BG == nil) then
+			AdventureMapQuestChoiceDialog.Details.ScrollBar.BG = AdventureMapQuestChoiceDialog.Details.ScrollBar:CreateTexture(nil, "BACKGROUND")
+			AdventureMapQuestChoiceDialog.Details.ScrollBar.BG:SetColorTexture(0, 0, 0, .25)
+			AdventureMapQuestChoiceDialog.Details.ScrollBar.BG:SetAllPoints()
+		end
 
 		AdventureMapQuestChoiceDialog.Details.ScrollBar.Track.Begin:Hide()
 		AdventureMapQuestChoiceDialog.Details.ScrollBar.Track.End:Hide()
