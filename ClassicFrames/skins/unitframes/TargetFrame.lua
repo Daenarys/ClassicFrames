@@ -214,11 +214,25 @@ local function SkinFrame(frame)
 		CfFocusFrameBackground:SetSize(119, 25)
 		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
 
-		FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBarContainer, "CENTER")
-		FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBarContainer, "LEFT", 4, -1)
-		FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBarContainer, "RIGHT", -7, -1)
-		FrameHealthBarContainer.DeadText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -1)
-		FrameHealthBarContainer.UnconsciousText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -1)
+		if ( classification == "minus" ) then
+			FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -6)
+			FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBarContainer, "LEFT", 4, -6)
+			FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBarContainer, "RIGHT", -7, -6)
+			FrameHealthBarContainer.DeadText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -6)
+			FrameHealthBarContainer.UnconsciousText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -6)
+			if CfTargetFrame.powerBar then
+				CfTargetFrame.powerBar:SetAlpha(0)
+			end
+		else
+			FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBarContainer, "CENTER")
+			FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBarContainer, "LEFT", 4, -1)
+			FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBarContainer, "RIGHT", -7, -1)
+			FrameHealthBarContainer.DeadText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -1)
+			FrameHealthBarContainer.UnconsciousText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -1)
+			if CfTargetFrame.powerBar then
+				CfTargetFrame.powerBar:SetAlpha(1)
+			end
+		end
 
 		FrameManaBar.TextString:SetPoint("CENTER", FrameManaBar, "CENTER", -4, 3)
 		FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 4, 3)
