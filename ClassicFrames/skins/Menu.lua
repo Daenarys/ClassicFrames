@@ -5,8 +5,8 @@ local function SkinMenu(manager, _, menuDescription)
 	select(1, menu:GetRegions()):SetAlpha(0)
 	if (backdrop == nil) then
 		backdrop = CreateFrame("Frame", nil, menu, "TooltipBackdropTemplate")
-		backdrop:SetPoint("TOPLEFT")
-		backdrop:SetPoint("BOTTOMRIGHT", 0, 6)
+		backdrop:SetPoint("TOPLEFT", -5, 3)
+		backdrop:SetPoint("BOTTOMRIGHT", 5, 5)
 	end
 	backdrop:SetFrameLevel(0)
 
@@ -14,12 +14,20 @@ local function SkinMenu(manager, _, menuDescription)
 		select(1, self:GetRegions()):SetAlpha(0)
 		if (backdrop2 == nil) then
 			backdrop2 = CreateFrame("Frame", nil, self, "TooltipBackdropTemplate")
-			backdrop2:SetPoint("TOPLEFT")
-			backdrop2:SetPoint("BOTTOMRIGHT", 0, 6)
+			backdrop2:SetPoint("TOPLEFT", -5, 3)
+			backdrop2:SetPoint("BOTTOMRIGHT", 5, 5)
 		end
 		backdrop2:SetFrameLevel(0)
 	end)
 end
+
+hooksecurefunc(CompositorMixin, "AttachFontString", function(parent)
+	for _, r in pairs(parent.attachments) do
+		if r:GetObjectType()=='FontString' then
+			r:SetFontObject(GameFontHighlightSmallLeft)
+		end
+	end
+end)
 
 local manager = _G.Menu.GetManager()
 if manager then
