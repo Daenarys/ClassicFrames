@@ -1,405 +1,3 @@
-function ApplyCloseButton(frame)
-	frame:SetSize(32, 32)
-	frame:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-	frame:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-	frame:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-	frame:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-	frame:ClearAllPoints()
-	frame:SetPoint("TOPRIGHT", 4, 5)
-end
-
-function ApplyTitleBg(frame)
-	if (frame.TitleBg == nil) then
-		frame.TitleBg = frame:CreateTexture(nil, "BACKGROUND")
-		frame.TitleBg:SetAtlas("_UI-Frame-TitleTileBg", false)
-		frame.TitleBg:SetSize(256, 17)
-		frame.TitleBg:SetHorizTile(true)
-		frame.TitleBg:SetPoint("TOPLEFT", 2, -3)
-		frame.TitleBg:SetPoint("TOPRIGHT", -25, -3)
-	end
-end
-
-function ApplyTitleBgNoPortrait(frame)
-	if (frame.TitleBg == nil) then
-		frame.TitleBg = frame:CreateTexture(nil, "BACKGROUND")
-		frame.TitleBg:SetAtlas("_UI-Frame-TitleTileBg", false)
-		frame.TitleBg:SetSize(256, 18)
-		frame.TitleBg:SetHorizTile(true)
-		frame.TitleBg:SetPoint("TOPLEFT", 6, -3)
-		frame.TitleBg:SetPoint("TOPRIGHT", -25, -3)
-	end
-end
-
-function ApplyNineSlicePortrait(frame)
-	if (frame.Bg:GetTexture() == 374155) then
-		frame.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-	end
-
-	if frame.TopTileStreaks then
-		frame.TopTileStreaks:ClearAllPoints()
-		frame.TopTileStreaks:SetPoint("TOPLEFT", 0, -21)
-		frame.TopTileStreaks:SetPoint("TOPRIGHT", -2, -21)
-	end
-
-	frame.NineSlice.TopEdge:SetSize(256, 28)
-	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
-	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.43750000, 0.65625000)
-	frame.NineSlice.TopEdge:ClearAllPoints()
-	frame.NineSlice.TopEdge:SetPoint("TOPLEFT", frame.NineSlice.TopLeftCorner, "TOPRIGHT", 0, -10)
-	frame.NineSlice.TopEdge:SetPoint("TOPRIGHT", frame.NineSlice.TopRightCorner, "TOPLEFT")
-
-	frame.NineSlice.TopLeftCorner:SetSize(78, 78)
-	frame.NineSlice.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.TopLeftCorner:SetTexCoord(0.00781250, 0.61718750, 0.00781250, 0.61718750)
-	frame.NineSlice.TopLeftCorner:ClearAllPoints()
-	frame.NineSlice.TopLeftCorner:SetPoint("TOPLEFT", -14, 11)
-
-	frame.NineSlice.TopRightCorner:SetSize(33, 33)
-	frame.NineSlice.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.TopRightCorner:SetTexCoord(0.63281250, 0.89062500, 0.00781250, 0.26562500)
-	frame.NineSlice.TopRightCorner:ClearAllPoints()
-	frame.NineSlice.TopRightCorner:SetPoint("TOPRIGHT", 0, 1)
-
-	frame.NineSlice.BottomEdge:SetSize(256, 9)
-	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
-	frame.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.20312500, 0.27343750)
-	frame.NineSlice.BottomEdge:ClearAllPoints()
-	frame.NineSlice.BottomEdge:SetPoint("BOTTOMLEFT", frame.NineSlice.BottomLeftCorner, "BOTTOMRIGHT")
-	frame.NineSlice.BottomEdge:SetPoint("BOTTOMRIGHT", frame.NineSlice.BottomRightCorner, "BOTTOMLEFT")
-
-	frame.NineSlice.BottomLeftCorner:SetSize(14, 14)
-	frame.NineSlice.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.BottomLeftCorner:SetTexCoord(0.00781250, 0.11718750, 0.63281250, 0.74218750)
-	frame.NineSlice.BottomLeftCorner:ClearAllPoints()
-	frame.NineSlice.BottomLeftCorner:SetPoint("BOTTOMLEFT", -6, -5)
-
-	frame.NineSlice.BottomRightCorner:SetSize(11, 11)
-	frame.NineSlice.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.BottomRightCorner:SetTexCoord(0.13281250, 0.21875000, 0.89843750, 0.98437500)
-	frame.NineSlice.BottomRightCorner:ClearAllPoints()
-	frame.NineSlice.BottomRightCorner:SetPoint("BOTTOMRIGHT", 0, -5)
-
-	frame.NineSlice.LeftEdge:SetSize(16, 256)
-	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\!UI-Frame", false, true)
-	frame.NineSlice.LeftEdge:SetTexCoord(0.35937500, 0.60937500, 0, 1)
-	frame.NineSlice.LeftEdge:ClearAllPoints()
-	frame.NineSlice.LeftEdge:SetPoint("TOPLEFT", frame.NineSlice.TopLeftCorner, "BOTTOMLEFT", 8, 0)
-	frame.NineSlice.LeftEdge:SetPoint("BOTTOMLEFT", frame.NineSlice.BottomLeftCorner, "TOPLEFT")
-
-	frame.NineSlice.RightEdge:SetSize(10, 256)
-	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\!UI-Frame", false, true)
-	frame.NineSlice.RightEdge:SetTexCoord(0.17187500, 0.32812500, 0, 1)
-	frame.NineSlice.RightEdge:ClearAllPoints()
-	frame.NineSlice.RightEdge:SetPoint("TOPRIGHT", frame.NineSlice.TopRightCorner, "BOTTOMRIGHT", 1, 0)
-	frame.NineSlice.RightEdge:SetPoint("BOTTOMRIGHT", frame.NineSlice.BottomRightCorner, "TOPRIGHT")
-end
-
-function ApplyNineSliceNoPortrait(frame)
-	frame.NineSlice.TopEdge:SetSize(256, 28)
-	frame.NineSlice.TopEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
-	frame.NineSlice.TopEdge:SetTexCoord(0, 1, 0.43750000, 0.65625000)
-	frame.NineSlice.TopEdge:ClearAllPoints()
-	frame.NineSlice.TopEdge:SetPoint("TOPLEFT", frame.NineSlice.TopLeftCorner, "TOPRIGHT")
-	frame.NineSlice.TopEdge:SetPoint("TOPRIGHT", frame.NineSlice.TopRightCorner, "TOPLEFT")
-
-	frame.NineSlice.TopLeftCorner:SetSize(32, 32)
-	frame.NineSlice.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.TopLeftCorner:SetTexCoord(0.63281250, 0.88281250, 0.28125000, 0.53125000)
-	frame.NineSlice.TopLeftCorner:ClearAllPoints()
-	frame.NineSlice.TopLeftCorner:SetPoint("TOPLEFT", 0, 1)
-
-	frame.NineSlice.TopRightCorner:SetSize(33, 33)
-	frame.NineSlice.TopRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.TopRightCorner:SetTexCoord(0.63281250, 0.89062500, 0.00781250, 0.26562500)
-	frame.NineSlice.TopRightCorner:ClearAllPoints()
-	frame.NineSlice.TopRightCorner:SetPoint("TOPRIGHT", 0, 1)
-
-	frame.NineSlice.BottomEdge:SetSize(256, 9)
-	frame.NineSlice.BottomEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
-	frame.NineSlice.BottomEdge:SetTexCoord(0, 1, 0.20312500, 0.27343750)
-	frame.NineSlice.BottomEdge:ClearAllPoints()
-	frame.NineSlice.BottomEdge:SetPoint("BOTTOMLEFT", frame.NineSlice.BottomLeftCorner, "BOTTOMRIGHT")
-	frame.NineSlice.BottomEdge:SetPoint("BOTTOMRIGHT", frame.NineSlice.BottomRightCorner, "BOTTOMLEFT")
-
-	frame.NineSlice.BottomLeftCorner:SetSize(14, 14)
-	frame.NineSlice.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.BottomLeftCorner:SetTexCoord(0.00781250, 0.11718750, 0.63281250, 0.74218750)
-	frame.NineSlice.BottomLeftCorner:ClearAllPoints()
-	frame.NineSlice.BottomLeftCorner:SetPoint("BOTTOMLEFT", 0, -5)
-
-	frame.NineSlice.BottomRightCorner:SetSize(11, 11)
-	frame.NineSlice.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-	frame.NineSlice.BottomRightCorner:SetTexCoord(0.13281250, 0.21875000, 0.89843750, 0.98437500)
-	frame.NineSlice.BottomRightCorner:ClearAllPoints()
-	frame.NineSlice.BottomRightCorner:SetPoint("BOTTOMRIGHT", 0, -5)
-
-	frame.NineSlice.LeftEdge:SetSize(16, 256)
-	frame.NineSlice.LeftEdge:SetTexture("Interface\\FrameGeneral\\!UI-Frame", false, true)
-	frame.NineSlice.LeftEdge:SetTexCoord(0.35937500, 0.60937500, 0, 1)
-	frame.NineSlice.LeftEdge:ClearAllPoints()
-	frame.NineSlice.LeftEdge:SetPoint("TOPLEFT", frame.NineSlice.TopLeftCorner, "BOTTOMLEFT")
-	frame.NineSlice.LeftEdge:SetPoint("BOTTOMLEFT", frame.NineSlice.BottomLeftCorner, "TOPLEFT")
-
-	frame.NineSlice.RightEdge:SetSize(10, 256)
-	frame.NineSlice.RightEdge:SetTexture("Interface\\FrameGeneral\\!UI-Frame", false, true)
-	frame.NineSlice.RightEdge:SetTexCoord(0.17187500, 0.32812500, 0, 1)
-	frame.NineSlice.RightEdge:ClearAllPoints()
-	frame.NineSlice.RightEdge:SetPoint("TOPRIGHT", frame.NineSlice.TopRightCorner, "BOTTOMRIGHT", 1, 0)
-	frame.NineSlice.RightEdge:SetPoint("BOTTOMRIGHT", frame.NineSlice.BottomRightCorner, "TOPRIGHT")
-end
-
-function ApplyDialogBorder(frame)
-	frame:SetAlpha(0)
-
-	if not frame:GetParent().SetBackdrop then
-		Mixin(frame:GetParent(), BackdropTemplateMixin)
-	end
-	frame:GetParent():SetBackdrop(BACKDROP_DIALOG_32_32)
-end
-
-function ApplyDialogHeader(frame)
-	frame.LeftBG:SetSize(14, 40)
-	frame.LeftBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
-	frame.LeftBG:SetTexCoord(0.2265625, 0.28125, 0, 0.625)
-	frame.LeftBG:SetTexelSnappingBias(1)
-
-	frame.RightBG:SetSize(14, 40)
-	frame.RightBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
-	frame.RightBG:SetTexCoord(0.71484375, 0.76953125, 0, 0.625)
-	frame.RightBG:SetTexelSnappingBias(1)
-	frame.RightBG:SetPoint("RIGHT", -1, 0)
-
-	frame.CenterBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
-	frame.CenterBG:SetTexCoord(0.28125, 0.71484375, 0, 0.625)
-	frame.CenterBG:SetHorizTile(false)
-	frame.CenterBG:SetTexelSnappingBias(1)
-end
-
-function ApplyScrollBarArrow(frame)
-	frame.Back:SetSize(18, 16)
-	frame.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
-	frame.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
-	frame.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
-	frame.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
-	frame.Back:ClearAllPoints()
-	frame.Back:SetPoint("TOPLEFT", 4, -4)
-
-	frame.Forward:SetSize(18, 16)
-	frame.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
-	frame.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
-	frame.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
-	frame.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
-	frame.Forward:ClearAllPoints()
-	frame.Forward:SetPoint("BOTTOMLEFT", 4, 4)
-end
-
-function ApplyScrollBarTrack(frame)
-	frame:ClearAllPoints()
-	frame:SetPoint("TOPLEFT", 4, -22)
-	frame:SetPoint("BOTTOMRIGHT", -4, 22)
-	
-	frame.Begin:SetAtlas("UI-ScrollBar-EndCap-Top", true)
-	frame.Begin:ClearAllPoints()
-	frame.Begin:SetPoint("TOPLEFT", -4, 22)
-
-	frame.End:SetAtlas("UI-ScrollBar-EndCap-Bottom", true)
-	frame.End:ClearAllPoints()
-	frame.End:SetPoint("BOTTOMLEFT", -4, -22)
-
-	frame.Middle:SetAtlas("!UI-ScrollBar-Center", true)
-end
-
-function ApplyScrollBarThumb(frame)
-	frame:SetWidth(18)
-
-	frame.Begin:SetAtlas("UI-ScrollBar-Knob-EndCap-Top", true)
-	frame.End:SetAtlas("UI-ScrollBar-Knob-EndCap-Bottom", true)
-	frame.Middle:SetAtlas("UI-ScrollBar-Knob-Center", true)
-
-	frame.Middle:ClearAllPoints()
-	frame.Middle:SetPoint("TOPLEFT", 0, -5)
-	frame.Middle:SetPoint("BOTTOMRIGHT", 0, 5)
-
-	frame.upBeginTexture = "UI-ScrollBar-Knob-EndCap-Top"
-	frame.upMiddleTexture = "UI-ScrollBar-Knob-Center"
-	frame.upEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom"
-	frame.overBeginTexture = "UI-ScrollBar-Knob-MouseOver-EndCap-Top"
-	frame.overMiddleTexture = "UI-ScrollBar-Knob-MouseOver-Center"
-	frame.overEndTexture = "UI-ScrollBar-Knob-MouseOver-EndCap-Bottom"
-	frame.downBeginTexture = "UI-ScrollBar-Knob-EndCap-Top-Disabled"
-	frame.downMiddleTexture = "UI-ScrollBar-Knob-Center-Disabled"
-	frame.downEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom-Disabled"
-end
-
-function ApplyTopTab(frame)
-	frame.LeftActive:SetSize(16, 32)
-	frame.LeftActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
-	frame.LeftActive:SetTexCoord(0, 0.25, 0, 1)
-	frame.LeftActive:SetPoint("BOTTOMLEFT", 0, -3)
-
-	frame.RightActive:SetSize(16, 32)
-	frame.RightActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
-	frame.RightActive:SetTexCoord(0.75, 1, 0, 1)
-	frame.RightActive:SetPoint("BOTTOMRIGHT", 0, -3)
-
-	frame.MiddleActive:SetSize(32, 32)
-	frame.MiddleActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
-	frame.MiddleActive:SetTexCoord(0.25, 0.75, 0, 1)
-	frame.MiddleActive:SetHorizTile(false)
-
-	frame.Left:SetSize(16, 32)
-	frame.Left:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
-	frame.Left:SetTexCoord(0, 0.25, 0, 1)
-	frame.Left:SetPoint("BOTTOMLEFT")
-
-	frame.Right:SetSize(16, 32)
-	frame.Right:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
-	frame.Right:SetTexCoord(0.75, 1, 0, 1)
-	frame.Right:SetPoint("TOPRIGHT")
-
-	frame.Middle:SetSize(32, 32)
-	frame.Middle:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
-	frame.Middle:SetTexCoord(0.25, 0.75, 0, 1)
-	frame.Middle:SetHorizTile(false)
-
-	frame.LeftHighlight:Hide()
-	frame.MiddleHighlight:Hide()
-	frame.RightHighlight:Hide()
-
-	frame:SetHighlightTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-Highlight")
-	frame:GetHighlightTexture():ClearAllPoints()
-	frame:GetHighlightTexture():SetPoint("TOPLEFT", 2, -8)
-	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", 2, -8)
-
-	frame.Text:ClearAllPoints()
-	frame.Text:SetPoint("BOTTOM", 0, 6)
-end
-
-function ApplyTopTabNew(frame)
-	frame:SetHeight(32)
-
-	if (frame.LeftDisabled == nil) then
-		frame.LeftDisabled = frame:CreateTexture(nil, "BACKGROUND")
-		frame.LeftDisabled:SetSize(16, 32)
-		frame.LeftDisabled:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
-		frame.LeftDisabled:SetTexCoord(0, 0.25, 0, 1)
-		frame.LeftDisabled:SetPoint("BOTTOMLEFT")
-	end
-
-	if (frame.RightDisabled == nil) then
-		frame.RightDisabled = frame:CreateTexture(nil, "BACKGROUND")
-		frame.RightDisabled:SetSize(16, 32)
-		frame.RightDisabled:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
-		frame.RightDisabled:SetTexCoord(0.75, 1, 0, 1)
-		frame.RightDisabled:SetPoint("BOTTOMRIGHT")
-	end
-
-	if (frame.MiddleDisabled == nil) then
-		frame.MiddleDisabled = frame:CreateTexture(nil, "BACKGROUND")
-		frame.MiddleDisabled:SetSize(32, 32)
-		frame.MiddleDisabled:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")
-		frame.MiddleDisabled:SetTexCoord(0.25, 0.75, 0, 1)
-		frame.MiddleDisabled:SetHorizTile(false)
-		frame.MiddleDisabled:SetPoint("TOPLEFT", frame.LeftDisabled, "TOPRIGHT")
-		frame.MiddleDisabled:SetPoint("TOPRIGHT", frame.RightDisabled, "TOPLEFT")
-	end
-
-	if (frame.CfLeft == nil) then
-		frame.CfLeft = frame:CreateTexture(nil, "BACKGROUND")
-		frame.CfLeft:SetSize(16, 32)
-		frame.CfLeft:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
-		frame.CfLeft:SetTexCoord(0, 0.25, 0, 1)
-		frame.CfLeft:SetPoint("BOTTOMLEFT", 0, 3)
-	end
-
-	if (frame.CfRight == nil) then
-		frame.CfRight = frame:CreateTexture(nil, "BACKGROUND")
-		frame.CfRight:SetSize(16, 32)
-		frame.CfRight:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
-		frame.CfRight:SetTexCoord(0.75, 1, 0, 1)
-		frame.CfRight:SetPoint("BOTTOMRIGHT", 0, 3)
-	end
-
-	if (frame.CfMiddle == nil) then
-		frame.CfMiddle = frame:CreateTexture(nil, "BACKGROUND")
-		frame.CfMiddle:SetSize(32, 32)
-		frame.CfMiddle:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Inactive")
-		frame.CfMiddle:SetTexCoord(0.25, 0.75, 0, 1)
-		frame.CfMiddle:SetHorizTile(false)
-		frame.CfMiddle:SetPoint("TOPLEFT", frame.CfLeft, "TOPRIGHT")
-		frame.CfMiddle:SetPoint("TOPRIGHT", frame.CfRight, "TOPLEFT")
-	end
-
-	frame.LeftHighlight:Hide()
-	frame.MiddleHighlight:Hide()
-	frame.RightHighlight:Hide()
-
-	frame:SetHighlightTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-Highlight")
-	frame:GetHighlightTexture():ClearAllPoints()
-	frame:GetHighlightTexture():SetPoint("TOPLEFT", 0, -5)
-	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", 0, -5)
-
-	frame.Text:ClearAllPoints()
-	frame.Text:SetPoint("BOTTOM", 0, 9)
-
-	hooksecurefunc(frame, "SetTabSelected", function(frame, isSelected)
-		frame.Left:Hide()
-		frame.Middle:Hide()
-		frame.Right:Hide()
-		frame.LeftActive:Hide()
-		frame.RightActive:Hide()
-		frame.MiddleActive:Hide()
-
-		frame.CfLeft:SetShown(not isSelected)
-		frame.CfMiddle:SetShown(not isSelected)
-		frame.CfRight:SetShown(not isSelected)
-		frame.LeftDisabled:SetShown(isSelected)
-		frame.MiddleDisabled:SetShown(isSelected)
-		frame.RightDisabled:SetShown(isSelected)
-	end)
-end
-
-function ApplyBottomTab(frame)
-	frame.LeftActive:SetSize(20, 35)
-	frame.LeftActive:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
-	frame.LeftActive:SetTexCoord(0, 0.15625, 0, 0.546875)
-	frame.LeftActive:SetPoint("TOPLEFT")
-
-	frame.RightActive:SetSize(20, 35)
-	frame.RightActive:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
-	frame.RightActive:SetTexCoord(0.84375, 1, 0, 0.546875)
-	frame.RightActive:SetPoint("TOPRIGHT")
-
-	frame.MiddleActive:SetSize(88, 35)
-	frame.MiddleActive:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
-	frame.MiddleActive:SetTexCoord(0.15625, 0.84375, 0, 0.546875)
-	frame.MiddleActive:SetHorizTile(false)
-
-	frame.Left:SetSize(20, 32)
-	frame.Left:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InActiveTab")
-	frame.Left:SetTexCoord(0, 0.15625, 0, 1)
-	frame.Left:SetPoint("TOPLEFT", 0, -1)
-
-	frame.Right:SetSize(20, 32)
-	frame.Right:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InActiveTab")
-	frame.Right:SetTexCoord(0.84375, 1, 0, 1)
-	frame.Right:SetPoint("TOPRIGHT", 0, -1)
-
-	frame.Middle:SetSize(88, 32)
-	frame.Middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InActiveTab")
-	frame.Middle:SetTexCoord(0.15625, 0.84375, 0, 1)
-	frame.Middle:SetHorizTile(false)
-
-	frame.LeftHighlight:Hide()
-	frame.MiddleHighlight:Hide()
-	frame.RightHighlight:Hide()
-
-	frame:SetHighlightTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-RealHighlight")
-	frame:GetHighlightTexture():ClearAllPoints()
-	frame:GetHighlightTexture():SetPoint("TOPLEFT", 3, 5)
-	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", -3, 0)
-end
-
 function ApplyDropDown(frame)
 	frame.Background:Hide()
 
@@ -556,100 +154,119 @@ function ApplyFilterDropDown(frame)
 	end)
 end
 
-function ApplyButtonSeparator(frame)
-	local leftHandled = false
-	local rightHandled = false
+function ApplyTopTab(frame)
+	frame:SetHeight(32)
 
-	-- Find out where this button is anchored and adjust positions/separators as necessary
-	for i=1, frame:GetNumPoints() do
-		local point, relativeTo, relativePoint, offsetX, offsetY = frame:GetPoint(i)
+	local TOP_TAB_HEIGHT_PERCENT = 0.75
+	local TOP_TAB_BOTTOM_TEX_COORD = 1 - TOP_TAB_HEIGHT_PERCENT
 
-		if (relativeTo:GetObjectType() == "Button" and (point == "TOPLEFT" or point == "LEFT")) then
-
-			if (offsetX == 0 and offsetY == 0) then
-				frame:SetPoint(point, relativeTo, relativePoint, 1, 0)
-			end
-
-			if (relativeTo.RightSeparator) then
-				-- Modify separator to make it a Middle
-				frame.LeftSeparator = relativeTo.RightSeparator
-			else
-				-- Add a Middle separator
-				frame.LeftSeparator = frame:CreateTexture(frame:GetName() and frame:GetName().."_LeftSeparator" or nil, "BORDER")
-				relativeTo.RightSeparator = frame.LeftSeparator
-			end
-
-			frame.LeftSeparator:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-			frame.LeftSeparator:SetTexCoord(0.00781250, 0.10937500, 0.75781250, 0.95312500)
-			frame.LeftSeparator:SetWidth(13)
-			frame.LeftSeparator:SetHeight(25)
-			frame.LeftSeparator:SetPoint("TOPRIGHT", frame, "TOPLEFT", 5, 1)
-
-			leftHandled = true
-
-		elseif (relativeTo:GetObjectType() == "Button" and (point == "TOPRIGHT" or point == "RIGHT")) then
-
-			if (offsetX == 0 and offsetY == 0) then
-				frame:SetPoint(point, relativeTo, relativePoint, -1, 0)
-			end
-
-			if (relativeTo.LeftSeparator) then
-				-- Modify separator to make it a Middle
-				frame.RightSeparator = relativeTo.LeftSeparator
-			else
-				-- Add a Middle separator
-				frame.RightSeparator = frame:CreateTexture(frame:GetName() and frame:GetName().."_RightSeparator" or nil, "BORDER")
-				relativeTo.LeftSeparator = frame.RightSeparator
-			end
-
-			frame.RightSeparator:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-			frame.RightSeparator:SetTexCoord(0.00781250, 0.10937500, 0.75781250, 0.95312500)
-			frame.RightSeparator:SetWidth(13)
-			frame.RightSeparator:SetHeight(25)
-			frame.RightSeparator:SetPoint("TOPLEFT", frame, "TOPRIGHT", -5, 1)
-
-			rightHandled = true
-
-		elseif (point == "BOTTOMLEFT") then
-			if (offsetX == 0 and offsetY == 0) then
-				frame:SetPoint(point, relativeTo, relativePoint, 4, 4)
-			end
-			leftHandled = true
-		elseif (point == "BOTTOMRIGHT") then
-			if (offsetX == 0 and offsetY == 0) then
-				frame:SetPoint(point, relativeTo, relativePoint, -6, 4)
-			end
-			rightHandled = true
-		elseif (point == "BOTTOM") then
-			if (offsetY == 0) then
-				frame:SetPoint(point, relativeTo, relativePoint, 0, 4)
-			end
-		end
+	if (frame.CfLeftActive == nil) then
+		frame.CfLeftActive = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfLeftActive:SetAtlas("uiframe-activetab-left", true)
+		frame.CfLeftActive:SetTexCoord(0, 1, 1, TOP_TAB_BOTTOM_TEX_COORD)
+		frame.CfLeftActive:SetHeight(frame.CfLeftActive:GetHeight() * TOP_TAB_HEIGHT_PERCENT)
+		frame.CfLeftActive:SetPoint("BOTTOMLEFT", -1, 0)
 	end
 
-	-- If this button didn't have a left anchor, add the left border texture
-	if (not leftHandled) then
-		if (not frame.LeftSeparator) then
-			-- Add a Left border
-			frame.LeftSeparator = frame:CreateTexture(frame:GetName() and frame:GetName().."_LeftSeparator" or nil, "BORDER")
-			frame.LeftSeparator:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-			frame.LeftSeparator:SetTexCoord(0.24218750, 0.32812500, 0.63281250, 0.82812500)
-			frame.LeftSeparator:SetWidth(11)
-			frame.LeftSeparator:SetHeight(25)
-			frame.LeftSeparator:SetPoint("TOPRIGHT", frame, "TOPLEFT", 6, 1)
-		end
+	if (frame.CfRightActive == nil) then
+		frame.CfRightActive = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfRightActive:SetAtlas("uiframe-activetab-right", true)
+		frame.CfRightActive:SetTexCoord(0, 1, 1, TOP_TAB_BOTTOM_TEX_COORD)
+		frame.CfRightActive:SetHeight(frame.CfRightActive:GetHeight() * TOP_TAB_HEIGHT_PERCENT)
+		frame.CfRightActive:SetPoint("BOTTOMRIGHT", 8, 0)
 	end
 
-	-- If this button didn't have a right anchor, add the right border texture
-	if (not rightHandled) then
-		if (not frame.RightSeparator) then
-			-- Add a Right border
-			frame.RightSeparator = frame:CreateTexture(frame:GetName() and frame:GetName().."_RightSeparator" or nil, "BORDER")
-			frame.RightSeparator:SetTexture("Interface\\FrameGeneral\\UI-Frame")
-			frame.RightSeparator:SetTexCoord(0.90625000, 0.99218750, 0.00781250, 0.20312500)
-			frame.RightSeparator:SetWidth(11)
-			frame.RightSeparator:SetHeight(25)
-			frame.RightSeparator:SetPoint("TOPLEFT", frame, "TOPRIGHT", -6, 1)
-		end
+	if (frame.CfMiddleActive == nil) then
+		frame.CfMiddleActive = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfMiddleActive:SetAtlas("_uiframe-activetab-center", true)
+		frame.CfMiddleActive:SetTexCoord(0, 1, 1, TOP_TAB_BOTTOM_TEX_COORD)
+		frame.CfMiddleActive:SetHeight(frame.CfMiddleActive:GetHeight() * TOP_TAB_HEIGHT_PERCENT)
+		frame.CfMiddleActive:SetHorizTile(true)
+		frame.CfMiddleActive:SetPoint("TOPLEFT", frame.CfLeftActive, "TOPRIGHT")
+		frame.CfMiddleActive:SetPoint("TOPRIGHT", frame.CfRightActive, "TOPLEFT")
 	end
+
+	if (frame.CfLeft == nil) then
+		frame.CfLeft = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfLeft:SetAtlas("uiframe-tab-left", true)
+		frame.CfLeft:SetTexCoord(0, 1, 1, TOP_TAB_BOTTOM_TEX_COORD)
+		frame.CfLeft:SetHeight(frame.CfLeft:GetHeight() * TOP_TAB_HEIGHT_PERCENT)
+		frame.CfLeft:SetPoint("BOTTOMLEFT", -3, 0)
+	end
+
+	if (frame.CfRight == nil) then
+		frame.CfRight = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfRight:SetAtlas("uiframe-tab-right", true)
+		frame.CfRight:SetTexCoord(0, 1, 1, TOP_TAB_BOTTOM_TEX_COORD)
+		frame.CfRight:SetHeight(frame.CfRight:GetHeight() * TOP_TAB_HEIGHT_PERCENT)
+		frame.CfRight:SetPoint("BOTTOMRIGHT", 7, 0)
+	end
+
+	if (frame.CfMiddle == nil) then
+		frame.CfMiddle = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfMiddle:SetAtlas("_uiframe-tab-center", true)
+		frame.CfMiddle:SetTexCoord(0, 1, 1, TOP_TAB_BOTTOM_TEX_COORD)
+		frame.CfMiddle:SetHeight(frame.CfMiddle:GetHeight() * TOP_TAB_HEIGHT_PERCENT)
+		frame.CfMiddle:SetHorizTile(true)
+		frame.CfMiddle:SetPoint("TOPLEFT", frame.CfLeft, "TOPRIGHT")
+		frame.CfMiddle:SetPoint("TOPRIGHT", frame.CfRight, "TOPLEFT")
+	end
+
+	if (frame.CfLeftHighlight == nil) then
+		frame.CfLeftHighlight = frame:CreateTexture(nil, "HIGHLIGHT")
+		frame.CfLeftHighlight:SetAtlas("uiframe-tab-left", true)
+		frame.CfLeftHighlight:SetTexCoord(0, 1, 1, TOP_TAB_BOTTOM_TEX_COORD)
+		frame.CfLeftHighlight:SetBlendMode("ADD")
+		frame.CfLeftHighlight:SetHeight(frame.CfLeftHighlight:GetHeight() * TOP_TAB_HEIGHT_PERCENT)
+		frame.CfLeftHighlight:SetPoint("TOPLEFT", frame.CfLeft, "TOPLEFT")
+		frame.CfLeftHighlight:SetAlpha(0.4)
+	end
+
+	if (frame.CfMiddleHighlight== nil) then
+		frame.CfMiddleHighlight = frame:CreateTexture(nil, "HIGHLIGHT")
+		frame.CfMiddleHighlight:SetAtlas("_uiframe-tab-center", true)
+		frame.CfMiddleHighlight:SetTexCoord(0, 1, 1, TOP_TAB_BOTTOM_TEX_COORD)
+		frame.CfMiddleHighlight:SetBlendMode("ADD")
+		frame.CfMiddleHighlight:SetHeight(frame.CfMiddleHighlight:GetHeight() * TOP_TAB_HEIGHT_PERCENT)
+		frame.CfMiddleHighlight:SetHorizTile(true)
+		frame.CfMiddleHighlight:SetPoint("TOPLEFT", frame.CfMiddle, "TOPLEFT")
+		frame.CfMiddleHighlight:SetPoint("TOPRIGHT", frame.CfMiddle, "TOPRIGHT")
+		frame.CfMiddleHighlight:SetAlpha(0.4)
+	end
+
+	if (frame.CfRightHighlight == nil) then
+		frame.CfRightHighlight = frame:CreateTexture(nil, "HIGHLIGHT")
+		frame.CfRightHighlight:SetAtlas("uiframe-tab-right", true)
+		frame.CfRightHighlight:SetTexCoord(0, 1, 1, TOP_TAB_BOTTOM_TEX_COORD)
+		frame.CfRightHighlight:SetBlendMode("ADD")
+		frame.CfRightHighlight:SetHeight(frame.CfRightHighlight:GetHeight() * TOP_TAB_HEIGHT_PERCENT)
+		frame.CfRightHighlight:SetPoint("TOPRIGHT", frame.CfRight, "TOPRIGHT")
+		frame.CfRightHighlight:SetAlpha(0.4)
+	end
+
+	frame.LeftHighlight:Hide()
+	frame.MiddleHighlight:Hide()
+	frame.RightHighlight:Hide()
+
+	hooksecurefunc(frame, "SetTabSelected", function(frame, isSelected)
+		frame.Left:Hide()
+		frame.Middle:Hide()
+		frame.Right:Hide()
+		frame.LeftActive:Hide()
+		frame.RightActive:Hide()
+		frame.MiddleActive:Hide()
+
+		frame.CfLeft:SetShown(not isSelected)
+		frame.CfMiddle:SetShown(not isSelected)
+		frame.CfRight:SetShown(not isSelected)
+		frame.CfLeftActive:SetShown(isSelected)
+		frame.CfMiddleActive:SetShown(isSelected)
+		frame.CfRightActive:SetShown(isSelected)
+
+		if isSelected then
+			frame.Text:SetPoint("CENTER", 0, -4)
+		else
+			frame.Text:SetPoint("CENTER", 0, -8)
+		end
+	end)
 end
