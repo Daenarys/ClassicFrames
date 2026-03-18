@@ -111,5 +111,9 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyFilterDropDown(ProfessionsFrame.CraftingPage.RecipeList.FilterDropdown)
 		ApplyFilterDropDown(ProfessionsFrame.OrdersPage.BrowseFrame.RecipeList.FilterDropdown)
+
+		ApplyCloseButton(InspectRecipeFrame.CloseButton)
+		ApplyTitleBg(InspectRecipeFrame)
+		ApplyNineSlicePortrait(InspectRecipeFrame)
 	end
 end)
