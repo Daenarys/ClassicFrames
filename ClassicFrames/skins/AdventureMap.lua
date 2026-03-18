@@ -8,7 +8,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		AdventureMapQuestChoiceDialog.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 		AdventureMapQuestChoiceDialog.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 		AdventureMapQuestChoiceDialog.CloseButton:ClearAllPoints()
-		AdventureMapQuestChoiceDialog.CloseButton:SetPoint("TOPRIGHT", 3, -9)
+		AdventureMapQuestChoiceDialog.CloseButton:SetPoint("TOPRIGHT", 3, -10)
 
 		hooksecurefunc(AdventureMapQuestChoiceDialog, "RefreshDetails", function()
 			AdventureMapQuestChoiceDialog.Background:SetTexture("Interface\\Addons\\ClassicFrames\\icons\\AdventureMap")
