@@ -10,6 +10,9 @@ f:SetScript("OnEvent", function(self, event, name)
 		AdventureMapQuestChoiceDialog.CloseButton:ClearAllPoints()
 		AdventureMapQuestChoiceDialog.CloseButton:SetPoint("TOPRIGHT", 3, -10)
 
+		AdventureMapQuestChoiceDialog.AcceptButton:SetPoint("BOTTOMLEFT", 6, 2)
+		AdventureMapQuestChoiceDialog.DeclineButton:SetPoint("BOTTOMRIGHT", -6, 2)
+
 		hooksecurefunc(AdventureMapQuestChoiceDialog, "RefreshDetails", function()
 			AdventureMapQuestChoiceDialog.Background:SetTexture("Interface\\Addons\\ClassicFrames\\icons\\AdventureMap")
 			AdventureMapQuestChoiceDialog.Background:SetTexCoord(0.000976562, 0.34375, 0.000976562, 0.428711)
