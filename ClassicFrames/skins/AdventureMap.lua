@@ -15,8 +15,8 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetWidth(20)
 		AdventureMapQuestChoiceDialog.Details.ScrollBar:ClearAllPoints()
-		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetPoint("TOPLEFT", AdventureMapQuestChoiceDialog.Details, "TOPRIGHT", 0, -20)
-		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetPoint("BOTTOMLEFT", AdventureMapQuestChoiceDialog.Details, "BOTTOMRIGHT", 0, 10)
+		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetPoint("TOPLEFT", AdventureMapQuestChoiceDialog.Details, "TOPRIGHT", 3, 5)
+		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetPoint("BOTTOMLEFT", AdventureMapQuestChoiceDialog.Details, "BOTTOMRIGHT", -3, -50)
 
 		if (AdventureMapQuestChoiceDialog.Details.ScrollBar.BG == nil) then
 			AdventureMapQuestChoiceDialog.Details.ScrollBar.BG = AdventureMapQuestChoiceDialog.Details.ScrollBar:CreateTexture(nil, "BACKGROUND")
