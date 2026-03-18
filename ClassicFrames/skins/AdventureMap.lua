@@ -13,6 +13,28 @@ f:SetScript("OnEvent", function(self, event, name)
 		AdventureMapQuestChoiceDialog.AcceptButton:SetPoint("BOTTOMLEFT", 6, 2)
 		AdventureMapQuestChoiceDialog.DeclineButton:SetPoint("BOTTOMRIGHT", -6, 2)
 
+		AdventureMapQuestChoiceDialog.Details.ScrollBar:ClearAllPoints()
+		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetPoint("TOPLEFT", AdventureMapQuestChoiceDialog.Details, "TOPRIGHT", 8, -30)
+		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetPoint("BOTTOMLEFT", AdventureMapQuestChoiceDialog.Details, "BOTTOMRIGHT", -8, 10)
+
+		AdventureMapQuestChoiceDialog.Details.ScrollBar.Track.Begin:Hide()
+		AdventureMapQuestChoiceDialog.Details.ScrollBar.Track.End:Hide()
+		AdventureMapQuestChoiceDialog.Details.ScrollBar.Track.Middle:Hide()
+
+		ApplyScrollBarThumb(AdventureMapQuestChoiceDialog.Details.ScrollBar.Track.Thumb)
+
+		AdventureMapQuestChoiceDialog.Details.ScrollBar.Back:SetSize(18, 16)
+		AdventureMapQuestChoiceDialog.Details.ScrollBar.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
+		AdventureMapQuestChoiceDialog.Details.ScrollBar.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
+		AdventureMapQuestChoiceDialog.Details.ScrollBar.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
+		AdventureMapQuestChoiceDialog.Details.ScrollBar.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
+
+		AdventureMapQuestChoiceDialog.Details.ScrollBar.Forward:SetSize(18, 16)
+		AdventureMapQuestChoiceDialog.Details.ScrollBar.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
+		AdventureMapQuestChoiceDialog.Details.ScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
+		AdventureMapQuestChoiceDialog.Details.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
+		AdventureMapQuestChoiceDialog.Details.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
+
 		hooksecurefunc(AdventureMapQuestChoiceDialog, "RefreshDetails", function()
 			AdventureMapQuestChoiceDialog.Background:SetTexture("Interface\\Addons\\ClassicFrames\\icons\\AdventureMap")
 			AdventureMapQuestChoiceDialog.Background:SetTexCoord(0.000976562, 0.34375, 0.000976562, 0.428711)
