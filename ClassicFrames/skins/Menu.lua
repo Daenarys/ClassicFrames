@@ -15,7 +15,7 @@ local function SkinMenu(manager, _, menuDescription)
 		if (backdrop2 == nil) then
 			backdrop2 = CreateFrame("Frame", nil, self, "TooltipBackdropTemplate")
 			backdrop2:SetPoint("TOPLEFT")
-			backdrop2:SetPoint("BOTTOMRIGHT")
+			backdrop2:SetPoint("BOTTOMRIGHT", 0, 7)
 		end
 		backdrop2:SetFrameLevel(0)
 	end)
