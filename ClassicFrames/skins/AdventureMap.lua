@@ -10,15 +10,12 @@ f:SetScript("OnEvent", function(self, event, name)
 		AdventureMapQuestChoiceDialog.CloseButton:ClearAllPoints()
 		AdventureMapQuestChoiceDialog.CloseButton:SetPoint("TOPRIGHT", 3, -10)
 
-		AdventureMapQuestChoiceDialog.AcceptButton:SetPoint("BOTTOMLEFT", 6, 2)
-		AdventureMapQuestChoiceDialog.DeclineButton:SetPoint("BOTTOMRIGHT", -6, 2)
-
 		AdventureMapQuestChoiceDialog.Background:SetAlpha(0)
 
 		if (AdventureMapQuestChoiceDialog.Bg == nil) then
 			AdventureMapQuestChoiceDialog.Bg = AdventureMapQuestChoiceDialog:CreateTexture(nil, "BACKGROUND", nil, -2)
 			AdventureMapQuestChoiceDialog.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
-			AdventureMapQuestChoiceDialog.Bg:SetPoint("TOPLEFT", 5, -17)
+			AdventureMapQuestChoiceDialog.Bg:SetPoint("TOPLEFT", 5, -35)
 			AdventureMapQuestChoiceDialog.Bg:SetPoint("BOTTOMRIGHT", -5, 3)
 		end
 
@@ -27,6 +24,15 @@ f:SetScript("OnEvent", function(self, event, name)
 			AdventureMapQuestChoiceDialog.Paper:SetTexture("Interface\\QuestFrame\\QuestBG", true, true)
 			AdventureMapQuestChoiceDialog.Paper:SetPoint("TOPLEFT", 5, -35)
 			AdventureMapQuestChoiceDialog.Paper:SetPoint("BOTTOMRIGHT", 155, 30)
+		end
+
+		if (AdventureMapQuestChoiceDialog.TitleBg == nil) then
+			AdventureMapQuestChoiceDialog.TitleBg = AdventureMapQuestChoiceDialog:CreateTexture(nil, "BACKGROUND", nil , -1)
+			AdventureMapQuestChoiceDialog.TitleBg:SetAtlas("_UI-Frame-TitleTileBg", false)
+			AdventureMapQuestChoiceDialog.TitleBg:SetSize(256, 18)
+			AdventureMapQuestChoiceDialog.TitleBg:SetHorizTile(true)
+			AdventureMapQuestChoiceDialog.TitleBg:SetPoint("TOPLEFT", 6, -17)
+			AdventureMapQuestChoiceDialog.TitleBg:SetPoint("TOPRIGHT", -25, -17)
 		end
 
 		if (AdventureMapQuestChoiceDialog.TopLeftCorner == nil) then
