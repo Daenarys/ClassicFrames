@@ -5,8 +5,8 @@ local function SkinMenu(manager, _, menuDescription)
 	select(1, menu:GetRegions()):SetAlpha(0)
 	if (backdrop == nil) then
 		backdrop = CreateFrame("Frame", nil, menu, "TooltipBackdropTemplate")
-		backdrop:SetPoint("TOPLEFT", -5, 0)
-		backdrop:SetPoint("BOTTOMRIGHT", 0, 5)
+		backdrop:SetPoint("TOPLEFT", -5, 3)
+		backdrop:SetPoint("BOTTOMRIGHT", 5, 0)
 	end
 	backdrop:SetFrameLevel(0)
 
@@ -14,8 +14,8 @@ local function SkinMenu(manager, _, menuDescription)
 		select(1, self:GetRegions()):SetAlpha(0)
 		if (backdrop2 == nil) then
 			backdrop2 = CreateFrame("Frame", nil, self, "TooltipBackdropTemplate")
-			backdrop2:SetPoint("TOPLEFT")
-			backdrop2:SetPoint("BOTTOMRIGHT", 0, 7)
+			backdrop2:SetPoint("TOPLEFT", 0, 3)
+			backdrop2:SetPoint("BOTTOMRIGHT", 0, 4)
 		end
 		backdrop2:SetFrameLevel(0)
 	end)
