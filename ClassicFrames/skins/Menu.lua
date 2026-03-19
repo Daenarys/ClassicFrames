@@ -21,16 +21,34 @@ local function SkinMenu(manager, _, menuDescription)
 	end)
 end
 
-hooksecurefunc(CompositorMixin, "AttachFontString", function(parent)
-	for _, r in pairs(parent.attachments) do
-		if r:GetObjectType() == "FontString" then
-			r:SetFontObject(GameFontHighlightSmallLeft)
-		end
-	end
-end)
-
 local manager = _G.Menu.GetManager()
 if manager then
 	hooksecurefunc(manager, "OpenMenu", SkinMenu)
 	hooksecurefunc(manager, "OpenContextMenu", SkinMenu)
 end
+
+hooksecurefunc(CompositorMixin, "AttachFontString", function(parent)
+	for _, r in pairs(parent.attachments) do
+		if r:GetObjectType() == "FontString" then
+			r:SetFontObject(GameFontHighlightSmallLeft)
+		elseif r:GetObjectType() == "Texture" then
+			if r:GetAtlas() == "common-dropdown-ticksquare" then
+				r:SetSize(16, 16)
+				r:SetTexture("Interface\\Common\\UI-DropDownRadioChecks")
+				r:SetTexCoord(0.5, 1, 0, 0.5)
+			elseif r:GetAtlas() == "common-dropdown-icon-checkmark-yellow" then
+				r:SetSize(16, 16)
+				r:SetTexture("Interface\\Common\\UI-DropDownRadioChecks")
+				r:SetTexCoord(0, 0.5, 0, 0.5)
+			elseif r:GetAtlas() == "common-dropdown-tickradial" then
+				r:SetSize(16, 16)
+				r:SetTexture("Interface\\Common\\UI-DropDownRadioChecks")
+				r:SetTexCoord(0.5, 1, 0.5, 1)
+			elseif r:GetAtlas() == "common-dropdown-icon-radialtick-yellow" then
+				r:SetSize(16, 16)
+				r:SetTexture("Interface\\Common\\UI-DropDownRadioChecks")
+				r:SetTexCoord(0, 0.5, 0.5, 1)
+			end
+		end
+	end
+end)
