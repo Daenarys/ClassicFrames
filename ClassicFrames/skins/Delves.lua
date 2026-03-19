@@ -43,9 +43,14 @@ if DelvesCompanionConfigurationFrame then
 	DelvesCompanionConfigurationFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 	DelvesCompanionConfigurationFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 	DelvesCompanionConfigurationFrame.CloseButton:ClearAllPoints()
-	DelvesCompanionConfigurationFrame.CloseButton:SetPoint("TOPRIGHT", 4, 3)
+	DelvesCompanionConfigurationFrame.CloseButton:SetPoint("TOPRIGHT", -3, -3)
 
-	if DelvesCompanionConfigurationFrame.Border then
-		ApplyDialogBorder(DelvesCompanionConfigurationFrame.Border)
-	end
+	DelvesCompanionConfigurationFrame.Background:SetDrawLayer("BACKGROUND", 1)
+	DelvesCompanionConfigurationFrame.Background:SetPoint("TOPLEFT", 5, -5)
+	DelvesCompanionConfigurationFrame.Background:SetPoint("BOTTOMRIGHT", -5, 5)
+
+	DelvesCompanionConfigurationFrame.Bg:SetAlpha(0)
+	DelvesCompanionConfigurationFrame.NineSlice:SetAlpha(0)
+
+	ApplyDialogBorder(DelvesCompanionConfigurationFrame.Border)
 end
