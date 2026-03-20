@@ -1,4 +1,6 @@
 local function ApplyEJDropDown(frame)
+	frame:SetWidth(101)
+
 	frame.Arrow:Hide()
 	frame.Background:Hide()
 
@@ -423,18 +425,15 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(EncounterJournalInstanceSelect.ExpansionDropdown)
 
 		ApplyEJDropDown(EncounterJournalEncounterFrameInfo.LootContainer.filter)
-		EncounterJournalEncounterFrameInfo.LootContainer.filter:SetWidth(101)
 		EncounterJournalEncounterFrameInfo.LootContainer.filter:SetPoint("TOPLEFT", EncounterJournal, "TOPRIGHT", -361, -77)
 		hooksecurefunc(EncounterJournalEncounterFrameInfo.LootContainer.filter, "UpdateText", function(self)
 			self.Text:SetText(GEAR_FILTER)
 		end)
 
 		ApplyEJDropDown(EncounterJournalEncounterFrameInfo.LootContainer.slotFilter)
-		EncounterJournalEncounterFrameInfo.LootContainer.slotFilter:SetWidth(101)
 		EncounterJournalEncounterFrameInfo.LootContainer.slotFilter:SetPoint("LEFT", EncounterJournalEncounterFrameInfo.LootContainer.filter, "RIGHT", 9, 0)
 
 		ApplyEJDropDown(EncounterJournalEncounterFrameInfoDifficulty)
-		EncounterJournalEncounterFrameInfoDifficulty:SetWidth(101)
 		EncounterJournalEncounterFrameInfoDifficulty:SetPoint("TOPRIGHT", -6, -13)
 	end
 end)
