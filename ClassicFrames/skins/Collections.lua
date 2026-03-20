@@ -110,24 +110,36 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(WardrobeCollectionFrame.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 
-		ApplyFilterDropDown(MountJournal.FilterDropdown)
-		ApplyFilterDropDown(PetJournal.FilterDropdown)
-		ApplyFilterDropDown(ToyBox.FilterDropdown)
-		ApplyFilterDropDown(HeirloomsJournal.FilterDropdown)
-		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
-
-		ApplyStretchButton(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
-
-		ApplyButtonSeparator(MountJournalMountButton)
-		ApplyButtonSeparator(PetJournalSummonButton)
-
 		HeirloomsJournal.ClassDropdown:SetWidth(155)
 		HeirloomsJournal.ClassDropdown:SetPoint("TOPLEFT", 72, -31)
 		HeirloomsJournal.ClassDropdown.Text:SetJustifyH("RIGHT")
 		HeirloomsJournal.ClassDropdown.Text:SetPoint("TOPLEFT", 9, -8)
 		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown:SetWidth(155)
 		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown.Text:SetJustifyH("RIGHT")
+
+		ApplyFilterDropDown(MountJournal.FilterDropdown)
+		ApplyFilterDropDown(PetJournal.FilterDropdown)
+		ApplyFilterDropDown(ToyBox.FilterDropdown)
+		ApplyFilterDropDown(HeirloomsJournal.FilterDropdown)
+		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
+
+		MountJournal.FilterDropdown:SetWidth(93)
+		MountJournal.FilterDropdown:SetPoint("TOPRIGHT", MountJournal.LeftInset, "TOPRIGHT", -5, -9)
+		PetJournal.FilterDropdown:SetWidth(93)
+		PetJournal.FilterDropdown:SetPoint("TOPRIGHT", PetJournalLeftInset, "TOPRIGHT", -5, -9)
+		ToyBox.FilterDropdown:SetWidth(93)
+		ToyBox.FilterDropdown:SetPoint("TOPRIGHT", -12, -34)
+		HeirloomsJournal.FilterDropdown:SetWidth(93)
+		HeirloomsJournal.FilterDropdown:SetPoint("TOPRIGHT", -12, -34)
+		WardrobeCollectionFrame.FilterButton:SetWidth(93)
+		WardrobeCollectionFrame.FilterButton:SetPoint("LEFT", WardrobeCollectionFrameSearchBox, "RIGHT", 2, -1)
+
+		ApplyStretchButton(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
+
 		WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown:SetWidth(108)
+
+		ApplyButtonSeparator(MountJournalMountButton)
+		ApplyButtonSeparator(PetJournalSummonButton)
 
 		hooksecurefunc(WardrobeCollectionFrame, "SetTab", function(self, tabID)
 			if tabID == WARDROBE_TAB_ITEMS then
