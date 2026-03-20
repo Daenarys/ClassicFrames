@@ -111,26 +111,15 @@ PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetSize(64, 64)
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask")
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetPoint("TOPLEFT", 23, -16)
 
-healthBar:SetAlpha(0)
+healthBarContainer:SetAlpha(0)
 healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
-
-healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
-healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.OverAbsorbGlow:ClearAllPoints()
-healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", healthBarContainer, "TOPRIGHT", -10, -4)
-healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", healthBarContainer, "BOTTOMRIGHT", -10, 3)
 
 manaBar:SetAlpha(0)
 manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
-
-manaBar.FullPowerFrame:SetParent(PlayerFrame.PlayerFrameContainer)
-manaBar.FullPowerFrame:SetSize(119, 12)
-manaBar.FullPowerFrame:ClearAllPoints()
-manaBar.FullPowerFrame:SetPoint("TOPRIGHT", manaBar, "TOPRIGHT", -3, 5)
 
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:ClearAllPoints()
@@ -245,10 +234,6 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	CfPlayerFrame.HealthBar:SetPoint("TOPLEFT",106,-41)
 	CfPlayerFrame.ManaBar:SetWidth(119)
 	CfPlayerFrame.ManaBar:SetPoint("TOPLEFT",106,-52)
-
-	healthBarContainer.HealthBarMask:ClearAllPoints()
-	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBarContainer, "TOPLEFT", 2, -1)
-	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", healthBarContainer, "BOTTOMRIGHT", -3, 0)
 
 	healthBar.TextString:SetPoint("CENTER", healthBarContainer, "CENTER")
 	healthBar.LeftText:SetPoint("LEFT", healthBarContainer, "LEFT", 6, 0)
