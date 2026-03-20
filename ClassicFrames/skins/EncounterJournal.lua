@@ -18,12 +18,39 @@ local function ApplyEJDropDown(frame)
 		frame.UpRight:SetPoint("TOPRIGHT")
 	end
 
-	if (frame.Middle == nil) then
-		frame.Middle = frame:CreateTexture(nil, "ARTWORK")
-		frame.Middle:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures_Tile")
-		frame.Middle:SetTexCoord(0, 1, 0.00195313, 0.05273438)
-		frame.Middle:SetPoint("TOPLEFT", frame.UpLeft, "TOPRIGHT")
-		frame.Middle:SetPoint("BOTTOMRIGHT", frame.UpRight, "BOTTOMLEFT")
+	if (frame.UpMiddle == nil) then
+		frame.UpMiddle = frame:CreateTexture(nil, "ARTWORK")
+		frame.UpMiddle:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures_Tile")
+		frame.UpMiddle:SetTexCoord(0, 1, 0.00195313, 0.05273438)
+		frame.UpMiddle:SetPoint("TOPLEFT", frame.UpLeft, "TOPRIGHT")
+		frame.UpMiddle:SetPoint("BOTTOMRIGHT", frame.UpRight, "BOTTOMLEFT")
+	end
+
+	if (frame.DownLeft == nil) then
+		frame.DownLeft = frame:CreateTexture(nil, "ARTWORK")
+		frame.DownLeft:SetSize(13, 26)
+		frame.DownLeft:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures")
+		frame.DownLeft:SetTexCoord(0.63476563, 0.68554688, 0.06738281, 0.09277344)
+		frame.DownLeft:SetPoint("TOPLEFT")
+		frame.DownLeft:Hide()
+	end
+
+	if (frame.DownRight == nil) then
+		frame.DownRight = frame:CreateTexture(nil, "ARTWORK")
+		frame.DownRight:SetSize(13, 26)
+		frame.DownRight:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures")
+		frame.DownRight:SetTexCoord(0.63476563, 0.68554688, 0.06738281, 0.09277344)
+		frame.DownRight:SetPoint("TOPRIGHT")
+		frame.DownRight:Hide()
+	end
+
+	if (frame.DownMiddle == nil) then
+		frame.DownMiddle = frame:CreateTexture(nil, "ARTWORK")
+		frame.DownMiddle:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures_Tile")
+		frame.DownMiddle:SetTexCoord(0, 1, 0.05664063, 0.10742188)
+		frame.DownMiddle:SetPoint("TOPLEFT", frame.DownLeft, "TOPRIGHT")
+		frame.DownMiddle:SetPoint("BOTTOMRIGHT", frame.DownRight, "BOTTOMLEFT")
+		frame.DownMiddle:Hide()
 	end
 
 	if (frame.HighLeft == nil) then
@@ -64,10 +91,39 @@ local function ApplyEJDropDown(frame)
 	l, t, _, b, r = frame.UpRight:GetTexCoord()
 	frame.UpRight:SetTexCoord(l + (r-l)/2, r, t, b)
 
+	l, t, _, b, r = frame.DownLeft:GetTexCoord();
+	frame.DownLeft:SetTexCoord(l, l + (r-l)/2, t, b);
+	l, t, _, b, r = frame.DownRight:GetTexCoord();
+	frame.DownRight:SetTexCoord(l + (r-l)/2, r, t, b);
+
 	l, t, _, b, r = frame.HighLeft:GetTexCoord();
-	frame.HighLeft:SetTexCoord(l, l + (r-l)/2, t, b);
-	l, t, _, b, r = frame.HighRight:GetTexCoord();
-	frame.HighRight:SetTexCoord(l + (r-l)/2, r, t, b);
+	frame.HighLeft:SetTexCoord(l, l + (r-l)/2, t, b)
+	l, t, _, b, r = frame.HighRight:GetTexCoord()
+	frame.HighRight:SetTexCoord(l + (r-l)/2, r, t, b)
+
+	frame:HookScript("OnMouseDown", function(self)
+		self.UpLeft:Hide()
+		self.UpRight:Hide()
+		self.UpMiddle:Hide()
+
+		self.DownLeft:Show()
+		self.DownRight:Show()
+		self.DownMiddle:Show()
+
+		self.Text:SetPoint("CENTER", 3, -2)
+	end)
+
+	frame:HookScript("OnMouseUp", function(self)
+		self.UpLeft:Show()
+		self.UpRight:Show()
+		self.UpMiddle:Show()
+
+		self.DownLeft:Hide()
+		self.DownRight:Hide()
+		self.DownMiddle:Hide()
+
+		self.Text:SetPoint("CENTER", 0, -1)
+	end)
 end
 
 local f = CreateFrame("Frame")
