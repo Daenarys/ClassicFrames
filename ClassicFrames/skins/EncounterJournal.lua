@@ -1,3 +1,75 @@
+local function ApplyEJDropDown(frame)
+	frame.Arrow:Hide()
+	frame.Background:Hide()
+
+	if (frame.UpLeft == nil) then
+		frame.UpLeft = frame:CreateTexture(nil, "ARTWORK")
+		frame.UpLeft:SetSize(13, 26)
+		frame.UpLeft:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures")
+		frame.UpLeft:SetTexCoord(0.90039063, 0.95117188, 0.04980469, 0.07519531)
+		frame.UpLeft:SetPoint("TOPLEFT")
+	end
+
+	if (frame.UpRight == nil) then
+		frame.UpRight = frame:CreateTexture(nil, "ARTWORK")
+		frame.UpRight:SetSize(13, 26)
+		frame.UpRight:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures")
+		frame.UpRight:SetTexCoord(0.90039063, 0.95117188, 0.04980469, 0.07519531)
+		frame.UpRight:SetPoint("TOPRIGHT")
+	end
+
+	if (frame.Middle == nil) then
+		frame.Middle = frame:CreateTexture(nil, "ARTWORK")
+		frame.Middle:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures_Tile")
+		frame.Middle:SetTexCoord(0, 1, 0.00195313, 0.05273438)
+		frame.Middle:SetPoint("TOPLEFT", frame.UpLeft, "TOPRIGHT")
+		frame.Middle:SetPoint("BOTTOMRIGHT", frame.UpRight, "BOTTOMLEFT")
+	end
+
+	if (frame.HighLeft == nil) then
+		frame.HighLeft = frame:CreateTexture(nil, "HIGHLIGHT")
+		frame.HighLeft:SetSize(13, 26)
+		frame.HighLeft:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures")
+		frame.HighLeft:SetTexCoord(0.72656250, 0.77734375, 0.06738281, 0.09277344)
+		frame.HighLeft:SetPoint("TOPLEFT")
+	end
+
+	if (frame.HighRight == nil) then
+		frame.HighRight = frame:CreateTexture(nil, "HIGHLIGHT")
+		frame.HighRight:SetSize(13, 26)
+		frame.HighRight:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures")
+		frame.HighRight:SetTexCoord(0.72656250, 0.77734375, 0.06738281, 0.09277344)
+		frame.HighRight:SetPoint("TOPRIGHT")
+	end
+
+	if (frame.HighMiddle == nil) then
+		frame.HighMiddle = frame:CreateTexture(nil, "HIGHLIGHT")
+		frame.HighMiddle:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures_Tile")
+		frame.HighMiddle:SetTexCoord(0, 1, 0.11132813, 0.16210938)
+		frame.HighMiddle:SetPoint("TOPLEFT", frame.HighLeft, "TOPRIGHT")
+		frame.HighMiddle:SetPoint("BOTTOMRIGHT", frame.HighRight, "BOTTOMLEFT")
+	end
+
+	frame.Text:ClearAllPoints()
+	frame.Text:SetPoint("CENTER", 0, -1)
+	frame.Text:SetFontObject(GameFontNormalSmall)
+	frame.Text:SetTextColor(0.973, 0.902, 0.581)
+
+	hooksecurefunc(frame, "OnButtonStateChanged", function(self)
+		self.Text:SetTextColor(0.973, 0.902, 0.581)
+	end)
+
+	local l, t, _, b, r = frame.UpLeft:GetTexCoord()
+	frame.UpLeft:SetTexCoord(l, l + (r-l)/2, t, b)
+	l, t, _, b, r = frame.UpRight:GetTexCoord()
+	frame.UpRight:SetTexCoord(l + (r-l)/2, r, t, b)
+
+	l, t, _, b, r = frame.HighLeft:GetTexCoord();
+	frame.HighLeft:SetTexCoord(l, l + (r-l)/2, t, b);
+	l, t, _, b, r = frame.HighRight:GetTexCoord();
+	frame.HighRight:SetTexCoord(l + (r-l)/2, r, t, b);
+end
+
 local f = CreateFrame("Frame")
 f:RegisterEvent("ADDON_LOADED")
 f:SetScript("OnEvent", function(self, event, name)
@@ -293,8 +365,20 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
 
 		ApplyDropDown(EncounterJournalInstanceSelect.ExpansionDropdown)
-		ApplyDropDown(EncounterJournalEncounterFrameInfo.LootContainer.filter)
-		ApplyDropDown(EncounterJournalEncounterFrameInfo.LootContainer.slotFilter)
-		ApplyDropDown(EncounterJournalEncounterFrameInfoDifficulty)
+
+		ApplyEJDropDown(EncounterJournalEncounterFrameInfo.LootContainer.filter)
+		EncounterJournalEncounterFrameInfo.LootContainer.filter:SetWidth(101)
+		EncounterJournalEncounterFrameInfo.LootContainer.filter:SetPoint("TOPLEFT", EncounterJournal, "TOPRIGHT", -361, -77)
+		hooksecurefunc(EncounterJournalEncounterFrameInfo.LootContainer.filter, "UpdateText", function(self)
+			self.Text:SetText(GEAR_FILTER)
+		end)
+
+		ApplyEJDropDown(EncounterJournalEncounterFrameInfo.LootContainer.slotFilter)
+		EncounterJournalEncounterFrameInfo.LootContainer.slotFilter:SetWidth(101)
+		EncounterJournalEncounterFrameInfo.LootContainer.slotFilter:SetPoint("LEFT", EncounterJournalEncounterFrameInfo.LootContainer.filter, "RIGHT", 9, 0)
+
+		ApplyEJDropDown(EncounterJournalEncounterFrameInfoDifficulty)
+		EncounterJournalEncounterFrameInfoDifficulty:SetWidth(101)
+		EncounterJournalEncounterFrameInfoDifficulty:SetPoint("TOPRIGHT", -6, -13)
 	end
 end)
