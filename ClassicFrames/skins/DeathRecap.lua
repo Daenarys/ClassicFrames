@@ -9,8 +9,10 @@ f:SetScript("OnEvent", function(self, event, name)
 		DeathRecapFrame.CloseXButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 
 		DeathRecapFrame.ScrollBar:SetSize(25, 560)
+		DeathRecapFrame.ScrollBar.Track.Begin:Hide()
+		DeathRecapFrame.ScrollBar.Track.End:Hide()
+		DeathRecapFrame.ScrollBar.Track.Middle:Hide()
 		ApplyScrollBarArrow(DeathRecapFrame.ScrollBar)
-		ApplyScrollBarTrack(DeathRecapFrame.ScrollBar.Track)
 		ApplyScrollBarThumb(DeathRecapFrame.ScrollBar.Track.Thumb)
 	end
 end)
