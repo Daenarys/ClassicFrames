@@ -119,7 +119,7 @@ healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
 healthBar.OverAbsorbGlow:ClearAllPoints()
-healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", healthBarContainer, "TOPRIGHT", -10, -5)
+healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", healthBarContainer, "TOPRIGHT", -10, -4)
 healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", healthBarContainer, "BOTTOMRIGHT", -10, 3)
 
 manaBar:SetAlpha(0)
