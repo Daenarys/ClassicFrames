@@ -556,6 +556,140 @@ function ApplyFilterDropDown(frame)
 	end)
 end
 
+function ApplyEJDropDown(frame)
+	frame:SetWidth(101)
+
+	frame.Arrow:Hide()
+	frame.Background:Hide()
+
+	if (frame.UpLeft == nil) then
+		frame.UpLeft = frame:CreateTexture(nil, "ARTWORK")
+		frame.UpLeft:SetSize(13, 26)
+		frame.UpLeft:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures")
+		frame.UpLeft:SetTexCoord(0.90039063, 0.95117188, 0.04980469, 0.07519531)
+		frame.UpLeft:SetPoint("TOPLEFT")
+	end
+
+	if (frame.UpRight == nil) then
+		frame.UpRight = frame:CreateTexture(nil, "ARTWORK")
+		frame.UpRight:SetSize(13, 26)
+		frame.UpRight:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures")
+		frame.UpRight:SetTexCoord(0.90039063, 0.95117188, 0.04980469, 0.07519531)
+		frame.UpRight:SetPoint("TOPRIGHT")
+	end
+
+	if (frame.UpMiddle == nil) then
+		frame.UpMiddle = frame:CreateTexture(nil, "ARTWORK")
+		frame.UpMiddle:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures_Tile")
+		frame.UpMiddle:SetTexCoord(0, 1, 0.00195313, 0.05273438)
+		frame.UpMiddle:SetPoint("TOPLEFT", frame.UpLeft, "TOPRIGHT")
+		frame.UpMiddle:SetPoint("BOTTOMRIGHT", frame.UpRight, "BOTTOMLEFT")
+	end
+
+	if (frame.DownLeft == nil) then
+		frame.DownLeft = frame:CreateTexture(nil, "ARTWORK")
+		frame.DownLeft:SetSize(13, 26)
+		frame.DownLeft:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures")
+		frame.DownLeft:SetTexCoord(0.63476563, 0.68554688, 0.06738281, 0.09277344)
+		frame.DownLeft:SetPoint("TOPLEFT")
+		frame.DownLeft:Hide()
+	end
+
+	if (frame.DownRight == nil) then
+		frame.DownRight = frame:CreateTexture(nil, "ARTWORK")
+		frame.DownRight:SetSize(13, 26)
+		frame.DownRight:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures")
+		frame.DownRight:SetTexCoord(0.63476563, 0.68554688, 0.06738281, 0.09277344)
+		frame.DownRight:SetPoint("TOPRIGHT")
+		frame.DownRight:Hide()
+	end
+
+	if (frame.DownMiddle == nil) then
+		frame.DownMiddle = frame:CreateTexture(nil, "ARTWORK")
+		frame.DownMiddle:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures_Tile")
+		frame.DownMiddle:SetTexCoord(0, 1, 0.05664063, 0.10742188)
+		frame.DownMiddle:SetPoint("TOPLEFT", frame.DownLeft, "TOPRIGHT")
+		frame.DownMiddle:SetPoint("BOTTOMRIGHT", frame.DownRight, "BOTTOMLEFT")
+		frame.DownMiddle:Hide()
+	end
+
+	if (frame.HighLeft == nil) then
+		frame.HighLeft = frame:CreateTexture(nil, "HIGHLIGHT")
+		frame.HighLeft:SetSize(13, 26)
+		frame.HighLeft:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures")
+		frame.HighLeft:SetTexCoord(0.72656250, 0.77734375, 0.06738281, 0.09277344)
+		frame.HighLeft:SetPoint("TOPLEFT")
+	end
+
+	if (frame.HighRight == nil) then
+		frame.HighRight = frame:CreateTexture(nil, "HIGHLIGHT")
+		frame.HighRight:SetSize(13, 26)
+		frame.HighRight:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures")
+		frame.HighRight:SetTexCoord(0.72656250, 0.77734375, 0.06738281, 0.09277344)
+		frame.HighRight:SetPoint("TOPRIGHT")
+	end
+
+	if (frame.HighMiddle == nil) then
+		frame.HighMiddle = frame:CreateTexture(nil, "HIGHLIGHT")
+		frame.HighMiddle:SetTexture("Interface\\EncounterJournal\\UI-EncounterJournalTextures_Tile")
+		frame.HighMiddle:SetTexCoord(0, 1, 0.11132813, 0.16210938)
+		frame.HighMiddle:SetPoint("TOPLEFT", frame.HighLeft, "TOPRIGHT")
+		frame.HighMiddle:SetPoint("BOTTOMRIGHT", frame.HighRight, "BOTTOMLEFT")
+	end
+
+	frame.Text:ClearAllPoints()
+	frame.Text:SetPoint("CENTER", 0, -1)
+	frame.Text:SetFontObject(GameFontNormalSmall)
+	frame.Text:SetTextColor(0.973, 0.902, 0.581)
+
+	hooksecurefunc(frame, "OnButtonStateChanged", function(self)
+		self.Text:SetTextColor(0.973, 0.902, 0.581)
+	end)
+
+	local l, t, _, b, r = frame.UpLeft:GetTexCoord()
+	frame.UpLeft:SetTexCoord(l, l + (r-l)/2, t, b)
+	l, t, _, b, r = frame.UpRight:GetTexCoord()
+	frame.UpRight:SetTexCoord(l + (r-l)/2, r, t, b)
+
+	l, t, _, b, r = frame.DownLeft:GetTexCoord();
+	frame.DownLeft:SetTexCoord(l, l + (r-l)/2, t, b);
+	l, t, _, b, r = frame.DownRight:GetTexCoord();
+	frame.DownRight:SetTexCoord(l + (r-l)/2, r, t, b);
+
+	l, t, _, b, r = frame.HighLeft:GetTexCoord();
+	frame.HighLeft:SetTexCoord(l, l + (r-l)/2, t, b)
+	l, t, _, b, r = frame.HighRight:GetTexCoord()
+	frame.HighRight:SetTexCoord(l + (r-l)/2, r, t, b)
+
+	frame:HookScript("OnMouseDown", function(self)
+		if self:IsEnabled() then
+			self.UpLeft:Hide()
+			self.UpRight:Hide()
+			self.UpMiddle:Hide()
+			self.DownLeft:Show()
+			self.DownRight:Show()
+			self.DownMiddle:Show()
+			if self.Text then
+				self.Text:AdjustPointsOffset(1, -1)
+			end
+		end
+	end)
+
+	frame:HookScript("OnMouseUp", function(self)
+		if self:IsEnabled() then
+			self.UpLeft:Show()
+			self.UpRight:Show()
+			self.UpMiddle:Show()
+			self.DownLeft:Hide()
+			self.DownRight:Hide()
+			self.DownMiddle:Hide()
+			if self.Text then
+				self.Text:AdjustPointsOffset(-1, 1)
+			end
+		end
+	end)
+end
+
 function ApplyStretchButton(frame)
 	frame:SetHeight(22)
 	frame.Background:Hide()
