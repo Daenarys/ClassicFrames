@@ -104,27 +104,31 @@ local function ApplyEJDropDown(frame)
 	frame.HighRight:SetTexCoord(l + (r-l)/2, r, t, b)
 
 	frame:HookScript("OnMouseDown", function(self)
-		self.UpLeft:Hide()
-		self.UpRight:Hide()
-		self.UpMiddle:Hide()
-
-		self.DownLeft:Show()
-		self.DownRight:Show()
-		self.DownMiddle:Show()
-
-		self.Text:SetPoint("CENTER", 3, -2)
+		if self:IsEnabled() then
+			self.UpLeft:Hide()
+			self.UpRight:Hide()
+			self.UpMiddle:Hide()
+			self.DownLeft:Show()
+			self.DownRight:Show()
+			self.DownMiddle:Show()
+			if self.Text then
+				self.Text:AdjustPointsOffset(1, -1)
+			end
+		end
 	end)
 
 	frame:HookScript("OnMouseUp", function(self)
-		self.UpLeft:Show()
-		self.UpRight:Show()
-		self.UpMiddle:Show()
-
-		self.DownLeft:Hide()
-		self.DownRight:Hide()
-		self.DownMiddle:Hide()
-
-		self.Text:SetPoint("CENTER", 0, -1)
+		if self:IsEnabled() then
+			self.UpLeft:Show()
+			self.UpRight:Show()
+			self.UpMiddle:Show()
+			self.DownLeft:Hide()
+			self.DownRight:Hide()
+			self.DownMiddle:Hide()
+			if self.Text then
+				self.Text:AdjustPointsOffset(-1, 1)
+			end
+		end
 	end)
 end
 

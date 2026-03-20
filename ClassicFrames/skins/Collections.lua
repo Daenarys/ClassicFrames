@@ -109,13 +109,14 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(HeirloomsJournal.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
-		ApplyDropDown(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
 
 		ApplyFilterDropDown(MountJournal.FilterDropdown)
 		ApplyFilterDropDown(PetJournal.FilterDropdown)
 		ApplyFilterDropDown(ToyBox.FilterDropdown)
 		ApplyFilterDropDown(HeirloomsJournal.FilterDropdown)
 		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
+
+		ApplyStretchButton(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
 
 		ApplyButtonSeparator(MountJournalMountButton)
 		ApplyButtonSeparator(PetJournalSummonButton)
@@ -126,6 +127,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		HeirloomsJournal.ClassDropdown.Text:SetPoint("TOPLEFT", 9, -8)
 		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown:SetWidth(155)
 		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown.Text:SetJustifyH("RIGHT")
+		WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown:SetWidth(108)
 
 		hooksecurefunc(WardrobeCollectionFrame, "SetTab", function(self, tabID)
 			if tabID == WARDROBE_TAB_ITEMS then
