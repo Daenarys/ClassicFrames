@@ -132,10 +132,16 @@ PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetSize(64, 64)
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask")
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetPoint("TOPLEFT", 23, -16)
 
-healthBarContainer:SetAlpha(0)
+healthBar:SetAlpha(0)
 healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
+
+healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
+healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
+healthBar.OverAbsorbGlow:ClearAllPoints()
+healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", healthBarContainer, "TOPRIGHT", -10, -5)
+healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", healthBarContainer, "BOTTOMRIGHT", -10, 3)
 
 manaBar:SetAlpha(0)
 manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
@@ -255,6 +261,10 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	CfPlayerFrame.healthBar:SetPoint("TOPLEFT",106,-41)
 	CfPlayerFrame.powerBar:SetWidth(119)
 	CfPlayerFrame.powerBar:SetPoint("TOPLEFT",106,-52)
+
+	healthBarContainer.HealthBarMask:ClearAllPoints()
+	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBarContainer, "TOPLEFT", 2, -1)
+	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", healthBarContainer, "BOTTOMRIGHT", -3, 0)
 
 	healthBar.TextString:SetPoint("CENTER", healthBarContainer, "CENTER")
 	healthBar.LeftText:SetPoint("LEFT", healthBarContainer, "LEFT", 6, 0)

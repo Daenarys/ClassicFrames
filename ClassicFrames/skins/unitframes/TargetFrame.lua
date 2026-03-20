@@ -160,6 +160,12 @@ local function SkinFrame(frame)
 	FrameHealthBarContainer.DeadText:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.UnconsciousText:SetParent(frame.TargetFrameContainer)
 
+	FrameHealthBar.OverAbsorbGlow:SetParent(contextual)
+	FrameHealthBar.OverAbsorbGlow:RemoveMaskTexture(FrameHealthBarContainer.HealthBarMask)
+	FrameHealthBar.OverAbsorbGlow:ClearAllPoints()
+	FrameHealthBar.OverAbsorbGlow:SetPoint("TOPLEFT", FrameHealthBarContainer, "TOPRIGHT", -10, -5)
+	FrameHealthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", FrameHealthBarContainer, "BOTTOMRIGHT", 10, 3)
+
 	FrameManaBar:SetAlpha(0)
 	FrameManaBar.TextString:SetParent(frame.TargetFrameContainer)
 	FrameManaBar.RightText:SetParent(frame.TargetFrameContainer)
@@ -213,6 +219,10 @@ local function SkinFrame(frame)
 
 		CfFocusFrameBackground:SetSize(119, 25)
 		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
+
+		FrameHealthBarContainer.HealthBarMask:ClearAllPoints()
+		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", FrameHealthBarContainer, "TOPLEFT", 2, 1)
+		FrameHealthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", FrameHealthBarContainer, "BOTTOMRIGHT", -3, -1)
 
 		if ( classification == "minus" ) then
 			FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -6)
