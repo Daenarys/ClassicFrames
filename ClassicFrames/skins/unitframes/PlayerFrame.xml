@@ -13,6 +13,24 @@
 				</Texture>
 			</Layer>
 		</Layers>
+		<Frames>
+			<StatusBar parentKey="HealthBar">
+				<Size x="119" y="12"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" x="106" y="-41"/>
+				</Anchors>
+				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+				<BarColor r="0" g="1.0" b="0"/>
+			</StatusBar>
+			<StatusBar parentKey="ManaBar">
+				<Size x="119" y="12"/>
+				<Anchors>
+					<Anchor point="TOPLEFT" x="106" y="-52"/>
+				</Anchors>
+				<BarTexture file="Interface\TargetingFrame\UI-StatusBar"/>
+				<BarColor r="0" g="0" b="1.0"/>
+			</StatusBar>
+		</Frames>
 	</Button>
 	<Button name="CfPlayerFrame" inherits="CfPlayerFrameTemplate" parent="PlayerFrame">
 		<Anchors>

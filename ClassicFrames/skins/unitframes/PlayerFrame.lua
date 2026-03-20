@@ -1,5 +1,5 @@
 local function UpdateHealth(frame)
-	if not frame or not frame.unit or not frame.healthBar then return end
+	if not frame or not frame.unit or not frame.HealthBar then return end
 	local unit = frame.unit
 
 	-- Don't update if unit doesn't exist
@@ -11,12 +11,12 @@ local function UpdateHealth(frame)
 	local maxHP = UnitHealthMax(unit)
 
 	-- Pass directly to StatusBar - it handles secret values gracefully
-	frame.healthBar:SetMinMaxValues(0, maxHP or 1)
-	frame.healthBar:SetValue(hp or 0)
+	frame.HealthBar:SetMinMaxValues(0, maxHP or 1)
+	frame.HealthBar:SetValue(hp or 0)
 end
 
 local function UpdatePower(frame)
-	if not frame or not frame.unit or not frame.powerBar then return end
+	if not frame or not frame.unit or not frame.ManaBar then return end
 	local unit = frame.unit
 
 	-- Don't update if unit doesn't exist
@@ -27,33 +27,33 @@ local function UpdatePower(frame)
 	local pMax = UnitPowerMax(unit)
 
 	-- Pass directly to StatusBar - it handles secret values gracefully
-	frame.powerBar:SetMinMaxValues(0, pMax or 1)
-	frame.powerBar:SetValue(p or 0)
+	frame.ManaBar:SetMinMaxValues(0, pMax or 1)
+	frame.ManaBar:SetValue(p or 0)
 
 	-- Set power color
 	local powerType, powerToken, altR, altG, altB = UnitPowerType(unit)
 	local info = CfPowerBarColor[powerToken]
 
-	frame.powerBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+	frame.ManaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 
 	if info then
 		if info.atlas then
-			frame.powerBar:SetStatusBarTexture(info.atlas)
-			frame.powerBar:SetStatusBarColor(1, 1, 1)
+			frame.ManaBar:SetStatusBarTexture(info.atlas)
+			frame.ManaBar:SetStatusBarColor(1, 1, 1)
 		else
-			frame.powerBar:SetStatusBarColor(info.r, info.g, info.b)
+			frame.ManaBar:SetStatusBarColor(info.r, info.g, info.b)
 		end
 	else
 		if not altR then
 			info = CfPowerBarColor[powerType] or CfPowerBarColor["MANA"]
 		else
-			frame.powerBar:SetStatusBarColor(altR, altG, altB)
+			frame.ManaBar:SetStatusBarColor(altR, altG, altB)
 		end
 	end
 
-	if frame.powerBar.powerType ~= powerType then
-		frame.powerBar.powerType = powerType
-		frame.powerBar.powerToken = powerToken
+	if frame.ManaBar.powerType ~= powerType then
+		frame.ManaBar.powerType = powerType
+		frame.ManaBar.powerToken = powerToken
 	end
 end
 
@@ -64,57 +64,36 @@ local function UpdateFrame(frame)
 	UpdatePower(frame)
 end
 
-local function CreateUnitFrame(frame)
-	local healthBar = CreateFrame("StatusBar", nil, frame)
-	healthBar:SetSize(119, 12)
-	healthBar:SetPoint("TOPLEFT", 106, -41)
-	healthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-	healthBar:SetStatusBarColor(0, 1, 0)
-	healthBar:SetMinMaxValues(0, 100)
-	healthBar:SetValue(100)
-	frame.healthBar = healthBar
-
-	local powerBar = CreateFrame("StatusBar", nil, frame)
-	powerBar:SetSize(119, 12)
-	powerBar:SetPoint("TOPLEFT", 106, -52)
-	powerBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-	powerBar:SetMinMaxValues(0, 100)
-	powerBar:SetValue(100)
-	frame.powerBar = powerBar
+function CfPlayerFrame_OnLoad(self)
+	self.unit = "player"
 
 	-- Event handling
-	frame:RegisterEvent("PLAYER_ENTERING_WORLD")
-	frame:RegisterEvent("UNIT_HEALTH")
-	frame:RegisterEvent("UNIT_MAXHEALTH")
-	frame:RegisterEvent("UNIT_DISPLAYPOWER")
-	frame:RegisterEvent("UNIT_POWER_UPDATE")
-	frame:RegisterEvent("UNIT_POWER_FREQUENT")
-	frame:RegisterEvent("UNIT_MAXPOWER")
-	frame:RegisterEvent("UNIT_ENTERED_VEHICLE")
-	frame:RegisterEvent("UNIT_EXITED_VEHICLE")
+	self:RegisterEvent("PLAYER_ENTERING_WORLD")
+	self:RegisterEvent("UNIT_HEALTH")
+	self:RegisterEvent("UNIT_MAXHEALTH")
+	self:RegisterEvent("UNIT_DISPLAYPOWER")
+	self:RegisterEvent("UNIT_POWER_UPDATE")
+	self:RegisterEvent("UNIT_POWER_FREQUENT")
+	self:RegisterEvent("UNIT_MAXPOWER")
+	self:RegisterEvent("UNIT_ENTERED_VEHICLE")
+	self:RegisterEvent("UNIT_EXITED_VEHICLE")
 
-	frame:SetScript("OnEvent", function(frame, event, arg1)
+	self:SetScript("OnEvent", function(self, event, arg1)
 		if event == "PLAYER_ENTERING_WORLD" then
-			UpdateFrame(frame)
+			UpdateFrame(self)
 		elseif event == "UNIT_HEALTH" or event == "UNIT_MAXHEALTH" then
-			UpdateHealth(frame)
+			UpdateHealth(self)
 		elseif event == "UNIT_DISPLAYPOWER" or event == "UNIT_POWER_UPDATE" or event == "UNIT_POWER_FREQUENT" or event == "UNIT_MAXPOWER" then
-			UpdatePower(frame)
+			UpdatePower(self)
 		elseif event == "UNIT_ENTERED_VEHICLE" or event ==  "UNIT_EXITED_VEHICLE" then
-			UpdateFrame(frame)
+			UpdateFrame(self)
 		end
 	end)
 
 	-- Initial update (player frame is always shown, others use state driver)
-	if UnitExists(frame.unit) then
-		UpdateFrame(frame)
+	if UnitExists(self.unit) then
+		UpdateFrame(self)
 	end
-end
-
-function CfPlayerFrame_OnLoad(self)
-	self.unit = "player"
-
-	CreateUnitFrame(self)
 
 	self:EnableMouse(false)
 end
@@ -257,10 +236,10 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	StatusTexture:SetPoint("TOPLEFT", 16, -12)
 	StatusTexture:SetBlendMode("ADD")
 
-	CfPlayerFrame.healthBar:SetWidth(119)
-	CfPlayerFrame.healthBar:SetPoint("TOPLEFT",106,-41)
-	CfPlayerFrame.powerBar:SetWidth(119)
-	CfPlayerFrame.powerBar:SetPoint("TOPLEFT",106,-52)
+	CfPlayerFrame.HealthBar:SetWidth(119)
+	CfPlayerFrame.HealthBar:SetPoint("TOPLEFT",106,-41)
+	CfPlayerFrame.ManaBar:SetWidth(119)
+	CfPlayerFrame.ManaBar:SetPoint("TOPLEFT",106,-52)
 
 	healthBarContainer.HealthBarMask:ClearAllPoints()
 	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBarContainer, "TOPLEFT", 2, -1)
@@ -318,10 +297,10 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	StatusTexture:SetPoint("TOPLEFT", -6, -4)
 	StatusTexture:SetDrawLayer("BACKGROUND")
 
-	CfPlayerFrame.healthBar:SetWidth(100)
-	CfPlayerFrame.healthBar:SetPoint("TOPLEFT",119,-41)
-	CfPlayerFrame.powerBar:SetWidth(100)
-	CfPlayerFrame.powerBar:SetPoint("TOPLEFT",119,-52)
+	CfPlayerFrame.HealthBar:SetWidth(100)
+	CfPlayerFrame.HealthBar:SetPoint("TOPLEFT",119,-41)
+	CfPlayerFrame.ManaBar:SetWidth(100)
+	CfPlayerFrame.ManaBar:SetPoint("TOPLEFT",119,-52)
 
 	healthBar.TextString:SetPoint("CENTER", healthBarContainer, "CENTER", -2, -1)
 	healthBar.LeftText:SetPoint("LEFT", healthBarContainer, "LEFT", 0, -2)
