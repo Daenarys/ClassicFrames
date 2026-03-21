@@ -25,17 +25,17 @@ TooltipSkin:SetBackdropBorderColor(TOOLTIP_DEFAULT_COLOR.r, TOOLTIP_DEFAULT_COLO
 TooltipSkin:SetBackdropColor(TOOLTIP_DEFAULT_BACKGROUND_COLOR.r, TOOLTIP_DEFAULT_BACKGROUND_COLOR.g, TOOLTIP_DEFAULT_BACKGROUND_COLOR.b)
 TooltipSkin:Hide()
 
-local SubTooltipSkinSkin = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
-SubTooltipSkinSkin:SetBackdrop({
+local SubTooltipSkin = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
+SubTooltipSkin:SetBackdrop({
     bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
     edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
     tileSize = 16,
     edgeSize = 16,
     insets = { left = 5, right = 5, top = 5, bottom = 4 }
 })
-SubTooltipSkinSkin:SetBackdropBorderColor(TOOLTIP_DEFAULT_COLOR.r, TOOLTIP_DEFAULT_COLOR.g, TOOLTIP_DEFAULT_COLOR.b);
-SubTooltipSkinSkin:SetBackdropColor(TOOLTIP_DEFAULT_BACKGROUND_COLOR.r, TOOLTIP_DEFAULT_BACKGROUND_COLOR.g, TOOLTIP_DEFAULT_BACKGROUND_COLOR.b)
-SubTooltipSkinSkin:Hide()
+SubTooltipSkin:SetBackdropBorderColor(TOOLTIP_DEFAULT_COLOR.r, TOOLTIP_DEFAULT_COLOR.g, TOOLTIP_DEFAULT_COLOR.b);
+SubTooltipSkin:SetBackdropColor(TOOLTIP_DEFAULT_BACKGROUND_COLOR.r, TOOLTIP_DEFAULT_BACKGROUND_COLOR.g, TOOLTIP_DEFAULT_BACKGROUND_COLOR.b)
+SubTooltipSkin:Hide()
 
 local function SkinMenu(manager, owner, menuDescription)
     local menu = manager:GetOpenMenu()
@@ -48,11 +48,11 @@ local function SkinMenu(manager, owner, menuDescription)
     if ownerName and TargetMenus[ownerName] then
         activeSkin = DialogSkin
         TooltipSkin:Hide()
-        SubTooltipSkinSkin:Hide()
+        SubTooltipSkin:Hide()
     else
         activeSkin = TooltipSkin
         DialogSkin:Hide()
-        SubTooltipSkinSkin:Hide()
+        SubTooltipSkin:Hide()
     end
 
     activeSkin:SetParent(menu)
@@ -71,12 +71,12 @@ local function SkinMenu(manager, owner, menuDescription)
 
     menuDescription:AddMenuAcquiredCallback(function(self)
         select(1, self:GetRegions()):SetAlpha(0)
-        SubTooltipSkinSkin:SetParent(self)
-        SubTooltipSkinSkin:ClearAllPoints()
-        SubTooltipSkinSkin:SetPoint("TOPLEFT", self, "TOPLEFT")
-        SubTooltipSkinSkin:SetPoint("BOTTOMRIGHT", self, "BOTTOMRIGHT", 0, 4)
-        SubTooltipSkinSkin:SetFrameLevel(self:GetFrameLevel())
-        SubTooltipSkinSkin:Show()
+        SubTooltipSkin:SetParent(self)
+        SubTooltipSkin:ClearAllPoints()
+        SubTooltipSkin:SetPoint("TOPLEFT", self, "TOPLEFT")
+        SubTooltipSkin:SetPoint("BOTTOMRIGHT", self, "BOTTOMRIGHT", 0, 4)
+        SubTooltipSkin:SetFrameLevel(self:GetFrameLevel())
+        SubTooltipSkin:Show()
     end)
 end
 
