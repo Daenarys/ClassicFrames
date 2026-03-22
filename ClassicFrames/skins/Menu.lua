@@ -1,7 +1,8 @@
 local function IsDialogMenu(owner)
     if not owner then return false end
 
-    return (owner == LFDQueueFrameTypeDropdown)
+    return (owner == AddonList.Dropdown)
+        or (owner == LFDQueueFrameTypeDropdown)
         or (owner == RaidFinderQueueFrameSelectionDropdown)
         or (owner == LFGListEntryCreationGroupDropdown)
         or (owner == LFGListEntryCreationActivityDropdown)
@@ -33,7 +34,7 @@ local function SkinMenu(manager, owner, menuDescription)
         DialogSkin:SetParent(menu)
         DialogSkin:ClearAllPoints()
         DialogSkin:SetPoint("TOPLEFT", menu, "TOPLEFT", -8, 3)
-        DialogSkin:SetPoint("BOTTOMRIGHT", menu, "BOTTOMRIGHT", 8, 0)
+        DialogSkin:SetPoint("BOTTOMRIGHT", menu, "BOTTOMRIGHT", 0, 4)
         DialogSkin:SetFrameLevel(menu:GetFrameLevel())
         DialogSkin:Show()
     else
