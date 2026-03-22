@@ -152,5 +152,11 @@ f:SetScript("OnEvent", function(self, event, name)
 				self.ClassDropdown:Show()
 			end
 		end)
+
+		hooksecurefunc(WardrobeCollectionFrame.SetsCollectionFrame, "DisplaySet", function(self)
+			if self.DetailsFrame.VariantSetsDropdown.PrecedingVariantIcon then
+				self.DetailsFrame.VariantSetsDropdown.PrecedingVariantIcon:Hide()
+			end
+		end)
 	end
 end)
