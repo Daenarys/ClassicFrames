@@ -186,7 +186,13 @@ if (RaidInfoDetailCorner == nil) then
 	RaidInfoDetailCorner:SetPoint("TOPRIGHT", -6, -7)
 end
 
-ApplyDialogBorder(RaidInfoFrame.Border)
+RaidInfoFrame.Border:SetAlpha(0)
+
+if not RaidInfoFrame.SetBackdrop then
+	Mixin(RaidInfoFrame, BackdropTemplateMixin)
+end
+RaidInfoFrame:SetBackdrop(BACKDROP_DARK_DIALOG_32_32)
+
 ApplyDialogHeader(RaidInfoFrame.Header)
 
 RaidFrame.RoleCount.TankIcon:SetAtlas("groupfinder-icon-role-large-tank")

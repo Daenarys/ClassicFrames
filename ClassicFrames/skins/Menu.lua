@@ -13,8 +13,8 @@ local function IsDialogMenu(owner)
         or (EncounterJournalInstanceSelect and owner == EncounterJournalInstanceSelect.ExpansionDropdown)
 end
 
-local DialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
-ApplyDialogBorder(DialogSkin)
+local DialogSkin = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
+DialogSkin:SetBackdrop(BACKDROP_DARK_DIALOG_32_32)
 DialogSkin:Hide()
 
 local TooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
@@ -33,8 +33,8 @@ local function SkinMenu(manager, owner, menuDescription)
         TooltipSkin:Hide()
         DialogSkin:SetParent(menu)
         DialogSkin:ClearAllPoints()
-        DialogSkin:SetPoint("TOPLEFT", menu, "TOPLEFT", -10, 5)
-        DialogSkin:SetPoint("BOTTOMRIGHT", menu, "BOTTOMRIGHT", 4, 2)
+        DialogSkin:SetPoint("TOPLEFT", menu, "TOPLEFT", -8, 4)
+        DialogSkin:SetPoint("BOTTOMRIGHT", menu, "BOTTOMRIGHT", 0, 4)
         DialogSkin:SetFrameLevel(menu:GetFrameLevel())
         DialogSkin:Show()
     else
