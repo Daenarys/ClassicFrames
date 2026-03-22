@@ -1,12 +1,16 @@
-local DialogBorderMenus = {
-    ["LFDQueueFrameTypeDropdown"] = true,
-    ["RaidFinderQueueFrameSelectionDropdown"] = true,
-    ["LFGListEntryCreationGroupDropdown"] = true,
-    ["LFGListEntryCreationActivityDropdown"] = true,
-    ["LFGListEntryCreationPlayStyleDropdown"] = true,
-    ["HonorFrameTypeDropdown"] = true,
-    ["TrainingGroundsFrameTypeDropdown"] = true,
-}
+local function IsDialogMenu(owner)
+    if not owner then return false end
+
+    return (owner == LFDQueueFrameTypeDropdown)
+        or (owner == RaidFinderQueueFrameSelectionDropdown)
+        or (owner == LFGListEntryCreationGroupDropdown)
+        or (owner == LFGListEntryCreationActivityDropdown)
+        or (owner == LFGListEntryCreationPlayStyleDropdown)
+        or (owner == HonorFrameTypeDropdown)
+        or (owner == TrainingGroundsFrameTypeDropdown)
+        or (owner == EditModeManagerFrame.LayoutDropdown)
+        or (EncounterJournalInstanceSelect and owner == EncounterJournalInstanceSelect.ExpansionDropdown)
+end
 
 local DialogSkin = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
 DialogSkin:SetBackdrop(BACKDROP_DARK_DIALOG_32_32)
@@ -24,8 +28,7 @@ local function SkinMenu(manager, owner, menuDescription)
 
     select(1, menu:GetRegions()):SetAlpha(0)
 
-    local ownerName = owner and owner:GetName()
-    if ownerName and DialogBorderMenus[ownerName] then
+    if IsDialogMenu(owner) then
         TooltipSkin:Hide()
         DialogSkin:SetParent(menu)
         DialogSkin:ClearAllPoints()
