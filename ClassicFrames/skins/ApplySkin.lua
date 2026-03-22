@@ -149,12 +149,19 @@ function ApplyNineSliceNoPortrait(frame)
 end
 
 function ApplyDialogBorder(frame)
-	frame:SetAlpha(0)
+	frame.TopLeftCorner:SetAlpha(0)
+	frame.TopRightCorner:SetAlpha(0)
+	frame.BottomLeftCorner:SetAlpha(0)
+	frame.BottomRightCorner:SetAlpha(0)
+	frame.TopEdge:SetAlpha(0)
+	frame.BottomEdge:SetAlpha(0)
+	frame.LeftEdge:SetAlpha(0)
+	frame.RightEdge:SetAlpha(0)
 
-	if not frame:GetParent().SetBackdrop then
-		Mixin(frame:GetParent(), BackdropTemplateMixin)
-	end
-	frame:GetParent():SetBackdrop(BACKDROP_DIALOG_32_32)
+	local backdrop = CreateFrame("Frame", nil, frame, "BackdropTemplate")
+	backdrop:SetBackdrop(BACKDROP_DIALOG_EDGE_32)
+	backdrop:SetAllPoints()
+	backdrop:SetFrameLevel(frame:GetFrameLevel())
 end
 
 function ApplyDialogHeader(frame)
