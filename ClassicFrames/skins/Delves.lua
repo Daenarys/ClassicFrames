@@ -4,8 +4,6 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_DelvesDashboardUI" then
 		DelvesDashboardFrame.DashboardBackground:SetDrawLayer("BACKGROUND", -1)
 	elseif name == "Blizzard_DelvesDifficultyPicker" then
-		ApplyDialogBorder(DelvesDifficultyPickerFrame.Border)
-
 		DelvesDifficultyPickerFrame.CloseButton:SetSize(32, 32)
 		DelvesDifficultyPickerFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 		DelvesDifficultyPickerFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
@@ -14,6 +12,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		DelvesDifficultyPickerFrame.CloseButton:ClearAllPoints()
 		DelvesDifficultyPickerFrame.CloseButton:SetPoint("TOPRIGHT", 4, 3)
 
+		ApplyDialogBorder(DelvesDifficultyPickerFrame.Border)
 		ApplyDropDown(DelvesDifficultyPickerFrame.Dropdown)
 	end
 end)
@@ -43,14 +42,7 @@ if DelvesCompanionConfigurationFrame then
 	DelvesCompanionConfigurationFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 	DelvesCompanionConfigurationFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 	DelvesCompanionConfigurationFrame.CloseButton:ClearAllPoints()
-	DelvesCompanionConfigurationFrame.CloseButton:SetPoint("TOPRIGHT", -3, -3)
-
-	DelvesCompanionConfigurationFrame.Background:SetDrawLayer("BACKGROUND", 1)
-	DelvesCompanionConfigurationFrame.Background:SetPoint("TOPLEFT", 5, -5)
-	DelvesCompanionConfigurationFrame.Background:SetPoint("BOTTOMRIGHT", -5, 5)
-
-	DelvesCompanionConfigurationFrame.Bg:SetAlpha(0)
-	DelvesCompanionConfigurationFrame.NineSlice:SetAlpha(0)
+	DelvesCompanionConfigurationFrame.CloseButton:SetPoint("TOPRIGHT", 4, 3)
 
 	ApplyDialogBorder(DelvesCompanionConfigurationFrame.Border)
 end
