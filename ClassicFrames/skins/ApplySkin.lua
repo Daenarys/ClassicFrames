@@ -560,8 +560,6 @@ function ApplyFilterDropDown(frame)
 
 	frame:HookScript("OnEnable", function(self)
 		self.Text:SetFontObject(GameFontHighlightSmall)
-		self.Text:ClearAllPoints()
-		self.Text:SetPoint("CENTER", 0, -1)
 	end)
 end
 
