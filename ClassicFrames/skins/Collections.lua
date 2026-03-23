@@ -123,17 +123,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyFilterDropDown(HeirloomsJournal.FilterDropdown)
 		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
 
-		MountJournal.FilterDropdown:SetWidth(93)
-		MountJournal.FilterDropdown:SetPoint("TOPRIGHT", MountJournal.LeftInset, "TOPRIGHT", -5, -9)
-		PetJournal.FilterDropdown:SetWidth(93)
-		PetJournal.FilterDropdown:SetPoint("TOPRIGHT", PetJournalLeftInset, "TOPRIGHT", -5, -9)
-		ToyBox.FilterDropdown:SetWidth(93)
-		ToyBox.FilterDropdown:SetPoint("TOPRIGHT", -12, -34)
-		HeirloomsJournal.FilterDropdown:SetWidth(93)
-		HeirloomsJournal.FilterDropdown:SetPoint("TOPRIGHT", -12, -34)
-		WardrobeCollectionFrame.FilterButton:SetWidth(93)
-		WardrobeCollectionFrame.FilterButton:SetPoint("LEFT", WardrobeCollectionFrameSearchBox, "RIGHT", 2, -1)
-
 		ApplyStretchButton(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
 
 		WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown:SetWidth(108)
