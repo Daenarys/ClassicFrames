@@ -35,8 +35,8 @@ local function IsDialogMenu(owner)
         or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 end
 
-local DialogSkin = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
-DialogSkin:SetBackdrop(BACKDROP_DARK_DIALOG_32_32)
+local DialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
+ApplyDialogBorder(DialogSkin)
 DialogSkin:Hide()
 
 local TooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
@@ -99,7 +99,7 @@ hooksecurefunc(CompositorMixin, "AttachFontString", function(parent)
     for _, widget in ipairs(parent.attachments) do
         local widgetType = widget:GetObjectType()
         if widgetType == "FontString" then
-            widget:SetFontObject(GameFontHighlightSmallLeft)  
+            widget:SetFontObject(GameFontHighlightSmallLeft)
         elseif widgetType == "Texture" then
             local coords = ATLAS_MAP[widget:GetAtlas()]
             if coords then

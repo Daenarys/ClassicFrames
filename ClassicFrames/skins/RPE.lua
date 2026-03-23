@@ -1,11 +1,6 @@
 if RPETurnStrafeStyleMixin then
 	hooksecurefunc(RPETurnStrafeStyleMixin, "OnLoad", function(self)
-		self.BG.Top:SetAlpha(0)
-
-		if not self.BG.SetBackdrop then
-			Mixin(self.BG, BackdropTemplateMixin)
-		end
-		self.BG:SetBackdrop(BACKDROP_DIALOG_EDGE_32)
+		self.BG.Top:SetAtlas("UI-DiamondDialogBox-ClassicBorder")
 
 		self.CloseButton:SetSize(32, 32)
 		self.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
