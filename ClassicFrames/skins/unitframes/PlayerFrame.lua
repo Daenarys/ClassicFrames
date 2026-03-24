@@ -75,8 +75,6 @@ function CfPlayerFrame_OnLoad(self)
 	self:RegisterEvent("UNIT_POWER_UPDATE")
 	self:RegisterEvent("UNIT_POWER_FREQUENT")
 	self:RegisterEvent("UNIT_MAXPOWER")
-	self:RegisterEvent("UNIT_ENTERED_VEHICLE")
-	self:RegisterEvent("UNIT_EXITED_VEHICLE")
 
 	self:SetScript("OnEvent", function(self, event, arg1)
 		if event == "PLAYER_ENTERING_WORLD" then
@@ -85,8 +83,6 @@ function CfPlayerFrame_OnLoad(self)
 			UpdateHealth(self)
 		elseif event == "UNIT_DISPLAYPOWER" or event == "UNIT_POWER_UPDATE" or event == "UNIT_POWER_FREQUENT" or event == "UNIT_MAXPOWER" then
 			UpdatePower(self)
-		elseif event == "UNIT_ENTERED_VEHICLE" or event ==  "UNIT_EXITED_VEHICLE" then
-			UpdateFrame(self)
 		end
 	end)
 
@@ -257,6 +253,7 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	PlayerLevelText:Show()
 
 	CfPlayerFrame.unit = "player"
+	UpdateFrame(CfPlayerFrame)
 
 	local _, class = UnitClass("player")
 	if ( CfPlayerFrame.CfClassPowerBar ) then
@@ -318,6 +315,7 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	PlayerLevelText:Hide()
 
 	CfPlayerFrame.unit = "vehicle"
+	UpdateFrame(CfPlayerFrame)
 
 	local _, class = UnitClass("player")
 	if ( CfPlayerFrame.CfClassPowerBar ) then
