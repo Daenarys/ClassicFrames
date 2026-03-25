@@ -7,9 +7,9 @@ f:SetScript("OnEvent", function(self, event, name)
 		HonorFrame.SpecificScrollBar:SetPoint("TOPLEFT", HonorFrame.SpecificScrollBox, "TOPRIGHT", -2, 3)
 		HonorFrame.SpecificScrollBar:SetPoint("BOTTOMLEFT", HonorFrame.SpecificScrollBox, "BOTTOMRIGHT", 1, -1)
 
-		ApplyScrollBarArrow(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar)
-		ApplyScrollBarTrack(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar.Track)
-		ApplyScrollBarThumb(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar.Track.Thumb)
+		ApplyScrollBarArrow(HonorFrame.SpecificScrollBar)
+		ApplyScrollBarTrack(HonorFrame.SpecificScrollBar.Track)
+		ApplyScrollBarThumb(HonorFrame.SpecificScrollBar.Track.Thumb)
 
 		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetSize(25, 560)
 		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:ClearAllPoints()
