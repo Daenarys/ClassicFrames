@@ -49,6 +49,12 @@ local function SkinMenu(manager, owner, menuDescription)
     local menu = manager:GetOpenMenu()
     if not menu then return end
 
+    if select(1, menu:GetRegions()):GetAtlas() == "common-dropdown-c-bg" then
+        DialogSkin:Hide()
+        TooltipSkin:Hide()
+        return
+    end
+
     select(1, menu:GetRegions()):SetAlpha(0)
 
     if IsDialogMenu(owner) then
