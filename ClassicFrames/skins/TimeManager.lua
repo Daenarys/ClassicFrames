@@ -26,5 +26,17 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(TimeManagerAlarmTimeFrame.HourDropdown)
 		ApplyDropDown(TimeManagerAlarmTimeFrame.MinuteDropdown)
 		ApplyDropDown(TimeManagerAlarmTimeFrame.AMPMDropdown)
+
+		hooksecurefunc("TimeManagerFrame_SetupHourDropdown", function(self)
+			self.AlarmTimeFrame.HourDropdown:SetWidth(50)
+		end)
+
+		hooksecurefunc("TimeManagerFrame_SetupMinuteDropdown", function(self)
+			self.AlarmTimeFrame.MinuteDropdown:SetWidth(50)
+		end)
+
+		hooksecurefunc("TimeManagerFrame_SetupAMPMDropdown", function(self)
+			self.AlarmTimeFrame.AMPMDropdown:SetWidth(54)
+		end)
 	end
 end)
