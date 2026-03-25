@@ -159,7 +159,7 @@ function ApplyDialogBorder(frame)
 	frame.RightEdge:SetAlpha(0)
 
 	if (frame.Top == nil) then
-		frame.Top = frame:CreateTexture(nil, "BACKGROUND", nil, -4)
+		frame.Top = frame:CreateTexture(nil, "BORDER")
 		frame.Top:SetAtlas("UI-DiamondDialogBox-ClassicBorder")
 		frame.Top:SetAllPoints()
 	end
