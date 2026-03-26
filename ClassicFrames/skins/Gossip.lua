@@ -15,6 +15,8 @@ GossipFrameTitleText:SetTextColor(255, 255, 255, 1)
 ApplyTitleBg(GossipFrame)
 ApplyNineSlicePortrait(GossipFrame)
 
+GossipFrame.GreetingPanel.ScrollBox:SetPoint("TOPLEFT", 5, -65)
+
 ApplyScrollBarArrow(GossipFrame.GreetingPanel.ScrollBar)
 ApplyScrollBarTrack(GossipFrame.GreetingPanel.ScrollBar.Track)
 ApplyScrollBarThumb(GossipFrame.GreetingPanel.ScrollBar.Track.Thumb)
