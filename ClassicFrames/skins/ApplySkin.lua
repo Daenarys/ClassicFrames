@@ -220,6 +220,13 @@ function ApplyScrollBarTrack(frame)
 
 	frame.Middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
 	frame.Middle:SetTexCoord(0, 0.445, 0.75, 1)
+
+	if (frame.BG == nil) then
+		frame.BG = frame:CreateTexture(nil, "BACKGROUND")
+		frame.BG:SetColorTexture(0, 0, 0, .75)
+		frame.BG:SetPoint("TOPLEFT", -6, 2)
+		frame.BG:SetPoint("BOTTOMRIGHT", 6, 0)
+	end
 end
 
 function ApplyScrollBarThumb(frame)
