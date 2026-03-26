@@ -15,6 +15,15 @@ GossipFrameTitleText:SetTextColor(255, 255, 255, 1)
 ApplyTitleBg(GossipFrame)
 ApplyNineSlicePortrait(GossipFrame)
 
+GossipFrame.GreetingPanel.ScrollBar:SetPoint("TOPLEFT", GossipFrame.GreetingPanel.ScrollBox, "TOPRIGHT", 7, 0)
+GossipFrame.GreetingPanel.ScrollBar:SetPoint("BOTTOMLEFT", GossipFrame.GreetingPanel.ScrollBox, "BOTTOMRIGHT", 7, 0)
+
 ApplyScrollBarArrow(GossipFrame.GreetingPanel.ScrollBar)
 ApplyScrollBarTrack(GossipFrame.GreetingPanel.ScrollBar.Track)
 ApplyScrollBarThumb(GossipFrame.GreetingPanel.ScrollBar.Track.Thumb)
+GossipFrame.GreetingPanel.ScrollBar.Track.BG:Hide()
+
+hooksecurefunc(GossipFrame, "Update", function(self)
+	self.Background:SetSize(510, 620)
+	self.Background:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)

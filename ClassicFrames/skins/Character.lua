@@ -31,9 +31,13 @@ ReputationFrame.filterDropdown:Hide()
 TokenFrame.CurrencyTransferLogToggleButton:Hide()
 TokenFrame.filterDropdown:Hide()
 
+ReputationFrame.ScrollBar:SetPoint("TOPLEFT", ReputationFrame.ScrollBox, "TOPRIGHT", 5, 0)
+ReputationFrame.ScrollBar:SetPoint("BOTTOMLEFT", ReputationFrame.ScrollBox, "BOTTOMRIGHT", 5, 0)
+
 ApplyScrollBarArrow(ReputationFrame.ScrollBar)
 ApplyScrollBarTrack(ReputationFrame.ScrollBar.Track)
 ApplyScrollBarThumb(ReputationFrame.ScrollBar.Track.Thumb)
+ReputationFrame.ScrollBar.Track.BG:Hide()
 
 ReputationFrame.ReputationDetailFrame.CloseButton:SetSize(32, 32)
 ReputationFrame.ReputationDetailFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
@@ -102,9 +106,13 @@ end)
 
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
 
+TokenFrame.ScrollBar:SetPoint("TOPLEFT", TokenFrame.ScrollBox, "TOPRIGHT", 5, 0)
+TokenFrame.ScrollBar:SetPoint("BOTTOMLEFT", TokenFrame.ScrollBox, "BOTTOMRIGHT", 5, 0)
+
 ApplyScrollBarArrow(TokenFrame.ScrollBar)
 ApplyScrollBarTrack(TokenFrame.ScrollBar.Track)
 ApplyScrollBarThumb(TokenFrame.ScrollBar.Track.Thumb)
+TokenFrame.ScrollBar.Track.BG:Hide()
 
 select(5, TokenFramePopup:GetChildren()):SetSize(32, 32)
 select(5, TokenFramePopup:GetChildren()):SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")

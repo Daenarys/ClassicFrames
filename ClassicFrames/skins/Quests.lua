@@ -30,33 +30,61 @@ if _G.QuestLogPopupDetailFrame then
 	ApplyNineSlicePortrait(QuestLogPopupDetailFrame)
 end
 
+QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", 5, -4)
+QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", 5, -1)
+
 ApplyScrollBarArrow(QuestScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestScrollFrame.ScrollBar.Track.Thumb)
+
+QuestMapDetailsScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestMapDetailsScrollFrame, "TOPRIGHT", 10, 40)
+QuestMapDetailsScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestMapDetailsScrollFrame, "BOTTOMRIGHT", 10, -30)
 
 ApplyScrollBarArrow(QuestMapDetailsScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestMapDetailsScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestMapDetailsScrollFrame.ScrollBar.Track.Thumb)
 
+QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", 5, -4)
+QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", 5, -1)
+
 ApplyScrollBarArrow(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.Track.Thumb)
 
+QuestDetailScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestDetailScrollFrame, "TOPRIGHT", 10, 0)
+QuestDetailScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestDetailScrollFrame, "BOTTOMRIGHT", 10, 0)
+
 ApplyScrollBarArrow(QuestDetailScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestDetailScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestDetailScrollFrame.ScrollBar.Track.Thumb)
+QuestDetailScrollFrame.ScrollBar.Track.BG:Hide()
+
+QuestGreetingScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestGreetingScrollFrame, "TOPRIGHT", 10, 0)
+QuestGreetingScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestGreetingScrollFrame, "BOTTOMRIGHT", 10, 0)
 
 ApplyScrollBarArrow(QuestGreetingScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestGreetingScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestGreetingScrollFrame.ScrollBar.Track.Thumb)
+QuestGreetingScrollFrame.ScrollBar.Track.BG:Hide()
+
+QuestProgressScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestProgressScrollFrame, "TOPRIGHT", 10, 0)
+QuestProgressScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestProgressScrollFrame, "BOTTOMRIGHT", 10, 0)
 
 ApplyScrollBarArrow(QuestProgressScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestProgressScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestProgressScrollFrame.ScrollBar.Track.Thumb)
+QuestProgressScrollFrame.ScrollBar.Track.BG:Hide()
+
+QuestRewardScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestRewardScrollFrame, "TOPRIGHT", 10, 0)
+QuestRewardScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestRewardScrollFrame, "BOTTOMRIGHT", 10, 0)
 
 ApplyScrollBarArrow(QuestRewardScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestRewardScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestRewardScrollFrame.ScrollBar.Track.Thumb)
+QuestRewardScrollFrame.ScrollBar.Track.BG:Hide()
+
+QuestLogPopupDetailFrameScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestLogPopupDetailFrameScrollFrame, "TOPRIGHT", 9, 0)
+QuestLogPopupDetailFrameScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestLogPopupDetailFrameScrollFrame, "BOTTOMRIGHT", 12, 0)
 
 ApplyScrollBarArrow(QuestLogPopupDetailFrameScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestLogPopupDetailFrameScrollFrame.ScrollBar.Track)
@@ -185,3 +213,34 @@ if _G.QuestModelScene then
 
 	QuestNPCModelTextScrollFrame.ScrollBar:SetAlpha(0)
 end
+
+local defaultXSize = 510
+local defaultYSize = 620
+
+QuestFrameDetailPanel:HookScript("OnShow", function(self)
+	self.Bg:SetSize(defaultXSize, defaultYSize)
+	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
+
+QuestFrameProgressPanel:HookScript("OnShow", function(self)
+	self.Bg:SetSize(defaultXSize, defaultYSize)
+	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
+
+QuestFrameRewardPanel:HookScript("OnShow", function(self)
+	self.Bg:SetSize(defaultXSize, defaultYSize)
+	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
+
+local function GreetingPanel_OnShow(frame)
+	frame.Bg:SetSize(defaultXSize, defaultYSize)
+	frame.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end
+
+QuestFrameGreetingPanel:HookScript('OnShow', GreetingPanel_OnShow)
+hooksecurefunc('QuestFrameGreetingPanel_OnShow', GreetingPanel_OnShow)
+
+hooksecurefunc('QuestLogPopupDetailFrame_Show', function()
+	QuestLogPopupDetailFrame.Bg:SetSize(defaultXSize, defaultYSize)
+	QuestLogPopupDetailFrame.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
