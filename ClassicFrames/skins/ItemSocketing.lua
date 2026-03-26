@@ -15,11 +15,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(ItemSocketingFrame)
 		ApplyNineSlicePortrait(ItemSocketingFrame)
 
-		ItemSocketingScrollFrame.ScrollBar:SetSize(25, 560)
-		ItemSocketingScrollFrame.ScrollBar:ClearAllPoints()
-		ItemSocketingScrollFrame.ScrollBar:SetPoint("TOPLEFT", ItemSocketingScrollFrame, "TOPRIGHT", -22, 1)
-		ItemSocketingScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", ItemSocketingScrollFrame, "BOTTOMRIGHT", -22, -5)
-
 		ApplyScrollBarArrow(ItemSocketingScrollFrame.ScrollBar)
 		ApplyScrollBarTrack(ItemSocketingScrollFrame.ScrollBar.Track)
 		ApplyScrollBarThumb(ItemSocketingScrollFrame.ScrollBar.Track.Thumb)

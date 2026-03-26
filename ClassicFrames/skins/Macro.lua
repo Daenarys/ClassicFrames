@@ -26,11 +26,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			end)
 		end
 
-		MacroFrame.MacroSelector.ScrollBar:SetSize(25, 560)
-		MacroFrame.MacroSelector.ScrollBar:ClearAllPoints()
-		MacroFrame.MacroSelector.ScrollBar:SetPoint("TOPLEFT", MacroFrame.MacroSelector, "TOPRIGHT", -24, 3)
-		MacroFrame.MacroSelector.ScrollBar:SetPoint("BOTTOMLEFT", MacroFrame.MacroSelector, "BOTTOMRIGHT", -21, -3)
-
 		ApplyScrollBarArrow(MacroFrame.MacroSelector.ScrollBar)
 		ApplyScrollBarTrack(MacroFrame.MacroSelector.ScrollBar.Track)
 		ApplyScrollBarThumb(MacroFrame.MacroSelector.ScrollBar.Track.Thumb)
@@ -56,11 +51,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		MacroFrameScrollFrame.ScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
 		MacroFrameScrollFrame.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
 		MacroFrameScrollFrame.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
-
-		MacroPopupFrame.IconSelector.ScrollBar:SetSize(25, 560)
-		MacroPopupFrame.IconSelector.ScrollBar:ClearAllPoints()
-		MacroPopupFrame.IconSelector.ScrollBar:SetPoint("TOPLEFT", MacroPopupFrame.IconSelector, "TOPRIGHT", -26, 19)
-		MacroPopupFrame.IconSelector.ScrollBar:SetPoint("BOTTOMLEFT", MacroPopupFrame.IconSelector, "BOTTOMRIGHT", -23, -3)
 
 		ApplyScrollBarArrow(MacroPopupFrame.IconSelector.ScrollBar)
 		ApplyScrollBarTrack(MacroPopupFrame.IconSelector.ScrollBar.Track)

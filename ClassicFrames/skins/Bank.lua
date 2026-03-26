@@ -28,11 +28,6 @@ hooksecurefunc(BankFrame.TabSystem, 'Layout', function(self)
 	self.tabs[2]:SetPoint("LEFT", self.tabs[1], "RIGHT", -15, 0)
 end)
 
-BankPanel.TabSettingsMenu.IconSelector.ScrollBar:SetSize(25, 560)
-BankPanel.TabSettingsMenu.IconSelector.ScrollBar:ClearAllPoints()
-BankPanel.TabSettingsMenu.IconSelector.ScrollBar:SetPoint("TOPRIGHT", -3, 30)
-BankPanel.TabSettingsMenu.IconSelector.ScrollBar:SetPoint("BOTTOMRIGHT", -3, -2)
-
 ApplyScrollBarArrow(BankPanel.TabSettingsMenu.IconSelector.ScrollBar)
 ApplyScrollBarTrack(BankPanel.TabSettingsMenu.IconSelector.ScrollBar.Track)
 ApplyScrollBarThumb(BankPanel.TabSettingsMenu.IconSelector.ScrollBar.Track.Thumb)
