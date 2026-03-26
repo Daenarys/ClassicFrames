@@ -68,7 +68,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		if (MountJournal.ScrollBar.BG == nil) then
 			MountJournal.ScrollBar.BG = MountJournal.ScrollBar:CreateTexture(nil, "BACKGROUND")
-			MountJournal.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+			MountJournal.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
 			MountJournal.ScrollBar.BG:SetAllPoints()
 		end
 
@@ -83,7 +83,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		if (PetJournal.ScrollBar.BG == nil) then
 			PetJournal.ScrollBar.BG = PetJournal.ScrollBar:CreateTexture(nil, "BACKGROUND")
-			PetJournal.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+			PetJournal.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
 			PetJournal.ScrollBar.BG:SetAllPoints()
 		end
 
@@ -98,7 +98,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		if (WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG == nil) then
 			WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG = WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:CreateTexture(nil, "BACKGROUND")
-			WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+			WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
 			WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG:SetAllPoints()
 		end
 
@@ -107,7 +107,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.Track.Thumb)
 
 		ApplyDropDown(HeirloomsJournal.ClassDropdown)
-		ApplyDropDown(WardrobeCollectionFrame.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 
 		HeirloomsJournal.ClassDropdown:SetWidth(155)
@@ -132,13 +131,34 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		hooksecurefunc(WardrobeCollectionFrame, "SetTab", function(self, tabID)
 			if tabID == WARDROBE_TAB_ITEMS then
-				self.ClassDropdown:Hide()
 				self.ItemsCollectionFrame.ModelR1C1:SetPoint("TOP", -238, -85)
 				self.ItemsCollectionFrame.PagingFrame:SetPoint("BOTTOM", 22, 38)
 				self.ItemsCollectionFrame.SlotsFrame:SetPoint("TOPLEFT", 18, -20)
+				self.ItemsCollectionFrame.WeaponDropdown:SetEnabled(false)
 				self.ItemsCollectionFrame.WeaponDropdown:SetPoint("TOPRIGHT", -23, -23)
-			elseif tabID == WARDROBE_TAB_SETS then
-				self.ClassDropdown:Show()
+			end
+			self.ClassDropdown:Hide()
+		end)
+
+		hooksecurefunc(WardrobeCollectionFrame.ItemsCollectionFrame, "SetActiveCategory", function(self)
+			local _name, isActiveCategoryWeapon;
+			if self.transmogLocation:IsAppearance() then
+				_name, isActiveCategoryWeapon = C_TransmogCollection.GetCategoryInfo(self:GetActiveCategory())
+			end
+
+			self.WeaponDropdown:Show()
+
+			if not isActiveCategoryWeapon then
+				self.WeaponDropdown:SetEnabled(false)
+			else
+				self.WeaponDropdown:SetEnabled(true)
+			end
+		end)
+
+		hooksecurefunc("CollectionsJournal_UpdateSelectedTab", function(self)
+			local selected = CollectionsJournal_GetTab(self)
+			if selected == 5 then
+				WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown:SetEnabled(false)
 			end
 		end)
 
