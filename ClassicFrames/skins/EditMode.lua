@@ -11,11 +11,6 @@ EditModeSystemSettingsDialog.CloseButton:SetPoint("TOPRIGHT", -5, -6)
 
 EditModeManagerFrame.Tutorial.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 
-EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar:SetWidth(20)
-EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar:ClearAllPoints()
-EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar:SetPoint("TOPLEFT", EditModeManagerFrame.AccountSettings.SettingsContainer, "TOPRIGHT", -20, -1)
-EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar:SetPoint("BOTTOMLEFT", EditModeManagerFrame.AccountSettings.SettingsContainer, "BOTTOMRIGHT", 20, 1)
-
 EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Track.Begin:Hide()
 EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Track.End:Hide()
 EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Track.Middle:Hide()
