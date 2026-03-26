@@ -206,20 +206,20 @@ function ApplyScrollBarArrow(frame)
 end
 
 function ApplyScrollBarTrack(frame)
-	frame.Begin:SetSize(29, 102)
+	frame.Begin:SetSize(31, 102)
 	frame.Begin:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
-	frame.Begin:SetTexCoord(0, 0.445, 0, 0.4)
+	frame.Begin:SetTexCoord(0, 0.484375, 0, 0.4)
 	frame.Begin:ClearAllPoints()
 	frame.Begin:SetPoint("TOPLEFT", -12, 23)
 
-	frame.End:SetSize(29, 106)
+	frame.End:SetSize(31, 106)
 	frame.End:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
-	frame.End:SetTexCoord(0.515625, 0.960625, 0, 0.4140625)
+	frame.End:SetTexCoord(0.515625, 1, 0, 0.4140625)
 	frame.End:ClearAllPoints()
 	frame.End:SetPoint("BOTTOMLEFT", -12, -21)
 
 	frame.Middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
-	frame.Middle:SetTexCoord(0, 0.445, 0.75, 1)
+	frame.Middle:SetTexCoord(0, 0.484375, 0.75, 1)
 
 	if (frame.BG == nil) then
 		frame.BG = frame:CreateTexture(nil, "BACKGROUND")
