@@ -32,7 +32,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		if (AchievementFrameAchievements.ScrollBar.BG == nil) then
 			AchievementFrameAchievements.ScrollBar.BG = AchievementFrameAchievements.ScrollBar:CreateTexture(nil, "BACKGROUND")
-			AchievementFrameAchievements.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+			AchievementFrameAchievements.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
 			AchievementFrameAchievements.ScrollBar.BG:SetAllPoints()
 		end
 
@@ -47,7 +47,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		if (AchievementFrameStats.ScrollBar.BG == nil) then
 			AchievementFrameStats.ScrollBar.BG = AchievementFrameStats.ScrollBar:CreateTexture(nil, "BACKGROUND")
-			AchievementFrameStats.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+			AchievementFrameStats.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
 			AchievementFrameStats.ScrollBar.BG:SetAllPoints()
 		end
 
@@ -77,7 +77,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		if (AchievementFrameComparison.StatContainer.ScrollBar.BG == nil) then
 			AchievementFrameComparison.StatContainer.ScrollBar.BG = AchievementFrameComparison.StatContainer.ScrollBar:CreateTexture(nil, "BACKGROUND")
-			AchievementFrameComparison.StatContainer.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+			AchievementFrameComparison.StatContainer.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
 			AchievementFrameComparison.StatContainer.ScrollBar.BG:SetAllPoints()
 		end
 
@@ -100,7 +100,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		if (AchievementFrame.SearchResults.ScrollBar.BG == nil) then
 			AchievementFrame.SearchResults.ScrollBar.BG = AchievementFrame.SearchResults.ScrollBar:CreateTexture(nil, "BACKGROUND")
-			AchievementFrame.SearchResults.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+			AchievementFrame.SearchResults.ScrollBar.BG:SetColorTexture(0, 0, 0, .75)
 			AchievementFrame.SearchResults.ScrollBar.BG:SetAllPoints()
 		end
 
