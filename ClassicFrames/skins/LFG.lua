@@ -30,70 +30,21 @@ GroupFinderFrame:HookScript("OnShow", function()
 	PVEFramePortrait:SetTexture("Interface\\LFGFrame\\UI-LFG-PORTRAIT")
 end)
 
-LFDQueueFrameRandomScrollFrame.ScrollBar:SetSize(25, 560)
-LFDQueueFrameRandomScrollFrame.ScrollBar:ClearAllPoints()
-LFDQueueFrameRandomScrollFrame.ScrollBar:SetPoint("TOPLEFT", LFDQueueFrameRandomScrollFrame, "TOPRIGHT", 2, 8)
-LFDQueueFrameRandomScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", LFDQueueFrameRandomScrollFrame, "BOTTOMRIGHT", 5, -9)
-
-if (LFDQueueFrameRandomScrollFrame.ScrollBar.BG == nil) then
-	LFDQueueFrameRandomScrollFrame.ScrollBar.BG = LFDQueueFrameRandomScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	LFDQueueFrameRandomScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
-	LFDQueueFrameRandomScrollFrame.ScrollBar.BG:SetAllPoints()
-end
-
 ApplyScrollBarArrow(LFDQueueFrameRandomScrollFrame.ScrollBar)
 ApplyScrollBarTrack(LFDQueueFrameRandomScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(LFDQueueFrameRandomScrollFrame.ScrollBar.Track.Thumb)
-
-LFDQueueFrameSpecific.ScrollBar:SetSize(25, 560)
-LFDQueueFrameSpecific.ScrollBar:ClearAllPoints()
-LFDQueueFrameSpecific.ScrollBar:SetPoint("TOPLEFT", LFDQueueFrameSpecific.ScrollBox, "TOPRIGHT", 5, 0)
-LFDQueueFrameSpecific.ScrollBar:SetPoint("BOTTOMLEFT", LFDQueueFrameSpecific.ScrollBox, "BOTTOMRIGHT", 5, 0)
 
 ApplyScrollBarArrow(LFDQueueFrameSpecific.ScrollBar)
 ApplyScrollBarTrack(LFDQueueFrameSpecific.ScrollBar.Track)
 ApplyScrollBarThumb(LFDQueueFrameSpecific.ScrollBar.Track.Thumb)
 
-LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar:SetSize(25, 560)
-LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar:ClearAllPoints()
-LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar:SetPoint("TOPLEFT", LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBox, "TOPRIGHT", -3, 2)
-LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar:SetPoint("BOTTOMLEFT", LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBox, "BOTTOMRIGHT", 0, -2)
-
-if (LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar.BG == nil) then
-	LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar.BG = LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
-	LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar.BG:SetAllPoints()
-end
-
 ApplyScrollBarArrow(LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar)
 ApplyScrollBarTrack(LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar.Track)
 ApplyScrollBarThumb(LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar.Track.Thumb)
 
-LFGListFrame.SearchPanel.ScrollBar:SetSize(25, 560)
-LFGListFrame.SearchPanel.ScrollBar:ClearAllPoints()
-LFGListFrame.SearchPanel.ScrollBar:SetPoint("TOPLEFT", LFGListFrame.SearchPanel.ScrollBox, "TOPRIGHT", 0, 3)
-LFGListFrame.SearchPanel.ScrollBar:SetPoint("BOTTOMLEFT", LFGListFrame.SearchPanel.ScrollBox, "BOTTOMRIGHT", 3, -1)
-
-if (LFGListFrame.SearchPanel.ScrollBar.BG == nil) then
-	LFGListFrame.SearchPanel.ScrollBar.BG = LFGListFrame.SearchPanel.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	LFGListFrame.SearchPanel.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
-	LFGListFrame.SearchPanel.ScrollBar.BG:SetAllPoints()
-end
-
 ApplyScrollBarArrow(LFGListFrame.SearchPanel.ScrollBar)
 ApplyScrollBarTrack(LFGListFrame.SearchPanel.ScrollBar.Track)
 ApplyScrollBarThumb(LFGListFrame.SearchPanel.ScrollBar.Track.Thumb)
-
-LFGListFrame.ApplicationViewer.ScrollBar:SetSize(25, 560)
-LFGListFrame.ApplicationViewer.ScrollBar:ClearAllPoints()
-LFGListFrame.ApplicationViewer.ScrollBar:SetPoint("TOPLEFT", LFGListFrame.ApplicationViewer.ScrollBox, "TOPRIGHT", 0, 3)
-LFGListFrame.ApplicationViewer.ScrollBar:SetPoint("BOTTOMLEFT", LFGListFrame.ApplicationViewer.ScrollBox, "BOTTOMRIGHT", 3, -3)
-
-if (LFGListFrame.ApplicationViewer.ScrollBar.BG == nil) then
-	LFGListFrame.ApplicationViewer.ScrollBar.BG = LFGListFrame.ApplicationViewer.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	LFGListFrame.ApplicationViewer.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
-	LFGListFrame.ApplicationViewer.ScrollBar.BG:SetAllPoints()
-end
 
 ApplyScrollBarArrow(LFGListFrame.ApplicationViewer.ScrollBar)
 ApplyScrollBarTrack(LFGListFrame.ApplicationViewer.ScrollBar.Track)
@@ -275,17 +226,6 @@ LFGInvitePopupRoleButtonTank:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-
 LFGInvitePopupRoleButtonTank:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 LFGInvitePopupRoleButtonTank:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFGInvitePopupRoleButtonTank:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
-
-RaidFinderQueueFrameScrollFrame.ScrollBar:SetSize(25, 560)
-RaidFinderQueueFrameScrollFrame.ScrollBar:ClearAllPoints()
-RaidFinderQueueFrameScrollFrame.ScrollBar:SetPoint("TOPLEFT", RaidFinderQueueFrameScrollFrame, "TOPRIGHT", 2, 3)
-RaidFinderQueueFrameScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", RaidFinderQueueFrameScrollFrame, "BOTTOMRIGHT", 5, 0)
-
-if (RaidFinderQueueFrameScrollFrame.ScrollBar.BG == nil) then
-	RaidFinderQueueFrameScrollFrame.ScrollBar.BG = RaidFinderQueueFrameScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	RaidFinderQueueFrameScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
-	RaidFinderQueueFrameScrollFrame.ScrollBar.BG:SetAllPoints()
-end
 
 ApplyScrollBarArrow(RaidFinderQueueFrameScrollFrame.ScrollBar)
 ApplyScrollBarTrack(RaidFinderQueueFrameScrollFrame.ScrollBar.Track)

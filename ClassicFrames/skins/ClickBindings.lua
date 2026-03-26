@@ -17,17 +17,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(ClickBindingFrame)
 		ApplyNineSlicePortrait(ClickBindingFrame)
 
-		ClickBindingFrame.ScrollBar:SetSize(25, 560)
-		ClickBindingFrame.ScrollBar:ClearAllPoints()
-		ClickBindingFrame.ScrollBar:SetPoint("TOPLEFT", ClickBindingFrame.ScrollBox, "TOPRIGHT", 5, 4)
-		ClickBindingFrame.ScrollBar:SetPoint("BOTTOMLEFT", ClickBindingFrame.ScrollBox, "BOTTOMRIGHT", 8, -4)
-
-		if (ClickBindingFrame.ScrollBar.BG == nil) then
-			ClickBindingFrame.ScrollBar.BG = ClickBindingFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
-			ClickBindingFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
-			ClickBindingFrame.ScrollBar.BG:SetAllPoints()
-		end
-
 		ApplyScrollBarArrow(ClickBindingFrame.ScrollBar)
 		ApplyScrollBarTrack(ClickBindingFrame.ScrollBar.Track)
 		ApplyScrollBarThumb(ClickBindingFrame.ScrollBar.Track.Thumb)

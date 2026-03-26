@@ -31,11 +31,6 @@ ReputationFrame.filterDropdown:Hide()
 TokenFrame.CurrencyTransferLogToggleButton:Hide()
 TokenFrame.filterDropdown:Hide()
 
-ReputationFrame.ScrollBar:SetSize(25, 560)
-ReputationFrame.ScrollBar:ClearAllPoints()
-ReputationFrame.ScrollBar:SetPoint("TOPLEFT", ReputationFrame.ScrollBox, "TOPRIGHT", -3, 3)
-ReputationFrame.ScrollBar:SetPoint("BOTTOMLEFT", ReputationFrame.ScrollBox, "BOTTOMRIGHT", 3, -1)
-
 ApplyScrollBarArrow(ReputationFrame.ScrollBar)
 ApplyScrollBarTrack(ReputationFrame.ScrollBar.Track)
 ApplyScrollBarThumb(ReputationFrame.ScrollBar.Track.Thumb)
@@ -52,19 +47,8 @@ ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Track.Begin:
 ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Track.End:Hide()
 ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Track.Middle:Hide()
 
+ApplyScrollBarArrow(ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar)
 ApplyScrollBarThumb(ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Track.Thumb)
-
-ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Back:SetSize(18, 16)
-ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
-ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
-ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
-ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
-
-ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Forward:SetSize(18, 16)
-ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
-ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
-ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
-ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
 
 if (ReputationDetailCorner == nil) then
 	ReputationFrame.ReputationDetailFrame:CreateTexture("ReputationDetailCorner", "OVERLAY")
@@ -117,11 +101,6 @@ hooksecurefunc(ReputationHeaderMixin, "Initialize", function(self)
 end)
 
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
-
-TokenFrame.ScrollBar:SetSize(25, 560)
-TokenFrame.ScrollBar:ClearAllPoints()
-TokenFrame.ScrollBar:SetPoint("TOPLEFT", TokenFrame.ScrollBox, "TOPRIGHT", -3, 3)
-TokenFrame.ScrollBar:SetPoint("BOTTOMLEFT", TokenFrame.ScrollBox, "BOTTOMRIGHT", 3, -1)
 
 ApplyScrollBarArrow(TokenFrame.ScrollBar)
 ApplyScrollBarTrack(TokenFrame.ScrollBar.Track)
@@ -203,28 +182,13 @@ end)
 
 ApplyDialogBorder(TokenFramePopup.Border)
 
-PaperDollFrame.TitleManagerPane.ScrollBar:SetSize(25, 560)
-PaperDollFrame.TitleManagerPane.ScrollBar:ClearAllPoints()
-PaperDollFrame.TitleManagerPane.ScrollBar:SetPoint("TOPLEFT", PaperDollFrame.TitleManagerPane.ScrollBox, "TOPRIGHT", 2, 0)
-PaperDollFrame.TitleManagerPane.ScrollBar:SetPoint("BOTTOMLEFT", PaperDollFrame.TitleManagerPane.ScrollBox, "BOTTOMRIGHT", 2, -1)
-
 ApplyScrollBarArrow(PaperDollFrame.TitleManagerPane.ScrollBar)
 ApplyScrollBarTrack(PaperDollFrame.TitleManagerPane.ScrollBar.Track)
 ApplyScrollBarThumb(PaperDollFrame.TitleManagerPane.ScrollBar.Track.Thumb)
 
-PaperDollFrame.EquipmentManagerPane.ScrollBar:SetSize(25, 560)
-PaperDollFrame.EquipmentManagerPane.ScrollBar:ClearAllPoints()
-PaperDollFrame.EquipmentManagerPane.ScrollBar:SetPoint("TOPLEFT", PaperDollFrame.EquipmentManagerPane.ScrollBox, "TOPRIGHT", 2, 23)
-PaperDollFrame.EquipmentManagerPane.ScrollBar:SetPoint("BOTTOMLEFT", PaperDollFrame.EquipmentManagerPane.ScrollBox, "BOTTOMRIGHT", 2, -1)
-
 ApplyScrollBarArrow(PaperDollFrame.EquipmentManagerPane.ScrollBar)
 ApplyScrollBarTrack(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track)
 ApplyScrollBarThumb(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track.Thumb)
-
-GearManagerPopupFrame.IconSelector.ScrollBar:SetSize(25, 560)
-GearManagerPopupFrame.IconSelector.ScrollBar:ClearAllPoints()
-GearManagerPopupFrame.IconSelector.ScrollBar:SetPoint("TOPRIGHT", -3, 30)
-GearManagerPopupFrame.IconSelector.ScrollBar:SetPoint("BOTTOMRIGHT", -3, -2)
 
 ApplyScrollBarArrow(GearManagerPopupFrame.IconSelector.ScrollBar)
 ApplyScrollBarTrack(GearManagerPopupFrame.IconSelector.ScrollBar.Track)

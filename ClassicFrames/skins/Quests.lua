@@ -30,91 +30,33 @@ if _G.QuestLogPopupDetailFrame then
 	ApplyNineSlicePortrait(QuestLogPopupDetailFrame)
 end
 
-QuestScrollFrame.ScrollBar:SetSize(25, 560)
-QuestScrollFrame.ScrollBar:ClearAllPoints()
-QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -2, 0)
-QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", -2, -3)
-
-if (QuestScrollFrame.ScrollBar.BG == nil) then
-	QuestScrollFrame.ScrollBar.BG = QuestScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	QuestScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
-	QuestScrollFrame.ScrollBar.BG:SetAllPoints()
-end
-
 ApplyScrollBarArrow(QuestScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestScrollFrame.ScrollBar.Track.Thumb)
-
-QuestMapDetailsScrollFrame.ScrollBar:SetSize(25, 560)
-QuestMapDetailsScrollFrame.ScrollBar:ClearAllPoints()
-QuestMapDetailsScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestMapDetailsScrollFrame, "TOPRIGHT", 3, 44)
-QuestMapDetailsScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestMapDetailsScrollFrame, "BOTTOMRIGHT", 3, -34)
-
-if (QuestMapDetailsScrollFrame.ScrollBar.BG == nil) then
-	QuestMapDetailsScrollFrame.ScrollBar.BG = QuestMapDetailsScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	QuestMapDetailsScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
-	QuestMapDetailsScrollFrame.ScrollBar.BG:SetAllPoints()
-end
 
 ApplyScrollBarArrow(QuestMapDetailsScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestMapDetailsScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestMapDetailsScrollFrame.ScrollBar.Track.Thumb)
 
-QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetSize(25, 560)
-QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:ClearAllPoints()
-QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -2, 0)
-QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", -2, -3)
-
-if (QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.BG == nil) then
-	QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.BG = QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
-	QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.BG:SetAllPoints()
-end
-
 ApplyScrollBarArrow(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.Track.Thumb)
-
-QuestDetailScrollFrame.ScrollBar:SetSize(25, 560)
-QuestDetailScrollFrame.ScrollBar:ClearAllPoints()
-QuestDetailScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestDetailScrollFrame, "TOPRIGHT", 2, 3)
-QuestDetailScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestDetailScrollFrame, "BOTTOMRIGHT", 2, -2)
 
 ApplyScrollBarArrow(QuestDetailScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestDetailScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestDetailScrollFrame.ScrollBar.Track.Thumb)
 
-QuestGreetingScrollFrame.ScrollBar:SetSize(25, 560)
-QuestGreetingScrollFrame.ScrollBar:ClearAllPoints()
-QuestGreetingScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestGreetingScrollFrame, "TOPRIGHT", 2, 3)
-QuestGreetingScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestGreetingScrollFrame, "BOTTOMRIGHT", 2, -2)
-
 ApplyScrollBarArrow(QuestGreetingScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestGreetingScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestGreetingScrollFrame.ScrollBar.Track.Thumb)
-
-QuestProgressScrollFrame.ScrollBar:SetSize(25, 560)
-QuestProgressScrollFrame.ScrollBar:ClearAllPoints()
-QuestProgressScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestProgressScrollFrame, "TOPRIGHT", 2, 3)
-QuestProgressScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestProgressScrollFrame, "BOTTOMRIGHT", 2, -2)
 
 ApplyScrollBarArrow(QuestProgressScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestProgressScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestProgressScrollFrame.ScrollBar.Track.Thumb)
 
-QuestRewardScrollFrame.ScrollBar:SetSize(25, 560)
-QuestRewardScrollFrame.ScrollBar:ClearAllPoints()
-QuestRewardScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestRewardScrollFrame, "TOPRIGHT", 2, 3)
-QuestRewardScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestRewardScrollFrame, "BOTTOMRIGHT", 2, -2)
-
 ApplyScrollBarArrow(QuestRewardScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestRewardScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestRewardScrollFrame.ScrollBar.Track.Thumb)
-
-QuestLogPopupDetailFrameScrollFrame.ScrollBar:SetSize(25, 560)
-QuestLogPopupDetailFrameScrollFrame.ScrollBar:ClearAllPoints()
-QuestLogPopupDetailFrameScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestLogPopupDetailFrameScrollFrame, "TOPRIGHT", 1, 3)
-QuestLogPopupDetailFrameScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestLogPopupDetailFrameScrollFrame, "BOTTOMRIGHT", 4, -1)
 
 ApplyScrollBarArrow(QuestLogPopupDetailFrameScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestLogPopupDetailFrameScrollFrame.ScrollBar.Track)
@@ -243,34 +185,3 @@ if _G.QuestModelScene then
 
 	QuestNPCModelTextScrollFrame.ScrollBar:SetAlpha(0)
 end
-
-local defaultXSize = 510
-local defaultYSize = 620
-
-QuestFrameDetailPanel:HookScript("OnShow", function(self)
-	self.Bg:SetSize(defaultXSize, defaultYSize)
-	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
-end)
-
-QuestFrameProgressPanel:HookScript("OnShow", function(self)
-	self.Bg:SetSize(defaultXSize, defaultYSize)
-	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
-end)
-
-QuestFrameRewardPanel:HookScript("OnShow", function(self)
-	self.Bg:SetSize(defaultXSize, defaultYSize)
-	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
-end)
-
-local function GreetingPanel_OnShow(frame)
-	frame.Bg:SetSize(defaultXSize, defaultYSize)
-	frame.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
-end
-
-QuestFrameGreetingPanel:HookScript('OnShow', GreetingPanel_OnShow)
-hooksecurefunc('QuestFrameGreetingPanel_OnShow', GreetingPanel_OnShow)
-
-hooksecurefunc('QuestLogPopupDetailFrame_Show', function()
-	QuestLogPopupDetailFrame.Bg:SetSize(defaultXSize, defaultYSize)
-	QuestLogPopupDetailFrame.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
-end)

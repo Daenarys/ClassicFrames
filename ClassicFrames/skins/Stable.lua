@@ -15,20 +15,9 @@ StableFrame.MainHelpButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\ic
 ApplyTitleBg(StableFrame)
 ApplyNineSlicePortrait(StableFrame)
 
-StableFrame.StabledPetList.ScrollBar:SetSize(25, 560)
-StableFrame.StabledPetList.ScrollBar:ClearAllPoints()
-StableFrame.StabledPetList.ScrollBar:SetPoint("TOPLEFT", StableFrame.StabledPetList.ScrollBox, "TOPRIGHT", -7, 6)
-StableFrame.StabledPetList.ScrollBar:SetPoint("BOTTOMLEFT", StableFrame.StabledPetList.ScrollBox, "BOTTOMRIGHT", -7, -1)
-
 ApplyScrollBarArrow(StableFrame.StabledPetList.ScrollBar)
 ApplyScrollBarTrack(StableFrame.StabledPetList.ScrollBar.Track)
 ApplyScrollBarThumb(StableFrame.StabledPetList.ScrollBar.Track.Thumb)
-
-if (StableFrame.StabledPetList.ScrollBar.BG == nil) then
-	StableFrame.StabledPetList.ScrollBar.BG = StableFrame.StabledPetList.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	StableFrame.StabledPetList.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
-	StableFrame.StabledPetList.ScrollBar.BG:SetAllPoints()
-end
 
 ApplyDropDown(StableFrame.PetModelScene.PetInfo.Specialization)
 ApplyFilterDropDown(StableFrame.StabledPetList.FilterBar.FilterDropdown)
