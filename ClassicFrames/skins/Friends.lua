@@ -65,13 +65,14 @@ hooksecurefunc(FriendsTabHeader.TabSystem, 'Layout', function(self)
 	self.tabs[3]:SetPoint("LEFT", self.tabs[2], "RIGHT")
 end)
 
-FriendsListFrame.ScrollBar:SetPoint("TOPLEFT", FriendsListFrame.ScrollBox, "TOPRIGHT", 6, 1)
-FriendsListFrame.ScrollBar:SetPoint("BOTTOMLEFT", FriendsListFrame.ScrollBox, "BOTTOMRIGHT", 6, -1)
+FriendsListFrame.ScrollBar:SetSize(25, 560)
+FriendsListFrame.ScrollBar:ClearAllPoints()
+FriendsListFrame.ScrollBar:SetPoint("TOPLEFT", FriendsListFrame.ScrollBox, "TOPRIGHT", -2, 1)
+FriendsListFrame.ScrollBar:SetPoint("BOTTOMLEFT", FriendsListFrame.ScrollBox, "BOTTOMRIGHT", 1, -3)
 
 ApplyScrollBarArrow(FriendsListFrame.ScrollBar)
 ApplyScrollBarTrack(FriendsListFrame.ScrollBar.Track)
 ApplyScrollBarThumb(FriendsListFrame.ScrollBar.Track.Thumb)
-FriendsListFrame.ScrollBar.Track.BG:Hide()
 
 ApplyCloseButton(FriendsFrame.IgnoreListWindow.CloseButton)
 
@@ -82,15 +83,30 @@ FriendsFrame.IgnoreListWindow.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame.I
 ApplyTitleBgNoPortrait(FriendsFrame.IgnoreListWindow)
 ApplyNineSliceNoPortrait(FriendsFrame.IgnoreListWindow)
 
+FriendsFrame.IgnoreListWindow.ScrollBar:SetSize(25, 560)
+FriendsFrame.IgnoreListWindow.ScrollBar:ClearAllPoints()
+FriendsFrame.IgnoreListWindow.ScrollBar:SetPoint("TOPLEFT", FriendsFrame.IgnoreListWindow.ScrollBox, "TOPRIGHT", -2, 1)
+FriendsFrame.IgnoreListWindow.ScrollBar:SetPoint("BOTTOMLEFT", FriendsFrame.IgnoreListWindow.ScrollBox, "BOTTOMRIGHT", 1, -1)
+
 ApplyScrollBarArrow(FriendsFrame.IgnoreListWindow.ScrollBar)
 ApplyScrollBarTrack(FriendsFrame.IgnoreListWindow.ScrollBar.Track)
 ApplyScrollBarThumb(FriendsFrame.IgnoreListWindow.ScrollBar.Track.Thumb)
 
 ApplyDialogBorder(FriendsFrameBattlenetFrame.BroadcastFrame.Border)
 
+RecentAlliesFrame.List.ScrollBar:SetSize(25, 560)
+RecentAlliesFrame.List.ScrollBar:ClearAllPoints()
+RecentAlliesFrame.List.ScrollBar:SetPoint("TOPLEFT", RecentAlliesFrame.List.ScrollBox, "TOPRIGHT", -2, 1)
+RecentAlliesFrame.List.ScrollBar:SetPoint("BOTTOMLEFT", RecentAlliesFrame.List.ScrollBox, "BOTTOMRIGHT", 1, -3)
+
 ApplyScrollBarArrow(RecentAlliesFrame.List.ScrollBar)
 ApplyScrollBarTrack(RecentAlliesFrame.List.ScrollBar.Track)
 ApplyScrollBarThumb(RecentAlliesFrame.List.ScrollBar.Track.Thumb)
+
+RecruitAFriendFrame.RecruitList.ScrollBar:SetSize(25, 560)
+RecruitAFriendFrame.RecruitList.ScrollBar:ClearAllPoints()
+RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("TOPLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "TOPRIGHT", -2, 1)
+RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("BOTTOMLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "BOTTOMRIGHT", 1, -3)
 
 ApplyScrollBarArrow(RecruitAFriendFrame.RecruitList.ScrollBar)
 ApplyScrollBarTrack(RecruitAFriendFrame.RecruitList.ScrollBar.Track)
@@ -118,9 +134,19 @@ ApplyDialogBorder(RecruitAFriendRewardsFrame.Border)
 
 WhoFrameColumnHeader4Middle:SetWidth(48)
 
+WhoFrame.ScrollBar:SetSize(25, 560)
+WhoFrame.ScrollBar:ClearAllPoints()
+WhoFrame.ScrollBar:SetPoint("TOPLEFT", WhoFrame.ScrollBox, "TOPRIGHT", -2, 1)
+WhoFrame.ScrollBar:SetPoint("BOTTOMLEFT", WhoFrame.ScrollBox, "BOTTOMRIGHT", 1, -18)
+
 ApplyScrollBarArrow(WhoFrame.ScrollBar)
 ApplyScrollBarTrack(WhoFrame.ScrollBar.Track)
 ApplyScrollBarThumb(WhoFrame.ScrollBar.Track.Thumb)
+
+QuickJoinFrame.ScrollBar:SetSize(25, 560)
+QuickJoinFrame.ScrollBar:ClearAllPoints()
+QuickJoinFrame.ScrollBar:SetPoint("TOPLEFT", QuickJoinFrame.ScrollBox, "TOPRIGHT", -1, 2)
+QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", -1, -2)
 
 ApplyScrollBarArrow(QuickJoinFrame.ScrollBar)
 ApplyScrollBarTrack(QuickJoinFrame.ScrollBar.Track)
@@ -135,6 +161,11 @@ AddFriendFrame.CloseButton:ClearAllPoints()
 AddFriendFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
 
 ApplyDialogBorder(AddFriendFrame.Border)
+
+RaidInfoFrame.ScrollBar:SetSize(25, 560)
+RaidInfoFrame.ScrollBar:ClearAllPoints()
+RaidInfoFrame.ScrollBar:SetPoint("TOPLEFT", RaidInfoFrame.ScrollBox, "TOPRIGHT", 5, 3)
+RaidInfoFrame.ScrollBar:SetPoint("BOTTOMLEFT", RaidInfoFrame.ScrollBox, "BOTTOMRIGHT", 0, -1)
 
 ApplyScrollBarArrow(RaidInfoFrame.ScrollBar)
 ApplyScrollBarTrack(RaidInfoFrame.ScrollBar.Track)

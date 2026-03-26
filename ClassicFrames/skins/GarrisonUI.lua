@@ -17,9 +17,31 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:ClearAllPoints()
 			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 4, 5)
 
+			GarrisonMissionFrameMissions.ScrollBar:SetSize(25, 560)
+			GarrisonMissionFrameMissions.ScrollBar:ClearAllPoints()
+			GarrisonMissionFrameMissions.ScrollBar:SetPoint("TOPLEFT", GarrisonMissionFrameMissions.ScrollBox, "TOPRIGHT", -4, 3)
+			GarrisonMissionFrameMissions.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonMissionFrameMissions.ScrollBox, "BOTTOMRIGHT", -1, -1)
+
+			if (GarrisonMissionFrameMissions.ScrollBar.BG == nil) then
+				GarrisonMissionFrameMissions.ScrollBar.BG = GarrisonMissionFrameMissions.ScrollBar:CreateTexture(nil, "BACKGROUND")
+				GarrisonMissionFrameMissions.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+				GarrisonMissionFrameMissions.ScrollBar.BG:SetAllPoints()
+			end
+
 			ApplyScrollBarArrow(GarrisonMissionFrameMissions.ScrollBar)
 			ApplyScrollBarTrack(GarrisonMissionFrameMissions.ScrollBar.Track)
 			ApplyScrollBarThumb(GarrisonMissionFrameMissions.ScrollBar.Track.Thumb)
+
+			GarrisonMissionFrameFollowers.ScrollBar:SetSize(25, 560)
+			GarrisonMissionFrameFollowers.ScrollBar:ClearAllPoints()
+			GarrisonMissionFrameFollowers.ScrollBar:SetPoint("TOPLEFT", GarrisonMissionFrameFollowers.ScrollBox, "TOPRIGHT", -4, 3)
+			GarrisonMissionFrameFollowers.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonMissionFrameFollowers.ScrollBox, "BOTTOMRIGHT", -1, -1)
+
+			if (GarrisonMissionFrameFollowers.ScrollBar.BG == nil) then
+				GarrisonMissionFrameFollowers.ScrollBar.BG = GarrisonMissionFrameFollowers.ScrollBar:CreateTexture(nil, "BACKGROUND")
+				GarrisonMissionFrameFollowers.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+				GarrisonMissionFrameFollowers.ScrollBar.BG:SetAllPoints()
+			end
 
 			ApplyScrollBarArrow(GarrisonMissionFrameFollowers.ScrollBar)
 			ApplyScrollBarTrack(GarrisonMissionFrameFollowers.ScrollBar.Track)
@@ -42,6 +64,17 @@ f:SetScript("OnEvent", function(self, event, name)
 		if _G.GarrisonShipyardFrame then
 			ApplyCloseButton(GarrisonShipyardFrame.BorderFrame.CloseButton2)
 
+			GarrisonShipyardFrameFollowers.ScrollBar:SetSize(25, 560)
+			GarrisonShipyardFrameFollowers.ScrollBar:ClearAllPoints()
+			GarrisonShipyardFrameFollowers.ScrollBar:SetPoint("TOPLEFT", GarrisonShipyardFrameFollowers.ScrollBox, "TOPRIGHT", 4, 3)
+			GarrisonShipyardFrameFollowers.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonShipyardFrameFollowers.ScrollBox, "BOTTOMRIGHT", 7, -1)
+
+			if (GarrisonShipyardFrameFollowers.ScrollBar.BG == nil) then
+				GarrisonShipyardFrameFollowers.ScrollBar.BG = GarrisonShipyardFrameFollowers.ScrollBar:CreateTexture(nil, "BACKGROUND")
+				GarrisonShipyardFrameFollowers.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+				GarrisonShipyardFrameFollowers.ScrollBar.BG:SetAllPoints()
+			end
+
 			ApplyScrollBarArrow(GarrisonShipyardFrameFollowers.ScrollBar)
 			ApplyScrollBarTrack(GarrisonShipyardFrameFollowers.ScrollBar.Track)
 			ApplyScrollBarThumb(GarrisonShipyardFrameFollowers.ScrollBar.Track.Thumb)
@@ -63,9 +96,31 @@ f:SetScript("OnEvent", function(self, event, name)
 			OrderHallMissionFrame.MissionTab.MissionPage.CloseButton:ClearAllPoints()
 			OrderHallMissionFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 4, 5)
 
+			OrderHallMissionFrameMissions.ScrollBar:SetSize(25, 560)
+			OrderHallMissionFrameMissions.ScrollBar:ClearAllPoints()
+			OrderHallMissionFrameMissions.ScrollBar:SetPoint("TOPLEFT", OrderHallMissionFrameMissions.ScrollBox, "TOPRIGHT", -4, 3)
+			OrderHallMissionFrameMissions.ScrollBar:SetPoint("BOTTOMLEFT", OrderHallMissionFrameMissions.ScrollBox, "BOTTOMRIGHT", -1, -1)
+
+			if (OrderHallMissionFrameMissions.ScrollBar.BG == nil) then
+				OrderHallMissionFrameMissions.ScrollBar.BG = OrderHallMissionFrameMissions.ScrollBar:CreateTexture(nil, "BACKGROUND")
+				OrderHallMissionFrameMissions.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+				OrderHallMissionFrameMissions.ScrollBar.BG:SetAllPoints()
+			end
+
 			ApplyScrollBarArrow(OrderHallMissionFrameMissions.ScrollBar)
 			ApplyScrollBarTrack(OrderHallMissionFrameMissions.ScrollBar.Track)
 			ApplyScrollBarThumb(OrderHallMissionFrameMissions.ScrollBar.Track.Thumb)
+			
+			OrderHallMissionFrameFollowers.ScrollBar:SetSize(25, 560)
+			OrderHallMissionFrameFollowers.ScrollBar:ClearAllPoints()
+			OrderHallMissionFrameFollowers.ScrollBar:SetPoint("TOPLEFT", OrderHallMissionFrameFollowers.ScrollBox, "TOPRIGHT", -4, 3)
+			OrderHallMissionFrameFollowers.ScrollBar:SetPoint("BOTTOMLEFT", OrderHallMissionFrameFollowers.ScrollBox, "BOTTOMRIGHT", -1, -1)
+
+			if (OrderHallMissionFrameFollowers.ScrollBar.BG == nil) then
+				OrderHallMissionFrameFollowers.ScrollBar.BG = OrderHallMissionFrameFollowers.ScrollBar:CreateTexture(nil, "BACKGROUND")
+				OrderHallMissionFrameFollowers.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+				OrderHallMissionFrameFollowers.ScrollBar.BG:SetAllPoints()
+			end
 
 			ApplyScrollBarArrow(OrderHallMissionFrameFollowers.ScrollBar)
 			ApplyScrollBarTrack(OrderHallMissionFrameFollowers.ScrollBar.Track)
@@ -93,9 +148,31 @@ f:SetScript("OnEvent", function(self, event, name)
 			BFAMissionFrame.MissionTab.MissionPage.CloseButton:ClearAllPoints()
 			BFAMissionFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 4, 5)
 
+			BFAMissionFrameMissions.ScrollBar:SetSize(25, 560)
+			BFAMissionFrameMissions.ScrollBar:ClearAllPoints()
+			BFAMissionFrameMissions.ScrollBar:SetPoint("TOPLEFT", BFAMissionFrameMissions.ScrollBox, "TOPRIGHT", -4, 3)
+			BFAMissionFrameMissions.ScrollBar:SetPoint("BOTTOMLEFT", BFAMissionFrameMissions.ScrollBox, "BOTTOMRIGHT", -1, -1)
+
+			if (BFAMissionFrameMissions.ScrollBar.BG == nil) then
+				BFAMissionFrameMissions.ScrollBar.BG = BFAMissionFrameMissions.ScrollBar:CreateTexture(nil, "BACKGROUND")
+				BFAMissionFrameMissions.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+				BFAMissionFrameMissions.ScrollBar.BG:SetAllPoints()
+			end
+
 			ApplyScrollBarArrow(BFAMissionFrameMissions.ScrollBar)
 			ApplyScrollBarTrack(BFAMissionFrameMissions.ScrollBar.Track)
 			ApplyScrollBarThumb(BFAMissionFrameMissions.ScrollBar.Track.Thumb)
+
+			BFAMissionFrameFollowers.ScrollBar:SetSize(25, 560)
+			BFAMissionFrameFollowers.ScrollBar:ClearAllPoints()
+			BFAMissionFrameFollowers.ScrollBar:SetPoint("TOPLEFT", BFAMissionFrameFollowers.ScrollBox, "TOPRIGHT", -4, 3)
+			BFAMissionFrameFollowers.ScrollBar:SetPoint("BOTTOMLEFT", BFAMissionFrameFollowers.ScrollBox, "BOTTOMRIGHT", -1, -1)
+
+			if (BFAMissionFrameFollowers.ScrollBar.BG == nil) then
+				BFAMissionFrameFollowers.ScrollBar.BG = BFAMissionFrameFollowers.ScrollBar:CreateTexture(nil, "BACKGROUND")
+				BFAMissionFrameFollowers.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
+				BFAMissionFrameFollowers.ScrollBar.BG:SetAllPoints()
+			end
 
 			ApplyScrollBarArrow(BFAMissionFrameFollowers.ScrollBar)
 			ApplyScrollBarTrack(BFAMissionFrameFollowers.ScrollBar.Track)
@@ -143,6 +220,21 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonLandingPage.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 		end
 		if _G.GarrisonLandingPageReportList then
+			GarrisonLandingPageReportList.ScrollBar:SetSize(25, 560)
+			GarrisonLandingPageReportList.ScrollBar:ClearAllPoints()
+			GarrisonLandingPageReportList.ScrollBar:SetPoint("TOPLEFT", GarrisonLandingPageReportList.ScrollBox, "TOPRIGHT", -20, 1)
+			GarrisonLandingPageReportList.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonLandingPageReportList.ScrollBox, "BOTTOMRIGHT", -17, -5)
+
+			if (GarrisonLandingPageReportList.ScrollBar.BG == nil) then
+				GarrisonLandingPageReportList.ScrollBar.BG = GarrisonLandingPageReportList.ScrollBar:CreateTexture(nil, "BACKGROUND")
+				GarrisonLandingPageReportList.ScrollBar.BG:SetColorTexture(0, 0, 0, .75)
+				GarrisonLandingPageReportList.ScrollBar.BG:SetAllPoints()
+			end
+
+			GarrisonLandingPageReportList.ScrollBar.Track:ClearAllPoints()
+			GarrisonLandingPageReportList.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
+			GarrisonLandingPageReportList.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
+
 			GarrisonLandingPageReportList.ScrollBar.Track.Begin:Hide()
 			GarrisonLandingPageReportList.ScrollBar.Track.End:Hide()
 			GarrisonLandingPageReportList.ScrollBar.Track.Middle:Hide()
@@ -151,12 +243,42 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarThumb(GarrisonLandingPageReportList.ScrollBar.Track.Thumb)
 		end
 		if _G.GarrisonLandingPageFollowerList then
+			GarrisonLandingPageFollowerList.ScrollBar:SetSize(25, 560)
+			GarrisonLandingPageFollowerList.ScrollBar:ClearAllPoints()
+			GarrisonLandingPageFollowerList.ScrollBar:SetPoint("TOPLEFT", GarrisonLandingPageFollowerList.ScrollBox, "TOPRIGHT", -20, 1)
+			GarrisonLandingPageFollowerList.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonLandingPageFollowerList.ScrollBox, "BOTTOMRIGHT", -17, -5)
+
+			if (GarrisonLandingPageFollowerList.ScrollBar.BG == nil) then
+				GarrisonLandingPageFollowerList.ScrollBar.BG = GarrisonLandingPageFollowerList.ScrollBar:CreateTexture(nil, "BACKGROUND")
+				GarrisonLandingPageFollowerList.ScrollBar.BG:SetColorTexture(0, 0, 0, .75)
+				GarrisonLandingPageFollowerList.ScrollBar.BG:SetAllPoints()
+			end
+
+			GarrisonLandingPageFollowerList.ScrollBar.Track:ClearAllPoints()
+			GarrisonLandingPageFollowerList.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
+			GarrisonLandingPageFollowerList.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
+
 			ApplyScrollBarArrow(GarrisonLandingPageFollowerList.ScrollBar)
 			ApplyScrollBarTrack(GarrisonLandingPageFollowerList.ScrollBar.Track)
 			ApplyScrollBarThumb(GarrisonLandingPageFollowerList.ScrollBar.Track.Thumb)
 		end
 		if _G.GarrisonRecruitSelectFrame then
 			ApplyCloseButton(GarrisonRecruitSelectFrame.CloseButton)
+
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:SetSize(25, 560)
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:ClearAllPoints()
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:SetPoint("TOPLEFT", GarrisonRecruitSelectFrame.FollowerList.ScrollBox, "TOPRIGHT", -4, 0)
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonRecruitSelectFrame.FollowerList.ScrollBox, "BOTTOMRIGHT", -1, -3)
+
+			if (GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG == nil) then
+				GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG = GarrisonRecruitSelectFrame.FollowerList.ScrollBar:CreateTexture(nil, "BACKGROUND")
+				GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG:SetColorTexture(0, 0, 0, .75)
+				GarrisonRecruitSelectFrame.FollowerList.ScrollBar.BG:SetAllPoints()
+			end
+
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track:ClearAllPoints()
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
 
 			ApplyScrollBarArrow(GarrisonRecruitSelectFrame.FollowerList.ScrollBar)
 			ApplyScrollBarTrack(GarrisonRecruitSelectFrame.FollowerList.ScrollBar.Track)

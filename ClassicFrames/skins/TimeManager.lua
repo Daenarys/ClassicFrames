@@ -36,7 +36,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		end)
 
 		hooksecurefunc("TimeManagerFrame_SetupAMPMDropdown", function(self)
-			self.AlarmTimeFrame.AMPMDropdown:SetWidth(55)
+			self.AlarmTimeFrame.AMPMDropdown:SetWidth(54)
 		end)
 	end
 end)
