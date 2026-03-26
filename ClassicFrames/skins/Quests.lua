@@ -89,6 +89,7 @@ QuestLogPopupDetailFrameScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestLogPop
 ApplyScrollBarArrow(QuestLogPopupDetailFrameScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestLogPopupDetailFrameScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestLogPopupDetailFrameScrollFrame.ScrollBar.Track.Thumb)
+QuestLogPopupDetailFrameScrollFrame.ScrollBar.Track.BG:Hide()
 
 if _G.QuestModelScene then
 	QuestModelScene.Border:SetAlpha(0)
