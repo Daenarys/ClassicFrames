@@ -1,12 +1,7 @@
 local function IsDialogMenu(owner)
     if not owner then return false end
 
-    return (owner == ContainerFrame1PortraitButton)
-        or (owner == ContainerFrame2PortraitButton)
-        or (owner == ContainerFrame3PortraitButton)
-        or (owner == ContainerFrame4PortraitButton)
-        or (owner == ContainerFrame5PortraitButton)
-        or (owner == LFDQueueFrameTypeDropdown)
+    return (owner == LFDQueueFrameTypeDropdown)
         or (owner == RaidFinderQueueFrameSelectionDropdown)
         or (owner == LFGListEntryCreationGroupDropdown)
         or (owner == LFGListEntryCreationActivityDropdown)
@@ -34,7 +29,6 @@ local function IsDialogMenu(owner)
         or (HeirloomsJournal and owner == HeirloomsJournal.ClassDropdown)
         or (ItemUpgradeFrame and owner == ItemUpgradeFrame.ItemInfo.Dropdown)
         or (PlayerSpellsFrame and owner == PlayerSpellsFrame.TalentsFrame.LoadSystem.Dropdown)
-        or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.ClassDropdown)
         or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 end
 
