@@ -149,20 +149,16 @@ function ApplyNineSliceNoPortrait(frame)
 end
 
 function ApplyDialogBorder(frame)
-	frame.TopLeftCorner:SetAlpha(0)
-	frame.TopRightCorner:SetAlpha(0)
-	frame.BottomLeftCorner:SetAlpha(0)
-	frame.BottomRightCorner:SetAlpha(0)
-	frame.TopEdge:SetAlpha(0)
-	frame.BottomEdge:SetAlpha(0)
-	frame.LeftEdge:SetAlpha(0)
-	frame.RightEdge:SetAlpha(0)
-
-	if (frame.Top == nil) then
-		frame.Top = frame:CreateTexture(nil, "BORDER")
-		frame.Top:SetAtlas("UI-DiamondDialogBox-ClassicBorder")
-		frame.Top:SetAllPoints()
-	end
+	frame.TopLeftCorner:SetAtlas("DialogBox-NineSlice-CornerTopLeft")
+	frame.TopLeftCorner:SetPoint("TOPLEFT", -1, 0)
+	frame.TopRightCorner:SetAtlas("DialogBox-NineSlice-CornerTopRight")
+	frame.BottomLeftCorner:SetAtlas("DialogBox-NineSlice-CornerBottomLeft")
+	frame.BottomRightCorner:SetAtlas("DialogBox-NineSlice-CornerBottomRight")
+	frame.TopEdge:SetAtlas("_DialogBox-NineSlice-EdgeTop")
+	frame.BottomEdge:SetAtlas("_DialogBox-NineSlice-EdgeBottom")
+	frame.LeftEdge:SetAtlas("!DialogBox-NineSlice-EdgeLeft")
+	frame.LeftEdge:SetPoint("TOPLEFT", frame.TopLeftCorner, "BOTTOMLEFT", 1, 0)
+	frame.RightEdge:SetAtlas("!DialogBox-NineSlice-EdgeRight")
 end
 
 function ApplyDialogHeader(frame)
