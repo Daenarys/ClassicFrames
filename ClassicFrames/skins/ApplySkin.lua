@@ -224,8 +224,8 @@ function ApplyScrollBarTrack(frame)
 	if (frame.BG == nil) then
 		frame.BG = frame:CreateTexture(nil, "BACKGROUND")
 		frame.BG:SetColorTexture(0, 0, 0, .75)
-		frame.BG:SetPoint("TOPLEFT", -6, 2)
-		frame.BG:SetPoint("BOTTOMRIGHT", 6, 0)
+		frame.BG:SetPoint("TOPLEFT", -6, 19)
+		frame.BG:SetPoint("BOTTOMRIGHT", 6, -19)
 	end
 end
 
