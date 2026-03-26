@@ -108,8 +108,11 @@ QuickJoinToastButton:HookScript("OnUpdate", function(self)
 end)
 
 ApplyScrollBarArrow(ChatConfigCombatSettingsFilters.ScrollBar)
-ApplyScrollBarTrack(ChatConfigCombatSettingsFilters.ScrollBar.Track)
 ApplyScrollBarThumb(ChatConfigCombatSettingsFilters.ScrollBar.Track.Thumb)
+
+ChatConfigCombatSettingsFilters.ScrollBar.Track.Begin:Hide()
+ChatConfigCombatSettingsFilters.ScrollBar.Track.End:Hide()
+ChatConfigCombatSettingsFilters.ScrollBar.Track.Middle:Hide()
 
 ApplyDialogBorder(ChatConfigFrame.Border)
 ApplyDialogHeader(ChatConfigFrame.Header)

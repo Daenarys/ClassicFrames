@@ -65,9 +65,13 @@ hooksecurefunc(FriendsTabHeader.TabSystem, 'Layout', function(self)
 	self.tabs[3]:SetPoint("LEFT", self.tabs[2], "RIGHT")
 end)
 
+FriendsListFrame.ScrollBar:SetPoint("TOPLEFT", FriendsListFrame.ScrollBox, "TOPRIGHT", 6, 1)
+FriendsListFrame.ScrollBar:SetPoint("BOTTOMLEFT", FriendsListFrame.ScrollBox, "BOTTOMRIGHT", 6, -1)
+
 ApplyScrollBarArrow(FriendsListFrame.ScrollBar)
 ApplyScrollBarTrack(FriendsListFrame.ScrollBar.Track)
 ApplyScrollBarThumb(FriendsListFrame.ScrollBar.Track.Thumb)
+FriendsListFrame.ScrollBar.Track.BG:Hide()
 
 ApplyCloseButton(FriendsFrame.IgnoreListWindow.CloseButton)
 

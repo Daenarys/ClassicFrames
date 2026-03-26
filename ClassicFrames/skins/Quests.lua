@@ -31,7 +31,7 @@ if _G.QuestLogPopupDetailFrame then
 end
 
 QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", 5, -4)
-QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", 5, -1)
+QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", 5, 0)
 
 ApplyScrollBarArrow(QuestScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestScrollFrame.ScrollBar.Track)
@@ -45,7 +45,7 @@ ApplyScrollBarTrack(QuestMapDetailsScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestMapDetailsScrollFrame.ScrollBar.Track.Thumb)
 
 QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", 5, -4)
-QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", 5, -1)
+QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", 5, 0)
 
 ApplyScrollBarArrow(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.Track)
