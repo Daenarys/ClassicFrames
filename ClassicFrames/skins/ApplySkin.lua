@@ -149,16 +149,29 @@ function ApplyNineSliceNoPortrait(frame)
 end
 
 function ApplyDialogBorder(frame)
-	frame.TopLeftCorner:SetAtlas("DialogBox-NineSlice-CornerTopLeft")
-	frame.TopLeftCorner:SetPoint("TOPLEFT", -1, 0)
-	frame.TopRightCorner:SetAtlas("DialogBox-NineSlice-CornerTopRight")
-	frame.BottomLeftCorner:SetAtlas("DialogBox-NineSlice-CornerBottomLeft")
-	frame.BottomRightCorner:SetAtlas("DialogBox-NineSlice-CornerBottomRight")
-	frame.TopEdge:SetAtlas("_DialogBox-NineSlice-EdgeTop")
-	frame.BottomEdge:SetAtlas("_DialogBox-NineSlice-EdgeBottom")
-	frame.LeftEdge:SetAtlas("!DialogBox-NineSlice-EdgeLeft")
-	frame.LeftEdge:SetPoint("TOPLEFT", frame.TopLeftCorner, "BOTTOMLEFT", 1, 0)
-	frame.RightEdge:SetAtlas("!DialogBox-NineSlice-EdgeRight")
+	frame.TopLeftCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
+	frame.TopLeftCorner:SetTexCoord(0.015625, 0.515625, 0.53515625, 0.66015625)
+
+	frame.TopRightCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
+	frame.TopRightCorner:SetTexCoord(0.015625, 0.515625, 0.66796875, 0.79296875)
+
+	frame.BottomLeftCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
+	frame.BottomLeftCorner:SetTexCoord(0.015625, 0.515625, 0.26953125, 0.39453125)
+
+	frame.BottomRightCorner:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
+	frame.BottomRightCorner:SetTexCoord(0.015625, 0.515625, 0.40234375, 0.52734375)
+
+	frame.TopEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
+	frame.TopEdge:SetTexCoord(0, 0.5, 0.13671875, 0.26171875)
+
+	frame.BottomEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetal")
+	frame.BottomEdge:SetTexCoord(0, 0.5, 0.00390625, 0.12890625)
+
+	frame.LeftEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalVertical")
+	frame.LeftEdge:SetTexCoord(0.0078125, 0.2578125, 0, 1)
+
+	frame.RightEdge:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UIFrameDiamondMetalVertical")
+	frame.RightEdge:SetTexCoord(0.2734375, 0.5234375, 0, 1)
 end
 
 function ApplyDialogHeader(frame)
