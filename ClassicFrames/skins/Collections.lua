@@ -81,7 +81,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		HeirloomsJournal.ClassDropdown:SetPoint("TOPLEFT", 72, -31)
 		HeirloomsJournal.ClassDropdown.Text:SetJustifyH("RIGHT")
 		HeirloomsJournal.ClassDropdown.Text:SetPoint("TOPLEFT", 9, -8)
-		WardrobeCollectionFrame.ClassDropdown:SetWidth(155)
+		WardrobeCollectionFrame.ClassDropdown.Text:SetJustifyH("RIGHT")
 		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown:SetWidth(155)
 		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown.Text:SetJustifyH("RIGHT")
 
