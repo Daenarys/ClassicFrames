@@ -10,8 +10,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		AchievementFrameCloseButton:ClearAllPoints()
 		AchievementFrameCloseButton:SetPoint("TOPRIGHT", 3, 4)
 
-		AchievementFrameCategories.ScrollBar:SetSize(25, 560)
-		AchievementFrameCategories.ScrollBar:ClearAllPoints()
+		AchievementFrameCategories.ScrollBar:SetWidth(25)
 		AchievementFrameCategories.ScrollBar:SetPoint("TOPLEFT", AchievementFrameCategories.ScrollBox, "TOPRIGHT", -1, 3)
 		AchievementFrameCategories.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameCategories.ScrollBox, "BOTTOMRIGHT", 1, -5)
 
@@ -25,8 +24,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(AchievementFrameCategories.ScrollBar.Track)
 		ApplyScrollBarThumb(AchievementFrameCategories.ScrollBar.Track.Thumb)
 
-		AchievementFrameAchievements.ScrollBar:SetSize(25, 560)
-		AchievementFrameAchievements.ScrollBar:ClearAllPoints()
+		AchievementFrameAchievements.ScrollBar:SetWidth(25)
 		AchievementFrameAchievements.ScrollBar:SetPoint("TOPLEFT", AchievementFrameAchievements.ScrollBox, "TOPRIGHT", -1, 3)
 		AchievementFrameAchievements.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameAchievements.ScrollBox, "BOTTOMRIGHT", 1, -5)
 
@@ -40,8 +38,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(AchievementFrameAchievements.ScrollBar.Track)
 		ApplyScrollBarThumb(AchievementFrameAchievements.ScrollBar.Track.Thumb)
 
-		AchievementFrameStats.ScrollBar:SetSize(25, 560)
-		AchievementFrameStats.ScrollBar:ClearAllPoints()
+		AchievementFrameStats.ScrollBar:SetWidth(25)
 		AchievementFrameStats.ScrollBar:SetPoint("TOPLEFT", AchievementFrameStats.ScrollBox, "TOPRIGHT", -1, 3)
 		AchievementFrameStats.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameStats.ScrollBox, "BOTTOMRIGHT", 1, -5)
 
@@ -55,8 +52,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(AchievementFrameStats.ScrollBar.Track)
 		ApplyScrollBarThumb(AchievementFrameStats.ScrollBar.Track.Thumb)
 
-		AchievementFrameComparison.AchievementContainer.ScrollBar:SetSize(25, 560)
-		AchievementFrameComparison.AchievementContainer.ScrollBar:ClearAllPoints()
+		AchievementFrameComparison.AchievementContainer.ScrollBar:SetWidth(25)
 		AchievementFrameComparison.AchievementContainer.ScrollBar:SetPoint("TOPLEFT", AchievementFrameComparison.Summary, "TOPRIGHT", 0, -4)
 		AchievementFrameComparison.AchievementContainer.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameComparison.AchievementContainer, "BOTTOMRIGHT", 0, 4)
 
@@ -70,8 +66,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(AchievementFrameComparison.AchievementContainer.ScrollBar.Track)
 		ApplyScrollBarThumb(AchievementFrameComparison.AchievementContainer.ScrollBar.Track.Thumb)
 
-		AchievementFrameComparison.StatContainer.ScrollBar:SetSize(25, 560)
-		AchievementFrameComparison.StatContainer.ScrollBar:ClearAllPoints()
+		AchievementFrameComparison.StatContainer.ScrollBar:SetWidth(25)
 		AchievementFrameComparison.StatContainer.ScrollBar:SetPoint("TOPLEFT", AchievementFrameComparison.Summary, "TOPRIGHT", 2, -4)
 		AchievementFrameComparison.StatContainer.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameComparison.StatContainer, "BOTTOMRIGHT", -2, 4)
 
@@ -93,8 +88,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		AchievementFrame.SearchResults.CloseButton:ClearAllPoints()
 		AchievementFrame.SearchResults.CloseButton:SetPoint("TOPRIGHT", 4, 2)
 
-		AchievementFrame.SearchResults.ScrollBar:SetSize(25, 560)
-		AchievementFrame.SearchResults.ScrollBar:ClearAllPoints()
+		AchievementFrame.SearchResults.ScrollBar:SetWidth(25)
 		AchievementFrame.SearchResults.ScrollBar:SetPoint("TOPLEFT", AchievementFrame.SearchResults.ScrollBox, "TOPRIGHT", -5, 2)
 		AchievementFrame.SearchResults.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrame.SearchResults.ScrollBox, "BOTTOMRIGHT", 5, -1)
 

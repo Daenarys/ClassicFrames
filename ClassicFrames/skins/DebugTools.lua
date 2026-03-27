@@ -10,8 +10,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		TableAttributeDisplay.CloseButton:ClearAllPoints()
 		TableAttributeDisplay.CloseButton:SetPoint("TOPRIGHT", 2, 1)
 
-		TableAttributeDisplay.LinesScrollFrame.ScrollBar:SetSize(25, 560)
-		TableAttributeDisplay.LinesScrollFrame.ScrollBar:ClearAllPoints()
+		TableAttributeDisplay.LinesScrollFrame.ScrollBar:SetWidth(25)
 		TableAttributeDisplay.LinesScrollFrame.ScrollBar:SetPoint("TOPLEFT", TableAttributeDisplay.LinesScrollFrame, "TOPRIGHT", 1, 3)
 		TableAttributeDisplay.LinesScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", TableAttributeDisplay.LinesScrollFrame, "BOTTOMRIGHT", 1, -4)
 

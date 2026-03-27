@@ -34,8 +34,7 @@ DressUpFrame.TitleContainer:SetPoint("TOPRIGHT", DressUpFrame, "TOPRIGHT", -58, 
 ApplyTitleBg(DressUpFrame)
 ApplyNineSlicePortrait(DressUpFrame)
 
-DressUpFrame.SetSelectionPanel.ScrollBar:SetSize(25, 560)
-DressUpFrame.SetSelectionPanel.ScrollBar:ClearAllPoints()
+DressUpFrame.SetSelectionPanel.ScrollBar:SetWidth(25)
 DressUpFrame.SetSelectionPanel.ScrollBar:SetPoint("TOPLEFT", DressUpFrame.SetSelectionPanel.ScrollBox, "TOPRIGHT")
 DressUpFrame.SetSelectionPanel.ScrollBar:SetPoint("BOTTOMLEFT", DressUpFrame.SetSelectionPanel.ScrollBox, "BOTTOMRIGHT")
 

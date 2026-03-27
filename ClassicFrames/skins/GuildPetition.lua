@@ -12,8 +12,7 @@ if _G.GuildRegistrarFrame then
 	ApplyTitleBg(GuildRegistrarFrame)
 	ApplyNineSlicePortrait(GuildRegistrarFrame)
 
-	GuildRegistrarFrame.ScrollBar:SetSize(25, 560)
-	GuildRegistrarFrame.ScrollBar:ClearAllPoints()
+	GuildRegistrarFrame.ScrollBar:SetWidth(25)
 	GuildRegistrarFrame.ScrollBar:SetPoint("TOPLEFT", GuildRegistrarFrame, "TOPRIGHT", -30, -60)
 	GuildRegistrarFrame.ScrollBar:SetPoint("BOTTOMLEFT", GuildRegistrarFrame, "BOTTOMRIGHT", -27, 24)
 
@@ -36,8 +35,7 @@ if _G.PetitionFrame then
 	ApplyTitleBg(PetitionFrame)
 	ApplyNineSlicePortrait(PetitionFrame)
 
-	PetitionFrame.ScrollBar:SetSize(25, 560)
-	PetitionFrame.ScrollBar:ClearAllPoints()
+	PetitionFrame.ScrollBar:SetWidth(25)
 	PetitionFrame.ScrollBar:SetPoint("TOPLEFT", PetitionFrame, "TOPRIGHT", -30, -60)
 	PetitionFrame.ScrollBar:SetPoint("BOTTOMLEFT", PetitionFrame, "BOTTOMRIGHT", -27, 24)
 

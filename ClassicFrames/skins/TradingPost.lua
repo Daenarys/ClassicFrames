@@ -2,8 +2,7 @@ local f = CreateFrame("Frame")
 f:RegisterEvent("ADDON_LOADED")
 f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_PerksProgram" then
-		PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar:SetSize(25, 560)
-		PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar:ClearAllPoints()
+		PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar:SetWidth(25)
 		PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar:SetPoint("TOPLEFT", PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBox, "TOPRIGHT", -6, 4)
 		PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar:SetPoint("BOTTOMLEFT", PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBox, "BOTTOMRIGHT", -3, 0)
 
@@ -24,7 +23,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarArrow(PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar)
 		ApplyScrollBarThumb(PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar.Track.Thumb)
 
-		PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar:SetSize(25, 560)
+		PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar:SetWidth(25)
 
 		if (PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar.BG == nil) then
 			PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar.BG = PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar:CreateTexture(nil, "BACKGROUND")

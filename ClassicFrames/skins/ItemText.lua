@@ -13,8 +13,7 @@ ItemTextFrame.TitleContainer:SetPoint("TOPRIGHT", ItemTextFrame, "TOPRIGHT", -58
 ApplyTitleBg(ItemTextFrame)
 ApplyNineSlicePortrait(ItemTextFrame)
 
-ItemTextScrollFrame.ScrollBar:SetSize(25, 560)
-ItemTextScrollFrame.ScrollBar:ClearAllPoints()
+ItemTextScrollFrame.ScrollBar:SetWidth(25)
 ItemTextScrollFrame.ScrollBar:SetPoint("TOPLEFT", ItemTextScrollFrame, "TOPRIGHT", 1, 3)
 ItemTextScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", ItemTextScrollFrame, "BOTTOMRIGHT", 4, -2)
 

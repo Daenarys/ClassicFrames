@@ -13,8 +13,7 @@ CooldownViewerSettings.TitleContainer:SetPoint("TOPRIGHT", CooldownViewerSetting
 ApplyTitleBg(CooldownViewerSettings)
 ApplyNineSlicePortrait(CooldownViewerSettings)
 
-CooldownViewerSettings.CooldownScroll.ScrollBar:SetSize(25, 560)
-CooldownViewerSettings.CooldownScroll.ScrollBar:ClearAllPoints()
+CooldownViewerSettings.CooldownScroll.ScrollBar:SetWidth(25)
 CooldownViewerSettings.CooldownScroll.ScrollBar:SetPoint("TOPLEFT", CooldownViewerSettings.CooldownScroll, "TOPRIGHT", 0, 2)
 CooldownViewerSettings.CooldownScroll.ScrollBar:SetPoint("BOTTOMLEFT", CooldownViewerSettings.CooldownScroll, "BOTTOMRIGHT", 0, -2)
 

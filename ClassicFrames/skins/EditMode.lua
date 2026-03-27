@@ -12,7 +12,6 @@ EditModeSystemSettingsDialog.CloseButton:SetPoint("TOPRIGHT", -5, -6)
 EditModeManagerFrame.Tutorial.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 
 EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar:SetWidth(20)
-EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar:ClearAllPoints()
 EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar:SetPoint("TOPLEFT", EditModeManagerFrame.AccountSettings.SettingsContainer, "TOPRIGHT", -20, -1)
 EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar:SetPoint("BOTTOMLEFT", EditModeManagerFrame.AccountSettings.SettingsContainer, "BOTTOMRIGHT", 20, 1)
 
@@ -35,7 +34,6 @@ EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Forward:SetDisa
 EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
 
 EditModeImportLayoutDialog.ImportBox.ScrollBar:SetWidth(20)
-EditModeImportLayoutDialog.ImportBox.ScrollBar:ClearAllPoints()
 EditModeImportLayoutDialog.ImportBox.ScrollBar:SetPoint("TOPLEFT", EditModeImportLayoutDialog.ImportBox, "TOPRIGHT", -16, 1)
 EditModeImportLayoutDialog.ImportBox.ScrollBar:SetPoint("BOTTOMLEFT", EditModeImportLayoutDialog.ImportBox, "BOTTOMRIGHT", -16, -2)
 

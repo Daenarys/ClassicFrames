@@ -8,8 +8,7 @@ ScriptErrorsFrameClose:SetHighlightTexture("Interface\\Buttons\\UI-Panel-Minimiz
 ScriptErrorsFrameClose:ClearAllPoints()
 ScriptErrorsFrameClose:SetPoint("TOPRIGHT", 2, 1)
 
-ScriptErrorsFrame.ScrollFrame.ScrollBar:SetSize(25, 560)
-ScriptErrorsFrame.ScrollFrame.ScrollBar:ClearAllPoints()
+ScriptErrorsFrame.ScrollFrame.ScrollBar:SetWidth(25)
 ScriptErrorsFrame.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", ScriptErrorsFrame.ScrollFrame, "TOPRIGHT", 0, 4)
 ScriptErrorsFrame.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", ScriptErrorsFrame.ScrollFrame, "BOTTOMRIGHT", 0, -4)
 

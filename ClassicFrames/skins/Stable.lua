@@ -15,8 +15,7 @@ StableFrame.MainHelpButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\ic
 ApplyTitleBg(StableFrame)
 ApplyNineSlicePortrait(StableFrame)
 
-StableFrame.StabledPetList.ScrollBar:SetSize(25, 560)
-StableFrame.StabledPetList.ScrollBar:ClearAllPoints()
+StableFrame.StabledPetList.ScrollBar:SetWidth(25)
 StableFrame.StabledPetList.ScrollBar:SetPoint("TOPLEFT", StableFrame.StabledPetList.ScrollBox, "TOPRIGHT", -7, 6)
 StableFrame.StabledPetList.ScrollBar:SetPoint("BOTTOMLEFT", StableFrame.StabledPetList.ScrollBox, "BOTTOMRIGHT", -7, -1)
 

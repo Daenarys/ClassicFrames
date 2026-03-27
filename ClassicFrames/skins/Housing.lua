@@ -23,8 +23,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			HousingDashboardFrame.NineSlice.TitleBg:SetPoint("TOPRIGHT", -25, -3)
 		end
 
-		HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar:SetSize(25, 560)
-		HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar:ClearAllPoints()
+		HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar:SetWidth(25)
 		HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar:SetPoint("TOPLEFT", HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBox, "TOPRIGHT")
 		HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar:SetPoint("BOTTOMLEFT", HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBox, "BOTTOMRIGHT")
 

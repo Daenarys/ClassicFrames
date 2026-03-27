@@ -41,7 +41,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyTopTabNew(tab)
 		end
 
-		TransmogFrame.OutfitCollection.OutfitList.ScrollBar:SetSize(25, 560)
+		TransmogFrame.OutfitCollection.OutfitList.ScrollBar:SetWidth(25)
 		TransmogFrame.OutfitCollection.OutfitList.ScrollBar:SetPoint("RIGHT", TransmogFrame.OutfitCollection.OutfitList, "RIGHT", 4, 0)
 
 		if (TransmogFrame.OutfitCollection.OutfitList.ScrollBar.BG == nil) then
@@ -73,8 +73,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyFilterDropDown(TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.FilterButton)
 		ApplyFilterDropDown(TransmogFrame.WardrobeCollection.TabContent.SetsFrame.FilterButton)
 
-		TransmogFrame.OutfitPopup.IconSelector.ScrollBar:SetSize(25, 560)
-		TransmogFrame.OutfitPopup.IconSelector.ScrollBar:ClearAllPoints()
+		TransmogFrame.OutfitPopup.IconSelector.ScrollBar:SetWidth(25)
 		TransmogFrame.OutfitPopup.IconSelector.ScrollBar:SetPoint("TOPLEFT", TransmogFrame.OutfitPopup.IconSelector, "TOPRIGHT", -28, 3)
 		TransmogFrame.OutfitPopup.IconSelector.ScrollBar:SetPoint("BOTTOMLEFT", TransmogFrame.OutfitPopup.IconSelector, "BOTTOMRIGHT", -25, -3)
 

@@ -13,8 +13,7 @@ ApplyNineSliceNoPortrait(AddonList)
 
 AddonList.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 
-AddonList.ScrollBar:SetSize(25, 560)
-AddonList.ScrollBar:ClearAllPoints()
+AddonList.ScrollBar:SetWidth(25)
 AddonList.ScrollBar:SetPoint("TOPLEFT", AddonList.ScrollBox, "TOPRIGHT", 5, 3)
 AddonList.ScrollBar:SetPoint("BOTTOMLEFT", AddonList.ScrollBox, "BOTTOMRIGHT", -5, -1)
 

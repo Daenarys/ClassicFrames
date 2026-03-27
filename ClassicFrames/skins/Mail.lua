@@ -24,8 +24,7 @@ if _G.MailFrame then
 		end)
 	end
 
-	SendMailScrollFrame.ScrollBar:SetSize(25, 560)
-	SendMailScrollFrame.ScrollBar:ClearAllPoints()
+	SendMailScrollFrame.ScrollBar:SetWidth(25)
 	SendMailScrollFrame.ScrollBar:SetPoint("TOPLEFT", SendMailScrollFrame, "TOPRIGHT", 3, 3)
 	SendMailScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", SendMailScrollFrame, "BOTTOMRIGHT", 6, -2)
 
@@ -48,8 +47,7 @@ if _G.OpenMailFrame then
 	ApplyTitleBg(OpenMailFrame)
 	ApplyNineSlicePortrait(OpenMailFrame)
 
-	OpenMailScrollFrame.ScrollBar:SetSize(25, 560)
-	OpenMailScrollFrame.ScrollBar:ClearAllPoints()
+	OpenMailScrollFrame.ScrollBar:SetWidth(25)
 	OpenMailScrollFrame.ScrollBar:SetPoint("TOPLEFT", OpenMailScrollFrame, "TOPRIGHT", 3, 3)
 	OpenMailScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", OpenMailScrollFrame, "BOTTOMRIGHT", 6, -2)
 
