@@ -28,7 +28,8 @@ PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetSize(64, 64)
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask")
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetPoint("TOPLEFT", 23, -20)
 
-healthBar:GetStatusBarTexture():SetAtlas("UI-HUD-UnitFrame-Target-MinusMob-PortraitOn-Bar-Health")
+healthBar:SetStatusBarTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-StatusBar")
+healthBar:SetStatusBarColor(0, 1, 0)
 
 healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)

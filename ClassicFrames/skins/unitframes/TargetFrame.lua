@@ -95,8 +95,9 @@ local function SkinFrame(frame)
 		CfFocusFrameBackground:SetSize(119, 25)
 		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
 
-		FrameHealthBar.HealthBarTexture:SetAtlas("UI-HUD-UnitFrame-Target-MinusMob-PortraitOn-Bar-Health")
-		FrameHealthBarContainer.HealthBarMask:ClearAllPoints()
+		FrameHealthBar:SetStatusBarTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-StatusBar")
+		FrameHealthBar:SetStatusBarColor(0, 1, 0)
+
 		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", FrameHealthBar, "TOPLEFT", 3, -5)
 		FrameHealthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", FrameHealthBar, "BOTTOMRIGHT", 0, -4)
 
@@ -114,7 +115,6 @@ local function SkinFrame(frame)
 			FrameHealthBarContainer.UnconsciousText:SetPoint("CENTER", FrameHealthBar, "CENTER", 0, -5)
 		end
 
-		FrameManaBar.ManaBarMask:ClearAllPoints()
 		FrameManaBar.ManaBarMask:SetPoint("TOPLEFT", FrameManaBar, "TOPLEFT", -53, 3)
 		FrameManaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", FrameManaBar, "BOTTOMRIGHT", 50, -3)
 
