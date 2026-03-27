@@ -1,4 +1,3 @@
---[[
 local f = CreateFrame("Frame")
 f:RegisterEvent("PLAYER_LOGIN")
 f:SetScript("OnEvent", function(self, event, name)
@@ -9,7 +8,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		TargetFrame:SetPoint("TOPLEFT", 230, 4)
 	end
 end)
-]]--
 
 function CfPlayerFrame_OnLoad(self)
 	self:EnableMouse(false)
@@ -33,7 +31,6 @@ healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 
 healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
-healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
 healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", healthBar, "TOPRIGHT", -10, -8)
 healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", healthBar, "BOTTOMRIGHT", 10, -1)
 
@@ -110,15 +107,6 @@ if (_G.AlternatePowerBar) then
 		AlternatePowerBar.RightBorder:SetTexCoord(0.125, 0, 1, 0)
 		AlternatePowerBar.RightBorder:SetPoint("LEFT", AlternatePowerBar.Border, "RIGHT")
 	end
-
-	hooksecurefunc(AlternatePowerBar, "EvaluateUnit", function(self)
-		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-		self:SetStatusBarColor(0, 0, 1)
-
-		if self.PowerBarMask then
-			self.PowerBarMask:Hide()
-		end
-	end)
 end
 
 hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
@@ -153,9 +141,6 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	StatusTexture:SetPoint("TOPLEFT", 16, -16)
 	StatusTexture:SetBlendMode("ADD")
 
-	healthBar:SetStatusBarTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-StatusBar")
-	healthBar:SetStatusBarColor(0, 1, 0)
-	healthBarContainer.HealthBarMask:ClearAllPoints()
 	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBar, "TOPLEFT", 0, -4)
 	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", healthBar, "BOTTOMRIGHT", -1, -4)
 
@@ -163,7 +148,6 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	healthBar.LeftText:SetPoint("LEFT", healthBar, "LEFT", 6, -4)
 	healthBar.RightText:SetPoint("RIGHT", healthBar, "RIGHT", -4, -4)
 
-	manaBar.ManaBarMask:ClearAllPoints()
 	manaBar.ManaBarMask:SetPoint("TOPLEFT", manaBar, "TOPLEFT", 0, 3)
 	manaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", manaBar, "BOTTOMRIGHT", -1, -3)
 
@@ -213,17 +197,13 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	StatusTexture:SetPoint("TOPLEFT", -6, -8)
 	StatusTexture:SetDrawLayer("BACKGROUND")
 
-	healthBar:SetStatusBarTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-StatusBar")
-	healthBar:SetStatusBarColor(0, 1, 0)
-	healthBarContainer.HealthBarMask:ClearAllPoints()
-	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBar, "TOPLEFT", 7, -5)
-	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", healthBar, "BOTTOMRIGHT", -10, -3)
+	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", healthBarContainer, "TOPLEFT", 7, -3)
+	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", healthBarContainer, "BOTTOMRIGHT", -7, -3)
 
 	healthBar.TextString:SetPoint("CENTER", healthBar, "CENTER", -2, -5)
 	healthBar.LeftText:SetPoint("LEFT", healthBar, "LEFT", 0, -6)
 	healthBar.RightText:SetPoint("RIGHT", healthBar, "RIGHT", -9, -6)
 
-	manaBar.ManaBarMask:ClearAllPoints()
 	manaBar.ManaBarMask:SetPoint("TOPLEFT", manaBar, "TOPLEFT", 7, 3)
 	manaBar.ManaBarMask:SetPoint("BOTTOMRIGHT", manaBar, "BOTTOMRIGHT", -7, -3)
 
