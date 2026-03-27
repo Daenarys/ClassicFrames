@@ -1,3 +1,4 @@
+--[[
 local f = CreateFrame("Frame")
 f:RegisterEvent("PLAYER_LOGIN")
 f:SetScript("OnEvent", function(self, event, name)
@@ -8,6 +9,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		TargetFrame:SetPoint("TOPLEFT", 230, 4)
 	end
 end)
+]]--
 
 function CfPlayerFrame_OnLoad(self)
 	self:EnableMouse(false)
@@ -26,11 +28,14 @@ PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetSize(64, 64)
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask")
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetPoint("TOPLEFT", 23, -20)
 
+healthBar:GetStatusBarTexture():SetAtlas("UI-HUD-UnitFrame-Target-MinusMob-PortraitOn-Bar-Health")
+
 healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 
 healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
+healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
 healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", healthBar, "TOPRIGHT", -10, -8)
 healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", healthBar, "BOTTOMRIGHT", 10, -1)
 
@@ -107,6 +112,15 @@ if (_G.AlternatePowerBar) then
 		AlternatePowerBar.RightBorder:SetTexCoord(0.125, 0, 1, 0)
 		AlternatePowerBar.RightBorder:SetPoint("LEFT", AlternatePowerBar.Border, "RIGHT")
 	end
+
+	hooksecurefunc(AlternatePowerBar, "EvaluateUnit", function(self)
+		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		self:SetStatusBarColor(0, 0, 1)
+
+		if self.PowerBarMask then
+			self.PowerBarMask:Hide()
+		end
+	end)
 end
 
 hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)

@@ -63,6 +63,9 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 		self.PartyMemberOverlay.Status:ClearAllPoints()
 		self.PartyMemberOverlay.Status:SetPoint("CENTER", self.Portrait, 0, 0)
 		self.PartyMemberOverlay.Status:SetDrawLayer("ARTWORK", 0)
+
+		self.HealthBarContainer.HealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		self.HealthBarContainer.HealthBar:SetStatusBarColor(0, 1, 0)
 	end)
 
 	hooksecurefunc(frame, "UpdateNameTextAnchors", function(self)
@@ -181,6 +184,21 @@ hooksecurefunc("DefaultCompactUnitFrameSetup", function(frame)
 	local isPowerBarShowing = frame.powerBar and frame.powerBar:IsShown()
 	local powerBarUsedHeight = isPowerBarShowing and 8 or 0
 
+	frame.healthBar:SetStatusBarTexture("Interface\\RaidFrame\\Raid-Bar-Hp-Fill")
+	frame.healthBar:GetStatusBarTexture():SetDrawLayer("BORDER")
+
+	frame.powerBar:SetStatusBarTexture("Interface\\RaidFrame\\Raid-Bar-Resource-Fill")
+	frame.powerBar:GetStatusBarTexture():SetDrawLayer("BORDER")
+	frame.powerBar.background:SetTexture("Interface\\RaidFrame\\Raid-Bar-Resource-Background")
+
+	frame.selectionHighlight:SetTexture("Interface\\RaidFrame\\Raid-FrameHighlights")
+	frame.selectionHighlight:SetTexCoord(unpack(texCoords["Raid-TargetFrame"]))
+	frame.selectionHighlight:SetAllPoints(frame)
+
+	frame.aggroHighlight:SetTexture("Interface\\RaidFrame\\Raid-FrameHighlights")
+	frame.aggroHighlight:SetTexCoord(unpack(texCoords["Raid-AggroFrame"]))
+	frame.aggroHighlight:SetAllPoints(frame)
+
 	if (frame.horizTopBorder == nil) then
 		frame.horizTopBorder = frame:CreateTexture(nil, "BORDER")
 		frame.horizTopBorder:ClearAllPoints()
@@ -248,6 +266,26 @@ hooksecurefunc("DefaultCompactUnitFrameSetup", function(frame)
 		frame.vertLeftBorder:Hide()
 		frame.vertRightBorder:Hide()
 		frame.horizDivider:Hide()
+	end
+end)
+
+hooksecurefunc("CompactUnitFrame_UpdateAggroHighlight", function(frame)
+	if frame:IsForbidden() then return end
+
+	if frame.aggroHighlight then
+		local status = UnitThreatSituation(frame.displayedUnit)
+		if ( status and status > 0 ) then
+			frame.aggroHighlight:SetVertexColor(GetThreatStatusColor(status))
+		end
+	end
+end)
+
+hooksecurefunc("CompactUnitFrame_UpdateHealthColor", function(frame)
+	if frame:IsForbidden() then return end
+
+	if frame.background then
+		frame.background:SetTexture("Interface\\RaidFrame\\Raid-Bar-Hp-Bg")
+		frame.background:SetTexCoord(0, 1, 0, 0.53125)
 	end
 end)
 

@@ -38,6 +38,7 @@ local function SkinFrame(frame)
 	FrameHealthBarContainer.UnconsciousText:SetParent(frame.TargetFrameContainer)
 
 	FrameHealthBar.OverAbsorbGlow:SetParent(contextual)
+	FrameHealthBar.OverAbsorbGlow:RemoveMaskTexture(FrameHealthBarContainer.HealthBarMask)
 	FrameHealthBar.OverAbsorbGlow:SetPoint("TOPLEFT", FrameHealthBarContainer, "TOPRIGHT", -10, -9)
 	FrameHealthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", FrameHealthBarContainer, "BOTTOMRIGHT", 10, -1)
 
@@ -94,6 +95,7 @@ local function SkinFrame(frame)
 		CfFocusFrameBackground:SetSize(119, 25)
 		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
 
+		FrameHealthBar.HealthBarTexture:SetAtlas("UI-HUD-UnitFrame-Target-MinusMob-PortraitOn-Bar-Health")
 		FrameHealthBarContainer.HealthBarMask:ClearAllPoints()
 		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", FrameHealthBar, "TOPLEFT", 3, -5)
 		FrameHealthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", FrameHealthBar, "BOTTOMRIGHT", 0, -4)
@@ -261,7 +263,9 @@ local function SkinFrame(frame)
 		frame.totFrame.Name:SetWidth(100)
 		frame.totFrame.Name:ClearAllPoints()
 		frame.totFrame.Name:SetPoint("BOTTOMLEFT", 42, 7)
-
+		
+		frame.totFrame.HealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		frame.totFrame.HealthBar:SetStatusBarColor(0, 1, 0)
 		frame.totFrame.HealthBar:SetSize(46, 7)
 		frame.totFrame.HealthBar:ClearAllPoints()
 		frame.totFrame.HealthBar:SetPoint("TOPRIGHT", -29, -15)
