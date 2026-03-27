@@ -1,3 +1,16 @@
+--[[
+local f = CreateFrame("Frame")
+f:RegisterEvent("PLAYER_LOGIN")
+f:SetScript("OnEvent", function(self, event, name)
+	if event == "PLAYER_LOGIN" then
+		PlayerFrame:ClearAllPoints()
+		PlayerFrame:SetPoint("TOPLEFT", 0, 4)
+		TargetFrame:ClearAllPoints()
+		TargetFrame:SetPoint("TOPLEFT", 230, 4)
+	end
+end)
+]]--
+
 function CfPlayerFrame_OnLoad(self)
 	self:EnableMouse(false)
 end
@@ -19,9 +32,17 @@ healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 
+healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
+healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
+healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", healthBar, "TOPRIGHT", -10, -8)
+healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", healthBar, "BOTTOMRIGHT", 10, -1)
+
 manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
+
+manaBar.FullPowerFrame:SetSize(119, 12)
+manaBar.FullPowerFrame:SetPoint("TOPRIGHT", -3, 1)
 
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:ClearAllPoints()

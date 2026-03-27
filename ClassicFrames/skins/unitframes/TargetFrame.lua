@@ -37,6 +37,11 @@ local function SkinFrame(frame)
 	FrameHealthBarContainer.DeadText:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.UnconsciousText:SetParent(frame.TargetFrameContainer)
 
+	FrameHealthBar.OverAbsorbGlow:SetParent(contextual)
+	FrameHealthBar.OverAbsorbGlow:RemoveMaskTexture(FrameHealthBarContainer.HealthBarMask)
+	FrameHealthBar.OverAbsorbGlow:SetPoint("TOPLEFT", FrameHealthBarContainer, "TOPRIGHT", -10, -9)
+	FrameHealthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", FrameHealthBarContainer, "BOTTOMRIGHT", 10, -1)
+
 	FrameManaBar.TextString:SetParent(frame.TargetFrameContainer)
 	FrameManaBar.RightText:SetParent(frame.TargetFrameContainer)
 	FrameManaBar.LeftText:SetParent(frame.TargetFrameContainer)
