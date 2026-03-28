@@ -67,13 +67,14 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		MacroPopupFrame.IconSelector.ScrollBar:SetSize(25, 560)
 		MacroPopupFrame.IconSelector.ScrollBar:ClearAllPoints()
-		MacroPopupFrame.IconSelector.ScrollBar:SetPoint("TOPLEFT", MacroPopupFrame.IconSelector, "TOPRIGHT", -26, 19)
-		MacroPopupFrame.IconSelector.ScrollBar:SetPoint("BOTTOMLEFT", MacroPopupFrame.IconSelector, "BOTTOMRIGHT", -23, -3)
+		MacroPopupFrame.IconSelector.ScrollBar:SetPoint("TOPLEFT", MacroPopupFrame.IconSelector, "TOPRIGHT", -25, 30)
+		MacroPopupFrame.IconSelector.ScrollBar:SetPoint("BOTTOMLEFT", MacroPopupFrame.IconSelector, "BOTTOMRIGHT", -25, -3)
 
 		ApplyScrollBarArrow(MacroPopupFrame.IconSelector.ScrollBar)
 		ApplyScrollBarTrack(MacroPopupFrame.IconSelector.ScrollBar.Track)
 		ApplyScrollBarThumb(MacroPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 
 		ApplyDropDown(MacroPopupFrame.BorderBox.IconTypeDropdown)
+		MacroPopupFrame.BorderBox.IconTypeDropdown.Text:SetJustifyH("RIGHT")
 	end
 end)
