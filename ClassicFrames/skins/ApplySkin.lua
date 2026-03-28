@@ -214,16 +214,22 @@ function ApplyScrollBarTrack(frame)
 	frame:ClearAllPoints()
 	frame:SetPoint("TOPLEFT", 4, -22)
 	frame:SetPoint("BOTTOMRIGHT", -4, 22)
-	
-	frame.Begin:SetAtlas("UI-ScrollBar-EndCap-Top", true)
+
+	frame.Begin:SetSize(31, 102)
+	frame.Begin:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
+	frame.Begin:SetTexCoord(0, 0.484375, 0, 0.4)
 	frame.Begin:ClearAllPoints()
-	frame.Begin:SetPoint("TOPLEFT", -4, 22)
+	frame.Begin:SetPoint("TOPLEFT", -7, 22)
 
-	frame.End:SetAtlas("UI-ScrollBar-EndCap-Bottom", true)
+	frame.End:SetSize(31, 106)
+	frame.End:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
+	frame.End:SetTexCoord(0.515625, 1, 0, 0.4140625)
 	frame.End:ClearAllPoints()
-	frame.End:SetPoint("BOTTOMLEFT", -4, -22)
+	frame.End:SetPoint("BOTTOMLEFT", -7, -21)
 
-	frame.Middle:SetAtlas("!UI-ScrollBar-Center", true)
+	frame.Middle:SetSize(31, 1)
+	frame.Middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
+	frame.Middle:SetTexCoord(0, 0.484375, 0.75, 1)
 end
 
 function ApplyScrollBarThumb(frame)
