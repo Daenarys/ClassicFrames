@@ -30,7 +30,8 @@ GroupFinderFrame:HookScript("OnShow", function()
 	PVEFramePortrait:SetTexture("Interface\\LFGFrame\\UI-LFG-PORTRAIT")
 end)
 
-LFDQueueFrameRandomScrollFrame.ScrollBar:SetWidth(25)
+LFDQueueFrameRandomScrollFrame.ScrollBar:SetSize(25, 560)
+LFDQueueFrameRandomScrollFrame.ScrollBar:ClearAllPoints()
 LFDQueueFrameRandomScrollFrame.ScrollBar:SetPoint("TOPLEFT", LFDQueueFrameRandomScrollFrame, "TOPRIGHT", 2, 8)
 LFDQueueFrameRandomScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", LFDQueueFrameRandomScrollFrame, "BOTTOMRIGHT", 5, -9)
 
@@ -44,7 +45,8 @@ ApplyScrollBarArrow(LFDQueueFrameRandomScrollFrame.ScrollBar)
 ApplyScrollBarTrack(LFDQueueFrameRandomScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(LFDQueueFrameRandomScrollFrame.ScrollBar.Track.Thumb)
 
-LFDQueueFrameSpecific.ScrollBar:SetWidth(25)
+LFDQueueFrameSpecific.ScrollBar:SetSize(25, 560)
+LFDQueueFrameSpecific.ScrollBar:ClearAllPoints()
 LFDQueueFrameSpecific.ScrollBar:SetPoint("TOPLEFT", LFDQueueFrameSpecific.ScrollBox, "TOPRIGHT", 5, 0)
 LFDQueueFrameSpecific.ScrollBar:SetPoint("BOTTOMLEFT", LFDQueueFrameSpecific.ScrollBox, "BOTTOMRIGHT", 5, 0)
 
@@ -52,7 +54,8 @@ ApplyScrollBarArrow(LFDQueueFrameSpecific.ScrollBar)
 ApplyScrollBarTrack(LFDQueueFrameSpecific.ScrollBar.Track)
 ApplyScrollBarThumb(LFDQueueFrameSpecific.ScrollBar.Track.Thumb)
 
-LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar:SetWidth(25)
+LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar:SetSize(25, 560)
+LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar:ClearAllPoints()
 LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar:SetPoint("TOPLEFT", LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBox, "TOPRIGHT", -3, 2)
 LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar:SetPoint("BOTTOMLEFT", LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBox, "BOTTOMRIGHT", 0, -2)
 
@@ -66,7 +69,8 @@ ApplyScrollBarArrow(LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar)
 ApplyScrollBarTrack(LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar.Track)
 ApplyScrollBarThumb(LFGListFrame.EntryCreation.ActivityFinder.Dialog.ScrollBar.Track.Thumb)
 
-LFGListFrame.SearchPanel.ScrollBar:SetWidth(25)
+LFGListFrame.SearchPanel.ScrollBar:SetSize(25, 560)
+LFGListFrame.SearchPanel.ScrollBar:ClearAllPoints()
 LFGListFrame.SearchPanel.ScrollBar:SetPoint("TOPLEFT", LFGListFrame.SearchPanel.ScrollBox, "TOPRIGHT", 0, 3)
 LFGListFrame.SearchPanel.ScrollBar:SetPoint("BOTTOMLEFT", LFGListFrame.SearchPanel.ScrollBox, "BOTTOMRIGHT", 3, -1)
 
@@ -80,7 +84,8 @@ ApplyScrollBarArrow(LFGListFrame.SearchPanel.ScrollBar)
 ApplyScrollBarTrack(LFGListFrame.SearchPanel.ScrollBar.Track)
 ApplyScrollBarThumb(LFGListFrame.SearchPanel.ScrollBar.Track.Thumb)
 
-LFGListFrame.ApplicationViewer.ScrollBar:SetWidth(25)
+LFGListFrame.ApplicationViewer.ScrollBar:SetSize(25, 560)
+LFGListFrame.ApplicationViewer.ScrollBar:ClearAllPoints()
 LFGListFrame.ApplicationViewer.ScrollBar:SetPoint("TOPLEFT", LFGListFrame.ApplicationViewer.ScrollBox, "TOPRIGHT", 0, 3)
 LFGListFrame.ApplicationViewer.ScrollBar:SetPoint("BOTTOMLEFT", LFGListFrame.ApplicationViewer.ScrollBox, "BOTTOMRIGHT", 3, -3)
 
@@ -271,7 +276,8 @@ LFGInvitePopupRoleButtonTank:GetNormalTexture():SetTexCoord(GetTexCoordsForRole(
 LFGInvitePopupRoleButtonTank:SetDisabledTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 LFGInvitePopupRoleButtonTank:GetDisabledTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 
-RaidFinderQueueFrameScrollFrame.ScrollBar:SetWidth(25)
+RaidFinderQueueFrameScrollFrame.ScrollBar:SetSize(25, 560)
+RaidFinderQueueFrameScrollFrame.ScrollBar:ClearAllPoints()
 RaidFinderQueueFrameScrollFrame.ScrollBar:SetPoint("TOPLEFT", RaidFinderQueueFrameScrollFrame, "TOPRIGHT", 2, 3)
 RaidFinderQueueFrameScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", RaidFinderQueueFrameScrollFrame, "BOTTOMRIGHT", 5, 0)
 

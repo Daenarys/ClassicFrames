@@ -2,7 +2,8 @@ local f = CreateFrame("Frame")
 f:RegisterEvent("ADDON_LOADED")
 f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_PVPUI" then
-		HonorFrame.SpecificScrollBar:SetWidth(25)
+		HonorFrame.SpecificScrollBar:SetSize(25, 560)
+		HonorFrame.SpecificScrollBar:ClearAllPoints()
 		HonorFrame.SpecificScrollBar:SetPoint("TOPLEFT", HonorFrame.SpecificScrollBox, "TOPRIGHT", -2, 3)
 		HonorFrame.SpecificScrollBar:SetPoint("BOTTOMLEFT", HonorFrame.SpecificScrollBox, "BOTTOMRIGHT", 1, -1)
 
@@ -10,7 +11,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(HonorFrame.SpecificScrollBar.Track)
 		ApplyScrollBarThumb(HonorFrame.SpecificScrollBar.Track.Thumb)
 
-		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetWidth(25)
+		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetSize(25, 560)
+		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:ClearAllPoints()
 		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetPoint("TOPLEFT", TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBox, "TOPRIGHT", -2, 3)
 		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetPoint("BOTTOMLEFT", TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBox, "BOTTOMRIGHT", 1, -1)
 
@@ -146,7 +148,8 @@ PVPMatchScoreboard.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel
 PVPMatchScoreboard.CloseButton:ClearAllPoints()
 PVPMatchScoreboard.CloseButton:SetPoint("TOPRIGHT", 3.6, 3)
 
-PVPMatchScoreboard.Content.ScrollBar:SetWidth(25)
+PVPMatchScoreboard.Content.ScrollBar:SetSize(25, 560)
+PVPMatchScoreboard.Content.ScrollBar:ClearAllPoints()
 PVPMatchScoreboard.Content.ScrollBar:SetPoint("TOPLEFT", PVPMatchScoreboard.Content, "TOPRIGHT", -25, -2)
 PVPMatchScoreboard.Content.ScrollBar:SetPoint("BOTTOMLEFT", PVPMatchScoreboard.Content, "BOTTOMRIGHT", -25, 40)
 
@@ -179,7 +182,8 @@ PVPMatchResults.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-Mi
 PVPMatchResults.CloseButton:ClearAllPoints()
 PVPMatchResults.CloseButton:SetPoint("TOPRIGHT", 3.6, 3)
 
-PVPMatchResults.content.scrollBar:SetWidth(25)
+PVPMatchResults.content.scrollBar:SetSize(25, 560)
+PVPMatchResults.content.scrollBar:ClearAllPoints()
 PVPMatchResults.content.scrollBar:SetPoint("TOPLEFT", PVPMatchResults.content, "TOPRIGHT", -25, -3)
 PVPMatchResults.content.scrollBar:SetPoint("BOTTOMLEFT", PVPMatchResults.content, "BOTTOMRIGHT", -25, 122)
 

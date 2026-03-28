@@ -15,7 +15,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(GuideFrame)
 		ApplyNineSlicePortrait(GuideFrame)
 
-		GuideFrame.ScrollFrame.ScrollBar:SetWidth(25)
+		GuideFrame.ScrollFrame.ScrollBar:SetSize(25, 560)
+		GuideFrame.ScrollFrame.ScrollBar:ClearAllPoints()
 		GuideFrame.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", GuideFrame.ScrollFrame, "TOPRIGHT", -2, 70)
 		GuideFrame.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", GuideFrame.ScrollFrame, "BOTTOMRIGHT", 1, -1)
 

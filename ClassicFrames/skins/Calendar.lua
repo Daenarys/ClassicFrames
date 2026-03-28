@@ -46,7 +46,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDialogBorder(CalendarViewRaidFrame.Border)
 		ApplyDialogHeader(CalendarViewRaidFrame.Header)
 
-		CalendarEventPickerFrame.ScrollBar:SetWidth(25)
+		CalendarEventPickerFrame.ScrollBar:SetSize(25, 560)
+		CalendarEventPickerFrame.ScrollBar:ClearAllPoints()
 		CalendarEventPickerFrame.ScrollBar:SetPoint("TOPLEFT", CalendarEventPickerFrame.ScrollBox, "TOPRIGHT", -1, 15)
 		CalendarEventPickerFrame.ScrollBar:SetPoint("BOTTOMLEFT", CalendarEventPickerFrame.ScrollBox, "BOTTOMRIGHT", 2, -3)
 

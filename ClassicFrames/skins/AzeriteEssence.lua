@@ -17,7 +17,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(AzeriteEssenceUI)
 		ApplyNineSlicePortrait(AzeriteEssenceUI)
 
-		AzeriteEssenceUI.EssenceList.ScrollBar:SetWidth(25)
+		AzeriteEssenceUI.EssenceList.ScrollBar:SetSize(25, 560)
+		AzeriteEssenceUI.EssenceList.ScrollBar:ClearAllPoints()
 		AzeriteEssenceUI.EssenceList.ScrollBar:SetPoint("TOPLEFT", AzeriteEssenceUI.EssenceList.ScrollBox, "TOPRIGHT", -2, 5)
 		AzeriteEssenceUI.EssenceList.ScrollBar:SetPoint("BOTTOMLEFT", AzeriteEssenceUI.EssenceList.ScrollBox, "BOTTOMRIGHT", 1, -2)
 

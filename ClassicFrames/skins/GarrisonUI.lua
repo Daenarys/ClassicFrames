@@ -17,7 +17,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:ClearAllPoints()
 			GarrisonMissionFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 4, 5)
 
-			GarrisonMissionFrameMissions.ScrollBar:SetWidth(25)
+			GarrisonMissionFrameMissions.ScrollBar:SetSize(25, 560)
+			GarrisonMissionFrameMissions.ScrollBar:ClearAllPoints()
 			GarrisonMissionFrameMissions.ScrollBar:SetPoint("TOPLEFT", GarrisonMissionFrameMissions.ScrollBox, "TOPRIGHT", -4, 3)
 			GarrisonMissionFrameMissions.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonMissionFrameMissions.ScrollBox, "BOTTOMRIGHT", -1, -1)
 
@@ -31,7 +32,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarTrack(GarrisonMissionFrameMissions.ScrollBar.Track)
 			ApplyScrollBarThumb(GarrisonMissionFrameMissions.ScrollBar.Track.Thumb)
 
-			GarrisonMissionFrameFollowers.ScrollBar:SetWidth(25)
+			GarrisonMissionFrameFollowers.ScrollBar:SetSize(25, 560)
+			GarrisonMissionFrameFollowers.ScrollBar:ClearAllPoints()
 			GarrisonMissionFrameFollowers.ScrollBar:SetPoint("TOPLEFT", GarrisonMissionFrameFollowers.ScrollBox, "TOPRIGHT", -4, 3)
 			GarrisonMissionFrameFollowers.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonMissionFrameFollowers.ScrollBox, "BOTTOMRIGHT", -1, -1)
 
@@ -62,7 +64,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		if _G.GarrisonShipyardFrame then
 			ApplyCloseButton(GarrisonShipyardFrame.BorderFrame.CloseButton2)
 
-			GarrisonShipyardFrameFollowers.ScrollBar:SetWidth(25)
+			GarrisonShipyardFrameFollowers.ScrollBar:SetSize(25, 560)
+			GarrisonShipyardFrameFollowers.ScrollBar:ClearAllPoints()
 			GarrisonShipyardFrameFollowers.ScrollBar:SetPoint("TOPLEFT", GarrisonShipyardFrameFollowers.ScrollBox, "TOPRIGHT", 4, 3)
 			GarrisonShipyardFrameFollowers.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonShipyardFrameFollowers.ScrollBox, "BOTTOMRIGHT", 7, -1)
 
@@ -93,7 +96,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			OrderHallMissionFrame.MissionTab.MissionPage.CloseButton:ClearAllPoints()
 			OrderHallMissionFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 4, 5)
 
-			OrderHallMissionFrameMissions.ScrollBar:SetWidth(25)
+			OrderHallMissionFrameMissions.ScrollBar:SetSize(25, 560)
+			OrderHallMissionFrameMissions.ScrollBar:ClearAllPoints()
 			OrderHallMissionFrameMissions.ScrollBar:SetPoint("TOPLEFT", OrderHallMissionFrameMissions.ScrollBox, "TOPRIGHT", -4, 3)
 			OrderHallMissionFrameMissions.ScrollBar:SetPoint("BOTTOMLEFT", OrderHallMissionFrameMissions.ScrollBox, "BOTTOMRIGHT", -1, -1)
 
@@ -107,7 +111,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarTrack(OrderHallMissionFrameMissions.ScrollBar.Track)
 			ApplyScrollBarThumb(OrderHallMissionFrameMissions.ScrollBar.Track.Thumb)
 			
-			OrderHallMissionFrameFollowers.ScrollBar:SetWidth(25)
+			OrderHallMissionFrameFollowers.ScrollBar:SetSize(25, 560)
+			OrderHallMissionFrameFollowers.ScrollBar:ClearAllPoints()
 			OrderHallMissionFrameFollowers.ScrollBar:SetPoint("TOPLEFT", OrderHallMissionFrameFollowers.ScrollBox, "TOPRIGHT", -4, 3)
 			OrderHallMissionFrameFollowers.ScrollBar:SetPoint("BOTTOMLEFT", OrderHallMissionFrameFollowers.ScrollBox, "BOTTOMRIGHT", -1, -1)
 
@@ -143,7 +148,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			BFAMissionFrame.MissionTab.MissionPage.CloseButton:ClearAllPoints()
 			BFAMissionFrame.MissionTab.MissionPage.CloseButton:SetPoint("TOPRIGHT", 4, 5)
 
-			BFAMissionFrameMissions.ScrollBar:SetWidth(25)
+			BFAMissionFrameMissions.ScrollBar:SetSize(25, 560)
+			BFAMissionFrameMissions.ScrollBar:ClearAllPoints()
 			BFAMissionFrameMissions.ScrollBar:SetPoint("TOPLEFT", BFAMissionFrameMissions.ScrollBox, "TOPRIGHT", -4, 3)
 			BFAMissionFrameMissions.ScrollBar:SetPoint("BOTTOMLEFT", BFAMissionFrameMissions.ScrollBox, "BOTTOMRIGHT", -1, -1)
 
@@ -157,7 +163,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarTrack(BFAMissionFrameMissions.ScrollBar.Track)
 			ApplyScrollBarThumb(BFAMissionFrameMissions.ScrollBar.Track.Thumb)
 
-			BFAMissionFrameFollowers.ScrollBar:SetWidth(25)
+			BFAMissionFrameFollowers.ScrollBar:SetSize(25, 560)
+			BFAMissionFrameFollowers.ScrollBar:ClearAllPoints()
 			BFAMissionFrameFollowers.ScrollBar:SetPoint("TOPLEFT", BFAMissionFrameFollowers.ScrollBox, "TOPRIGHT", -4, 3)
 			BFAMissionFrameFollowers.ScrollBar:SetPoint("BOTTOMLEFT", BFAMissionFrameFollowers.ScrollBox, "BOTTOMRIGHT", -1, -1)
 
@@ -213,7 +220,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			GarrisonLandingPage.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 		end
 		if _G.GarrisonLandingPageReportList then
-			GarrisonLandingPageReportList.ScrollBar:SetWidth(25)
+			GarrisonLandingPageReportList.ScrollBar:SetSize(25, 560)
+			GarrisonLandingPageReportList.ScrollBar:ClearAllPoints()
 			GarrisonLandingPageReportList.ScrollBar:SetPoint("TOPLEFT", GarrisonLandingPageReportList.ScrollBox, "TOPRIGHT", -20, 1)
 			GarrisonLandingPageReportList.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonLandingPageReportList.ScrollBox, "BOTTOMRIGHT", -17, -5)
 
@@ -235,7 +243,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarThumb(GarrisonLandingPageReportList.ScrollBar.Track.Thumb)
 		end
 		if _G.GarrisonLandingPageFollowerList then
-			GarrisonLandingPageFollowerList.ScrollBar:SetWidth(25)
+			GarrisonLandingPageFollowerList.ScrollBar:SetSize(25, 560)
+			GarrisonLandingPageFollowerList.ScrollBar:ClearAllPoints()
 			GarrisonLandingPageFollowerList.ScrollBar:SetPoint("TOPLEFT", GarrisonLandingPageFollowerList.ScrollBox, "TOPRIGHT", -20, 1)
 			GarrisonLandingPageFollowerList.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonLandingPageFollowerList.ScrollBox, "BOTTOMRIGHT", -17, -5)
 
@@ -256,7 +265,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		if _G.GarrisonRecruitSelectFrame then
 			ApplyCloseButton(GarrisonRecruitSelectFrame.CloseButton)
 
-			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:SetWidth(25)
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:SetSize(25, 560)
+			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:ClearAllPoints()
 			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:SetPoint("TOPLEFT", GarrisonRecruitSelectFrame.FollowerList.ScrollBox, "TOPRIGHT", -4, 0)
 			GarrisonRecruitSelectFrame.FollowerList.ScrollBar:SetPoint("BOTTOMLEFT", GarrisonRecruitSelectFrame.FollowerList.ScrollBox, "BOTTOMRIGHT", -1, -3)
 

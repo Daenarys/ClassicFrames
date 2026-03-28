@@ -15,7 +15,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(AlliedRacesFrame)
 		ApplyNineSlicePortrait(AlliedRacesFrame)
 
-		AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar:SetWidth(25)
+		AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar:SetSize(25, 560)
+		AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar:ClearAllPoints()
 		AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", AlliedRacesFrame.RaceInfoFrame.ScrollFrame, "TOPRIGHT", -2, 59)
 		AlliedRacesFrame.RaceInfoFrame.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", AlliedRacesFrame.RaceInfoFrame.ScrollFrame, "BOTTOMRIGHT", -2, -5)
 

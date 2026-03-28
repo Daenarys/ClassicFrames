@@ -15,7 +15,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(ClassTrainerFrame)
 		ApplyNineSlicePortrait(ClassTrainerFrame)
 
-		ClassTrainerFrame.ScrollBar:SetWidth(25)
+		ClassTrainerFrame.ScrollBar:SetSize(25, 560)
+		ClassTrainerFrame.ScrollBar:ClearAllPoints()
 		ClassTrainerFrame.ScrollBar:SetPoint("TOPLEFT", ClassTrainerFrame.ScrollBox, "TOPRIGHT", -1, 3)
 		ClassTrainerFrame.ScrollBar:SetPoint("BOTTOMLEFT", ClassTrainerFrame.ScrollBox, "BOTTOMRIGHT", 2, -4)
 

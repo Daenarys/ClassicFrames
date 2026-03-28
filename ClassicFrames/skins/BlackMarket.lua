@@ -4,7 +4,8 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_BlackMarketUI" then
 		ApplyCloseButton(BlackMarketFrame.CloseButton)
 
-		BlackMarketFrame.ScrollBar:SetWidth(25)
+		BlackMarketFrame.ScrollBar:SetSize(25, 560)
+		BlackMarketFrame.ScrollBar:ClearAllPoints()
 		BlackMarketFrame.ScrollBar:SetPoint("TOPLEFT", BlackMarketFrame.ScrollBox, "TOPRIGHT", -1, 1)
 		BlackMarketFrame.ScrollBar:SetPoint("BOTTOMLEFT", BlackMarketFrame.ScrollBox, "BOTTOMRIGHT", 2, -2)
 

@@ -61,7 +61,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			end)
 		end
 
-		MountJournal.ScrollBar:SetWidth(25)
+		MountJournal.ScrollBar:SetSize(25, 560)
+		MountJournal.ScrollBar:ClearAllPoints()
 		MountJournal.ScrollBar:SetPoint("TOPLEFT", MountJournal.ScrollBox, "TOPRIGHT", 1, 36)
 		MountJournal.ScrollBar:SetPoint("BOTTOMLEFT", MountJournal.ScrollBox, "BOTTOMRIGHT", 4, -4)
 
@@ -75,7 +76,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(MountJournal.ScrollBar.Track)
 		ApplyScrollBarThumb(MountJournal.ScrollBar.Track.Thumb)
 
-		PetJournal.ScrollBar:SetWidth(25)
+		PetJournal.ScrollBar:SetSize(25, 560)
+		PetJournal.ScrollBar:ClearAllPoints()
 		PetJournal.ScrollBar:SetPoint("TOPLEFT", PetJournal.ScrollBox, "TOPRIGHT", 1, 36)
 		PetJournal.ScrollBar:SetPoint("BOTTOMLEFT", PetJournal.ScrollBox, "BOTTOMRIGHT", 4, -4)
 
@@ -89,7 +91,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(PetJournal.ScrollBar.Track)
 		ApplyScrollBarThumb(PetJournal.ScrollBar.Track.Thumb)
 
-		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:SetWidth(25)
+		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:SetSize(25, 560)
+		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:ClearAllPoints()
 		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:SetPoint("TOPLEFT", WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBox, "TOPRIGHT", 1, 36)
 		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:SetPoint("BOTTOMLEFT", WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBox, "BOTTOMRIGHT", 4, -8)
 

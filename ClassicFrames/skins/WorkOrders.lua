@@ -26,7 +26,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			ProfessionsCustomerOrdersFrameOrdersTab:SetWidth(50 + ProfessionsCustomerOrdersFrameOrdersTab:GetFontString():GetStringWidth())
 		end)
 
-		ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar:SetWidth(25)
+		ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar:SetSize(25, 560)
+		ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar:ClearAllPoints()
 		ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar:SetPoint("TOPLEFT", ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBox, "TOPRIGHT", -4, 3)
 		ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar:SetPoint("BOTTOMLEFT", ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBox, "BOTTOMRIGHT", -1, -1)
 
@@ -40,7 +41,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar.Track)
 		ApplyScrollBarThumb(ProfessionsCustomerOrdersFrame.BrowseOrders.CategoryList.ScrollBar.Track.Thumb)
 
-		ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar:SetWidth(25)
+		ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar:SetSize(25, 560)
+		ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar:ClearAllPoints()
 		ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar:SetPoint("TOPLEFT", ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBox, "TOPRIGHT", -10, 3)
 		ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar:SetPoint("BOTTOMLEFT", ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBox, "BOTTOMRIGHT", -7, 1)
 
@@ -54,7 +56,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar.Track)
 		ApplyScrollBarThumb(ProfessionsCustomerOrdersFrame.BrowseOrders.RecipeList.ScrollBar.Track.Thumb)
 
-		ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar:SetWidth(25)
+		ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar:SetSize(25, 560)
+		ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar:ClearAllPoints()
 		ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar:SetPoint("TOPLEFT", ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBox, "TOPRIGHT", -7, 3)
 		ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBar:SetPoint("BOTTOMLEFT", ProfessionsCustomerOrdersFrame.MyOrdersPage.OrderList.ScrollBox, "BOTTOMRIGHT", -4, -1)
 

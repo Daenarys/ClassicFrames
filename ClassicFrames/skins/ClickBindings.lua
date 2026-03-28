@@ -17,7 +17,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(ClickBindingFrame)
 		ApplyNineSlicePortrait(ClickBindingFrame)
 
-		ClickBindingFrame.ScrollBar:SetWidth(25)
+		ClickBindingFrame.ScrollBar:SetSize(25, 560)
+		ClickBindingFrame.ScrollBar:ClearAllPoints()
 		ClickBindingFrame.ScrollBar:SetPoint("TOPLEFT", ClickBindingFrame.ScrollBox, "TOPRIGHT", 5, 4)
 		ClickBindingFrame.ScrollBar:SetPoint("BOTTOMLEFT", ClickBindingFrame.ScrollBox, "BOTTOMRIGHT", 8, -4)
 

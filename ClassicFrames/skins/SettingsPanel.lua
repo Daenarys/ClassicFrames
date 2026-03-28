@@ -6,7 +6,8 @@ ApplyNineSliceNoPortrait(SettingsPanel)
 
 SettingsPanel.CloseButton:Hide()
 
-SettingsPanel.Container.SettingsList.ScrollBar:SetWidth(25)
+SettingsPanel.Container.SettingsList.ScrollBar:SetSize(25, 560)
+SettingsPanel.Container.SettingsList.ScrollBar:ClearAllPoints()
 SettingsPanel.Container.SettingsList.ScrollBar:SetPoint("TOPLEFT", SettingsPanel.Container.SettingsList.ScrollBox, "TOPRIGHT", -4, 0)
 SettingsPanel.Container.SettingsList.ScrollBar:SetPoint("BOTTOMLEFT", SettingsPanel.Container.SettingsList.ScrollBox, "BOTTOMRIGHT", -1, 0)
 
@@ -27,7 +28,8 @@ SettingsPanel.Container.SettingsList.ScrollBar.Track.Middle:Hide()
 ApplyScrollBarArrow(SettingsPanel.Container.SettingsList.ScrollBar)
 ApplyScrollBarThumb(SettingsPanel.Container.SettingsList.ScrollBar.Track.Thumb)
 
-SettingsPanel.CategoryList.ScrollBar:SetWidth(25)
+SettingsPanel.CategoryList.ScrollBar:SetSize(25, 560)
+SettingsPanel.CategoryList.ScrollBar:ClearAllPoints()
 SettingsPanel.CategoryList.ScrollBar:SetPoint("TOPLEFT", SettingsPanel.CategoryList.ScrollBox, "TOPRIGHT", -9, 7)
 SettingsPanel.CategoryList.ScrollBar:SetPoint("BOTTOMLEFT", SettingsPanel.CategoryList.ScrollBox, "BOTTOMRIGHT", -9, 0)
 

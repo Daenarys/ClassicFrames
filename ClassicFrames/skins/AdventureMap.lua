@@ -110,7 +110,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			AdventureMapQuestChoiceDialog.ButtonBorder:SetPoint("BOTTOMRIGHT", AdventureMapQuestChoiceDialog.BottomRightCorner, "BOTTOMLEFT", 7, 31)
 		end
 
-		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetWidth(25)
+		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetSize(25, 560)
+		AdventureMapQuestChoiceDialog.Details.ScrollBar:ClearAllPoints()
 		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetPoint("TOPLEFT", AdventureMapQuestChoiceDialog.Details, "TOPRIGHT", 1, 12)
 		AdventureMapQuestChoiceDialog.Details.ScrollBar:SetPoint("BOTTOMLEFT", AdventureMapQuestChoiceDialog.Details, "BOTTOMRIGHT", -1, -58)
 
