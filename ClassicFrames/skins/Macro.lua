@@ -28,7 +28,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		MacroFrame.MacroSelector.ScrollBar:SetWidth(25)
 		MacroFrame.MacroSelector.ScrollBar:ClearAllPoints()
-		MacroFrame.MacroSelector.ScrollBar:SetPoint("TOPLEFT", MacroFrame.MacroSelector, "TOPRIGHT", -24, 3)
+		MacroFrame.MacroSelector.ScrollBar:SetPoint("TOPLEFT", MacroFrame.MacroSelector, "TOPRIGHT", -24, 5)
 		MacroFrame.MacroSelector.ScrollBar:SetPoint("BOTTOMLEFT", MacroFrame.MacroSelector, "BOTTOMRIGHT", -21, -3)
 
 		ApplyScrollBarArrow(MacroFrame.MacroSelector.ScrollBar)
