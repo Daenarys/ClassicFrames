@@ -1,6 +1,9 @@
 if RPETurnStrafeStyleMixin then
 	hooksecurefunc(RPETurnStrafeStyleMixin, "OnLoad", function(self)
-		self.BG.Top:SetAtlas("UI-DiamondDialogBox-ClassicBorder")
+		self.BG:SetAlpha(0)
+
+		self.Border = CreateFrame("Frame", nil, self, "DialogBorderDarkTemplate")
+		ApplyDialogBorder(self.Border)
 
 		self.CloseButton:SetSize(32, 32)
 		self.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
