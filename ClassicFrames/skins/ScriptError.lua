@@ -11,7 +11,7 @@ ScriptErrorsFrameClose:SetPoint("TOPRIGHT", 2, 1)
 ScriptErrorsFrame.ScrollFrame.ScrollBar:SetSize(25, 560)
 ScriptErrorsFrame.ScrollFrame.ScrollBar:ClearAllPoints()
 ScriptErrorsFrame.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", ScriptErrorsFrame.ScrollFrame, "TOPRIGHT", 0, 4)
-ScriptErrorsFrame.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", ScriptErrorsFrame.ScrollFrame, "BOTTOMRIGHT", 0, -4)
+ScriptErrorsFrame.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", ScriptErrorsFrame.ScrollFrame, "BOTTOMRIGHT", 0, -2)
 
 ScriptErrorsFrame.ScrollFrame.ScrollBar.Track:ClearAllPoints()
 ScriptErrorsFrame.ScrollFrame.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)

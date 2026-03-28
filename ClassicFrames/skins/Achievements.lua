@@ -95,8 +95,8 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		AchievementFrame.SearchResults.ScrollBar:SetSize(25, 560)
 		AchievementFrame.SearchResults.ScrollBar:ClearAllPoints()
-		AchievementFrame.SearchResults.ScrollBar:SetPoint("TOPLEFT", AchievementFrame.SearchResults.ScrollBox, "TOPRIGHT", -5, 2)
-		AchievementFrame.SearchResults.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrame.SearchResults.ScrollBox, "BOTTOMRIGHT", 5, -1)
+		AchievementFrame.SearchResults.ScrollBar:SetPoint("TOPLEFT", AchievementFrame.SearchResults.ScrollBox, "TOPRIGHT", -7, 1)
+		AchievementFrame.SearchResults.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrame.SearchResults.ScrollBox, "BOTTOMRIGHT", 7, -2)
 
 		if (AchievementFrame.SearchResults.ScrollBar.BG == nil) then
 			AchievementFrame.SearchResults.ScrollBar.BG = AchievementFrame.SearchResults.ScrollBar:CreateTexture(nil, "BACKGROUND")

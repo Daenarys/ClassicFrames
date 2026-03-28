@@ -111,19 +111,8 @@ ChatConfigCombatSettingsFilters.ScrollBar.Track.Begin:Hide()
 ChatConfigCombatSettingsFilters.ScrollBar.Track.End:Hide()
 ChatConfigCombatSettingsFilters.ScrollBar.Track.Middle:Hide()
 
+ApplyScrollBarArrowNoPos(ChatConfigCombatSettingsFilters.ScrollBar)
 ApplyScrollBarThumb(ChatConfigCombatSettingsFilters.ScrollBar.Track.Thumb)
-
-ChatConfigCombatSettingsFilters.ScrollBar.Back:SetSize(18, 16)
-ChatConfigCombatSettingsFilters.ScrollBar.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
-ChatConfigCombatSettingsFilters.ScrollBar.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
-ChatConfigCombatSettingsFilters.ScrollBar.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
-ChatConfigCombatSettingsFilters.ScrollBar.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
-
-ChatConfigCombatSettingsFilters.ScrollBar.Forward:SetSize(18, 16)
-ChatConfigCombatSettingsFilters.ScrollBar.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
-ChatConfigCombatSettingsFilters.ScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
-ChatConfigCombatSettingsFilters.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
-ChatConfigCombatSettingsFilters.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
 
 ApplyDialogBorder(ChatConfigFrame.Border)
 ApplyDialogHeader(ChatConfigFrame.Header)

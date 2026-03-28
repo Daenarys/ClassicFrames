@@ -43,19 +43,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		MacroFrameScrollFrame.ScrollBar.Track.End:Hide()
 		MacroFrameScrollFrame.ScrollBar.Track.Middle:Hide()
 
+		ApplyScrollBarArrowNoPos(MacroFrame.MacroSelector.ScrollBar)
 		ApplyScrollBarThumb(MacroFrameScrollFrame.ScrollBar.Track.Thumb)
-
-		MacroFrameScrollFrame.ScrollBar.Back:SetSize(18, 16)
-		MacroFrameScrollFrame.ScrollBar.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
-		MacroFrameScrollFrame.ScrollBar.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
-		MacroFrameScrollFrame.ScrollBar.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
-		MacroFrameScrollFrame.ScrollBar.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
-
-		MacroFrameScrollFrame.ScrollBar.Forward:SetSize(18, 16)
-		MacroFrameScrollFrame.ScrollBar.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
-		MacroFrameScrollFrame.ScrollBar.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
-		MacroFrameScrollFrame.ScrollBar.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
-		MacroFrameScrollFrame.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
 
 		MacroPopupFrame.IconSelector.ScrollBar:SetSize(25, 560)
 		MacroPopupFrame.IconSelector.ScrollBar:ClearAllPoints()
