@@ -37,6 +37,7 @@ local function IsDialogMenu(owner)
         or (EncounterJournalInstanceSelect and owner == EncounterJournalInstanceSelect.ExpansionDropdown)
         or (HeirloomsJournal and owner == HeirloomsJournal.ClassDropdown)
         or (ItemUpgradeFrame and owner == ItemUpgradeFrame.ItemInfo.Dropdown)
+        or (MacroPopupFrame and owner == MacroPopupFrame.BorderBox.IconTypeDropdown)
         or (PlayerSpellsFrame and owner == PlayerSpellsFrame.TalentsFrame.LoadSystem.Dropdown)
         or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 end

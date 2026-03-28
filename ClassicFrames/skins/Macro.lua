@@ -27,6 +27,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		end
 
 		MacroFrame.MacroSelector.ScrollBar:SetWidth(25)
+		MacroFrame.MacroSelector.ScrollBar:ClearAllPoints()
 		MacroFrame.MacroSelector.ScrollBar:SetPoint("TOPLEFT", MacroFrame.MacroSelector, "TOPRIGHT", -24, 3)
 		MacroFrame.MacroSelector.ScrollBar:SetPoint("BOTTOMLEFT", MacroFrame.MacroSelector, "BOTTOMRIGHT", -21, -3)
 
@@ -56,6 +57,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		MacroFrameScrollFrame.ScrollBar.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
 
 		MacroPopupFrame.IconSelector.ScrollBar:SetWidth(25)
+		MacroPopupFrame.IconSelector.ScrollBar:ClearAllPoints()
 		MacroPopupFrame.IconSelector.ScrollBar:SetPoint("TOPLEFT", MacroPopupFrame.IconSelector, "TOPRIGHT", -26, 19)
 		MacroPopupFrame.IconSelector.ScrollBar:SetPoint("BOTTOMLEFT", MacroPopupFrame.IconSelector, "BOTTOMRIGHT", -23, -3)
 
