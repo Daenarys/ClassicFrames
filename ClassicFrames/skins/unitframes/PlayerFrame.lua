@@ -37,11 +37,18 @@ local function UpdatePower(frame)
 	frame.ManaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 
 	if info then
+		local playerDeadOrGhost = (unit == "player" and (UnitIsDead("player") or UnitIsGhost("player")))
 		if info.atlas then
 			frame.ManaBar:SetStatusBarTexture(info.atlas)
 			frame.ManaBar:SetStatusBarColor(1, 1, 1)
+			frame.ManaBar:GetStatusBarTexture():SetDesaturated(playerDeadOrGhost)
+			frame.ManaBar:GetStatusBarTexture():SetAlpha(playerDeadOrGhost and 0.5 or 1)
 		else
-			frame.ManaBar:SetStatusBarColor(info.r, info.g, info.b)
+			if ( playerDeadOrGhost ) then
+				frame.ManaBar:SetStatusBarColor(0.6, 0.6, 0.6, 0.5)
+			else
+				frame.ManaBar:SetStatusBarColor(info.r, info.g, info.b, 1)
+			end
 		end
 	else
 		if not altR then
@@ -75,6 +82,9 @@ function CfPlayerFrame_OnLoad(self)
 	self:RegisterEvent("UNIT_POWER_UPDATE")
 	self:RegisterEvent("UNIT_POWER_FREQUENT")
 	self:RegisterEvent("UNIT_MAXPOWER")
+	self:RegisterEvent("PLAYER_DEAD")
+	self:RegisterEvent("PLAYER_ALIVE")
+	self:RegisterEvent("PLAYER_UNGHOST")
 
 	self:SetScript("OnEvent", function(self, event, arg1)
 		if event == "PLAYER_ENTERING_WORLD" then
@@ -82,6 +92,8 @@ function CfPlayerFrame_OnLoad(self)
 		elseif event == "UNIT_HEALTH" or event == "UNIT_MAXHEALTH" then
 			UpdateHealth(self)
 		elseif event == "UNIT_DISPLAYPOWER" or event == "UNIT_POWER_UPDATE" or event == "UNIT_POWER_FREQUENT" or event == "UNIT_MAXPOWER" then
+			UpdatePower(self)
+		elseif event == "PLAYER_ALIVE" or event == "PLAYER_DEAD" or event == "PLAYER_UNGHOST" then
 			UpdatePower(self)
 		end
 	end)
