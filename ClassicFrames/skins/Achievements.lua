@@ -12,7 +12,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		AchievementFrameCategories.ScrollBar:SetSize(25, 560)
 		AchievementFrameCategories.ScrollBar:ClearAllPoints()
-		AchievementFrameCategories.ScrollBar:SetPoint("TOPLEFT", AchievementFrameCategories.ScrollBox, "TOPRIGHT", -1, 3)
+		AchievementFrameCategories.ScrollBar:SetPoint("TOPLEFT", AchievementFrameCategories.ScrollBox, "TOPRIGHT", -1, 2)
 		AchievementFrameCategories.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameCategories.ScrollBox, "BOTTOMRIGHT", 1, -5)
 
 		if (AchievementFrameCategories.ScrollBar.BG == nil) then
@@ -27,7 +27,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		AchievementFrameAchievements.ScrollBar:SetSize(25, 560)
 		AchievementFrameAchievements.ScrollBar:ClearAllPoints()
-		AchievementFrameAchievements.ScrollBar:SetPoint("TOPLEFT", AchievementFrameAchievements.ScrollBox, "TOPRIGHT", -1, 3)
+		AchievementFrameAchievements.ScrollBar:SetPoint("TOPLEFT", AchievementFrameAchievements.ScrollBox, "TOPRIGHT", -1, 2)
 		AchievementFrameAchievements.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameAchievements.ScrollBox, "BOTTOMRIGHT", 1, -5)
 
 		if (AchievementFrameAchievements.ScrollBar.BG == nil) then
@@ -42,7 +42,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		AchievementFrameStats.ScrollBar:SetSize(25, 560)
 		AchievementFrameStats.ScrollBar:ClearAllPoints()
-		AchievementFrameStats.ScrollBar:SetPoint("TOPLEFT", AchievementFrameStats.ScrollBox, "TOPRIGHT", -1, 3)
+		AchievementFrameStats.ScrollBar:SetPoint("TOPLEFT", AchievementFrameStats.ScrollBox, "TOPRIGHT", -1, 2)
 		AchievementFrameStats.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameStats.ScrollBox, "BOTTOMRIGHT", 1, -5)
 
 		if (AchievementFrameStats.ScrollBar.BG == nil) then
@@ -57,8 +57,8 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		AchievementFrameComparison.AchievementContainer.ScrollBar:SetSize(25, 560)
 		AchievementFrameComparison.AchievementContainer.ScrollBar:ClearAllPoints()
-		AchievementFrameComparison.AchievementContainer.ScrollBar:SetPoint("TOPLEFT", AchievementFrameComparison.Summary, "TOPRIGHT", 0, -4)
-		AchievementFrameComparison.AchievementContainer.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameComparison.AchievementContainer, "BOTTOMRIGHT", 0, 4)
+		AchievementFrameComparison.AchievementContainer.ScrollBar:SetPoint("TOPLEFT", AchievementFrameComparison.Summary, "TOPRIGHT", 4, -2)
+		AchievementFrameComparison.AchievementContainer.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameComparison.AchievementContainer, "BOTTOMRIGHT", -4, -2)
 
 		if (AchievementFrameComparison.AchievementContainer.ScrollBar.BG == nil) then
 			AchievementFrameComparison.AchievementContainer.ScrollBar.BG = AchievementFrameComparison.AchievementContainer.ScrollBar:CreateTexture(nil, "BACKGROUND")
@@ -72,8 +72,8 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		AchievementFrameComparison.StatContainer.ScrollBar:SetSize(25, 560)
 		AchievementFrameComparison.StatContainer.ScrollBar:ClearAllPoints()
-		AchievementFrameComparison.StatContainer.ScrollBar:SetPoint("TOPLEFT", AchievementFrameComparison.Summary, "TOPRIGHT", 2, -4)
-		AchievementFrameComparison.StatContainer.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameComparison.StatContainer, "BOTTOMRIGHT", -2, 4)
+		AchievementFrameComparison.StatContainer.ScrollBar:SetPoint("TOPLEFT", AchievementFrameComparison.Summary, "TOPRIGHT", 4, -4)
+		AchievementFrameComparison.StatContainer.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameComparison.StatContainer, "BOTTOMRIGHT", -4, 4)
 
 		if (AchievementFrameComparison.StatContainer.ScrollBar.BG == nil) then
 			AchievementFrameComparison.StatContainer.ScrollBar.BG = AchievementFrameComparison.StatContainer.ScrollBar:CreateTexture(nil, "BACKGROUND")
