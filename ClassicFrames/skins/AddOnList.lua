@@ -15,8 +15,8 @@ AddonList.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-
 
 AddonList.ScrollBar:SetSize(25, 560)
 AddonList.ScrollBar:ClearAllPoints()
-AddonList.ScrollBar:SetPoint("TOPLEFT", AddonList.ScrollBox, "TOPRIGHT", 5, 3)
-AddonList.ScrollBar:SetPoint("BOTTOMLEFT", AddonList.ScrollBox, "BOTTOMRIGHT", -5, -1)
+AddonList.ScrollBar:SetPoint("TOPLEFT", AddonList.ScrollBox, "TOPRIGHT", 3, 4)
+AddonList.ScrollBar:SetPoint("BOTTOMLEFT", AddonList.ScrollBox, "BOTTOMRIGHT", -3, -1)
 
 ApplyScrollBarArrow(AddonList.ScrollBar)
 ApplyScrollBarTrack(AddonList.ScrollBar.Track)
