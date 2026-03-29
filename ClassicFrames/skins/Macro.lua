@@ -35,10 +35,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(MacroFrame.MacroSelector.ScrollBar.Track)
 		ApplyScrollBarThumb(MacroFrame.MacroSelector.ScrollBar.Track.Thumb)
 
-		MacroFrameScrollFrame.ScrollBar:ClearAllPoints()
-		MacroFrameScrollFrame.ScrollBar:SetPoint("TOPLEFT", MacroFrameScrollFrame, "TOPRIGHT", 10, 0)
-		MacroFrameScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", MacroFrameScrollFrame, "BOTTOMRIGHT", 10, 0)
-
 		MacroFrameScrollFrame.ScrollBar.Track.Begin:Hide()
 		MacroFrameScrollFrame.ScrollBar.Track.End:Hide()
 		MacroFrameScrollFrame.ScrollBar.Track.Middle:Hide()
