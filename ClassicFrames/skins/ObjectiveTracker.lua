@@ -46,21 +46,9 @@ local function HandleQuestIcons(_, block)
 	if not block.ItemButton then return end
 
 	if not block.ItemButton.IsSkinned then
-		block.ItemButton:SetNormalTexture("Interface\\Buttons\\UI-Quickslot2")
-		block.ItemButton:SetPushedTexture("Interface\\Buttons\\UI-Quickslot-Depress")
-		block.ItemButton:SetHighlightTexture("Interface\\Buttons\\ButtonHilight-Square", "ADD")
-
 		if block.ItemButton.Cooldown then
 			block.ItemButton.Cooldown:SetHideCountdownNumbers(true)
 		end
-
-		if block.ItemButton.GlowAnim then
-			hooksecurefunc(block.ItemButton.GlowAnim, "BeginPlaying", function(self)
-				self.region:Hide()
-				self:SetLooping("NONE")
-			end)
-		end
-
 		block.ItemButton.IsSkinned = true
 	end
 end
