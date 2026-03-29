@@ -50,8 +50,12 @@ DialogSkin:Hide()
 local TooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
 TooltipSkin:Hide()
 
-local SubMenuSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
-SubMenuSkin:Hide()
+local SubMenuDialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
+ApplyDialogBorder(SubMenuDialogSkin)
+SubMenuDialogSkin:Hide()
+
+local SubMenuTooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
+SubMenuTooltipSkin:Hide()
 
 local function SkinMenu(manager, owner, menuDescription)
     local menu = manager:GetOpenMenu()
@@ -70,7 +74,7 @@ local function SkinMenu(manager, owner, menuDescription)
         DialogSkin:SetParent(menu)
         DialogSkin:ClearAllPoints()
         DialogSkin:SetPoint("TOPLEFT", menu, "TOPLEFT", -10, 5)
-        DialogSkin:SetPoint("BOTTOMRIGHT", menu, "BOTTOMRIGHT", 10, 2)
+        DialogSkin:SetPoint("BOTTOMRIGHT", menu, "BOTTOMRIGHT", 5, 2)
         DialogSkin:SetFrameLevel(menu:GetFrameLevel())
         DialogSkin:Show()
     else
@@ -85,12 +89,23 @@ local function SkinMenu(manager, owner, menuDescription)
 
     menuDescription:AddMenuAcquiredCallback(function(self)
         select(1, self:GetRegions()):SetAlpha(0)
-        SubMenuSkin:SetParent(self)
-        SubMenuSkin:ClearAllPoints()
-        SubMenuSkin:SetPoint("TOPLEFT", self, "TOPLEFT", 0, 3)
-        SubMenuSkin:SetPoint("BOTTOMRIGHT", self, "BOTTOMRIGHT", 0, 4)
-        SubMenuSkin:SetFrameLevel(self:GetFrameLevel())
-        SubMenuSkin:Show()
+        if IsDialogMenu(owner) then
+            SubMenuTooltipSkin:Hide()
+            SubMenuDialogSkin:SetParent(self)
+            SubMenuDialogSkin:ClearAllPoints()
+            SubMenuDialogSkin:SetPoint("TOPLEFT", self, "TOPLEFT", -10, 5)
+            SubMenuDialogSkin:SetPoint("BOTTOMRIGHT", self, "BOTTOMRIGHT", 5, 2)
+            SubMenuDialogSkin:SetFrameLevel(self:GetFrameLevel())
+            SubMenuDialogSkin:Show()
+        else
+            SubMenuDialogSkin:Hide()
+            SubMenuTooltipSkin:SetParent(self)
+            SubMenuTooltipSkin:ClearAllPoints()
+            SubMenuTooltipSkin:SetPoint("TOPLEFT", self, "TOPLEFT", 0, 3)
+            SubMenuTooltipSkin:SetPoint("BOTTOMRIGHT", self, "BOTTOMRIGHT", 0, 4)
+            SubMenuTooltipSkin:SetFrameLevel(self:GetFrameLevel())
+            SubMenuTooltipSkin:Show()
+        end
     end)
 end
 
