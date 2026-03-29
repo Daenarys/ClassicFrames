@@ -1,32 +1,32 @@
 if (C_AddOns.IsAddOnLoaded("Bagnon")) then return end
 
-local NUM_CONTAINER_COLUMNS = 4;
-local ROWS_IN_BG_TEXTURE = 5;
-local MAX_MIDDLE_TEXTURES = 2;
-local BG_TEXTURE_MIDDLE_START = 215;
-local BG_TEXTURE_TOP_PLUS_TWO_START = 97;
-local BG_TEXTURE_TOP_PLUS_TWO_END = 163;
-local BG_TEXTURE_TOP_START = 2;
-local BG_TEXTURE_TOP_END = 89;
-local BG_TEXTURE_TOP_ONE_ROW_END = 86;
-local BG_TEXTURE_HEIGHT = 512;
-local CONTAINER_WIDTH = 192;
-local CONTAINER_SPACING = 0;
-local VISIBLE_CONTAINER_SPACING = 3;
-local CONTAINER_SCALE = 0.75;
-local BACKPACK_HEIGHT = 256;
-local BACKPACK_BASE_HEIGHT = 256;
-local BACKPACK_DEFAULT_TOPHEIGHT = 256;
-local BACKPACK_EXTENDED_TOPHEIGHT = 226;
-local BACKPACK_BASE_SIZE = 16;
-local BACKPACK_TOKENFRAME_HEIGHT = 22;
-local ROW_HEIGHT = 41;
-local FIRST_BACKPACK_BUTTON_OFFSET_BASE = -225;
-local CONTAINER_BOTTOM_TEXTURE_DEFAULT_START = 169;
-local CONTAINER_BOTTOM_TEXTURE_DEFAULT_END = 179;
-local CONTAINER_BOTTOM_TEXTURE_DEFAULT_HEIGHT = CONTAINER_BOTTOM_TEXTURE_DEFAULT_END - CONTAINER_BOTTOM_TEXTURE_DEFAULT_START;
-local CONTAINER_BOTTOM_TEXTURE_DEFAULT_ROW_END = 172;
-local CONTAINER_BOTTOM_TEXTURE_DEFAULT_ROW_HEIGHT = CONTAINER_BOTTOM_TEXTURE_DEFAULT_ROW_END - CONTAINER_BOTTOM_TEXTURE_DEFAULT_START;
+local NUM_CONTAINER_COLUMNS = 4
+local ROWS_IN_BG_TEXTURE = 5
+local MAX_MIDDLE_TEXTURES = 2
+local BG_TEXTURE_MIDDLE_START = 215
+local BG_TEXTURE_TOP_PLUS_TWO_START = 97
+local BG_TEXTURE_TOP_PLUS_TWO_END = 163
+local BG_TEXTURE_TOP_START = 2
+local BG_TEXTURE_TOP_END = 89
+local BG_TEXTURE_TOP_ONE_ROW_END = 86
+local BG_TEXTURE_HEIGHT = 512
+local CONTAINER_WIDTH = 192
+local CONTAINER_SPACING = 0
+local VISIBLE_CONTAINER_SPACING = 3
+local CONTAINER_SCALE = 0.75
+local BACKPACK_HEIGHT = 256
+local BACKPACK_BASE_HEIGHT = 256
+local BACKPACK_DEFAULT_TOPHEIGHT = 256
+local BACKPACK_EXTENDED_TOPHEIGHT = 226
+local BACKPACK_BASE_SIZE = 16
+local BACKPACK_TOKENFRAME_HEIGHT = 22
+local ROW_HEIGHT = 41
+local FIRST_BACKPACK_BUTTON_OFFSET_BASE = -225
+local CONTAINER_BOTTOM_TEXTURE_DEFAULT_START = 169
+local CONTAINER_BOTTOM_TEXTURE_DEFAULT_END = 179
+local CONTAINER_BOTTOM_TEXTURE_DEFAULT_HEIGHT = CONTAINER_BOTTOM_TEXTURE_DEFAULT_END - CONTAINER_BOTTOM_TEXTURE_DEFAULT_START
+local CONTAINER_BOTTOM_TEXTURE_DEFAULT_ROW_END = 172
+local CONTAINER_BOTTOM_TEXTURE_DEFAULT_ROW_HEIGHT = CONTAINER_BOTTOM_TEXTURE_DEFAULT_ROW_END - CONTAINER_BOTTOM_TEXTURE_DEFAULT_START
 
 if ContainerFrame1Portrait then
 	ContainerFrame1Portrait:Hide()
@@ -63,12 +63,7 @@ for i = 1, _G.NUM_CONTAINER_FRAMES do
 	_G['ContainerFrame'..i].CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
 	_G['ContainerFrame'..i].CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 	_G['ContainerFrame'..i].CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-	_G['ContainerFrame'..i].CloseButton:ClearAllPoints()
-	if _G['ContainerFrame'..i] == ContainerFrame1 then
-		ContainerFrame1.CloseButton:SetPoint("TOPRIGHT", 0, -1)
-	else
-		_G['ContainerFrame'..i].CloseButton:SetPoint("TOPRIGHT")
-	end
+	_G['ContainerFrame'..i].CloseButton:SetPoint("TOPRIGHT", 0, -1)
 
 	if not (_G['ContainerFrame'..i..'BackgroundTop']) then
 		_G['ContainerFrame'..i]:CreateTexture('ContainerFrame'..i..'BackgroundTop', "ARTWORK")
@@ -112,22 +107,22 @@ end
 
 hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
 	local name = frame:GetName()
-	local bgTextureTop = _G[name.."BackgroundTop"];
-	local bgTextureMiddle = _G[name.."BackgroundMiddle1"];
-	local bgTextureMiddle2 = _G[name.."BackgroundMiddle2"];
-	local bgTextureBottom = _G[name.."BackgroundBottom"];
-	local bgTexture1Slot = _G[name.."Background1Slot"];
-	local columns = NUM_CONTAINER_COLUMNS;
+	local bgTextureTop = _G[name.."BackgroundTop"]
+	local bgTextureMiddle = _G[name.."BackgroundMiddle1"]
+	local bgTextureMiddle2 = _G[name.."BackgroundMiddle2"]
+	local bgTextureBottom = _G[name.."BackgroundBottom"]
+	local bgTexture1Slot = _G[name.."Background1Slot"]
+	local columns = NUM_CONTAINER_COLUMNS
 	local rows = frame:GetRows()
-	local backpackFirstButtonOffset = FIRST_BACKPACK_BUTTON_OFFSET_BASE;
+	local backpackFirstButtonOffset = FIRST_BACKPACK_BUTTON_OFFSET_BASE
 
 	-- if id = 0 then its the backpack
 	if ( id == 0 ) then
 		if ContainerFrameSettingsManager:IsUsingCombinedBags() then return end
 		bgTexture1Slot:Hide()
 
-		local extended = size > BACKPACK_BASE_SIZE;
-		local extraRows = 0;
+		local extended = size > BACKPACK_BASE_SIZE
+		local extraRows = 0
 
 		bgTextureTop:SetTexture("Interface\\ContainerFrame\\UI-BackpackBackground")
 		if (extended) then
@@ -148,27 +143,27 @@ hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
 			_G[name.."BackgroundMiddle"..i]:Hide()
 		end
 
-		local middleBgHeight = 0;
+		local middleBgHeight = 0
 
 		if (extended) then
-			local remainingRows = extraRows;
+			local remainingRows = extraRows
 
 			-- Calculate the number of background textures we're going to need
 			local bgTextureCount = ceil(remainingRows/ROWS_IN_BG_TEXTURE)
-			local height;
+			local height
 
 			-- Try to cycle all the middle bg textures
 			for i=1, bgTextureCount do
-				bgTextureMiddle = _G[name.."BackgroundMiddle"..i];
+				bgTextureMiddle = _G[name.."BackgroundMiddle"..i]
 				if ( remainingRows > ROWS_IN_BG_TEXTURE ) then
 					-- If more rows left to draw than can fit in a texture then draw the max possible
-					height = ROWS_IN_BG_TEXTURE * ROW_HEIGHT;
-					remainingRows = remainingRows - ROWS_IN_BG_TEXTURE;
+					height = ROWS_IN_BG_TEXTURE * ROW_HEIGHT
+					remainingRows = remainingRows - ROWS_IN_BG_TEXTURE
 				else
-					height = remainingRows * ROW_HEIGHT;
+					height = remainingRows * ROW_HEIGHT
 				end
 
-				middleBgHeight = middleBgHeight + height;
+				middleBgHeight = middleBgHeight + height
 				bgTextureMiddle:SetHeight(height)
 				bgTextureMiddle:SetTexCoord(0, 1, BG_TEXTURE_MIDDLE_START / BG_TEXTURE_HEIGHT, ((BG_TEXTURE_MIDDLE_START + height) / BG_TEXTURE_HEIGHT) )
 				bgTextureMiddle:Show()
@@ -182,7 +177,7 @@ hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
 			bgTextureBottom:Show()
 		end
 
-		BACKPACK_HEIGHT = BACKPACK_BASE_HEIGHT + middleBgHeight;
+		BACKPACK_HEIGHT = BACKPACK_BASE_HEIGHT + middleBgHeight
 		local tokenFrame = ContainerFrameSettingsManager:GetTokenTrackerIfShown(frame)
 		if tokenFrame then
 			if not tokenFrame.BG then
@@ -220,14 +215,14 @@ hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
 			end
 			bgTextureBottom:SetTexture("Interface\\ContainerFrame\\UI-Bag-Components")
 						
-			local bgTextureCount, height;
+			local bgTextureCount, height
 			-- Subtract one, since the top texture contains one row already
-			local remainingRows = rows-1;
+			local remainingRows = rows-1
 
 			-- See if the bag needs the texture with two slots at the top
-			local isPlusTwoBag;
+			local isPlusTwoBag
 			if ( mod(size,columns) == 2 ) then
-				isPlusTwoBag = 1;
+				isPlusTwoBag = 1
 			end
 
 			-- Bag background display stuff
@@ -247,7 +242,7 @@ hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
 			-- Calculate the number of background textures we're going to need
 			bgTextureCount = ceil(remainingRows/ROWS_IN_BG_TEXTURE)
 			
-			local middleBgHeight = 0;
+			local middleBgHeight = 0
 			-- If one row only special case
 			if ( rows == 1 ) then
 				bgTextureBottom:SetPoint("TOP", bgTextureMiddle:GetName(), "TOP", 0, 0)
@@ -259,23 +254,23 @@ hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
 			else
 				-- Try to cycle all the middle bg textures
 				for i=1, bgTextureCount do
-					bgTextureMiddle = _G[name.."BackgroundMiddle"..i];
+					bgTextureMiddle = _G[name.."BackgroundMiddle"..i]
 					if ( remainingRows > ROWS_IN_BG_TEXTURE ) then
 						-- If more rows left to draw than can fit in a texture then draw the max possible
-						height = ROWS_IN_BG_TEXTURE * ROW_HEIGHT;
-						remainingRows = remainingRows - ROWS_IN_BG_TEXTURE;
+						height = ROWS_IN_BG_TEXTURE * ROW_HEIGHT
+						remainingRows = remainingRows - ROWS_IN_BG_TEXTURE
 					else
-						height = remainingRows * ROW_HEIGHT;
-						remainingRows = 0;
+						height = remainingRows * ROW_HEIGHT
+						remainingRows = 0
 					end
 
 					if remainingRows == 0 or i == bgTextureCount then
 						-- For non-backpack bags, the bottom texture has to contain a small slice of the bottom row of items.
 						-- So if this middle texture is the bottom one, subtract out that slice from the middle texture's height
-						height = height - CONTAINER_BOTTOM_TEXTURE_DEFAULT_ROW_HEIGHT;
+						height = height - CONTAINER_BOTTOM_TEXTURE_DEFAULT_ROW_HEIGHT
 					end
 
-					middleBgHeight = middleBgHeight + height;
+					middleBgHeight = middleBgHeight + height
 					bgTextureMiddle:SetHeight(height)
 					bgTextureMiddle:SetTexCoord(0, 1, BG_TEXTURE_MIDDLE_START / BG_TEXTURE_HEIGHT, ((BG_TEXTURE_MIDDLE_START + height) / BG_TEXTURE_HEIGHT) )
 					bgTextureMiddle:Show()
@@ -321,86 +316,86 @@ hooksecurefunc("ContainerFrame_GenerateFrame", function(frame, size, id)
 end)
 
 local function GetRightActionBarWidth()
-	local offset = 0;
+	local offset = 0
 	if MultiBar3_IsVisible and MultiBar3_IsVisible() and MultiBarRight:IsInDefaultPosition() then
 		local point, relativeTo, relativePoint, offsetX, offsetY = MultiBarRight:GetPoint(1)
-		offset = MultiBarRight:GetWidth() - offsetX; -- Subtract x offset since it will be a negative value due to us anchoring to the right side and anchoring towards the middle
+		offset = MultiBarRight:GetWidth() - offsetX -- Subtract x offset since it will be a negative value due to us anchoring to the right side and anchoring towards the middle
 	end
 
 	if MultiBar4_IsVisible and MultiBar4_IsVisible() and MultiBarLeft:IsInDefaultPosition() then
 		local point, relativeTo, relativePoint, offsetX, offsetY = MultiBarLeft:GetPoint(1)
-		offset = MultiBarLeft:GetWidth() - offsetX;
+		offset = MultiBarLeft:GetWidth() - offsetX
 	end
 
-	return offset + 10;
+	return offset + 10
 end
 
 hooksecurefunc("UpdateContainerFrameAnchors", function()
 	if ContainerFrameSettingsManager:IsUsingCombinedBags() then return end
 
 	local containerFrameOffsetX = GetRightActionBarWidth()
-	local frame, xOffset, yOffset, screenHeight, freeScreenHeight, leftMostPoint, column;
+	local frame, xOffset, yOffset, screenHeight, freeScreenHeight, leftMostPoint, column
 	local screenWidth = GetScreenWidth()
-	local containerScale = 1;
-	local leftLimit = 0;
+	local containerScale = 1
+	local leftLimit = 0
 	if ( BankFrame:IsShown() ) then
-		leftLimit = BankFrame:GetRight() - 25;
+		leftLimit = BankFrame:GetRight() - 25
 	end
 	
 	while ( containerScale > CONTAINER_SCALE ) do
-		screenHeight = GetScreenHeight() / containerScale;
+		screenHeight = GetScreenHeight() / containerScale
 		-- Adjust the start anchor for bags depending on the multibars
-		xOffset = containerFrameOffsetX / containerScale; 
-		yOffset = CONTAINER_OFFSET_Y / containerScale; 
+		xOffset = containerFrameOffsetX / containerScale 
+		yOffset = CONTAINER_OFFSET_Y / containerScale 
 		-- freeScreenHeight determines when to start a new column of bags
-		freeScreenHeight = screenHeight - yOffset;
-		leftMostPoint = screenWidth - xOffset;
-		column = 1;
-		local frameHeight;
+		freeScreenHeight = screenHeight - yOffset
+		leftMostPoint = screenWidth - xOffset
+		column = 1
+		local frameHeight
 		for index, frameName in ipairs(_G.ContainerFrameSettingsManager:GetBagsShown()) do
 			frameHeight = frameName:GetHeight()
 			if ( freeScreenHeight < frameHeight ) then
 				-- Start a new column
-				column = column + 1;
-				leftMostPoint = screenWidth - ( column * CONTAINER_WIDTH * containerScale ) - xOffset;
-				freeScreenHeight = screenHeight - yOffset;
+				column = column + 1
+				leftMostPoint = screenWidth - ( column * CONTAINER_WIDTH * containerScale ) - xOffset
+				freeScreenHeight = screenHeight - yOffset
 			end
-			freeScreenHeight = freeScreenHeight - frameHeight - VISIBLE_CONTAINER_SPACING;
+			freeScreenHeight = freeScreenHeight - frameHeight - VISIBLE_CONTAINER_SPACING
 		end
 		if ( leftMostPoint < leftLimit ) then
-			containerScale = containerScale - 0.01;
+			containerScale = containerScale - 0.01
 		else
-			break;
+			break
 		end
 	end
 	
 	if ( containerScale < CONTAINER_SCALE ) then
-		containerScale = CONTAINER_SCALE;
+		containerScale = CONTAINER_SCALE
 	end
 	
-	screenHeight = GetScreenHeight() / containerScale;
+	screenHeight = GetScreenHeight() / containerScale
 	-- Adjust the start anchor for bags depending on the multibars
-	xOffset = containerFrameOffsetX / containerScale;
-	yOffset = CONTAINER_OFFSET_Y / containerScale;
+	xOffset = containerFrameOffsetX / containerScale
+	yOffset = CONTAINER_OFFSET_Y / containerScale
 	-- freeScreenHeight determines when to start a new column of bags
-	freeScreenHeight = screenHeight - yOffset;
-	column = 0;
+	freeScreenHeight = screenHeight - yOffset
+	column = 0
 	for index, frameName in ipairs(_G.ContainerFrameSettingsManager:GetBagsShown()) do
-		frame = frameName;
+		frame = frameName
 		frame:SetScale(containerScale)
 		if ( index == 1 ) then
 			-- First bag
 			frame:SetPoint("BOTTOMRIGHT", frame:GetParent(), "BOTTOMRIGHT", -xOffset, yOffset )
 		elseif ( freeScreenHeight < frame:GetHeight() ) then
 			-- Start a new column
-			column = column + 1;
-			freeScreenHeight = screenHeight - yOffset;
+			column = column + 1
+			freeScreenHeight = screenHeight - yOffset
 			frame:SetPoint("BOTTOMRIGHT", frame:GetParent(), "BOTTOMRIGHT", -(column * CONTAINER_WIDTH) - xOffset, yOffset )
 		else
 			-- Anchor to the previous bag
 			frame:SetPoint("BOTTOMRIGHT", _G.ContainerFrameSettingsManager:GetBagsShown()[index - 1], "TOPRIGHT", 0, CONTAINER_SPACING)	
 		end
-		freeScreenHeight = freeScreenHeight - frame:GetHeight() - VISIBLE_CONTAINER_SPACING;
+		freeScreenHeight = freeScreenHeight - frame:GetHeight() - VISIBLE_CONTAINER_SPACING
 	end
 end)
 
