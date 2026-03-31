@@ -4,8 +4,8 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_PVPUI" then
 		HonorFrame.SpecificScrollBar:SetSize(25, 560)
 		HonorFrame.SpecificScrollBar:ClearAllPoints()
-		HonorFrame.SpecificScrollBar:SetPoint("TOPLEFT", HonorFrame.SpecificScrollBox, "TOPRIGHT", -2, 3)
-		HonorFrame.SpecificScrollBar:SetPoint("BOTTOMLEFT", HonorFrame.SpecificScrollBox, "BOTTOMRIGHT", 1, -1)
+		HonorFrame.SpecificScrollBar:SetPoint("TOPLEFT", HonorFrame.SpecificScrollBox, "TOPRIGHT", -4, 1)
+		HonorFrame.SpecificScrollBar:SetPoint("BOTTOMLEFT", HonorFrame.SpecificScrollBox, "BOTTOMRIGHT", 4, -4)
 
 		ApplyScrollBarArrow(HonorFrame.SpecificScrollBar)
 		ApplyScrollBarTrack(HonorFrame.SpecificScrollBar.Track)
@@ -13,8 +13,8 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetSize(25, 560)
 		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:ClearAllPoints()
-		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetPoint("TOPLEFT", TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBox, "TOPRIGHT", -2, 3)
-		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetPoint("BOTTOMLEFT", TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBox, "BOTTOMRIGHT", 1, -1)
+		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetPoint("TOPLEFT", TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBox, "TOPRIGHT", -4, 1)
+		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetPoint("BOTTOMLEFT", TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBox, "BOTTOMRIGHT", 4, -4)
 
 		ApplyScrollBarArrow(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar)
 		ApplyScrollBarTrack(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar.Track)
