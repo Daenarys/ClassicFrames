@@ -220,33 +220,7 @@ function ApplyDialogHeader(frame)
 	frame.RightBG:SetTexCoord(0.0078125, 0.507812, 0.628906, 0.933594)
 end
 
-function ApplyScrollBarArrow(frame)
-	frame.Back:SetSize(18, 16)
-	frame.Back:SetNormalTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Up")
-	frame.Back:GetNormalTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Back:SetPushedTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Down")
-	frame.Back:GetPushedTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Back:SetDisabledTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Disabled")
-	frame.Back:GetDisabledTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Back:SetHighlightTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Highlight", "ADD")
-	frame.Back:GetHighlightTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Back:ClearAllPoints()
-	frame.Back:SetPoint("TOPLEFT", 4, -5)
-
-	frame.Forward:SetSize(18, 16)
-	frame.Forward:SetNormalTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Up")
-	frame.Forward:GetNormalTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Forward:SetPushedTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Down")
-	frame.Forward:GetPushedTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Forward:SetDisabledTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Disabled")
-	frame.Forward:GetDisabledTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Forward:SetHighlightTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Highlight", "ADD")
-	frame.Forward:GetHighlightTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
-	frame.Forward:ClearAllPoints()
-	frame.Forward:SetPoint("BOTTOMLEFT", 4, 3)
-end
-
-function ApplyScrollBarArrowNoPos(frame)
+function ApplyScrollBarArrow(frame, noPos)
 	frame.Back:SetSize(18, 16)
 	frame.Back:SetNormalTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Up")
 	frame.Back:GetNormalTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
@@ -266,6 +240,13 @@ function ApplyScrollBarArrowNoPos(frame)
 	frame.Forward:GetDisabledTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
 	frame.Forward:SetHighlightTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Highlight", "ADD")
 	frame.Forward:GetHighlightTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+
+	if not noPos then
+		frame.Back:ClearAllPoints()
+		frame.Back:SetPoint("TOPLEFT", 4, -5)
+		frame.Forward:ClearAllPoints()
+		frame.Forward:SetPoint("BOTTOMLEFT", 4, 3)
+	end
 end
 
 function ApplyScrollBarTrack(frame)

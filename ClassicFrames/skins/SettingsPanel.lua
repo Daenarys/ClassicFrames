@@ -11,12 +11,12 @@ SettingsPanel.Container.SettingsList.ScrollBar.Track.Begin:Hide()
 SettingsPanel.Container.SettingsList.ScrollBar.Track.End:Hide()
 SettingsPanel.Container.SettingsList.ScrollBar.Track.Middle:Hide()
 
-ApplyScrollBarArrowNoPos(SettingsPanel.Container.SettingsList.ScrollBar)
+ApplyScrollBarArrow(SettingsPanel.Container.SettingsList.ScrollBar, true)
 ApplyScrollBarThumb(SettingsPanel.Container.SettingsList.ScrollBar.Track.Thumb)
 
 SettingsPanel.CategoryList.ScrollBar.Track.Begin:Hide()
 SettingsPanel.CategoryList.ScrollBar.Track.End:Hide()
 SettingsPanel.CategoryList.ScrollBar.Track.Middle:Hide()
 
-ApplyScrollBarArrowNoPos(SettingsPanel.CategoryList.ScrollBar)
+ApplyScrollBarArrow(SettingsPanel.CategoryList.ScrollBar, true)
 ApplyScrollBarThumb(SettingsPanel.CategoryList.ScrollBar.Track.Thumb)

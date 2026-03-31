@@ -39,7 +39,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		MacroFrameScrollFrame.ScrollBar.Track.End:Hide()
 		MacroFrameScrollFrame.ScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrowNoPos(MacroFrameScrollFrame.ScrollBar)
+		ApplyScrollBarArrow(MacroFrameScrollFrame.ScrollBar, true)
 		ApplyScrollBarThumb(MacroFrameScrollFrame.ScrollBar.Track.Thumb)
 
 		MacroPopupFrame.IconSelector.ScrollBar:SetSize(25, 560)

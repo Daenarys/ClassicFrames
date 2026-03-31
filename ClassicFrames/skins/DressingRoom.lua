@@ -32,7 +32,7 @@ DressUpFrame.SetSelectionPanel.ScrollBar.Track.Begin:Hide()
 DressUpFrame.SetSelectionPanel.ScrollBar.Track.End:Hide()
 DressUpFrame.SetSelectionPanel.ScrollBar.Track.Middle:Hide()
 
-ApplyScrollBarArrowNoPos(DressUpFrame.SetSelectionPanel.ScrollBar)
+ApplyScrollBarArrow(DressUpFrame.SetSelectionPanel.ScrollBar, true)
 ApplyScrollBarThumb(DressUpFrame.SetSelectionPanel.ScrollBar.Track.Thumb)
 
 SideDressUpFrameCloseButton:SetSize(32, 32)

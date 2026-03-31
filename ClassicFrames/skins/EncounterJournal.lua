@@ -99,7 +99,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.End:Hide()
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrowNoPos(EncounterJournalMonthlyActivitiesFrame.ScrollBar)
+		ApplyScrollBarArrow(EncounterJournalMonthlyActivitiesFrame.ScrollBar, true)
 		ApplyScrollBarThumb(EncounterJournalMonthlyActivitiesFrame.ScrollBar.Track.Thumb)
 
 		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar:SetWidth(20)
@@ -117,14 +117,14 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Track.End:Hide()
 		EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrowNoPos(EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar)
+		ApplyScrollBarArrow(EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar, true)
 		ApplyScrollBarThumb(EncounterJournalMonthlyActivitiesFrame.FilterList.ScrollBar.Track.Thumb)
 
 		EncounterJournalInstanceSelect.ScrollBar.Track.Begin:Hide()
 		EncounterJournalInstanceSelect.ScrollBar.Track.End:Hide()
 		EncounterJournalInstanceSelect.ScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrowNoPos(EncounterJournalInstanceSelect.ScrollBar)
+		ApplyScrollBarArrow(EncounterJournalInstanceSelect.ScrollBar, true)
 		ApplyScrollBarThumb(EncounterJournalInstanceSelect.ScrollBar.Track.Thumb)
 
 		EncounterJournalEncounterFrameInfo.BossesScrollBar:SetWidth(20)
@@ -142,10 +142,10 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalEncounterFrameInfo.BossesScrollBar.Track.End:Hide()
 		EncounterJournalEncounterFrameInfo.BossesScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrowNoPos(EncounterJournalEncounterFrameInfo.BossesScrollBar)
+		ApplyScrollBarArrow(EncounterJournalEncounterFrameInfo.BossesScrollBar, true)
 		ApplyScrollBarThumb(EncounterJournalEncounterFrameInfo.BossesScrollBar.Track.Thumb)
 
-		ApplyScrollBarArrowNoPos(EncounterJournalEncounterFrameInstanceFrame.LoreScrollBar)
+		ApplyScrollBarArrow(EncounterJournalEncounterFrameInstanceFrame.LoreScrollBar, true)
 
 		EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar:SetWidth(20)
 		EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar:ClearAllPoints()
@@ -162,7 +162,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar.Track.End:Hide()
 		EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrowNoPos(EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar)
+		ApplyScrollBarArrow(EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar, true)
 		ApplyScrollBarThumb(EncounterJournalEncounterFrameInfoOverviewScrollFrame.ScrollBar.Track.Thumb)
 
 		EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar:SetWidth(20)
@@ -180,7 +180,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar.Track.End:Hide()
 		EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrowNoPos(EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar)
+		ApplyScrollBarArrow(EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar, true)
 		ApplyScrollBarThumb(EncounterJournalEncounterFrameInfo.LootContainer.ScrollBar.Track.Thumb)
 
 		EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar:SetWidth(20)
@@ -198,7 +198,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar.Track.End:Hide()
 		EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrowNoPos(EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar)
+		ApplyScrollBarArrow(EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar, true)
 		ApplyScrollBarThumb(EncounterJournalEncounterFrameInfoDetailsScrollFrame.ScrollBar.Track.Thumb)
 
 		ApplyDropDown(EncounterJournalInstanceSelect.ExpansionDropdown)

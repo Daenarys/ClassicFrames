@@ -45,7 +45,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		TransmogFrame.OutfitCollection.OutfitList.ScrollBar.Track.End:Hide()
 		TransmogFrame.OutfitCollection.OutfitList.ScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrowNoPos(TransmogFrame.OutfitCollection.OutfitList.ScrollBar)
+		ApplyScrollBarArrow(TransmogFrame.OutfitCollection.OutfitList.ScrollBar, true)
 		ApplyScrollBarThumb(TransmogFrame.OutfitCollection.OutfitList.ScrollBar.Track.Thumb)
 
 		hooksecurefunc(TransmogFrame.WardrobeCollection.TabContent.SituationsFrame, "Refresh", function(frame)

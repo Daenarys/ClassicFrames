@@ -36,7 +36,7 @@ ChatConfigCombatSettingsFilters.ScrollBar.Track.Begin:Hide()
 ChatConfigCombatSettingsFilters.ScrollBar.Track.End:Hide()
 ChatConfigCombatSettingsFilters.ScrollBar.Track.Middle:Hide()
 
-ApplyScrollBarArrowNoPos(ChatConfigCombatSettingsFilters.ScrollBar)
+ApplyScrollBarArrow(ChatConfigCombatSettingsFilters.ScrollBar, true)
 ApplyScrollBarThumb(ChatConfigCombatSettingsFilters.ScrollBar.Track.Thumb)
 
 ApplyDialogBorder(ChatConfigFrame.Border)

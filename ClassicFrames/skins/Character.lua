@@ -52,7 +52,7 @@ ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Track.Begin:
 ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Track.End:Hide()
 ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Track.Middle:Hide()
 
-ApplyScrollBarArrowNoPos(ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar)
+ApplyScrollBarArrow(ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar, true)
 ApplyScrollBarThumb(ReputationFrame.ReputationDetailFrame.ScrollingDescriptionScrollBar.Track.Thumb)
 
 if (ReputationDetailCorner == nil) then

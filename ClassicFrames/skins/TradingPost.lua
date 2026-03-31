@@ -6,14 +6,14 @@ f:SetScript("OnEvent", function(self, event, name)
 		PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar.Track.End:Hide()
 		PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrowNoPos(PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar)
+		ApplyScrollBarArrow(PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar, true)
 		ApplyScrollBarThumb(PerksProgramFrame.ProductsFrame.ProductsScrollBoxContainer.ScrollBar.Track.Thumb)
 
 		PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar.Track.Begin:Hide()
 		PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar.Track.End:Hide()
 		PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrowNoPos(PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar)
+		ApplyScrollBarArrow(PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar, true)
 		ApplyScrollBarThumb(PerksProgramFrame.ProductsFrame.PerksProgramProductDetailsContainerFrame.SetDetailsScrollBoxContainer.ScrollBar.Track.Thumb)
 	end
 end)

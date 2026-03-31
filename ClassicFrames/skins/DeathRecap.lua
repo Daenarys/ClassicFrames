@@ -11,7 +11,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		DeathRecapFrame.ScrollBar.Track.Begin:Hide()
 		DeathRecapFrame.ScrollBar.Track.End:Hide()
 		DeathRecapFrame.ScrollBar.Track.Middle:Hide()
-		ApplyScrollBarArrowNoPos(DeathRecapFrame.ScrollBar)
+		ApplyScrollBarArrow(DeathRecapFrame.ScrollBar, true)
 		ApplyScrollBarThumb(DeathRecapFrame.ScrollBar.Track.Thumb)
 	end
 end)

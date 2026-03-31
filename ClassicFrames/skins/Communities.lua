@@ -150,7 +150,7 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		CommunitiesGuildLogFrame.Container.ScrollFrame.ScrollBar.Track.End:Hide()
 		CommunitiesGuildLogFrame.Container.ScrollFrame.ScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrowNoPos(CommunitiesGuildLogFrame.Container.ScrollFrame.ScrollBar)
+		ApplyScrollBarArrow(CommunitiesGuildLogFrame.Container.ScrollFrame.ScrollBar, true)
 		ApplyScrollBarThumb(CommunitiesGuildLogFrame.Container.ScrollFrame.ScrollBar.Track.Thumb)
 
 		ClubFinderCommunityAndGuildFinderFrame.CommunityCards.ScrollBar:SetSize(25, 560)
@@ -172,7 +172,7 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		CommunitiesGuildTextEditFrame.Container.ScrollFrame.ScrollBar.Track.End:Hide()
 		CommunitiesGuildTextEditFrame.Container.ScrollFrame.ScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrowNoPos(CommunitiesGuildTextEditFrame.Container.ScrollFrame.ScrollBar)
+		ApplyScrollBarArrow(CommunitiesGuildTextEditFrame.Container.ScrollFrame.ScrollBar, true)
 		ApplyScrollBarThumb(CommunitiesGuildTextEditFrame.Container.ScrollFrame.ScrollBar.Track.Thumb)
 	
 		ClubFinderGuildFinderFrame.OptionsList.TankRoleFrame.Icon:SetAtlas("UI-Frame-TankIcon", true)
@@ -208,7 +208,7 @@ CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar.Track.Begin:Hi
 CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar.Track.End:Hide()
 CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar.Track.Middle:Hide()
 
-ApplyScrollBarArrowNoPos(CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar)
+ApplyScrollBarArrow(CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar, true)
 ApplyScrollBarThumb(CommunitiesFrame.NotificationSettingsDialog.ScrollFrame.ScrollBar.Track.Thumb)
 
 ApplyDropDown(ClubFinderGuildFinderFrame.OptionsList.ClubFilterDropdown)

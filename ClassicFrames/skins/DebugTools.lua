@@ -14,7 +14,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		TableAttributeDisplay.LinesScrollFrame.ScrollBar.Track.End:Hide()
 		TableAttributeDisplay.LinesScrollFrame.ScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrowNoPos(TableAttributeDisplay.LinesScrollFrame.ScrollBar)
+		ApplyScrollBarArrow(TableAttributeDisplay.LinesScrollFrame.ScrollBar, true)
 		ApplyScrollBarThumb(TableAttributeDisplay.LinesScrollFrame.ScrollBar.Track.Thumb)
 	end
 end)

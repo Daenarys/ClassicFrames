@@ -15,14 +15,14 @@ EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Track.Begin:Hid
 EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Track.End:Hide()
 EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Track.Middle:Hide()
 
-ApplyScrollBarArrowNoPos(EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar)
+ApplyScrollBarArrow(EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar, true)
 ApplyScrollBarThumb(EditModeManagerFrame.AccountSettings.SettingsContainer.ScrollBar.Track.Thumb)
 
 EditModeImportLayoutDialog.ImportBox.ScrollBar.Track.Begin:Hide()
 EditModeImportLayoutDialog.ImportBox.ScrollBar.Track.End:Hide()
 EditModeImportLayoutDialog.ImportBox.ScrollBar.Track.Middle:Hide()
 
-ApplyScrollBarArrowNoPos(EditModeImportLayoutDialog.ImportBox.ScrollBar)
+ApplyScrollBarArrow(EditModeImportLayoutDialog.ImportBox.ScrollBar, true)
 ApplyScrollBarThumb(EditModeImportLayoutDialog.ImportBox.ScrollBar.Track.Thumb)
 
 ApplyDialogBorder(EditModeManagerFrame.Border)
