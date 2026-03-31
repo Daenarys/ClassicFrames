@@ -220,7 +220,7 @@ function ApplyDialogHeader(frame)
 	frame.RightBG:SetTexCoord(0.0078125, 0.507812, 0.628906, 0.933594)
 end
 
-function ApplyScrollBarArrow(frame, noPos)
+function ApplyScrollBarArrow(frame, defaultPos)
 	frame.Back:SetSize(18, 16)
 	frame.Back:SetNormalTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Up")
 	frame.Back:GetNormalTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
@@ -241,7 +241,7 @@ function ApplyScrollBarArrow(frame, noPos)
 	frame.Forward:SetHighlightTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Highlight", "ADD")
 	frame.Forward:GetHighlightTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
 
-	if not noPos then
+	if not defaultPos then
 		frame.Back:ClearAllPoints()
 		frame.Back:SetPoint("TOPLEFT", 4, -5)
 		frame.Forward:ClearAllPoints()
