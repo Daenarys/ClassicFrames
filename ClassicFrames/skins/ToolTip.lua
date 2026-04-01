@@ -1,16 +1,4 @@
-if not _G.TooltipComparisonManager then return end
-
-hooksecurefunc(TooltipComparisonManager, "SetItemTooltip", function(self, isPrimaryTooltip)
-	local tooltip
-	if isPrimaryTooltip then
-		tooltip = self.tooltip.shoppingTooltips[1]
-	else
-		tooltip = self.tooltip.shoppingTooltips[2]
-	end
-	if tooltip.CompareHeader then
-		tooltip.CompareHeader:SetAlpha(0)
-	end
-end)
+if not _G.TooltipDataProcessor then return end
 
 TooltipDataProcessor.AddTooltipPreCall(Enum.TooltipDataType.Item, function(tooltip, data)
 	if tooltip == ShoppingTooltip1 or tooltip == ShoppingTooltip2 then
@@ -25,7 +13,15 @@ TooltipDataProcessor.AddTooltipPreCall(Enum.TooltipDataType.Item, function(toolt
 
 		local line = _G[tooltip:GetName().."TextLeft"..tooltip:NumLines()]
 		if line then
-			line:SetFontObject("GameFontDisableSmall")
+			line:SetFontObject(GameFontDisableSmall)
+		end
+	end
+end)
+
+hooksecurefunc(TooltipComparisonManager, "CompareItem", function(self)
+	for _, tooltip in pairs(self.tooltip.shoppingTooltips) do
+		if tooltip.CompareHeader then
+			tooltip.CompareHeader:SetAlpha(0)
 		end
 	end
 end)
