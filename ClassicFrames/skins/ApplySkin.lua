@@ -616,6 +616,10 @@ function ApplyFilterDropDown(frame)
 	frame:HookScript("OnEnable", function(self)
 		self.Text:SetFontObject(GameFontHighlightSmall)
 	end)
+
+	frame:HookScript("OnDisable", function(self)
+		self.Text:SetFontObject(GameFontDisableSmall)
+	end)
 end
 
 function ApplyEJDropDown(frame)
