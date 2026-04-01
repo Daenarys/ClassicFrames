@@ -112,8 +112,6 @@ function CfPlayerFrame_OnLoad(self)
 				self.HealthBar:SetStatusBarColor(classColor.r, classColor.g, classColor.b)
 			end
 		end
-	else
-		self.HealthBar:SetStatusBarColor(0, 1, 0)
 	end
 
 	self:EnableMouse(false)
