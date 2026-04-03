@@ -218,6 +218,17 @@ hooksecurefunc(TokenHeaderMixin, "Initialize", function(self)
 	end
 end)
 
+hooksecurefunc(TokenSubHeaderToggleCollapseButtonMixin, "RefreshIcon", function(self)
+	self:SetSize(16, 16)
+	if self:GetHeader():IsCollapsed() then
+		self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
+		self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Up")
+	else
+		self:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
+		self:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Up")
+	end
+end)
+
 ApplyDialogBorder(TokenFramePopup.Border)
 
 PaperDollFrame.TitleManagerPane.ScrollBar:SetSize(25, 560)
