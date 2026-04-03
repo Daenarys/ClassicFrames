@@ -132,7 +132,7 @@ local function SkinFrame(frame)
 	contentMain.Name:SetPoint("TOPLEFT", 36, -30)
 	contentMain.Name:SetJustifyH("CENTER")
 
-	FrameHealthBarContainer:SetAlpha(0)
+	FrameHealthBar:GetStatusBarTexture():SetAlpha(0)
 	FrameHealthBar.TextString:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.RightText:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.LeftText:SetParent(frame.TargetFrameContainer)
@@ -192,6 +192,9 @@ local function SkinFrame(frame)
 
 		CfFocusFrameBackground:SetSize(119, 25)
 		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
+
+		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", 3, -1)
+		FrameHealthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT")
 
 		if ( classification == "minus" ) then
 			FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -6)
