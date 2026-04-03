@@ -32,12 +32,12 @@ end
 
 QuestScrollFrame.ScrollBar:SetSize(25, 560)
 QuestScrollFrame.ScrollBar:ClearAllPoints()
-QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -4, 0)
-QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", -4, -3)
+QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -2, 0)
+QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", 2, -3)
 
 if (QuestScrollFrame.ScrollBar.BG == nil) then
 	QuestScrollFrame.ScrollBar.BG = QuestScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	QuestScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
+	QuestScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.65)
 	QuestScrollFrame.ScrollBar.BG:SetAllPoints()
 end
 
@@ -47,12 +47,12 @@ ApplyScrollBarThumb(QuestScrollFrame.ScrollBar.Track.Thumb)
 
 QuestMapDetailsScrollFrame.ScrollBar:SetSize(25, 560)
 QuestMapDetailsScrollFrame.ScrollBar:ClearAllPoints()
-QuestMapDetailsScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestMapDetailsScrollFrame, "TOPRIGHT", 1, 44)
-QuestMapDetailsScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestMapDetailsScrollFrame, "BOTTOMRIGHT", 1, -34)
+QuestMapDetailsScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestMapDetailsScrollFrame, "TOPRIGHT", 3, 44)
+QuestMapDetailsScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestMapDetailsScrollFrame, "BOTTOMRIGHT", -3, -34)
 
 if (QuestMapDetailsScrollFrame.ScrollBar.BG == nil) then
 	QuestMapDetailsScrollFrame.ScrollBar.BG = QuestMapDetailsScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	QuestMapDetailsScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
+	QuestMapDetailsScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.65)
 	QuestMapDetailsScrollFrame.ScrollBar.BG:SetAllPoints()
 end
 
@@ -62,12 +62,12 @@ ApplyScrollBarThumb(QuestMapDetailsScrollFrame.ScrollBar.Track.Thumb)
 
 QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetSize(25, 560)
 QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:ClearAllPoints()
-QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -4, 0)
-QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", -4, -3)
+QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -2, 0)
+QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", -2, -3)
 
 if (QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.BG == nil) then
 	QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.BG = QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
-	QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.75)
+	QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, 0.65)
 	QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.BG:SetAllPoints()
 end
 
