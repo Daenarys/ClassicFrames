@@ -74,57 +74,6 @@ if (ReputationFrame.StandingLabel == nil) then
 	ReputationFrame.StandingLabel:SetPoint("TOPLEFT", 215, -42)
 end
 
-hooksecurefunc(ReputationHeaderMixin, "Initialize", function(self)
-	if not self.IsSkinned then
-		self:SetHitRectInsets(0, 267, 0, 6)
-		self.Name:SetPoint("LEFT", 20, 0)
-
-		self.Left:SetAlpha(0)
-		self.Right:SetAlpha(0)
-		self.Middle:SetAlpha(0)
-
-		if (self.ExpandOrCollapseButton == nil) then
-			self.ExpandOrCollapseButton = self:CreateTexture(nil, "ARTWORK")
-			self.ExpandOrCollapseButton:SetSize(16, 16)
-			self.ExpandOrCollapseButton:SetPoint("LEFT")
-		end
-
-		self.HighlightLeft:SetAlpha(0)
-		self.HighlightRight:SetAlpha(0)
-		self.HighlightMiddle:SetAlpha(0)
-
-		self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
-		self:GetHighlightTexture():SetAllPoints(self.ExpandOrCollapseButton)
-
-		self.IsSkinned = true
-	end
-
-	if self:IsCollapsed() then
-		self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-PlusButton-Up")
-	else
-		self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-MinusButton-Up")
-	end
-end)
-
-hooksecurefunc(ReputationHeaderMixin, "OnMouseDown", function(self)
-	self.Name:SetPoint("LEFT", 20, 0)
-end)
-
-hooksecurefunc(ReputationHeaderMixin, "OnMouseUp", function(self)
-	self.Name:SetPoint("LEFT", 20, 0)
-end)
-
-hooksecurefunc(ReputationSubHeaderToggleCollapseButtonMixin, "RefreshIcon", function(self)
-	self:SetSize(16, 16)
-	if self:GetHeader():IsCollapsed() then
-		self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
-		self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Up")
-	else
-		self:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
-		self:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Up")
-	end
-end)
-
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
 
 TokenFrame.ScrollBar:SetSize(25, 560)
@@ -181,7 +130,6 @@ ApplyScrollBarTrack(GearManagerPopupFrame.IconSelector.ScrollBar.Track)
 ApplyScrollBarThumb(GearManagerPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 
 ApplyDropDown(GearManagerPopupFrame.BorderBox.IconTypeDropdown)
-
 GearManagerPopupFrame.BorderBox.IconTypeDropdown.Text:SetJustifyH("RIGHT")
 
 hooksecurefunc(CharacterFrame, "UpdatePortrait", function(self)
