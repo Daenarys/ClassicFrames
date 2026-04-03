@@ -5,8 +5,8 @@ for i = 1, NUM_CHAT_WINDOWS do
     _G['ChatFrame'..i].ScrollBar.Back:Hide()
     _G['ChatFrame'..i].ScrollBar.Forward:Hide()
     _G['ChatFrame'..i].ScrollBar.Track.Begin:Hide()
-    _G['ChatFrame'..i].ScrollBar.Track.Middle:Hide()
     _G['ChatFrame'..i].ScrollBar.Track.End:Hide()
+    _G['ChatFrame'..i].ScrollBar.Track.Middle:Hide()
 
     _G['ChatFrame'..i].ScrollBar.Track:SetPoint("TOP", 0, -4)
     _G['ChatFrame'..i].ScrollBar.Track:SetPoint("BOTTOM")
