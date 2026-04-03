@@ -103,17 +103,6 @@ function CfPlayerFrame_OnLoad(self)
 		UpdateFrame(self)
 	end
 
-	-- add HealthBarColor support
-	if (C_AddOns.IsAddOnLoaded("HealthBarColor")) then
-		local _, class = UnitClass(self.unit)
-		if ( class ) then
-			local classColor = RAID_CLASS_COLORS[class]
-			if ( classColor ) then
-				self.HealthBar:SetStatusBarColor(classColor.r, classColor.g, classColor.b)
-			end
-		end
-	end
-
 	self:EnableMouse(false)
 end
 

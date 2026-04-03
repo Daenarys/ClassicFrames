@@ -4,7 +4,7 @@
 ## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
 ## Version: 3.37
-## OptionalDeps: HealthBarColor, SexyMap
+## OptionalDeps: SexyMap
 embeds.xml
 skins\ApplySkin.lua
 skins\Achievements.lua
