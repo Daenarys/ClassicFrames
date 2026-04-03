@@ -13,25 +13,19 @@ function ApplyCloseButton(frame, oldPos)
 	end
 end
 
-function ApplyTitleBg(frame)
+function ApplyTitleBg(frame, noPortrait)
 	if (frame.TitleBg == nil) then
 		frame.TitleBg = frame:CreateTexture(nil, "BACKGROUND")
 		frame.TitleBg:SetAtlas("_UI-Frame-TitleTileBg", false)
 		frame.TitleBg:SetSize(256, 18)
 		frame.TitleBg:SetHorizTile(true)
-		frame.TitleBg:SetPoint("TOPLEFT", 2, -3)
-		frame.TitleBg:SetPoint("TOPRIGHT", -25, -3)
-	end
-end
-
-function ApplyTitleBgNoPortrait(frame)
-	if (frame.TitleBg == nil) then
-		frame.TitleBg = frame:CreateTexture(nil, "BACKGROUND")
-		frame.TitleBg:SetAtlas("_UI-Frame-TitleTileBg", false)
-		frame.TitleBg:SetSize(256, 18)
-		frame.TitleBg:SetHorizTile(true)
-		frame.TitleBg:SetPoint("TOPLEFT", 6, -3)
-		frame.TitleBg:SetPoint("TOPRIGHT", -25, -3)
+		if noPortrait then
+			frame.TitleBg:SetPoint("TOPLEFT", 6, -3)
+			frame.TitleBg:SetPoint("TOPRIGHT", -25, -3)
+		else
+			frame.TitleBg:SetPoint("TOPLEFT", 2, -3)
+			frame.TitleBg:SetPoint("TOPRIGHT", -25, -3)
+		end
 	end
 end
 

@@ -108,7 +108,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		end)
 
 		ApplyCloseButton(ProfessionsFrame.CraftingPage.CraftingOutputLog.ClosePanelButton)
-		ApplyTitleBgNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog)
+		ApplyTitleBg(ProfessionsFrame.CraftingPage.CraftingOutputLog, true)
 		ApplyNineSliceNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog)
 
 		ApplyFilterDropDown(ProfessionsFrame.CraftingPage.RecipeList.FilterDropdown)

@@ -8,7 +8,7 @@ AddonList.TitleContainer:ClearAllPoints()
 AddonList.TitleContainer:SetPoint("TOPLEFT", AddonList, "TOPLEFT", 58, 0)
 AddonList.TitleContainer:SetPoint("TOPRIGHT", AddonList, "TOPRIGHT", -58, 0)
 
-ApplyTitleBgNoPortrait(AddonList)
+ApplyTitleBg(AddonList, true)
 ApplyNineSliceNoPortrait(AddonList)
 
 AddonList.ScrollBar:SetSize(25, 560)

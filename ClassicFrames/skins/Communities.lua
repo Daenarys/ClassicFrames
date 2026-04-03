@@ -24,7 +24,7 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		self.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
 		self.MaximizeMinimizeFrame.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 
-		ApplyTitleBgNoPortrait(self)
+		ApplyTitleBg(self, true)
 		ApplyNineSliceNoPortraitMinimizable(self)
 
 		self.Chat.ScrollBar:SetSize(25, 560)

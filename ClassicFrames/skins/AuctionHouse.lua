@@ -179,7 +179,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar.Track.Thumb)
 
 		ApplyCloseButton(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial.CloseButton)
-		ApplyTitleBgNoPortrait(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial)
+		ApplyTitleBg(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial, true)
 		ApplyNineSliceNoPortrait(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial)
 
 		AuctionHouseFrame.WoWTokenResults.GameTimeTutorial.CloseButton:SetFrameLevel(4)

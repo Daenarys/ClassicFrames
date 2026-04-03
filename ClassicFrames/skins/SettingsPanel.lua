@@ -1,7 +1,7 @@
 if not _G.SettingsPanel then return end
 
 ApplyCloseButton(SettingsPanel.ClosePanelButton)
-ApplyTitleBgNoPortrait(SettingsPanel)
+ApplyTitleBg(SettingsPanel, true)
 ApplyNineSliceNoPortrait(SettingsPanel)
 SettingsPanel.NineSlice:SetFrameStrata("HIGH")
 
