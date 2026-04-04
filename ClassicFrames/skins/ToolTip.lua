@@ -1,9 +1,9 @@
 if not _G.TooltipDataProcessor then return end
 
 TooltipDataProcessor.AddTooltipPreCall(Enum.TooltipDataType.Item, function(self)
-	if self == ShoppingTooltip1 or self == ShoppingTooltip2 then
-		local isPrimaryTooltip = (self == ShoppingTooltip1)
-		local isPairedItem = (ShoppingTooltip2 and ShoppingTooltip2:IsShown())
+	if self == _G.ShoppingTooltip1 or self == _G.ShoppingTooltip2 then
+		local isPrimaryTooltip = (self == _G.ShoppingTooltip1)
+		local isPairedItem = (_G.ShoppingTooltip2 and _G.ShoppingTooltip2:IsShown())
 
 		local header = CURRENTLY_EQUIPPED
 		if not isPrimaryTooltip and isPairedItem then
@@ -11,14 +11,26 @@ TooltipDataProcessor.AddTooltipPreCall(Enum.TooltipDataType.Item, function(self)
 		end
 		GameTooltip_AddDisabledLine(self, header, false)
 
-		local line = _G[self:GetName().."TextLeft"..self:NumLines()]
-		if line then
-			line:SetFontObject(GameFontDisableSmall)
+		local TextLeft1 = _G[self:GetName().."TextLeft1"]
+		if TextLeft1 then
+			TextLeft1:SetFontObject(GameFontNormalSmall)
+		end
+		local TextLeft2 = _G[self:GetName().."TextLeft2"]
+		if TextLeft2 then
+			TextLeft2:SetFontObject(GameFontNormalSmall)
+		end
+		local TextRight1 = _G[self:GetName().."TextRight1"]
+		if TextRight1 then
+			TextRight1:SetFontObject(GameFontNormalSmall)
+		end
+		local TextRight2 = _G[self:GetName().."TextRight2"]
+		if TextRight2 then
+			TextRight2:SetFontObject(GameFontNormalSmall)
 		end
 	end
 end)
 
-hooksecurefunc(TooltipComparisonManager, "CompareItem", function(self)
+hooksecurefunc(TooltipComparisonManager, "SetItemTooltip", function(self)
 	for _, tooltip in pairs(self.tooltip.shoppingTooltips) do
 		if tooltip.CompareHeader then
 			tooltip.CompareHeader:SetAlpha(0)
