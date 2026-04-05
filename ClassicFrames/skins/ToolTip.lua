@@ -37,3 +37,18 @@ hooksecurefunc(TooltipComparisonManager, "SetItemTooltip", function(self)
 		end
 	end
 end)
+
+local isAdjusting = false
+local function AnchorShoppingTooltips(self)
+	if isAdjusting then return end
+	isAdjusting = true
+	if self == ShoppingTooltip1 then
+		self:SetPoint("TOP", GameTooltip, "TOP", 0, -10)
+	else
+		self:SetPoint("TOP", GameTooltip, "TOP", 0, -10)
+	end
+	isAdjusting = false
+end
+
+hooksecurefunc(ShoppingTooltip1, "SetPoint", AnchorShoppingTooltips)
+hooksecurefunc(ShoppingTooltip2, "SetPoint", AnchorShoppingTooltips)
