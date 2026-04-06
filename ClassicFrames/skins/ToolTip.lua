@@ -29,7 +29,7 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(self
 		if l3 then l3:SetFontObject("GameFontHighlightSmall") end
 		if r3 then r3:SetFontObject("GameFontHighlightSmall") end
 
-		for i = 4, 25 do
+		for i = 4, 30 do
 			local lN, rN = _G[name.."TextLeft"..i], _G[name.."TextRight"..i]
 			if lN then lN:SetFontObject("GameTooltipTextSmall") end
 			if rN then rN:SetFontObject("GameFontHighlightSmall") end
