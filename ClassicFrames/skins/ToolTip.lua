@@ -10,22 +10,29 @@ TooltipDataProcessor.AddTooltipPreCall(Enum.TooltipDataType.Item, function(self)
 			header = IF_EQUIPPED_TOGETHER
 		end
 		GameTooltip_AddDisabledLine(self, header, false)
+	end
+end)
 
-		local TextLeft1 = _G[self:GetName().."TextLeft1"]
-		if TextLeft1 then
-			TextLeft1:SetFontObject(GameFontNormalSmall)
-		end
-		local TextLeft2 = _G[self:GetName().."TextLeft2"]
-		if TextLeft2 then
-			TextLeft2:SetFontObject(GameFontNormalSmall)
-		end
-		local TextRight1 = _G[self:GetName().."TextRight1"]
-		if TextRight1 then
-			TextRight1:SetFontObject(GameFontNormalSmall)
-		end
-		local TextRight2 = _G[self:GetName().."TextRight2"]
-		if TextRight2 then
-			TextRight2:SetFontObject(GameFontNormalSmall)
+TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(self)
+	if self == _G.ShoppingTooltip1 or self == _G.ShoppingTooltip2 then
+		local name = self:GetName()
+
+		local l1, r1 = _G[name.."TextLeft1"], _G[name.."TextRight1"]
+		if l1 then l1:SetFontObject("GameFontNormalSmall") end
+		if r1 then r1:SetFontObject("GameFontNormal") end
+
+		local l2, r2 = _G[name.."TextLeft2"], _G[name.."TextRight2"]
+		if l2 then l2:SetFontObject("GameFontNormal") end
+		if r2 then r2:SetFontObject("GameFontHighlightSmall") end
+
+		local l3, r3 = _G[name.."TextLeft3"], _G[name.."TextRight3"]
+		if l3 then l3:SetFontObject("GameFontHighlightSmall") end
+		if r3 then r3:SetFontObject("GameFontHighlightSmall") end
+
+		for i = 4, 25 do
+			local lN, rN = _G[name.."TextLeft"..i], _G[name.."TextRight"..i]
+			if lN then lN:SetFontObject("GameTooltipTextSmall") end
+			if rN then rN:SetFontObject("GameFontHighlightSmall") end
 		end
 	end
 end)
