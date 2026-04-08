@@ -114,7 +114,39 @@ hooksecurefunc(ReputationHeaderMixin, "Initialize", function(self)
 	end
 end)
 
+hooksecurefunc(ReputationEntryMixin, "Initialize", function(self, elementData)
+	if not self.IsSkinned then
+		if (self.Content.Background == nil) then
+			self.Content.Background = self:CreateTexture(nil, "BACKGROUND")
+			self.Content.Background:SetSize(0, 21)
+			self.Content.Background:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ReputationBar")
+			self.Content.Background:SetTexCoord(0.0, 0.7578125, 0.0, 0.328125)
+			self.Content.Background:SetPoint("TOPRIGHT", self.Content.ReputationBar.LeftTexture, "TOPLEFT")
+			self.Content.Background:SetPoint("LEFT", 15, 0)
+			self.Content.Background:Hide()
+		end
+
+		self.Content.AccountWideIcon:SetPoint("LEFT", -7, 0)
+		self.Content.Name:SetPoint("LEFT", self.Content.AccountWideIcon, "RIGHT", 10, 0)
+
+		self.IsSkinned = true
+	end
+
+	if elementData.isHeader and not elementData.isHeaderWithRep then
+		self.Content.Background:Hide()
+		self.Content.Name:SetFontObject(GameFontNormalLeft)
+	else
+		self.Content.Background:Show()
+		self.Content.Name:SetFontObject(GameFontHighlightSmall)
+		self.Content.ReputationBar.LeftTexture:SetHeight(21)
+		self.Content.ReputationBar.LeftTexture:SetTexCoord(0.7578125, 1.0, 0.0, 0.328125)
+		self.Content.ReputationBar.RightTexture:SetHeight(21)
+		self.Content.ReputationBar.RightTexture:SetTexCoord(0.0, 0.1640625, 0.34375, 0.671875)
+	end
+end)
+
 hooksecurefunc(ReputationSubHeaderToggleCollapseButtonMixin, "RefreshIcon", function(self)
+	self:SetSize(16, 16)
 	if self:GetHeader():IsCollapsed() then
 		self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
 		self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Up")
