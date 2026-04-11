@@ -216,22 +216,30 @@ end
 
 function ApplyScrollBarArrow(frame, defaultPos)
 	frame.Back:SetSize(18, 16)
-	frame.Back:SetNormalAtlas("UI-ScrollBar-ScrollUpButton-Up")
-	frame.Back:SetPushedAtlas("UI-ScrollBar-ScrollUpButton-Down")
-	frame.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
-	frame.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
+	frame.Back:SetNormalTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Up")
+	frame.Back:GetNormalTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+	frame.Back:SetPushedTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Down")
+	frame.Back:GetPushedTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+	frame.Back:SetDisabledTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Disabled")
+	frame.Back:GetDisabledTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+	frame.Back:SetHighlightTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Highlight", "ADD")
+	frame.Back:GetHighlightTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
 
 	frame.Forward:SetSize(18, 16)
-	frame.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
-	frame.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
-	frame.Forward:SetDisabledAtlas("UI-ScrollBar-ScrollDownButton-Disabled")
-	frame.Forward:SetHighlightAtlas("UI-ScrollBar-ScrollDownButton-Highlight")
+	frame.Forward:SetNormalTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Up")
+	frame.Forward:GetNormalTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+	frame.Forward:SetPushedTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Down")
+	frame.Forward:GetPushedTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+	frame.Forward:SetDisabledTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Disabled")
+	frame.Forward:GetDisabledTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+	frame.Forward:SetHighlightTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Highlight", "ADD")
+	frame.Forward:GetHighlightTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
 
 	if not defaultPos then
 		frame.Back:ClearAllPoints()
-		frame.Back:SetPoint("TOPLEFT", 4, -4)
+		frame.Back:SetPoint("TOPLEFT", 4, -5)
 		frame.Forward:ClearAllPoints()
-		frame.Forward:SetPoint("BOTTOMLEFT", 4, 4)
+		frame.Forward:SetPoint("BOTTOMLEFT", 4, 3)
 	end
 end
 
@@ -239,16 +247,85 @@ function ApplyScrollBarTrack(frame)
 	frame:ClearAllPoints()
 	frame:SetPoint("TOPLEFT", 4, -22)
 	frame:SetPoint("BOTTOMRIGHT", -4, 22)
-	
-	frame.Begin:SetAtlas("UI-ScrollBar-EndCap-Top", true)
+
+	frame.Begin:SetSize(31, 102)
+	frame.Begin:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
+	frame.Begin:SetTexCoord(0, 0.484375, 0, 0.4)
 	frame.Begin:ClearAllPoints()
-	frame.Begin:SetPoint("TOPLEFT", -4, 22)
+	frame.Begin:SetPoint("TOPLEFT", -7, 22)
 
-	frame.End:SetAtlas("UI-ScrollBar-EndCap-Bottom", true)
+	frame.End:SetSize(31, 106)
+	frame.End:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
+	frame.End:SetTexCoord(0.515625, 1, 0, 0.4140625)
 	frame.End:ClearAllPoints()
-	frame.End:SetPoint("BOTTOMLEFT", -4, -22)
+	frame.End:SetPoint("BOTTOMLEFT", -7, -21)
 
-	frame.Middle:SetAtlas("!UI-ScrollBar-Center", true)
+	frame.Middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
+	frame.Middle:SetTexCoord(0, 0.484375, 0.75, 1)
+end
+
+function ApplyScrollBarHybrid(frame, isTrim)
+	-- arrows
+	frame.Back:SetSize(18, 16)
+	frame.Back:SetNormalTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Up")
+	frame.Back:GetNormalTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+	frame.Back:SetPushedTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Down")
+	frame.Back:GetPushedTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+	frame.Back:SetDisabledTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Disabled")
+	frame.Back:GetDisabledTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+	frame.Back:SetHighlightTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Highlight", "ADD")
+	frame.Back:GetHighlightTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+
+	frame.Forward:SetSize(18, 16)
+	frame.Forward:SetNormalTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Up")
+	frame.Forward:GetNormalTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+	frame.Forward:SetPushedTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Down")
+	frame.Forward:GetPushedTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+	frame.Forward:SetDisabledTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Disabled")
+	frame.Forward:GetDisabledTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+	frame.Forward:SetHighlightTexture("Interface\\Buttons\\UI-ScrollBar-ScrollDownButton-Highlight", "ADD")
+	frame.Forward:GetHighlightTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
+
+	-- bg
+	if (frame.BG == nil) then
+		frame.BG = frame:CreateTexture(nil, "BACKGROUND")
+		frame.BG:SetColorTexture(0, 0, 0, .85)
+		frame.BG:SetPoint("TOPLEFT", -6, 0)
+		frame.BG:SetPoint("BOTTOMRIGHT", 5, 0)
+	end
+
+	-- track
+	if isTrim then
+		frame.Track.Begin:SetSize(24, 48)
+		frame.Track.Begin:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
+		frame.Track.Begin:SetTexCoord(0, 0.45, 0, 0.2)
+		frame.Track.Begin:ClearAllPoints()
+		frame.Track.Begin:SetPoint("TOPLEFT", -10, 22)
+
+		frame.Track.End:SetSize(24, 64)
+		frame.Track.End:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
+		frame.Track.End:SetTexCoord(0.515625, 0.97, 0.1440625, 0.4140625)
+		frame.Track.End:ClearAllPoints()
+		frame.Track.End:SetPoint("BOTTOMLEFT", -10, -20)
+
+		frame.Track.Middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
+		frame.Track.Middle:SetTexCoord(0, 0.45, 0.1640625, 1)
+	else
+		frame.Track.Begin:SetSize(27, 48)
+		frame.Track.Begin:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
+		frame.Track.Begin:SetTexCoord(0, 0.484375, 0, 0.2)
+		frame.Track.Begin:ClearAllPoints()
+		frame.Track.Begin:SetPoint("TOPLEFT", -10, 22)
+
+		frame.Track.End:SetSize(27, 64)
+		frame.Track.End:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
+		frame.Track.End:SetTexCoord(0.515625, 1, 0.1440625, 0.4140625)
+		frame.Track.End:ClearAllPoints()
+		frame.Track.End:SetPoint("BOTTOMLEFT", -10, -20)
+
+		frame.Track.Middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
+		frame.Track.Middle:SetTexCoord(0, 0.484375, 0.1640625, 1)
+	end
 end
 
 function ApplyScrollBarThumb(frame)
