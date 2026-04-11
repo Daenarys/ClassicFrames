@@ -56,32 +56,14 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalSearchResultsCloseButton:ClearAllPoints()
 		EncounterJournalSearchResultsCloseButton:SetPoint("TOPRIGHT", 7, 2)
 
-		EncounterJournalSearchResults.ScrollBar:SetSize(25, 560)
 		EncounterJournalSearchResults.ScrollBar:ClearAllPoints()
-		EncounterJournalSearchResults.ScrollBar:SetPoint("TOPLEFT", EncounterJournalSearchResults.ScrollBox, "TOPRIGHT", -7, 1)
-		EncounterJournalSearchResults.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalSearchResults.ScrollBox, "BOTTOMRIGHT", 7, -2)
+		EncounterJournalSearchResults.ScrollBar:SetPoint("TOPLEFT", EncounterJournalSearchResults.ScrollBox, "TOPRIGHT", 5, -2)
+		EncounterJournalSearchResults.ScrollBar:SetPoint("BOTTOMLEFT", EncounterJournalSearchResults.ScrollBox, "BOTTOMRIGHT", 5, 0)
 
-		if (EncounterJournalSearchResults.ScrollBar.BG == nil) then
-			EncounterJournalSearchResults.ScrollBar.BG = EncounterJournalSearchResults.ScrollBar:CreateTexture(nil, "BACKGROUND")
-			EncounterJournalSearchResults.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
-			EncounterJournalSearchResults.ScrollBar.BG:SetAllPoints()
-		end
-
-		ApplyScrollBarArrow(EncounterJournalSearchResults.ScrollBar)
-		ApplyScrollBarTrack(EncounterJournalSearchResults.ScrollBar.Track)
+		ApplyScrollBarHybrid(EncounterJournalSearchResults.ScrollBar, true)
 		ApplyScrollBarThumb(EncounterJournalSearchResults.ScrollBar.Track.Thumb)
 
-		EncounterJournalJourneysFrame.ScrollBar:SetWidth(25)
-		EncounterJournalJourneysFrame.ScrollBar:SetPoint("LEFT", EncounterJournalJourneysFrame.JourneysList, "RIGHT", -32, 0)
-
-		if (EncounterJournalJourneysFrame.ScrollBar.BG == nil) then
-			EncounterJournalJourneysFrame.ScrollBar.BG = EncounterJournalJourneysFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
-			EncounterJournalJourneysFrame.ScrollBar.BG:SetColorTexture(0, 0, 0, .5)
-			EncounterJournalJourneysFrame.ScrollBar.BG:SetAllPoints()
-		end
-
-		ApplyScrollBarArrow(EncounterJournalJourneysFrame.ScrollBar)
-		ApplyScrollBarTrack(EncounterJournalJourneysFrame.ScrollBar.Track)
+		ApplyScrollBarHybrid(EncounterJournalJourneysFrame.ScrollBar)
 		ApplyScrollBarThumb(EncounterJournalJourneysFrame.ScrollBar.Track.Thumb)
 
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar:SetWidth(20)
