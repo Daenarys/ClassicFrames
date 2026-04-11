@@ -32,7 +32,7 @@ end
 
 QuestScrollFrame.ScrollBar:SetSize(25, 560)
 QuestScrollFrame.ScrollBar:ClearAllPoints()
-QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -4, 0)
+QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", -4, 3)
 QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", -4, -1)
 
 ApplyScrollBarArrow(QuestScrollFrame.ScrollBar)
