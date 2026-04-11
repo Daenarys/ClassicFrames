@@ -17,7 +17,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ClassTrainerFrame.ScrollBar:ClearAllPoints()
 		ClassTrainerFrame.ScrollBar:SetPoint("TOPLEFT", ClassTrainerFrame.ScrollBox, "TOPRIGHT", 7, 2)
-		ClassTrainerFrame.ScrollBar:SetPoint("BOTTOMLEFT", ClassTrainerFrame.ScrollBox, "BOTTOMRIGHT", 7, -2)
+		ClassTrainerFrame.ScrollBar:SetPoint("BOTTOMLEFT", ClassTrainerFrame.ScrollBox, "BOTTOMRIGHT", 7, -1)
 
 		ApplyScrollBarHybrid(ClassTrainerFrame.ScrollBar)
 		ApplyScrollBarThumb(ClassTrainerFrame.ScrollBar.Track.Thumb)
