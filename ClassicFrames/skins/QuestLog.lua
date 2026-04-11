@@ -1,23 +1,35 @@
 if not _G.QuestScrollFrame then return end
 
 QuestScrollFrame:SetPoint("TOPLEFT")
-QuestScrollFrame.BorderFrame:SetPoint("TOPLEFT", -3, 3)
-QuestScrollFrame.BorderFrame.Shadow:SetAlpha(0)
-QuestScrollFrame.BorderFrame.TopDetail:SetAlpha(0)
 QuestScrollFrame.SearchBox:Hide()
 QuestScrollFrame.SettingsDropdown:Hide()
 
-QuestMapFrame.DetailsFrame.BorderFrame.TopDetail:SetAlpha(0)
-QuestMapFrame.QuestsFrame.CampaignOverview.BorderFrame:SetPoint("TOPLEFT", -3, 3)
-QuestMapFrame.QuestsFrame.CampaignOverview.BorderFrame.TopDetail:SetAlpha(0)
+QuestScrollFrame.Background:ClearAllPoints()
+QuestScrollFrame.Background:SetPoint("TOPLEFT")
+QuestScrollFrame.Background:SetPoint("BOTTOMRIGHT", 25, 0)
 
-hooksecurefunc(QuestMapFrame, 'ValidateTabs', function(self)
+QuestScrollFrame.BorderFrame:SetAlpha(0)
+QuestMapFrame.DetailsFrame.BorderFrame:SetAlpha(0)
+QuestMapFrame.QuestsFrame.CampaignOverview.BorderFrame:SetAlpha(0)
+
+QuestMapFrame.VerticalSeparator:SetAlpha(1)
+QuestMapFrame.VerticalSeparator:Show()
+
+hooksecurefunc("QuestMapFrame_UpdateQuestSessionState", function(self)
+	if self.QuestSessionManagement:IsShown() then
+		self.ContentsAnchor:SetPoint("BOTTOM", self.QuestSessionManagement, "TOP", 0, 5);
+	else
+		self.ContentsAnchor:SetPoint("BOTTOM", self, "BOTTOM")
+	end
+end)
+
+hooksecurefunc(QuestMapFrame, "ValidateTabs", function(self)
 	self.QuestsTab:Hide()
 	self.EventsTab:Hide()
 	self.MapLegendTab:Hide()
 end)
 
-hooksecurefunc(QuestScrollFrame, 'UpdateBackground', function(self)
+hooksecurefunc(QuestScrollFrame, "UpdateBackground", function(self)
 	if (self.Background:GetAtlas() == "QuestLog-main-background") then
 		self.Background:SetAtlas("QuestLogBackground")
 	elseif (self.Background:GetAtlas() == "QuestLog-empty-quest-background") then
