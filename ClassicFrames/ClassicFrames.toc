@@ -28,7 +28,6 @@ skins\Character.lua
 skins\Chat.lua
 skins\ChromieTime.lua
 skins\Cinematic.lua
-skins\ClassTrainer.lua
 skins\ClickBindings.lua
 skins\Collections.lua
 skins\ColorPicker.lua
@@ -103,6 +102,7 @@ skins\ToolTip.lua
 skins\Torghast.lua
 skins\Trade.lua
 skins\TradingPost.lua
+skins\Trainer.lua
 skins\Transmog.lua
 skins\UIWidget.lua
 skins\WorkOrders.lua
