@@ -251,3 +251,6 @@ ApplyDropDown(CommunitiesFrame.RecruitmentDialog.ClubFocusDropdown)
 ApplyDropDown(CommunitiesFrame.RecruitmentDialog.LookingForDropdown)
 ApplyDropDown(CommunitiesFrame.RecruitmentDialog.LanguageDropdown)
 ApplyDropDown(GuildControlUINavigationDropdown)
+
+ClubFinderGuildFinderFrame.OptionsList.ClubSizeDropdown.Text:SetJustifyH("RIGHT")
+ClubFinderCommunityAndGuildFinderFrame.OptionsList.SortByDropdown.Text:SetJustifyH("RIGHT")
