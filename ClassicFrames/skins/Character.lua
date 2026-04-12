@@ -74,6 +74,56 @@ if (ReputationFrame.StandingLabel == nil) then
 	ReputationFrame.StandingLabel:SetPoint("TOPLEFT", 215, -42)
 end
 
+hooksecurefunc(ReputationHeaderMixin, "Initialize", function(self)
+	if not self.IsSkinned then
+		self:SetHitRectInsets(0, 267, 0, 6)
+		self.Name:SetPoint("LEFT", 20, 0)
+
+		self.Left:SetAlpha(0)
+		self.Right:SetAlpha(0)
+		self.Middle:SetAlpha(0)
+
+		if (self.ExpandOrCollapseButton == nil) then
+			self.ExpandOrCollapseButton = self:CreateTexture(nil, "ARTWORK")
+			self.ExpandOrCollapseButton:SetSize(16, 16)
+			self.ExpandOrCollapseButton:SetPoint("LEFT")
+		end
+
+		self.HighlightLeft:SetAlpha(0)
+		self.HighlightRight:SetAlpha(0)
+		self.HighlightMiddle:SetAlpha(0)
+
+		self:SetHighlightTexture("Interface\\Buttons\\UI-PlusButton-Hilight")
+		self:GetHighlightTexture():SetAllPoints(self.ExpandOrCollapseButton)
+
+		self:HookScript("OnMouseDown", function()
+			self.Name:SetPoint("LEFT", 20, 0)
+		end)
+
+		self:HookScript("OnMouseUp", function()
+			self.Name:SetPoint("LEFT", 20, 0)
+		end)
+
+		self.IsSkinned = true
+	end
+
+	if self:IsCollapsed() then
+		self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-PlusButton-Up")
+	else
+		self.ExpandOrCollapseButton:SetTexture("Interface\\Buttons\\UI-MinusButton-Up")
+	end
+end)
+
+hooksecurefunc(ReputationSubHeaderToggleCollapseButtonMixin, "RefreshIcon", function(self)
+	if self:GetHeader():IsCollapsed() then
+		self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
+		self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Up")
+	else
+		self:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
+		self:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Up")
+	end
+end)
+
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
 
 TokenFrame.ScrollBar:SetSize(25, 560)
@@ -99,6 +149,83 @@ if (TokenFramePopupCorner == nil) then
 	TokenFramePopupCorner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
 	TokenFramePopupCorner:SetPoint("TOPRIGHT", -6, -7)
 end
+
+hooksecurefunc(TokenHeaderMixin, "Initialize", function(self)
+	if not self.IsSkinned then
+		self.Name:SetPoint("LEFT", 22, 0)
+
+		if self.Left then
+			self.Left:SetSize(76, 16)
+			self.Left:ClearAllPoints()
+			self.Left:SetPoint("LEFT")
+			self.Left:SetTexture("Interface\\Buttons\\CollapsibleHeader")
+			self.Left:SetTexCoord(0.17578125, 0.47265625, 0.29687500, 0.54687500)
+		end
+
+		if self.Right then
+			self.Right:ClearAllPoints()
+			self.Right:SetPoint("RIGHT")
+
+			hooksecurefunc(self, "UpdateCollapsedState", function()
+				self.Right:SetSize(76, 16)
+				self.Right:SetTexture("Interface\\Buttons\\CollapsibleHeader")
+				self.Right:SetTexCoord(0.17578125, 0.47265625, 0.01562500, 0.26562500)
+			end)
+		end
+
+		if self.Middle then
+			self.Middle:SetSize(0, 16)
+			self.Middle:ClearAllPoints()
+			self.Middle:SetPoint("LEFT", self.Left, "RIGHT", -20, 0)
+			self.Middle:SetPoint("RIGHT", self.Right, "LEFT", 20, 0)
+			self.Middle:SetTexture("Interface\\Buttons\\CollapsibleHeader")
+			self.Middle:SetTexCoord(0.48046875, 0.98046875, 0.01562500, 0.26562500)
+		end
+
+		if (self.ExpandIcon == nil) then
+			self.ExpandIcon = self:CreateTexture(nil, "OVERLAY")
+			self.ExpandIcon:SetSize(7, 7)
+			self.ExpandIcon:SetTexture("Interface\\Buttons\\UI-PlusMinus-Buttons")
+			self.ExpandIcon:SetPoint("LEFT", 8, 0)
+		end
+
+		self.HighlightLeft:SetAlpha(0)
+		self.HighlightRight:SetAlpha(0)
+		self.HighlightMiddle:SetAlpha(0)
+
+		self:SetHighlightTexture("Interface\\TokenFrame\\UI-TokenFrame-CategoryButton")
+		self:GetHighlightTexture():SetTexCoord(0, 1, 0.609375, 0.796875)
+		self:GetHighlightTexture():ClearAllPoints()
+		self:GetHighlightTexture():SetPoint("TOPLEFT", 3, -7)
+		self:GetHighlightTexture():SetPoint("BOTTOMRIGHT", -3, 7)
+
+		self:HookScript("OnMouseDown", function()
+			self.Name:SetPoint("LEFT", 22, 0)
+		end)
+
+		self:HookScript("OnMouseUp", function()
+			self.Name:SetPoint("LEFT", 22, 0)
+		end)
+
+		self.IsSkinned = true
+	end
+
+	if self:IsCollapsed() then
+		self.ExpandIcon:SetTexCoord(0, 0.4375, 0, 0.4375)
+	else
+		self.ExpandIcon:SetTexCoord(0.5625, 1, 0, 0.4375)
+	end
+end)
+
+hooksecurefunc(TokenSubHeaderToggleCollapseButtonMixin, "RefreshIcon", function(self)
+	if self:GetHeader():IsCollapsed() then
+		self:SetNormalTexture("Interface\\Buttons\\UI-PlusButton-Up")
+		self:SetPushedTexture("Interface\\Buttons\\UI-PlusButton-Up")
+	else
+		self:SetNormalTexture("Interface\\Buttons\\UI-MinusButton-Up")
+		self:SetPushedTexture("Interface\\Buttons\\UI-MinusButton-Up")
+	end
+end)
 
 ApplyDialogBorder(TokenFramePopup.Border)
 
