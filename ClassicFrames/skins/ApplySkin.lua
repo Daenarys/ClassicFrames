@@ -233,7 +233,6 @@ function ApplyScrollBarArrow(frame, defaultPos)
 	frame.Back:SetDisabledAtlas("UI-ScrollBar-ScrollUpButton-Disabled")
 	frame.Back:SetHighlightAtlas("UI-ScrollBar-ScrollUpButton-Highlight")
 
-
 	frame.Forward:SetSize(18, 16)
 	frame.Forward:SetNormalAtlas("UI-ScrollBar-ScrollDownButton-Up")
 	frame.Forward:SetPushedAtlas("UI-ScrollBar-ScrollDownButton-Down")
