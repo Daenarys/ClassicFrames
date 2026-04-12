@@ -95,19 +95,11 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		ApplyTitleBg(self)
 		ApplyNineSlicePortraitMinimizable(self)
 		
-		CommunitiesFrameCommunitiesList.ScrollBar:SetSize(25, 560)
 		CommunitiesFrameCommunitiesList.ScrollBar:ClearAllPoints()
-		CommunitiesFrameCommunitiesList.ScrollBar:SetPoint("TOPLEFT", CommunitiesFrameCommunitiesList.ScrollBox, "TOPRIGHT", -2, 0)
-		CommunitiesFrameCommunitiesList.ScrollBar:SetPoint("BOTTOMLEFT", CommunitiesFrameCommunitiesList.ScrollBox, "BOTTOMRIGHT", 1, -5)
+		CommunitiesFrameCommunitiesList.ScrollBar:SetPoint("TOPLEFT", CommunitiesFrameCommunitiesList.ScrollBox, "TOPRIGHT", 6, -1)
+		CommunitiesFrameCommunitiesList.ScrollBar:SetPoint("BOTTOMLEFT", CommunitiesFrameCommunitiesList.ScrollBox, "BOTTOMRIGHT", 6, -3)
 
-		if (CommunitiesFrameCommunitiesList.ScrollBar.BG == nil) then
-			CommunitiesFrameCommunitiesList.ScrollBar.BG = CommunitiesFrameCommunitiesList.ScrollBar:CreateTexture(nil, "BACKGROUND")
-			CommunitiesFrameCommunitiesList.ScrollBar.BG:SetColorTexture(0, 0, 0, .85)
-			CommunitiesFrameCommunitiesList.ScrollBar.BG:SetAllPoints()
-		end
-
-		ApplyScrollBarArrow(CommunitiesFrameCommunitiesList.ScrollBar)
-		ApplyScrollBarTrack(CommunitiesFrameCommunitiesList.ScrollBar.Track)
+		ApplyScrollBarHybrid(CommunitiesFrameCommunitiesList.ScrollBar)
 		ApplyScrollBarThumb(CommunitiesFrameCommunitiesList.ScrollBar.Track.Thumb)
 
 		self.Chat.ScrollBar:SetSize(25, 560)
@@ -153,13 +145,11 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		ApplyScrollBarArrow(CommunitiesGuildLogFrame.Container.ScrollFrame.ScrollBar, true)
 		ApplyScrollBarThumb(CommunitiesGuildLogFrame.Container.ScrollFrame.ScrollBar.Track.Thumb)
 
-		ClubFinderCommunityAndGuildFinderFrame.CommunityCards.ScrollBar:SetSize(25, 560)
 		ClubFinderCommunityAndGuildFinderFrame.CommunityCards.ScrollBar:ClearAllPoints()
-		ClubFinderCommunityAndGuildFinderFrame.CommunityCards.ScrollBar:SetPoint("TOPLEFT", ClubFinderCommunityAndGuildFinderFrame.CommunityCards, "TOPRIGHT", -20, 3)
-		ClubFinderCommunityAndGuildFinderFrame.CommunityCards.ScrollBar:SetPoint("BOTTOMLEFT", ClubFinderCommunityAndGuildFinderFrame.CommunityCards, "BOTTOMRIGHT", -17, -3)
+		ClubFinderCommunityAndGuildFinderFrame.CommunityCards.ScrollBar:SetPoint("TOPLEFT", ClubFinderCommunityAndGuildFinderFrame.CommunityCards, "TOPRIGHT", -9, -1)
+		ClubFinderCommunityAndGuildFinderFrame.CommunityCards.ScrollBar:SetPoint("BOTTOMLEFT", ClubFinderCommunityAndGuildFinderFrame.CommunityCards, "BOTTOMRIGHT", -9, -3)
 
-		ApplyScrollBarArrow(ClubFinderCommunityAndGuildFinderFrame.CommunityCards.ScrollBar)
-		ApplyScrollBarTrack(ClubFinderCommunityAndGuildFinderFrame.CommunityCards.ScrollBar.Track)
+		ApplyScrollBarHybrid(ClubFinderCommunityAndGuildFinderFrame.CommunityCards.ScrollBar)
 		ApplyScrollBarThumb(ClubFinderCommunityAndGuildFinderFrame.CommunityCards.ScrollBar.Track.Thumb)
 
 		CommunitiesGuildTextEditFrameCloseButton:SetSize(32, 32)

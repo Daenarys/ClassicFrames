@@ -111,32 +111,9 @@ f:SetScript("OnEvent", function(self, event, name)
 				self.ItemsCollectionFrame.ModelR1C1:SetPoint("TOP", -238, -85)
 				self.ItemsCollectionFrame.PagingFrame:SetPoint("BOTTOM", 22, 38)
 				self.ItemsCollectionFrame.SlotsFrame:SetPoint("TOPLEFT", 18, -20)
-				self.ItemsCollectionFrame.WeaponDropdown:SetEnabled(false)
 				self.ItemsCollectionFrame.WeaponDropdown:SetPoint("TOPRIGHT", -23, -23)
 			end
 			self.ClassDropdown:Hide()
-		end)
-
-		hooksecurefunc(WardrobeCollectionFrame.ItemsCollectionFrame, "SetActiveCategory", function(self)
-			local _name, isActiveCategoryWeapon;
-			if self.transmogLocation:IsAppearance() then
-				_name, isActiveCategoryWeapon = C_TransmogCollection.GetCategoryInfo(self:GetActiveCategory())
-			end
-
-			self.WeaponDropdown:Show()
-
-			if not isActiveCategoryWeapon then
-				self.WeaponDropdown:SetEnabled(false)
-			else
-				self.WeaponDropdown:SetEnabled(true)
-			end
-		end)
-
-		hooksecurefunc("CollectionsJournal_UpdateSelectedTab", function(self)
-			local selected = CollectionsJournal_GetTab(self)
-			if selected == 5 then
-				WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown:SetEnabled(false)
-			end
 		end)
 
 		hooksecurefunc(WardrobeCollectionFrame.SetsCollectionFrame, "DisplaySet", function(self)
