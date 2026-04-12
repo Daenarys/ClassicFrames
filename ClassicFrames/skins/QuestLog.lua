@@ -40,6 +40,9 @@ hooksecurefunc('QuestLogQuests_Update', function()
 			if button.Checkbox then
 				button.Checkbox:Hide()
 			end
+			if button.HighlightTexture then
+				button.HighlightTexture:SetAlpha(0)
+			end
 			button.IsSkinned = true
 		end
 	end
