@@ -2,7 +2,7 @@ if not _G.TooltipDataProcessor then return end
 
 TooltipDataProcessor.AddTooltipPreCall(Enum.TooltipDataType.Item, function(self)
 	if self == _G.ShoppingTooltip1 or self == _G.ShoppingTooltip2 then
-		local isPrimaryTooltip = (self == _G.ShoppingTooltip1)
+		local isPrimaryTooltip = self == _G.ShoppingTooltip1
 		local manager = _G.TooltipComparisonManager
 		local comparisonMethod = manager.compareInfo and manager.compareInfo.method
 
