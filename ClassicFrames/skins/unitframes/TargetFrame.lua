@@ -132,18 +132,12 @@ local function SkinFrame(frame)
 	contentMain.Name:SetPoint("TOPLEFT", 36, -30)
 	contentMain.Name:SetJustifyH("CENTER")
 
-	FrameHealthBar:GetStatusBarTexture():SetAlpha(0)
+	FrameHealthBarContainer:SetAlpha(0)
 	FrameHealthBar.TextString:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.RightText:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.LeftText:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.DeadText:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.UnconsciousText:SetParent(frame.TargetFrameContainer)
-
-	FrameHealthBar.OverAbsorbGlow:SetParent(contextual)
-	FrameHealthBar.OverAbsorbGlow:RemoveMaskTexture(FrameHealthBarContainer.HealthBarMask)
-	FrameHealthBar.OverAbsorbGlow:ClearAllPoints()
-	FrameHealthBar.OverAbsorbGlow:SetPoint("TOPLEFT", FrameHealthBarContainer, "TOPRIGHT", -10, -5)
-	FrameHealthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", FrameHealthBarContainer, "BOTTOMRIGHT", 10, 3)
 
 	FrameManaBar:SetAlpha(0)
 	FrameManaBar.TextString:SetParent(frame.TargetFrameContainer)
@@ -193,34 +187,21 @@ local function SkinFrame(frame)
 		contextual.BossIcon:Hide()
 		self.TargetFrameContainer.BossPortraitFrameTexture:Hide()
 
+		if CfTargetFrame.ManaBar then
+			CfTargetFrame.ManaBar:SetAlpha(1)
+		end
+
 		CfTargetFrameBackground:SetSize(119, 25)
 		CfTargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
 
 		CfFocusFrameBackground:SetSize(119, 25)
 		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
 
-		FrameHealthBarContainer.HealthBarMask:SetPoint("TOPLEFT", 3, -1)
-		FrameHealthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT")
-
-		if ( classification == "minus" ) then
-			FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -6)
-			FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBarContainer, "LEFT", 4, -6)
-			FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBarContainer, "RIGHT", -7, -6)
-			FrameHealthBarContainer.DeadText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -6)
-			FrameHealthBarContainer.UnconsciousText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -6)
-			if CfTargetFrame.ManaBar then
-				CfTargetFrame.ManaBar:SetAlpha(0)
-			end
-		else
-			FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBarContainer, "CENTER")
-			FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBarContainer, "LEFT", 4, -1)
-			FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBarContainer, "RIGHT", -7, -1)
-			FrameHealthBarContainer.DeadText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -1)
-			FrameHealthBarContainer.UnconsciousText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -1)
-			if CfTargetFrame.ManaBar then
-				CfTargetFrame.ManaBar:SetAlpha(1)
-			end
-		end
+		FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBarContainer, "CENTER")
+		FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBarContainer, "LEFT", 4, -1)
+		FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBarContainer, "RIGHT", -7, -1)
+		FrameHealthBarContainer.DeadText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -1)
+		FrameHealthBarContainer.UnconsciousText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -1)
 
 		FrameManaBar.TextString:SetPoint("CENTER", FrameManaBar, "CENTER", -4, 3)
 		FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 4, 3)
@@ -280,6 +261,9 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -4)
 			contentMain.ReputationColor:Hide()
+			if CfTargetFrame.ManaBar then
+				CfTargetFrame.ManaBar:SetAlpha(0)
+			end
 		else
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame")
