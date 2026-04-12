@@ -152,13 +152,11 @@ AddFriendFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
 
 ApplyDialogBorder(AddFriendFrame.Border)
 
-RaidInfoFrame.ScrollBar:SetSize(25, 560)
 RaidInfoFrame.ScrollBar:ClearAllPoints()
-RaidInfoFrame.ScrollBar:SetPoint("TOPLEFT", RaidInfoFrame.ScrollBox, "TOPRIGHT", 2, 3)
-RaidInfoFrame.ScrollBar:SetPoint("BOTTOMLEFT", RaidInfoFrame.ScrollBox, "BOTTOMRIGHT", 2, -2)
+RaidInfoFrame.ScrollBar:SetPoint("TOPLEFT", RaidInfoFrame.ScrollBox, "TOPRIGHT", 11, 1)
+RaidInfoFrame.ScrollBar:SetPoint("BOTTOMLEFT", RaidInfoFrame.ScrollBox, "BOTTOMRIGHT", 11, 0)
 
-ApplyScrollBarArrow(RaidInfoFrame.ScrollBar)
-ApplyScrollBarTrack(RaidInfoFrame.ScrollBar.Track)
+ApplyScrollBarHybrid(RaidInfoFrame.ScrollBar)
 ApplyScrollBarThumb(RaidInfoFrame.ScrollBar.Track.Thumb)
 
 RaidInfoCloseButton:SetSize(32, 32)
