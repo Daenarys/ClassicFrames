@@ -3,7 +3,10 @@ if not _G.TooltipDataProcessor then return end
 TooltipDataProcessor.AddTooltipPreCall(Enum.TooltipDataType.Item, function(self)
 	if self == _G.ShoppingTooltip1 or self == _G.ShoppingTooltip2 then
 		local isPrimaryTooltip = (self == _G.ShoppingTooltip1)
-		local isPairedItem = (_G.ShoppingTooltip2 and _G.ShoppingTooltip2:IsShown())
+		local manager = _G.TooltipComparisonManager
+		local comparisonMethod = manager.compareInfo and manager.compareInfo.method
+
+		local isPairedItem = comparisonMethod == Enum.TooltipComparisonMethod.WithBagMainHandItem or comparisonMethod == Enum.TooltipComparisonMethod.WithBagOffHandItem
 
 		local header = CURRENTLY_EQUIPPED
 		if not isPrimaryTooltip and isPairedItem then
