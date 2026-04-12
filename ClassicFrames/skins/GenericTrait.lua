@@ -4,10 +4,9 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_GenericTraitUI" then
 		hooksecurefunc(GenericTraitFrame, "ApplyLayout", function(self, layoutInfo)
 			if self:GetTalentTreeID() == 672 then
-				GenericTraitFrame.Background:SetPoint("TOPLEFT", 8, -20)
-				GenericTraitFrame.Background:SetPoint("BOTTOMRIGHT", -2, 2)
-				GenericTraitFrame.NineSlice:SetPoint("TOPLEFT")
-				GenericTraitFrame.NineSlice:SetPoint("BOTTOMRIGHT")
+				GenericTraitFrame.Background:SetPoint("TOPLEFT", 2, -20)
+				GenericTraitFrame.NineSlice:SetPoint("TOPLEFT", -4, 0)
+				GenericTraitFrame.NineSlice:SetPoint("BOTTOMRIGHT", 4, -6)
 
 				ApplyCloseButton(GenericTraitFrame.CloseButton)
 				ApplyTitleBg(GenericTraitFrame, true)

@@ -28,6 +28,7 @@ skins\Character.lua
 skins\Chat.lua
 skins\ChromieTime.lua
 skins\Cinematic.lua
+skins\ClassTrainer.lua
 skins\ClickBindings.lua
 skins\Collections.lua
 skins\ColorPicker.lua
@@ -47,6 +48,7 @@ skins\Friends.lua
 skins\GameMenu.lua
 skins\GarrisonCapacitive.lua
 skins\GarrisonUI.lua
+skins\GenericTrait.lua
 skins\Gossip.lua
 skins\GroupLoot.lua
 skins\GuildBank.lua
@@ -89,7 +91,6 @@ skins\RuneForge.lua
 skins\ScrappingMachine.lua
 skins\ScriptError.lua
 skins\SettingsPanel.lua
-skins\SkyridingTalents.lua
 skins\SplashScreen.lua
 skins\Stable.lua
 skins\StaticPopup.lua
@@ -102,7 +103,6 @@ skins\ToolTip.lua
 skins\Torghast.lua
 skins\Trade.lua
 skins\TradingPost.lua
-skins\Trainer.lua
 skins\Transmog.lua
 skins\UIWidget.lua
 skins\WorkOrders.lua

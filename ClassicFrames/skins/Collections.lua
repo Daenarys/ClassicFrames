@@ -61,25 +61,49 @@ f:SetScript("OnEvent", function(self, event, name)
 			end)
 		end
 
+		MountJournal.ScrollBar:SetSize(25, 560)
 		MountJournal.ScrollBar:ClearAllPoints()
-		MountJournal.ScrollBar:SetPoint("TOPLEFT", MountJournal.ScrollBox, "TOPRIGHT", 10, 34)
-		MountJournal.ScrollBar:SetPoint("BOTTOMLEFT", MountJournal.ScrollBox, "BOTTOMRIGHT", 10, -3)
+		MountJournal.ScrollBar:SetPoint("TOPLEFT", MountJournal.ScrollBox, "TOPRIGHT", 1, 36)
+		MountJournal.ScrollBar:SetPoint("BOTTOMLEFT", MountJournal.ScrollBox, "BOTTOMRIGHT", 4, -4)
 
-		ApplyScrollBarHybrid(MountJournal.ScrollBar, true)
+		if (MountJournal.ScrollBar.BG == nil) then
+			MountJournal.ScrollBar.BG = MountJournal.ScrollBar:CreateTexture(nil, "BACKGROUND")
+			MountJournal.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
+			MountJournal.ScrollBar.BG:SetAllPoints()
+		end
+
+		ApplyScrollBarArrow(MountJournal.ScrollBar)
+		ApplyScrollBarTrack(MountJournal.ScrollBar.Track)
 		ApplyScrollBarThumb(MountJournal.ScrollBar.Track.Thumb)
 
+		PetJournal.ScrollBar:SetSize(25, 560)
 		PetJournal.ScrollBar:ClearAllPoints()
-		PetJournal.ScrollBar:SetPoint("TOPLEFT", PetJournal.ScrollBox, "TOPRIGHT", 10, 34)
-		PetJournal.ScrollBar:SetPoint("BOTTOMLEFT", PetJournal.ScrollBox, "BOTTOMRIGHT", 10, -1)
+		PetJournal.ScrollBar:SetPoint("TOPLEFT", PetJournal.ScrollBox, "TOPRIGHT", 1, 36)
+		PetJournal.ScrollBar:SetPoint("BOTTOMLEFT", PetJournal.ScrollBox, "BOTTOMRIGHT", 4, -4)
 
-		ApplyScrollBarHybrid(PetJournal.ScrollBar, true)
+		if (PetJournal.ScrollBar.BG == nil) then
+			PetJournal.ScrollBar.BG = PetJournal.ScrollBar:CreateTexture(nil, "BACKGROUND")
+			PetJournal.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
+			PetJournal.ScrollBar.BG:SetAllPoints()
+		end
+
+		ApplyScrollBarArrow(PetJournal.ScrollBar)
+		ApplyScrollBarTrack(PetJournal.ScrollBar.Track)
 		ApplyScrollBarThumb(PetJournal.ScrollBar.Track.Thumb)
 
+		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:SetSize(25, 560)
 		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:ClearAllPoints()
-		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:SetPoint("TOPLEFT", WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBox, "TOPRIGHT", 10, 34)
-		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:SetPoint("BOTTOMLEFT", WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBox, "BOTTOMRIGHT", 10, -6)
+		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:SetPoint("TOPLEFT", WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBox, "TOPRIGHT", 1, 36)
+		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:SetPoint("BOTTOMLEFT", WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBox, "BOTTOMRIGHT", 4, -8)
 
-		ApplyScrollBarHybrid(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar, true)
+		if (WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG == nil) then
+			WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG = WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:CreateTexture(nil, "BACKGROUND")
+			WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
+			WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG:SetAllPoints()
+		end
+
+		ApplyScrollBarArrow(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar)
+		ApplyScrollBarTrack(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.Track)
 		ApplyScrollBarThumb(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.Track.Thumb)
 
 		ApplyDropDown(HeirloomsJournal.ClassDropdown)

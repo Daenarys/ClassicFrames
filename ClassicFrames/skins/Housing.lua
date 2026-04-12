@@ -54,7 +54,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		HousingModelPreviewFrame.TitleContainer:SetPoint("TOPLEFT", HousingModelPreviewFrame, "TOPLEFT", 58, 0)
 		HousingModelPreviewFrame.TitleContainer:SetPoint("TOPRIGHT", HousingModelPreviewFrame, "TOPRIGHT", -58, 0)
 
-		ApplyTitleBg(HousingModelPreviewFrame, true)
+		ApplyTitleBgNoPortrait(HousingModelPreviewFrame)
 		ApplyNineSliceNoPortrait(HousingModelPreviewFrame)
 	end
 end)

@@ -15,11 +15,13 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(ClassTrainerFrame)
 		ApplyNineSlicePortrait(ClassTrainerFrame)
 
+		ClassTrainerFrame.ScrollBar:SetSize(25, 560)
 		ClassTrainerFrame.ScrollBar:ClearAllPoints()
-		ClassTrainerFrame.ScrollBar:SetPoint("TOPLEFT", ClassTrainerFrame.ScrollBox, "TOPRIGHT", 7, 2)
-		ClassTrainerFrame.ScrollBar:SetPoint("BOTTOMLEFT", ClassTrainerFrame.ScrollBox, "BOTTOMRIGHT", 7, -1)
+		ClassTrainerFrame.ScrollBar:SetPoint("TOPLEFT", ClassTrainerFrame.ScrollBox, "TOPRIGHT", -1, 3)
+		ClassTrainerFrame.ScrollBar:SetPoint("BOTTOMLEFT", ClassTrainerFrame.ScrollBox, "BOTTOMRIGHT", 2, -4)
 
-		ApplyScrollBarHybrid(ClassTrainerFrame.ScrollBar)
+		ApplyScrollBarArrow(ClassTrainerFrame.ScrollBar)
+		ApplyScrollBarTrack(ClassTrainerFrame.ScrollBar.Track)
 		ApplyScrollBarThumb(ClassTrainerFrame.ScrollBar.Track.Thumb)
 
 		ApplyFilterDropDown(ClassTrainerFrame.FilterDropdown)

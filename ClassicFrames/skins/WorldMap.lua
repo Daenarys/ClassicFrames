@@ -50,7 +50,7 @@ hooksecurefunc(WorldMapFrame, "Maximize", function(self)
 	self.BorderFrame.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
 	self.BorderFrame.MaximizeMinimizeFrame.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 
-	ApplyTitleBg(self, true)
+	ApplyTitleBgNoPortrait(self)
 	ApplyNineSliceNoPortraitMinimizable(self.BorderFrame)
 end)
 

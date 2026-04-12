@@ -6,5 +6,5 @@ PingSystemTutorial.TitleContainer:ClearAllPoints()
 PingSystemTutorial.TitleContainer:SetPoint("TOPLEFT", PingSystemTutorial, "TOPLEFT", 58, 0)
 PingSystemTutorial.TitleContainer:SetPoint("TOPRIGHT", PingSystemTutorial, "TOPRIGHT", -58, 0)
 
-ApplyTitleBg(PingSystemTutorial, true)
+ApplyTitleBgNoPortrait(PingSystemTutorial)
 ApplyNineSliceNoPortrait(PingSystemTutorial)

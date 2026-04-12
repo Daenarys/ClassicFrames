@@ -32,8 +32,8 @@ end)
 
 LFDQueueFrameRandomScrollFrame.ScrollBar:SetSize(25, 560)
 LFDQueueFrameRandomScrollFrame.ScrollBar:ClearAllPoints()
-LFDQueueFrameRandomScrollFrame.ScrollBar:SetPoint("TOPLEFT", LFDQueueFrameRandomScrollFrame, "TOPRIGHT", 1, 9)
-LFDQueueFrameRandomScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", LFDQueueFrameRandomScrollFrame, "BOTTOMRIGHT", 1, -11)
+LFDQueueFrameRandomScrollFrame.ScrollBar:SetPoint("TOPLEFT", LFDQueueFrameRandomScrollFrame, "TOPRIGHT", 2, 8)
+LFDQueueFrameRandomScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", LFDQueueFrameRandomScrollFrame, "BOTTOMRIGHT", 5, -9)
 
 if (LFDQueueFrameRandomScrollFrame.ScrollBar.BG == nil) then
 	LFDQueueFrameRandomScrollFrame.ScrollBar.BG = LFDQueueFrameRandomScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
@@ -47,8 +47,8 @@ ApplyScrollBarThumb(LFDQueueFrameRandomScrollFrame.ScrollBar.Track.Thumb)
 
 LFDQueueFrameSpecific.ScrollBar:SetSize(25, 560)
 LFDQueueFrameSpecific.ScrollBar:ClearAllPoints()
-LFDQueueFrameSpecific.ScrollBar:SetPoint("TOPLEFT", LFDQueueFrameSpecific.ScrollBox, "TOPRIGHT", 4, 1)
-LFDQueueFrameSpecific.ScrollBar:SetPoint("BOTTOMLEFT", LFDQueueFrameSpecific.ScrollBox, "BOTTOMRIGHT", 4, -2)
+LFDQueueFrameSpecific.ScrollBar:SetPoint("TOPLEFT", LFDQueueFrameSpecific.ScrollBox, "TOPRIGHT", 5, 0)
+LFDQueueFrameSpecific.ScrollBar:SetPoint("BOTTOMLEFT", LFDQueueFrameSpecific.ScrollBox, "BOTTOMRIGHT", 5, 0)
 
 ApplyScrollBarArrow(LFDQueueFrameSpecific.ScrollBar)
 ApplyScrollBarTrack(LFDQueueFrameSpecific.ScrollBar.Track)

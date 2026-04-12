@@ -41,11 +41,24 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyTopTabNew(tab)
 		end
 
+		TransmogFrame.OutfitCollection.OutfitList.ScrollBar:SetSize(25, 560)
+		TransmogFrame.OutfitCollection.OutfitList.ScrollBar:SetPoint("RIGHT", TransmogFrame.OutfitCollection.OutfitList, "RIGHT", 4, 0)
+
+		if (TransmogFrame.OutfitCollection.OutfitList.ScrollBar.BG == nil) then
+			TransmogFrame.OutfitCollection.OutfitList.ScrollBar.BG = TransmogFrame.OutfitCollection.OutfitList.ScrollBar:CreateTexture(nil, "BACKGROUND")
+			TransmogFrame.OutfitCollection.OutfitList.ScrollBar.BG:SetColorTexture(0, 0, 0, .1)
+			TransmogFrame.OutfitCollection.OutfitList.ScrollBar.BG:SetAllPoints()
+		end
+
+		TransmogFrame.OutfitCollection.OutfitList.ScrollBar.Track:ClearAllPoints()
+		TransmogFrame.OutfitCollection.OutfitList.ScrollBar.Track:SetPoint("TOPLEFT", 4, -22)
+		TransmogFrame.OutfitCollection.OutfitList.ScrollBar.Track:SetPoint("BOTTOMRIGHT", -4, 22)
+
 		TransmogFrame.OutfitCollection.OutfitList.ScrollBar.Track.Begin:Hide()
 		TransmogFrame.OutfitCollection.OutfitList.ScrollBar.Track.End:Hide()
 		TransmogFrame.OutfitCollection.OutfitList.ScrollBar.Track.Middle:Hide()
 
-		ApplyScrollBarArrow(TransmogFrame.OutfitCollection.OutfitList.ScrollBar, true)
+		ApplyScrollBarArrow(TransmogFrame.OutfitCollection.OutfitList.ScrollBar)
 		ApplyScrollBarThumb(TransmogFrame.OutfitCollection.OutfitList.ScrollBar.Track.Thumb)
 
 		hooksecurefunc(TransmogFrame.WardrobeCollection.TabContent.SituationsFrame, "Refresh", function(frame)
