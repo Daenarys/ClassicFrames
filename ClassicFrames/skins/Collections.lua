@@ -82,10 +82,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarHybrid(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar, true)
 		ApplyScrollBarThumb(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.Track.Thumb)
 
-		MountJournal.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
-		PetJournal.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
-		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.BG:SetColorTexture(0, 0, 0, .65)
-
 		ApplyDropDown(HeirloomsJournal.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 
