@@ -139,6 +139,10 @@ local function SkinFrame(frame)
 	FrameHealthBarContainer.DeadText:SetParent(frame.TargetFrameContainer)
 	FrameHealthBarContainer.UnconsciousText:SetParent(frame.TargetFrameContainer)
 
+	FrameHealthBar.OverAbsorbGlow:SetParent(contextual)
+	FrameHealthBar.OverAbsorbGlow:SetPoint("TOPLEFT", FrameHealthBarContainer, "TOPRIGHT", -10, -5)
+	FrameHealthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", FrameHealthBarContainer, "BOTTOMRIGHT", 10, -1)
+
 	FrameManaBar:SetAlpha(0)
 	FrameManaBar.TextString:SetParent(frame.TargetFrameContainer)
 	FrameManaBar.RightText:SetParent(frame.TargetFrameContainer)

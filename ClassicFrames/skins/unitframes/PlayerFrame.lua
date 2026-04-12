@@ -125,6 +125,10 @@ healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 
+healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
+healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", healthBar, "TOPRIGHT", -10, -4)
+healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", healthBar, "BOTTOMRIGHT", 10, -1)
+
 manaBarContainer:SetAlpha(0)
 manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
@@ -239,8 +243,7 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	StatusTexture:SetPoint("TOPLEFT", 16, -12)
 	StatusTexture:SetBlendMode("ADD")
 
-	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT")
-	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", -1, 0)
+	healthBarContainer.HealthBarMask:SetAllPoints()
 
 	CfPlayerFrame.HealthBar:SetWidth(119)
 	CfPlayerFrame.HealthBar:SetPoint("TOPLEFT",106,-41)
