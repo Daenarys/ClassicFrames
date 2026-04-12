@@ -71,8 +71,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(EncounterJournalSearchResults.ScrollBar.Track)
 		ApplyScrollBarThumb(EncounterJournalSearchResults.ScrollBar.Track.Thumb)
 
-		EncounterJournalJourneysFrame.ScrollBar:SetSize(25, 560)
-		EncounterJournalJourneysFrame.ScrollBar:SetPoint("LEFT", EncounterJournalJourneysFrame.JourneysList, "RIGHT", -30, 0)
+		EncounterJournalJourneysFrame.ScrollBar:SetWidth(20)
+		EncounterJournalJourneysFrame.ScrollBar:SetPoint("LEFT", EncounterJournalJourneysFrame.JourneysList, "RIGHT", -25, 0)
 
 		if (EncounterJournalJourneysFrame.ScrollBar.BG == nil) then
 			EncounterJournalJourneysFrame.ScrollBar.BG = EncounterJournalJourneysFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
@@ -80,8 +80,11 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournalJourneysFrame.ScrollBar.BG:SetAllPoints()
 		end
 
-		ApplyScrollBarArrow(EncounterJournalJourneysFrame.ScrollBar)
-		ApplyScrollBarTrack(EncounterJournalJourneysFrame.ScrollBar.Track)
+		EncounterJournalJourneysFrame.ScrollBar.Track.Begin:Hide()
+		EncounterJournalJourneysFrame.ScrollBar.Track.End:Hide()
+		EncounterJournalJourneysFrame.ScrollBar.Track.Middle:Hide()
+
+		ApplyScrollBarArrow(EncounterJournalJourneysFrame.ScrollBar, true)
 		ApplyScrollBarThumb(EncounterJournalJourneysFrame.ScrollBar.Track.Thumb)
 		
 		EncounterJournalMonthlyActivitiesFrame.ScrollBar:SetWidth(20)
