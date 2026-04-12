@@ -70,5 +70,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(TransmogFrame.OutfitPopup.IconSelector.ScrollBar.Track.Thumb)
 
 		ApplyDropDown(TransmogFrame.OutfitPopup.BorderBox.IconTypeDropdown)
+		TransmogFrame.OutfitPopup.BorderBox.IconTypeDropdown.Text:SetJustifyH("RIGHT")
 	end
 end)
