@@ -144,13 +144,11 @@ PVPMatchScoreboard.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel
 PVPMatchScoreboard.CloseButton:ClearAllPoints()
 PVPMatchScoreboard.CloseButton:SetPoint("TOPRIGHT", 3.6, 3)
 
-PVPMatchScoreboard.Content.ScrollBar:SetSize(25, 560)
 PVPMatchScoreboard.Content.ScrollBar:ClearAllPoints()
-PVPMatchScoreboard.Content.ScrollBar:SetPoint("TOPLEFT", PVPMatchScoreboard.Content, "TOPRIGHT", -25, -2)
-PVPMatchScoreboard.Content.ScrollBar:SetPoint("BOTTOMLEFT", PVPMatchScoreboard.Content, "BOTTOMRIGHT", -25, 40)
+PVPMatchScoreboard.Content.ScrollBar:SetPoint("TOPLEFT", PVPMatchScoreboard.Content, "TOPRIGHT", -16, -3)
+PVPMatchScoreboard.Content.ScrollBar:SetPoint("BOTTOMLEFT", PVPMatchScoreboard.Content, "BOTTOMRIGHT", -16, 41)
 
-ApplyScrollBarArrow(PVPMatchScoreboard.Content.ScrollBar)
-ApplyScrollBarTrack(PVPMatchScoreboard.Content.ScrollBar.Track)
+ApplyScrollBarHybrid(PVPMatchScoreboard.Content.ScrollBar)
 ApplyScrollBarThumb(PVPMatchScoreboard.Content.ScrollBar.Track.Thumb)
 
 PVPScoreboardTab1:ClearAllPoints()
@@ -178,13 +176,11 @@ PVPMatchResults.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-Mi
 PVPMatchResults.CloseButton:ClearAllPoints()
 PVPMatchResults.CloseButton:SetPoint("TOPRIGHT", 3.6, 3)
 
-PVPMatchResults.content.scrollBar:SetSize(25, 560)
 PVPMatchResults.content.scrollBar:ClearAllPoints()
-PVPMatchResults.content.scrollBar:SetPoint("TOPLEFT", PVPMatchResults.content, "TOPRIGHT", -25, -3)
-PVPMatchResults.content.scrollBar:SetPoint("BOTTOMLEFT", PVPMatchResults.content, "BOTTOMRIGHT", -25, 122)
+PVPMatchResults.content.scrollBar:SetPoint("TOPLEFT", PVPMatchResults.content, "TOPRIGHT", -16, -3)
+PVPMatchResults.content.scrollBar:SetPoint("BOTTOMLEFT", PVPMatchResults.content, "BOTTOMRIGHT", -16, 124)
 
-ApplyScrollBarArrow(PVPMatchResults.content.scrollBar)
-ApplyScrollBarTrack(PVPMatchResults.content.scrollBar.Track)
+ApplyScrollBarHybrid(PVPMatchResults.content.scrollBar)
 ApplyScrollBarThumb(PVPMatchResults.content.scrollBar.Track.Thumb)
 
 PVPScoreFrameTab1:ClearAllPoints()
