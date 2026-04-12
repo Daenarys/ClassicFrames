@@ -120,10 +120,16 @@ PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetSize(64, 64)
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask")
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetPoint("TOPLEFT", 23, -16)
 
-healthBarContainer:SetAlpha(0)
+healthBar:GetStatusBarTexture():SetAlpha(0)
 healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
+
+healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
+healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
+healthBar.OverAbsorbGlow:ClearAllPoints()
+healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", healthBar, "TOPRIGHT", -10, -4)
+healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", healthBar, "BOTTOMRIGHT", 10, 3)
 
 manaBarContainer:SetAlpha(0)
 manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
@@ -239,6 +245,8 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	StatusTexture:SetPoint("TOPLEFT", 16, -12)
 	StatusTexture:SetBlendMode("ADD")
 
+	healthBarContainer.HealthBarMask:SetAllPoints()
+
 	CfPlayerFrame.HealthBar:SetWidth(119)
 	CfPlayerFrame.HealthBar:SetPoint("TOPLEFT",106,-41)
 	CfPlayerFrame.ManaBar:SetWidth(119)
@@ -296,6 +304,9 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 	StatusTexture:ClearAllPoints()
 	StatusTexture:SetPoint("TOPLEFT", -6, -4)
 	StatusTexture:SetDrawLayer("BACKGROUND")
+
+	healthBarContainer.HealthBarMask:SetPoint("TOPLEFT", 7, 0)
+	healthBarContainer.HealthBarMask:SetPoint("BOTTOMRIGHT", -7, 0)
 
 	CfPlayerFrame.HealthBar:SetWidth(100)
 	CfPlayerFrame.HealthBar:SetPoint("TOPLEFT",119,-41)
