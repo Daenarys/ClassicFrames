@@ -81,7 +81,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(PlayerSpellsFrame.TalentsFrame.LoadSystem.Dropdown)
 
 		ApplyCloseButton(HeroTalentsSelectionDialog.CloseButton)
-		ApplyTitleBgNoPortrait(HeroTalentsSelectionDialog)
+		ApplyTitleBg(HeroTalentsSelectionDialog, true)
 		ApplyNineSliceNoPortrait(HeroTalentsSelectionDialog)
 	end
 end)

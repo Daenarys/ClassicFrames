@@ -8,5 +8,5 @@ NamePlatesTutorial.TitleContainer:SetPoint("TOPRIGHT", NamePlatesTutorial, "TOPR
 
 select(3, NamePlatesTutorial:GetRegions()):SetDrawLayer("BACKGROUND", -1)
 
-ApplyTitleBgNoPortrait(NamePlatesTutorial)
+ApplyTitleBg(NamePlatesTutorial, true)
 ApplyNineSliceNoPortrait(NamePlatesTutorial)

@@ -7,7 +7,7 @@ if _G.MailFrame then
 
 	MailFrame.TitleContainer:ClearAllPoints()
 	MailFrame.TitleContainer:SetPoint("TOPLEFT", MailFrame, "TOPLEFT", 58, 0)
-	MailFrame.TitleContainer:SetPoint("TOPRIGHT", MailFrame, "TOPRIGHT", -13, 0)
+	MailFrame.TitleContainer:SetPoint("TOPRIGHT", MailFrame, "TOPRIGHT", -12, 0)
 
 	ApplyTitleBg(MailFrame)
 	ApplyNineSlicePortrait(MailFrame)

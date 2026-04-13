@@ -34,7 +34,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyCloseButton(ClickBindingFrame.TutorialFrame.CloseButton)
 		ClickBindingFrame.TutorialFrame.CloseButton:SetFrameLevel(3)
-		ApplyTitleBgNoPortrait(ClickBindingFrame.TutorialFrame)
+		ApplyTitleBg(ClickBindingFrame.TutorialFrame, true)
 		ApplyNineSliceNoPortrait(ClickBindingFrame.TutorialFrame)
 	end
 end)

@@ -6,7 +6,7 @@ GroupLootHistoryFrame.TitleContainer:ClearAllPoints()
 GroupLootHistoryFrame.TitleContainer:SetPoint("TOPLEFT", GroupLootHistoryFrame, "TOPLEFT", 60, -1)
 GroupLootHistoryFrame.TitleContainer:SetPoint("TOPRIGHT", GroupLootHistoryFrame, "TOPRIGHT", -60, 1)
 
-ApplyTitleBgNoPortrait(GroupLootHistoryFrame)
+ApplyTitleBg(GroupLootHistoryFrame, true)
 ApplyNineSliceNoPortrait(GroupLootHistoryFrame)
 
 GroupLootHistoryFrame.ScrollBox:ClearAllPoints()

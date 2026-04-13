@@ -28,16 +28,12 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		MacroFrame.MacroSelector.ScrollBar:SetSize(25, 560)
 		MacroFrame.MacroSelector.ScrollBar:ClearAllPoints()
-		MacroFrame.MacroSelector.ScrollBar:SetPoint("TOPLEFT", MacroFrame.MacroSelector, "TOPRIGHT", -24, 3)
-		MacroFrame.MacroSelector.ScrollBar:SetPoint("BOTTOMLEFT", MacroFrame.MacroSelector, "BOTTOMRIGHT", -21, -3)
+		MacroFrame.MacroSelector.ScrollBar:SetPoint("TOPLEFT", MacroFrame.MacroSelector, "TOPRIGHT", -24, 5)
+		MacroFrame.MacroSelector.ScrollBar:SetPoint("BOTTOMLEFT", MacroFrame.MacroSelector, "BOTTOMRIGHT", 24, -3)
 
 		ApplyScrollBarArrow(MacroFrame.MacroSelector.ScrollBar)
 		ApplyScrollBarTrack(MacroFrame.MacroSelector.ScrollBar.Track)
 		ApplyScrollBarThumb(MacroFrame.MacroSelector.ScrollBar.Track.Thumb)
-
-		MacroFrameScrollFrame.ScrollBar:ClearAllPoints()
-		MacroFrameScrollFrame.ScrollBar:SetPoint("TOPLEFT", MacroFrameScrollFrame, "TOPRIGHT", 8, 0)
-		MacroFrameScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", MacroFrameScrollFrame, "BOTTOMRIGHT", 8, 0)
 
 		MacroFrameScrollFrame.ScrollBar.Track.Begin:Hide()
 		MacroFrameScrollFrame.ScrollBar.Track.End:Hide()
@@ -48,8 +44,8 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		MacroPopupFrame.IconSelector.ScrollBar:SetSize(25, 560)
 		MacroPopupFrame.IconSelector.ScrollBar:ClearAllPoints()
-		MacroPopupFrame.IconSelector.ScrollBar:SetPoint("TOPLEFT", MacroPopupFrame.IconSelector, "TOPRIGHT", -26, 19)
-		MacroPopupFrame.IconSelector.ScrollBar:SetPoint("BOTTOMLEFT", MacroPopupFrame.IconSelector, "BOTTOMRIGHT", -23, -3)
+		MacroPopupFrame.IconSelector.ScrollBar:SetPoint("TOPLEFT", MacroPopupFrame.IconSelector, "TOPRIGHT", -28, 30)
+		MacroPopupFrame.IconSelector.ScrollBar:SetPoint("BOTTOMLEFT", MacroPopupFrame.IconSelector, "BOTTOMRIGHT", 28, -3)
 
 		ApplyScrollBarArrow(MacroPopupFrame.IconSelector.ScrollBar)
 		ApplyScrollBarTrack(MacroPopupFrame.IconSelector.ScrollBar.Track)

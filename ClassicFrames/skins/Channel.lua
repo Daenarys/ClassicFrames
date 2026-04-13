@@ -13,13 +13,11 @@ ChannelFrame.TitleContainer:SetPoint("TOPRIGHT", ChannelFrame, "TOPRIGHT", -60, 
 ApplyTitleBg(ChannelFrame)
 ApplyNineSlicePortrait(ChannelFrame)
 
-ChannelFrame.ChannelRoster.ScrollBar:SetSize(25, 560)
 ChannelFrame.ChannelRoster.ScrollBar:ClearAllPoints()
-ChannelFrame.ChannelRoster.ScrollBar:SetPoint("TOPLEFT", ChannelFrame.ChannelRoster.ScrollBox, "TOPRIGHT", 1, 3)
-ChannelFrame.ChannelRoster.ScrollBar:SetPoint("BOTTOMLEFT", ChannelFrame.ChannelRoster.ScrollBox, "BOTTOMRIGHT", 1, -5)
+ChannelFrame.ChannelRoster.ScrollBar:SetPoint("TOPLEFT", ChannelFrame.ChannelRoster.ScrollBox, "TOPRIGHT", 9, 0)
+ChannelFrame.ChannelRoster.ScrollBar:SetPoint("BOTTOMLEFT", ChannelFrame.ChannelRoster.ScrollBox, "BOTTOMRIGHT", 9, -3)
 
-ApplyScrollBarArrow(ChannelFrame.ChannelRoster.ScrollBar)
-ApplyScrollBarTrack(ChannelFrame.ChannelRoster.ScrollBar.Track)
+ApplyScrollBarHybrid(ChannelFrame.ChannelRoster.ScrollBar)
 ApplyScrollBarThumb(ChannelFrame.ChannelRoster.ScrollBar.Track.Thumb)
 
 CreateChannelPopup.CloseButton:Hide()
