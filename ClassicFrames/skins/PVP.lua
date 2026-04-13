@@ -4,14 +4,14 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_PVPUI" then
 		HonorFrame.SpecificScrollBar:ClearAllPoints()
 		HonorFrame.SpecificScrollBar:SetPoint("TOPLEFT", HonorFrame.SpecificScrollBox, "TOPRIGHT", 6, 2)
-		HonorFrame.SpecificScrollBar:SetPoint("BOTTOMLEFT", HonorFrame.SpecificScrollBox, "BOTTOMRIGHT", 6, -3)
+		HonorFrame.SpecificScrollBar:SetPoint("BOTTOMLEFT", HonorFrame.SpecificScrollBox, "BOTTOMRIGHT", 6, -4)
 
 		ApplyScrollBarHybrid(HonorFrame.SpecificScrollBar)
 		ApplyScrollBarThumb(HonorFrame.SpecificScrollBar.Track.Thumb)
 
 		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:ClearAllPoints()
 		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetPoint("TOPLEFT", TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBox, "TOPRIGHT", 6, 2)
-		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetPoint("BOTTOMLEFT", TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBox, "BOTTOMRIGHT", 6, -3)
+		TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar:SetPoint("BOTTOMLEFT", TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBox, "BOTTOMRIGHT", 6, -4)
 
 		ApplyScrollBarHybrid(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar)
 		ApplyScrollBarThumb(TrainingGroundsFrame.SpecificTrainingGroundList.ScrollBar.Track.Thumb)
@@ -142,7 +142,7 @@ PVPMatchScoreboard.CloseButton:SetPoint("TOPRIGHT", 3.6, 3)
 
 PVPMatchScoreboard.Content.ScrollBar:ClearAllPoints()
 PVPMatchScoreboard.Content.ScrollBar:SetPoint("TOPLEFT", PVPMatchScoreboard.Content, "TOPRIGHT", -16, -3)
-PVPMatchScoreboard.Content.ScrollBar:SetPoint("BOTTOMLEFT", PVPMatchScoreboard.Content, "BOTTOMRIGHT", -16, 41)
+PVPMatchScoreboard.Content.ScrollBar:SetPoint("BOTTOMLEFT", PVPMatchScoreboard.Content, "BOTTOMRIGHT", -16, 40)
 
 ApplyScrollBarHybrid(PVPMatchScoreboard.Content.ScrollBar)
 ApplyScrollBarThumb(PVPMatchScoreboard.Content.ScrollBar.Track.Thumb)
@@ -174,7 +174,7 @@ PVPMatchResults.CloseButton:SetPoint("TOPRIGHT", 3.6, 3)
 
 PVPMatchResults.content.scrollBar:ClearAllPoints()
 PVPMatchResults.content.scrollBar:SetPoint("TOPLEFT", PVPMatchResults.content, "TOPRIGHT", -16, -3)
-PVPMatchResults.content.scrollBar:SetPoint("BOTTOMLEFT", PVPMatchResults.content, "BOTTOMRIGHT", -16, 124)
+PVPMatchResults.content.scrollBar:SetPoint("BOTTOMLEFT", PVPMatchResults.content, "BOTTOMRIGHT", -16, 123)
 
 ApplyScrollBarHybrid(PVPMatchResults.content.scrollBar)
 ApplyScrollBarThumb(PVPMatchResults.content.scrollBar.Track.Thumb)

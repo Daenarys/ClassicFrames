@@ -32,21 +32,21 @@ end
 
 QuestScrollFrame.ScrollBar:ClearAllPoints()
 QuestScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", 7, -2)
-QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", 7, -7)
+QuestScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", 7, -8)
 
 ApplyScrollBarHybrid(QuestScrollFrame.ScrollBar)
 ApplyScrollBarThumb(QuestScrollFrame.ScrollBar.Track.Thumb)
 
 QuestMapDetailsScrollFrame.ScrollBar:ClearAllPoints()
 QuestMapDetailsScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestMapDetailsScrollFrame, "TOPRIGHT", 12, 42)
-QuestMapDetailsScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestMapDetailsScrollFrame, "BOTTOMRIGHT", 12, -30)
+QuestMapDetailsScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestMapDetailsScrollFrame, "BOTTOMRIGHT", 12, -31)
 
 ApplyScrollBarHybrid(QuestMapDetailsScrollFrame.ScrollBar)
 ApplyScrollBarThumb(QuestMapDetailsScrollFrame.ScrollBar.Track.Thumb)
 
 QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:ClearAllPoints()
 QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestScrollFrame, "TOPRIGHT", 7, -2)
-QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", 7, 2)
+QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestScrollFrame, "BOTTOMRIGHT", 7, 1)
 
 ApplyScrollBarHybrid(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar)
 ApplyScrollBarThumb(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.Track.Thumb)
