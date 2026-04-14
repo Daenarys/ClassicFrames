@@ -264,7 +264,7 @@ function ApplyScrollBarTrack(frame)
 	frame.Middle:SetTexCoord(0, 0.484375, 0.75, 1)
 end
 
-function ApplyScrollBarHybrid(frame, isTrim)
+function ApplyScrollBarHybrid(frame, showBg, isTrim)
 	-- arrows
 	frame.Back:SetSize(18, 16)
 	frame.Back:SetNormalTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Up")
@@ -288,11 +288,13 @@ function ApplyScrollBarHybrid(frame, isTrim)
 	frame.Forward:SetPoint("BOTTOM", 0, 1)
 
 	-- bg
-	if (frame.BG == nil) then
-		frame.BG = frame:CreateTexture(nil, "BACKGROUND")
-		frame.BG:SetColorTexture(0, 0, 0, .85)
-		frame.BG:SetPoint("TOPLEFT", -5, 0)
-		frame.BG:SetPoint("BOTTOMRIGHT", 4, 0)
+	if showBg then
+		if (frame.BG == nil) then
+			frame.BG = frame:CreateTexture(nil, "BACKGROUND")
+			frame.BG:SetColorTexture(0, 0, 0, .85)
+			frame.BG:SetPoint("TOPLEFT", -5, 0)
+			frame.BG:SetPoint("BOTTOMRIGHT", 4, 0)
+		end
 	end
 
 	-- track

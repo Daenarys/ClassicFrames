@@ -56,7 +56,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		EncounterJournalSearchResultsCloseButton:ClearAllPoints()
 		EncounterJournalSearchResultsCloseButton:SetPoint("TOPRIGHT", 7, 2)
 
-		ApplyScrollBarHybrid(EncounterJournalSearchResults.ScrollBar, true)
+		ApplyScrollBarHybrid(EncounterJournalSearchResults.ScrollBar, true, true)
 		ApplyScrollBarThumb(EncounterJournalSearchResults.ScrollBar.Track.Thumb)
 
 		EncounterJournalJourneysFrame.ScrollBar.Track.Begin:Hide()

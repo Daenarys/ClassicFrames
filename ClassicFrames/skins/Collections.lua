@@ -65,21 +65,21 @@ f:SetScript("OnEvent", function(self, event, name)
 		MountJournal.ScrollBar:SetPoint("TOPLEFT", MountJournal.ScrollBox, "TOPRIGHT", 10, 34)
 		MountJournal.ScrollBar:SetPoint("BOTTOMLEFT", MountJournal.ScrollBox, "BOTTOMRIGHT", 10, -4)
 
-		ApplyScrollBarHybrid(MountJournal.ScrollBar, true)
+		ApplyScrollBarHybrid(MountJournal.ScrollBar, true, true)
 		ApplyScrollBarThumb(MountJournal.ScrollBar.Track.Thumb)
 
 		PetJournal.ScrollBar:ClearAllPoints()
 		PetJournal.ScrollBar:SetPoint("TOPLEFT", PetJournal.ScrollBox, "TOPRIGHT", 10, 34)
 		PetJournal.ScrollBar:SetPoint("BOTTOMLEFT", PetJournal.ScrollBox, "BOTTOMRIGHT", 10, -2)
 
-		ApplyScrollBarHybrid(PetJournal.ScrollBar, true)
+		ApplyScrollBarHybrid(PetJournal.ScrollBar, true, true)
 		ApplyScrollBarThumb(PetJournal.ScrollBar.Track.Thumb)
 
 		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:ClearAllPoints()
 		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:SetPoint("TOPLEFT", WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBox, "TOPRIGHT", 10, 34)
 		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:SetPoint("BOTTOMLEFT", WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBox, "BOTTOMRIGHT", 10, -7)
 
-		ApplyScrollBarHybrid(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar, true)
+		ApplyScrollBarHybrid(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar, true, true)
 		ApplyScrollBarThumb(WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar.Track.Thumb)
 
 		ApplyDropDown(HeirloomsJournal.ClassDropdown)

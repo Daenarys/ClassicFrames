@@ -69,7 +69,7 @@ FriendsListFrame.ScrollBar:ClearAllPoints()
 FriendsListFrame.ScrollBar:SetPoint("TOPLEFT", FriendsListFrame.ScrollBox, "TOPRIGHT", 6, -2)
 FriendsListFrame.ScrollBar:SetPoint("BOTTOMLEFT", FriendsListFrame.ScrollBox, "BOTTOMRIGHT", 6, 1)
 
-ApplyScrollBarHybrid(FriendsListFrame.ScrollBar, true)
+ApplyScrollBarHybrid(FriendsListFrame.ScrollBar, true, true)
 ApplyScrollBarThumb(FriendsListFrame.ScrollBar.Track.Thumb)
 
 ApplyCloseButton(FriendsFrame.IgnoreListWindow.CloseButton)
@@ -96,14 +96,14 @@ RecentAlliesFrame.List.ScrollBar:ClearAllPoints()
 RecentAlliesFrame.List.ScrollBar:SetPoint("TOPLEFT", RecentAlliesFrame.List.ScrollBox, "TOPRIGHT", 6, -2)
 RecentAlliesFrame.List.ScrollBar:SetPoint("BOTTOMLEFT", RecentAlliesFrame.List.ScrollBox, "BOTTOMRIGHT", 6, 1)
 
-ApplyScrollBarHybrid(RecentAlliesFrame.List.ScrollBar, true)
+ApplyScrollBarHybrid(RecentAlliesFrame.List.ScrollBar, true, true)
 ApplyScrollBarThumb(RecentAlliesFrame.List.ScrollBar.Track.Thumb)
 
 RecruitAFriendFrame.RecruitList.ScrollBar:ClearAllPoints()
 RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("TOPLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "TOPRIGHT", 6, -2)
 RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("BOTTOMLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "BOTTOMRIGHT", 6, 0)
 
-ApplyScrollBarHybrid(RecruitAFriendFrame.RecruitList.ScrollBar, true)
+ApplyScrollBarHybrid(RecruitAFriendFrame.RecruitList.ScrollBar, true, true)
 ApplyScrollBarThumb(RecruitAFriendFrame.RecruitList.ScrollBar.Track.Thumb)
 
 RecruitAFriendRecruitmentFrame.CloseButton:SetSize(32, 32)
@@ -132,14 +132,14 @@ WhoFrame.ScrollBar:ClearAllPoints()
 WhoFrame.ScrollBar:SetPoint("TOPLEFT", WhoFrame.ScrollBox, "TOPRIGHT", 6, -2)
 WhoFrame.ScrollBar:SetPoint("BOTTOMLEFT", WhoFrame.ScrollBox, "BOTTOMRIGHT", 6, -18)
 
-ApplyScrollBarHybrid(WhoFrame.ScrollBar, true)
+ApplyScrollBarHybrid(WhoFrame.ScrollBar, true, true)
 ApplyScrollBarThumb(WhoFrame.ScrollBar.Track.Thumb)
 
 QuickJoinFrame.ScrollBar:ClearAllPoints()
 QuickJoinFrame.ScrollBar:SetPoint("TOPLEFT", QuickJoinFrame.ScrollBox, "TOPRIGHT", 7, -1)
 QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", 7, 0)
 
-ApplyScrollBarHybrid(QuickJoinFrame.ScrollBar, true)
+ApplyScrollBarHybrid(QuickJoinFrame.ScrollBar, true, true)
 ApplyScrollBarThumb(QuickJoinFrame.ScrollBar.Track.Thumb)
 
 AddFriendFrame.CloseButton:SetSize(32, 32)

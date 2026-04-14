@@ -99,7 +99,7 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		CommunitiesFrameCommunitiesList.ScrollBar:SetPoint("TOPLEFT", CommunitiesFrameCommunitiesList.ScrollBox, "TOPRIGHT", 6, -1)
 		CommunitiesFrameCommunitiesList.ScrollBar:SetPoint("BOTTOMLEFT", CommunitiesFrameCommunitiesList.ScrollBox, "BOTTOMRIGHT", 6, -4)
 
-		ApplyScrollBarHybrid(CommunitiesFrameCommunitiesList.ScrollBar)
+		ApplyScrollBarHybrid(CommunitiesFrameCommunitiesList.ScrollBar, true)
 		ApplyScrollBarThumb(CommunitiesFrameCommunitiesList.ScrollBar.Track.Thumb)
 
 		self.Chat.ScrollBar:SetSize(25, 560)
