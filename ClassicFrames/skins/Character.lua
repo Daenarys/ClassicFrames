@@ -102,22 +102,18 @@ end
 
 ApplyDialogBorder(TokenFramePopup.Border)
 
-PaperDollFrame.TitleManagerPane.ScrollBar:SetSize(25, 560)
 PaperDollFrame.TitleManagerPane.ScrollBar:ClearAllPoints()
-PaperDollFrame.TitleManagerPane.ScrollBar:SetPoint("TOPLEFT", PaperDollFrame.TitleManagerPane.ScrollBox, "TOPRIGHT", 2, 0)
-PaperDollFrame.TitleManagerPane.ScrollBar:SetPoint("BOTTOMLEFT", PaperDollFrame.TitleManagerPane.ScrollBox, "BOTTOMRIGHT", 2, -1)
+PaperDollFrame.TitleManagerPane.ScrollBar:SetPoint("TOPLEFT", PaperDollFrame.TitleManagerPane.ScrollBox, "TOPRIGHT", 10, 1)
+PaperDollFrame.TitleManagerPane.ScrollBar:SetPoint("BOTTOMLEFT", PaperDollFrame.TitleManagerPane.ScrollBox, "BOTTOMRIGHT", 10, -1)
 
-ApplyScrollBarArrow(PaperDollFrame.TitleManagerPane.ScrollBar)
-ApplyScrollBarTrack(PaperDollFrame.TitleManagerPane.ScrollBar.Track)
+ApplyScrollBarHybrid(PaperDollFrame.TitleManagerPane.ScrollBar)
 ApplyScrollBarThumb(PaperDollFrame.TitleManagerPane.ScrollBar.Track.Thumb)
 
-PaperDollFrame.EquipmentManagerPane.ScrollBar:SetSize(25, 560)
 PaperDollFrame.EquipmentManagerPane.ScrollBar:ClearAllPoints()
-PaperDollFrame.EquipmentManagerPane.ScrollBar:SetPoint("TOPLEFT", PaperDollFrame.EquipmentManagerPane.ScrollBox, "TOPRIGHT", 2, 23)
-PaperDollFrame.EquipmentManagerPane.ScrollBar:SetPoint("BOTTOMLEFT", PaperDollFrame.EquipmentManagerPane.ScrollBox, "BOTTOMRIGHT", 2, -1)
+PaperDollFrame.EquipmentManagerPane.ScrollBar:SetPoint("TOPLEFT", PaperDollFrame.EquipmentManagerPane.ScrollBox, "TOPRIGHT", 10, 24)
+PaperDollFrame.EquipmentManagerPane.ScrollBar:SetPoint("BOTTOMLEFT", PaperDollFrame.EquipmentManagerPane.ScrollBox, "BOTTOMRIGHT", 10, -1)
 
-ApplyScrollBarArrow(PaperDollFrame.EquipmentManagerPane.ScrollBar)
-ApplyScrollBarTrack(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track)
+ApplyScrollBarHybrid(PaperDollFrame.EquipmentManagerPane.ScrollBar)
 ApplyScrollBarThumb(PaperDollFrame.EquipmentManagerPane.ScrollBar.Track.Thumb)
 
 GearManagerPopupFrame.IconSelector.ScrollBar:SetSize(25, 560)
