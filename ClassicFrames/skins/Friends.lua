@@ -1,5 +1,7 @@
 if not _G.FriendsFrame then return end
 
+FriendsFrame:SetWidth(338)
+
 ApplyCloseButton(FriendsFrameCloseButton)
 
 FriendsFramePortrait:SetSize(61, 61)
@@ -12,6 +14,13 @@ FriendsFrame.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame, "TOPRIGHT", -58, 
 
 ApplyTitleBg(FriendsFrame)
 ApplyNineSlicePortrait(FriendsFrame)
+
+FriendsFrameBattlenetFrame:ClearAllPoints()
+FriendsFrameBattlenetFrame:SetPoint("TOPLEFT", FriendsTabHeader, "TOPLEFT", 109, -26)
+
+FriendsFrameBattlenetFrame.ContactsMenuButton.Icon:Hide()
+FriendsFrameBattlenetFrame.ContactsMenuButton:SetNormalTexture("Interface\\FriendsFrame\\broadcast-normal")
+FriendsFrameBattlenetFrame.ContactsMenuButton:SetPushedTexture("Interface\\FriendsFrame\\broadcast-press")
 
 FriendsFrameTab2:ClearAllPoints()
 FriendsFrameTab2:SetPoint("LEFT", FriendsFrameTab1, "RIGHT", -15, 0)
@@ -117,6 +126,8 @@ RecruitAFriendRewardsFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
 
 ApplyDialogBorder(RecruitAFriendRewardsFrame.Border)
 
+WhoFrameColumnHeader4Middle:SetWidth(48)
+
 WhoFrame.ScrollBar:ClearAllPoints()
 WhoFrame.ScrollBar:SetPoint("TOPLEFT", WhoFrame.ScrollBox, "TOPRIGHT", 6, -2)
 WhoFrame.ScrollBar:SetPoint("BOTTOMLEFT", WhoFrame.ScrollBox, "BOTTOMRIGHT", 6, -18)
@@ -172,3 +183,10 @@ RaidFrame.RoleCount.DamagerIcon:SetAtlas("groupfinder-icon-role-large-dps")
 
 ApplyDropDown(FriendsFrameStatusDropdown)
 ApplyDropDown(WhoFrameDropdown)
+
+FriendsFrameStatusDropdown:SetWidth(43)
+FriendsFrameStatusDropdown:SetPoint("RIGHT", FriendsFrameBattlenetFrame, "LEFT", -5, 0)
+FriendsFrameStatusDropdown.Text:ClearAllPoints()
+FriendsFrameStatusDropdown.Text:SetPoint("CENTER", -7, -2)
+
+WhoFrameDropdown:SetPoint("TOPLEFT", 0, -2)

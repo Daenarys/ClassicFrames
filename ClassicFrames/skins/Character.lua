@@ -26,6 +26,11 @@ for i = 1, 3 do
 	end)
 end
 
+CharacterFrame.Background:Hide()
+ReputationFrame.filterDropdown:Hide()
+TokenFrame.CurrencyTransferLogToggleButton:Hide()
+TokenFrame.filterDropdown:Hide()
+
 ReputationFrame.ScrollBar:SetSize(25, 560)
 ReputationFrame.ScrollBar:ClearAllPoints()
 ReputationFrame.ScrollBar:SetPoint("TOPLEFT", ReputationFrame.ScrollBox, "TOPRIGHT", -4, 5)
@@ -57,6 +62,18 @@ if (ReputationDetailCorner == nil) then
 	ReputationDetailCorner:SetPoint("TOPRIGHT", -6, -7)
 end
 
+if (ReputationFrame.FactionLabel == nil) then
+	ReputationFrame.FactionLabel = ReputationFrame:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
+	ReputationFrame.FactionLabel:SetText(FACTION)
+	ReputationFrame.FactionLabel:SetPoint("TOPLEFT", 70, -42)
+end
+
+if (ReputationFrame.StandingLabel == nil) then
+	ReputationFrame.StandingLabel = ReputationFrame:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
+	ReputationFrame.StandingLabel:SetText(STANDING)
+	ReputationFrame.StandingLabel:SetPoint("TOPLEFT", 215, -42)
+end
+
 ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
 
 TokenFrame.ScrollBar:SetSize(25, 560)
@@ -82,8 +99,6 @@ if (TokenFramePopupCorner == nil) then
 	TokenFramePopupCorner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
 	TokenFramePopupCorner:SetPoint("TOPRIGHT", -6, -7)
 end
-
-TokenFrame.CurrencyTransferLogToggleButton:SetPoint("BOTTOMRIGHT", TokenFrame.ScrollBar, "TOPRIGHT", -4, 5)
 
 ApplyDialogBorder(TokenFramePopup.Border)
 
@@ -111,5 +126,27 @@ ApplyScrollBarTrack(GearManagerPopupFrame.IconSelector.ScrollBar.Track)
 ApplyScrollBarThumb(GearManagerPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 
 ApplyDropDown(GearManagerPopupFrame.BorderBox.IconTypeDropdown)
-ApplyDropDown(ReputationFrame.filterDropdown)
-ApplyDropDown(TokenFrame.filterDropdown)
+GearManagerPopupFrame.BorderBox.IconTypeDropdown.Text:SetJustifyH("RIGHT")
+
+hooksecurefunc(CharacterFrame, "UpdatePortrait", function(self)
+	self:SetPortraitToSpecIcon()
+end)
+
+hooksecurefunc(CharacterFrame, "UpdateSize", function(self)
+	if ReputationFrame:IsShown() or TokenFrame:IsShown() then
+		self:SetWidth(338)
+	end
+end)
+
+hooksecurefunc(CharacterFrame, "UpdateTitle", function(self)
+	self:SetTitleColor(HIGHLIGHT_FONT_COLOR)
+	self:SetTitle(UnitPVPName("player"))
+end)
+
+CharacterModelScene.ControlFrame:HookScript("OnShow", function(self)
+	self:SetPoint("TOP")
+end)
+
+PaperDollFrame:HookScript("OnShow", function()
+	CharacterModelScene.ControlFrame:Hide()
+end)
