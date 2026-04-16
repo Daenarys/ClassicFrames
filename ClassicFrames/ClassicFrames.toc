@@ -50,6 +50,7 @@ skins\GarrisonCapacitive.lua
 skins\GarrisonUI.lua
 skins\GenericTrait.lua
 skins\Gossip.lua
+skins\GreatVault.lua
 skins\GroupLoot.lua
 skins\GuildBank.lua
 skins\GuildPetition.lua
