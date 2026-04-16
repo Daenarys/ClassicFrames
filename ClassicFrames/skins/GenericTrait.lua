@@ -9,7 +9,7 @@ f:SetScript("OnEvent", function(self, event, name)
 				GenericTraitFrame.NineSlice:SetPoint("BOTTOMRIGHT", 4, -6)
 
 				ApplyCloseButton(GenericTraitFrame.CloseButton)
-				ApplyTitleBg(GenericTraitFrame, true)
+				ApplyTitleBg(GenericTraitFrame)
 				ApplyNineSliceNoPortrait(GenericTraitFrame)
 			end
 		end)

@@ -35,13 +35,9 @@ DressUpFrame.SetSelectionPanel.ScrollBar.Track.Middle:Hide()
 ApplyScrollBarArrow(DressUpFrame.SetSelectionPanel.ScrollBar, true)
 ApplyScrollBarThumb(DressUpFrame.SetSelectionPanel.ScrollBar.Track.Thumb)
 
-SideDressUpFrameCloseButton:SetSize(32, 32)
-SideDressUpFrameCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-SideDressUpFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-SideDressUpFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-SideDressUpFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-
 ApplyDropDown(DressUpFrameCustomSetDropdown)
+
+ApplyCloseButton(SideDressUpFrameCloseButton, true)
 
 hooksecurefunc(DressUpFrame, "ConfigureSize", function(self, isMinimized)
 	if isMinimized then

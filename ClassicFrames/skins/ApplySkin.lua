@@ -1,13 +1,12 @@
-function ApplyCloseButton(frame, oldPos)
+function ApplyCloseButton(frame, defaultPos)
 	frame:SetSize(32, 32)
 	frame:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 	frame:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
 	frame:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 	frame:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-	frame:ClearAllPoints()
-	if oldPos then
-		frame:SetPoint("TOPRIGHT", 4, 5)
-	else
+
+	if not defaultPos then
+		frame:ClearAllPoints()
 		frame:SetPoint("TOPRIGHT", 5.6, 5)
 		frame:SetFrameLevel(2)
 	end

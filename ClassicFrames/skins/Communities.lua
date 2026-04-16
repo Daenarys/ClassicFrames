@@ -144,11 +144,7 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		ApplyScrollBarHybrid(ClubFinderCommunityAndGuildFinderFrame.CommunityCards.ScrollBar)
 		ApplyScrollBarThumb(ClubFinderCommunityAndGuildFinderFrame.CommunityCards.ScrollBar.Track.Thumb)
 
-		CommunitiesGuildTextEditFrameCloseButton:SetSize(32, 32)
-		CommunitiesGuildTextEditFrameCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-		CommunitiesGuildTextEditFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-		CommunitiesGuildTextEditFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-		CommunitiesGuildTextEditFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+		ApplyCloseButton(CommunitiesGuildTextEditFrameCloseButton, true)
 
 		CommunitiesGuildTextEditFrame.Container.ScrollFrame.ScrollBar.Track.Begin:Hide()
 		CommunitiesGuildTextEditFrame.Container.ScrollFrame.ScrollBar.Track.End:Hide()
@@ -164,12 +160,8 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		ClubFinderCommunityAndGuildFinderFrame.OptionsList.TankRoleFrame.Icon:SetAtlas("UI-Frame-TankIcon", true)
 		ClubFinderCommunityAndGuildFinderFrame.OptionsList.HealerRoleFrame.Icon:SetAtlas("UI-Frame-HealerIcon", true)
 		ClubFinderCommunityAndGuildFinderFrame.OptionsList.DpsRoleFrame.Icon:SetAtlas("UI-Frame-DpsIcon", true)
-		
-		self.GuildMemberDetailFrame.CloseButton:SetSize(32, 32)
-		self.GuildMemberDetailFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-		self.GuildMemberDetailFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-		self.GuildMemberDetailFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-		self.GuildMemberDetailFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+
+		ApplyCloseButton(self.GuildMemberDetailFrame.CloseButton, true)
 
 		ApplyDialogBorder(self.GuildMemberDetailFrame.Border)
 		ApplyDialogBorder(self.RecruitmentDialog.BG)
@@ -178,11 +170,7 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		ApplyDialogBorder(ClubFinderGuildFinderFrame.RequestToJoinFrame.BG)
 		ApplyDialogBorder(ClubFinderCommunityAndGuildFinderFrame.RequestToJoinFrame.BG)
 
-		CommunitiesGuildNewsFiltersFrame.CloseButton:SetSize(32, 32)
-		CommunitiesGuildNewsFiltersFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-		CommunitiesGuildNewsFiltersFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-		CommunitiesGuildNewsFiltersFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-		CommunitiesGuildNewsFiltersFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+		ApplyCloseButton(CommunitiesGuildNewsFiltersFrame.CloseButton, true)
 	end
 end)
 

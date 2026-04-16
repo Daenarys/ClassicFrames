@@ -191,11 +191,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end
 		if _G.CovenantMissionFrame then
-			CovenantMissionFrame.CloseButton:SetSize(32, 32)
-			CovenantMissionFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-			CovenantMissionFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			CovenantMissionFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			CovenantMissionFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+			ApplyCloseButton(CovenantMissionFrame.CloseButton, true)
 
 			CovenantMissionFrame.MissionTab.MissionPage.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 			CovenantMissionFrame.MissionTab.MissionPage.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
@@ -213,11 +209,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 		end
 		if _G.GarrisonLandingPage then
-			GarrisonLandingPage.CloseButton:SetSize(32, 32)
-			GarrisonLandingPage.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-			GarrisonLandingPage.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-			GarrisonLandingPage.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-			GarrisonLandingPage.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+			ApplyCloseButton(GarrisonLandingPage.CloseButton, true)
 		end
 		if _G.GarrisonLandingPageReportList then
 			GarrisonLandingPageReportList.ScrollBar:SetSize(25, 560)
