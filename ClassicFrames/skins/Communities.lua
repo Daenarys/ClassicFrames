@@ -38,19 +38,11 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 	else
 		ApplyCloseButton(CommunitiesFrameCloseButton)
 
-		CommunitiesGuildLogFrameCloseButton:SetSize(32, 32)
-		CommunitiesGuildLogFrameCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-		CommunitiesGuildLogFrameCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-		CommunitiesGuildLogFrameCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-		CommunitiesGuildLogFrameCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+		ApplyCloseButton(CommunitiesGuildLogFrameCloseButton, true)
 		CommunitiesGuildLogFrameCloseButton:ClearAllPoints()
 		CommunitiesGuildLogFrameCloseButton:SetPoint("TOPRIGHT", -2, -2)
 
-		GuildControlUICloseButton:SetSize(32, 32)
-		GuildControlUICloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-		GuildControlUICloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-		GuildControlUICloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-		GuildControlUICloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+		ApplyCloseButton(GuildControlUICloseButton, true)
 		GuildControlUICloseButton:ClearAllPoints()
 		GuildControlUICloseButton:SetPoint("TOPRIGHT", -2, -2)
 

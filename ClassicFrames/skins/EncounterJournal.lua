@@ -48,11 +48,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			EncounterJournal.TutorialsTab:SetWidth(40 + EncounterJournal.TutorialsTab:GetFontString():GetStringWidth())
 		end)
 
-		EncounterJournalSearchResultsCloseButton:SetSize(32, 32)
-		EncounterJournalSearchResultsCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-		EncounterJournalSearchResultsCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-		EncounterJournalSearchResultsCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-		EncounterJournalSearchResultsCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+		ApplyCloseButton(EncounterJournalSearchResultsCloseButton, true)
 		EncounterJournalSearchResultsCloseButton:ClearAllPoints()
 		EncounterJournalSearchResultsCloseButton:SetPoint("TOPRIGHT", 7, 2)
 

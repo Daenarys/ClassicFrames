@@ -659,11 +659,7 @@ end)
 
 ApplyDialogBorder(RolePollPopup.Border)
 
-RolePollPopupCloseButton:SetSize(32, 32)
-RolePollPopupCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-RolePollPopupCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-RolePollPopupCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-RolePollPopupCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+ApplyCloseButton(RolePollPopupCloseButton, true)
 RolePollPopupCloseButton:ClearAllPoints()
 RolePollPopupCloseButton:SetPoint("TOPRIGHT", -2, -2)
 

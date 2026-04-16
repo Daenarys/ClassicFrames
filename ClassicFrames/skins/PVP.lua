@@ -96,11 +96,7 @@ end)
 
 ApplyDialogBorder(PVPReadyDialog.Border)
 
-PVPReadyDialogCloseButton:SetSize(32, 32)
-PVPReadyDialogCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-PVPReadyDialogCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-HideButton-Up")
-PVPReadyDialogCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-HideButton-Down")
-PVPReadyDialogCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+ApplyCloseButton(PVPReadyDialogCloseButton, true)
 PVPReadyDialogCloseButton:ClearAllPoints()
 PVPReadyDialogCloseButton:SetPoint("TOPRIGHT", -2, -2)
 
@@ -132,11 +128,7 @@ end)
 PVPReadyPopup.RolelessButton.Texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 PVPReadyPopup.RolelessButton.Texture:SetTexCoord(0.5234375, 0.78125, 0, 0.2578125)
 
-PVPMatchScoreboard.CloseButton:SetSize(32, 32)
-PVPMatchScoreboard.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-PVPMatchScoreboard.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-PVPMatchScoreboard.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-PVPMatchScoreboard.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+ApplyCloseButton(PVPMatchScoreboard.CloseButton, true)
 PVPMatchScoreboard.CloseButton:ClearAllPoints()
 PVPMatchScoreboard.CloseButton:SetPoint("TOPRIGHT", 3.6, 3)
 
@@ -164,11 +156,7 @@ for i = 1, 3 do
 	end)
 end
 
-PVPMatchResults.CloseButton:SetSize(32, 32)
-PVPMatchResults.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-PVPMatchResults.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-PVPMatchResults.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-PVPMatchResults.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+ApplyCloseButton(PVPMatchResults.CloseButton, true)
 PVPMatchResults.CloseButton:ClearAllPoints()
 PVPMatchResults.CloseButton:SetPoint("TOPRIGHT", 3.6, 3)
 
@@ -196,11 +184,7 @@ for i = 1, 3 do
 	end)
 end
 
-ReadyStatus.CloseButton:SetSize(32, 32)
-ReadyStatus.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-ReadyStatus.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-HideButton-Up")
-ReadyStatus.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-HideButton-Down")
-ReadyStatus.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+ApplyCloseButton(ReadyStatus.CloseButton, true)
 ReadyStatus.CloseButton:ClearAllPoints()
 ReadyStatus.CloseButton:SetPoint("TOPRIGHT", -2, -2)
 

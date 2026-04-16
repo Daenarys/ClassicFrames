@@ -106,21 +106,13 @@ RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("BOTTOMLEFT", RecruitAFriendF
 ApplyScrollBarHybrid(RecruitAFriendFrame.RecruitList.ScrollBar, true, true)
 ApplyScrollBarThumb(RecruitAFriendFrame.RecruitList.ScrollBar.Track.Thumb)
 
-RecruitAFriendRecruitmentFrame.CloseButton:SetSize(32, 32)
-RecruitAFriendRecruitmentFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-RecruitAFriendRecruitmentFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-RecruitAFriendRecruitmentFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-RecruitAFriendRecruitmentFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+ApplyCloseButton(RecruitAFriendRecruitmentFrame.CloseButton, true)
 RecruitAFriendRecruitmentFrame.CloseButton:ClearAllPoints()
 RecruitAFriendRecruitmentFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
 
 ApplyDialogBorder(RecruitAFriendRecruitmentFrame.Border)
 
-RecruitAFriendRewardsFrame.CloseButton:SetSize(32, 32)
-RecruitAFriendRewardsFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-RecruitAFriendRewardsFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-RecruitAFriendRewardsFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-RecruitAFriendRewardsFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+ApplyCloseButton(RecruitAFriendRewardsFrame.CloseButton, true)
 RecruitAFriendRewardsFrame.CloseButton:ClearAllPoints()
 RecruitAFriendRewardsFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
 
@@ -142,11 +134,7 @@ QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuickJoinFrame.ScrollBox, "BOTTO
 ApplyScrollBarHybrid(QuickJoinFrame.ScrollBar, true, true)
 ApplyScrollBarThumb(QuickJoinFrame.ScrollBar.Track.Thumb)
 
-AddFriendFrame.CloseButton:SetSize(32, 32)
-AddFriendFrame.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-AddFriendFrame.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-AddFriendFrame.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-AddFriendFrame.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+ApplyCloseButton(AddFriendFrame.CloseButton, true)
 AddFriendFrame.CloseButton:ClearAllPoints()
 AddFriendFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
 
@@ -159,11 +147,7 @@ RaidInfoFrame.ScrollBar:SetPoint("BOTTOMLEFT", RaidInfoFrame.ScrollBox, "BOTTOMR
 ApplyScrollBarHybrid(RaidInfoFrame.ScrollBar)
 ApplyScrollBarThumb(RaidInfoFrame.ScrollBar.Track.Thumb)
 
-RaidInfoCloseButton:SetSize(32, 32)
-RaidInfoCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
-RaidInfoCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-RaidInfoCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-RaidInfoCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+ApplyCloseButton(RaidInfoCloseButton, true)
 RaidInfoCloseButton:ClearAllPoints()
 RaidInfoCloseButton:SetPoint("TOPRIGHT", -2, -3)
 
