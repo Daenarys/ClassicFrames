@@ -1,14 +1,32 @@
-if not _G.CurrencyTransferMenu then return end
+if _G.CurrencyTransferLog then
+	ApplyCloseButton(CurrencyTransferLogCloseButton)
 
-ApplyCloseButton(CurrencyTransferMenuCloseButton)
+	CurrencyTransferLog.TitleContainer:ClearAllPoints()
+	CurrencyTransferLog.TitleContainer:SetPoint("TOPLEFT", CurrencyTransferLog, "TOPLEFT", 58, 0)
+	CurrencyTransferLog.TitleContainer:SetPoint("TOPRIGHT", CurrencyTransferLog, "TOPRIGHT", -58, 0)
 
-CurrencyTransferMenu.TitleContainer:ClearAllPoints()
-CurrencyTransferMenu.TitleContainer:SetPoint("TOPLEFT", CurrencyTransferMenu, "TOPLEFT", 58, 0)
-CurrencyTransferMenu.TitleContainer:SetPoint("TOPRIGHT", CurrencyTransferMenu, "TOPRIGHT", -58, 0)
+	ApplyTitleBg(CurrencyTransferLog, true)
+	ApplyNineSliceNoPortrait(CurrencyTransferLog)
 
-ApplyTitleBg(CurrencyTransferMenu, true)
-ApplyNineSliceNoPortrait(CurrencyTransferMenu)
+	CurrencyTransferLog.ScrollBar:SetSize(25, 560)
+	CurrencyTransferLog.ScrollBar:ClearAllPoints()
+	CurrencyTransferLog.ScrollBar:SetPoint("TOPLEFT", CurrencyTransferLog.ScrollBox, "TOPRIGHT", -2, 2)
+	CurrencyTransferLog.ScrollBar:SetPoint("BOTTOMLEFT", CurrencyTransferLog.ScrollBox, "BOTTOMRIGHT", 2, -2)
 
-CurrencyTransferMenu.Background:Hide()
+	ApplyScrollBarArrow(CurrencyTransferLog.ScrollBar)
+	ApplyScrollBarTrack(CurrencyTransferLog.ScrollBar.Track)
+	ApplyScrollBarThumb(CurrencyTransferLog.ScrollBar.Track.Thumb)
+end
 
-ApplyDropDown(CurrencyTransferMenu.Content.SourceSelector.Dropdown)
+if _G.CurrencyTransferMenu then
+	ApplyCloseButton(CurrencyTransferMenuCloseButton)
+
+	CurrencyTransferMenu.TitleContainer:ClearAllPoints()
+	CurrencyTransferMenu.TitleContainer:SetPoint("TOPLEFT", CurrencyTransferMenu, "TOPLEFT", 58, 0)
+	CurrencyTransferMenu.TitleContainer:SetPoint("TOPRIGHT", CurrencyTransferMenu, "TOPRIGHT", -58, 0)
+
+	ApplyTitleBg(CurrencyTransferMenu, true)
+	ApplyNineSliceNoPortrait(CurrencyTransferMenu)
+
+	ApplyDropDown(CurrencyTransferMenu.Content.SourceSelector.Dropdown)
+end

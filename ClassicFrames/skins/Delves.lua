@@ -32,7 +32,6 @@ if DelvesCompanionAbilityListFrame then
 	ApplyNineSlicePortrait(DelvesCompanionAbilityListFrame)
 
 	ApplyDropDown(DelvesCompanionAbilityListFrame.DelvesCompanionRoleDropdown)
-	DelvesCompanionAbilityListFrame.DelvesCompanionRoleDropdown.Text:SetJustifyH("RIGHT")
 end
 
 if DelvesCompanionConfigurationFrame then

@@ -52,6 +52,5 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(MacroPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 
 		ApplyDropDown(MacroPopupFrame.BorderBox.IconTypeDropdown)
-		MacroPopupFrame.BorderBox.IconTypeDropdown.Text:SetJustifyH("RIGHT")
 	end
 end)

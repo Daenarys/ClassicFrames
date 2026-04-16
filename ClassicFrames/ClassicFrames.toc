@@ -64,10 +64,9 @@ skins\ItemText.lua
 skins\ItemUpgrade.lua
 skins\Keystone.lua
 skins\LFG.lua
-skins\Loot.xml
+skins\Loot.lua
 skins\Macro.lua
 skins\Mail.lua
-skins\Menu.lua
 skins\Merchant.lua
 skins\Minimap.lua
 skins\MirrorTimers.lua
@@ -99,7 +98,6 @@ skins\Tabard.lua
 skins\Talents.lua
 skins\TalkingHead.lua
 skins\TimeManager.lua
-skins\ToolTip.lua
 skins\Torghast.lua
 skins\Trade.lua
 skins\TradingPost.lua

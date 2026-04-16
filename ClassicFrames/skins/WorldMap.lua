@@ -62,12 +62,16 @@ for _, f in next, WorldMapFrame.overlayFrames do
 	end
 end
 
+MapLegendScrollFrame.ScrollBar:ClearAllPoints()
+MapLegendScrollFrame.ScrollBar:SetPoint("TOPLEFT", MapLegendScrollFrame, "TOPRIGHT", 7, -2)
+MapLegendScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", MapLegendScrollFrame, "BOTTOMRIGHT", -7, -3)
+
+ApplyScrollBarHybrid(MapLegendScrollFrame.ScrollBar, true)
+ApplyScrollBarThumb(MapLegendScrollFrame.ScrollBar.Track.Thumb)
+
 local Dropdown, Tracking, Pin = unpack(WorldMapFrame.overlayFrames)
 ApplyDropDown(Dropdown)
 Dropdown:SetWidth(145)
-Dropdown:SetPoint("TOPLEFT", WorldMapFrame.ScrollContainer, "TOPLEFT", 3, 1)
-Dropdown.Text:SetJustifyH("RIGHT")
-Dropdown.Text:SetPoint("TOPLEFT", 9, -7)
 Tracking.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 Tracking.Icon:SetTexture("Interface\\Minimap\\Tracking\\None")
 Tracking.Icon:SetPoint("TOPLEFT", 6, -6)
