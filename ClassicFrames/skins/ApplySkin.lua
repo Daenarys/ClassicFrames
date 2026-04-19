@@ -213,6 +213,14 @@ function ApplyDialogHeader(frame)
 	frame.RightBG:SetTexCoord(0.0078125, 0.507812, 0.628906, 0.933594)
 end
 
+function ApplyCheckBox(frame)
+	frame:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+	frame:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+	frame:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+	frame:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+	frame:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
+end
+
 function ApplyScrollBarArrow(frame, defaultPos)
 	frame.Back:SetSize(18, 16)
 	frame.Back:SetNormalTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Up")

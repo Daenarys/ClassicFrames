@@ -17,24 +17,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(TransmogFrame)
 		ApplyNineSlicePortrait(TransmogFrame)
 
-		TransmogFrame.CharacterPreview.HideIgnoredToggle.Checkbox:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
-		TransmogFrame.CharacterPreview.HideIgnoredToggle.Checkbox:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
-		TransmogFrame.CharacterPreview.HideIgnoredToggle.Checkbox:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
-		TransmogFrame.CharacterPreview.HideIgnoredToggle.Checkbox:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
-		TransmogFrame.CharacterPreview.HideIgnoredToggle.Checkbox:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
-
-		TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.SecondaryAppearanceToggle.Checkbox:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
-		TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.SecondaryAppearanceToggle.Checkbox:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
-		TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.SecondaryAppearanceToggle.Checkbox:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
-		TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.SecondaryAppearanceToggle.Checkbox:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
-		TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.SecondaryAppearanceToggle.Checkbox:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
-
-		TransmogFrame.WardrobeCollection.TabContent.SituationsFrame.EnabledToggle.Checkbox:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
-		TransmogFrame.WardrobeCollection.TabContent.SituationsFrame.EnabledToggle.Checkbox:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
-		TransmogFrame.WardrobeCollection.TabContent.SituationsFrame.EnabledToggle.Checkbox:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
-		TransmogFrame.WardrobeCollection.TabContent.SituationsFrame.EnabledToggle.Checkbox:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
-		TransmogFrame.WardrobeCollection.TabContent.SituationsFrame.EnabledToggle.Checkbox:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
-
 		for i = 1, TransmogFrame.WardrobeCollection.TabHeaders:GetNumChildren() do
 			local tab = select(i, TransmogFrame.WardrobeCollection.TabHeaders:GetChildren())
 
@@ -48,6 +30,11 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarArrow(TransmogFrame.OutfitCollection.OutfitList.ScrollBar, true)
 		ApplyScrollBarThumb(TransmogFrame.OutfitCollection.OutfitList.ScrollBar.Track.Thumb)
 
+		ApplyCheckBox(TransmogFrame.CharacterPreview.ToggleOptions.HideIgnoredToggle.Checkbox)
+		ApplyCheckBox(TransmogFrame.CharacterPreview.ToggleOptions.SheatheWeaponToggle.Checkbox)
+		ApplyCheckBox(TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.SecondaryAppearanceToggle.Checkbox)
+		ApplyCheckBox(TransmogFrame.WardrobeCollection.TabContent.SituationsFrame.EnabledToggle.Checkbox)
+
 		hooksecurefunc(TransmogFrame.WardrobeCollection.TabContent.SituationsFrame, "Refresh", function(frame)
 			for situationFrame in TransmogFrame.WardrobeCollection.TabContent.SituationsFrame.SituationFramePool:EnumerateActive() do
 				ApplyDropDown(situationFrame.Dropdown)
@@ -55,7 +42,10 @@ f:SetScript("OnEvent", function(self, event, name)
 		end)
 
 		ApplyDropDown(TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponDropdown)
+		ApplyDropDown(TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponSheatheDropdown)
+
 		TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponDropdown.Text:SetJustifyH("RIGHT")
+		TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponSheatheDropdown.Text:SetJustifyH("RIGHT")
 
 		ApplyFilterDropDown(TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.FilterButton)
 		ApplyFilterDropDown(TransmogFrame.WardrobeCollection.TabContent.SetsFrame.FilterButton)

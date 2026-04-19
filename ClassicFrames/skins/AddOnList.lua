@@ -20,13 +20,9 @@ ApplyScrollBarArrow(AddonList.ScrollBar)
 ApplyScrollBarTrack(AddonList.ScrollBar.Track)
 ApplyScrollBarThumb(AddonList.ScrollBar.Track.Thumb)
 
+ApplyCheckBox(AddonList.ForceLoad)
 AddonList.ForceLoad:SetSize(32, 32)
 AddonList.ForceLoad:SetPoint("TOP", 75, -30)
-AddonList.ForceLoad:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
-AddonList.ForceLoad:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
-AddonList.ForceLoad:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
-AddonList.ForceLoad:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
-AddonList.ForceLoad:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
 
 AddonList.SearchBox:Hide()
 
@@ -40,11 +36,7 @@ hooksecurefunc('AddonList_Update', function()
 	for _, child in next, { AddonList.ScrollBox.ScrollTarget:GetChildren() } do
 		if not child.IsSkinned then
 			if child.Enabled then
-				child.Enabled:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
-				child.Enabled:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
-				child.Enabled:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
-				child.Enabled:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
-				child.Enabled:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
+				ApplyCheckBox(child.Enabled)
 			end
 			child.IsSkinned = true
 		end

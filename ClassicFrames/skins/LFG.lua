@@ -312,15 +312,11 @@ for _, roleButton in pairs({
 }) do
 	local checkButton = roleButton.checkButton or roleButton.CheckButton
 
+	ApplyCheckBox(checkButton)
 	checkButton:SetSize(24, 24)
 	checkButton:SetScale(1)
 	checkButton:ClearAllPoints()
 	checkButton:SetPoint("BOTTOMLEFT", -5, -5)
-	checkButton:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
-	checkButton:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
-	checkButton:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
-	checkButton:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
-	checkButton:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
 end
 
 ApplyDropDown(LFDQueueFrameTypeDropdown)
