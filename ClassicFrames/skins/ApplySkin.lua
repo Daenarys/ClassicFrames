@@ -339,25 +339,19 @@ function ApplyScrollBarHybrid(frame, showBg, isTrim)
 end
 
 function ApplyScrollBarThumb(frame)
-	frame:SetWidth(18)
+	frame.Begin:SetAlpha(0)
+	frame.End:SetAlpha(0)
+	frame.Middle:SetAlpha(0)
 
-	frame.Begin:SetAtlas("UI-ScrollBar-Knob-EndCap-Top", true)
-	frame.End:SetAtlas("UI-ScrollBar-Knob-EndCap-Bottom", true)
-	frame.Middle:SetAtlas("UI-ScrollBar-Knob-Center", true)
+	if (frame.ThumbTexture == nil) then
+		frame.ThumbTexture = frame:CreateTexture(nil, "BACKGROUND")
+		frame.ThumbTexture:SetSize(18, 24)
+		frame.ThumbTexture:SetTexture("Interface\\Buttons\\UI-ScrollBar-Knob")
+		frame.ThumbTexture:SetTexCoord(0.20, 0.80, 0.125, 0.875)
+		frame.ThumbTexture:SetPoint("TOP")
+	end
 
-	frame.Middle:ClearAllPoints()
-	frame.Middle:SetPoint("TOPLEFT", 0, -5)
-	frame.Middle:SetPoint("BOTTOMRIGHT", 0, 5)
-
-	frame.upBeginTexture = "UI-ScrollBar-Knob-EndCap-Top"
-	frame.upMiddleTexture = "UI-ScrollBar-Knob-Center"
-	frame.upEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom"
-	frame.overBeginTexture = "UI-ScrollBar-Knob-MouseOver-EndCap-Top"
-	frame.overMiddleTexture = "UI-ScrollBar-Knob-MouseOver-Center"
-	frame.overEndTexture = "UI-ScrollBar-Knob-MouseOver-EndCap-Bottom"
-	frame.downBeginTexture = "UI-ScrollBar-Knob-EndCap-Top-Disabled"
-	frame.downMiddleTexture = "UI-ScrollBar-Knob-Center-Disabled"
-	frame.downEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom-Disabled"
+	frame:GetParent():GetParent().fixedThumbExtent = 23
 end
 
 function ApplyTopTab(frame)
