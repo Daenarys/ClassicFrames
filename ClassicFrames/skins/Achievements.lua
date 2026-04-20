@@ -7,22 +7,22 @@ f:SetScript("OnEvent", function(self, event, name)
 		AchievementFrameCloseButton:SetPoint("TOPRIGHT", 3, 4)
 
 		AchievementFrameCategories.ScrollBar:ClearAllPoints()
-		AchievementFrameCategories.ScrollBar:SetPoint("TOPLEFT", AchievementFrameCategories.ScrollBox, "TOPRIGHT", 7, 0)
-		AchievementFrameCategories.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameCategories.ScrollBox, "BOTTOMRIGHT", 7, -3)
+		AchievementFrameCategories.ScrollBar:SetPoint("TOPLEFT", AchievementFrameCategories.ScrollBox, "TOPRIGHT", 7, 5)
+		AchievementFrameCategories.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameCategories.ScrollBox, "BOTTOMRIGHT", 7, -6)
 
 		ApplyScrollBarHybrid(AchievementFrameCategories.ScrollBar, true)
 		ApplyScrollBarThumb(AchievementFrameCategories.ScrollBar.Track.Thumb)
 
 		AchievementFrameAchievements.ScrollBar:ClearAllPoints()
-		AchievementFrameAchievements.ScrollBar:SetPoint("TOPLEFT", AchievementFrameAchievements.ScrollBox, "TOPRIGHT", 7, -2)
-		AchievementFrameAchievements.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameAchievements.ScrollBox, "BOTTOMRIGHT", 7, -3)
+		AchievementFrameAchievements.ScrollBar:SetPoint("TOPLEFT", AchievementFrameAchievements.ScrollBox, "TOPRIGHT", 7, 3)
+		AchievementFrameAchievements.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameAchievements.ScrollBox, "BOTTOMRIGHT", 7, -6)
 
 		ApplyScrollBarHybrid(AchievementFrameAchievements.ScrollBar, true)
 		ApplyScrollBarThumb(AchievementFrameAchievements.ScrollBar.Track.Thumb)
 
 		AchievementFrameStats.ScrollBar:ClearAllPoints()
-		AchievementFrameStats.ScrollBar:SetPoint("TOPLEFT", AchievementFrameStats.ScrollBox, "TOPRIGHT", 7, -2)
-		AchievementFrameStats.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameStats.ScrollBox, "BOTTOMRIGHT", 7, -3)
+		AchievementFrameStats.ScrollBar:SetPoint("TOPLEFT", AchievementFrameStats.ScrollBox, "TOPRIGHT", 7, 3)
+		AchievementFrameStats.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameStats.ScrollBox, "BOTTOMRIGHT", 7, -6)
 
 		ApplyScrollBarHybrid(AchievementFrameStats.ScrollBar, true)
 		ApplyScrollBarThumb(AchievementFrameStats.ScrollBar.Track.Thumb)

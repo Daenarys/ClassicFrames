@@ -57,36 +57,36 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(AuctionHouseFrame.CategoriesList.ScrollBar.Track.Thumb)
 
 		AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar:ClearAllPoints()
-		AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBox, "TOPRIGHT", 10, 4)
-		AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBox, "BOTTOMRIGHT", 10, -4)
+		AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBox, "TOPRIGHT", 10, 9)
+		AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBox, "BOTTOMRIGHT", 10, -7)
 
 		ApplyScrollBarHybrid(AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar, true)
 		ApplyScrollBarThumb(AuctionHouseFrame.BrowseResultsFrame.ItemList.ScrollBar.Track.Thumb)
 
 		AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar:ClearAllPoints()
-		AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBox, "TOPRIGHT", 10, 4)
-		AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBox, "BOTTOMRIGHT", 10, -4)
+		AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBox, "TOPRIGHT", 10, 9)
+		AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBox, "BOTTOMRIGHT", 10, -7)
 
 		ApplyScrollBarHybrid(AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar, true)
 		ApplyScrollBarThumb(AuctionHouseFrame.CommoditiesBuyFrame.ItemList.ScrollBar.Track.Thumb)
 
 		AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar:ClearAllPoints()
-		AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBox, "TOPRIGHT", 10, 4)
-		AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBox, "BOTTOMRIGHT", 10, -4)
+		AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBox, "TOPRIGHT", 10, 9)
+		AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBox, "BOTTOMRIGHT", 10, -7)
 
 		ApplyScrollBarHybrid(AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar, true)
 		ApplyScrollBarThumb(AuctionHouseFrame.ItemBuyFrame.ItemList.ScrollBar.Track.Thumb)
 
 		AuctionHouseFrame.CommoditiesSellList.ScrollBar:ClearAllPoints()
-		AuctionHouseFrame.CommoditiesSellList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrame.CommoditiesSellList.ScrollBox, "TOPRIGHT", 10, 4)
-		AuctionHouseFrame.CommoditiesSellList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.CommoditiesSellList.ScrollBox, "BOTTOMRIGHT", 10, -4)
+		AuctionHouseFrame.CommoditiesSellList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrame.CommoditiesSellList.ScrollBox, "TOPRIGHT", 10, 9)
+		AuctionHouseFrame.CommoditiesSellList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.CommoditiesSellList.ScrollBox, "BOTTOMRIGHT", 10, -7)
 
 		ApplyScrollBarHybrid(AuctionHouseFrame.CommoditiesSellList.ScrollBar, true)
 		ApplyScrollBarThumb(AuctionHouseFrame.CommoditiesSellList.ScrollBar.Track.Thumb)
 
 		AuctionHouseFrame.ItemSellList.ScrollBar:ClearAllPoints()
-		AuctionHouseFrame.ItemSellList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrame.ItemSellList.ScrollBox, "TOPRIGHT", 10, 4)
-		AuctionHouseFrame.ItemSellList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.ItemSellList.ScrollBox, "BOTTOMRIGHT", 10, -4)
+		AuctionHouseFrame.ItemSellList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrame.ItemSellList.ScrollBox, "TOPRIGHT", 10, 9)
+		AuctionHouseFrame.ItemSellList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrame.ItemSellList.ScrollBox, "BOTTOMRIGHT", 10, -7)
 
 		ApplyScrollBarHybrid(AuctionHouseFrame.ItemSellList.ScrollBar, true)
 		ApplyScrollBarThumb(AuctionHouseFrame.ItemSellList.ScrollBar.Track.Thumb)
@@ -109,15 +109,15 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(AuctionHouseFrameAuctionsFrame.SummaryList.ScrollBar.Track.Thumb)
 
 		AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar:ClearAllPoints()
-		AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBox, "TOPRIGHT", 10, 4)
-		AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBox, "BOTTOMRIGHT", 10, -4)
+		AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBox, "TOPRIGHT", 10, 9)
+		AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBox, "BOTTOMRIGHT", 10, -7)
 
 		ApplyScrollBarHybrid(AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar, true)
 		ApplyScrollBarThumb(AuctionHouseFrameAuctionsFrame.AllAuctionsList.ScrollBar.Track.Thumb)
 
 		AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar:ClearAllPoints()
-		AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "TOPRIGHT", 10, 4)
-		AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "BOTTOMRIGHT", 10, -4)
+		AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar:SetPoint("TOPLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "TOPRIGHT", 10, 9)
+		AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "BOTTOMRIGHT", 10, -7)
 		
 		ApplyScrollBarHybrid(AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar, true)
 		ApplyScrollBarThumb(AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar.Track.Thumb)
@@ -129,8 +129,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		AuctionHouseFrame.WoWTokenResults.GameTimeTutorial.CloseButton:SetFrameLevel(4)
 
 		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:ClearAllPoints()
-		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetPoint("TOPLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "TOPRIGHT", 10, 4)
-		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "BOTTOMRIGHT", 10, -4)
+		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetPoint("TOPLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "TOPRIGHT", 10, 9)
+		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "BOTTOMRIGHT", 10, -7)
 		
 		ApplyScrollBarHybrid(AuctionHouseFrame.WoWTokenResults.DummyScrollBar, true)
 		ApplyScrollBarThumb(AuctionHouseFrame.WoWTokenResults.DummyScrollBar.Track.Thumb)
