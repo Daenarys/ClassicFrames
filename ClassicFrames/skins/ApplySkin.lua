@@ -243,10 +243,8 @@ function ApplyScrollBarArrow(frame, defaultPos)
 	frame.Forward:GetHighlightTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
 
 	if not defaultPos then
-		frame.Back:ClearAllPoints()
-		frame.Back:SetPoint("TOPLEFT", 4, -5)
-		frame.Forward:ClearAllPoints()
-		frame.Forward:SetPoint("BOTTOMLEFT", 4, 3)
+		frame.Back:SetPoint("TOP", 0, -5)
+		frame.Forward:SetPoint("BOTTOM", 0, 3)
 	end
 end
 
