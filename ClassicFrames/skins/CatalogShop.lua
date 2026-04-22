@@ -20,3 +20,17 @@ if (CatalogShopFrame.NineSlice.TitleBg == nil) then
 end
 
 ApplyNineSlicePortrait(CatalogShopFrame)
+
+CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.Begin:Hide()
+CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.End:Hide()
+CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.Middle:Hide()
+
+ApplyScrollBarArrow(CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar, true)
+ApplyScrollBarThumb(CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.Thumb)
+
+CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.Begin:Hide()
+CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.End:Hide()
+CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.Middle:Hide()
+
+ApplyScrollBarArrow(CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar, true)
+ApplyScrollBarThumb(CatalogShopFrame.ProductDetailsContainerFrame.DetailsProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.Thumb)

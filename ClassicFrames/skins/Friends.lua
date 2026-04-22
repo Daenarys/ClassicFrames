@@ -66,8 +66,8 @@ hooksecurefunc(FriendsTabHeader.TabSystem, 'Layout', function(self)
 end)
 
 FriendsListFrame.ScrollBar:ClearAllPoints()
-FriendsListFrame.ScrollBar:SetPoint("TOPLEFT", FriendsListFrame.ScrollBox, "TOPRIGHT", 6, 3)
-FriendsListFrame.ScrollBar:SetPoint("BOTTOMLEFT", FriendsListFrame.ScrollBox, "BOTTOMRIGHT", 6, -2)
+FriendsListFrame.ScrollBar:SetPoint("TOPLEFT", FriendsListFrame.ScrollBox, "TOPRIGHT", 6, -2)
+FriendsListFrame.ScrollBar:SetPoint("BOTTOMLEFT", FriendsListFrame.ScrollBox, "BOTTOMRIGHT", 6, 1)
 
 ApplyScrollBarHybrid(FriendsListFrame.ScrollBar, true, true)
 ApplyScrollBarThumb(FriendsListFrame.ScrollBar.Track.Thumb)
@@ -93,15 +93,15 @@ ApplyScrollBarThumb(FriendsFrame.IgnoreListWindow.ScrollBar.Track.Thumb)
 ApplyDialogBorder(FriendsFrameBattlenetFrame.BroadcastFrame.Border)
 
 RecentAlliesFrame.List.ScrollBar:ClearAllPoints()
-RecentAlliesFrame.List.ScrollBar:SetPoint("TOPLEFT", RecentAlliesFrame.List.ScrollBox, "TOPRIGHT", 6, 3)
-RecentAlliesFrame.List.ScrollBar:SetPoint("BOTTOMLEFT", RecentAlliesFrame.List.ScrollBox, "BOTTOMRIGHT", 6, -2)
+RecentAlliesFrame.List.ScrollBar:SetPoint("TOPLEFT", RecentAlliesFrame.List.ScrollBox, "TOPRIGHT", 6, -2)
+RecentAlliesFrame.List.ScrollBar:SetPoint("BOTTOMLEFT", RecentAlliesFrame.List.ScrollBox, "BOTTOMRIGHT", 6, 1)
 
 ApplyScrollBarHybrid(RecentAlliesFrame.List.ScrollBar, true, true)
 ApplyScrollBarThumb(RecentAlliesFrame.List.ScrollBar.Track.Thumb)
 
 RecruitAFriendFrame.RecruitList.ScrollBar:ClearAllPoints()
-RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("TOPLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "TOPRIGHT", 6, 3)
-RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("BOTTOMLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "BOTTOMRIGHT", 6, -3)
+RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("TOPLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "TOPRIGHT", 6, -2)
+RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("BOTTOMLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "BOTTOMRIGHT", 6, 0)
 
 ApplyScrollBarHybrid(RecruitAFriendFrame.RecruitList.ScrollBar, true, true)
 ApplyScrollBarThumb(RecruitAFriendFrame.RecruitList.ScrollBar.Track.Thumb)
@@ -121,15 +121,15 @@ ApplyDialogBorder(RecruitAFriendRewardsFrame.Border)
 WhoFrameColumnHeader4Middle:SetWidth(48)
 
 WhoFrame.ScrollBar:ClearAllPoints()
-WhoFrame.ScrollBar:SetPoint("TOPLEFT", WhoFrame.ScrollBox, "TOPRIGHT", 6, 3)
-WhoFrame.ScrollBar:SetPoint("BOTTOMLEFT", WhoFrame.ScrollBox, "BOTTOMRIGHT", 6, -21)
+WhoFrame.ScrollBar:SetPoint("TOPLEFT", WhoFrame.ScrollBox, "TOPRIGHT", 6, -2)
+WhoFrame.ScrollBar:SetPoint("BOTTOMLEFT", WhoFrame.ScrollBox, "BOTTOMRIGHT", 6, -18)
 
 ApplyScrollBarHybrid(WhoFrame.ScrollBar, true, true)
 ApplyScrollBarThumb(WhoFrame.ScrollBar.Track.Thumb)
 
 QuickJoinFrame.ScrollBar:ClearAllPoints()
-QuickJoinFrame.ScrollBar:SetPoint("TOPLEFT", QuickJoinFrame.ScrollBox, "TOPRIGHT", 7, 4)
-QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", 7, -3)
+QuickJoinFrame.ScrollBar:SetPoint("TOPLEFT", QuickJoinFrame.ScrollBox, "TOPRIGHT", 7, -1)
+QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", 7, 0)
 
 ApplyScrollBarHybrid(QuickJoinFrame.ScrollBar, true, true)
 ApplyScrollBarThumb(QuickJoinFrame.ScrollBar.Track.Thumb)
@@ -141,8 +141,8 @@ AddFriendFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
 ApplyDialogBorder(AddFriendFrame.Border)
 
 RaidInfoFrame.ScrollBar:ClearAllPoints()
-RaidInfoFrame.ScrollBar:SetPoint("TOPLEFT", RaidInfoFrame.ScrollBox, "TOPRIGHT", 11, 6)
-RaidInfoFrame.ScrollBar:SetPoint("BOTTOMLEFT", RaidInfoFrame.ScrollBox, "BOTTOMRIGHT", 11, -4)
+RaidInfoFrame.ScrollBar:SetPoint("TOPLEFT", RaidInfoFrame.ScrollBox, "TOPRIGHT", 11, 1)
+RaidInfoFrame.ScrollBar:SetPoint("BOTTOMLEFT", RaidInfoFrame.ScrollBox, "BOTTOMRIGHT", 11, -1)
 
 ApplyScrollBarHybrid(RaidInfoFrame.ScrollBar)
 ApplyScrollBarThumb(RaidInfoFrame.ScrollBar.Track.Thumb)
