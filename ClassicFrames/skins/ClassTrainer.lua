@@ -16,8 +16,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyNineSlicePortrait(ClassTrainerFrame)
 
 		ClassTrainerFrame.ScrollBar:ClearAllPoints()
-		ClassTrainerFrame.ScrollBar:SetPoint("TOPLEFT", ClassTrainerFrame.ScrollBox, "TOPRIGHT", 7, 2)
-		ClassTrainerFrame.ScrollBar:SetPoint("BOTTOMLEFT", ClassTrainerFrame.ScrollBox, "BOTTOMRIGHT", 7, -2)
+		ClassTrainerFrame.ScrollBar:SetPoint("TOPLEFT", ClassTrainerFrame.ScrollBox, "TOPRIGHT", 7, 7)
+		ClassTrainerFrame.ScrollBar:SetPoint("BOTTOMLEFT", ClassTrainerFrame.ScrollBox, "BOTTOMRIGHT", 7, -5)
 
 		ApplyScrollBarHybrid(ClassTrainerFrame.ScrollBar)
 		ApplyScrollBarThumb(ClassTrainerFrame.ScrollBar.Track.Thumb)

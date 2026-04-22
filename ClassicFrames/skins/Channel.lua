@@ -14,8 +14,8 @@ ApplyTitleBg(ChannelFrame)
 ApplyNineSlicePortrait(ChannelFrame)
 
 ChannelFrame.ChannelRoster.ScrollBar:ClearAllPoints()
-ChannelFrame.ChannelRoster.ScrollBar:SetPoint("TOPLEFT", ChannelFrame.ChannelRoster.ScrollBox, "TOPRIGHT", 9, 0)
-ChannelFrame.ChannelRoster.ScrollBar:SetPoint("BOTTOMLEFT", ChannelFrame.ChannelRoster.ScrollBox, "BOTTOMRIGHT", 9, -4)
+ChannelFrame.ChannelRoster.ScrollBar:SetPoint("TOPLEFT", ChannelFrame.ChannelRoster.ScrollBox, "TOPRIGHT", 9, 5)
+ChannelFrame.ChannelRoster.ScrollBar:SetPoint("BOTTOMLEFT", ChannelFrame.ChannelRoster.ScrollBox, "BOTTOMRIGHT", 9, -7)
 
 ApplyScrollBarHybrid(ChannelFrame.ChannelRoster.ScrollBar)
 ApplyScrollBarThumb(ChannelFrame.ChannelRoster.ScrollBar.Track.Thumb)
