@@ -354,6 +354,9 @@ function ApplyScrollBarThumb(frame)
 
 	hooksecurefunc(frame:GetParent():GetParent(), "Update", function(self)
 		frame:SetShown(true)
+		if not self:HasScrollableExtent() then
+			frame:SetPoint("TOP")
+		end
 	end)
 end
 
