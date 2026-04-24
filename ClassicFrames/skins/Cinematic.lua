@@ -1,11 +1,11 @@
-hooksecurefunc('CinematicFrame_UpdateLettboxForAspectRatio', function(self)
-	if self and self.closeDialog then
+hooksecurefunc("CinematicFrame_UpdateLettboxForAspectRatio", function(self)
+	if self.closeDialog then
 		ApplyDialogBorder(self.closeDialog.Border)
 	end
 end)
 
-hooksecurefunc('MovieFrame_PlayMovie', function(self)
-	if self and self.CloseDialog then
+hooksecurefunc(MovieFrame, "PlayMovie", function(self)
+	if self.CloseDialog then
 		ApplyDialogBorder(self.CloseDialog.Border)
 	end
 end)
