@@ -17,15 +17,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		PlayerSpellsFrame.MaximizeMinimizeButton:SetPoint("RIGHT", PlayerSpellsFrameCloseButton, "LEFT", 8.5, 0)
 		PlayerSpellsFrame.MaximizeMinimizeButton:SetFrameLevel(2)
 
-		PlayerSpellsFrame.MaximizeMinimizeButton.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
-		PlayerSpellsFrame.MaximizeMinimizeButton.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
-		PlayerSpellsFrame.MaximizeMinimizeButton.MaximizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Disabled")
-		PlayerSpellsFrame.MaximizeMinimizeButton.MaximizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-
-		PlayerSpellsFrame.MaximizeMinimizeButton.MinimizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Up")
-		PlayerSpellsFrame.MaximizeMinimizeButton.MinimizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Down")
-		PlayerSpellsFrame.MaximizeMinimizeButton.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
-		PlayerSpellsFrame.MaximizeMinimizeButton.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+		ApplyMaxMinButton(PlayerSpellsFrame.MaximizeMinimizeButton)
 
 		ApplyTitleBg(PlayerSpellsFrame)
 		ApplyNineSlicePortrait(PlayerSpellsFrame)

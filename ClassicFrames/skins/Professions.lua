@@ -9,15 +9,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ProfessionsFrame.MaximizeMinimize:SetPoint("RIGHT", ProfessionsFrame.CloseButton, "LEFT", 8.5, 0)
 		ProfessionsFrame.MaximizeMinimize:SetFrameLevel(2)
 
-		ProfessionsFrame.MaximizeMinimize.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
-		ProfessionsFrame.MaximizeMinimize.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
-		ProfessionsFrame.MaximizeMinimize.MaximizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Disabled")
-		ProfessionsFrame.MaximizeMinimize.MaximizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-
-		ProfessionsFrame.MaximizeMinimize.MinimizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Up")
-		ProfessionsFrame.MaximizeMinimize.MinimizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Down")
-		ProfessionsFrame.MaximizeMinimize.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
-		ProfessionsFrame.MaximizeMinimize.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+		ApplyMaxMinButton(ProfessionsFrame.MaximizeMinimize)
 
 		ProfessionsFramePortrait:SetSize(61, 61)
 		ProfessionsFramePortrait:ClearAllPoints()
@@ -27,10 +19,10 @@ f:SetScript("OnEvent", function(self, event, name)
 		ProfessionsFrame.TitleContainer:SetPoint("TOPLEFT", ProfessionsFrame, "TOPLEFT", 58, 0)
 		ProfessionsFrame.TitleContainer:SetPoint("TOPRIGHT", ProfessionsFrame, "TOPRIGHT", -58, 0)
 
-		ProfessionsFrame.CraftingPage.TutorialButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
-
 		ApplyTitleBg(ProfessionsFrame)
 		ApplyNineSlicePortraitMinimizable(ProfessionsFrame)
+
+		ProfessionsFrame.CraftingPage.TutorialButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 
 		for i = 1, _G.ProfessionsFrame.TabSystem:GetNumChildren() do
 			local tab = select(i, ProfessionsFrame.TabSystem:GetChildren())

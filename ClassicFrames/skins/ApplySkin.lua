@@ -965,6 +965,20 @@ function ApplyStretchButton(frame)
 	end)
 end
 
+function ApplyMaxMinButton(frame)
+	frame.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
+	frame.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
+	frame.MaximizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Disabled")
+	frame.MaximizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+	frame.MaximizeButton:SetHitRectInsets(5, 5, 5, 5)
+
+	frame.MinimizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Up")
+	frame.MinimizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Down")
+	frame.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
+	frame.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+	frame.MinimizeButton:SetHitRectInsets(5, 5, 5, 5)
+end
+
 function ApplyCheckBox(frame)
 	frame:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
 	frame:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")

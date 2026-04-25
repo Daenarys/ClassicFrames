@@ -5,24 +5,16 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 	if displayMode == COMMUNITIES_FRAME_DISPLAY_MODES.MINIMIZED then
 		ApplyCloseButton(CommunitiesFrameCloseButton)
 
-		self.TitleContainer:ClearAllPoints()
-		self.TitleContainer:SetPoint("TOPLEFT", self, "TOPLEFT", 58, 0)
-		self.TitleContainer:SetPoint("TOPRIGHT", self, "TOPRIGHT", -58, 0)
-
 		self.MaximizeMinimizeFrame:SetSize(32, 32)
 		self.MaximizeMinimizeFrame:ClearAllPoints()
 		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 8.5, 0)
 		self.MaximizeMinimizeFrame:SetFrameLevel(2)
 
-		self.MaximizeMinimizeFrame.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
-		self.MaximizeMinimizeFrame.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
-		self.MaximizeMinimizeFrame.MaximizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Disabled")
-		self.MaximizeMinimizeFrame.MaximizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+		ApplyMaxMinButton(self.MaximizeMinimizeFrame)
 
-		self.MaximizeMinimizeFrame.MinimizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Up")
-		self.MaximizeMinimizeFrame.MinimizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Down")
-		self.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
-		self.MaximizeMinimizeFrame.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+		self.TitleContainer:ClearAllPoints()
+		self.TitleContainer:SetPoint("TOPLEFT", self, "TOPLEFT", 58, 0)
+		self.TitleContainer:SetPoint("TOPRIGHT", self, "TOPRIGHT", -58, 0)
 
 		ApplyTitleBg(self, true)
 		ApplyNineSliceNoPortraitMinimizable(self)
@@ -51,15 +43,7 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 8.5, 0)
 		self.MaximizeMinimizeFrame:SetFrameLevel(2)
 
-		self.MaximizeMinimizeFrame.MaximizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Up")
-		self.MaximizeMinimizeFrame.MaximizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Down")
-		self.MaximizeMinimizeFrame.MaximizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-BiggerButton-Disabled")
-		self.MaximizeMinimizeFrame.MaximizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
-
-		self.MaximizeMinimizeFrame.MinimizeButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Up")
-		self.MaximizeMinimizeFrame.MinimizeButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Down")
-		self.MaximizeMinimizeFrame.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
-		self.MaximizeMinimizeFrame.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+		ApplyMaxMinButton(self.MaximizeMinimizeFrame)
 
 		CommunitiesFramePortrait:SetSize(61, 61)
 		CommunitiesFramePortrait:ClearAllPoints()
