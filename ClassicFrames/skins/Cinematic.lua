@@ -1,11 +1,12 @@
-hooksecurefunc("CinematicFrame_UpdateLettboxForAspectRatio", function(self)
-	if self.closeDialog then
-		ApplyDialogBorder(self.closeDialog.Border)
-	end
-end)
+if _G.CinematicFrame then
+	ApplyDialogBorder(CinematicFrame.closeDialog.Border)
+end
 
-hooksecurefunc(MovieFrame, "PlayMovie", function(self)
-	if self.CloseDialog then
-		ApplyDialogBorder(self.CloseDialog.Border)
-	end
-end)
+if _G.MovieFrame then
+	MovieFrame.CloseDialog.topPadding = 15
+	MovieFrame.CloseDialog.leftPadding = 15
+	MovieFrame.CloseDialog.rightPadding = 15
+	MovieFrame.CloseDialog.bottomPadding = 15
+	MovieFrame.CloseDialog.BackgroundTile:SetAlpha(0)
+	ApplyDialogBorder(MovieFrame.CloseDialog.Border)
+end
