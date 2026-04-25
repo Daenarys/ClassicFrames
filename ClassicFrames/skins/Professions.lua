@@ -100,8 +100,28 @@ f:SetScript("OnEvent", function(self, event, name)
 		end)
 
 		ApplyCloseButton(ProfessionsFrame.CraftingPage.CraftingOutputLog.ClosePanelButton)
+		ProfessionsFrame.CraftingPage.CraftingOutputLog.ClosePanelButton:SetFrameLevel(4)
 		ApplyTitleBg(ProfessionsFrame.CraftingPage.CraftingOutputLog, true)
 		ApplyNineSliceNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog)
+
+		local function CullCorner(texture, startU, endU, startV, endV, relU, relV, dirU, dirV)
+			local width = endU - startU
+			local height = endV - startV
+
+			local finalStartU = startU + (width * (1 - relU) * dirU)
+			local finalEndU = finalStartU + (width * relU)
+
+			local finalStartV = startV + (height * (1 - relV) * dirV)
+			local finalEndV = finalStartV + (height * relV)
+
+			texture:SetTexCoord(finalStartU, finalEndU, finalStartV, finalEndV)
+			texture:SetSize(132 * relU, 132 * relV)
+		end
+
+		CullCorner(ProfessionsFrame.CraftingPage.CraftingOutputLog.NineSlice.TopLeftCorner, 0.525390625, 0.783203125, 0.001953125, 0.259765625, .65, .6, 0, 0)
+		CullCorner(ProfessionsFrame.CraftingPage.CraftingOutputLog.NineSlice.TopRightCorner, 0.001953125, 0.259765625, 0.263671875, 0.521484375, .25, .4, 1, 0)
+		CullCorner(ProfessionsFrame.CraftingPage.CraftingOutputLog.NineSlice.BottomLeftCorner, 0.001953125, 0.259765625, 0.001953125, 0.259765625, .55, .4, 0, 1)
+		CullCorner(ProfessionsFrame.CraftingPage.CraftingOutputLog.NineSlice.BottomRightCorner, 0.263671875, 0.521484375, 0.001953125, 0.259765625, .35, .4, 1, 1)
 
 		ApplyFilterDropDown(ProfessionsFrame.CraftingPage.RecipeList.FilterDropdown)
 		ApplyFilterDropDown(ProfessionsFrame.OrdersPage.BrowseFrame.RecipeList.FilterDropdown)
