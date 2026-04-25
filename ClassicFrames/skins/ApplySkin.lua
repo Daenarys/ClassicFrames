@@ -350,6 +350,22 @@ function ApplyScrollBarThumb(frame)
 	frame.downEndTexture = "UI-ScrollBar-Knob-EndCap-Bottom-Disabled"
 end
 
+function ApplyScrollBarThumbOld(frame)
+	frame.Begin:SetAlpha(0)
+	frame.End:SetAlpha(0)
+	frame.Middle:SetAlpha(0)
+
+	if (frame.ThumbTexture == nil) then
+		frame.ThumbTexture = frame:CreateTexture(nil, "BACKGROUND")
+		frame.ThumbTexture:SetSize(18, 24)
+		frame.ThumbTexture:SetTexture("Interface\\Buttons\\UI-ScrollBar-Knob")
+		frame.ThumbTexture:SetTexCoord(0.20, 0.80, 0.125, 0.875)
+		frame.ThumbTexture:SetPoint("TOP")
+	end
+
+	frame:GetParent():GetParent().fixedThumbExtent = 23
+end
+
 function ApplyTopTab(frame)
 	frame.LeftActive:SetSize(16, 32)
 	frame.LeftActive:SetTexture("Interface\\HelpFrame\\HelpFrameTab-Active")

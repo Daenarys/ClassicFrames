@@ -11,6 +11,8 @@ for i = 1, NUM_CHAT_WINDOWS do
     _G['ChatFrame'..i].ScrollBar.Track:SetPoint("TOP", 0, -4)
     _G['ChatFrame'..i].ScrollBar.Track:SetPoint("BOTTOM")
 
+    ApplyScrollBarThumbOld(_G['ChatFrame'..i].ScrollBar.Track.Thumb)
+
     _G['ChatFrame'..i].ScrollToBottomButton:SetSize(24, 24)
     _G['ChatFrame'..i].ScrollToBottomButton:ClearAllPoints()
     _G['ChatFrame'..i].ScrollToBottomButton:SetPoint("BOTTOMRIGHT", _G['ChatFrame'..i..'ResizeButton'], "TOPRIGHT", 1, -2)
