@@ -99,11 +99,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyNineSlicePortraitMinimizable(ProfessionsFrame)
 		end)
 
-		ApplyCloseButton(ProfessionsFrame.CraftingPage.CraftingOutputLog.ClosePanelButton)
-		ProfessionsFrame.CraftingPage.CraftingOutputLog.ClosePanelButton:SetFrameLevel(4)
-		ApplyTitleBg(ProfessionsFrame.CraftingPage.CraftingOutputLog, true)
-		ApplyNineSliceNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog)
-
 		ApplyFilterDropDown(ProfessionsFrame.CraftingPage.RecipeList.FilterDropdown)
 		ApplyFilterDropDown(ProfessionsFrame.OrdersPage.BrowseFrame.RecipeList.FilterDropdown)
 
