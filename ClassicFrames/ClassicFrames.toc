@@ -3,7 +3,7 @@
 ## Title: Classic Frames
 ## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
-## Version: 3.51
+## Version: 3.52
 ## OptionalDeps: SexyMap
 embeds.xml
 skins\ApplySkin.lua
