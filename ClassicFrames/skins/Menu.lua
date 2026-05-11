@@ -65,13 +65,14 @@ local function SkinMenu(manager, owner, menuDescription)
 	local menu = manager:GetOpenMenu()
 	if not menu then return end
 
-	if select(1, menu:GetRegions()):GetAtlas() == "common-dropdown-c-bg" then
-		DialogSkin:Hide()
-		TooltipSkin:Hide()
-		return
+	for _, region in ipairs({menu:GetRegions()}) do
+		if region:IsObjectType("Texture") and region:GetAtlas() == "common-dropdown-bg" then
+			region:SetAlpha(0)
+		elseif region:IsObjectType("Texture") and region:GetAtlas() == "common-dropdown-c-bg" then
+			DialogSkin:Hide()
+			TooltipSkin:Hide()
+		end
 	end
-
-	select(1, menu:GetRegions()):SetAlpha(0)
 
 	if IsDialogMenu(owner) then
 		TooltipSkin:Hide()
@@ -92,7 +93,11 @@ local function SkinMenu(manager, owner, menuDescription)
 	end
 
 	menuDescription:AddMenuAcquiredCallback(function(self)
-		select(1, self:GetRegions()):SetAlpha(0)
+		for _, region in ipairs({self:GetRegions()}) do
+			if region:IsObjectType("Texture") and region:GetAtlas() == "common-dropdown-bg" then
+				region:SetAlpha(0)
+			end
+		end
 		if IsDialogMenu(owner) then
 			SubTooltipSkin:Hide()
 			SubDialogSkin:SetParent(self)
