@@ -6,7 +6,7 @@ if _G.CinematicFrame then
 end
 
 if _G.MovieFrame then
-	MovieFrame.CloseDialog.topPadding = 18
+	MovieFrame.CloseDialog.topPadding = 17
 	MovieFrame.CloseDialog.leftPadding = 15
 	MovieFrame.CloseDialog.rightPadding = 15
 	MovieFrame.CloseDialog.bottomPadding = 18
