@@ -34,19 +34,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyDropDown(HousingDashboardFrame.HouseInfoContent.HouseDropdown)
 		ApplyFilterDropDown(HousingDashboardFrame.CatalogContent.Filters.FilterDropdown)
-	elseif name == "Blizzard_HousingHouseFinder" then
-		ApplyCloseButton(HouseFinderFrameCloseButton)
-
-		HouseFinderFramePortrait:SetSize(61, 61)
-		HouseFinderFramePortrait:ClearAllPoints()
-		HouseFinderFramePortrait:SetPoint("TOPLEFT", -6, 8)
-
-		HouseFinderFrame.TitleContainer:ClearAllPoints()
-		HouseFinderFrame.TitleContainer:SetPoint("TOPLEFT", HouseFinderFrame, "TOPLEFT", 58, 0)
-		HouseFinderFrame.TitleContainer:SetPoint("TOPRIGHT", HouseFinderFrame, "TOPRIGHT", -58, 0)
-
-		ApplyTitleBg(HouseFinderFrame)
-		ApplyNineSlicePortrait(HouseFinderFrame)
 	elseif name == "Blizzard_HousingModelPreview" then
 		ApplyCloseButton(HousingModelPreviewFrameCloseButton)
 
