@@ -33,6 +33,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(ClickBindingFrame.ScrollBar.Track.Thumb)
 
 		ApplyCloseButton(ClickBindingFrame.TutorialFrame.CloseButton)
+		ClickBindingFrame.TutorialFrame.CloseButton:SetFrameLevel(3)
 		ApplyTitleBg(ClickBindingFrame.TutorialFrame, true)
 		ApplyNineSliceNoPortrait(ClickBindingFrame.TutorialFrame)
 	end

@@ -22,6 +22,12 @@ f:SetScript("OnEvent", function(self, event, name)
 		end
 
 		ApplyNineSlicePortrait(HousingDashboardFrame)
+
+		ApplyScrollBarHybrid(HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar)
+		ApplyScrollBarThumb(HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar.Track.Thumb)
+
+		ApplyDropDown(HousingDashboardFrame.HouseInfoContent.HouseDropdown)
+		ApplyFilterDropDown(HousingDashboardFrame.CatalogContent.Filters.FilterDropdown)
 	elseif name == "Blizzard_HousingModelPreview" then
 		ApplyCloseButton(HousingModelPreviewFrameCloseButton)
 
