@@ -12,8 +12,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		HousingDashboardFrame.TitleContainer:SetPoint("TOPLEFT", HousingDashboardFrame, "TOPLEFT", 58, 0)
 		HousingDashboardFrame.TitleContainer:SetPoint("TOPRIGHT", HousingDashboardFrame, "TOPRIGHT", -58, 0)
 
-		ApplyNineSlicePortrait(HousingDashboardFrame)
-
 		if (HousingDashboardFrame.NineSlice.TitleBg == nil) then
 			HousingDashboardFrame.NineSlice.TitleBg = HousingDashboardFrame.NineSlice:CreateTexture(nil, "BACKGROUND")
 			HousingDashboardFrame.NineSlice.TitleBg:SetAtlas("_UI-Frame-TitleTileBg", false)
@@ -23,17 +21,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			HousingDashboardFrame.NineSlice.TitleBg:SetPoint("TOPRIGHT", -25, -3)
 		end
 
-		HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar:SetSize(25, 560)
-		HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar:ClearAllPoints()
-		HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar:SetPoint("TOPLEFT", HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBox, "TOPRIGHT")
-		HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar:SetPoint("BOTTOMLEFT", HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBox, "BOTTOMRIGHT")
-
-		ApplyScrollBarArrow(HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar)
-		ApplyScrollBarTrack(HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar.Track)
-		ApplyScrollBarThumb(HousingDashboardFrame.CatalogContent.OptionsContainer.ScrollBar.Track.Thumb)
-
-		ApplyDropDown(HousingDashboardFrame.HouseInfoContent.HouseDropdown)
-		ApplyFilterDropDown(HousingDashboardFrame.CatalogContent.Filters.FilterDropdown)
+		ApplyNineSlicePortrait(HousingDashboardFrame)
 	elseif name == "Blizzard_HousingModelPreview" then
 		ApplyCloseButton(HousingModelPreviewFrameCloseButton)
 
