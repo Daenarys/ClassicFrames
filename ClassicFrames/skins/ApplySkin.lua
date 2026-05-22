@@ -235,7 +235,7 @@ function ApplyScrollBarArrow(frame, defaultPos)
 	frame.Forward:GetHighlightTexture():SetTexCoord(0.2, 0.8, 0.25, 0.75)
 
 	if not defaultPos then
-		frame.Back:SetPoint("TOP", 0, -5)
+		frame.Back:SetPoint("TOP", 0, -4)
 		frame.Forward:SetPoint("BOTTOM", 0, 3)
 	end
 end
@@ -249,7 +249,7 @@ function ApplyScrollBarTrack(frame)
 	frame.Begin:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")
 	frame.Begin:SetTexCoord(0, 0.484375, 0, 0.4)
 	frame.Begin:ClearAllPoints()
-	frame.Begin:SetPoint("TOPLEFT", -7, 22)
+	frame.Begin:SetPoint("TOPLEFT", -7, 23)
 
 	frame.End:SetSize(31, 106)
 	frame.End:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ScrollBar")

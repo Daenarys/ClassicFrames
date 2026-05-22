@@ -33,7 +33,7 @@ TokenFrame.filterDropdown:Hide()
 
 ReputationFrame.ScrollBar:SetSize(25, 560)
 ReputationFrame.ScrollBar:ClearAllPoints()
-ReputationFrame.ScrollBar:SetPoint("TOPLEFT", ReputationFrame.ScrollBox, "TOPRIGHT", -4, 5)
+ReputationFrame.ScrollBar:SetPoint("TOPLEFT", ReputationFrame.ScrollBox, "TOPRIGHT", -4, 4)
 ReputationFrame.ScrollBar:SetPoint("BOTTOMLEFT", ReputationFrame.ScrollBox, "BOTTOMRIGHT", 4, -3)
 
 ApplyScrollBarArrow(ReputationFrame.ScrollBar)
@@ -74,7 +74,7 @@ ApplyDialogBorder(ReputationFrame.ReputationDetailFrame.Border)
 
 TokenFrame.ScrollBar:SetSize(25, 560)
 TokenFrame.ScrollBar:ClearAllPoints()
-TokenFrame.ScrollBar:SetPoint("TOPLEFT", TokenFrame.ScrollBox, "TOPRIGHT", -4, 5)
+TokenFrame.ScrollBar:SetPoint("TOPLEFT", TokenFrame.ScrollBox, "TOPRIGHT", -4, 4)
 TokenFrame.ScrollBar:SetPoint("BOTTOMLEFT", TokenFrame.ScrollBox, "BOTTOMRIGHT", 4, -3)
 
 ApplyScrollBarArrow(TokenFrame.ScrollBar)

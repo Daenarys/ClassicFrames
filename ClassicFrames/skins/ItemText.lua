@@ -15,8 +15,8 @@ ApplyNineSlicePortrait(ItemTextFrame)
 
 ItemTextScrollFrame.ScrollBar:SetSize(25, 560)
 ItemTextScrollFrame.ScrollBar:ClearAllPoints()
-ItemTextScrollFrame.ScrollBar:SetPoint("TOPLEFT", ItemTextScrollFrame, "TOPRIGHT", 1, 3)
-ItemTextScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", ItemTextScrollFrame, "BOTTOMRIGHT", 4, -2)
+ItemTextScrollFrame.ScrollBar:SetPoint("TOPLEFT", ItemTextScrollFrame, "TOPRIGHT", 1, 4)
+ItemTextScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", ItemTextScrollFrame, "BOTTOMRIGHT", 4, -3)
 
 if (ItemTextScrollFrame.ScrollBar.BG == nil) then
 	ItemTextScrollFrame.ScrollBar.BG = ItemTextScrollFrame.ScrollBar:CreateTexture(nil, "BACKGROUND")
