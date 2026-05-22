@@ -80,13 +80,13 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 		icon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
 
 		if role == Enum.LFGRole.Tank then
-			icon:SetTexCoord(GetTexCoordsForRoleSmallCircle("TANK"))
+			icon:SetTexCoord(GetTexCoordsForOldRoleSmallCircle("TANK"))
 			icon:Show()
 		elseif role == Enum.LFGRole.Healer then
-			icon:SetTexCoord(GetTexCoordsForRoleSmallCircle("HEALER"))
+			icon:SetTexCoord(GetTexCoordsForOldRoleSmallCircle("HEALER"))
 			icon:Show()
 		elseif role == Enum.LFGRole.Damage then
-			icon:SetTexCoord(GetTexCoordsForRoleSmallCircle("DAMAGER"))
+			icon:SetTexCoord(GetTexCoordsForOldRoleSmallCircle("DAMAGER"))
 			icon:Show()
 		else
 			icon:Hide()

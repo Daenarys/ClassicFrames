@@ -631,21 +631,21 @@ hooksecurefunc("LFGRewardsFrame_SetItemButton", function(parentFrame, _, index, 
 		local roleIcon = frame.roleIcon1;
 		if ( showTankIcon ) then
 			roleIcon.texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
-			roleIcon.texture:SetTexCoord(GetTexCoordsForRoleSmallCircle("TANK"))
+			roleIcon.texture:SetTexCoord(GetTexCoordsForOldRoleSmallCircle("TANK"))
 			roleIcon.role = "TANK";
 			roleIcon:Show()
 			roleIcon = frame.roleIcon2;
 		end
 		if ( showHealerIcon ) then
 			roleIcon.texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
-			roleIcon.texture:SetTexCoord(GetTexCoordsForRoleSmallCircle("HEALER"))
+			roleIcon.texture:SetTexCoord(GetTexCoordsForOldRoleSmallCircle("HEALER"))
 			roleIcon.role = "HEALER";
 			roleIcon:Show()
 			roleIcon = frame.roleIcon2;
 		end
 		if ( showDamageIcon ) then
 			roleIcon.texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
-			roleIcon.texture:SetTexCoord(GetTexCoordsForRoleSmallCircle("DAMAGER"))
+			roleIcon.texture:SetTexCoord(GetTexCoordsForOldRoleSmallCircle("DAMAGER"))
 			roleIcon.role = "DAMAGER";
 			roleIcon:Show()
 			roleIcon = frame.roleIcon2;
