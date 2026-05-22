@@ -1,6 +1,14 @@
 local function IsDialogMenu(owner)
 	if not owner then return false end
 
+	if EditModeSystemSettingsDialog then
+		for _, frame in next, { EditModeSystemSettingsDialog.Settings:GetChildren() } do
+			if frame.Dropdown == owner then
+				return true
+			end
+		end
+	end
+
 	if TransmogFrame and TransmogFrame.WardrobeCollection.TabContent.SituationsFrame.SituationFramePool then
 		for situationFrame in TransmogFrame.WardrobeCollection.TabContent.SituationsFrame.SituationFramePool:EnumerateActive() do
 			if situationFrame.Dropdown == owner then
