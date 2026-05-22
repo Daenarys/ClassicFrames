@@ -52,7 +52,9 @@ local function IsDialogMenu(owner)
 		or (TransmogFrame and owner == TransmogFrame.OutfitPopup.BorderBox.IconTypeDropdown)
 		or (TransmogFrame and owner == TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponDropdown)
 		or (TransmogFrame and owner == TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponSheatheDropdown)
+		or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.ClassDropdown)
 		or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
+		or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
 end
 
 local DialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
