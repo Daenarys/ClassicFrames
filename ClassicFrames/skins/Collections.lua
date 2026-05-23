@@ -84,7 +84,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyDropDown(HeirloomsJournal.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
-		ApplyDropDown(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
 
 		HeirloomsJournal.ClassDropdown:SetWidth(155)
 		HeirloomsJournal.ClassDropdown:SetPoint("TOPLEFT", 72, -31)
@@ -99,6 +98,10 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyFilterDropDown(HeirloomsJournal.FilterDropdown)
 		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
 
+		ApplyStretchButton(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
+
+		WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown:SetWidth(108)
+
 		hooksecurefunc(WardrobeCollectionFrame, "SetTab", function(self, tabID)
 			if tabID == WARDROBE_TAB_ITEMS then
 				self.ItemsCollectionFrame.ModelR1C1:SetPoint("TOP", -238, -85)
@@ -107,6 +110,12 @@ f:SetScript("OnEvent", function(self, event, name)
 				self.ItemsCollectionFrame.WeaponDropdown:SetPoint("TOPRIGHT", -23, -23)
 			end
 			self.ClassDropdown:Hide()
+		end)
+
+		hooksecurefunc(WardrobeCollectionFrame.SetsCollectionFrame, "DisplaySet", function(self)
+			if self.DetailsFrame.VariantSetsDropdown.PrecedingVariantIcon then
+				self.DetailsFrame.VariantSetsDropdown.PrecedingVariantIcon:Hide()
+			end
 		end)
 	end
 end)
