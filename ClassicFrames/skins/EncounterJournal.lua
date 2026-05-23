@@ -157,9 +157,9 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyScrollBarArrow(EncounterJournalEncounterFrameInstanceFrame.LoreScrollBar, true)
 
+		ApplyDropDown(EncounterJournalInstanceSelect.ExpansionDropdown)
 		ApplyDropDown(EncounterJournalEncounterFrameInfo.LootContainer.filter)
 		ApplyDropDown(EncounterJournalEncounterFrameInfo.LootContainer.slotFilter)
 		ApplyDropDown(EncounterJournalEncounterFrameInfoDifficulty)
-		ApplyDropDown(EncounterJournalInstanceSelect.ExpansionDropdown)
 	end
 end)
