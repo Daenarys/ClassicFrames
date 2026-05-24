@@ -43,11 +43,9 @@ local function IsDialogMenu(owner)
 		or (owner == GroupLootHistoryFrame.EncounterDropdown)
 		or (owner == MerchantFrame.FilterDropdown)
 		or (owner == ReportFrame.ReportingMajorCategoryDropdown)
-		or (owner == ReputationFrame.filterDropdown)
 		or (owner == TimeManagerAlarmTimeFrame.HourDropdown)
 		or (owner == TimeManagerAlarmTimeFrame.MinuteDropdown)
 		or (owner == TimeManagerAlarmTimeFrame.AMPMDropdown)
-		or (owner == TokenFrame.filterDropdown)
 		or (owner == WorldMapFrame.overlayFrames[1])
 		or (AuctionHouseFrame and owner == AuctionHouseFrame.CommoditiesSellFrame.Duration.Dropdown)
 		or (AuctionHouseFrame and owner == AuctionHouseFrame.ItemSellFrame.Duration.Dropdown)
@@ -57,9 +55,6 @@ local function IsDialogMenu(owner)
 		or (CalendarCreateEventFrame and owner == CalendarCreateEventFrame.AMPMDropdown)
 		or (DelvesDifficultyPickerFrame and owner == DelvesDifficultyPickerFrame.Dropdown)
 		or (EncounterJournal and owner == EncounterJournalInstanceSelect.ExpansionDropdown)
-		or (EncounterJournal and owner == EncounterJournalEncounterFrameInfo.LootContainer.filter)
-		or (EncounterJournal and owner == EncounterJournalEncounterFrameInfo.LootContainer.slotFilter)
-		or (EncounterJournal and owner == EncounterJournalEncounterFrameInfoDifficulty)
 		or (HeirloomsJournal and owner == HeirloomsJournal.ClassDropdown)
 		or (ItemUpgradeFrame and owner == ItemUpgradeFrame.ItemInfo.Dropdown)
 		or (MacroPopupFrame and owner == MacroPopupFrame.BorderBox.IconTypeDropdown)
@@ -67,9 +62,7 @@ local function IsDialogMenu(owner)
 		or (TransmogFrame and owner == TransmogFrame.OutfitPopup.BorderBox.IconTypeDropdown)
 		or (TransmogFrame and owner == TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponDropdown)
 		or (TransmogFrame and owner == TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponSheatheDropdown)
-		or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.ClassDropdown)
 		or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
-		or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
 end
 
 local DialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
@@ -149,3 +142,28 @@ if manager then
 	hooksecurefunc(manager, "OpenMenu", SkinMenu)
 	hooksecurefunc(manager, "OpenContextMenu", SkinMenu)
 end
+
+local ATLAS_MAP = {
+	["common-dropdown-ticksquare"]             = {0.5,1,0,0.5},
+	["common-dropdown-icon-checkmark-yellow"]  = {0,0.5,0,0.5},
+	["common-dropdown-tickradial"]             = {0.5,1, 0.5,1},
+	["common-dropdown-icon-radialtick-yellow"] = {0,0.5,0.5,1},
+}
+
+hooksecurefunc(CompositorMixin, "AttachFontString", function(parent)
+	if not parent.attachments then return end
+
+	for _, widget in ipairs(parent.attachments) do
+		local widgetType = widget:GetObjectType()
+		if widgetType == "FontString" then
+			widget:SetFontObject(GameFontHighlightSmallLeft)
+		elseif widgetType == "Texture" then
+			local coords = ATLAS_MAP[widget:GetAtlas()]
+			if coords then
+				widget:SetSize(16, 16)
+				widget:SetTexture([[Interface\Common\UI-DropDownRadioChecks]])
+				widget:SetTexCoord(unpack(coords))
+			end
+		end
+	end
+end)

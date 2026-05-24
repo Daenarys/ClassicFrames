@@ -2,6 +2,8 @@ local f = CreateFrame("Frame")
 f:RegisterEvent("ADDON_LOADED")
 f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_TimeManager" then
+		TimeManagerFrame:SetWidth(190)
+
 		ApplyCloseButton(TimeManagerFrameCloseButton)
 		TimeManagerFrameCloseButton:SetFrameLevel(4)
 
@@ -11,6 +13,11 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(TimeManagerFrame)
 		ApplyNineSlicePortrait(TimeManagerFrame)
+
+		TimeManagerAlarmMessageEditBox:SetWidth(160)
+
+		TimeManagerMilitaryTimeCheck:ClearAllPoints()
+		TimeManagerMilitaryTimeCheck:SetPoint("TOPLEFT", 155, -190)
 	
 		StopwatchCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
 		StopwatchCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
@@ -20,5 +27,17 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(TimeManagerAlarmTimeFrame.HourDropdown)
 		ApplyDropDown(TimeManagerAlarmTimeFrame.MinuteDropdown)
 		ApplyDropDown(TimeManagerAlarmTimeFrame.AMPMDropdown)
+
+		hooksecurefunc("TimeManagerFrame_SetupHourDropdown", function(self)
+			self.AlarmTimeFrame.HourDropdown:SetWidth(50)
+		end)
+
+		hooksecurefunc("TimeManagerFrame_SetupMinuteDropdown", function(self)
+			self.AlarmTimeFrame.MinuteDropdown:SetWidth(50)
+		end)
+
+		hooksecurefunc("TimeManagerFrame_SetupAMPMDropdown", function(self)
+			self.AlarmTimeFrame.AMPMDropdown:SetWidth(55)
+		end)
 	end
 end)

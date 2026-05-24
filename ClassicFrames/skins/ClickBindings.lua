@@ -19,7 +19,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ClickBindingFrame.ScrollBar:SetSize(25, 560)
 		ClickBindingFrame.ScrollBar:ClearAllPoints()
-		ClickBindingFrame.ScrollBar:SetPoint("TOPLEFT", ClickBindingFrame.ScrollBox, "TOPRIGHT", 5, 3)
+		ClickBindingFrame.ScrollBar:SetPoint("TOPLEFT", ClickBindingFrame.ScrollBox, "TOPRIGHT", 5, 4)
 		ClickBindingFrame.ScrollBar:SetPoint("BOTTOMLEFT", ClickBindingFrame.ScrollBox, "BOTTOMRIGHT", 8, -4)
 
 		if (ClickBindingFrame.ScrollBar.BG == nil) then

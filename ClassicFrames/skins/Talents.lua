@@ -71,6 +71,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDialogBorder(ClassTalentLoadoutImportDialog.Border)
 
 		ApplyDropDown(PlayerSpellsFrame.TalentsFrame.LoadSystem.Dropdown)
+		PlayerSpellsFrame.TalentsFrame.LoadSystem.Dropdown.Text:SetJustifyH("RIGHT")
 
 		ApplyCloseButton(HeroTalentsSelectionDialog.CloseButton)
 		ApplyTitleBg(HeroTalentsSelectionDialog, true)

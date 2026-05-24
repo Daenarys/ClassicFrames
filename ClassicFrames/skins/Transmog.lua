@@ -44,6 +44,9 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyDropDown(TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponDropdown)
 		ApplyDropDown(TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponSheatheDropdown)
 
+		TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponDropdown.Text:SetJustifyH("RIGHT")
+		TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponSheatheDropdown.Text:SetJustifyH("RIGHT")
+
 		ApplyFilterDropDown(TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.FilterButton)
 		ApplyFilterDropDown(TransmogFrame.WardrobeCollection.TabContent.SetsFrame.FilterButton)
 
@@ -57,5 +60,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(TransmogFrame.OutfitPopup.IconSelector.ScrollBar.Track.Thumb)
 
 		ApplyDropDown(TransmogFrame.OutfitPopup.BorderBox.IconTypeDropdown)
+		TransmogFrame.OutfitPopup.BorderBox.IconTypeDropdown.Text:SetJustifyH("RIGHT")
 	end
 end)

@@ -51,13 +51,6 @@ QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar:SetPoint("BOTTO
 ApplyScrollBarHybrid(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar, true)
 ApplyScrollBarThumb(QuestMapFrame.QuestsFrame.CampaignOverview.ScrollFrame.ScrollBar.Track.Thumb)
 
-MapLegendScrollFrame.ScrollBar:ClearAllPoints()
-MapLegendScrollFrame.ScrollBar:SetPoint("TOPLEFT", MapLegendScrollFrame, "TOPRIGHT", 7, -2)
-MapLegendScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", MapLegendScrollFrame, "BOTTOMRIGHT", -7, -3)
-
-ApplyScrollBarHybrid(MapLegendScrollFrame.ScrollBar, true)
-ApplyScrollBarThumb(MapLegendScrollFrame.ScrollBar.Track.Thumb)
-
 QuestDetailScrollFrame.ScrollBar:SetSize(25, 560)
 QuestDetailScrollFrame.ScrollBar:ClearAllPoints()
 QuestDetailScrollFrame.ScrollBar:SetPoint("TOPLEFT", QuestDetailScrollFrame, "TOPRIGHT", 1, 4)
