@@ -13,4 +13,3 @@ ApplyScrollBarHybrid(GroupLootHistoryFrame.ScrollBar, true)
 ApplyScrollBarThumb(GroupLootHistoryFrame.ScrollBar.Track.Thumb)
 
 ApplyDropDown(GroupLootHistoryFrame.EncounterDropdown)
-GroupLootHistoryFrame.EncounterDropdown.Text:SetJustifyH("RIGHT")

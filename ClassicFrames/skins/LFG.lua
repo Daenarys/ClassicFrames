@@ -26,10 +26,6 @@ for i = 1, 3 do
 	end)
 end
 
-GroupFinderFrame:HookScript("OnShow", function()
-	PVEFramePortrait:SetTexture("Interface\\LFGFrame\\UI-LFG-PORTRAIT")
-end)
-
 LFDQueueFrameRandomScrollFrame.ScrollBar:SetSize(25, 560)
 LFDQueueFrameRandomScrollFrame.ScrollBar:ClearAllPoints()
 LFDQueueFrameRandomScrollFrame.ScrollBar:SetPoint("TOPLEFT", LFDQueueFrameRandomScrollFrame, "TOPRIGHT", 1, 9)
@@ -99,21 +95,16 @@ ApplyScrollBarArrow(LFGListFrame.ApplicationViewer.ScrollBar)
 ApplyScrollBarTrack(LFGListFrame.ApplicationViewer.ScrollBar.Track)
 ApplyScrollBarThumb(LFGListFrame.ApplicationViewer.ScrollBar.Track.Thumb)
 
-LFGDungeonReadyDialog.Border:Hide()
-
 LFGDungeonReadyDialogCloseButton:SetSize(32, 32)
-LFGDungeonReadyDialogCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
+LFGDungeonReadyDialogCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-HideButton-Disabled")
 LFGDungeonReadyDialogCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-HideButton-Up")
 LFGDungeonReadyDialogCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-HideButton-Down")
 LFGDungeonReadyDialogCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 LFGDungeonReadyDialogCloseButton:ClearAllPoints()
 LFGDungeonReadyDialogCloseButton:SetPoint("TOPRIGHT", -2, -2)
 
-LFGDungeonReadyDialogBottomArt:ClearAllPoints()
-LFGDungeonReadyDialogBottomArt:SetPoint("BOTTOM", 0, 55)
-
 LFGDungeonReadyStatusCloseButton:SetSize(32, 32)
-LFGDungeonReadyStatusCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled")
+LFGDungeonReadyStatusCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-HideButton-Disabled")
 LFGDungeonReadyStatusCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-HideButton-Up")
 LFGDungeonReadyStatusCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-HideButton-Down")
 LFGDungeonReadyStatusCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
@@ -121,6 +112,7 @@ LFGDungeonReadyStatusCloseButton:ClearAllPoints()
 LFGDungeonReadyStatusCloseButton:SetPoint("TOPRIGHT", -2, -2)
 
 ApplyDialogBorder(LFDRoleCheckPopup.Border)
+ApplyDialogBorder(LFGDungeonReadyDialog.Border)
 ApplyDialogBorder(LFGDungeonReadyStatus.Border)
 ApplyDialogBorder(LFGInvitePopup.Border)
 ApplyDialogBorder(LFGListApplicationDialog.Border)
@@ -326,18 +318,6 @@ ApplyDropDown(LFGListEntryCreationActivityDropdown)
 ApplyDropDown(LFGListEntryCreationPlayStyleDropdown)
 ApplyFilterDropDown(LFGListFrame.SearchPanel.FilterButton)
 
-LFDQueueFrameTypeDropdown:SetWidth(195)
-LFDQueueFrameTypeDropdown:SetPoint("BOTTOMLEFT", 135, 291)
-LFDQueueFrameTypeDropdown.Text:SetJustifyH("RIGHT")
-LFDQueueFrameTypeDropdown.Text:SetPoint("TOPLEFT", 9, -7)
-LFDQueueFrameTypeDropdownName:SetPoint("RIGHT", LFDQueueFrameTypeDropdown, "LEFT", -18, 0)
-
-RaidFinderQueueFrameSelectionDropdown:SetWidth(195)
-RaidFinderQueueFrameSelectionDropdown:SetPoint("BOTTOMLEFT", 135, 293)
-RaidFinderQueueFrameSelectionDropdown.Text:SetJustifyH("RIGHT")
-RaidFinderQueueFrameSelectionDropdown.Text:SetPoint("TOPLEFT", 9, -6)
-RaidFinderQueueFrameSelectionDropdownName:SetPoint("RIGHT", RaidFinderQueueFrameSelectionDropdown, "LEFT", -18, 0)
-
 hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	if ( button.background ) then
 		button.background:SetTexture("Interface\\LFGFrame\\UI-LFG-ICONS-ROLEBACKGROUNDS")
@@ -379,53 +359,6 @@ end)
 
 hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 	local proposalExists, id, typeID, subtypeID, name, backgroundTexture, role, hasResponded, totalEncounters, completedEncounters, numMembers, isLeader, _, _, isSilent = GetLFGProposal()
-	
-	if not LFGDungeonReadyDialog.SetBackdrop then
-		Mixin(LFGDungeonReadyDialog, BackdropTemplateMixin)
-	end
-
-	if (LFGDungeonReadyDialog.filigree == nil) then
-		LFGDungeonReadyDialog.filigree = LFGDungeonReadyDialog:CreateTexture(nil, "OVERLAY")
-	end
-
-	if ( subtypeID == LFG_SUBTYPEID_RAID ) then
-		LFGDungeonReadyDialog.filigree:SetTexture("Interface\\LFGFrame\\LFR-Texture")
-		LFGDungeonReadyDialog.filigree:SetTexCoord(0.00195313, 0.57617188, 0.58593750, 0.78125000)
-		LFGDungeonReadyDialog.filigree:SetSize(294, 50)
-		LFGDungeonReadyDialog.filigree:SetPoint("TOPLEFT", 7, -8)
-		LFGDungeonReadyDialog.bottomArt:SetTexture("Interface\\LFGFrame\\LFR-Texture")
-		LFGDungeonReadyDialog.bottomArt:SetTexCoord(0.00195313, 0.55273438, 0.29296875, 0.57812500)
-		LFGDungeonReadyDialog.bottomArt:SetSize(282, 73)
-		LFGDungeonReadyDialog:SetBackdrop(BACKDROP_GOLD_DIALOG_32_32)
-	else
-		LFGDungeonReadyDialog.filigree:SetTexture("Interface\\LFGFrame\\UI-LFG-FILIGREE")
-		LFGDungeonReadyDialog.filigree:SetTexCoord(0.02734, 0.59765, 0.578125, 1.0)
-		LFGDungeonReadyDialog.filigree:SetSize(292, 54)
-		LFGDungeonReadyDialog.filigree:SetPoint("TOPLEFT", 7, -3)
-		LFGDungeonReadyDialog.bottomArt:SetTexture("Interface\\LFGFrame\\UI-LFG-FILIGREE")
-		if ( subtypeID == LFG_SUBTYPEID_SCENARIO or subtypeID == LFG_SUBTYPEID_FLEXRAID ) then
-			LFGDungeonReadyDialog.bottomArt:SetTexCoord(0.0, 0.18, 0.0, 0.5625)
-		else
-			LFGDungeonReadyDialog.bottomArt:SetTexCoord(0.0, 0.5605, 0.0, 0.5625)
-		end
-		LFGDungeonReadyDialog.bottomArt:SetSize(287, 72)
-		LFGDungeonReadyDialog:SetBackdrop(BACKDROP_DIALOG_32_32)
-	end
-
-	if ( subtypeID == LFG_SUBTYPEID_SCENARIO ) then
-		LFGDungeonReadyDialog.background:SetDrawLayer("BACKGROUND")
-		if ( LFG_IsHeroicScenario(id) ) then
-			LFGDungeonReadyDialog.background:SetTexture("Interface\\LFGFrame\\UI-LFG-BACKGROUND-HeroicScenario")
-		else
-			LFGDungeonReadyDialog.background:SetTexture("Interface\\LFGFrame\\UI-LFG-BACKGROUND-RandomScenario")
-		end
-	end
-
-	if ( subtypeID == LFG_SUBTYPEID_SCENARIO or subtypeID == LFG_SUBTYPEID_FLEXRAID ) then
-		LFGDungeonReadyDialogRewardsFrame:SetPoint("BOTTOM", LFGDungeonReadyDialogRoleIcon, "BOTTOM", 0, 15)
-	else
-		LFGDungeonReadyDialogRewardsFrame:SetPoint("BOTTOMLEFT", LFGDungeonReadyDialogRoleIcon, "BOTTOMRIGHT", 19, 15)
-	end
 
 	if LFGDungeonReadyDialogRoleIcon then
 		LFGDungeonReadyDialogRoleIconTexture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
@@ -437,10 +370,6 @@ hooksecurefunc('LFGDungeonReadyPopup_Update', function()
 		elseif role == 'HEALER' then
 			LFGDungeonReadyDialogRoleIconTexture:SetTexCoord(GetTexCoordsForRole("HEALER"))
 		end
-	end
-
-	if LFGDungeonReadyDialog.Center then
-		LFGDungeonReadyDialog.Center:SetDrawLayer("BACKGROUND", -8)
 	end
 end)
 
@@ -711,13 +640,3 @@ for _, rolePollButton in pairs({
 	checkButton.CheckedTexture:SetTexture("Interface\\Buttons\\UI-RadioButton")
 	checkButton.CheckedTexture:SetTexCoord(0.25, 0.5, 0, 1)
 end
-
-hooksecurefunc("LFGRewardsFrame_UpdateFrame", function(parentFrame, dungeonID)
-	if (dungeonID == 2634 or dungeonID == 744 or dungeonID == 995 or dungeonID == 1146 or dungeonID == 1453 or dungeonID == 1971 or dungeonID == 2274 or dungeonID == 2874 or dungeonID == 3076) then
-		parentFrame.title:SetText(LFG_TYPE_RANDOM_TIMEWALKER_DUNGEON)
-		parentFrame.description:SetText(LFD_TIMEWALKER_RANDOM_EXPLANATION)
-	end
-
-	parentFrame.title:ClearAllPoints()
-	parentFrame.title:SetPoint("TOPLEFT", 10, -8)
-end)

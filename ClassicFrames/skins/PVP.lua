@@ -77,46 +77,20 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyDropDown(HonorFrameTypeDropdown)
 		ApplyDropDown(TrainingGroundsFrameTypeDropdown)
-
-		HonorFrameTypeDropdown:SetWidth(175)
-		HonorFrameTypeDropdown:SetPoint("BOTTOMRIGHT", HonorFrame.Inset, "TOPRIGHT", -11, 5)
-		HonorFrameTypeDropdown.Text:SetJustifyH("RIGHT")
-		HonorFrameTypeDropdown.Text:SetPoint("TOPLEFT", 9, -7)
-
-		TrainingGroundsFrameTypeDropdown:SetWidth(175)
-		TrainingGroundsFrameTypeDropdown:SetPoint("BOTTOMRIGHT", TrainingGroundsFrame.Inset, "TOPRIGHT", -11, 5)
-		TrainingGroundsFrameTypeDropdown.Text:SetJustifyH("RIGHT")
-		TrainingGroundsFrameTypeDropdown.Text:SetPoint("TOPLEFT", 9, -7)
 	end
 end)
 
 ApplyDialogBorder(PVPReadyDialog.Border)
 
-ApplyCloseButton(PVPReadyDialogCloseButton, true)
+PVPReadyDialogCloseButton:SetSize(32, 32)
+PVPReadyDialogCloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-HideButton-Disabled")
+PVPReadyDialogCloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-HideButton-Up")
+PVPReadyDialogCloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-HideButton-Down")
+PVPReadyDialogCloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 PVPReadyDialogCloseButton:ClearAllPoints()
 PVPReadyDialogCloseButton:SetPoint("TOPRIGHT", -2, -2)
 
-PVPReadyDialogBottomArt:SetSize(287, 72)
-PVPReadyDialogBottomArt:SetTexture("Interface\\LFGFrame\\UI-LFG-FILIGREE")
-PVPReadyDialogBottomArt:SetTexCoord(0, 0.5605, 0, 0.5625)
-PVPReadyDialogBottomArt:ClearAllPoints()
-PVPReadyDialogBottomArt:SetPoint("BOTTOM", 0, 55)
-
-if (PVPReadyDialogFiligree == nil) then
-	PVPReadyDialog:CreateTexture("PVPReadyDialogFiligree", "OVERLAY")
-	PVPReadyDialogFiligree:SetTexture("Interface\\LFGFrame\\UI-LFG-FILIGREE")
-	PVPReadyDialogFiligree:SetTexCoord(0.02734, 0.59765, 0.578125, 1.0)
-	PVPReadyDialogFiligree:SetSize(292, 54)
-	PVPReadyDialogFiligree:SetPoint("TOPLEFT", 7, -3)
-end
-
-hooksecurefunc('PVPReadyDialog_Display', function(self, _, _, isRated, queueType, _, role)
-	if ( PVPHelper_QueueNeedsRoles(queueType, isRated) ) then
-		self.bottomArt:SetTexCoord(0.0, 0.5605, 0.0, 0.5625)
-	else
-		self.bottomArt:SetTexCoord(0.0, 0.18, 0.0, 0.5625)
-	end
-
+hooksecurefunc('PVPReadyDialog_Display', function(self, _, _, _, _, _, role)
 	self.roleIcon.texture:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 	self.roleIcon.texture:SetTexCoord(GetTexCoordsForRole(role))
 end)
@@ -180,7 +154,11 @@ for i = 1, 3 do
 	end)
 end
 
-ApplyCloseButton(ReadyStatus.CloseButton, true)
+ReadyStatus.CloseButton:SetSize(32, 32)
+ReadyStatus.CloseButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-HideButton-Disabled")
+ReadyStatus.CloseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-HideButton-Up")
+ReadyStatus.CloseButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-HideButton-Down")
+ReadyStatus.CloseButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 ReadyStatus.CloseButton:ClearAllPoints()
 ReadyStatus.CloseButton:SetPoint("TOPRIGHT", -2, -2)
 

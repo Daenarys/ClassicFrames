@@ -1,9 +1,7 @@
 local f = CreateFrame("Frame")
 f:RegisterEvent("ADDON_LOADED")
 f:SetScript("OnEvent", function(self, event, name)
-	if name == "Blizzard_DelvesDashboardUI" then
-		DelvesDashboardFrame.DashboardBackground:SetDrawLayer("BACKGROUND", -1)
-	elseif name == "Blizzard_DelvesDifficultyPicker" then
+	if name == "Blizzard_DelvesDifficultyPicker" then
 		ApplyCloseButton(DelvesDifficultyPickerFrame.CloseButton, true)
 		DelvesDifficultyPickerFrame.CloseButton:ClearAllPoints()
 		DelvesDifficultyPickerFrame.CloseButton:SetPoint("TOPRIGHT", 4, 3)
@@ -28,7 +26,6 @@ if DelvesCompanionAbilityListFrame then
 	ApplyNineSlicePortrait(DelvesCompanionAbilityListFrame)
 
 	ApplyDropDown(DelvesCompanionAbilityListFrame.DelvesCompanionRoleDropdown)
-	DelvesCompanionAbilityListFrame.DelvesCompanionRoleDropdown.Text:SetJustifyH("RIGHT")
 end
 
 if DelvesCompanionConfigurationFrame then
