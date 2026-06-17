@@ -62,7 +62,6 @@ local function IsDialogMenu(owner)
 		or (TransmogFrame and owner == TransmogFrame.OutfitPopup.BorderBox.IconTypeDropdown)
 		or (TransmogFrame and owner == TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponDropdown)
 		or (TransmogFrame and owner == TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponSheatheDropdown)
-		or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.ClassDropdown)
 		or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 end
 
