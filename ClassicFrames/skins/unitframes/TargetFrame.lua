@@ -428,6 +428,7 @@ hooksecurefunc('TargetFrame_UpdateBuffAnchor', function(self, buff, index, numDe
 	else
 		buff:SetPoint(point.."LEFT", anchorBuff, point.."RIGHT", offsetX, 0)
 	end
+	buff.Cooldown:SetEdgeTexture("Interface\\Cooldown\\edge")
 end)
 
 hooksecurefunc('TargetFrame_UpdateDebuffAnchor', function(self, buff, index, numBuffs, anchorBuff, anchorIndex, size, offsetX, offsetY, mirrorVertically)
@@ -465,4 +466,5 @@ hooksecurefunc('TargetFrame_UpdateDebuffAnchor', function(self, buff, index, num
 	else
 		buff:SetPoint(point.."LEFT", anchorBuff, point.."RIGHT", offsetX, 0)
 	end
+	buff.Cooldown:SetEdgeTexture("Interface\\Cooldown\\edge")
 end)
