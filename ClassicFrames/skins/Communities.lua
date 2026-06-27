@@ -7,17 +7,23 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 
 		self.MaximizeMinimizeFrame:SetSize(32, 32)
 		self.MaximizeMinimizeFrame:ClearAllPoints()
-		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 8.5, 0)
-		self.MaximizeMinimizeFrame:SetFrameLevel(2)
+		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
 
 		ApplyMaxMinButton(self.MaximizeMinimizeFrame)
+
+		if (self.ButtonFrameEdge == nil) then
+			self.ButtonFrameEdge = self.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
+			self.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
+			self.ButtonFrameEdge:ClearAllPoints()
+			self.ButtonFrameEdge:SetPoint("CENTER", self.MaximizeMinimizeFrame, "LEFT", 6, 0)
+		end
 
 		self.TitleContainer:ClearAllPoints()
 		self.TitleContainer:SetPoint("TOPLEFT", self, "TOPLEFT", 58, 0)
 		self.TitleContainer:SetPoint("TOPRIGHT", self, "TOPRIGHT", -58, 0)
 
 		ApplyTitleBg(self, true)
-		ApplyNineSliceNoPortraitMinimizable(self)
+		ApplyNineSliceNoPortrait(self)
 
 		self.Chat.ScrollBar:SetSize(25, 560)
 		self.Chat.ScrollBar:ClearAllPoints()
@@ -40,10 +46,16 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 
 		self.MaximizeMinimizeFrame:SetSize(32, 32)
 		self.MaximizeMinimizeFrame:ClearAllPoints()
-		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 8.5, 0)
-		self.MaximizeMinimizeFrame:SetFrameLevel(2)
+		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
 
 		ApplyMaxMinButton(self.MaximizeMinimizeFrame)
+
+		if (self.ButtonFrameEdge == nil) then
+			self.ButtonFrameEdge = self.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
+			self.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
+			self.ButtonFrameEdge:ClearAllPoints()
+			self.ButtonFrameEdge:SetPoint("CENTER", self.MaximizeMinimizeFrame, "LEFT", 6, 0)
+		end
 
 		CommunitiesFramePortrait:SetSize(61, 61)
 		CommunitiesFramePortrait:ClearAllPoints()
@@ -69,7 +81,7 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		self.TitleContainer:SetPoint("TOPRIGHT", self, "TOPRIGHT", -58, 0)
 
 		ApplyTitleBg(self)
-		ApplyNineSlicePortraitMinimizable(self)
+		ApplyNineSlicePortrait(self)
 		
 		CommunitiesFrameCommunitiesList.ScrollBar:ClearAllPoints()
 		CommunitiesFrameCommunitiesList.ScrollBar:SetPoint("TOPLEFT", CommunitiesFrameCommunitiesList.ScrollBox, "TOPRIGHT", 6, -1)
