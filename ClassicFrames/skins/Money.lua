@@ -9,7 +9,7 @@ local function CreateMoneyButtonNormalTexture(button, iconWidth)
 	return texture
 end
 
-hooksecurefunc("MoneyFrame_Update", function(frameName, money)
+hooksecurefunc("MoneyFrame_Update", function(frameName)
 	local frame = GetMoneyFrame(frameName)
 
 	local goldButton = frame.GoldButton
