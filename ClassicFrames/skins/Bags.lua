@@ -327,7 +327,7 @@ local function GetRightActionBarWidth()
 		offset = MultiBarLeft:GetWidth() - offsetX
 	end
 
-	return offset + 10
+	return offset
 end
 
 hooksecurefunc("UpdateContainerFrameAnchors", function()
