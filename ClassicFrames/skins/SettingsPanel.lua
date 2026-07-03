@@ -3,6 +3,7 @@ if not _G.SettingsPanel then return end
 ApplyCloseButton(SettingsPanel.ClosePanelButton)
 ApplyTitleBg(SettingsPanel, true)
 ApplyNineSliceNoPortrait(SettingsPanel)
+SettingsPanel.NineSlice:SetFrameStrata("HIGH")
 
 SettingsPanel.Container.SettingsList.ScrollBar.Track.Begin:Hide()
 SettingsPanel.Container.SettingsList.ScrollBar.Track.End:Hide()

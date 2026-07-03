@@ -13,6 +13,7 @@ function LootFrame_OnLoad(self)
 	ApplyCloseButton(self.CloseButton)
 	ApplyTitleBg(self)
 	ApplyNineSlicePortrait(self)
+	ApplyNineSliceOverlapFix(self)
 end
 
 function LootFrame_OnEvent(self, event, ...)

@@ -23,6 +23,7 @@ skins\Buffs.lua
 skins\Calendar.lua
 skins\CatalogShop.lua
 skins\Catalyst.lua
+skins\Channel.lua
 skins\Character.lua
 skins\Chat.lua
 skins\ChromieTime.lua
@@ -72,7 +73,6 @@ skins\Menu.lua
 skins\Merchant.lua
 skins\Minimap.lua
 skins\MirrorTimers.lua
-skins\Money.lua
 skins\NameplateTutorial.lua
 skins\NewPlayerGuide.lua
 skins\ObjectiveTracker.lua
