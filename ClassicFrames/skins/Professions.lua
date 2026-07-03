@@ -92,8 +92,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyCloseButton(ProfessionsFrame.CraftingPage.CraftingOutputLog.ClosePanelButton)
 		ApplyTitleBg(ProfessionsFrame.CraftingPage.CraftingOutputLog, true)
-		ApplyNineSliceNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog)
-		ApplyNineSliceOverlapFix(ProfessionsFrame.CraftingPage.CraftingOutputLog, true)
+		ApplyNineSliceNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog, true)
 
 		ApplyCloseButton(InspectRecipeFrame.CloseButton)
 		ApplyTitleBg(InspectRecipeFrame)
