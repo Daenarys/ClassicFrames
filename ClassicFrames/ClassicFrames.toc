@@ -106,6 +106,7 @@ skins\Torghast.lua
 skins\Trade.lua
 skins\TradingPost.lua
 skins\Transmog.lua
+skins\Tutorial.lua
 skins\UIWidget.lua
 skins\WorkOrders.lua
 skins\WorldMap.lua
