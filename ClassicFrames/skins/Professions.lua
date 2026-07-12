@@ -6,10 +6,16 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ProfessionsFrame.MaximizeMinimize:SetSize(32, 32)
 		ProfessionsFrame.MaximizeMinimize:ClearAllPoints()
-		ProfessionsFrame.MaximizeMinimize:SetPoint("RIGHT", ProfessionsFrame.CloseButton, "LEFT", 8.5, 0)
-		ProfessionsFrame.MaximizeMinimize:SetFrameLevel(2)
+		ProfessionsFrame.MaximizeMinimize:SetPoint("RIGHT", ProfessionsFrame.CloseButton, "LEFT", 10, 0)
 
 		ApplyMaxMinButton(ProfessionsFrame.MaximizeMinimize)
+
+		if (ProfessionsFrame.ButtonFrameEdge == nil) then
+			ProfessionsFrame.ButtonFrameEdge = ProfessionsFrame.MaximizeMinimize:CreateTexture(nil, "OVERLAY")
+			ProfessionsFrame.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
+			ProfessionsFrame.ButtonFrameEdge:ClearAllPoints()
+			ProfessionsFrame.ButtonFrameEdge:SetPoint("CENTER", ProfessionsFrame.MaximizeMinimize, "LEFT", 6, 0)
+		end
 
 		ProfessionsFramePortrait:SetSize(61, 61)
 		ProfessionsFramePortrait:ClearAllPoints()
@@ -20,7 +26,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ProfessionsFrame.TitleContainer:SetPoint("TOPRIGHT", ProfessionsFrame, "TOPRIGHT", -58, 0)
 
 		ApplyTitleBg(ProfessionsFrame)
-		ApplyNineSlicePortraitMinimizable(ProfessionsFrame)
+		ApplyNineSlicePortrait(ProfessionsFrame)
 
 		ProfessionsFrame.CraftingPage.TutorialButton.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 
@@ -79,20 +85,12 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(ProfessionsFrame.OrdersPage.BrowseFrame.OrderList.ScrollBar.Track)
 		ApplyScrollBarThumb(ProfessionsFrame.OrdersPage.BrowseFrame.OrderList.ScrollBar.Track.Thumb)
 
-		ProfessionsFrame.OrdersPage:HookScript("OnShow", function()
-			ApplyNineSlicePortrait(ProfessionsFrame)
-		end)
-
-		ProfessionsFrame.OrdersPage:HookScript("OnHide", function()
-			ApplyNineSlicePortraitMinimizable(ProfessionsFrame)
-		end)
-
 		ApplyFilterDropDown(ProfessionsFrame.CraftingPage.RecipeList.FilterDropdown)
 		ApplyFilterDropDown(ProfessionsFrame.OrdersPage.BrowseFrame.RecipeList.FilterDropdown)
 
 		ApplyCloseButton(ProfessionsFrame.CraftingPage.CraftingOutputLog.ClosePanelButton)
-		ApplyTitleBg(ProfessionsFrame.CraftingPage.CraftingOutputLog, true)
-		ApplyNineSliceNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog, true)
+		ApplyTitleBgNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog)
+		ApplyNineSliceNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog)
 
 		ApplyCloseButton(InspectRecipeFrame.CloseButton)
 		ApplyTitleBg(InspectRecipeFrame)

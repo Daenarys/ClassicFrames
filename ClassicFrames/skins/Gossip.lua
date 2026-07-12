@@ -26,3 +26,8 @@ GossipFrame.GreetingPanel.ScrollBar:SetPoint("BOTTOMLEFT", GossipFrame.GreetingP
 ApplyScrollBarArrow(GossipFrame.GreetingPanel.ScrollBar)
 ApplyScrollBarTrack(GossipFrame.GreetingPanel.ScrollBar.Track)
 ApplyScrollBarThumb(GossipFrame.GreetingPanel.ScrollBar.Track.Thumb)
+
+hooksecurefunc(GossipFrame, "HandleShow", function(self)
+	self.Background:SetSize(510, 620)
+	self.Background:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
