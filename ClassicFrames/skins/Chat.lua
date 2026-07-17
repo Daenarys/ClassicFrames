@@ -98,7 +98,7 @@ for i = 1, NUM_CHAT_WINDOWS do
 
 	hooksecurefunc(_G["ChatFrame"..i].editBox, "UpdateNewcomerEditBoxHint", function(self)
 		self.NewcomerHint:SetShown(false)
-		self:SetAlpha(0.25)
+		self:SetAlpha(0.35)
 	end)
 end
 
