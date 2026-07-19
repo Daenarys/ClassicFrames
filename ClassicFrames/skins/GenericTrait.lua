@@ -5,8 +5,9 @@ f:SetScript("OnEvent", function(self, event, name)
 		hooksecurefunc(GenericTraitFrame, "ApplyLayout", function(self, layoutInfo)
 			if self:GetTalentTreeID() == 672 then
 				GenericTraitFrame.Background:SetPoint("TOPLEFT", 2, -20)
-				GenericTraitFrame.NineSlice:SetPoint("TOPLEFT", -4, 0)
-				GenericTraitFrame.NineSlice:SetPoint("BOTTOMRIGHT", 4, -6)
+				GenericTraitFrame.Background:SetPoint("BOTTOMRIGHT", -4, 2)
+				GenericTraitFrame.NineSlice:SetPoint("TOPLEFT", -6, 0)
+				GenericTraitFrame.NineSlice:SetPoint("BOTTOMRIGHT")
 
 				ApplyCloseButton(GenericTraitFrame.CloseButton)
 				ApplyTitleBg(GenericTraitFrame)
