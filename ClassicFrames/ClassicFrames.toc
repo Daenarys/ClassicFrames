@@ -10,6 +10,7 @@ skins\ApplySkin.lua
 skins\Achievements.lua
 skins\AddOnList.lua
 skins\AdventureMap.lua
+skins\Alerts.lua
 skins\AlliedRaces.lua
 skins\ArtifactUI.lua
 skins\AuctionHouse.lua
