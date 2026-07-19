@@ -50,8 +50,6 @@ hooksecurefunc(AchievementAlertSystem, "setUpFunction", function(frame, achievem
 		frame.shine:SetSize(67, 72)
 		frame.shine:SetTexture("Interface\\AchievementFrame\\UI-Achievement-Alert-Glow")
 		frame.shine:SetTexCoord(0.78125, 0.912109375, 0, 0.28125)
-		frame.shine:ClearAllPoints()
-		frame.shine:SetPoint("BOTTOMLEFT", 0, 8)
 	end
 end)
 
