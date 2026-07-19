@@ -11,10 +11,8 @@ CatalogShopFrame.TitleContainer:SetPoint("TOPLEFT", CatalogShopFrame, "TOPLEFT",
 CatalogShopFrame.TitleContainer:SetPoint("TOPRIGHT", CatalogShopFrame, "TOPRIGHT", -58, 0)
 
 if (CatalogShopFrame.NineSlice.TitleBg == nil) then
-	CatalogShopFrame.NineSlice.TitleBg = CatalogShopFrame.NineSlice:CreateTexture(nil, "BACKGROUND")
-	CatalogShopFrame.NineSlice.TitleBg:SetAtlas("_UI-Frame-TitleTileBg", false)
-	CatalogShopFrame.NineSlice.TitleBg:SetSize(256, 17)
-	CatalogShopFrame.NineSlice.TitleBg:SetHorizTile(true)
+	CatalogShopFrame.NineSlice.TitleBg = CatalogShopFrame.NineSlice:CreateTexture(nil, "BACKGROUND", "_UI-Frame-TitleTileBg")
+	CatalogShopFrame.NineSlice.TitleBg:ClearAllPoints()
 	CatalogShopFrame.NineSlice.TitleBg:SetPoint("TOPLEFT", 54, -3)
 	CatalogShopFrame.NineSlice.TitleBg:SetPoint("TOPRIGHT", -25, -3)
 end

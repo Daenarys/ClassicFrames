@@ -85,6 +85,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarTrack(ProfessionsFrame.OrdersPage.BrowseFrame.OrderList.ScrollBar.Track)
 		ApplyScrollBarThumb(ProfessionsFrame.OrdersPage.BrowseFrame.OrderList.ScrollBar.Track.Thumb)
 
+		ApplySquareButton(ProfessionsFrame.CraftingPage.RankBar.ExpansionDropdownButton)
+
 		ApplyFilterDropDown(ProfessionsFrame.CraftingPage.RecipeList.FilterDropdown)
 		ApplyFilterDropDown(ProfessionsFrame.OrdersPage.BrowseFrame.RecipeList.FilterDropdown)
 

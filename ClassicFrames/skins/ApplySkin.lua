@@ -12,16 +12,16 @@ function ApplyCloseButton(frame, defaultPos)
 end
 
 function ApplyTitleBg(frame, noPortrait)
-	local titleBg = frame:CreateTexture("$parentTitleBg", "BACKGROUND", "_UI-Frame-TitleTileBg")
-	titleBg:ClearAllPoints()
-	if noPortrait then
-		titleBg:SetSize(256, 18)
-		titleBg:SetPoint("TOPLEFT", 6, -3)
-		titleBg:SetPoint("TOPRIGHT", -25, -3)
-	else
-		titleBg:SetSize(256, 17)
-		titleBg:SetPoint("TOPLEFT", 2, -3)
-		titleBg:SetPoint("TOPRIGHT", -25, -3)
+	if (frame.TitleBg == nil) then
+		frame.TitleBg = frame:CreateTexture(nil, "BACKGROUND", "_UI-Frame-TitleTileBg")
+		frame.TitleBg:ClearAllPoints()
+		if noPortrait then
+			frame.TitleBg:SetPoint("TOPLEFT", 6, -3)
+			frame.TitleBg:SetPoint("TOPRIGHT", -25, -3)
+		else
+			frame.TitleBg:SetPoint("TOPLEFT", 2, -3)
+			frame.TitleBg:SetPoint("TOPRIGHT", -25, -3)
+		end
 	end
 end
 
@@ -911,6 +911,25 @@ function ApplyStretchButton(frame)
 			end
 		end
 	end)
+end
+
+function ApplySquareButton(frame)
+	frame.Texture:SetAlpha(0)
+
+	if (frame.Button == nil) then
+		frame.Button = frame:CreateTexture(nil, "BACKGROUND")
+		frame.Button:SetSize(26, 26)
+		frame.Button:SetTexture("Interface\\Buttons\\UI-SquareButton-Up")
+		frame.Button:SetPoint("CENTER")
+	end
+
+	if (frame.Icon == nil) then
+		frame.Icon = frame:CreateTexture(nil, "ARTWORK")
+		frame.Icon:SetSize(12, 12)
+		frame.Icon:SetTexture("Interface\\Buttons\\SquareButtonTextures")
+		frame.Icon:SetTexCoord(0.45312500, 0.64062500, 0.20312500, 0.01562500)
+		frame.Icon:SetPoint("CENTER")
+	end
 end
 
 function ApplyMaxMinButton(frame)
