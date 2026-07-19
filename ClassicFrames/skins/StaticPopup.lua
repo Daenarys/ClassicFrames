@@ -7,7 +7,6 @@ for i = 1, 4 do
 	backdrop:SetAllPoints()
 	backdrop:SetFrameLevel(_G["StaticPopup"..i]:GetFrameLevel())
 
-	_G["StaticPopup"..i.."EditBox"].NineSlice:SetAlpha(0)
 	if (_G["StaticPopup"..i.."EditBox"].Left == nil) then
 		_G["StaticPopup"..i.."EditBox"].Left = _G["StaticPopup"..i.."EditBox"]:CreateTexture(nil, "BACKGROUND")
 		_G["StaticPopup"..i.."EditBox"].Left:SetSize(32, 32)
