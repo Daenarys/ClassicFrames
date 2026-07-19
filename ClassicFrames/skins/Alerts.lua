@@ -1,6 +1,6 @@
 if not _G.AlertFrame then return end
 
-hooksecurefunc("AchievementAlertFrame_SetUp", function(frame, achievementID)
+hooksecurefunc(AchievementAlertSystem, "setUpFunction", function(frame, achievementID)
 	local _, name, points, completed, month, day, year, description, flags, icon, rewardText, isGuildAch, wasEarnedByMe, earnedBy = GetAchievementInfo(achievementID)
 
 	local displayName = frame.Name
@@ -55,7 +55,7 @@ hooksecurefunc("AchievementAlertFrame_SetUp", function(frame, achievementID)
 	end
 end)
 
-hooksecurefunc("CriteriaAlertFrame_SetUp", function(frame)
+hooksecurefunc(CriteriaAlertSystem, "setUpFunction", function(frame)
 	frame:SetHeight(52)
 
 	frame.Background:SetSize(256, 64)
