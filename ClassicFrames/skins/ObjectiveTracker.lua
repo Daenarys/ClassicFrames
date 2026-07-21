@@ -30,15 +30,22 @@ if ObjectiveTrackerFrame.Header then
 	hooksecurefunc(ObjectiveTrackerFrame.Header, 'SetCollapsed', SetCollapsed)
 end
 
-local function HandleQuestIcons(_, block)
-	if not block.ItemButton then return end
+local function ReskinQuestIcon(button)
+	if not button then return end
 
-	block.ItemButton:SetNormalTexture("Interface\\Buttons\\UI-Quickslot2")
-	block.ItemButton:SetPushedTexture("Interface\\Buttons\\UI-Quickslot-Depress")
-
-	if block.ItemButton.Cooldown then
-		block.ItemButton.Cooldown:SetHideCountdownNumbers(true)
+	if not button.IsSkinned then
+		button:SetNormalTexture("Interface\\Buttons\\UI-Quickslot2")
+		button:SetPushedTexture("Interface\\Buttons\\UI-Quickslot-Depress")
+		if button.Cooldown then
+			button.Cooldown:SetHideCountdownNumbers(true)
+		end
+		button.IsSkinned = true
 	end
+end
+
+local function HandleQuestIcons(_, block)
+	ReskinQuestIcon(block.ItemButton)
+	ReskinQuestIcon(block.itemButton)
 end
 
 local trackers = {
