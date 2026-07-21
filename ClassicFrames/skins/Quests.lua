@@ -251,6 +251,7 @@ hooksecurefunc('QuestLogPopupDetailFrame_Show', function()
 	QuestLogPopupDetailFrame.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
 end)
 
+_G.QuestLogPopupDetailFrame.SealMaterialBG:SetAlpha(0)
 _G.QuestFrameDetailPanel.SealMaterialBG:SetAlpha(0)
 _G.QuestFrameRewardPanel.SealMaterialBG:SetAlpha(0)
 _G.QuestFrameProgressPanel.SealMaterialBG:SetAlpha(0)
