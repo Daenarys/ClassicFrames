@@ -33,11 +33,11 @@ end
 local function HandleQuestIcons(_, block)
 	if not block.ItemButton then return end
 
-	if not block.ItemButton.IsSkinned then
-		if block.ItemButton.Cooldown then
-			block.ItemButton.Cooldown:SetHideCountdownNumbers(true)
-		end
-		block.ItemButton.IsSkinned = true
+	block.ItemButton:SetNormalTexture("Interface\\Buttons\\UI-Quickslot2")
+	block.ItemButton:SetPushedTexture("Interface\\Buttons\\UI-Quickslot-Depress")
+
+	if block.ItemButton.Cooldown then
+		block.ItemButton.Cooldown:SetHideCountdownNumbers(true)
 	end
 end
 
