@@ -144,11 +144,10 @@ function ApplyNineSliceNoPortrait(frame)
 end
 
 function ApplyDialogBorder(frame)
-	if (frame.BG == nil) then
-		frame.BG = frame:CreateTexture(nil, "ARTWORK")
-		frame.BG:SetAtlas("UI-DiamondDialogBox-ClassicBorder")
-		frame.BG:SetAllPoints()
-	end
+	local backdrop = CreateFrame("Frame", nil, frame, "BackdropTemplate")
+	backdrop:SetBackdrop(BACKDROP_DIALOG_EDGE_32)
+	backdrop:SetAllPoints()
+	backdrop:SetFrameLevel(frame:GetFrameLevel() + 1)
 end
 
 function ApplyDialogHeader(frame)

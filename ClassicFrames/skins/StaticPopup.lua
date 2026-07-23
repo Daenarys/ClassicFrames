@@ -1,7 +1,12 @@
 for i = 1, 4 do
-	_G["StaticPopup"..i].BG.Top:SetAtlas("UI-DiamondDialogBox-ClassicBorder")
-
+	_G["StaticPopup"..i].BG:SetAlpha(0)
 	_G["StaticPopup"..i.."EditBox"].NineSlice:SetAlpha(0)
+
+	local backdrop = CreateFrame("Frame", nil, _G["StaticPopup"..i], "BackdropTemplate")
+	backdrop:SetBackdrop(BACKDROP_DIALOG_32_32)
+	backdrop:SetAllPoints()
+	backdrop:SetFrameLevel(_G["StaticPopup"..i]:GetFrameLevel())
+
 	if (_G["StaticPopup"..i.."EditBox"].Left == nil) then
 		_G["StaticPopup"..i.."EditBox"].Left = _G["StaticPopup"..i.."EditBox"]:CreateTexture(nil, "BACKGROUND")
 		_G["StaticPopup"..i.."EditBox"].Left:SetSize(32, 32)
