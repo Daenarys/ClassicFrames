@@ -1,6 +1,6 @@
-local COPPER = "|T" .. "Interface\\MoneyFrame\\UI-MoneyIcons" .. ":14:14:3:0:128:32:64:96:0:32|t"
-local SILVER = "|T" .. "Interface\\MoneyFrame\\UI-MoneyIcons" .. ":14:14:3:0:128:32:32:64:0:32|t"
-local GOLD = "|T" .. "Interface\\MoneyFrame\\UI-MoneyIcons" .. ":14:14:3:0:128:32:0:32:0:32|t"
+local COPPER = "|T" .. "Interface\\MoneyFrame\\UI-MoneyIcons" .. ":13:13:3:-1:128:32:64:96:0:32|t"
+local SILVER = "|T" .. "Interface\\MoneyFrame\\UI-MoneyIcons" .. ":13:13:3:-1:128:32:32:64:0:32|t"
+local GOLD = "|T" .. "Interface\\MoneyFrame\\UI-MoneyIcons" .. ":13:13:3:-1:128:32:0:32:0:32|t"
 
 local function ReplaceAtlasWithMoneyIcons(line)
 	local text = line:GetText()
