@@ -7,7 +7,7 @@ if _G.QuestFrame then
 
 	QuestFrame.TitleContainer:ClearAllPoints()
 	QuestFrame.TitleContainer:SetPoint("TOPLEFT", QuestFrame, "TOPLEFT", 60, -1)
-	QuestFrame.TitleContainer:SetPoint("TOPRIGHT", QuestFrame, "TOPRIGHT", -32, 1)
+	QuestFrame.TitleContainer:SetPoint("TOPRIGHT", QuestFrame, "TOPRIGHT", -58, 1)
 
 	QuestFrameTitleText:SetTextColor(255, 255, 255, 1)
 
