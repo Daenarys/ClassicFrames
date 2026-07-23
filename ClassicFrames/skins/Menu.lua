@@ -1,12 +1,16 @@
-local BACKDROP_TOOLTIP = {
-	bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
-	edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-	tile = true,
-	tileEdge = true,
-	tileSize = 16,
-	edgeSize = 16,
-	insets = { left = 5, right = 5, top = 5, bottom = 4 },
-}
+local DialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
+ApplyDialogBorder(DialogSkin)
+DialogSkin:Hide()
+
+local SubDialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
+ApplyDialogBorder(SubDialogSkin)
+SubDialogSkin:Hide()
+
+local TooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
+TooltipSkin:Hide()
+
+local SubTooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
+SubTooltipSkin:Hide()
 
 local function IsDialogMenu(owner)
 	if not owner then return false end
@@ -74,28 +78,6 @@ local function IsDialogMenu(owner)
 		or (TransmogFrame and owner == TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponSheatheDropdown)
 		or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 end
-
-local DialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
-ApplyDialogBorder(DialogSkin)
-DialogSkin:Hide()
-
-local SubDialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
-ApplyDialogBorder(SubDialogSkin)
-SubDialogSkin:Hide()
-
-local TooltipSkin = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
-TooltipSkin:SetBackdrop(BACKDROP_TOOLTIP)
-TooltipSkin:SetBackdropBorderColor(TOOLTIP_DEFAULT_COLOR.r, TOOLTIP_DEFAULT_COLOR.g, TOOLTIP_DEFAULT_COLOR.b)
-TooltipSkin:SetBackdropColor(TOOLTIP_DEFAULT_BACKGROUND_COLOR.r, TOOLTIP_DEFAULT_BACKGROUND_COLOR.g, TOOLTIP_DEFAULT_BACKGROUND_COLOR.b)
-TooltipSkin.SetupTextureCoordinates = function() end
-TooltipSkin:Hide()
-
-local SubTooltipSkin = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
-SubTooltipSkin:SetBackdrop(BACKDROP_TOOLTIP)
-SubTooltipSkin:SetBackdropBorderColor(TOOLTIP_DEFAULT_COLOR.r, TOOLTIP_DEFAULT_COLOR.g, TOOLTIP_DEFAULT_COLOR.b)
-SubTooltipSkin:SetBackdropColor(TOOLTIP_DEFAULT_BACKGROUND_COLOR.r, TOOLTIP_DEFAULT_BACKGROUND_COLOR.g, TOOLTIP_DEFAULT_BACKGROUND_COLOR.b)
-SubTooltipSkin.SetupTextureCoordinates = function() end
-SubTooltipSkin:Hide()
 
 local function SkinMenu(manager, owner, menuDescription)
 	local menu = manager:GetOpenMenu()
