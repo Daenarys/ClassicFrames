@@ -33,6 +33,8 @@ GameMenuFrame:HookScript("OnShow", function(self)
 				button.CfLeft:SetSize(12, 21)
 				button.CfLeft:SetPoint("TOPLEFT")
 				button.CfLeft:SetPoint("BOTTOMLEFT")
+				button.CfLeft:SetTexelSnappingBias(0)
+				button.CfLeft:SetSnapToPixelGrid(false)
 			end
 
 			if (button.CfRight == nil) then
@@ -40,12 +42,16 @@ GameMenuFrame:HookScript("OnShow", function(self)
 				button.CfRight:SetSize(12, 21)
 				button.CfRight:SetPoint("TOPRIGHT")
 				button.CfRight:SetPoint("BOTTOMRIGHT")
+				button.CfRight:SetTexelSnappingBias(0)
+				button.CfRight:SetSnapToPixelGrid(false)
 			end
 
 			if (button.CfMiddle == nil) then
 				button.CfMiddle = button:CreateTexture(nil, "BACKGROUND")
 				button.CfMiddle:SetPoint("TOPLEFT", button.CfLeft, "TOPRIGHT")
 				button.CfMiddle:SetPoint("BOTTOMRIGHT", button.CfRight, "BOTTOMLEFT")
+				button.CfMiddle:SetTexelSnappingBias(0)
+				button.CfMiddle:SetSnapToPixelGrid(false)
 			end
 
 			button:HookScript("OnUpdate", function()
