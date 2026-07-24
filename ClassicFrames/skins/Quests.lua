@@ -7,7 +7,7 @@ if _G.QuestFrame then
 
 	QuestFrame.TitleContainer:ClearAllPoints()
 	QuestFrame.TitleContainer:SetPoint("TOPLEFT", QuestFrame, "TOPLEFT", 60, -1)
-	QuestFrame.TitleContainer:SetPoint("TOPRIGHT", QuestFrame, "TOPRIGHT", -58, 1)
+	QuestFrame.TitleContainer:SetPoint("TOPRIGHT", QuestFrame, "TOPRIGHT", -32, 1)
 
 	QuestFrameTitleText:SetTextColor(255, 255, 255, 1)
 
@@ -219,40 +219,3 @@ if _G.QuestModelScene then
 
 	QuestNPCModelTextScrollFrame.ScrollBar:SetAlpha(0)
 end
-
-local defaultXSize = 510
-local defaultYSize = 620
-
-QuestFrameDetailPanel:HookScript("OnShow", function(self)
-	self.Bg:SetSize(defaultXSize, defaultYSize)
-	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
-end)
-
-QuestFrameProgressPanel:HookScript("OnShow", function(self)
-	self.Bg:SetSize(defaultXSize, defaultYSize)
-	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
-end)
-
-QuestFrameRewardPanel:HookScript("OnShow", function(self)
-	self.Bg:SetSize(defaultXSize, defaultYSize)
-	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
-end)
-
-local function GreetingPanel_OnShow(frame)
-	frame.Bg:SetSize(defaultXSize, defaultYSize)
-	frame.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
-end
-
-QuestFrameGreetingPanel:HookScript('OnShow', GreetingPanel_OnShow)
-hooksecurefunc('QuestFrameGreetingPanel_OnShow', GreetingPanel_OnShow)
-
-hooksecurefunc('QuestLogPopupDetailFrame_Show', function()
-	QuestLogPopupDetailFrame.Bg:SetSize(defaultXSize, defaultYSize)
-	QuestLogPopupDetailFrame.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
-end)
-
-_G.QuestLogPopupDetailFrame.SealMaterialBG:SetAlpha(0)
-_G.QuestFrameDetailPanel.SealMaterialBG:SetAlpha(0)
-_G.QuestFrameRewardPanel.SealMaterialBG:SetAlpha(0)
-_G.QuestFrameProgressPanel.SealMaterialBG:SetAlpha(0)
-_G.QuestFrameGreetingPanel.SealMaterialBG:SetAlpha(0)
