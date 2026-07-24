@@ -126,8 +126,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial, true)
 		ApplyNineSliceNoPortrait(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial)
 
-		AuctionHouseFrame.WoWTokenResults.GameTimeTutorial.CloseButton:SetFrameLevel(4)
-
 		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:ClearAllPoints()
 		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetPoint("TOPLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "TOPRIGHT", 10, 4)
 		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "BOTTOMRIGHT", 10, -4)

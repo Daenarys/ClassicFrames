@@ -3,6 +3,7 @@ if not _G.QuestScrollFrame then return end
 QuestScrollFrame:SetPoint("TOPLEFT")
 QuestScrollFrame.SearchBox:Hide()
 QuestScrollFrame.SettingsDropdown:Hide()
+QuestMapFrame.DetailsFrame.SealMaterialBG:SetAlpha(0)
 
 hooksecurefunc(QuestMapFrame, "ValidateTabs", function(self)
 	self.QuestsTab:Hide()

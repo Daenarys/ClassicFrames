@@ -10,5 +10,6 @@ ApplyTitleBg(CurrencyTransferMenu, true)
 ApplyNineSliceNoPortrait(CurrencyTransferMenu)
 
 CurrencyTransferMenu.Background:Hide()
+CurrencyTransferMenu.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
 
 ApplyDropDown(CurrencyTransferMenu.Content.SourceSelector.Dropdown)
