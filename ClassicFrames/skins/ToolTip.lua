@@ -1,16 +1,11 @@
-hooksecurefunc("GameTooltip_OnTooltipAddMoney", function(self)
-	local name = self:GetName()
-	local numLines = self:NumLines()
-
-	local line = _G[name .. "TextLeft" .. numLines]
-	if line then
-		local text = line:GetText()
-		if text then
-			text = text:gsub("|A:(coin%-[%w]+):[^|]+|a", "|A:%1:13:13:2|a")
-			line:SetText(text)
-		end
+function UnitFrame_UpdateTooltip(self)
+	GameTooltip_SetDefaultAnchor(GameTooltip, self)
+	if ( GameTooltip:SetUnit(self.unit, self.hideStatusOnTooltip) ) then
+		self.UpdateTooltip = UnitFrame_UpdateTooltip
+	else
+		self.UpdateTooltip = nil
 	end
-end)
+end
 
 TooltipDataProcessor.AddTooltipPreCall(Enum.TooltipDataType.Item, function(self)
 	if self == _G.ShoppingTooltip1 or self == _G.ShoppingTooltip2 then
@@ -48,6 +43,73 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(self
 			local lN, rN = _G[name.."TextLeft"..i], _G[name.."TextRight"..i]
 			if lN then lN:SetFontObject("GameTooltipTextSmall") end
 			if rN then rN:SetFontObject("GameFontHighlightSmall") end
+		end
+	end
+end)
+
+TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(self)
+	if self:IsForbidden() then return end
+
+	local name = self:GetName()
+	if not name then return end
+
+	local _, unit = self:GetUnit()
+	if not unit or not UnitIsPlayer(unit) then return end
+
+	local className = UnitClass(unit)
+	if not className then return end
+
+	local levelLine, classLine
+
+	for i = 2, self:NumLines() do
+		local line = _G[name .. "TextLeft" .. i]
+		if line then
+			local text = line:GetText()
+			if text then
+				if text:find("^Level") then
+					levelLine = i
+				elseif (text == className or text:find(className)) and levelLine then
+					classLine = i
+					break
+				end
+			end
+		end
+	end
+
+	if levelLine and classLine then
+		local levelLine = _G[name .. "TextLeft" .. levelLine]
+		local currentLevelText = levelLine:GetText() or ""
+
+		currentLevelText = currentLevelText:gsub("%s*%(Player%)", "")
+		levelLine:SetText(currentLevelText .. " " .. className .. " (Player)")
+
+		local numLines = self:NumLines()
+		for i = classLine, numLines - 1 do
+			local currentLeft = _G[name .. "TextLeft" .. i]
+			local nextLeft = _G[name .. "TextLeft" .. (i + 1)]
+			if currentLeft and nextLeft then
+				currentLeft:SetText(nextLeft:GetText())
+			end
+		end
+
+		local lastLeft = _G[name .. "TextLeft" .. numLines]
+		if lastLeft then
+			lastLeft:SetText("")
+			lastLeft:Hide()
+		end
+	end
+end)
+
+hooksecurefunc("GameTooltip_OnTooltipAddMoney", function(self)
+	local name = self:GetName()
+	local numLines = self:NumLines()
+
+	local line = _G[name .. "TextLeft" .. numLines]
+	if line then
+		local text = line:GetText()
+		if text then
+			text = text:gsub("|A:(coin%-[%w]+):[^|]+|a", "|A:%1:13:13:2|a")
+			line:SetText(text)
 		end
 	end
 end)
