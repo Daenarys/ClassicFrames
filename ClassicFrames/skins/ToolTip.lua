@@ -70,13 +70,10 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(self
 end)
 
 TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(self)
-	if self:IsForbidden() then return end
-
 	local name = self:GetName()
-	if not name then return end
 
 	local _, unit = self:GetUnit()
-	if not unit or not UnitIsPlayer(unit) then return end
+	if issecretvalue(unit) or not UnitIsPlayer(unit) then return end
 
 	local className = UnitClass(unit)
 	if not className then return end
