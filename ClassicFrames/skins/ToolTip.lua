@@ -1,3 +1,25 @@
+local COPPER = "|T" .. "Interface\\MoneyFrame\\UI-MoneyIcons" .. ":13:13:2:-1:128:32:64:96:0:32|t"
+local SILVER = "|T" .. "Interface\\MoneyFrame\\UI-MoneyIcons" .. ":13:13:2:-1:128:32:32:64:0:32|t"
+local GOLD = "|T" .. "Interface\\MoneyFrame\\UI-MoneyIcons" .. ":13:13:2:-1:128:32:0:32:0:32|t"
+
+local function ReplaceAtlasWithMoneyIcons(line)
+	local text = line:GetText()
+	if text then
+		text = text:gsub("|A:coin%-copper:[^|]+|a", COPPER)
+				   :gsub("|A:coin%-silver:[^|]+|a", SILVER)
+				   :gsub("|A:coin%-gold:[^|]+|a", GOLD)
+		line:SetText(text)
+	end
+end
+
+hooksecurefunc("GameTooltip_OnTooltipAddMoney", function(self)
+	local name = self:GetName()
+	local numLines = self:NumLines()
+
+	local line = _G[name .. "TextLeft" .. numLines]
+	if line then ReplaceAtlasWithMoneyIcons(line) end
+end)
+
 function UnitFrame_UpdateTooltip(self)
 	GameTooltip_SetDefaultAnchor(GameTooltip, self)
 	if ( GameTooltip:SetUnit(self.unit, self.hideStatusOnTooltip) ) then
@@ -96,20 +118,6 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(self
 		if lastLeft then
 			lastLeft:SetText("")
 			lastLeft:Hide()
-		end
-	end
-end)
-
-hooksecurefunc("GameTooltip_OnTooltipAddMoney", function(self)
-	local name = self:GetName()
-	local numLines = self:NumLines()
-
-	local line = _G[name .. "TextLeft" .. numLines]
-	if line then
-		local text = line:GetText()
-		if text then
-			text = text:gsub("|A:(coin%-[%w]+):[^|]+|a", "|A:%1:13:13:2|a")
-			line:SetText(text)
 		end
 	end
 end)
