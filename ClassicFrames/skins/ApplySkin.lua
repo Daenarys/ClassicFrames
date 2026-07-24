@@ -913,6 +913,23 @@ function ApplyStretchButton(frame)
 	end)
 end
 
+function ApplyCinematicButton(frame)
+	frame:SetSize(119, 21)
+
+	frame.Left:SetAlpha(0)
+	frame.Right:SetAlpha(0)
+	frame.Center:SetAlpha(0)
+
+	frame:SetNormalTexture([[Interface\Buttons\UI-DialogBox-Button-Up]])
+	frame:GetNormalTexture():SetTexCoord(0, 1, 0, 0.71875)
+	frame:SetPushedTexture([[Interface\Buttons\UI-DialogBox-Button-Down]])
+	frame:GetPushedTexture():SetTexCoord(0, 1, 0, 0.71875)
+	frame:SetDisabledTexture([[Interface\Buttons\UI-DialogBox-Button-Disabled]])
+	frame:GetDisabledTexture():SetTexCoord(0, 1, 0, 0.71875)
+	frame:SetHighlightTexture([[Interface\Buttons\UI-DialogBox-Button-Highlight]], "ADD")
+	frame:GetHighlightTexture():SetTexCoord(0, 1, 0, 0.71875)
+end
+
 function ApplySquareButton(frame)
 	frame.Texture:SetAlpha(0)
 
@@ -944,14 +961,6 @@ function ApplyMaxMinButton(frame)
 	frame.MinimizeButton:SetDisabledTexture("Interface\\Buttons\\UI-Panel-SmallerButton-Disabled")
 	frame.MinimizeButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 	frame.MinimizeButton:SetHitRectInsets(5, 5, 5, 5)
-end
-
-function ApplyCheckBox(frame)
-	frame:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
-	frame:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
-	frame:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
-	frame:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
-	frame:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
 end
 
 function ApplyButtonSeparator(frame)
@@ -1050,4 +1059,12 @@ function ApplyButtonSeparator(frame)
 			frame.RightSeparator:SetPoint("TOPLEFT", frame, "TOPRIGHT", -6, 1)
 		end
 	end
+end
+
+function ApplyCheckBox(frame)
+	frame:SetNormalTexture("Interface\\Buttons\\UI-CheckBox-Up")
+	frame:SetPushedTexture("Interface\\Buttons\\UI-CheckBox-Down")
+	frame:SetHighlightTexture("Interface\\Buttons\\UI-CheckBox-Highlight")
+	frame:SetCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check")
+	frame:SetDisabledCheckedTexture("Interface\\Buttons\\UI-CheckBox-Check-Disabled")
 end
