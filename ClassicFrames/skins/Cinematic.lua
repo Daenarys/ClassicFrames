@@ -16,12 +16,12 @@ if _G.MovieFrame then
 	ApplyCinematicButton(MovieFrame.CloseDialog.Buttons.ConfirmButton)
 	ApplyCinematicButton(MovieFrame.CloseDialog.Buttons.ResumeButton)
 
-	MovieFrame.CloseDialog:HookScript("OnShow", function(self)
-		self.Buttons:ClearAllPoints()
-		self.Buttons:SetPoint("BOTTOM", 0, 16)
-		self.Buttons.ConfirmButton:SetPoint("LEFT", 2, 0)
-		self.Buttons.ResumeButton:SetPoint("LEFT", 134, 0)
-	end)
-	
 	ApplyDialogBorder(MovieFrame.CloseDialog.Border)
+
+	hooksecurefunc(MovieFrame, "ShowCloseDialog", function(self)
+		self.CloseDialog.Buttons:ClearAllPoints()
+		self.CloseDialog.Buttons:SetPoint("BOTTOM", 0, 16)
+		self.CloseDialog.Buttons.ConfirmButton:SetPoint("LEFT", 2, 0)
+		self.CloseDialog.Buttons.ResumeButton:SetPoint("LEFT", 134, 0)
+	end)
 end
