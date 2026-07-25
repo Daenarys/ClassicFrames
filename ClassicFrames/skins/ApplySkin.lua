@@ -156,7 +156,7 @@ function ApplyDialogBorder(frame)
 	local backdrop = CreateFrame("Frame", nil, frame, "BackdropTemplate")
 	backdrop:SetBackdrop(BACKDROP_DIALOG_EDGE_32)
 	backdrop:SetAllPoints()
-	backdrop:SetFrameLevel(frame:GetFrameLevel() + 1)
+	backdrop:SetFrameLevel(frame:GetFrameLevel())
 end
 
 function ApplyDialogHeader(frame)
