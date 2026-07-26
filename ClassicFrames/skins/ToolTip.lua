@@ -73,7 +73,7 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(self
 						end)
 					end
 					priceFS:ClearAllPoints()
-					priceFS:SetPoint("LEFT", line, "LEFT", line:GetStringWidth() + 10, 0)
+					priceFS:SetPoint("LEFT", line, "LEFT", 73, 0)
 					priceFS:SetText(coinString)
 					priceFS:Show()
 				end
