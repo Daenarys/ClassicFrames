@@ -1,25 +1,3 @@
-local COPPER = "|T" .. "Interface\\MoneyFrame\\UI-MoneyIcons" .. ":13:13:1:-1:128:32:64:96:0:32|t"
-local SILVER = "|T" .. "Interface\\MoneyFrame\\UI-MoneyIcons" .. ":13:13:1:-1:128:32:32:64:0:32|t"
-local GOLD = "|T" .. "Interface\\MoneyFrame\\UI-MoneyIcons" .. ":13:13:1:-1:128:32:0:32:0:32|t"
-
-local function ReplaceAtlasWithMoneyIcons(line)
-	local text = line:GetText()
-	if text then
-		text = text:gsub("|A:coin%-copper:[^|]+|a", COPPER)
-				   :gsub("|A:coin%-silver:[^|]+|a", SILVER)
-				   :gsub("|A:coin%-gold:[^|]+|a", GOLD)
-		line:SetText(text)
-	end
-end
-
-hooksecurefunc("GameTooltip_OnTooltipAddMoney", function(self)
-	local name = self:GetName()
-	local numLines = self:NumLines()
-
-	local line = _G[name .. "TextLeft" .. numLines]
-	if line then ReplaceAtlasWithMoneyIcons(line) end
-end)
-
 function UnitFrame_UpdateTooltip(self)
 	GameTooltip_SetDefaultAnchor(GameTooltip, self)
 	if ( GameTooltip:SetUnit(self.unit, self.hideStatusOnTooltip) ) then
@@ -65,6 +43,41 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(self
 			local lN, rN = _G[name.."TextLeft"..i], _G[name.."TextRight"..i]
 			if lN then lN:SetFontObject("GameTooltipTextSmall") end
 			if rN then rN:SetFontObject("GameFontHighlightSmall") end
+		end
+	end
+end)
+
+TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(self)
+	if self == _G.GameTooltip and self.GetItem then
+		local name = self:GetName()
+
+		local _, itemLink = self:GetItem()
+		if not itemLink then return end
+
+		local sellPrice = select(11, GetItemInfo(itemLink))
+		if not sellPrice or sellPrice <= 0 then return end
+
+		local coinString = C_CurrencyInfo.GetCoinTextureString(sellPrice, 12)
+
+		for i = 2, self:NumLines() do
+			local line = _G[name .. "TextLeft" .. i]
+			if line then
+				local text = line:GetText()
+				if text and text:find("Sell Price") then
+					line:SetText(("%s:"):format(SELL_PRICE))
+					if not priceFS then
+						priceFS = self:CreateFontString(nil, "OVERLAY")
+						priceFS:SetFontObject(NumberFontNormalRight)
+						self:HookScript("OnTooltipCleared", function()
+							priceFS:Hide()
+						end)
+					end
+					priceFS:ClearAllPoints()
+					priceFS:SetPoint("LEFT", line, "LEFT", line:GetStringWidth() + 10, 0)
+					priceFS:SetText(coinString)
+					priceFS:Show()
+				end
+			end
 		end
 	end
 end)
