@@ -461,35 +461,9 @@ if (MiniMapInstanceDifficulty) == nil then
 	GuildInstanceDifficulty:SetScript("OnLeave", GameTooltip_Hide)
 end
 
-CreateFrame("Button", "MinimapZoneTextButton", MinimapCluster)
+local MinimapZoneTextButton = CreateFrame("Button", nil, MinimapCluster)
 MinimapZoneTextButton:SetSize(140, 12)
-MinimapZoneTextButton:ClearAllPoints()
 MinimapZoneTextButton:SetPoint("CENTER", 0, 83)
-MinimapZoneTextButton:SetFrameStrata("LOW")
-MinimapZoneTextButton:SetFrameLevel(3)
-MinimapZoneText:SetParent(MinimapZoneTextButton)
-MinimapZoneText:SetSize(140, 12)
-MinimapZoneText:ClearAllPoints()
-MinimapZoneText:SetPoint("CENTER", MinimapZoneTextButton, "TOP", 0, -6)
-MinimapZoneText:SetDrawLayer("BACKGROUND")
-MinimapZoneText:SetJustifyH("CENTER")
-
-MiniMapWorldMapButton = MinimapCluster.ZoneTextButton
-MiniMapWorldMapButton:SetSize(32, 32)
-MiniMapWorldMapButton:ClearAllPoints()
-MiniMapWorldMapButton:SetPoint("TOPRIGHT", MinimapBackdrop, "TOPRIGHT", -2, 23)
-MiniMapWorldMapButton:SetFrameStrata("LOW")
-MiniMapWorldMapButton:SetFrameLevel(4)
-MiniMapWorldMapButton:SetNormalTexture("Interface\\Minimap\\UI-Minimap-WorldMapSquare")
-MiniMapWorldMapButton:GetNormalTexture():SetSize(32, 32)
-MiniMapWorldMapButton:GetNormalTexture():SetTexCoord(0.0, 1, 0, 0.5)
-MiniMapWorldMapButton:SetPushedTexture("Interface\\Minimap\\UI-Minimap-WorldMapSquare")
-MiniMapWorldMapButton:GetPushedTexture():SetSize(32, 32)
-MiniMapWorldMapButton:GetPushedTexture():SetTexCoord(0.0, 1, 0.5, 1)
-MiniMapWorldMapButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
-MiniMapWorldMapButton:GetHighlightTexture():SetSize(28, 28)
-MiniMapWorldMapButton:GetHighlightTexture():ClearAllPoints()
-MiniMapWorldMapButton:GetHighlightTexture():SetPoint("TOPRIGHT", MiniMapWorldMapButton, "TOPRIGHT", 2, -2)
 
 MinimapZoneTextButton:SetScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_LEFT")
@@ -497,7 +471,7 @@ MinimapZoneTextButton:SetScript("OnEnter", function(self)
 	local zoneName = GetZoneText()
 	local subzoneName = GetSubZoneText()
 	if ( subzoneName == zoneName ) then
-		subzoneName = "";
+		subzoneName = ""
 	end
 	GameTooltip:AddLine( zoneName, 1.0, 1.0, 1.0 )
 	if ( pvpType == "sanctuary" ) then
@@ -532,20 +506,37 @@ MinimapZoneTextButton:SetScript("OnLeave", function()
 	GameTooltip_Hide()
 end)
 
-MiniMapWorldMapButton.tooltipText = MicroButtonTooltipText(WORLDMAP_BUTTON, "TOGGLEWORLDMAP")
-MiniMapWorldMapButton:RegisterEvent("UPDATE_BINDINGS")
+MinimapZoneText:SetParent(MinimapZoneTextButton)
+MinimapZoneText:SetSize(140, 12)
+MinimapZoneText:ClearAllPoints()
+MinimapZoneText:SetPoint("CENTER", MinimapZoneTextButton, "TOP", 0, -6)
+MinimapZoneText:SetJustifyH("CENTER")
+MinimapZoneText:SetDrawLayer("BACKGROUND")
+
+MiniMapWorldMapButton = MinimapCluster.ZoneTextButton
+MiniMapWorldMapButton:SetSize(32, 32)
+MiniMapWorldMapButton:ClearAllPoints()
+MiniMapWorldMapButton:SetPoint("TOPRIGHT", MinimapBackdrop, "TOPRIGHT", -2, 23)
+MiniMapWorldMapButton:SetFrameStrata("LOW")
+MiniMapWorldMapButton:SetFrameLevel(4)
+MiniMapWorldMapButton:SetNormalTexture("Interface\\Minimap\\UI-Minimap-WorldMapSquare")
+MiniMapWorldMapButton:GetNormalTexture():SetSize(32, 32)
+MiniMapWorldMapButton:GetNormalTexture():SetTexCoord(0.0, 1, 0, 0.5)
+MiniMapWorldMapButton:SetPushedTexture("Interface\\Minimap\\UI-Minimap-WorldMapSquare")
+MiniMapWorldMapButton:GetPushedTexture():SetSize(32, 32)
+MiniMapWorldMapButton:GetPushedTexture():SetTexCoord(0.0, 1, 0.5, 1)
+MiniMapWorldMapButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight")
+MiniMapWorldMapButton:GetHighlightTexture():SetSize(28, 28)
+MiniMapWorldMapButton:GetHighlightTexture():ClearAllPoints()
+MiniMapWorldMapButton:GetHighlightTexture():SetPoint("TOPRIGHT", MiniMapWorldMapButton, "TOPRIGHT", 2, -2)
 
 MiniMapWorldMapButton:SetScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip_SetTitle(GameTooltip, self.tooltipText)
+	GameTooltip:SetText(self.tooltipText, 1, 1, 1)
 	GameTooltip:Show()
 end)
 
 MiniMapWorldMapButton:SetScript("OnLeave", GameTooltip_Hide)
-
-MiniMapWorldMapButton:SetScript("OnEvent", function(self)
-	self.tooltipText = MicroButtonTooltipText(WORLDMAP_BUTTON, "TOGGLEWORLDMAP")
-end)
 
 Minimap:HookScript("OnEvent", function(self, event, ...)
 	if ( event == "PLAYER_ENTERING_WORLD" ) then
@@ -600,22 +591,22 @@ end)
 --queuestatusbutton
 local function MinimapButton_OnMouseDown(self, button)
 	if ( self.isDown ) then
-		return;
+		return
 	end
-	local button = _G[self:GetName().."Icon"];
+	local button = _G[self:GetName().."Icon"]
 	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint()
 	button:SetPoint(point, relativeTo, relativePoint, offsetX+1, offsetY-1)
-	self.isDown = 1;
+	self.isDown = 1
 end
 
 local function MinimapButton_OnMouseUp(self)
 	if ( not self.isDown ) then
-		return;
+		return
 	end
-	local button = _G[self:GetName().."Icon"];
+	local button = _G[self:GetName().."Icon"]
 	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint()
 	button:SetPoint(point, relativeTo, relativePoint, offsetX-1, offsetY+1)
-	self.isDown = nil;
+	self.isDown = nil
 end
 
 hooksecurefunc(QueueStatusButton, "UpdatePosition", function(self)
@@ -635,13 +626,13 @@ if (QueueStatusButtonBorder == nil) then
 	QueueStatusButtonBorder:SetPoint("TOPLEFT", 1, -1)
 end
 
-local LFG_EYE_TEXTURES = { };
-LFG_EYE_TEXTURES["default"] = { file = "Interface\\LFGFrame\\LFG-Eye", width = 512, height = 256, frames = 29, iconSize = 64, delay = 0.1 };
-LFG_EYE_TEXTURES["raid"] = { file = "Interface\\LFGFrame\\LFR-Anim", width = 256, height = 256, frames = 16, iconSize = 64, delay = 0.05 };
-LFG_EYE_TEXTURES["unknown"] = { file = "Interface\\LFGFrame\\WaitAnim", width = 128, height = 128, frames = 4, iconSize = 64, delay = 0.25 };
+local LFG_EYE_TEXTURES = { }
+LFG_EYE_TEXTURES["default"] = { file = "Interface\\LFGFrame\\LFG-Eye", width = 512, height = 256, frames = 29, iconSize = 64, delay = 0.1 }
+LFG_EYE_TEXTURES["raid"] = { file = "Interface\\LFGFrame\\LFR-Anim", width = 256, height = 256, frames = 16, iconSize = 64, delay = 0.05 }
+LFG_EYE_TEXTURES["unknown"] = { file = "Interface\\LFGFrame\\WaitAnim", width = 128, height = 128, frames = 4, iconSize = 64, delay = 0.25 }
 
 local function EyeTemplate_OnUpdate(self, elapsed)
-	local textureInfo = LFG_EYE_TEXTURES[self.queueType or "default"];
+	local textureInfo = LFG_EYE_TEXTURES[self.queueType or "default"]
 	AnimateTexCoords(self.texture, textureInfo.width, textureInfo.height, textureInfo.iconSize, textureInfo.iconSize, textureInfo.frames, elapsed, textureInfo.delay)
 end
 
@@ -652,9 +643,9 @@ end
 local function EyeTemplate_StopAnimating(eye)
 	eye:SetScript("OnUpdate", nil)
 	if ( eye.texture.frame ) then
-		eye.texture.frame = 1; --To start the animation over.
+		eye.texture.frame = 1 --To start the animation over.
 	end
-	local textureInfo = LFG_EYE_TEXTURES[eye.queueType or "default"];
+	local textureInfo = LFG_EYE_TEXTURES[eye.queueType or "default"]
 	eye.texture:SetTexCoord(0, textureInfo.iconSize / textureInfo.width, 0, textureInfo.iconSize / textureInfo.height)
 end
 
@@ -700,14 +691,14 @@ hooksecurefunc(QueueStatusFrame, "UpdatePosition", function(self)
 end)
 
 hooksecurefunc(QueueStatusFrame, "Update", function(self)
-	local animateEye;
+	local animateEye
 
 	--Try each LFG type
 	for i=1, NUM_LE_LFG_CATEGORYS do
 		local mode, submode = GetLFGMode(i)
 		if ( mode and submode ~= "noteleport" ) then
 			if ( mode == "queued" ) then
-				animateEye = true;
+				animateEye = true
 			end
 		end
 	end
@@ -715,7 +706,7 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 	--Try LFGList entries
 	local isActive = C_LFGList.HasActiveEntryInfo()
 	if ( isActive ) then
-		animateEye = true;
+		animateEye = true
 	end
 
 	--Try LFGList applications
@@ -724,7 +715,7 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 		local _, appStatus = C_LFGList.GetApplicationInfo(apps[i])
 		if ( appStatus == "applied" or appStatus == "invited" ) then
 			if ( appStatus == "applied" ) then
-				animateEye = true;
+				animateEye = true
 			end
 		end
 	end
@@ -734,7 +725,7 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 		local status, mapName, teamSize, registeredMatch, suspend = GetBattlefieldStatus(i)
 		if ( status and status ~= "none" ) then
 			if ( status == "queued" and not suspend ) then
-				animateEye = true;
+				animateEye = true
 			end
 		end
 	end
@@ -744,7 +735,7 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 		local status, mapName, queueID = GetWorldPVPQueueStatus(i)
 		if ( status and status ~= "none" ) then
 			if ( status == "queued" ) then
-				animateEye = true;
+				animateEye = true
 			end
 		end
 	end
@@ -753,7 +744,7 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 	local pbStatus = C_PetBattles.GetPVPMatchmakingInfo()
 	if ( pbStatus ) then
 		if ( pbStatus == "queued" ) then
-			animateEye = true;
+			animateEye = true
 		end
 	end
 
