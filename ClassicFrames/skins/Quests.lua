@@ -230,6 +230,11 @@ hooksecurefunc("QuestLogPopupDetailFrame_Show", function()
 	QuestLogPopupDetailFrame.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
 end)
 
+QuestFrameProgressPanel:HookScript("OnShow", function(self)
+	self.Bg:SetSize(510, 620)
+	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
+
 _G.QuestFrameGreetingPanel.SealMaterialBG:SetAlpha(0)
 _G.QuestFrameDetailPanel.SealMaterialBG:SetAlpha(0)
 _G.QuestFrameProgressPanel.SealMaterialBG:SetAlpha(0)
