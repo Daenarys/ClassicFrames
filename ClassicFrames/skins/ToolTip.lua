@@ -70,51 +70,53 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(self
 end)
 
 TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(self)
-	local name = self:GetName()
+	if self == _G.GameTooltip then
+		local name = self:GetName()
 
-	local _, unit = self:GetUnit()
-	if issecretvalue(unit) or not UnitIsPlayer(unit) then return end
+		local _, unit = self:GetUnit()
+		if not unit or issecretvalue(unit) or not UnitIsPlayer(unit) then return end
 
-	local className = UnitClass(unit)
-	if not className then return end
+		local className = UnitClass(unit)
+		if not className then return end
 
-	local levelLine, classLine
+		local levelLine, classLine
 
-	for i = 2, self:NumLines() do
-		local line = _G[name .. "TextLeft" .. i]
-		if line then
-			local text = line:GetText()
-			if text then
-				if text:find("^Level") then
-					levelLine = i
-				elseif (text == className or text:find(className)) and levelLine then
-					classLine = i
-					break
+		for i = 2, self:NumLines() do
+			local line = _G[name .. "TextLeft" .. i]
+			if line then
+				local text = line:GetText()
+				if text then
+					if text:find("^Level") then
+						levelLine = i
+					elseif (text == className or text:find(className)) and levelLine then
+						classLine = i
+						break
+					end
 				end
 			end
 		end
-	end
 
-	if levelLine and classLine then
-		local levelLine = _G[name .. "TextLeft" .. levelLine]
-		local currentLevelText = levelLine:GetText() or ""
+		if levelLine and classLine then
+			local levelLine = _G[name .. "TextLeft" .. levelLine]
+			local currentLevelText = levelLine:GetText() or ""
 
-		currentLevelText = currentLevelText:gsub("%s*%(Player%)", "")
-		levelLine:SetText(currentLevelText .. " " .. className .. " (Player)")
+			currentLevelText = currentLevelText:gsub("%s*%(Player%)", "")
+			levelLine:SetText(currentLevelText .. " " .. className .. " (Player)")
 
-		local numLines = self:NumLines()
-		for i = classLine, numLines - 1 do
-			local currentLeft = _G[name .. "TextLeft" .. i]
-			local nextLeft = _G[name .. "TextLeft" .. (i + 1)]
-			if currentLeft and nextLeft then
-				currentLeft:SetText(nextLeft:GetText())
+			local numLines = self:NumLines()
+			for i = classLine, numLines - 1 do
+				local currentLeft = _G[name .. "TextLeft" .. i]
+				local nextLeft = _G[name .. "TextLeft" .. (i + 1)]
+				if currentLeft and nextLeft then
+					currentLeft:SetText(nextLeft:GetText())
+				end
 			end
-		end
 
-		local lastLeft = _G[name .. "TextLeft" .. numLines]
-		if lastLeft then
-			lastLeft:SetText("")
-			lastLeft:Hide()
+			local lastLeft = _G[name .. "TextLeft" .. numLines]
+			if lastLeft then
+				lastLeft:SetText("")
+				lastLeft:Hide()
+			end
 		end
 	end
 end)
