@@ -502,9 +502,7 @@ MinimapZoneTextButton:SetScript("OnEnter", function(self)
 	GameTooltip:Show()
 end)
 
-MinimapZoneTextButton:SetScript("OnLeave", function()
-	GameTooltip_Hide()
-end)
+MinimapZoneTextButton:SetScript("OnLeave", GameTooltip_Hide)
 
 MinimapZoneText:SetParent(MinimapZoneTextButton)
 MinimapZoneText:SetSize(140, 12)
