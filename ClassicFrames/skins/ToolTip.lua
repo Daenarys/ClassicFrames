@@ -70,6 +70,41 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(self
 	end
 end)
 
+TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(self)
+	if self == _G.GameTooltip then
+		local name = self:GetName()
+		local numLines = self:NumLines()
+
+		local _, unit = self:GetUnit()
+		if not unit or issecretvalue(unit) or not UnitIsPlayer(unit) then return end
+
+		local className = UnitClass(unit)
+		if not className then return end
+
+		for i = 2, numLines - 1 do
+			local levelLine = _G[name .. "TextLeft" .. i]
+			local levelText = levelLine and levelLine:GetText()
+
+			if levelText and levelText:find("^Level") then
+				local classLine = _G[name .. "TextLeft" .. (i + 1)]
+				local classText = classLine and classLine:GetText()
+
+				if classText and classText:find(className, 1, true) then
+					levelLine:SetText((levelText:gsub("%s*%(Player%)$", "")) .. " " .. className .. " (Player)")
+
+					for j = i + 1, numLines - 1 do
+						_G[name .. "TextLeft" .. j]:SetText(_G[name .. "TextLeft" .. (j + 1)]:GetText())
+					end
+					local last = _G[name .. "TextLeft" .. numLines]
+					last:SetText("")
+					last:Hide()
+				end
+				break
+			end
+		end
+	end
+end)
+
 hooksecurefunc(TooltipComparisonManager, "SetItemTooltip", function(self)
 	for _, tooltip in pairs(self.tooltip.shoppingTooltips) do
 		if tooltip.CompareHeader then
