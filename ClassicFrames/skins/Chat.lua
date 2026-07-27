@@ -95,6 +95,7 @@ for i = 1, NUM_CHAT_WINDOWS do
 	ChatFrameMenuButton:SetPoint("BOTTOM", 0, 87)
 
 	_G["ChatFrame"..i]:HookScript("OnUpdate", ChatFrameButtonFrameBottomButton.OnUpdate)
+	_G["ChatFrame"..i.."Tab"]:HookScript("OnEnter", GameTooltip_Hide)
 
 	hooksecurefunc(_G["ChatFrame"..i].editBox, "UpdateNewcomerEditBoxHint", function(self)
 		self.NewcomerHint:SetShown(false)
