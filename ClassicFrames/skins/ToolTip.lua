@@ -6,7 +6,6 @@ hooksecurefunc("GameTooltip_AddInstructionLine", function(self, text)
 
 	local line = _G[name .. "TextLeft" .. numLines]
 	if line then
-		line:SetText("")
 		line:Hide()
 	end
 
@@ -83,22 +82,17 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(self
 		for i = 2, numLines - 1 do
 			local levelLine = _G[name .. "TextLeft" .. i]
 			local levelText = levelLine and levelLine:GetText()
-
 			if levelText and levelText:find("^Level") then
 				local classLine = _G[name .. "TextLeft" .. (i + 1)]
 				local classText = classLine and classLine:GetText()
-
 				if classText and classText:find(className, 1, true) then
 					levelLine:SetText((levelText:gsub("%s*%(Player%)$", "")) .. " " .. className .. " (Player)")
-
 					for j = i + 1, numLines - 1 do
 						_G[name .. "TextLeft" .. j]:SetText(_G[name .. "TextLeft" .. (j + 1)]:GetText())
 					end
 					local last = _G[name .. "TextLeft" .. numLines]
-					last:SetText("")
 					last:Hide()
 				end
-				break
 			end
 		end
 	end
