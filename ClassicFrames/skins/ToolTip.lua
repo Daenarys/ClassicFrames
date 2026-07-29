@@ -23,7 +23,7 @@ hooksecurefunc("GameTooltip_OnTooltipAddMoney", function(self, cost)
 	if line then
 		local text = line:GetText()
 		if text then
-			line:SetText(string.format("%s:   %s", SELL_PRICE, C_CurrencyInfo.GetCoinTextureString(cost, 13)))
+			line:SetText(string.format("%s: %s", SELL_PRICE, C_CurrencyInfo.GetCoinTextureString(cost, 13)))
 		end
 	end
 end)
