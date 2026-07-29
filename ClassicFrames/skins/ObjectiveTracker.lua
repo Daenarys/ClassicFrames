@@ -88,6 +88,15 @@ hooksecurefunc(ObjectiveTrackerContainerMixin, "Update", function(self)
 	end
 end)
 
+hooksecurefunc(QuestObjectiveItemButtonMixin, "UpdateInsideBlob", function(self, questID, inside)
+	if questID == self:GetAttribute("questID") then
+		if inside then
+			self.Glow:Hide()
+			self.GlowAnim:Stop()
+		end
+	end
+end)
+
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block, _, _, _, _, flags)
 	if (block.NormalBG:GetAtlas() == "evergreen-scenario-trackerheader") then
 		block.NormalBG:SetAtlas("ScenarioTrackerToast", true)
