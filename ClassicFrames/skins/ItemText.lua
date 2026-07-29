@@ -28,12 +28,16 @@ ApplyScrollBarArrow(ItemTextScrollFrame.ScrollBar)
 ApplyScrollBarTrack(ItemTextScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(ItemTextScrollFrame.ScrollBar.Track.Thumb)
 
-ItemTextFrame:HookScript("OnShow", function()
-	local material = ItemTextGetMaterial()
+ItemTextFramePageBg:SetTexture("Interface\\QuestFrame\\QuestBG")
+ItemTextFramePageBg:SetWidth(512)
+ItemTextFramePageBg:SetHeight(543)
 
-	if material == "Parchment" then
-		ItemTextFramePageBg:SetTexture("Interface\\QuestFrame\\QuestBG")
-		ItemTextFramePageBg:SetWidth(512)
-		ItemTextFramePageBg:SetHeight(543)
+ItemTextFrame:HookScript("OnEvent", function(self, event)
+	if ( event == "ITEM_TEXT_READY" ) then
+		if (ItemTextFramePageBg:GetAtlas() == "QuestBG-Parchment") then
+			ItemTextFramePageBg:SetTexture("Interface\\QuestFrame\\QuestBG")
+			ItemTextFramePageBg:SetWidth(512)
+			ItemTextFramePageBg:SetHeight(543)
+		end
 	end
 end)
