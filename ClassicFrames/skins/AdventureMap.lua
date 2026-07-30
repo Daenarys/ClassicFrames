@@ -10,7 +10,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		if (AdventureMapQuestChoiceDialog.Bg == nil) then
 			AdventureMapQuestChoiceDialog.Bg = AdventureMapQuestChoiceDialog:CreateTexture(nil, "BACKGROUND", nil, -2)
-			AdventureMapQuestChoiceDialog.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+			AdventureMapQuestChoiceDialog.Bg:SetTexture("Interface\\FrameGeneral\\UI-Background-Rock", true, true)
 			AdventureMapQuestChoiceDialog.Bg:SetPoint("TOPLEFT", 5, -35)
 			AdventureMapQuestChoiceDialog.Bg:SetPoint("BOTTOMRIGHT", -5, 3)
 		end

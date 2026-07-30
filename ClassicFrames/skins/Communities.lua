@@ -7,28 +7,22 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 
 		self.MaximizeMinimizeFrame:SetSize(32, 32)
 		self.MaximizeMinimizeFrame:ClearAllPoints()
-		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
+		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 8.5, 0)
+		self.MaximizeMinimizeFrame:SetFrameLevel(2)
 
 		ApplyMaxMinButton(self.MaximizeMinimizeFrame)
-
-		if (self.ButtonFrameEdge == nil) then
-			self.ButtonFrameEdge = self.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
-			self.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
-			self.ButtonFrameEdge:ClearAllPoints()
-			self.ButtonFrameEdge:SetPoint("CENTER", self.MaximizeMinimizeFrame, "LEFT", 6, 0)
-		end
 
 		self.TitleContainer:ClearAllPoints()
 		self.TitleContainer:SetPoint("TOPLEFT", self, "TOPLEFT", 58, 0)
 		self.TitleContainer:SetPoint("TOPRIGHT", self, "TOPRIGHT", -58, 0)
 
 		ApplyTitleBg(self, true)
-		ApplyNineSliceNoPortrait(self)
+		ApplyNineSliceNoPortraitMinimizable(self)
 
 		self.Chat.ScrollBar:SetSize(25, 560)
 		self.Chat.ScrollBar:ClearAllPoints()
-		self.Chat.ScrollBar:SetPoint("TOPLEFT", self.Chat.MessageFrame, "TOPRIGHT", 0, 5)
-		self.Chat.ScrollBar:SetPoint("BOTTOMLEFT", self.Chat.MessageFrame, "BOTTOMRIGHT", 0, -9)
+		self.Chat.ScrollBar:SetPoint("TOPLEFT", self.Chat.MessageFrame, "TOPRIGHT", 5, 5)
+		self.Chat.ScrollBar:SetPoint("BOTTOMLEFT", self.Chat.MessageFrame, "BOTTOMRIGHT", 2, -9)
 
 		ApplyScrollBarArrow(self.Chat.ScrollBar)
 		ApplyScrollBarTrack(self.Chat.ScrollBar.Track)
@@ -38,16 +32,10 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 
 		self.MaximizeMinimizeFrame:SetSize(32, 32)
 		self.MaximizeMinimizeFrame:ClearAllPoints()
-		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
+		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 8.5, 0)
+		self.MaximizeMinimizeFrame:SetFrameLevel(2)
 
 		ApplyMaxMinButton(self.MaximizeMinimizeFrame)
-
-		if (self.ButtonFrameEdge == nil) then
-			self.ButtonFrameEdge = self.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
-			self.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
-			self.ButtonFrameEdge:ClearAllPoints()
-			self.ButtonFrameEdge:SetPoint("CENTER", self.MaximizeMinimizeFrame, "LEFT", 6, 0)
-		end
 
 		CommunitiesFramePortrait:SetSize(61, 61)
 		CommunitiesFramePortrait:ClearAllPoints()
@@ -73,7 +61,7 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 		self.TitleContainer:SetPoint("TOPRIGHT", self, "TOPRIGHT", -58, 0)
 
 		ApplyTitleBg(self)
-		ApplyNineSlicePortrait(self)
+		ApplyNineSlicePortraitMinimizable(self)
 
 		self.Chat.ScrollBar:SetSize(25, 560)
 		self.Chat.ScrollBar:ClearAllPoints()
@@ -157,6 +145,7 @@ ClubFinderCommunityAndGuildFinderFrame.OptionsList.HealerRoleFrame.Icon:SetAtlas
 ClubFinderCommunityAndGuildFinderFrame.OptionsList.DpsRoleFrame.Icon:SetAtlas("UI-Frame-DpsIcon", true)
 
 ApplyCloseButton(CommunitiesFrame.GuildMemberDetailFrame.CloseButton, true)
+ApplyCloseButton(CommunitiesGuildLogFrameCloseButton, true)
 ApplyCloseButton(CommunitiesGuildNewsFiltersFrame.CloseButton, true)
 ApplyCloseButton(CommunitiesGuildTextEditFrameCloseButton, true)
 ApplyCloseButton(GuildControlUICloseButton, true)

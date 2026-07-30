@@ -15,19 +15,6 @@ hooksecurefunc("GameTooltip_AddInstructionLine", function(self, text)
 	end
 end)
 
-hooksecurefunc("GameTooltip_OnTooltipAddMoney", function(self, cost)
-	local name = self:GetName()
-	local numLines = self:NumLines()
-
-	local line = _G[name .. "TextLeft" .. numLines]
-	if line then
-		local text = line:GetText()
-		if text then
-			line:SetText(string.format("%s: %s", SELL_PRICE, C_CurrencyInfo.GetCoinTextureString(cost, 13)))
-		end
-	end
-end)
-
 TooltipDataProcessor.AddTooltipPreCall(Enum.TooltipDataType.Item, function(self)
 	if self == _G.ShoppingTooltip1 or self == _G.ShoppingTooltip2 then
 		local isPrimaryTooltip = self == _G.ShoppingTooltip1
@@ -47,6 +34,10 @@ end)
 TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(self)
 	if self == _G.ShoppingTooltip1 or self == _G.ShoppingTooltip2 then
 		local name = self:GetName()
+
+		if self.CompareHeader then
+			self.CompareHeader:SetAlpha(0)
+		end
 
 		local l1, r1 = _G[name.."TextLeft1"], _G[name.."TextRight1"]
 		if l1 then l1:SetFontObject("GameFontNormalSmall") end
@@ -94,14 +85,6 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(self
 					last:Hide()
 				end
 			end
-		end
-	end
-end)
-
-hooksecurefunc(TooltipComparisonManager, "SetItemTooltip", function(self)
-	for _, tooltip in pairs(self.tooltip.shoppingTooltips) do
-		if tooltip.CompareHeader then
-			tooltip.CompareHeader:SetAlpha(0)
 		end
 	end
 end)

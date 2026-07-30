@@ -5,16 +5,10 @@ hooksecurefunc(WorldMapFrame, "Minimize", function(self)
 
 	self.BorderFrame.MaximizeMinimizeFrame:SetSize(32, 32)
 	self.BorderFrame.MaximizeMinimizeFrame:ClearAllPoints()
-	self.BorderFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", WorldMapFrameCloseButton, "LEFT", 10, 0)
+	self.BorderFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", WorldMapFrameCloseButton, "LEFT", 8.5, 0)
+	self.BorderFrame.MaximizeMinimizeFrame:SetFrameLevel(2)
 
 	ApplyMaxMinButton(self.BorderFrame.MaximizeMinimizeFrame)
-
-	if (self.BorderFrame.ButtonFrameEdge == nil) then
-		self.BorderFrame.ButtonFrameEdge = self.BorderFrame.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
-		self.BorderFrame.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
-		self.BorderFrame.ButtonFrameEdge:ClearAllPoints()
-		self.BorderFrame.ButtonFrameEdge:SetPoint("CENTER", self.BorderFrame.MaximizeMinimizeFrame, "LEFT", 6, 0)
-	end
 
 	WorldMapFramePortrait:SetSize(61, 61)
 	WorldMapFramePortrait:ClearAllPoints()
@@ -25,7 +19,7 @@ hooksecurefunc(WorldMapFrame, "Minimize", function(self)
 	self.BorderFrame.TitleContainer:SetPoint("TOPRIGHT", self, "TOPRIGHT", -58, 0)
 
 	ApplyTitleBg(self)
-	ApplyNineSlicePortrait(self.BorderFrame)
+	ApplyNineSlicePortraitMinimizable(self.BorderFrame)
 
 	self.BorderFrame.Tutorial.Ring:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 end)
@@ -35,19 +29,13 @@ hooksecurefunc(WorldMapFrame, "Maximize", function(self)
 
 	self.BorderFrame.MaximizeMinimizeFrame:SetSize(32, 32)
 	self.BorderFrame.MaximizeMinimizeFrame:ClearAllPoints()
-	self.BorderFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", WorldMapFrameCloseButton, "LEFT", 10, 0)
+	self.BorderFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", WorldMapFrameCloseButton, "LEFT", 8.5, 0)
+	self.BorderFrame.MaximizeMinimizeFrame:SetFrameLevel(2)
 
 	ApplyMaxMinButton(self.BorderFrame.MaximizeMinimizeFrame)
-
-	if (self.BorderFrame.ButtonFrameEdge == nil) then
-		self.BorderFrame.ButtonFrameEdge = self.BorderFrame.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
-		self.BorderFrame.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
-		self.BorderFrame.ButtonFrameEdge:ClearAllPoints()
-		self.BorderFrame.ButtonFrameEdge:SetPoint("CENTER", self.BorderFrame.MaximizeMinimizeFrame, "LEFT", 6, 0)
-	end
-
+	
 	ApplyTitleBg(self, true)
-	ApplyNineSliceNoPortrait(self.BorderFrame)
+	ApplyNineSliceNoPortraitMinimizable(self.BorderFrame)
 end)
 
 local Dropdown, Tracking, Pin = unpack(WorldMapFrame.overlayFrames)

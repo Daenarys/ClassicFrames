@@ -4,6 +4,8 @@ ApplyCloseButton(SettingsPanel.ClosePanelButton)
 ApplyTitleBg(SettingsPanel, true)
 ApplyNineSliceNoPortrait(SettingsPanel)
 
+SettingsPanel.NineSlice:SetUsingParentLevel(false)
+
 SettingsPanel.Container.SettingsList.ScrollBar.Track.Begin:Hide()
 SettingsPanel.Container.SettingsList.ScrollBar.Track.End:Hide()
 SettingsPanel.Container.SettingsList.ScrollBar.Track.Middle:Hide()
