@@ -125,6 +125,14 @@ healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 
+healthBarContainer.PlayerFrameHealthBarAnimatedLoss:SetStatusBarTexture(798064)
+healthBarContainer.PlayerFrameHealthBarAnimatedLoss:GetStatusBarTexture():SetDrawLayer("BACKGROUND")
+
+healthBar.MyHealPredictionBar.Fill:SetTexture(798064)
+healthBar.OtherHealPredictionBar.Fill:SetTexture(798064)
+healthBar.TotalAbsorbBar.Fill:SetTexture(798064)
+healthBar.HealAbsorbBar.Fill:SetTexture(798064)
+
 healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
 healthBar.OverAbsorbGlow:ClearAllPoints()
