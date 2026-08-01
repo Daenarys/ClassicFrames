@@ -120,24 +120,10 @@ PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetSize(64, 64)
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetTexture("Interface\\CharacterFrame\\TempPortraitAlphaMask")
 PlayerFrame.PlayerFrameContainer.PlayerPortraitMask:SetPoint("TOPLEFT", 23, -16)
 
-healthBar:GetStatusBarTexture():SetAlpha(0)
+healthBarContainer:SetAlpha(0)
 healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
-
-healthBarContainer.PlayerFrameHealthBarAnimatedLoss:SetStatusBarTexture(798064)
-healthBarContainer.PlayerFrameHealthBarAnimatedLoss:GetStatusBarTexture():SetDrawLayer("BACKGROUND")
-
-healthBar.MyHealPredictionBar.Fill:SetTexture(798064)
-healthBar.OtherHealPredictionBar.Fill:SetTexture(798064)
-healthBar.TotalAbsorbBar.Fill:SetTexture(798064)
-healthBar.HealAbsorbBar.Fill:SetTexture(798064)
-
-healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
-healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.OverAbsorbGlow:ClearAllPoints()
-healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", healthBar, "TOPRIGHT", -10, -4)
-healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", healthBar, "BOTTOMRIGHT", 10, 3)
 
 manaBarContainer:SetAlpha(0)
 manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
@@ -267,6 +253,22 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	manaBar.TextString:SetPoint("CENTER", manaBar, "CENTER", 0, 3)
 	manaBar.LeftText:SetPoint("LEFT", manaBar, "LEFT", 6, 3)
 	manaBar.RightText:SetPoint("RIGHT", manaBar, "RIGHT", -4, 3)
+
+	if manaBar.FeedbackFrame then
+		manaBar.FeedbackFrame:SetParent(CfPlayerFrame.ManaBar)
+		manaBar.FeedbackFrame:ClearAllPoints()
+		manaBar.FeedbackFrame:SetAllPoints(CfPlayerFrame.ManaBar)
+		manaBar.FeedbackFrame.BarTexture:RemoveMaskTexture(manaBar.ManaBarMask)
+		manaBar.FeedbackFrame.LossGlowTexture:RemoveMaskTexture(manaBar.ManaBarMask)
+		manaBar.FeedbackFrame.GainGlowTexture:RemoveMaskTexture(manaBar.ManaBarMask)
+	end
+
+	if manaBar.FullPowerFrame then
+		manaBar.FullPowerFrame:SetParent(CfPlayerFrame.ManaBar)
+		manaBar.FullPowerFrame:SetSize(119, 12)
+		manaBar.FullPowerFrame:ClearAllPoints()
+		manaBar.FullPowerFrame:SetPoint("TOPRIGHT", CfPlayerFrame.ManaBar, "TOPRIGHT")
+	end
 
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:ClearAllPoints()
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMLEFT", CfPlayerFrame, "TOPLEFT", 97, -20)
