@@ -115,32 +115,33 @@ healthBarContainer:SetAlpha(0)
 
 healthBar.MyHealPredictionBar.Fill:RemoveMaskTexture(healthBarContainer.HealthBarMask)
 healthBar.OtherHealPredictionBar.Fill:RemoveMaskTexture(healthBarContainer.HealthBarMask)
+healthBar.HealAbsorbBar.Fill:RemoveMaskTexture(healthBarContainer.HealthBarMask)
+healthBar.HealAbsorbBar.LeftShadow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
+healthBar.HealAbsorbBar.RightShadow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
 healthBar.TotalAbsorbBar.Fill:RemoveMaskTexture(healthBarContainer.HealthBarMask)
 healthBar.TotalAbsorbBar.TiledFillOverlay:RemoveMaskTexture(healthBarContainer.HealthBarMask)
 healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
 healthBar.OverHealAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.HealAbsorbBar.Fill:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.HealAbsorbBar.LeftShadow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.HealAbsorbBar.RightShadow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
 healthBarContainer.PlayerFrameHealthBarAnimatedLoss:GetStatusBarTexture():RemoveMaskTexture(healthBarContainer.HealthBarMask)
 
-healthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 healthBar.MyHealPredictionBar.Fill:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
 healthBar.OtherHealPredictionBar.Fill:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
+healthBar.HealAbsorbBar.Fill:SetTexture("Interface\\RaidFrame\\Absorb-Fill", true, true)
+healthBar.TotalAbsorbBar.Fill:SetTexture("Interface\\RaidFrame\\Shield-Fill")
 healthBarContainer.PlayerFrameHealthBarAnimatedLoss:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 
 healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 
+healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
+healthBar.OverHealAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
+
 manaBarContainer:SetAlpha(0)
 
 manaBar.FeedbackFrame.BarTexture:RemoveMaskTexture(manaBar.ManaBarMask)
 manaBar.FeedbackFrame.LossGlowTexture:RemoveMaskTexture(manaBar.ManaBarMask)
 manaBar.FeedbackFrame.GainGlowTexture:RemoveMaskTexture(manaBar.ManaBarMask)
-manaBar.ManaCostPredictionBar.Fill:RemoveMaskTexture(manaBar.ManaBarMask)
-
-manaBar.ManaCostPredictionBar.Fill:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
 
 manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
@@ -281,23 +282,21 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	healthBar.OtherHealPredictionBar:ClearAllPoints()
 	healthBar.OtherHealPredictionBar:SetAllPoints(CfPlayerFrame.HealthBar)
 
+	healthBar.HealAbsorbBar:SetParent(CfPlayerFrame.HealthBar)
+	healthBar.HealAbsorbBar:ClearAllPoints()
+	healthBar.HealAbsorbBar:SetAllPoints(CfPlayerFrame.HealthBar)
+
 	healthBar.TotalAbsorbBar:SetParent(CfPlayerFrame.HealthBar)
 	healthBar.TotalAbsorbBar:ClearAllPoints()
 	healthBar.TotalAbsorbBar:SetAllPoints(CfPlayerFrame.HealthBar)
 
-	healthBar.OverAbsorbGlow:SetParent(CfPlayerFrame.HealthBar)
 	healthBar.OverAbsorbGlow:ClearAllPoints()
 	healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", CfPlayerFrame.HealthBar, "TOPRIGHT", -7, 0)
 	healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", CfPlayerFrame.HealthBar, "BOTTOMRIGHT", -7, 0)
 
-	healthBar.OverHealAbsorbGlow:SetParent(CfPlayerFrame.HealthBar)
 	healthBar.OverHealAbsorbGlow:ClearAllPoints()
 	healthBar.OverHealAbsorbGlow:SetPoint("BOTTOMRIGHT", CfPlayerFrame.HealthBar, "BOTTOMLEFT", 7, 0)
 	healthBar.OverHealAbsorbGlow:SetPoint("TOPRIGHT", CfPlayerFrame.HealthBar, "TOPLEFT", 7, 0)
-
-	healthBar.HealAbsorbBar:SetParent(CfPlayerFrame.HealthBar)
-	healthBar.HealAbsorbBar:ClearAllPoints()
-	healthBar.HealAbsorbBar:SetAllPoints(CfPlayerFrame.HealthBar)
 
 	healthBarContainer.PlayerFrameHealthBarAnimatedLoss:SetParent(CfPlayerFrame.HealthBar)
 	healthBarContainer.PlayerFrameHealthBarAnimatedLoss:ClearAllPoints()
@@ -306,10 +305,6 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	manaBar.TextString:SetPoint("CENTER", manaBar, "CENTER", 0, 3)
 	manaBar.LeftText:SetPoint("LEFT", manaBar, "LEFT", 6, 3)
 	manaBar.RightText:SetPoint("RIGHT", manaBar, "RIGHT", -4, 3)
-
-	manaBar.ManaCostPredictionBar:SetParent(CfPlayerFrame.ManaBar)
-	manaBar.ManaCostPredictionBar:ClearAllPoints()
-	manaBar.ManaCostPredictionBar:SetAllPoints(CfPlayerFrame.ManaBar)
 
 	manaBar.FeedbackFrame:SetParent(CfPlayerFrame.ManaBar)
 	manaBar.FeedbackFrame:ClearAllPoints()
