@@ -13,6 +13,10 @@ if _G.QuestFrame then
 
 	ApplyTitleBg(QuestFrame)
 	ApplyNineSlicePortrait(QuestFrame)
+
+	if QuestFrame.AccountCompletedNotice then
+		QuestFrame.AccountCompletedNotice:SetAlpha(0)
+	end
 end
 
 if _G.QuestLogPopupDetailFrame then
