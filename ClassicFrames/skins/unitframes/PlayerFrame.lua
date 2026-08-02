@@ -273,10 +273,6 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	healthBar.LeftText:SetPoint("LEFT", healthBarContainer, "LEFT", 6, 0)
 	healthBar.RightText:SetPoint("RIGHT", healthBarContainer, "RIGHT", -4, 0)
 
-	manaBar.TextString:SetPoint("CENTER", manaBar, "CENTER", 0, 3)
-	manaBar.LeftText:SetPoint("LEFT", manaBar, "LEFT", 6, 3)
-	manaBar.RightText:SetPoint("RIGHT", manaBar, "RIGHT", -4, 3)
-
 	healthBar.MyHealPredictionBar:SetParent(CfPlayerFrame.HealthBar)
 	healthBar.MyHealPredictionBar:ClearAllPoints()
 	healthBar.MyHealPredictionBar:SetAllPoints(CfPlayerFrame.HealthBar)
@@ -289,6 +285,16 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	healthBar.TotalAbsorbBar:ClearAllPoints()
 	healthBar.TotalAbsorbBar:SetAllPoints(CfPlayerFrame.HealthBar)
 
+	healthBar.OverAbsorbGlow:SetParent(CfPlayerFrame.HealthBar)
+	healthBar.OverAbsorbGlow:ClearAllPoints()
+	healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", CfPlayerFrame.HealthBar, "TOPRIGHT", -7, 0)
+	healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", CfPlayerFrame.HealthBar, "BOTTOMRIGHT", -7, 0)
+
+	healthBar.OverHealAbsorbGlow:SetParent(CfPlayerFrame.HealthBar)
+	healthBar.OverHealAbsorbGlow:ClearAllPoints()
+	healthBar.OverHealAbsorbGlow:SetPoint("BOTTOMRIGHT", CfPlayerFrame.HealthBar, "BOTTOMLEFT", 7, 0)
+	healthBar.OverHealAbsorbGlow:SetPoint("TOPRIGHT", CfPlayerFrame.HealthBar, "TOPLEFT", 7, 0)
+
 	healthBar.HealAbsorbBar:SetParent(CfPlayerFrame.HealthBar)
 	healthBar.HealAbsorbBar:ClearAllPoints()
 	healthBar.HealAbsorbBar:SetAllPoints(CfPlayerFrame.HealthBar)
@@ -297,18 +303,22 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	healthBarContainer.PlayerFrameHealthBarAnimatedLoss:ClearAllPoints()
 	healthBarContainer.PlayerFrameHealthBarAnimatedLoss:SetAllPoints(CfPlayerFrame.HealthBar)
 
-	if manaBar.FeedbackFrame then
-		manaBar.FeedbackFrame:SetParent(CfPlayerFrame.ManaBar)
-		manaBar.FeedbackFrame:ClearAllPoints()
-		manaBar.FeedbackFrame:SetAllPoints(CfPlayerFrame.ManaBar)
-	end
+	manaBar.TextString:SetPoint("CENTER", manaBar, "CENTER", 0, 3)
+	manaBar.LeftText:SetPoint("LEFT", manaBar, "LEFT", 6, 3)
+	manaBar.RightText:SetPoint("RIGHT", manaBar, "RIGHT", -4, 3)
 
-	if manaBar.FullPowerFrame then
-		manaBar.FullPowerFrame:SetParent(CfPlayerFrame.ManaBar)
-		manaBar.FullPowerFrame:SetSize(119, 12)
-		manaBar.FullPowerFrame:ClearAllPoints()
-		manaBar.FullPowerFrame:SetPoint("TOPRIGHT", CfPlayerFrame.ManaBar, "TOPRIGHT")
-	end
+	manaBar.ManaCostPredictionBar:SetParent(CfPlayerFrame.ManaBar)
+	manaBar.ManaCostPredictionBar:ClearAllPoints()
+	manaBar.ManaCostPredictionBar:SetAllPoints(CfPlayerFrame.ManaBar)
+
+	manaBar.FeedbackFrame:SetParent(CfPlayerFrame.ManaBar)
+	manaBar.FeedbackFrame:ClearAllPoints()
+	manaBar.FeedbackFrame:SetAllPoints(CfPlayerFrame.ManaBar)
+
+	manaBar.FullPowerFrame:SetParent(CfPlayerFrame.ManaBar)
+	manaBar.FullPowerFrame:SetSize(119, 12)
+	manaBar.FullPowerFrame:ClearAllPoints()
+	manaBar.FullPowerFrame:SetPoint("TOPRIGHT", CfPlayerFrame.ManaBar, "TOPRIGHT")
 
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:ClearAllPoints()
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMLEFT", CfPlayerFrame, "TOPLEFT", 97, -20)
