@@ -113,16 +113,9 @@ local manaBar = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarAre
 
 healthBarContainer:SetAlpha(0)
 
-healthBar.MyHealPredictionBar.Fill:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.OtherHealPredictionBar.Fill:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.HealAbsorbBar.Fill:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.HealAbsorbBar.LeftShadow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.HealAbsorbBar.RightShadow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.TotalAbsorbBar.Fill:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.TotalAbsorbBar.TiledFillOverlay:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.OverHealAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBarContainer.PlayerFrameHealthBarAnimatedLoss:GetStatusBarTexture():RemoveMaskTexture(healthBarContainer.HealthBarMask)
+healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
+healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
+healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 
 healthBar.MyHealPredictionBar.Fill:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
 healthBar.OtherHealPredictionBar.Fill:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
@@ -130,22 +123,18 @@ healthBar.HealAbsorbBar.Fill:SetTexture("Interface\\RaidFrame\\Absorb-Fill", tru
 healthBar.TotalAbsorbBar.Fill:SetTexture("Interface\\RaidFrame\\Shield-Fill")
 healthBarContainer.PlayerFrameHealthBarAnimatedLoss:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 
-healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
-healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
-healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
-
 healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.OverHealAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
 
 manaBarContainer:SetAlpha(0)
 
-manaBar.FeedbackFrame.BarTexture:RemoveMaskTexture(manaBar.ManaBarMask)
-manaBar.FeedbackFrame.LossGlowTexture:RemoveMaskTexture(manaBar.ManaBarMask)
-manaBar.FeedbackFrame.GainGlowTexture:RemoveMaskTexture(manaBar.ManaBarMask)
-
 manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
+
+manaBar.FeedbackFrame.BarTexture:RemoveMaskTexture(manaBar.ManaBarMask)
+manaBar.FeedbackFrame.LossGlowTexture:RemoveMaskTexture(manaBar.ManaBarMask)
+manaBar.FeedbackFrame.GainGlowTexture:RemoveMaskTexture(manaBar.ManaBarMask)
 
 PlayerFrame.PlayerFrameContainer:SetFrameLevel(4)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:SetFrameLevel(5)

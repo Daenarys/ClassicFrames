@@ -54,6 +54,11 @@ PetFrameManaBarTextLeft:SetPoint("LEFT", PetFrame, "TOPLEFT", 46, -36)
 PetFrameManaBarTextRight:ClearAllPoints()
 PetFrameManaBarTextRight:SetPoint("RIGHT", PetFrame, "TOPLEFT", 113, -36)
 
+PetFrameMyHealPredictionBar.Fill:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
+PetFrameOtherHealPredictionBar.Fill:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
+PetFrameHealAbsorbBar.Fill:SetTexture("Interface\\RaidFrame\\Absorb-Fill", true, true)
+PetFrameTotalAbsorbBar.Fill:SetTexture("Interface\\RaidFrame\\Shield-Fill")
+
 PetFrameOverAbsorbGlow:SetParent(PetFrame)
 PetFrameOverAbsorbGlow:SetDrawLayer("ARTWORK", 7)
 
