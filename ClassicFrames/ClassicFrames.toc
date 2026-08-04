@@ -1,4 +1,4 @@
-## Interface: 120007
+## Interface: 120100
 ## IconTexture: 135331
 ## Title: Classic Frames
 ## Notes: Restores the classic UI and Unit Frames
