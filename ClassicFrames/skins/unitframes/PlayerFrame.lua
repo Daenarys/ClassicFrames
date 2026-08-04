@@ -554,7 +554,7 @@ hooksecurefunc("PlayerFrame_UpdateStatus", function()
 	end
 end)
 
-hooksecurefunc(PlayerFrameBottomManagedFramesContainer, "Layout", function()
+hooksecurefunc(PlayerBottomManagedFrameContainer, "Layout", function()
 	if (DruidComboPointBarFrame) then
 		DruidComboPointBarFrame:UnregisterAllEvents()
 		DruidComboPointBarFrame:Hide()

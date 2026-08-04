@@ -345,7 +345,7 @@ hooksecurefunc("LFG_UpdateAvailableRoleButton", function(button, canBeRole)
 	end
 
 	if not (canBeRole) then
-		SetDesaturation(button:GetDisabledTexture(), true)
+		button:GetDisabledTexture():SetDesaturated(true)
 		if not button.cover then
 			button.cover = button:CreateTexture(nil, "OVERLAY")
 			button.cover:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
@@ -370,7 +370,7 @@ hooksecurefunc('LFG_DisableRoleButton', function(button)
 end)
 
 hooksecurefunc('LFG_EnableRoleButton', function(button)
-	SetDesaturation(button:GetNormalTexture(), false)
+	button:GetNormalTexture():SetDesaturated(false)
 	if button.cover then
 		button.cover:Hide()
 	end
@@ -665,7 +665,7 @@ hooksecurefunc("RolePollPopupRoleButton_Enable", function(button)
 	RolePollPopupRoleButtonTank:SetNormalTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")
 	RolePollPopupRoleButtonTank:GetNormalTexture():SetTexCoord(GetTexCoordsForRole("TANK"))
 
-	SetDesaturation(button:GetNormalTexture(), false)
+	button:GetNormalTexture():SetDesaturated(false)
 	if button.cover then
 		button.cover:Hide()
 		button.cover:SetAlpha(1)
@@ -673,7 +673,7 @@ hooksecurefunc("RolePollPopupRoleButton_Enable", function(button)
 end)
 
 hooksecurefunc("RolePollPopupRoleButton_Disable", function(button)
-	SetDesaturation(button:GetNormalTexture(), true)
+	button:GetNormalTexture():SetDesaturated(true)
 	if not button.cover then
 		button.cover = button:CreateTexture(nil, "OVERLAY")
 		button.cover:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-ROLES")

@@ -633,7 +633,7 @@ LFG_EYE_TEXTURES["unknown"] = { file = "Interface\\LFGFrame\\WaitAnim", width = 
 
 local function EyeTemplate_OnUpdate(self, elapsed)
 	local textureInfo = LFG_EYE_TEXTURES[self.queueType or "default"]
-	AnimateTexCoords(self.texture, textureInfo.width, textureInfo.height, textureInfo.iconSize, textureInfo.iconSize, textureInfo.frames, elapsed, textureInfo.delay)
+	TextureUtil.AnimateTexCoords(self.texture, textureInfo.width, textureInfo.height, textureInfo.iconSize, textureInfo.iconSize, textureInfo.frames, elapsed, textureInfo.delay)
 end
 
 local function EyeTemplate_StartAnimating(eye)
