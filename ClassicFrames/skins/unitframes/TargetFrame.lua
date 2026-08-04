@@ -312,6 +312,12 @@ local function SkinFrame(frame)
 		highLevelTexture:SetPoint("CENTER", 81, -21)
 	end)
 
+	hooksecurefunc(frame, "AnchorAuraContainer", function(self)
+		local auraContainer = self:GetAuraContainer()
+		auraContainer:ClearAllPoints()
+		auraContainer:SetPoint("TOPLEFT", self.TargetFrameContainer.FrameTexture, "BOTTOMLEFT", 5, 32)
+	end)
+
 	if (frame.totFrame) then
 		local function fixDebuffs()
 			local frameName = frame.totFrame:GetName()
