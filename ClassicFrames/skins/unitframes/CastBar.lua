@@ -1,37 +1,3 @@
-local function AdjustPosition(self)
-	local parentFrame = self:GetParent()
-	if (parentFrame.haveToT) then
-		if (parentFrame == FocusFrame) then
-			if (parentFrame.auraRows <= 1) then
-				self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 30, -45)
-			else
-				self:SetPoint("TOPLEFT", parentFrame.spellbarAnchor, "BOTTOMLEFT", 20, -36)
-			end
-		elseif (parentFrame.buffsOnTop or parentFrame.auraRows <= 1) then
-			self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 45, -24)
-		else
-			self:SetPoint("TOPLEFT", parentFrame.spellbarAnchor, "BOTTOMLEFT", 20, -15)
-		end
-	elseif (parentFrame.haveElite) then
-		if (parentFrame.buffsOnTop or parentFrame.auraRows <= 1) then
-			self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 45, -9)
-		else
-			self:SetPoint("TOPLEFT", parentFrame.spellbarAnchor, "BOTTOMLEFT", 20, -15)
-		end
-	else
-		if ((not parentFrame.buffsOnTop) and parentFrame.auraRows > 0) then
-			self:SetPoint("TOPLEFT", parentFrame.spellbarAnchor, "BOTTOMLEFT", 20, -15)
-		else
-			self:SetPoint("TOPLEFT", parentFrame, "BOTTOMLEFT", 45, 3)
-		end
-	end
-end
-
-hooksecurefunc(TargetFrame.spellbar, "AdjustPosition", AdjustPosition)
-hooksecurefunc(FocusFrame.spellbar, "AdjustPosition", AdjustPosition)
-TargetFrame.spellbar:HookScript("OnEvent", AdjustPosition)
-FocusFrame.spellbar:HookScript("OnEvent", AdjustPosition)
-
 local function SetLook(self)
 	self.Background:SetColorTexture(0, 0, 0, 0.5)
 	self.Border:SetTexture("Interface\\CastingBar\\UI-CastingBar-Border-Small")
