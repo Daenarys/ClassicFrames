@@ -81,7 +81,7 @@ local function SkinTargetCastbar(frame)
 	end)
 
 	hooksecurefunc(frame, "UpdateBarFillTexture", function(self, isFull)
-		local barType = self.barType or CastingBarType.Standard
+		local barType = CastingBarType.Standard
 		local barTypeInfo = self:GetTypeInfo(barType)
 
 		local colorInfo = isFull and barTypeInfo.classicFullColor or barTypeInfo.classicFillColor
