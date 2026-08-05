@@ -8,11 +8,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		AchievementFrame.Header.RightDDLInset:Show()
 
-		AchievementFrame.Header.Title:SetFontObject(GameFontNormal)
-		AchievementFrame.Header.Title:SetSize(200, 12)
-		AchievementFrame.Header.Title:ClearAllPoints()
-		AchievementFrame.Header.Title:SetPoint("TOP", AchievementFrame.Header.PointBorder, "TOP", 0, 7)
-
 		AchievementFrame.HeaderDetails:Hide()
 		AchievementFrame.HeaderDetails.Filters.SearchBox:SetParent(AchievementFrame)
 		AchievementFrame.HeaderDetails.Filters.SearchBox:ClearAllPoints()
@@ -67,13 +62,5 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyScrollBarHybrid(AchievementFrame.SearchResults.ScrollBar, true, true)
 		ApplyScrollBarThumb(AchievementFrame.SearchResults.ScrollBar.Track.Thumb)
-
-		hooksecurefunc("AchievementFrame_RefreshView", function()
-			if AchievementFrame.selectedTab == 1 then
-				AchievementFrame.Header.Title:SetText("Achievement Points")
-			else
-				AchievementFrame.Header.Title:SetText(GUILD_ACHIEVEMENTS_TITLE)
-			end
-		end)
 	end
 end)
