@@ -23,78 +23,70 @@ local function SetLook(self)
 	self.Icon:SetSize(16, 16)
 end
 
-local castbarColors = {}
-castbarColors.Standard = CreateColor(1.0, 0.7, 0.0, 1)
-castbarColors.Channel = CreateColor(0.0, 1.0, 0.0, 1)
-castbarColors.Uninterruptable = CreateColor(0.7, 0.7, 0.7, 1)
-castbarColors.Interrupted = CreateColor(1, 0, 0, 1)
+local function SkinTargetCastbar(frame)
+	SetLook(frame)
 
-local function SkinTargetCastbar(self)
-	SetLook(self)
-
-	hooksecurefunc(self, 'HandleInterruptOrSpellFailed', function(_, event)
-		if ( self.Text ) then
+	hooksecurefunc(frame, "HandleInterruptOrSpellFailed", function(_, event)
+		if ( frame.Text ) then
 			if ( event == "UNIT_SPELLCAST_FAILED" ) then
-				self.Text:SetText(FAILED)
+				frame.Text:SetText(FAILED)
 			else
-				self.Text:SetText(INTERRUPTED)
+				frame.Text:SetText(INTERRUPTED)
 			end
 		end
 	end)
 
-	hooksecurefunc(self, 'UpdateShownState', function()
-		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-		self.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
-		self.Spark:SetSize(32, 32)
-		self.Spark:ClearAllPoints()
-		self.Spark:SetPoint("CENTER", 0, 0)
-		self.Spark:SetBlendMode("ADD")
-		if self.channeling then
-			self.Spark:Hide()
+	hooksecurefunc(frame, "UpdateShownState", function()
+		frame:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		frame.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
+		frame.Spark:SetSize(32, 32)
+		frame.Spark:ClearAllPoints()
+		frame.Spark:SetPoint("CENTER", 0, 0)
+		frame.Spark:SetBlendMode("ADD")
+		if frame.channeling then
+			frame.Spark:Hide()
 		end
-		local FadeOutAnim = self.FadeOutAnim:CreateAnimation("Alpha") 
+		local FadeOutAnim = frame.FadeOutAnim:CreateAnimation("Alpha") 
 		FadeOutAnim:SetDuration(0.2)
 		FadeOutAnim:SetFromAlpha(1)
 		FadeOutAnim:SetToAlpha(0)
 	end)
 
-	hooksecurefunc(self, 'PlayInterruptAnims', function()
-		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-		self:GetStatusBarTexture():SetVertexColor(castbarColors.Interrupted:GetRGBA())
-		self:SetValue(self.maxValue)
-		self.Spark:Hide()
+	hooksecurefunc(frame, "PlayInterruptAnims", function()
+		frame:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		frame:SetValue(frame.maxValue)
+		frame.Spark:Hide()
 	end)
 
-	hooksecurefunc(self, 'PlayFinishAnim', function()
-		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-		if (self.NewFlash == nil) then
-			self.NewFlash = self.Flash:GetParent():CreateTexture(nil, "OVERLAY")
-			self.NewFlash:SetSize(0, 49)
-			self.NewFlash:SetTexture("Interface\\CastingBar\\UI-CastingBar-Flash-Small")
-			self.NewFlash:ClearAllPoints()
-			self.NewFlash:SetPoint("TOPLEFT", -23, 20)
-			self.NewFlash:SetPoint("TOPRIGHT", 23, 20)
-			self.NewFlash:SetBlendMode("ADD")
-			self.NewFlash:SetAlpha(0)
-			self.NewFlashAnim = self.NewFlash:CreateAnimationGroup()
-			self.NewFlashAnim:SetToFinalAlpha(true)
-			local anim = self.NewFlashAnim:CreateAnimation("Alpha") 
+	hooksecurefunc(frame, "PlayFinishAnim", function()
+		frame:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		if (frame.NewFlash == nil) then
+			frame.NewFlash = frame.Flash:GetParent():CreateTexture(nil, "OVERLAY")
+			frame.NewFlash:SetSize(0, 49)
+			frame.NewFlash:SetTexture("Interface\\CastingBar\\UI-CastingBar-Flash-Small")
+			frame.NewFlash:ClearAllPoints()
+			frame.NewFlash:SetPoint("TOPLEFT", -23, 20)
+			frame.NewFlash:SetPoint("TOPRIGHT", 23, 20)
+			frame.NewFlash:SetBlendMode("ADD")
+			frame.NewFlash:SetAlpha(0)
+			frame.NewFlashAnim = frame.NewFlash:CreateAnimationGroup()
+			frame.NewFlashAnim:SetToFinalAlpha(true)
+			local anim = frame.NewFlashAnim:CreateAnimation("Alpha") 
 			anim:SetDuration(0.2)
 			anim:SetFromAlpha(1)
 			anim:SetToAlpha(0)
 		end
-		self.NewFlashAnim:Play()
-		self.NewFlash:SetVertexColor(self:GetStatusBarColor())
+		frame.NewFlashAnim:Play()
+		frame.NewFlash:SetVertexColor(frame:GetStatusBarColor())
 	end)
 
-	hooksecurefunc(self, 'GetTypeInfo', function()
-		if UnitCastingInfo(self.unit) then
-			local _, _, _, _, _, _, _, notInterruptible = UnitCastingInfo(self.unit)
-			self:GetStatusBarTexture():SetVertexColorFromBoolean(notInterruptible, castbarColors.Uninterruptable, castbarColors.Standard)
-		elseif UnitChannelInfo(self.unit) then
-			local _, _, _, _, _, _, notInterruptible = UnitChannelInfo(self.unit)
-			self:GetStatusBarTexture():SetVertexColorFromBoolean(notInterruptible, castbarColors.Uninterruptable, castbarColors.Channel)
-		end
+	hooksecurefunc(frame, "UpdateBarFillTexture", function(self, isFull)
+		local barType = self.barType or CastingBarType.Standard
+		local barTypeInfo = self:GetTypeInfo(barType)
+
+		local colorInfo = isFull and barTypeInfo.classicFullColor or barTypeInfo.classicFillColor
+		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		self:SetStatusBarColor(colorInfo:GetRGB())
 	end)
 end
 
