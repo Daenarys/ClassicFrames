@@ -23,7 +23,7 @@ if (SocialUIFrame.Inset == nil) then
 	SocialUIFrame.Inset = CreateFrame("Frame", nil, SocialUIFrame, "InsetFrameTemplate");
 	SocialUIFrame.Inset:ClearAllPoints()
 	SocialUIFrame.Inset:SetPoint("TOPLEFT", 4, -83)
-	SocialUIFrame.Inset:SetPoint("BOTTOMRIGHT", -6, 50)
+	SocialUIFrame.Inset:SetPoint("BOTTOMRIGHT", -6, 38)
 end
 
 SocialUIFrame.TopFade:SetAlpha(0)
@@ -54,9 +54,12 @@ SocialUIFrame.FriendsList.FilterBar:Hide()
 SocialUIFrame.FriendsList.TopDivider:SetAlpha(0)
 SocialUIFrame.FriendsList.BottomDivider:SetAlpha(0)
 
+SocialUIFrame.FriendsList.ActionButton:ClearAllPoints()
+SocialUIFrame.FriendsList.ActionButton:SetPoint("BOTTOMLEFT", 4, 4)
+
 SocialUIFrame.FriendsList.ScrollBar:ClearAllPoints()
 SocialUIFrame.FriendsList.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.FriendsList.ScrollBox, "TOPRIGHT", 3, 36)
-SocialUIFrame.FriendsList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.FriendsList.ScrollBox, "BOTTOMRIGHT", 3, -7)
+SocialUIFrame.FriendsList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.FriendsList.ScrollBox, "BOTTOMRIGHT", 3, -11)
 
 ApplyScrollBarHybrid(SocialUIFrame.FriendsList.ScrollBar, true, true)
 ApplyScrollBarThumb(SocialUIFrame.FriendsList.ScrollBar.Track.Thumb)
@@ -65,9 +68,12 @@ SocialUIFrame.RecentAlliesList.FilterBar:Hide()
 SocialUIFrame.RecentAlliesList.TopDivider:SetAlpha(0)
 SocialUIFrame.RecentAlliesList.BottomDivider:SetAlpha(0)
 
+SocialUIFrame.RecentAlliesList.ActionButton:ClearAllPoints()
+SocialUIFrame.RecentAlliesList.ActionButton:SetPoint("BOTTOMLEFT", 4, 4)
+
 SocialUIFrame.RecentAlliesList.ScrollBar:ClearAllPoints()
 SocialUIFrame.RecentAlliesList.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.RecentAlliesList.ScrollBox, "TOPRIGHT", 3, 36)
-SocialUIFrame.RecentAlliesList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.RecentAlliesList.ScrollBox, "BOTTOMRIGHT", 3, -7)
+SocialUIFrame.RecentAlliesList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.RecentAlliesList.ScrollBox, "BOTTOMRIGHT", 3, -11)
 
 ApplyScrollBarHybrid(SocialUIFrame.RecentAlliesList.ScrollBar, true, true)
 ApplyScrollBarThumb(SocialUIFrame.RecentAlliesList.ScrollBar.Track.Thumb)
@@ -75,9 +81,12 @@ ApplyScrollBarThumb(SocialUIFrame.RecentAlliesList.ScrollBar.Track.Thumb)
 SocialUIFrame.QuickJoinFrame.TopDivider:SetAlpha(0)
 SocialUIFrame.QuickJoinFrame.BottomDivider:SetAlpha(0)
 
+SocialUIFrame.QuickJoinFrame.ActionButton:ClearAllPoints()
+SocialUIFrame.QuickJoinFrame.ActionButton:SetPoint("BOTTOMLEFT", 4, 4)
+
 SocialUIFrame.QuickJoinFrame.ScrollBar:ClearAllPoints()
 SocialUIFrame.QuickJoinFrame.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.QuickJoinFrame.ScrollBox, "TOPRIGHT", 3, -2)
-SocialUIFrame.QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", 3, -7)
+SocialUIFrame.QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", 3, -11)
 
 ApplyScrollBarHybrid(SocialUIFrame.QuickJoinFrame.ScrollBar, true, true)
 ApplyScrollBarThumb(SocialUIFrame.QuickJoinFrame.ScrollBar.Track.Thumb)
@@ -85,12 +94,21 @@ ApplyScrollBarThumb(SocialUIFrame.QuickJoinFrame.ScrollBar.Track.Thumb)
 SocialUIFrame.FriendRequestsList.TopDivider:SetAlpha(0)
 SocialUIFrame.FriendRequestsList.BottomDivider:SetAlpha(0)
 
+SocialUIFrame.FriendRequestsList.ActionButton:ClearAllPoints()
+SocialUIFrame.FriendRequestsList.ActionButton:SetPoint("BOTTOMLEFT", 4, 4)
+
 SocialUIFrame.FriendRequestsList.ScrollBar:ClearAllPoints()
 SocialUIFrame.FriendRequestsList.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.FriendRequestsList.ScrollBox, "TOPRIGHT", 3, -2)
-SocialUIFrame.FriendRequestsList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.FriendRequestsList.ScrollBox, "BOTTOMRIGHT", 3, -7)
+SocialUIFrame.FriendRequestsList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.FriendRequestsList.ScrollBox, "BOTTOMRIGHT", 3, -11)
 
 ApplyScrollBarHybrid(SocialUIFrame.FriendRequestsList.ScrollBar, true, true)
 ApplyScrollBarThumb(SocialUIFrame.FriendRequestsList.ScrollBar.Track.Thumb)
+
+SocialUIFrame.RaidFrame.ConvertToRaidButton:ClearAllPoints()
+SocialUIFrame.RaidFrame.ConvertToRaidButton:SetPoint("BOTTOMRIGHT", -4, 4)
+
+SocialUIFrame.RaidFrame.RaidInfoButton:ClearAllPoints()
+SocialUIFrame.RaidFrame.RaidInfoButton:SetPoint("TOPRIGHT", SocialUIFrame.RaidFrame, "TOPRIGHT", -8, -20)
 
 ApplyCloseButton(AddFriendFrame.CloseButton, true)
 AddFriendFrame.CloseButton:ClearAllPoints()
