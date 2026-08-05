@@ -1,176 +1,91 @@
-if not _G.FriendsFrame then return end
+if not _G.SocialUIFrame then return end
 
-FriendsFrame:SetWidth(338)
+SocialUIFrame:SetSize(338, 424)
 
-ApplyCloseButton(FriendsFrameCloseButton)
+ApplyCloseButton(SocialUIFrameCloseButton)
 
-FriendsFramePortrait:SetSize(61, 61)
-FriendsFramePortrait:ClearAllPoints()
-FriendsFramePortrait:SetPoint("TOPLEFT", -6, 8)
+SocialUIFramePortrait:SetSize(61, 61)
+SocialUIFramePortrait:ClearAllPoints()
+SocialUIFramePortrait:SetPoint("TOPLEFT", -6, 8)
 
-FriendsFrame.TitleContainer:ClearAllPoints()
-FriendsFrame.TitleContainer:SetPoint("TOPLEFT", FriendsFrame, "TOPLEFT", 58, 0)
-FriendsFrame.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame, "TOPRIGHT", -58, 0)
+SocialUIFrame.TitleContainer:ClearAllPoints()
+SocialUIFrame.TitleContainer:SetPoint("TOPLEFT", SocialUIFrame, "TOPLEFT", 58, 0)
+SocialUIFrame.TitleContainer:SetPoint("TOPRIGHT", SocialUIFrame, "TOPRIGHT", -58, 0)
 
-ApplyTitleBg(FriendsFrame)
-ApplyNineSlicePortrait(FriendsFrame)
+ApplyTitleBg(SocialUIFrame)
+ApplyNineSlicePortrait(SocialUIFrame)
 
-FriendsFrameBattlenetFrame:ClearAllPoints()
-FriendsFrameBattlenetFrame:SetPoint("TOPLEFT", FriendsTabHeader, "TOPLEFT", 109, -26)
+SocialUIFrame.TopTileStreaks:Show()
 
-FriendsFrameBattlenetFrame.ContactsMenuButton.Icon:Hide()
-FriendsFrameBattlenetFrame.ContactsMenuButton:SetNormalTexture("Interface\\FriendsFrame\\broadcast-normal")
-FriendsFrameBattlenetFrame.ContactsMenuButton:SetPushedTexture("Interface\\FriendsFrame\\broadcast-press")
+SocialUIFrame.Bg:SetTexture("Interface\\FrameGeneral\\UI-Background-Rock", true, true)
 
-FriendsFrameTab2:ClearAllPoints()
-FriendsFrameTab2:SetPoint("LEFT", FriendsFrameTab1, "RIGHT", -15, 0)
-FriendsFrameTab3:ClearAllPoints()
-FriendsFrameTab3:SetPoint("LEFT", FriendsFrameTab2, "RIGHT", -15, 0)
-FriendsFrameTab4:ClearAllPoints()
-FriendsFrameTab4:SetPoint("LEFT", FriendsFrameTab3, "RIGHT", -15, 0)
-
-for i = 1, 4 do
-	ApplyBottomTab(_G['FriendsFrameTab'..i])
-
-	_G["FriendsFrameTab"..i]:HookScript("OnShow", function(self)
-		if _G["FriendsFrameTab"..i] == FriendsFrameTab1 then
-			self:SetWidth(40 + self:GetFontString():GetStringWidth())
-		elseif _G["FriendsFrameTab"..i] == FriendsFrameTab2 then
-			self:SetWidth(51 + self:GetFontString():GetStringWidth())
-		elseif _G["FriendsFrameTab"..i] == FriendsFrameTab3 then
-			self:SetWidth(52 + self:GetFontString():GetStringWidth())
-		end
-	end)
-	
-	hooksecurefunc("FriendsFrame_UpdateQuickJoinTab", function()
-		FriendsFrameTab4:SetWidth(40 + FriendsFrameTab4:GetFontString():GetStringWidth())
-	end)
+if (SocialUIFrame.Inset == nil) then
+	SocialUIFrame.Inset = CreateFrame("Frame", nil, SocialUIFrame, "InsetFrameTemplate");
+	SocialUIFrame.Inset:ClearAllPoints()
+	SocialUIFrame.Inset:SetPoint("TOPLEFT", 4, -66)
+	SocialUIFrame.Inset:SetPoint("BOTTOMRIGHT", -6, 50)
 end
 
-FriendsTabHeader.TabSystem:SetPoint("TOPLEFT", 18, -54)
+SocialUIFrame.TopFade:SetAlpha(0)
+SocialUIFrame.BottomFade:SetAlpha(0)
 
-for i = 1, FriendsTabHeader.TabSystem:GetNumChildren() do
-	local tab = select(i, FriendsTabHeader.TabSystem:GetChildren())
+SocialUIFrame.BattleNetBar:SetWidth(338)
+SocialUIFrame.BattleNetBar.Background:SetAlpha(0)
 
-	ApplyTopTabNew(tab)
-end
+ApplyDropDown(SocialUIFrame.BattleNetBar.ControlsContainer.OnlineStatusDropdown)
+SocialUIFrame.BattleNetBar.ControlsContainer.OnlineStatusDropdown:SetWidth(43)
+SocialUIFrame.BattleNetBar.ControlsContainer.OnlineStatusDropdown:SetPoint("LEFT", SocialUIFrame.BattleNetBar.ControlsContainer, "LEFT", 61, 3)
+SocialUIFrame.BattleNetBar.ControlsContainer.OnlineStatusDropdown.Text:ClearAllPoints()
+SocialUIFrame.BattleNetBar.ControlsContainer.OnlineStatusDropdown.Text:SetPoint("CENTER", -7, -2)
 
-hooksecurefunc(FriendsTabHeader.TabSystem, 'Layout', function(self)
-	self.tabs[1]:SetWidth(31 + self.tabs[1]:GetFontString():GetStringWidth())
-	self.tabs[2]:SetWidth(29 + self.tabs[2]:GetFontString():GetStringWidth())
-	self.tabs[2]:ClearAllPoints()
-	self.tabs[2]:SetPoint("LEFT", self.tabs[1], "RIGHT")
-	self.tabs[3]:SetWidth(32 + self.tabs[3]:GetFontString():GetStringWidth())
-	self.tabs[3]:ClearAllPoints()
-	self.tabs[3]:SetPoint("LEFT", self.tabs[2], "RIGHT")
-end)
+SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetMenuButton:SetSize(32, 32)
+SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetMenuButton:ClearAllPoints()
+SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetMenuButton:SetPoint("RIGHT", SocialUIFrame.BattleNetBar.ControlsContainer, "RIGHT", -5, 2)
+SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetMenuButton:SetNormalTexture("Interface\\FriendsFrame\\broadcast-normal")
+SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetMenuButton:SetPushedTexture("Interface\\FriendsFrame\\broadcast-press")
+SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetMenuButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
+SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetMenuButton.Icon:Hide()
 
-FriendsListFrame.ScrollBar:ClearAllPoints()
-FriendsListFrame.ScrollBar:SetPoint("TOPLEFT", FriendsListFrame.ScrollBox, "TOPRIGHT", 6, -2)
-FriendsListFrame.ScrollBar:SetPoint("BOTTOMLEFT", FriendsListFrame.ScrollBox, "BOTTOMRIGHT", 6, 1)
+SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetBackground:ClearAllPoints()
+SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetBackground:SetPoint("LEFT", SocialUIFrame.BattleNetBar.ControlsContainer.OnlineStatusDropdown, "LEFT", 48, 0)
+SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetBackground:SetPoint("RIGHT", SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetMenuButton, "LEFT", -2, 0)
 
-ApplyScrollBarHybrid(FriendsListFrame.ScrollBar, true, true)
-ApplyScrollBarThumb(FriendsListFrame.ScrollBar.Track.Thumb)
+SocialUIFrame.FriendsList.TopDivider:SetAlpha(0)
+SocialUIFrame.FriendsList.BottomDivider:SetAlpha(0)
 
-ApplyCloseButton(FriendsFrame.IgnoreListWindow.CloseButton)
+SocialUIFrame.FriendsList.ScrollBar:ClearAllPoints()
+SocialUIFrame.FriendsList.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.FriendsList.ScrollBox, "TOPRIGHT", 3, -2)
+SocialUIFrame.FriendsList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.FriendsList.ScrollBox, "BOTTOMRIGHT", 3, -1)
 
-FriendsFrame.IgnoreListWindow.TitleContainer:ClearAllPoints()
-FriendsFrame.IgnoreListWindow.TitleContainer:SetPoint("TOPLEFT", FriendsFrame.IgnoreListWindow, "TOPLEFT", 58, 0)
-FriendsFrame.IgnoreListWindow.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame.IgnoreListWindow, "TOPRIGHT", -58, 0)
+ApplyScrollBarHybrid(SocialUIFrame.FriendsList.ScrollBar, true, true)
+ApplyScrollBarThumb(SocialUIFrame.FriendsList.ScrollBar.Track.Thumb)
 
-ApplyTitleBg(FriendsFrame.IgnoreListWindow, true)
-ApplyNineSliceNoPortrait(FriendsFrame.IgnoreListWindow)
+SocialUIFrame.RecentAlliesList.TopDivider:SetAlpha(0)
+SocialUIFrame.RecentAlliesList.BottomDivider:SetAlpha(0)
 
-FriendsFrame.IgnoreListWindow.ScrollBar:SetSize(25, 560)
-FriendsFrame.IgnoreListWindow.ScrollBar:ClearAllPoints()
-FriendsFrame.IgnoreListWindow.ScrollBar:SetPoint("TOPLEFT", FriendsFrame.IgnoreListWindow.ScrollBox, "TOPRIGHT", -2, 2)
-FriendsFrame.IgnoreListWindow.ScrollBar:SetPoint("BOTTOMLEFT", FriendsFrame.IgnoreListWindow.ScrollBox, "BOTTOMRIGHT", 2, -2)
+SocialUIFrame.RecentAlliesList.ScrollBar:ClearAllPoints()
+SocialUIFrame.RecentAlliesList.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.RecentAlliesList.ScrollBox, "TOPRIGHT", 3, -2)
+SocialUIFrame.RecentAlliesList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.RecentAlliesList.ScrollBox, "BOTTOMRIGHT", 3, -1)
 
-ApplyScrollBarArrow(FriendsFrame.IgnoreListWindow.ScrollBar)
-ApplyScrollBarTrack(FriendsFrame.IgnoreListWindow.ScrollBar.Track)
-ApplyScrollBarThumb(FriendsFrame.IgnoreListWindow.ScrollBar.Track.Thumb)
+ApplyScrollBarHybrid(SocialUIFrame.RecentAlliesList.ScrollBar, true, true)
+ApplyScrollBarThumb(SocialUIFrame.RecentAlliesList.ScrollBar.Track.Thumb)
 
-ApplyDialogBorder(FriendsFrameBattlenetFrame.BroadcastFrame.Border)
+SocialUIFrame.QuickJoinFrame.TopDivider:SetAlpha(0)
+SocialUIFrame.QuickJoinFrame.BottomDivider:SetAlpha(0)
 
-RecentAlliesFrame.List.ScrollBar:ClearAllPoints()
-RecentAlliesFrame.List.ScrollBar:SetPoint("TOPLEFT", RecentAlliesFrame.List.ScrollBox, "TOPRIGHT", 6, -2)
-RecentAlliesFrame.List.ScrollBar:SetPoint("BOTTOMLEFT", RecentAlliesFrame.List.ScrollBox, "BOTTOMRIGHT", 6, 1)
+SocialUIFrame.QuickJoinFrame.ScrollBar:ClearAllPoints()
+SocialUIFrame.QuickJoinFrame.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.QuickJoinFrame.ScrollBox, "TOPRIGHT", 3, -2)
+SocialUIFrame.QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", 3, -1)
 
-ApplyScrollBarHybrid(RecentAlliesFrame.List.ScrollBar, true, true)
-ApplyScrollBarThumb(RecentAlliesFrame.List.ScrollBar.Track.Thumb)
+ApplyScrollBarHybrid(SocialUIFrame.QuickJoinFrame.ScrollBar, true, true)
+ApplyScrollBarThumb(SocialUIFrame.QuickJoinFrame.ScrollBar.Track.Thumb)
 
-RecruitAFriendFrame.RecruitList.ScrollBar:ClearAllPoints()
-RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("TOPLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "TOPRIGHT", 6, -2)
-RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("BOTTOMLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "BOTTOMRIGHT", 6, 0)
+SocialUIFrame.FriendRequestsList.TopDivider:SetAlpha(0)
+SocialUIFrame.FriendRequestsList.BottomDivider:SetAlpha(0)
 
-ApplyScrollBarHybrid(RecruitAFriendFrame.RecruitList.ScrollBar, true, true)
-ApplyScrollBarThumb(RecruitAFriendFrame.RecruitList.ScrollBar.Track.Thumb)
+SocialUIFrame.FriendRequestsList.ScrollBar:ClearAllPoints()
+SocialUIFrame.FriendRequestsList.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.FriendRequestsList.ScrollBox, "TOPRIGHT", 3, -2)
+SocialUIFrame.FriendRequestsList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.FriendRequestsList.ScrollBox, "BOTTOMRIGHT", 3, -1)
 
-ApplyCloseButton(RecruitAFriendRecruitmentFrame.CloseButton, true)
-RecruitAFriendRecruitmentFrame.CloseButton:ClearAllPoints()
-RecruitAFriendRecruitmentFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
-
-ApplyDialogBorder(RecruitAFriendRecruitmentFrame.Border)
-
-ApplyCloseButton(RecruitAFriendRewardsFrame.CloseButton, true)
-RecruitAFriendRewardsFrame.CloseButton:ClearAllPoints()
-RecruitAFriendRewardsFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
-
-ApplyDialogBorder(RecruitAFriendRewardsFrame.Border)
-
-WhoFrameColumnHeader4Middle:SetWidth(48)
-
-WhoFrame.ScrollBar:ClearAllPoints()
-WhoFrame.ScrollBar:SetPoint("TOPLEFT", WhoFrame.ScrollBox, "TOPRIGHT", 6, -2)
-WhoFrame.ScrollBar:SetPoint("BOTTOMLEFT", WhoFrame.ScrollBox, "BOTTOMRIGHT", 6, -18)
-
-ApplyScrollBarHybrid(WhoFrame.ScrollBar, true, true)
-ApplyScrollBarThumb(WhoFrame.ScrollBar.Track.Thumb)
-
-QuickJoinFrame.ScrollBar:ClearAllPoints()
-QuickJoinFrame.ScrollBar:SetPoint("TOPLEFT", QuickJoinFrame.ScrollBox, "TOPRIGHT", 7, -1)
-QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", 7, 0)
-
-ApplyScrollBarHybrid(QuickJoinFrame.ScrollBar, true, true)
-ApplyScrollBarThumb(QuickJoinFrame.ScrollBar.Track.Thumb)
-
-ApplyCloseButton(AddFriendFrame.CloseButton, true)
-AddFriendFrame.CloseButton:ClearAllPoints()
-AddFriendFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
-
-ApplyDialogBorder(AddFriendFrame.Border)
-
-RaidInfoFrame.ScrollBar:ClearAllPoints()
-RaidInfoFrame.ScrollBar:SetPoint("TOPLEFT", RaidInfoFrame.ScrollBox, "TOPRIGHT", 11, 1)
-RaidInfoFrame.ScrollBar:SetPoint("BOTTOMLEFT", RaidInfoFrame.ScrollBox, "BOTTOMRIGHT", 11, -1)
-
-ApplyScrollBarHybrid(RaidInfoFrame.ScrollBar)
-ApplyScrollBarThumb(RaidInfoFrame.ScrollBar.Track.Thumb)
-
-ApplyCloseButton(RaidInfoCloseButton, true)
-RaidInfoCloseButton:ClearAllPoints()
-RaidInfoCloseButton:SetPoint("TOPRIGHT", -2, -3)
-
-if (RaidInfoDetailCorner == nil) then
-	RaidInfoFrame:CreateTexture("RaidInfoDetailCorner", "OVERLAY")
-	RaidInfoDetailCorner:SetSize(32, 32)
-	RaidInfoDetailCorner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
-	RaidInfoDetailCorner:SetPoint("TOPRIGHT", -6, -7)
-end
-
-ApplyDialogBorder(RaidInfoFrame.Border)
-ApplyDialogHeader(RaidInfoFrame.Header)
-
-RaidFrame.RoleCount.TankIcon:SetAtlas("groupfinder-icon-role-large-tank")
-RaidFrame.RoleCount.HealerIcon:SetAtlas("groupfinder-icon-role-large-heal")
-RaidFrame.RoleCount.DamagerIcon:SetAtlas("groupfinder-icon-role-large-dps")
-
-ApplyDropDown(FriendsFrameStatusDropdown)
-ApplyDropDown(WhoFrameDropdown)
-
-FriendsFrameStatusDropdown:SetWidth(43)
-FriendsFrameStatusDropdown:SetPoint("RIGHT", FriendsFrameBattlenetFrame, "LEFT", -5, 0)
-FriendsFrameStatusDropdown.Text:ClearAllPoints()
-FriendsFrameStatusDropdown.Text:SetPoint("CENTER", -7, -2)
-
-WhoFrameDropdown:SetPoint("TOPLEFT", 0, -2)
+ApplyScrollBarHybrid(SocialUIFrame.FriendRequestsList.ScrollBar, true, true)
+ApplyScrollBarThumb(SocialUIFrame.FriendRequestsList.ScrollBar.Track.Thumb)
