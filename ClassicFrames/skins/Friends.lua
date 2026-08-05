@@ -22,7 +22,7 @@ SocialUIFrame.Bg:SetTexture("Interface\\FrameGeneral\\UI-Background-Rock", true,
 if (SocialUIFrame.Inset == nil) then
 	SocialUIFrame.Inset = CreateFrame("Frame", nil, SocialUIFrame, "InsetFrameTemplate");
 	SocialUIFrame.Inset:ClearAllPoints()
-	SocialUIFrame.Inset:SetPoint("TOPLEFT", 4, -66)
+	SocialUIFrame.Inset:SetPoint("TOPLEFT", 4, -83)
 	SocialUIFrame.Inset:SetPoint("BOTTOMRIGHT", -6, 50)
 end
 
@@ -55,18 +55,19 @@ SocialUIFrame.FriendsList.TopDivider:SetAlpha(0)
 SocialUIFrame.FriendsList.BottomDivider:SetAlpha(0)
 
 SocialUIFrame.FriendsList.ScrollBar:ClearAllPoints()
-SocialUIFrame.FriendsList.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.FriendsList.ScrollBox, "TOPRIGHT", 3, -2)
-SocialUIFrame.FriendsList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.FriendsList.ScrollBox, "BOTTOMRIGHT", 3, -1)
+SocialUIFrame.FriendsList.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.FriendsList.ScrollBox, "TOPRIGHT", 3, 36)
+SocialUIFrame.FriendsList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.FriendsList.ScrollBox, "BOTTOMRIGHT", 3, -7)
 
 ApplyScrollBarHybrid(SocialUIFrame.FriendsList.ScrollBar, true, true)
 ApplyScrollBarThumb(SocialUIFrame.FriendsList.ScrollBar.Track.Thumb)
 
+SocialUIFrame.RecentAlliesList.FilterBar:Hide()
 SocialUIFrame.RecentAlliesList.TopDivider:SetAlpha(0)
 SocialUIFrame.RecentAlliesList.BottomDivider:SetAlpha(0)
 
 SocialUIFrame.RecentAlliesList.ScrollBar:ClearAllPoints()
-SocialUIFrame.RecentAlliesList.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.RecentAlliesList.ScrollBox, "TOPRIGHT", 3, -2)
-SocialUIFrame.RecentAlliesList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.RecentAlliesList.ScrollBox, "BOTTOMRIGHT", 3, -1)
+SocialUIFrame.RecentAlliesList.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.RecentAlliesList.ScrollBox, "TOPRIGHT", 3, 36)
+SocialUIFrame.RecentAlliesList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.RecentAlliesList.ScrollBox, "BOTTOMRIGHT", 3, -7)
 
 ApplyScrollBarHybrid(SocialUIFrame.RecentAlliesList.ScrollBar, true, true)
 ApplyScrollBarThumb(SocialUIFrame.RecentAlliesList.ScrollBar.Track.Thumb)
@@ -76,7 +77,7 @@ SocialUIFrame.QuickJoinFrame.BottomDivider:SetAlpha(0)
 
 SocialUIFrame.QuickJoinFrame.ScrollBar:ClearAllPoints()
 SocialUIFrame.QuickJoinFrame.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.QuickJoinFrame.ScrollBox, "TOPRIGHT", 3, -2)
-SocialUIFrame.QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", 3, -1)
+SocialUIFrame.QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", 3, -7)
 
 ApplyScrollBarHybrid(SocialUIFrame.QuickJoinFrame.ScrollBar, true, true)
 ApplyScrollBarThumb(SocialUIFrame.QuickJoinFrame.ScrollBar.Track.Thumb)
@@ -86,10 +87,36 @@ SocialUIFrame.FriendRequestsList.BottomDivider:SetAlpha(0)
 
 SocialUIFrame.FriendRequestsList.ScrollBar:ClearAllPoints()
 SocialUIFrame.FriendRequestsList.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.FriendRequestsList.ScrollBox, "TOPRIGHT", 3, -2)
-SocialUIFrame.FriendRequestsList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.FriendRequestsList.ScrollBox, "BOTTOMRIGHT", 3, -1)
+SocialUIFrame.FriendRequestsList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.FriendRequestsList.ScrollBox, "BOTTOMRIGHT", 3, -7)
 
 ApplyScrollBarHybrid(SocialUIFrame.FriendRequestsList.ScrollBar, true, true)
 ApplyScrollBarThumb(SocialUIFrame.FriendRequestsList.ScrollBar.Track.Thumb)
+
+ApplyCloseButton(AddFriendFrame.CloseButton, true)
+AddFriendFrame.CloseButton:ClearAllPoints()
+AddFriendFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
+
+ApplyDialogBorder(AddFriendFrame.Border)
+
+SocialUIFrame.RaidInfoFrame.ScrollBar:ClearAllPoints()
+SocialUIFrame.RaidInfoFrame.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.RaidInfoFrame.ScrollBox, "TOPRIGHT", 10, 4)
+SocialUIFrame.RaidInfoFrame.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.RaidInfoFrame.ScrollBox, "BOTTOMRIGHT", 10, -3)
+
+ApplyScrollBarHybrid(SocialUIFrame.RaidInfoFrame.ScrollBar)
+ApplyScrollBarThumb(SocialUIFrame.RaidInfoFrame.ScrollBar.Track.Thumb)
+
+ApplyCloseButton(SocialUIFrame.RaidInfoFrame.CloseButton, true)
+SocialUIFrame.RaidInfoFrame.CloseButton:ClearAllPoints()
+SocialUIFrame.RaidInfoFrame.CloseButton:SetPoint("TOPRIGHT", -2, -3)
+
+if (RaidInfoDetailCorner == nil) then
+	SocialUIFrame.RaidInfoFrame:CreateTexture("RaidInfoDetailCorner", "OVERLAY")
+	RaidInfoDetailCorner:SetSize(32, 32)
+	RaidInfoDetailCorner:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Corner")
+	RaidInfoDetailCorner:SetPoint("TOPRIGHT", -6, -7)
+end
+
+ApplyDialogBorder(SocialUIFrame.RaidInfoFrame.Border)
 
 hooksecurefunc(SocialUIFrame, "RefreshTabs", function(self)  
 	for tab in self.socialTabPool:EnumerateActive() do
