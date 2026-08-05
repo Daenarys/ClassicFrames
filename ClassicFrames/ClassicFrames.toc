@@ -44,7 +44,6 @@ skins\DressingRoom.lua
 skins\EditMode.lua
 skins\EncounterJournal.lua
 skins\FlightMap.lua
-skins\Friends.lua
 skins\GameMenu.lua
 skins\GarrisonCapacitive.lua
 skins\GarrisonUI.lua
@@ -91,6 +90,7 @@ skins\RuneForge.lua
 skins\ScrappingMachine.lua
 skins\ScriptError.lua
 skins\SettingsPanel.lua
+skins\Social.lua
 skins\SplashScreen.lua
 skins\Stable.lua
 skins\StaticPopup.lua
