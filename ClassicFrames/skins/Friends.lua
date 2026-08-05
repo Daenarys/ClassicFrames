@@ -50,6 +50,7 @@ SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetBackground:ClearAllPoints(
 SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetBackground:SetPoint("LEFT", SocialUIFrame.BattleNetBar.ControlsContainer.OnlineStatusDropdown, "LEFT", 48, 0)
 SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetBackground:SetPoint("RIGHT", SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetMenuButton, "LEFT", -2, 0)
 
+SocialUIFrame.FriendsList.FilterBar:Hide()
 SocialUIFrame.FriendsList.TopDivider:SetAlpha(0)
 SocialUIFrame.FriendsList.BottomDivider:SetAlpha(0)
 
@@ -89,3 +90,13 @@ SocialUIFrame.FriendRequestsList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.
 
 ApplyScrollBarHybrid(SocialUIFrame.FriendRequestsList.ScrollBar, true, true)
 ApplyScrollBarThumb(SocialUIFrame.FriendRequestsList.ScrollBar.Track.Thumb)
+
+hooksecurefunc(SocialUIFrame, "RefreshTabs", function(self)  
+	for tab in self.socialTabPool:EnumerateActive() do
+		local _, relativeTo, x, y = tab:GetPoint()
+		if relativeTo == self and (x ~= 1 or y ~= 0) then
+			tab:ClearAllPoints()
+			tab:SetPoint("TOPLEFT", self, "TOPRIGHT", 0, -70)
+		end
+	end
+end)
