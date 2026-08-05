@@ -8,6 +8,11 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		AchievementFrame.Header.RightDDLInset:Show()
 
+		AchievementFrame.Header.Title:SetFontObject(GameFontNormal)
+		AchievementFrame.Header.Title:SetSize(200, 12)
+		AchievementFrame.Header.Title:ClearAllPoints()
+		AchievementFrame.Header.Title:SetPoint("TOP", AchievementFrame.Header.PointBorder, "TOP", 0, 7)
+
 		AchievementFrame.HeaderDetails:Hide()
 		AchievementFrame.HeaderDetails.Filters.SearchBox:SetParent(AchievementFrame)
 		AchievementFrame.HeaderDetails.Filters.SearchBox:ClearAllPoints()
@@ -63,25 +68,11 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarHybrid(AchievementFrame.SearchResults.ScrollBar, true, true)
 		ApplyScrollBarThumb(AchievementFrame.SearchResults.ScrollBar.Track.Thumb)
 
-		hooksecurefunc("AchievementFrameSummary_Refresh", function()
-			for i = 1, ACHIEVEMENTUI_MAX_SUMMARY_ACHIEVEMENTS do
-				local button = _G["AchievementFrameSummaryAchievement"..i]
-				if ( button ) then
-					if ( button.accountWide ) then
-						button.TitleBar:SetAlpha(1)
-					else
-						button.TitleBar:SetAlpha(0.5)
-					end
-				end
-			end
-		end)
-
-		hooksecurefunc("AchievementFrameSummary_UpdateAchievements", function()
-			if not button then
-				button = CreateFrame("Button", "AchievementFrameSummaryAchievement4", AchievementFrameSummaryAchievements, "SummaryAchievementTemplate")
-				button:SetPoint("TOPLEFT", AchievementFrameSummaryAchievement3, "BOTTOMLEFT", 0, 3)
-				button:SetPoint("TOPRIGHT", AchievementFrameSummaryAchievement3, "BOTTOMRIGHT", 0, 3)
-				button:Disable()
+		hooksecurefunc("AchievementFrame_RefreshView", function()
+			if AchievementFrame.selectedTab == 1 then
+				AchievementFrame.Header.Title:SetText("Achievement Points")
+			else
+				AchievementFrame.Header.Title:SetText(GUILD_ACHIEVEMENTS_TITLE)
 			end
 		end)
 	end
