@@ -6,6 +6,29 @@ f:SetScript("OnEvent", function(self, event, name)
 		AchievementFrameCloseButton:ClearAllPoints()
 		AchievementFrameCloseButton:SetPoint("TOPRIGHT", 3, 4)
 
+		AchievementFrame.Header.RightDDLInset:Show()
+
+		AchievementFrame.HeaderDetails:Hide()
+		AchievementFrame.HeaderDetails.Filters.SearchBox:SetParent(AchievementFrame)
+		AchievementFrame.HeaderDetails.Filters.SearchBox:ClearAllPoints()
+		AchievementFrame.HeaderDetails.Filters.SearchBox:SetPoint("TOPLEFT", AchievementFrame.Header.RightDDLInset, "TOPLEFT", 12, 2)
+
+		AchievementFrameAchievements:ClearAllPoints()
+		AchievementFrameAchievements:SetPoint("TOPLEFT", AchievementFrameCategories, "TOPRIGHT", 22, 0)
+		AchievementFrameAchievements:SetPoint("BOTTOM", AchievementFrameCategories, "BOTTOM")
+
+		AchievementFrameStats:ClearAllPoints()
+		AchievementFrameStats:SetPoint("TOPLEFT", AchievementFrameCategories, "TOPRIGHT", 22, 0)
+		AchievementFrameStats:SetPoint("BOTTOM", AchievementFrameCategories, "BOTTOM")
+
+		AchievementFrameSummary:ClearAllPoints()
+		AchievementFrameSummary:SetPoint("TOPLEFT", AchievementFrameCategories, "TOPRIGHT", 22, 1)
+		AchievementFrameSummary:SetPoint("BOTTOM", AchievementFrameCategories, "BOTTOM")
+
+		AchievementFrameSummaryCategories:ClearAllPoints()
+		AchievementFrameSummaryCategories:SetPoint("TOPLEFT", AchievementFrameSummaryAchievements, "BOTTOMLEFT", 0, 6)
+		AchievementFrameSummaryCategories:SetPoint("TOPRIGHT", AchievementFrameSummaryAchievements, "BOTTOMRIGHT", 0, 6)
+
 		AchievementFrameCategories.ScrollBar:ClearAllPoints()
 		AchievementFrameCategories.ScrollBar:SetPoint("TOPLEFT", AchievementFrameCategories.ScrollBox, "TOPRIGHT", 7, 0)
 		AchievementFrameCategories.ScrollBar:SetPoint("BOTTOMLEFT", AchievementFrameCategories.ScrollBox, "BOTTOMRIGHT", 7, -3)
@@ -40,9 +63,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarHybrid(AchievementFrame.SearchResults.ScrollBar, true, true)
 		ApplyScrollBarThumb(AchievementFrame.SearchResults.ScrollBar.Track.Thumb)
 
-		ApplyFilterDropDown(AchievementFrameFilterDropdown)
-
-		hooksecurefunc('AchievementFrameSummary_Refresh', function()
+		hooksecurefunc("AchievementFrameSummary_Refresh", function()
 			for i = 1, ACHIEVEMENTUI_MAX_SUMMARY_ACHIEVEMENTS do
 				local button = _G["AchievementFrameSummaryAchievement"..i]
 				if ( button ) then
@@ -52,6 +73,15 @@ f:SetScript("OnEvent", function(self, event, name)
 						button.TitleBar:SetAlpha(0.5)
 					end
 				end
+			end
+		end)
+
+		hooksecurefunc("AchievementFrameSummary_UpdateAchievements", function()
+			if not button then
+				button = CreateFrame("Button", "AchievementFrameSummaryAchievement4", AchievementFrameSummaryAchievements, "SummaryAchievementTemplate")
+				button:SetPoint("TOPLEFT", AchievementFrameSummaryAchievement3, "BOTTOMLEFT", 0, 3)
+				button:SetPoint("TOPRIGHT", AchievementFrameSummaryAchievement3, "BOTTOMRIGHT", 0, 3)
+				button:Disable()
 			end
 		end)
 	end
