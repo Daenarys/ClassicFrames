@@ -66,10 +66,6 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 
 		self.HealthBarContainer.HealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 		self.HealthBarContainer.HealthBar:SetStatusBarColor(0, 1, 0)
-		self.HealthBarContainer.HealthBar.MyHealPredictionBar.Fill:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
-		self.HealthBarContainer.HealthBar.OtherHealPredictionBar.Fill:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
-		self.HealthBarContainer.HealthBar.HealAbsorbBar.Fill:SetTexture("Interface\\RaidFrame\\Absorb-Fill", true, true)
-		self.HealthBarContainer.HealthBar.TotalAbsorbBar.Fill:SetTexture("Interface\\RaidFrame\\Shield-Fill")
 	end)
 
 	hooksecurefunc(frame, "UpdateNameTextAnchors", function(self)
