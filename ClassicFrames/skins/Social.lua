@@ -46,6 +46,9 @@ SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetMenuButton:SetPushedTextur
 SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetMenuButton:SetHighlightTexture("Interface\\Buttons\\UI-Common-MouseHilight", "ADD")
 SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetMenuButton.Icon:Hide()
 
+SocialUIFrame.BattleNetBar.ControlsContainer.PersonalBattleTagDisplay.CopyBattleTagToClipboardButton:SetAlpha(0)
+SocialUIFrame.BattleNetBar.ControlsContainer.PersonalBattleTagDisplay.DisplayText:SetFontObject(GameFontNormal)
+
 SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetBackground:ClearAllPoints()
 SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetBackground:SetPoint("LEFT", SocialUIFrame.BattleNetBar.ControlsContainer.OnlineStatusDropdown, "LEFT", 48, 0)
 SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetBackground:SetPoint("RIGHT", SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetMenuButton, "LEFT", -2, 0)
@@ -104,24 +107,15 @@ SocialUIFrame.FriendRequestsList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.
 ApplyScrollBarHybrid(SocialUIFrame.FriendRequestsList.ScrollBar, true, true)
 ApplyScrollBarThumb(SocialUIFrame.FriendRequestsList.ScrollBar.Track.Thumb)
 
+ApplyCloseButton(AddFriendFrame.CloseButton, true)
+AddFriendFrame.CloseButton:ClearAllPoints()
+AddFriendFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
+
 SocialUIFrame.RaidFrame.ConvertToRaidButton:ClearAllPoints()
 SocialUIFrame.RaidFrame.ConvertToRaidButton:SetPoint("BOTTOMRIGHT", -4, 4)
 
 SocialUIFrame.RaidFrame.RaidInfoButton:ClearAllPoints()
 SocialUIFrame.RaidFrame.RaidInfoButton:SetPoint("TOPRIGHT", SocialUIFrame.RaidFrame, "TOPRIGHT", -8, -20)
-
-ApplyCloseButton(AddFriendFrame.CloseButton, true)
-AddFriendFrame.CloseButton:ClearAllPoints()
-AddFriendFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
-
-ApplyDialogBorder(AddFriendFrame.Border)
-
-SocialUIFrame.RaidInfoFrame.ScrollBar:ClearAllPoints()
-SocialUIFrame.RaidInfoFrame.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.RaidInfoFrame.ScrollBox, "TOPRIGHT", 10, 4)
-SocialUIFrame.RaidInfoFrame.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.RaidInfoFrame.ScrollBox, "BOTTOMRIGHT", 10, -3)
-
-ApplyScrollBarHybrid(SocialUIFrame.RaidInfoFrame.ScrollBar)
-ApplyScrollBarThumb(SocialUIFrame.RaidInfoFrame.ScrollBar.Track.Thumb)
 
 ApplyCloseButton(SocialUIFrame.RaidInfoFrame.CloseButton, true)
 SocialUIFrame.RaidInfoFrame.CloseButton:ClearAllPoints()
@@ -134,14 +128,12 @@ if (RaidInfoDetailCorner == nil) then
 	RaidInfoDetailCorner:SetPoint("TOPRIGHT", -6, -7)
 end
 
-ApplyDialogBorder(SocialUIFrame.RaidInfoFrame.Border)
+SocialUIFrame.RaidInfoFrame.ScrollBar:ClearAllPoints()
+SocialUIFrame.RaidInfoFrame.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.RaidInfoFrame.ScrollBox, "TOPRIGHT", 10, 4)
+SocialUIFrame.RaidInfoFrame.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.RaidInfoFrame.ScrollBox, "BOTTOMRIGHT", 10, -3)
 
-hooksecurefunc(SocialUIFrame, "RefreshTabs", function(self)  
-	for tab in self.socialTabPool:EnumerateActive() do
-		local _, relativeTo, x, y = tab:GetPoint()
-		if relativeTo == self and (x ~= 1 or y ~= 0) then
-			tab:ClearAllPoints()
-			tab:SetPoint("TOPLEFT", self, "TOPRIGHT", 0, -70)
-		end
-	end
-end)
+ApplyScrollBarHybrid(SocialUIFrame.RaidInfoFrame.ScrollBar)
+ApplyScrollBarThumb(SocialUIFrame.RaidInfoFrame.ScrollBar.Track.Thumb)
+
+ApplyDialogBorder(SocialUIFrame.BattleNetBroadcastFrame.Border)
+ApplyDialogBorder(SocialUIFrame.RaidInfoFrame.Border)
