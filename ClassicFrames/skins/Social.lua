@@ -137,3 +137,25 @@ ApplyScrollBarThumb(SocialUIFrame.RaidInfoFrame.ScrollBar.Track.Thumb)
 
 ApplyDialogBorder(SocialUIFrame.BattleNetBroadcastFrame.Border)
 ApplyDialogBorder(SocialUIFrame.RaidInfoFrame.Border)
+
+hooksecurefunc(SocialUIFrame, "RefreshTabs", function(self)
+	for tab in self.socialTabPool:EnumerateActive() do
+		tab:ClearAllPoints()
+		if (tab.tabData.tabName == SOCIAL_UI_FRIENDS_TAB_NAME) then
+			tab:SetSize(78, 32)
+			tab:SetPoint("BOTTOMLEFT", 5, -30)
+		elseif (tab.tabData.tabName == SOCIAL_UI_FRIEND_REQUESTS_TAB_NAME) then
+			tab:SetSize(120, 32)
+			tab:SetPoint("BOTTOMLEFT", 68, -30)
+		elseif (tab.tabData.tabName == SOCIAL_UI_RAID_TAB_NAME) then
+			tab:SetSize(78, 32)
+			tab:SetPoint("BOTTOMLEFT", 173, -30)
+		elseif (tab.tabData.tabName == SOCIAL_UI_QUICK_JOIN_TAB_NAME) then
+			tab:SetSize(90, 32)
+			tab:SetPoint("BOTTOMLEFT", 236, -30)
+		elseif (tab.tabData.tabName == SOCIAL_UI_RECENT_ALLIES_TAB_NAME) then
+			tab:SetShown(false)
+		end
+		ApplyBottomTabNew(tab)
+	end
+end)

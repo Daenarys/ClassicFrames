@@ -533,6 +533,76 @@ function ApplyBottomTab(frame)
 	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", -3, 0)
 end
 
+function ApplyBottomTabNew(frame)
+	frame:SetHeight(32)
+
+	frame.Background:SetAlpha(0)
+	frame.Icon:SetAlpha(0)
+	frame.SelectedTexture:SetAlpha(0)
+	frame.TabGlow:SetAlpha(0)
+	frame.HighlightTexture:SetAlpha(0)
+
+	--[[if (frame.LeftActive == nil) then
+		frame.LeftActive = frame:CreateTexture(nil, "BACKGROUND")
+		frame.LeftActive:SetSize(20, 35)
+		frame.LeftActive:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
+		frame.LeftActive:SetTexCoord(0, 0.15625, 0, 0.546875)
+		frame.LeftActive:SetPoint("TOPLEFT")
+	end
+
+	if (frame.RightActive == nil) then
+		frame.RightActive = frame:CreateTexture(nil, "BACKGROUND")
+		frame.RightActive:SetSize(20, 35)
+		frame.RightActive:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
+		frame.RightActive:SetTexCoord(0.84375, 1, 0, 0.546875)
+		frame.RightActive:SetPoint("TOPRIGHT")
+	end
+
+	if (frame.MiddleActive == nil) then
+		frame.MiddleActive = frame:CreateTexture(nil, "BACKGROUND")
+		frame.MiddleActive:SetSize(88, 35)
+		frame.MiddleActive:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
+		frame.MiddleActive:SetTexCoord(0.15625, 0.84375, 0, 0.546875)
+		frame.MiddleActive:SetHorizTile(false)
+	end--]]
+
+	if (frame.Left == nil) then
+		frame.Left = frame:CreateTexture(nil, "BACKGROUND")
+		frame.Left:SetSize(20, 32)
+		frame.Left:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InActiveTab")
+		frame.Left:SetTexCoord(0, 0.15625, 0, 1)
+		frame.Left:SetPoint("TOPLEFT", 0, -1)
+	end
+
+	if (frame.Right == nil) then
+		frame.Right = frame:CreateTexture(nil, "BACKGROUND")
+		frame.Right:SetSize(20, 32)
+		frame.Right:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InActiveTab")
+		frame.Right:SetTexCoord(0.84375, 1, 0, 1)
+		frame.Right:SetPoint("TOPRIGHT", 0, -1)
+	end
+
+	if (frame.Middle == nil) then
+		frame.Middle = frame:CreateTexture(nil, "BACKGROUND")
+		frame.Middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InActiveTab")
+		frame.Middle:SetTexCoord(0.15625, 0.84375, 0, 1)
+		frame.Middle:SetPoint("TOPLEFT", frame.Left, "TOPRIGHT")
+		frame.Middle:SetPoint("TOPRIGHT", frame.Right, "TOPLEFT")
+			frame.Middle:SetHorizTile(false)
+	end
+
+	if (frame.Text == nil) then
+		frame.Text = frame:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
+		frame.Text:SetPoint("CENTER", 0, 2)
+		frame.Text:SetText(frame.tabData.tabName)
+	end
+
+	frame:SetHighlightTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-RealHighlight")
+	frame:GetHighlightTexture():ClearAllPoints()
+	frame:GetHighlightTexture():SetPoint("TOPLEFT", 3, 5)
+	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", -3, 0)
+end
+
 function ApplyDropDown(frame)
 	frame.Background:Hide()
 
