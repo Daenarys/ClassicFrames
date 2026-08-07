@@ -89,6 +89,12 @@ ApplyDialogBorder(AddFriendFrame.Border)
 ApplyDialogBorder(SocialUIFrame.BattleNetBroadcastFrame.Border)
 ApplyDialogBorder(SocialUIFrame.RaidInfoFrame.Border)
 
+ApplyRedButton(SocialUIFrame.FriendsList.ActionButton)
+ApplyRedButton(SocialUIFrame.FriendRequestsList.ActionButton)
+ApplyRedButton(SocialUIFrame.RaidFrame.RaidInfoButton)
+ApplyRedButton(SocialUIFrame.RaidFrame.ConvertToRaidButton)
+ApplyRedButton(SocialUIFrame.QuickJoinFrame.ActionButton)
+
 hooksecurefunc(SocialUIFrame, "RefreshTabs", function(self)
 	for tab in self.socialTabPool:EnumerateActive() do
 		tab:ClearAllPoints()
