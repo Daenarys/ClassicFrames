@@ -64,5 +64,11 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyScrollBarHybrid(AchievementFrame.SearchResults.ScrollBar, true, true)
 		ApplyScrollBarThumb(AchievementFrame.SearchResults.ScrollBar.Track.Thumb)
+
+		hooksecurefunc("AchievementFrame_SetComparisonMode", function()
+			AchievementFrame.Header.RightDDLInset:Show()
+			AchievementFrame.HeaderDetails.Filters.SearchBox:ClearAllPoints()
+			AchievementFrame.HeaderDetails.Filters.SearchBox:SetPoint("TOPLEFT", AchievementFrame.Header.RightDDLInset, "TOPLEFT", 12, 2)
+		end)
 	end
 end)
