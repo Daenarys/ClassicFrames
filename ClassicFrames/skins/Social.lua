@@ -4,9 +4,9 @@ SocialUIFrame:SetSize(338, 424)
 
 ApplyCloseButton(SocialUIFrameCloseButton)
 
-SocialUIFramePortrait:SetSize(61, 61)
+SocialUIFramePortrait:SetSize(60, 60)
 SocialUIFramePortrait:ClearAllPoints()
-SocialUIFramePortrait:SetPoint("TOPLEFT", -6, 8)
+SocialUIFramePortrait:SetPoint("TOPLEFT", -5, 7)
 
 SocialUIFrame.TitleContainer:ClearAllPoints()
 SocialUIFrame.TitleContainer:SetPoint("TOPLEFT", SocialUIFrame, "TOPLEFT", 58, 0)
@@ -111,10 +111,14 @@ hooksecurefunc(SocialUIFrame, "RefreshTabs", function(self)
 	end
 end)
 
-hooksecurefunc(SocialUIFrame, "SelectTab", function(self)
-	if self.selectedTab == SocialUITabType.Friends then
-		self.BattleNetBar:Show()
-	else
-		self.BattleNetBar:Hide()
+hooksecurefunc(SocialUIFrame, "SelectTab", function()
+	SocialUIFrame.BattleNetBar:SetShown(SocialUIFrame.selectedTab == SocialUITabType.Friends);
+
+	SocialUIFrame.Inset:SetPoint("TOPLEFT", 4, -83)
+	SocialUIFramePortrait:SetTexture("Interface\\FriendsFrame\\Battlenet-Portrait")
+
+	if SocialUIFrame.selectedTab == SocialUITabType.RaidList then
+		SocialUIFrame.Inset:SetPoint("TOPLEFT", 4, -60);
+		SocialUIFramePortrait:SetTexture("Interface\\LFGFrame\\UI-LFR-PORTRAIT");
 	end
 end)
