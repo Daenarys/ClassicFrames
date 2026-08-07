@@ -32,11 +32,6 @@ AddonList.Dropdown:SetPoint("TOPLEFT", 18, -31)
 AddonList.Dropdown.Text:SetJustifyH("RIGHT")
 AddonList.Dropdown.Text:SetPoint("TOPLEFT", 9, -7)
 
-ApplyRedButton(AddonList.EnableAllButton)
-ApplyRedButton(AddonList.DisableAllButton)
-ApplyRedButton(AddonList.OkayButton)
-ApplyRedButton(AddonList.CancelButton)
-
 hooksecurefunc('AddonList_Update', function()
 	for _, child in next, { AddonList.ScrollBox.ScrollTarget:GetChildren() } do
 		if not child.IsSkinned then
