@@ -932,6 +932,38 @@ function ApplyCinematicButton(frame)
 	frame:GetHighlightTexture():SetTexCoord(0, 1, 0, 0.71875)
 end
 
+function ApplyRedButton(frame)
+	frame.Left:SetAlpha(0)
+	frame.Right:SetAlpha(0)
+	frame.Center:SetAlpha(0)
+
+	if (frame.CfLeft == nil) then
+		frame.CfLeft = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfLeft:SetSize(12, 22)
+		frame.CfLeft:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
+		frame.CfLeft:SetTexCoord(0, 0.09375, 0, 0.6875)
+		frame.CfLeft:SetPoint("TOPLEFT")
+		frame.CfLeft:SetPoint("BOTTOMLEFT")
+	end
+
+	if (frame.CfRight == nil) then
+		frame.CfRight = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfRight:SetSize(12, 22)
+		frame.CfRight:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
+		frame.CfRight:SetTexCoord(0.53125, 0.625, 0, 0.6875)
+		frame.CfRight:SetPoint("TOPRIGHT")
+		frame.CfRight:SetPoint("BOTTOMRIGHT")
+	end
+
+	if (frame.CfMiddle == nil) then
+		frame.CfMiddle = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfMiddle:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
+		frame.CfMiddle:SetTexCoord(0.09375, 0.53125, 0, 0.6875)
+		frame.CfMiddle:SetPoint("TOPLEFT", frame.CfLeft, "TOPRIGHT")
+		frame.CfMiddle:SetPoint("BOTTOMRIGHT", frame.CfRight, "BOTTOMLEFT")
+	end
+end
+
 function ApplySquareButton(frame)
 	frame.Texture:SetAlpha(0)
 

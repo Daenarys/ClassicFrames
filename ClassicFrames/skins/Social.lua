@@ -57,6 +57,7 @@ SocialUIFrame.FriendsList.FilterBar:Hide()
 SocialUIFrame.FriendsList.TopDivider:SetAlpha(0)
 SocialUIFrame.FriendsList.BottomDivider:SetAlpha(0)
 
+ApplyRedButton(SocialUIFrame.FriendsList.ActionButton)
 SocialUIFrame.FriendsList.ActionButton:ClearAllPoints()
 SocialUIFrame.FriendsList.ActionButton:SetPoint("BOTTOMLEFT", 4, 4)
 
@@ -67,36 +68,10 @@ SocialUIFrame.FriendsList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.Friends
 ApplyScrollBarHybrid(SocialUIFrame.FriendsList.ScrollBar, true, true)
 ApplyScrollBarThumb(SocialUIFrame.FriendsList.ScrollBar.Track.Thumb)
 
-SocialUIFrame.RecentAlliesList.FilterBar:Hide()
-SocialUIFrame.RecentAlliesList.TopDivider:SetAlpha(0)
-SocialUIFrame.RecentAlliesList.BottomDivider:SetAlpha(0)
-
-SocialUIFrame.RecentAlliesList.ActionButton:ClearAllPoints()
-SocialUIFrame.RecentAlliesList.ActionButton:SetPoint("BOTTOMLEFT", 4, 4)
-
-SocialUIFrame.RecentAlliesList.ScrollBar:ClearAllPoints()
-SocialUIFrame.RecentAlliesList.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.RecentAlliesList.ScrollBox, "TOPRIGHT", 3, 36)
-SocialUIFrame.RecentAlliesList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.RecentAlliesList.ScrollBox, "BOTTOMRIGHT", 3, -11)
-
-ApplyScrollBarHybrid(SocialUIFrame.RecentAlliesList.ScrollBar, true, true)
-ApplyScrollBarThumb(SocialUIFrame.RecentAlliesList.ScrollBar.Track.Thumb)
-
-SocialUIFrame.QuickJoinFrame.TopDivider:SetAlpha(0)
-SocialUIFrame.QuickJoinFrame.BottomDivider:SetAlpha(0)
-
-SocialUIFrame.QuickJoinFrame.ActionButton:ClearAllPoints()
-SocialUIFrame.QuickJoinFrame.ActionButton:SetPoint("BOTTOMLEFT", 4, 4)
-
-SocialUIFrame.QuickJoinFrame.ScrollBar:ClearAllPoints()
-SocialUIFrame.QuickJoinFrame.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.QuickJoinFrame.ScrollBox, "TOPRIGHT", 3, -2)
-SocialUIFrame.QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", 3, -11)
-
-ApplyScrollBarHybrid(SocialUIFrame.QuickJoinFrame.ScrollBar, true, true)
-ApplyScrollBarThumb(SocialUIFrame.QuickJoinFrame.ScrollBar.Track.Thumb)
-
 SocialUIFrame.FriendRequestsList.TopDivider:SetAlpha(0)
 SocialUIFrame.FriendRequestsList.BottomDivider:SetAlpha(0)
 
+ApplyRedButton(SocialUIFrame.FriendRequestsList.ActionButton)
 SocialUIFrame.FriendRequestsList.ActionButton:ClearAllPoints()
 SocialUIFrame.FriendRequestsList.ActionButton:SetPoint("BOTTOMLEFT", 4, 4)
 
@@ -107,13 +82,13 @@ SocialUIFrame.FriendRequestsList.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.
 ApplyScrollBarHybrid(SocialUIFrame.FriendRequestsList.ScrollBar, true, true)
 ApplyScrollBarThumb(SocialUIFrame.FriendRequestsList.ScrollBar.Track.Thumb)
 
-ApplyCloseButton(AddFriendFrame.CloseButton, true)
-AddFriendFrame.CloseButton:ClearAllPoints()
-AddFriendFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
-
+ApplyRedButton(SocialUIFrame.RaidFrame.ConvertToRaidButton)
+SocialUIFrame.RaidFrame.ConvertToRaidButton:SetSize(115, 21)
 SocialUIFrame.RaidFrame.ConvertToRaidButton:ClearAllPoints()
 SocialUIFrame.RaidFrame.ConvertToRaidButton:SetPoint("BOTTOMRIGHT", -4, 4)
 
+ApplyRedButton(SocialUIFrame.RaidFrame.RaidInfoButton)
+SocialUIFrame.RaidFrame.RaidInfoButton:SetSize(90, 21)
 SocialUIFrame.RaidFrame.RaidInfoButton:ClearAllPoints()
 SocialUIFrame.RaidFrame.RaidInfoButton:SetPoint("TOPRIGHT", SocialUIFrame.RaidFrame, "TOPRIGHT", -8, -20)
 
@@ -135,6 +110,21 @@ SocialUIFrame.RaidInfoFrame.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.RaidI
 ApplyScrollBarHybrid(SocialUIFrame.RaidInfoFrame.ScrollBar)
 ApplyScrollBarThumb(SocialUIFrame.RaidInfoFrame.ScrollBar.Track.Thumb)
 
+SocialUIFrame.QuickJoinFrame.TopDivider:SetAlpha(0)
+SocialUIFrame.QuickJoinFrame.BottomDivider:SetAlpha(0)
+
+ApplyRedButton(SocialUIFrame.QuickJoinFrame.ActionButton)
+SocialUIFrame.QuickJoinFrame.ActionButton:ClearAllPoints()
+SocialUIFrame.QuickJoinFrame.ActionButton:SetPoint("BOTTOMRIGHT", -4, 4)
+
+SocialUIFrame.QuickJoinFrame.ScrollBar:ClearAllPoints()
+SocialUIFrame.QuickJoinFrame.ScrollBar:SetPoint("TOPLEFT", SocialUIFrame.QuickJoinFrame.ScrollBox, "TOPRIGHT", 3, -2)
+SocialUIFrame.QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", SocialUIFrame.QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", 3, -11)
+
+ApplyScrollBarHybrid(SocialUIFrame.QuickJoinFrame.ScrollBar, true, true)
+ApplyScrollBarThumb(SocialUIFrame.QuickJoinFrame.ScrollBar.Track.Thumb)
+
+ApplyDialogBorder(AddFriendFrame.Border)
 ApplyDialogBorder(SocialUIFrame.BattleNetBroadcastFrame.Border)
 ApplyDialogBorder(SocialUIFrame.RaidInfoFrame.Border)
 
