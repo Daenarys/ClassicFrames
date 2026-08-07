@@ -96,7 +96,7 @@ local function SkinTargetCastbar(frame)
 			frame:GetStatusBarTexture():SetVertexColorFromBoolean(notInterruptible, castbarColors.Uninterruptable, castbarColors.Channel)
 		end
 		if isFull then
-			frame:GetStatusBarTexture():SetVertexColor(0, 1, 0)
+			frame:GetStatusBarTexture():SetVertexColor(castbarColors.Channel:GetRGBA())
 		end
 	end)
 end
