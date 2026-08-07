@@ -917,11 +917,12 @@ end
 
 function ApplyCinematicButton(frame)
 	frame:SetSize(119, 21)
-	frame:SetPushedTextOffset(1.57, -1.57)
 
 	frame.Left:SetAlpha(0)
 	frame.Right:SetAlpha(0)
 	frame.Center:SetAlpha(0)
+
+	frame:SetPushedTextOffset(1.57, -1.57)
 
 	frame:SetNormalTexture([[Interface\Buttons\UI-DialogBox-Button-Up]])
 	frame:GetNormalTexture():SetTexCoord(0, 1, 0, 0.71875)
@@ -934,11 +935,11 @@ function ApplyCinematicButton(frame)
 end
 
 function ApplyRedButton(frame)
-	frame:SetPushedTextOffset(1.57, -1.57)
-
 	frame.Left:SetAlpha(0)
 	frame.Center:SetAlpha(0)
 	frame.Right:SetAlpha(0)
+
+	frame:SetPushedTextOffset(1.57, -1.57)
 
 	if (frame.CfLeft == nil) then
 		frame.CfLeft = frame:CreateTexture(nil, "BACKGROUND")
