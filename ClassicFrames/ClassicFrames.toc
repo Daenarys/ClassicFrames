@@ -11,11 +11,7 @@ skins\Achievements.lua
 skins\AddOnList.lua
 skins\AdventureMap.lua
 skins\AlliedRaces.lua
-skins\ArtifactUI.lua
 skins\AuctionHouse.lua
-skins\AzeriteEssence.lua
-skins\AzeriteItem.lua
-skins\AzeriteRespec.lua
 skins\Bags.lua
 skins\Bank.lua
 skins\BlackMarket.lua
@@ -34,7 +30,6 @@ skins\Collections.lua
 skins\ColorPicker.lua
 skins\Communities.lua
 skins\CooldownViewer.lua
-skins\Covenant.lua
 skins\CurrencyTransfer.lua
 skins\DeathRecap.lua
 skins\DebugTools.lua
@@ -45,8 +40,6 @@ skins\EditMode.lua
 skins\EncounterJournal.lua
 skins\FlightMap.lua
 skins\GameMenu.lua
-skins\GarrisonCapacitive.lua
-skins\GarrisonUI.lua
 skins\GenericTrait.lua
 skins\Gossip.lua
 skins\GroupLoot.lua
@@ -54,9 +47,7 @@ skins\GuildBank.lua
 skins\GuildPetition.lua
 skins\Help.lua
 skins\HelpTip.lua
-skins\Housing.lua
 skins\Inspect.lua
-skins\IslandsQueue.lua
 skins\ItemRefTooltip.lua
 skins\ItemSocketing.lua
 skins\ItemText.lua
@@ -86,8 +77,6 @@ skins\Quests.lua
 skins\QuickKeybind.lua
 skins\ReadyCheck.lua
 skins\Report.lua
-skins\RuneForge.lua
-skins\ScrappingMachine.lua
 skins\ScriptError.lua
 skins\SettingsPanel.lua
 skins\Social.lua
@@ -100,7 +89,6 @@ skins\Talents.lua
 skins\TalkingHead.lua
 skins\TimeManager.lua
 skins\ToolTip.lua
-skins\Torghast.lua
 skins\Trade.lua
 skins\TradingPost.lua
 skins\Transmog.lua
