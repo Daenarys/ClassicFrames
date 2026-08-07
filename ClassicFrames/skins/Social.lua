@@ -156,6 +156,6 @@ hooksecurefunc(SocialUIFrame, "RefreshTabs", function(self)
 		elseif (tab.tabData.tabName == SOCIAL_UI_RECENT_ALLIES_TAB_NAME) then
 			tab:SetShown(false)
 		end
-		ApplyBottomTabNew(tab)
+		ApplySocialTab(tab)
 	end
 end)

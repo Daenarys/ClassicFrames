@@ -475,20 +475,20 @@ function ApplyTopTabNew(frame)
 	frame.Text:ClearAllPoints()
 	frame.Text:SetPoint("BOTTOM", 0, 9)
 
-	hooksecurefunc(frame, "SetTabSelected", function(frame, isSelected)
-		frame.Left:Hide()
-		frame.Middle:Hide()
-		frame.Right:Hide()
-		frame.LeftActive:Hide()
-		frame.RightActive:Hide()
-		frame.MiddleActive:Hide()
+	hooksecurefunc(frame, "SetTabSelected", function(self, isSelected)
+		self.Left:Hide()
+		self.Middle:Hide()
+		self.Right:Hide()
+		self.LeftActive:Hide()
+		self.RightActive:Hide()
+		self.MiddleActive:Hide()
 
-		frame.CfLeft:SetShown(not isSelected)
-		frame.CfMiddle:SetShown(not isSelected)
-		frame.CfRight:SetShown(not isSelected)
-		frame.LeftDisabled:SetShown(isSelected)
-		frame.MiddleDisabled:SetShown(isSelected)
-		frame.RightDisabled:SetShown(isSelected)
+		self.CfLeft:SetShown(not isSelected)
+		self.CfMiddle:SetShown(not isSelected)
+		self.CfRight:SetShown(not isSelected)
+		self.LeftDisabled:SetShown(isSelected)
+		self.MiddleDisabled:SetShown(isSelected)
+		self.RightDisabled:SetShown(isSelected)
 	end)
 end
 
@@ -533,16 +533,14 @@ function ApplyBottomTab(frame)
 	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", -3, 0)
 end
 
-function ApplyBottomTabNew(frame)
-	frame:SetHeight(32)
-
+function ApplySocialTab(frame)
 	frame.Background:SetAlpha(0)
 	frame.Icon:SetAlpha(0)
 	frame.SelectedTexture:SetAlpha(0)
 	frame.TabGlow:SetAlpha(0)
 	frame.HighlightTexture:SetAlpha(0)
 
-	--[[if (frame.LeftActive == nil) then
+	if (frame.LeftActive == nil) then
 		frame.LeftActive = frame:CreateTexture(nil, "BACKGROUND")
 		frame.LeftActive:SetSize(20, 35)
 		frame.LeftActive:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
@@ -563,8 +561,9 @@ function ApplyBottomTabNew(frame)
 		frame.MiddleActive:SetSize(88, 35)
 		frame.MiddleActive:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
 		frame.MiddleActive:SetTexCoord(0.15625, 0.84375, 0, 0.546875)
-		frame.MiddleActive:SetHorizTile(false)
-	end--]]
+		frame.MiddleActive:SetPoint("TOPLEFT", frame.LeftActive, "TOPRIGHT")
+		frame.MiddleActive:SetPoint("TOPRIGHT", frame.RightActive, "TOPLEFT")
+	end
 
 	if (frame.Left == nil) then
 		frame.Left = frame:CreateTexture(nil, "BACKGROUND")
@@ -588,19 +587,38 @@ function ApplyBottomTabNew(frame)
 		frame.Middle:SetTexCoord(0.15625, 0.84375, 0, 1)
 		frame.Middle:SetPoint("TOPLEFT", frame.Left, "TOPRIGHT")
 		frame.Middle:SetPoint("TOPRIGHT", frame.Right, "TOPLEFT")
-			frame.Middle:SetHorizTile(false)
 	end
 
 	if (frame.Text == nil) then
 		frame.Text = frame:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
-		frame.Text:SetPoint("CENTER", 0, 2)
-		frame.Text:SetText(frame.tabData.tabName)
 	end
+
+	frame.Text:SetText(frame.tabData.tabName)
 
 	frame:SetHighlightTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-RealHighlight")
 	frame:GetHighlightTexture():ClearAllPoints()
 	frame:GetHighlightTexture():SetPoint("TOPLEFT", 3, 5)
 	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", -3, 0)
+
+	frame:HookScript("OnEnter", GameTooltip_Hide)
+
+	hooksecurefunc(frame, "SetChecked", function(self, checked)
+		self.Left:SetShown(not checked)
+		self.Middle:SetShown(not checked)
+		self.Right:SetShown(not checked)
+		self.LeftActive:SetShown(checked)
+		self.MiddleActive:SetShown(checked)
+		self.RightActive:SetShown(checked)
+		self:GetHighlightTexture():SetShown(not checked)
+
+		if checked then
+            self.Text:SetFontObject("GameFontHighlightSmall")
+            self.Text:SetPoint("CENTER", 0, -3)
+        else
+            self.Text:SetFontObject("GameFontNormalSmall")
+            self.Text:SetPoint("CENTER", 0, 2)
+        end
+	end)
 end
 
 function ApplyDropDown(frame)
