@@ -110,3 +110,11 @@ hooksecurefunc(SocialUIFrame, "RefreshTabs", function(self)
 		ApplySocialTab(tab)
 	end
 end)
+
+hooksecurefunc(SocialUIFrame, "SelectTab", function(self)
+	if self.selectedTab == SocialUITabType.Friends then
+		self.BattleNetBar:Show()
+	else
+		self.BattleNetBar:Hide()
+	end
+end)
