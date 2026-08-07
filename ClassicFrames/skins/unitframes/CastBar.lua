@@ -23,6 +23,12 @@ local function SetLook(self)
 	self.Icon:SetSize(16, 16)
 end
 
+local castbarColors = {}
+castbarColors.Standard = CreateColor(1, 0.7, 0, 1)
+castbarColors.Channel = CreateColor(0, 1, 0, 1)
+castbarColors.Uninterruptable = CreateColor(0.7, 0.7, 0.7, 1)
+castbarColors.Interrupted = CreateColor(1, 0, 0, 1)
+
 local function SkinTargetCastbar(frame)
 	SetLook(frame)
 
@@ -54,6 +60,7 @@ local function SkinTargetCastbar(frame)
 
 	hooksecurefunc(frame, "PlayInterruptAnims", function()
 		frame:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+		frame:GetStatusBarTexture():SetVertexColor(castbarColors.Interrupted:GetRGBA())
 		frame:SetValue(frame.maxValue)
 		frame.Spark:Hide()
 	end)
@@ -80,13 +87,17 @@ local function SkinTargetCastbar(frame)
 		frame.NewFlash:SetVertexColor(frame:GetStatusBarColor())
 	end)
 
-	hooksecurefunc(frame, "UpdateBarFillTexture", function(self, isFull)
-		local barType = CastingBarType.Standard
-		local barTypeInfo = self:GetTypeInfo(barType)
-
-		local colorInfo = isFull and barTypeInfo.classicFullColor or barTypeInfo.classicFillColor
-		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-		self:SetStatusBarColor(colorInfo:GetRGB())
+	hooksecurefunc(frame, "UpdateBarFillTexture", function(_, isFull)
+		if UnitCastingInfo(frame.unit) then
+			local _, _, _, _, _, _, _, notInterruptible = UnitCastingInfo(frame.unit)
+			frame:GetStatusBarTexture():SetVertexColorFromBoolean(notInterruptible, castbarColors.Uninterruptable, castbarColors.Standard)
+		elseif UnitChannelInfo(frame.unit) then
+			local _, _, _, _, _, _, notInterruptible = UnitChannelInfo(frame.unit)
+			frame:GetStatusBarTexture():SetVertexColorFromBoolean(notInterruptible, castbarColors.Uninterruptable, castbarColors.Channel)
+		end
+		if isFull then
+			frame:GetStatusBarTexture():SetVertexColor(0, 1, 0)
+		end
 	end)
 end
 
