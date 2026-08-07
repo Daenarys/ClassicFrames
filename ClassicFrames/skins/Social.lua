@@ -20,7 +20,7 @@ SocialUIFrame.TopTileStreaks:Show()
 SocialUIFrame.Bg:SetTexture("Interface\\FrameGeneral\\UI-Background-Rock", true, true)
 
 if (SocialUIFrame.Inset == nil) then
-	SocialUIFrame.Inset = CreateFrame("Frame", nil, SocialUIFrame, "InsetFrameTemplate");
+	SocialUIFrame.Inset = CreateFrame("Frame", nil, SocialUIFrame, "InsetFrameTemplate")
 	SocialUIFrame.Inset:ClearAllPoints()
 	SocialUIFrame.Inset:SetPoint("TOPLEFT", 4, -83)
 	SocialUIFrame.Inset:SetPoint("BOTTOMRIGHT", -6, 56)
@@ -50,6 +50,7 @@ SocialUIFrame.BattleNetBar.ControlsContainer.PersonalBattleTagDisplay.CopyBattle
 SocialUIFrame.BattleNetBar.ControlsContainer.PersonalBattleTagDisplay.DisplayText:SetFontObject(GameFontNormal)
 
 SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetBackground:ClearAllPoints()
+SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetBackground:SetPoint("TOP", 0 , 1)
 SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetBackground:SetPoint("LEFT", SocialUIFrame.BattleNetBar.ControlsContainer.OnlineStatusDropdown, "LEFT", 48, 0)
 SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetBackground:SetPoint("RIGHT", SocialUIFrame.BattleNetBar.ControlsContainer.BattleNetMenuButton, "LEFT", -2, 0)
 
