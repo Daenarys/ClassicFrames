@@ -915,25 +915,6 @@ function ApplyEJDropDown(frame)
 	end)
 end
 
-function ApplyCinematicButton(frame)
-	frame:SetSize(119, 21)
-
-	frame.Left:SetAlpha(0)
-	frame.Right:SetAlpha(0)
-	frame.Center:SetAlpha(0)
-
-	frame:SetPushedTextOffset(1.57, -1.57)
-
-	frame:SetNormalTexture([[Interface\Buttons\UI-DialogBox-Button-Up]])
-	frame:GetNormalTexture():SetTexCoord(0, 1, 0, 0.71875)
-	frame:SetPushedTexture([[Interface\Buttons\UI-DialogBox-Button-Down]])
-	frame:GetPushedTexture():SetTexCoord(0, 1, 0, 0.71875)
-	frame:SetDisabledTexture([[Interface\Buttons\UI-DialogBox-Button-Disabled]])
-	frame:GetDisabledTexture():SetTexCoord(0, 1, 0, 0.71875)
-	frame:SetHighlightTexture([[Interface\Buttons\UI-DialogBox-Button-Highlight]], "ADD")
-	frame:GetHighlightTexture():SetTexCoord(0, 1, 0, 0.71875)
-end
-
 function ApplyRedButton(frame)
 	frame.Left:SetAlpha(0)
 	frame.Center:SetAlpha(0)

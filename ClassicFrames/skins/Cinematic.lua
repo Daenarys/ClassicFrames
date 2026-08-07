@@ -1,6 +1,9 @@
 if _G.CinematicFrame then
-	ApplyCinematicButton(CinematicFrameCloseDialogConfirmButton)
-	ApplyCinematicButton(CinematicFrameCloseDialogResumeButton)
+	CinematicFrameCloseDialogConfirmButton:SetSize(119, 21)
+	CinematicFrameCloseDialogResumeButton:SetSize(119, 21)
+
+	ApplyRedButton(CinematicFrameCloseDialogConfirmButton)
+	ApplyRedButton(CinematicFrameCloseDialogResumeButton)
 
 	ApplyDialogBorder(CinematicFrame.closeDialog.Border)
 end
@@ -13,8 +16,11 @@ if _G.MovieFrame then
 
 	MovieFrame.CloseDialog.BackgroundTile:SetAlpha(0)
 
-	ApplyCinematicButton(MovieFrame.CloseDialog.Buttons.ConfirmButton)
-	ApplyCinematicButton(MovieFrame.CloseDialog.Buttons.ResumeButton)
+	MovieFrame.CloseDialog.Buttons.ConfirmButton:SetSize(119, 21)
+	MovieFrame.CloseDialog.Buttons.ResumeButton:SetSize(119, 21)
+
+	ApplyRedButton(MovieFrame.CloseDialog.Buttons.ConfirmButton)
+	ApplyRedButton(MovieFrame.CloseDialog.Buttons.ResumeButton)
 
 	ApplyDialogBorder(MovieFrame.CloseDialog.Border)
 
