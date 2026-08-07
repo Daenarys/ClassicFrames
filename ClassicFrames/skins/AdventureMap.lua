@@ -27,7 +27,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			AdventureMapQuestChoiceDialog.TitleBg:SetAtlas("_UI-Frame-TitleTileBg", false)
 			AdventureMapQuestChoiceDialog.TitleBg:SetSize(256, 18)
 			AdventureMapQuestChoiceDialog.TitleBg:SetHorizTile(true)
-			AdventureMapQuestChoiceDialog.TitleBg:SetPoint("TOPLEFT", 6, -17)
+			AdventureMapQuestChoiceDialog.TitleBg:SetPoint("TOPLEFT", 5, -17)
 			AdventureMapQuestChoiceDialog.TitleBg:SetPoint("TOPRIGHT", -25, -17)
 		end
 
@@ -36,7 +36,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			AdventureMapQuestChoiceDialog.TopLeftCorner:SetSize(32, 32)
 			AdventureMapQuestChoiceDialog.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
 			AdventureMapQuestChoiceDialog.TopLeftCorner:SetTexCoord(0.63281250, 0.88281250, 0.28125000, 0.53125000)
-			AdventureMapQuestChoiceDialog.TopLeftCorner:SetPoint("TOPLEFT", -2, -14)
+			AdventureMapQuestChoiceDialog.TopLeftCorner:SetPoint("TOPLEFT", -3, -14)
 		end
 
 		if (AdventureMapQuestChoiceDialog.TopRightCorner == nil) then
@@ -47,21 +47,12 @@ f:SetScript("OnEvent", function(self, event, name)
 			AdventureMapQuestChoiceDialog.TopRightCorner:SetPoint("TOPRIGHT", -1, -14)
 		end
 
-		if (AdventureMapQuestChoiceDialog.TopEdge == nil) then
-			AdventureMapQuestChoiceDialog.TopEdge = AdventureMapQuestChoiceDialog:CreateTexture(nil, "BACKGROUND")
-			AdventureMapQuestChoiceDialog.TopEdge:SetSize(256, 28)
-			AdventureMapQuestChoiceDialog.TopEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
-			AdventureMapQuestChoiceDialog.TopEdge:SetTexCoord(0, 1, 0.43750000, 0.65625000)
-			AdventureMapQuestChoiceDialog.TopEdge:SetPoint("TOPLEFT", AdventureMapQuestChoiceDialog.TopLeftCorner, "TOPRIGHT")
-			AdventureMapQuestChoiceDialog.TopEdge:SetPoint("TOPRIGHT", AdventureMapQuestChoiceDialog.TopRightCorner, "TOPLEFT")
-		end
-
 		if (AdventureMapQuestChoiceDialog.BottomLeftCorner == nil) then
 			AdventureMapQuestChoiceDialog.BottomLeftCorner = AdventureMapQuestChoiceDialog:CreateTexture(nil, "BACKGROUND")
 			AdventureMapQuestChoiceDialog.BottomLeftCorner:SetSize(14, 14)
 			AdventureMapQuestChoiceDialog.BottomLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
 			AdventureMapQuestChoiceDialog.BottomLeftCorner:SetTexCoord(0.00781250, 0.11718750, 0.63281250, 0.74218750)
-			AdventureMapQuestChoiceDialog.BottomLeftCorner:SetPoint("BOTTOMLEFT", -2, -5)
+			AdventureMapQuestChoiceDialog.BottomLeftCorner:SetPoint("BOTTOMLEFT", -3, -5)
 		end
 
 		if (AdventureMapQuestChoiceDialog.BottomRightCorner == nil) then
@@ -70,6 +61,15 @@ f:SetScript("OnEvent", function(self, event, name)
 			AdventureMapQuestChoiceDialog.BottomRightCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
 			AdventureMapQuestChoiceDialog.BottomRightCorner:SetTexCoord(0.13281250, 0.21875000, 0.89843750, 0.98437500)
 			AdventureMapQuestChoiceDialog.BottomRightCorner:SetPoint("BOTTOMRIGHT", -1, -5)
+		end
+
+		if (AdventureMapQuestChoiceDialog.TopEdge == nil) then
+			AdventureMapQuestChoiceDialog.TopEdge = AdventureMapQuestChoiceDialog:CreateTexture(nil, "BACKGROUND")
+			AdventureMapQuestChoiceDialog.TopEdge:SetSize(256, 28)
+			AdventureMapQuestChoiceDialog.TopEdge:SetTexture("Interface\\FrameGeneral\\_UI-Frame", true)
+			AdventureMapQuestChoiceDialog.TopEdge:SetTexCoord(0, 1, 0.43750000, 0.65625000)
+			AdventureMapQuestChoiceDialog.TopEdge:SetPoint("TOPLEFT", AdventureMapQuestChoiceDialog.TopLeftCorner, "TOPRIGHT")
+			AdventureMapQuestChoiceDialog.TopEdge:SetPoint("TOPRIGHT", AdventureMapQuestChoiceDialog.TopRightCorner, "TOPLEFT")
 		end
 
 		if (AdventureMapQuestChoiceDialog.BottomEdge == nil) then
@@ -100,7 +100,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		end
 
 		if (AdventureMapQuestChoiceDialog.ButtonBorder == nil) then
-			AdventureMapQuestChoiceDialog.ButtonBorder = AdventureMapQuestChoiceDialog:CreateTexture(nil, "BACKGROUND")
+			AdventureMapQuestChoiceDialog.ButtonBorder = AdventureMapQuestChoiceDialog:CreateTexture(nil, "BACKGROUND", nil, -1)
 			AdventureMapQuestChoiceDialog.ButtonBorder:SetAtlas("_UI-Frame-InnerBotTile", true)
 			AdventureMapQuestChoiceDialog.ButtonBorder:SetPoint("BOTTOMLEFT", AdventureMapQuestChoiceDialog.BottomLeftCorner, "BOTTOMRIGHT", -7, 31)
 			AdventureMapQuestChoiceDialog.ButtonBorder:SetPoint("BOTTOMRIGHT", AdventureMapQuestChoiceDialog.BottomRightCorner, "BOTTOMLEFT", 7, 31)
