@@ -158,17 +158,8 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarArrow(EncounterJournalEncounterFrameInstanceFrame.LoreScrollBar, true)
 
 		ApplyDropDown(EncounterJournalInstanceSelect.ExpansionDropdown)
-
-		ApplyEJDropDown(EncounterJournalEncounterFrameInfo.LootContainer.filter)
-		EncounterJournalEncounterFrameInfo.LootContainer.filter:SetPoint("TOPLEFT", EncounterJournal, "TOPRIGHT", -361, -77)
-		hooksecurefunc(EncounterJournalEncounterFrameInfo.LootContainer.filter, "UpdateText", function(self)
-			self.Text:SetText(GEAR_FILTER)
-		end)
-
-		ApplyEJDropDown(EncounterJournalEncounterFrameInfo.LootContainer.slotFilter)
-		EncounterJournalEncounterFrameInfo.LootContainer.slotFilter:SetPoint("LEFT", EncounterJournalEncounterFrameInfo.LootContainer.filter, "RIGHT", 9, 0)
-
-		ApplyEJDropDown(EncounterJournalEncounterFrameInfoDifficulty)
-		EncounterJournalEncounterFrameInfoDifficulty:SetPoint("TOPRIGHT", -6, -13)
+		ApplyDropDown(EncounterJournalEncounterFrameInfo.LootContainer.filter)
+		ApplyDropDown(EncounterJournalEncounterFrameInfo.LootContainer.slotFilter)
+		ApplyDropDown(EncounterJournalEncounterFrameInfoDifficulty)
 	end
 end)
