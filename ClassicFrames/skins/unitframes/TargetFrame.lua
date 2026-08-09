@@ -2,15 +2,11 @@ local function UpdateHealth(frame)
 	if not frame or not frame.unit or not frame.HealthBar then return end
 	local unit = frame.unit
 
-	-- Don't update if unit doesn't exist
 	if not UnitExists(unit) then return end
 
-	-- Get health values directly - StatusBar can handle secret values
-	-- The key is to NOT do any comparisons or arithmetic on these values
 	local hp = UnitHealth(unit)
 	local maxHP = UnitHealthMax(unit)
 
-	-- Pass directly to StatusBar - it handles secret values gracefully
 	frame.HealthBar:SetMinMaxValues(0, maxHP or 1)
 	frame.HealthBar:SetValue(hp or 0)
 end
@@ -19,18 +15,14 @@ local function UpdatePower(frame)
 	if not frame or not frame.unit or not frame.ManaBar then return end
 	local unit = frame.unit
 
-	-- Don't update if unit doesn't exist
 	if not UnitExists(unit) then return end
 
-	-- Get power values directly - StatusBar can handle secret values
 	local p = UnitPower(unit)
 	local pMax = UnitPowerMax(unit)
 
-	-- Pass directly to StatusBar - it handles secret values gracefully
 	frame.ManaBar:SetMinMaxValues(0, pMax or 1)
 	frame.ManaBar:SetValue(p or 0)
 
-	-- Set power color
 	local powerType, powerToken, altR, altG, altB = UnitPowerType(unit)
 	local info = CfPowerBarColor[powerToken]
 
@@ -67,16 +59,14 @@ end
 function CfTargetFrame_OnLoad(self, unit)
 	self.unit = unit
 
-	-- Event handling
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
-	self:RegisterEvent("UNIT_HEALTH")
-	self:RegisterEvent("UNIT_MAXHEALTH")
-	self:RegisterEvent("UNIT_DISPLAYPOWER")
-	self:RegisterEvent("UNIT_POWER_UPDATE")
-	self:RegisterEvent("UNIT_POWER_FREQUENT")
-	self:RegisterEvent("UNIT_MAXPOWER")
 	self:RegisterEvent("PLAYER_TARGET_CHANGED")
 	self:RegisterEvent("PLAYER_FOCUS_CHANGED")
+	self:RegisterEvent("UNIT_DISPLAYPOWER")
+	self:RegisterUnitEvent("UNIT_HEALTH", self.unit)
+	self:RegisterUnitEvent("UNIT_MAXHEALTH", self.unit)
+	self:RegisterUnitEvent("UNIT_POWER_UPDATE", self.unit)
+	self:RegisterUnitEvent("UNIT_MAXPOWER", self.unit)
 
 	self:SetScript("OnEvent", function(self, event, arg1)
 		if event == "PLAYER_ENTERING_WORLD" then
@@ -94,7 +84,7 @@ function CfTargetFrame_OnLoad(self, unit)
 		elseif arg1 == self.unit then
 			if event == "UNIT_HEALTH" or event == "UNIT_MAXHEALTH" then
 				UpdateHealth(self)
-			elseif event == "UNIT_DISPLAYPOWER" or event == "UNIT_POWER_UPDATE" or event == "UNIT_POWER_FREQUENT" or event == "UNIT_MAXPOWER" then
+			elseif event == "UNIT_DISPLAYPOWER" or event == "UNIT_POWER_UPDATE" or event == "UNIT_MAXPOWER" then
 				UpdatePower(self)
 			end
 		end
