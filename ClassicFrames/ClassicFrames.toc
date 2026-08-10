@@ -90,7 +90,6 @@ skins\TalkingHead.lua
 skins\TimeManager.lua
 skins\ToolTip.lua
 skins\Trade.lua
-skins\TradingPost.lua
 skins\Transmog.lua
 skins\Tutorial.lua
 skins\UIWidget.lua
