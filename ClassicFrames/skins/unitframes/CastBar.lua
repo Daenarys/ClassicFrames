@@ -43,11 +43,10 @@ local function SkinTargetCastbar(frame)
 	end)
 
 	hooksecurefunc(frame, "UpdateShownState", function()
-		frame:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 		frame.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
 		frame.Spark:SetSize(32, 32)
 		frame.Spark:ClearAllPoints()
-		frame.Spark:SetPoint("CENTER", 0, 0)
+		frame.Spark:SetPoint("CENTER")
 		frame.Spark:SetBlendMode("ADD")
 		if frame.channeling then
 			frame.Spark:Hide()
@@ -59,14 +58,12 @@ local function SkinTargetCastbar(frame)
 	end)
 
 	hooksecurefunc(frame, "PlayInterruptAnims", function()
-		frame:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 		frame:GetStatusBarTexture():SetVertexColor(castbarColors.Interrupted:GetRGBA())
 		frame:SetValue(frame.maxValue)
 		frame.Spark:Hide()
 	end)
 
 	hooksecurefunc(frame, "PlayFinishAnim", function()
-		frame:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 		if (frame.NewFlash == nil) then
 			frame.NewFlash = frame.Flash:GetParent():CreateTexture(nil, "OVERLAY")
 			frame.NewFlash:SetSize(0, 49)
@@ -88,6 +85,7 @@ local function SkinTargetCastbar(frame)
 	end)
 
 	hooksecurefunc(frame, "UpdateBarFillTexture", function(_, isFull)
+		frame:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 		if UnitCastingInfo(frame.unit) then
 			local _, _, _, _, _, _, _, notInterruptible = UnitCastingInfo(frame.unit)
 			frame:GetStatusBarTexture():SetVertexColorFromBoolean(notInterruptible, castbarColors.Uninterruptable, castbarColors.Standard)
