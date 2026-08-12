@@ -71,7 +71,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			AchievementFrame.HeaderDetails.Filters.SearchBox:SetPoint("TOPLEFT", AchievementFrame.Header.RightDDLInset, "TOPLEFT", 12, 2)
 		end)
 
-		hooksecurefunc('AchievementFrameSummary_Refresh', function()
+		hooksecurefunc("AchievementFrameSummary_Refresh", function()
 			for i = 1, 4 do
 				local button = _G["AchievementFrameSummaryAchievement"..i]
 				if ( button ) then
