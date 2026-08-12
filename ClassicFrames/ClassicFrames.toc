@@ -39,6 +39,7 @@ skins\DressingRoom.lua
 skins\EditMode.lua
 skins\EncounterJournal.lua
 skins\FlightMap.lua
+skins\Friends.lua
 skins\GameMenu.lua
 skins\GenericTrait.lua
 skins\Gossip.lua
@@ -79,7 +80,6 @@ skins\ReadyCheck.lua
 skins\Report.lua
 skins\ScriptError.lua
 skins\SettingsPanel.lua
-skins\Social.lua
 skins\SplashScreen.lua
 skins\Stable.lua
 skins\StaticPopup.lua
