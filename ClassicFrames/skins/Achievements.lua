@@ -70,5 +70,18 @@ f:SetScript("OnEvent", function(self, event, name)
 			AchievementFrame.HeaderDetails.Filters.SearchBox:ClearAllPoints()
 			AchievementFrame.HeaderDetails.Filters.SearchBox:SetPoint("TOPLEFT", AchievementFrame.Header.RightDDLInset, "TOPLEFT", 12, 2)
 		end)
+
+		hooksecurefunc('AchievementFrameSummary_Refresh', function()
+			for i = 1, 4 do
+				local button = _G["AchievementFrameSummaryAchievement"..i]
+				if ( button ) then
+					if ( button.accountWide ) then
+						button.TitleBar:SetAlpha(1)
+					else
+						button.TitleBar:SetAlpha(0.5)
+					end
+				end
+			end
+		end)
 	end
 end)
