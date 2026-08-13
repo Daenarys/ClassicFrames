@@ -297,6 +297,8 @@ hooksecurefunc("CompactUnitFrame_UpdateRoleIcon", function(frame)
 	end
 
 	local role = UnitGroupRolesAssigned(frame.unit)
+	if not role or issecretvalue(role) then return end
+
 	if ( frame.optionTable.displayRoleIcon and (role == "TANK" or role == "HEALER" or role == "DAMAGER") ) then
 		frame.roleIcon:SetTexture("Interface\\LFGFrame\\UI-LFG-ICON-PORTRAITROLES")
 		frame.roleIcon:SetTexCoord(GetTexCoordsForOldRoleSmallCircle(role))
