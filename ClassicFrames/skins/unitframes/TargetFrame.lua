@@ -197,8 +197,6 @@ local function SkinFrame(frame)
 		FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 5, 3)
 		FrameManaBar.RightText:SetPoint("RIGHT", FrameManaBar, "RIGHT", -15, 3)
 
-		self.haveElite = nil
-
 		if ( classification == "rareelite" ) then
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare-Elite")
@@ -210,7 +208,6 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetTexCoord(0, 0.9453125, 0.181640625, 0.400390625)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -2, 5)
-			self.haveElite = true
 		elseif ( classification == "worldboss" or classification == "elite" ) then
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Elite")
@@ -222,7 +219,6 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetTexCoord(0, 0.9453125, 0.181640625, 0.400390625)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -2, 5)
-			self.haveElite = true
 		elseif ( classification == "rare" ) then
 			self.TargetFrameContainer.FrameTexture:SetSize(232, 100)
 			self.TargetFrameContainer.FrameTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Rare")
@@ -234,7 +230,6 @@ local function SkinFrame(frame)
 			self.TargetFrameContainer.Flash:SetTexCoord(0, 0.9453125, 0, 0.181640625)
 			self.TargetFrameContainer.Flash:ClearAllPoints()
 			self.TargetFrameContainer.Flash:SetPoint("TOPLEFT", -4, -4)
-			self.haveElite = true
 		elseif ( classification == "minus" ) then
 			CfTargetFrameBackground:SetSize(119, 12)
 			CfTargetFrameBackground:SetPoint("BOTTOMLEFT", 7, 47)
