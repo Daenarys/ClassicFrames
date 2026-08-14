@@ -43,11 +43,11 @@ local function SkinTargetCastbar(frame)
 	end)
 
 	hooksecurefunc(frame, "UpdateShownState", function()
-		frame.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
 		frame.Spark:SetSize(32, 32)
+		frame.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
+		frame.Spark:SetBlendMode("ADD")
 		frame.Spark:ClearAllPoints()
 		frame.Spark:SetPoint("CENTER")
-		frame.Spark:SetBlendMode("ADD")
 		if frame.channeling then
 			frame.Spark:Hide()
 		end
