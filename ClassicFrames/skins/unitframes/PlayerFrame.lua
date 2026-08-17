@@ -73,7 +73,6 @@ function CfPlayerFrame_OnLoad(self)
 	self:RegisterEvent("UNIT_MAXHEALTH")
 	self:RegisterEvent("UNIT_DISPLAYPOWER")
 	self:RegisterEvent("UNIT_POWER_UPDATE")
-	self:RegisterEvent("UNIT_POWER_FREQUENT")
 	self:RegisterEvent("UNIT_MAXPOWER")
 	self:RegisterEvent("PLAYER_DEAD")
 	self:RegisterEvent("PLAYER_ALIVE")
@@ -84,7 +83,7 @@ function CfPlayerFrame_OnLoad(self)
 			UpdateFrame(self)
 		elseif event == "UNIT_HEALTH" or event == "UNIT_MAXHEALTH" then
 			UpdateHealth(self)
-		elseif event == "UNIT_DISPLAYPOWER" or event == "UNIT_POWER_UPDATE" or event == "UNIT_POWER_FREQUENT" or event == "UNIT_MAXPOWER" then
+		elseif event == "UNIT_DISPLAYPOWER" or event == "UNIT_POWER_UPDATE" or event == "UNIT_MAXPOWER" then
 			UpdatePower(self)
 		elseif event == "PLAYER_ALIVE" or event == "PLAYER_DEAD" or event == "PLAYER_UNGHOST" then
 			UpdatePower(self)
