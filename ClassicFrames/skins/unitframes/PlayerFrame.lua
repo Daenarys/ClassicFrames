@@ -67,23 +67,24 @@ function CfPlayerFrame_OnLoad(self)
 	self.unit = "player"
 
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
+	self:RegisterEvent("PLAYER_GAINS_VEHICLE_DATA")
+	self:RegisterEvent("PLAYER_LOSES_VEHICLE_DATA")
+	self:RegisterEvent("UNIT_HEALTH")
+	self:RegisterEvent("UNIT_MAXHEALTH")
+	self:RegisterEvent("UNIT_DISPLAYPOWER")
+	self:RegisterEvent("UNIT_POWER_UPDATE")
+	self:RegisterEvent("UNIT_POWER_FREQUENT")
+	self:RegisterEvent("UNIT_MAXPOWER")
 	self:RegisterEvent("PLAYER_DEAD")
 	self:RegisterEvent("PLAYER_ALIVE")
 	self:RegisterEvent("PLAYER_UNGHOST")
-	self:RegisterEvent("UNIT_DISPLAYPOWER")
-	self:RegisterUnitEvent("UNIT_HEALTH", self.unit)
-	self:RegisterUnitEvent("UNIT_MAXHEALTH", self.unit)
-	self:RegisterUnitEvent("UNIT_POWER_UPDATE", self.unit)
-	self:RegisterUnitEvent("UNIT_MAXPOWER", self.unit)
-	self:RegisterUnitEvent("PLAYER_GAINS_VEHICLE_DATA", self.unit)
-	self:RegisterUnitEvent("PLAYER_LOSES_VEHICLE_DATA", self.unit)
 
 	self:SetScript("OnEvent", function(self, event, arg1)
 		if event == "PLAYER_ENTERING_WORLD" or event == "PLAYER_GAINS_VEHICLE_DATA" or event == "PLAYER_LOSES_VEHICLE_DATA" then
 			UpdateFrame(self)
 		elseif event == "UNIT_HEALTH" or event == "UNIT_MAXHEALTH" then
 			UpdateHealth(self)
-		elseif event == "UNIT_DISPLAYPOWER" or event == "UNIT_POWER_UPDATE" or event == "UNIT_MAXPOWER" then
+		elseif event == "UNIT_DISPLAYPOWER" or event == "UNIT_POWER_UPDATE" or event == "UNIT_POWER_FREQUENT" or event == "UNIT_MAXPOWER" then
 			UpdatePower(self)
 		elseif event == "PLAYER_ALIVE" or event == "PLAYER_DEAD" or event == "PLAYER_UNGHOST" then
 			UpdatePower(self)
