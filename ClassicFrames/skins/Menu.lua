@@ -1,17 +1,3 @@
-local DialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
-ApplyDialogBorder(DialogSkin)
-DialogSkin:Hide()
-
-local SubDialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
-ApplyDialogBorder(SubDialogSkin)
-SubDialogSkin:Hide()
-
-local TooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
-TooltipSkin:Hide()
-
-local SubTooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
-SubTooltipSkin:Hide()
-
 local function IsDialogMenu(owner)
 	if not owner then return false end
 
@@ -38,6 +24,7 @@ local function IsDialogMenu(owner)
 		or (owner == LFGListEntryCreationPlayStyleDropdown)
 		or (owner == HonorFrameTypeDropdown)
 		or (owner == TrainingGroundsFrameTypeDropdown)
+		or (owner == FriendsFrameStatusDropdown)
 		or (owner == WhoFrameDropdown)
 		or (owner == DressUpFrameCustomSetDropdown)
 		or (owner == CompactRaidFrameManagerDisplayFrameModeControlDropdown)
@@ -56,7 +43,6 @@ local function IsDialogMenu(owner)
 		or (owner == GroupLootHistoryFrame.EncounterDropdown)
 		or (owner == MerchantFrame.FilterDropdown)
 		or (owner == ReportFrame.ReportingMajorCategoryDropdown)
-		or (owner == SocialUIFrame.BattleNetBar.ControlsContainer.OnlineStatusDropdown)
 		or (owner == TimeManagerAlarmTimeFrame.HourDropdown)
 		or (owner == TimeManagerAlarmTimeFrame.MinuteDropdown)
 		or (owner == TimeManagerAlarmTimeFrame.AMPMDropdown)
@@ -70,6 +56,7 @@ local function IsDialogMenu(owner)
 		or (DelvesDifficultyPickerFrame and owner == DelvesDifficultyPickerFrame.Dropdown)
 		or (EncounterJournal and owner == EncounterJournalInstanceSelect.ExpansionDropdown)
 		or (HeirloomsJournal and owner == HeirloomsJournal.ClassDropdown)
+		or (HousingDashboardFrame and owner == HousingDashboardFrame.HouseInfoContent.HouseDropdown)
 		or (ItemUpgradeFrame and owner == ItemUpgradeFrame.ItemInfo.Dropdown)
 		or (MacroPopupFrame and owner == MacroPopupFrame.BorderBox.IconTypeDropdown)
 		or (PlayerSpellsFrame and owner == PlayerSpellsFrame.TalentsFrame.LoadSystem.Dropdown)
@@ -78,6 +65,18 @@ local function IsDialogMenu(owner)
 		or (TransmogFrame and owner == TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponSheatheDropdown)
 		or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 end
+
+local DialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
+DialogSkin:Hide()
+
+local SubDialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
+SubDialogSkin:Hide()
+
+local TooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
+TooltipSkin:Hide()
+
+local SubTooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
+SubTooltipSkin:Hide()
 
 local function SkinMenu(manager, owner, menuDescription)
 	local menu = manager:GetOpenMenu()

@@ -1,11 +1,25 @@
+local function ApplyCinematicButton(frame)
+	frame:SetSize(119, 21)
+
+	frame.Left:SetAlpha(0)
+	frame.Right:SetAlpha(0)
+	frame.Center:SetAlpha(0)
+
+	frame:SetPushedTextOffset(1.57, -1.57)
+
+	frame:SetNormalTexture([[Interface\Buttons\UI-DialogBox-Button-Up]])
+	frame:GetNormalTexture():SetTexCoord(0, 1, 0, 0.71875)
+	frame:SetPushedTexture([[Interface\Buttons\UI-DialogBox-Button-Down]])
+	frame:GetPushedTexture():SetTexCoord(0, 1, 0, 0.71875)
+	frame:SetDisabledTexture([[Interface\Buttons\UI-DialogBox-Button-Disabled]])
+	frame:GetDisabledTexture():SetTexCoord(0, 1, 0, 0.71875)
+	frame:SetHighlightTexture([[Interface\Buttons\UI-DialogBox-Button-Highlight]], "ADD")
+	frame:GetHighlightTexture():SetTexCoord(0, 1, 0, 0.71875)
+end
+
 if _G.CinematicFrame then
-	CinematicFrameCloseDialogConfirmButton:SetSize(119, 21)
-	CinematicFrameCloseDialogResumeButton:SetSize(119, 21)
-
-	ApplyRedButton(CinematicFrameCloseDialogConfirmButton)
-	ApplyRedButton(CinematicFrameCloseDialogResumeButton)
-
-	ApplyDialogBorder(CinematicFrame.closeDialog.Border)
+	ApplyCinematicButton(CinematicFrameCloseDialogConfirmButton)
+	ApplyCinematicButton(CinematicFrameCloseDialogResumeButton)
 end
 
 if _G.MovieFrame then
@@ -16,13 +30,8 @@ if _G.MovieFrame then
 
 	MovieFrame.CloseDialog.BackgroundTile:SetAlpha(0)
 
-	MovieFrame.CloseDialog.Buttons.ConfirmButton:SetSize(119, 21)
-	MovieFrame.CloseDialog.Buttons.ResumeButton:SetSize(119, 21)
-
-	ApplyRedButton(MovieFrame.CloseDialog.Buttons.ConfirmButton)
-	ApplyRedButton(MovieFrame.CloseDialog.Buttons.ResumeButton)
-
-	ApplyDialogBorder(MovieFrame.CloseDialog.Border)
+	ApplyCinematicButton(MovieFrame.CloseDialog.Buttons.ConfirmButton)
+	ApplyCinematicButton(MovieFrame.CloseDialog.Buttons.ResumeButton)
 
 	hooksecurefunc(MovieFrame, "ShowCloseDialog", function(self)
 		self.CloseDialog.Buttons:ClearAllPoints()
