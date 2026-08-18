@@ -1,0 +1,3 @@
+if not _G.UIWidgetCenterDisplayFrame then return end
+
+ApplyDialogBorder(UIWidgetCenterDisplayFrame.NineSlice)
