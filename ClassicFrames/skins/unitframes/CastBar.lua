@@ -32,7 +32,7 @@ castbarColors.Interrupted = CreateColor(1, 0, 0, 1)
 local function SkinTargetCastbar(frame)
 	SetLook(frame)
 
-	hooksecurefunc(frame, "HandleCastStop", function(self, event)
+	hooksecurefunc(frame, "HandleInterruptOrSpellFailed", function(self, _, event)
 		if self.Text then
 			if event == "UNIT_SPELLCAST_FAILED" then
 				self.Text:SetText(FAILED)
