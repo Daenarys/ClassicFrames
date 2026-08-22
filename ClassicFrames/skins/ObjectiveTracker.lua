@@ -49,6 +49,8 @@ local function ReskinQuestIcon(button)
 		button:SetNormalTexture("Interface\\Buttons\\UI-Quickslot2")
 		button:SetPushedTexture("Interface\\Buttons\\UI-Quickslot-Depress")
 		if button.Cooldown then
+			button.Cooldown:SetBlingTexture("Interface\\Cooldown\\star4", 0.3, 0.6, 1, 0.8)
+			button.Cooldown:SetSwipeColor(0, 0, 0, 0.8)
 			button.Cooldown:SetHideCountdownNumbers(true)
 		end
 		button.IsSkinned = true
