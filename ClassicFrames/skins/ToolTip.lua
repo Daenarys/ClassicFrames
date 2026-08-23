@@ -86,6 +86,7 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(self
 						dst:SetText(src:GetText())
 						dst:SetTextColor(r, g, b)
 					end
+					_G[name .. "TextLeft" .. numLines]:SetText("")
 					_G[name .. "TextLeft" .. numLines]:Hide()
 				end
 			end
