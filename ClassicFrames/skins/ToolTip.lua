@@ -6,6 +6,7 @@ hooksecurefunc("GameTooltip_AddInstructionLine", function(self, text)
 
 	local line = _G[name .. "TextLeft" .. numLines]
 	if line then
+		line:SetText("")
 		line:Hide()
 	end
 
