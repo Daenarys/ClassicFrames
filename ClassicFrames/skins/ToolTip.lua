@@ -60,35 +60,25 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(self
 	end
 end)
 
-TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Unit, function(self)
+TooltipDataProcessor.AddTooltipPreCall(Enum.TooltipDataType.Unit, function(self, data)
 	if self == _G.GameTooltip then
-		local name = self:GetName()
-		local numLines = self:NumLines()
-
 		local _, unit = self:GetUnit()
 		if not unit or issecretvalue(unit) or not UnitIsPlayer(unit) then return end
 
 		local className = UnitClass(unit)
 		local isDead = UnitIsDead(unit)
 
-		for i = 2, numLines - 1 do
-			local levelLine = _G[name .. "TextLeft" .. i]
-			local levelText = levelLine and levelLine:GetText()
+		for i = 2, #data.lines do
+			local levelLine = data.lines[i]
+			local levelText = levelLine.leftText
 			if levelText and levelText:find("^Level") then
-				local classLine = _G[name .. "TextLeft" .. (i + 1)]
-				local classText = classLine and classLine:GetText()
+				local classLine = data.lines[i + 1]
+				local classText = classLine and classLine.leftText
 				if classText and ((isDead and classText == _G.CORPSE) or (not isDead and classText:find(className, 1, true))) then
-					levelLine:SetText((levelText:gsub("%s*%(Player%)$", "")) .. " " .. (isDead and classText or className) .. " (Player)")
-					for j = i + 1, numLines - 1 do
-						local src = _G[name .. "TextLeft" .. (j + 1)]
-						local dst = _G[name .. "TextLeft" .. j]
-						local r, g, b = src:GetTextColor()
-						dst:SetText(src:GetText())
-						dst:SetTextColor(r, g, b)
-					end
-					_G[name .. "TextLeft" .. numLines]:SetText("")
-					_G[name .. "TextLeft" .. numLines]:Hide()
+					levelLine.leftText = (levelText:gsub("%s*%(Player%)$", "")) .. " " .. (isDead and classText or className) .. " (Player)"
+					table.remove(data.lines, i + 1)
 				end
+				break
 			end
 		end
 	end
