@@ -16,6 +16,30 @@ hooksecurefunc("GameTooltip_AddInstructionLine", function(self, text)
 	end
 end)
 
+TooltipDataProcessor.AddTooltipPreCall(Enum.TooltipDataType.Unit, function(self, data)
+	if self == _G.GameTooltip then
+		local _, unit = self:GetUnit()
+		if not unit or issecretvalue(unit) or not UnitIsPlayer(unit) then return end
+
+		local className = UnitClass(unit)
+		local isDead = UnitIsDead(unit)
+
+		for i = 2, #data.lines do
+			local levelLine = data.lines[i]
+			local levelText = levelLine.leftText
+			if levelText and levelText:find("^Level") then
+				local classLine = data.lines[i + 1]
+				local classText = classLine and classLine.leftText
+				if classText and ((isDead and classText == _G.CORPSE) or (not isDead and classText:find(className, 1, true))) then
+					levelLine.leftText = (levelText:gsub("%s*%(Player%)$", "")) .. " " .. (isDead and classText or className) .. " (Player)"
+					table.remove(data.lines, i + 1)
+				end
+				break
+			end
+		end
+	end
+end)
+
 TooltipDataProcessor.AddTooltipPreCall(Enum.TooltipDataType.Item, function(self)
 	if self == _G.ShoppingTooltip1 or self == _G.ShoppingTooltip2 then
 		local isPrimaryTooltip = self == _G.ShoppingTooltip1
@@ -56,30 +80,6 @@ TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(self
 			local lN, rN = _G[name.."TextLeft"..i], _G[name.."TextRight"..i]
 			if lN then lN:SetFontObject("GameTooltipTextSmall") end
 			if rN then rN:SetFontObject("GameFontHighlightSmall") end
-		end
-	end
-end)
-
-TooltipDataProcessor.AddTooltipPreCall(Enum.TooltipDataType.Unit, function(self, data)
-	if self == _G.GameTooltip then
-		local _, unit = self:GetUnit()
-		if not unit or issecretvalue(unit) or not UnitIsPlayer(unit) then return end
-
-		local className = UnitClass(unit)
-		local isDead = UnitIsDead(unit)
-
-		for i = 2, #data.lines do
-			local levelLine = data.lines[i]
-			local levelText = levelLine.leftText
-			if levelText and levelText:find("^Level") then
-				local classLine = data.lines[i + 1]
-				local classText = classLine and classLine.leftText
-				if classText and ((isDead and classText == _G.CORPSE) or (not isDead and classText:find(className, 1, true))) then
-					levelLine.leftText = (levelText:gsub("%s*%(Player%)$", "")) .. " " .. (isDead and classText or className) .. " (Player)"
-					table.remove(data.lines, i + 1)
-				end
-				break
-			end
 		end
 	end
 end)
