@@ -1,3 +1,19 @@
+local function AdjustPosition(self)
+	local parentFrame = self:GetParent()
+	if parentFrame.haveToT then
+		self:AdjustPointsOffset(2, 25)
+	elseif parentFrame.haveElite then
+		self:AdjustPointsOffset(2, -20)
+	else
+		self:AdjustPointsOffset(2, -2)
+	end
+end
+
+hooksecurefunc(TargetFrame.spellbar, "AdjustPosition", AdjustPosition)
+hooksecurefunc(FocusFrame.spellbar, "AdjustPosition", AdjustPosition)
+TargetFrame.spellbar:HookScript("OnShow", AdjustPosition)
+FocusFrame.spellbar:HookScript("OnShow", AdjustPosition)
+
 local function SetLook(self)
 	self.Background:SetColorTexture(0, 0, 0, 0.5)
 	self.Border:SetTexture("Interface\\CastingBar\\UI-CastingBar-Border-Small")
