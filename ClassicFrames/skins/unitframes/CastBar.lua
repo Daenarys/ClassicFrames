@@ -4,7 +4,7 @@ local function AdjustPosition(self)
 
 	if relativeTo == parentFrame then
 		if parentFrame.haveToT then
-			self:AdjustPointsOffset(2, 23)
+			self:AdjustPointsOffset(2, 22)
 		elseif parentFrame.haveElite then
 			self:AdjustPointsOffset(2, -14)
 		end
