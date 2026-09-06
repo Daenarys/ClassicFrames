@@ -7,6 +7,8 @@ local function AdjustPosition(self)
 			self:AdjustPointsOffset(2, 22)
 		elseif parentFrame.haveElite then
 			self:AdjustPointsOffset(2, -14)
+		else
+			self:AdjustPointsOffset(2, -2)
 		end
 	else
 		self:AdjustPointsOffset(2, -5)
