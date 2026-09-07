@@ -182,7 +182,6 @@ local texCoords = {
 hooksecurefunc("DefaultCompactUnitFrameSetup", function(frame)
 	local displayBorder = EditModeManagerFrame:ShouldRaidFrameDisplayBorder(frame.groupType)
 	local isPowerBarShowing = frame.powerBar and frame.powerBar:IsShown()
-	local powerBarUsedHeight = isPowerBarShowing and 8 or 0
 
 	frame.healthBar:SetStatusBarTexture("Interface\\RaidFrame\\Raid-Bar-Hp-Fill")
 	frame.healthBar:GetStatusBarTexture():SetDrawLayer("BORDER")
@@ -242,8 +241,8 @@ hooksecurefunc("DefaultCompactUnitFrameSetup", function(frame)
 	if (frame.horizDivider == nil) then
 		frame.horizDivider = frame:CreateTexture(nil, "BORDER")
 		frame.horizDivider:ClearAllPoints()
-		frame.horizDivider:SetPoint("TOPLEFT", frame, "BOTTOMLEFT", 0, 1 + powerBarUsedHeight)
-		frame.horizDivider:SetPoint("TOPRIGHT", frame, "BOTTOMRIGHT", 0, 1 + powerBarUsedHeight)
+		frame.horizDivider:SetPoint("TOPLEFT", frame, "BOTTOMLEFT", 0, 1 + frame.powerBarUsedHeight)
+		frame.horizDivider:SetPoint("TOPRIGHT", frame, "BOTTOMRIGHT", 0, 1 + frame.powerBarUsedHeight)
 		frame.horizDivider:SetTexture("Interface\\RaidFrame\\Raid-HSeparator")
 		frame.horizDivider:SetHorizTile(true)
 		frame.horizDivider:SetHeight(8)
