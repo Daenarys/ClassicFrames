@@ -67,8 +67,8 @@ function CfPlayerFrame_OnLoad(self)
 	self.unit = "player"
 
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
-	self:RegisterEvent("PLAYER_GAINS_VEHICLE_DATA")
-	self:RegisterEvent("PLAYER_LOSES_VEHICLE_DATA")
+	self:RegisterEvent("UNIT_ENTERED_VEHICLE")
+	self:RegisterEvent("UNIT_EXITED_VEHICLE")
 	self:RegisterEvent("UNIT_HEALTH")
 	self:RegisterEvent("UNIT_MAXHEALTH")
 	self:RegisterEvent("UNIT_DISPLAYPOWER")
@@ -78,8 +78,8 @@ function CfPlayerFrame_OnLoad(self)
 	self:RegisterEvent("PLAYER_ALIVE")
 	self:RegisterEvent("PLAYER_UNGHOST")
 
-	self:SetScript("OnEvent", function(self, event, arg1)
-		if event == "PLAYER_ENTERING_WORLD" or event == "PLAYER_GAINS_VEHICLE_DATA" or event == "PLAYER_LOSES_VEHICLE_DATA" then
+	self:SetScript("OnEvent", function(self, event)
+		if event == "PLAYER_ENTERING_WORLD" or event == "UNIT_ENTERED_VEHICLE" or event == "UNIT_EXITED_VEHICLE" then
 			UpdateFrame(self)
 		elseif event == "UNIT_HEALTH" or event == "UNIT_MAXHEALTH" then
 			UpdateHealth(self)
