@@ -132,7 +132,7 @@ manaBarContainer:SetAlpha(0)
 
 manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
-manaBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer))
+manaBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 
 PlayerFrame.PlayerFrameContainer:SetFrameLevel(4)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:SetFrameLevel(5)
