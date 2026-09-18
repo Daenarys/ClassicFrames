@@ -59,7 +59,6 @@ skins\Opacity.lua
 skins\PingTutorial.lua
 skins\PlayerChoice.lua
 skins\Professions.lua
-skins\PVP.lua
 skins\QuestLog.lua
 skins\Quests.lua
 skins\QuickKeybind.lua
