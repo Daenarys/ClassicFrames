@@ -6,8 +6,8 @@ ApplyDialogHeader(GameMenuFrame.Header)
 GameMenuFrame.Header:SetWidth(139.3777)
 GameMenuFrame.Header.Text:SetFontObject("GameFontNormal")
 
-if GameMenuFrame.NewOptionsFrame then
-	GameMenuFrame.NewOptionsFrame:SetAlpha(0)
+if GameMenuFrame.EditModeNotification then
+	GameMenuFrame.EditModeNotification:SetAlpha(0)
 end
 
 hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
