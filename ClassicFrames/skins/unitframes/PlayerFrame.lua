@@ -410,24 +410,6 @@ hooksecurefunc("PlayerFrame_UpdatePlayerRestLoop", function()
 	playerRestLoop.PlayerRestLoopAnim:Stop()
 end)
 
-hooksecurefunc("PlayerFrame_UpdatePvPStatus", function()
-	local factionGroup = UnitFactionGroup("player")
-
-	if (factionGroup == "Alliance") then
-		PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PVPIcon:ClearAllPoints()
-		PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PVPIcon:SetPoint("TOPLEFT", 8, -24)
-	elseif (factionGroup == "Horde") then
-		PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PVPIcon:ClearAllPoints()
-		PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PVPIcon:SetPoint("TOPLEFT", -1, -22)
-	end
-
-	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PrestigePortrait:ClearAllPoints()
-	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PrestigePortrait:SetPoint("TOPLEFT", -4, -17)
-	
-	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PvpTimerText:ClearAllPoints()
-	PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.PvpTimerText:SetPoint("TOPLEFT", 9, -7)
-end)
-
 hooksecurefunc("PlayerFrame_UpdateRolesAssigned", function()
 	local roleIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon
 	local role = UnitGroupRolesAssignedEnum("player")

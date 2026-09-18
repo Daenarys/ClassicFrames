@@ -275,21 +275,6 @@ local function SkinFrame(frame)
 		end
 	end)
 
-	hooksecurefunc(frame, "CheckFaction", function(self)
-		if (self.showPVP) then
-			local factionGroup = UnitFactionGroup(self.unit)
-			if (factionGroup == "Alliance") then
-				contextual.PvpIcon:ClearAllPoints()
-				contextual.PvpIcon:SetPoint("TOPRIGHT", -4, -24)
-			elseif (factionGroup == "Horde") then
-				contextual.PvpIcon:ClearAllPoints()
-				contextual.PvpIcon:SetPoint("TOPRIGHT", 3, -22)
-			end
-			contextual.PrestigePortrait:ClearAllPoints()
-			contextual.PrestigePortrait:SetPoint("TOPRIGHT", 5, -17)
-		end
-	end)
-
 	hooksecurefunc(frame, "CheckLevel", function(self)
 		local levelText = self.TargetFrameContent.TargetFrameContentMain.LevelText
 		local highLevelTexture = contextual.HighLevelTexture
