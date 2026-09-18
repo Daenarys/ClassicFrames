@@ -163,6 +163,8 @@ local function SkinFrame(frame)
 		ComboFrame:SetPoint("TOPRIGHT", TargetFrame, "TOPRIGHT", -24, -13)
 	end
 
+	frame.TargetFrameContent.TargetFrameContentMain.LevelBackgroundCircle:SetAlpha(0)
+
 	hooksecurefunc(frame, "CheckBattlePet", function(self)
 		local petBattle = contextual.PetBattleIcon
 
@@ -293,6 +295,7 @@ local function SkinFrame(frame)
 		local highLevelTexture = contextual.HighLevelTexture
 
 		levelText:SetParent(contextual)
+		levelText:SetFontObject(GameNormalNumberFont)
 		levelText:ClearAllPoints()
 		levelText:SetPoint("CENTER", 82, -21)
 

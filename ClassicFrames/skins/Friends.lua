@@ -22,30 +22,24 @@ FriendsFrameBattlenetFrame.ContactsMenuButton.Icon:Hide()
 FriendsFrameBattlenetFrame.ContactsMenuButton:SetNormalTexture("Interface\\FriendsFrame\\broadcast-normal")
 FriendsFrameBattlenetFrame.ContactsMenuButton:SetPushedTexture("Interface\\FriendsFrame\\broadcast-press")
 
-FriendsFrameTab2:ClearAllPoints()
-FriendsFrameTab2:SetPoint("LEFT", FriendsFrameTab1, "RIGHT", -15, 0)
+ApplyBottomTab(FriendsFrameTab1)
+FriendsFrameTab1:HookScript("OnShow", function(self)
+ self:SetWidth(40 + self:GetFontString():GetStringWidth())
+end)
+
+ApplyBottomTab(FriendsFrameTab3)
 FriendsFrameTab3:ClearAllPoints()
-FriendsFrameTab3:SetPoint("LEFT", FriendsFrameTab2, "RIGHT", -15, 0)
+FriendsFrameTab3:SetPoint("LEFT", FriendsFrameTab1, "RIGHT", -15, 0)
+FriendsFrameTab3:HookScript("OnShow", function(self)
+	self:SetWidth(51 + self:GetFontString():GetStringWidth())
+end)
+
+ApplyBottomTab(FriendsFrameTab4)
 FriendsFrameTab4:ClearAllPoints()
 FriendsFrameTab4:SetPoint("LEFT", FriendsFrameTab3, "RIGHT", -15, 0)
-
-for i = 1, 4 do
-	ApplyBottomTab(_G['FriendsFrameTab'..i])
-
-	_G["FriendsFrameTab"..i]:HookScript("OnShow", function(self)
-		if _G["FriendsFrameTab"..i] == FriendsFrameTab1 then
-			self:SetWidth(40 + self:GetFontString():GetStringWidth())
-		elseif _G["FriendsFrameTab"..i] == FriendsFrameTab2 then
-			self:SetWidth(51 + self:GetFontString():GetStringWidth())
-		elseif _G["FriendsFrameTab"..i] == FriendsFrameTab3 then
-			self:SetWidth(52 + self:GetFontString():GetStringWidth())
-		end
-	end)
-	
-	hooksecurefunc("FriendsFrame_UpdateQuickJoinTab", function()
-		FriendsFrameTab4:SetWidth(40 + FriendsFrameTab4:GetFontString():GetStringWidth())
-	end)
-end
+FriendsFrameTab4:HookScript("OnShow", function(self)
+	self:SetWidth(52 + self:GetFontString():GetStringWidth())
+end)
 
 FriendsTabHeader.TabSystem:SetPoint("TOPLEFT", 18, -54)
 
@@ -118,15 +112,6 @@ RecruitAFriendRewardsFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
 
 ApplyDialogBorder(RecruitAFriendRewardsFrame.Border)
 
-WhoFrameColumnHeader4Middle:SetWidth(48)
-
-WhoFrame.ScrollBar:ClearAllPoints()
-WhoFrame.ScrollBar:SetPoint("TOPLEFT", WhoFrame.ScrollBox, "TOPRIGHT", 6, -2)
-WhoFrame.ScrollBar:SetPoint("BOTTOMLEFT", WhoFrame.ScrollBox, "BOTTOMRIGHT", 6, -18)
-
-ApplyScrollBarHybrid(WhoFrame.ScrollBar, true, true)
-ApplyScrollBarThumb(WhoFrame.ScrollBar.Track.Thumb)
-
 QuickJoinFrame.ScrollBar:ClearAllPoints()
 QuickJoinFrame.ScrollBar:SetPoint("TOPLEFT", QuickJoinFrame.ScrollBox, "TOPRIGHT", 7, -1)
 QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", 7, 0)
@@ -166,11 +151,8 @@ RaidFrame.RoleCount.HealerIcon:SetAtlas("groupfinder-icon-role-large-heal")
 RaidFrame.RoleCount.DamagerIcon:SetAtlas("groupfinder-icon-role-large-dps")
 
 ApplyDropDown(FriendsFrameStatusDropdown)
-ApplyDropDown(WhoFrameDropdown)
 
 FriendsFrameStatusDropdown:SetWidth(43)
 FriendsFrameStatusDropdown:SetPoint("RIGHT", FriendsFrameBattlenetFrame, "LEFT", -5, 0)
 FriendsFrameStatusDropdown.Text:ClearAllPoints()
 FriendsFrameStatusDropdown.Text:SetPoint("CENTER", -7, -2)
-
-WhoFrameDropdown:SetPoint("TOPLEFT", 0, -2)

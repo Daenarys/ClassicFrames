@@ -151,6 +151,8 @@ PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator:SetParent(Pla
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:ClearAllPoints()
 PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator.HitText:SetPoint("CENTER", PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.HitIndicator, "TOPLEFT", 54, -46)
 
+PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.LevelBackgroundCircle:SetAlpha(0)
+
 local groupIndicator = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator
 if groupIndicator then
 	groupIndicator.GroupIndicatorLeft:SetSize(24, 16)
@@ -315,15 +317,6 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 
 	CfPlayerFrame.unit = "player"
 	UpdateFrame(CfPlayerFrame)
-
-	local _, class = UnitClass("player")
-	if ( CfPlayerFrame.CfClassPowerBar ) then
-		CfPlayerFrame.CfClassPowerBar:Setup()
-	elseif ( class == "DEATHKNIGHT" ) then
-		CfRuneFrame:Show()
-	end
-
-	ComboPointPlayerFrame:Setup()
 end)
 
 hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
@@ -377,20 +370,13 @@ hooksecurefunc("PlayerFrame_ToVehicleArt", function(self)
 
 	CfPlayerFrame.unit = "vehicle"
 	UpdateFrame(CfPlayerFrame)
-
-	local _, class = UnitClass("player")
-	if ( CfPlayerFrame.CfClassPowerBar ) then
-		CfPlayerFrame.CfClassPowerBar:Hide()
-	elseif ( class == "DEATHKNIGHT" ) then
-		CfRuneFrame:Hide()
-	end
-
-	ComboPointPlayerFrame:Setup()
 end)
 
 hooksecurefunc("PlayerFrame_UpdateLevel", function()
 	PlayerLevelText:SetParent(PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual)
 	PlayerLevelText:SetDrawLayer("ARTWORK")
+	PlayerLevelText:SetFontObject(GameNormalNumberFont)
+	PlayerLevelText:SetVertexColor(1.0, 0.82, 0.0, 1.0)
 	PlayerLevelText:ClearAllPoints()
 	PlayerLevelText:SetPoint("CENTER", -80, -21)
 end)
@@ -542,37 +528,6 @@ hooksecurefunc("PlayerFrame_UpdateStatus", function()
 		PlayerRestIcon:Hide()
 		PlayerRestGlow:Hide()
 		PlayerAttackBackground:Hide()
-	end
-end)
-
-hooksecurefunc(PlayerBottomManagedFrameContainer, "Layout", function()
-	if (DruidComboPointBarFrame) then
-		DruidComboPointBarFrame:UnregisterAllEvents()
-		DruidComboPointBarFrame:Hide()
-	end
-	if (MageArcaneChargesFrame) then
-		MageArcaneChargesFrame:UnregisterAllEvents()
-		MageArcaneChargesFrame:Hide()
-	end
-	if (MonkHarmonyBarFrame) then
-		MonkHarmonyBarFrame:UnregisterAllEvents()
-		MonkHarmonyBarFrame:Hide()
-	end
-	if (PaladinPowerBarFrame) then
-		PaladinPowerBarFrame:UnregisterAllEvents()
-		PaladinPowerBarFrame:Hide()
-	end
-	if (RogueComboPointBarFrame) then
-		RogueComboPointBarFrame:UnregisterAllEvents()
-		RogueComboPointBarFrame:Hide()
-	end
-	if (RuneFrame) then
-		RuneFrame:UnregisterAllEvents()
-		RuneFrame:Hide()
-	end
-	if (WarlockPowerFrame) then
-		WarlockPowerFrame:UnregisterAllEvents()
-		WarlockPowerFrame:Hide()
 	end
 end)
 

@@ -1,9 +1,5 @@
 if not _G.QuestScrollFrame then return end
 
-QuestScrollFrame:SetPoint("TOPLEFT")
-QuestScrollFrame.SearchBox:Hide()
-QuestScrollFrame.SettingsDropdown:Hide()
-
 hooksecurefunc(QuestMapFrame, "ValidateTabs", function(self)
 	self.QuestsTab:Hide()
 	self.EventsTab:Hide()

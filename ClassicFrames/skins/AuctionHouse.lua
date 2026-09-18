@@ -122,19 +122,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarHybrid(AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar, true)
 		ApplyScrollBarThumb(AuctionHouseFrameAuctionsFrame.BidsList.ScrollBar.Track.Thumb)
 
-		ApplyCloseButton(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial.CloseButton)
-		ApplyTitleBg(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial, true)
-		ApplyNineSliceNoPortrait(AuctionHouseFrame.WoWTokenResults.GameTimeTutorial)
-
-		AuctionHouseFrame.WoWTokenResults.GameTimeTutorial.CloseButton:SetFrameLevel(4)
-
-		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:ClearAllPoints()
-		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetPoint("TOPLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "TOPRIGHT", 10, 4)
-		AuctionHouseFrame.WoWTokenResults.DummyScrollBar:SetPoint("BOTTOMLEFT", AuctionHouseFrameAuctionsFrame.BidsList.ScrollBox, "BOTTOMRIGHT", 10, -4)
-		
-		ApplyScrollBarHybrid(AuctionHouseFrame.WoWTokenResults.DummyScrollBar, true)
-		ApplyScrollBarThumb(AuctionHouseFrame.WoWTokenResults.DummyScrollBar.Track.Thumb)
-
 		ApplyDropDown(AuctionHouseFrame.CommoditiesSellFrame.Duration.Dropdown)
 		ApplyDropDown(AuctionHouseFrame.ItemSellFrame.Duration.Dropdown)
 		ApplyFilterDropDown(AuctionHouseFrame.SearchBar.FilterButton)

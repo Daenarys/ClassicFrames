@@ -9,6 +9,7 @@ end
 
 MinimapCluster:SetSize(192, 192)
 MinimapCluster.BorderTop:Hide()
+MinimapCluster.DielFrame:Hide()
 
 MinimapCluster:CreateTexture("MinimapBorderTop", "ARTWORK")
 MinimapBorderTop:SetSize(192, 32)
@@ -609,7 +610,7 @@ local function MinimapButton_OnMouseUp(self)
 	self.isDown = nil
 end
 
-hooksecurefunc(QueueStatusButton, "UpdatePosition", function(self)
+hooksecurefunc(QueueStatusButton, "UpdateDefaultAnchor", function(self)
 	self:SetParent(MinimapBackdrop)
 	self:SetScale(1)
 	self:SetSize(33, 33)
