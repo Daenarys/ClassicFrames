@@ -132,11 +132,7 @@ manaBarContainer:SetAlpha(0)
 
 manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
-manaBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
-
-manaBar.FeedbackFrame.BarTexture:RemoveMaskTexture(manaBar.ManaBarMask)
-manaBar.FeedbackFrame.LossGlowTexture:RemoveMaskTexture(manaBar.ManaBarMask)
-manaBar.FeedbackFrame.GainGlowTexture:RemoveMaskTexture(manaBar.ManaBarMask)
+manaBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer))
 
 PlayerFrame.PlayerFrameContainer:SetFrameLevel(4)
 PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:SetFrameLevel(5)
@@ -298,15 +294,6 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	manaBar.TextString:SetPoint("CENTER", manaBar, "CENTER", 0, 3)
 	manaBar.LeftText:SetPoint("LEFT", manaBar, "LEFT", 6, 3)
 	manaBar.RightText:SetPoint("RIGHT", manaBar, "RIGHT", -4, 3)
-
-	manaBar.FeedbackFrame:SetParent(CfPlayerFrame.ManaBar)
-	manaBar.FeedbackFrame:ClearAllPoints()
-	manaBar.FeedbackFrame:SetAllPoints(CfPlayerFrame.ManaBar)
-
-	manaBar.FullPowerFrame:SetParent(CfPlayerFrame.ManaBar)
-	manaBar.FullPowerFrame:SetSize(119, 12)
-	manaBar.FullPowerFrame:ClearAllPoints()
-	manaBar.FullPowerFrame:SetPoint("TOPRIGHT", CfPlayerFrame.ManaBar, "TOPRIGHT")
 
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:ClearAllPoints()
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMLEFT", CfPlayerFrame, "TOPLEFT", 97, -20)
