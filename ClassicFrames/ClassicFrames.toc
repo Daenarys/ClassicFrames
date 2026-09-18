@@ -1,9 +1,9 @@
-## Interface: 120100
+## Interface: 16001
 ## IconTexture: 135331
 ## Title: Classic Frames
 ## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
-## Version: 3.82
+## Version: 1.00
 ## OptionalDeps: SexyMap
 embeds.xml
 skins\ApplySkin.lua
