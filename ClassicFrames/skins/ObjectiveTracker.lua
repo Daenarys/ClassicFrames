@@ -18,13 +18,13 @@ if ObjectiveTrackerFrame.Header then
 	ObjectiveTrackerFrame.Header.Background:Hide()
 	ObjectiveTrackerFrame.Header.Text:Hide()
 	ObjectiveTrackerFrame.Header.MinimizeButton:SetSize(15, 14)
-	ObjectiveTrackerFrame.Header.MinimizeButton:SetPoint("RIGHT", -6, 4)
+	ObjectiveTrackerFrame.Header.MinimizeButton:SetPoint("RIGHT", -10, 3)
 	ObjectiveTrackerFrame.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Red-Highlight", "ADD")
 
 	local title = ObjectiveTrackerFrame.Header:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 	ObjectiveTrackerFrame.Header.Title = title
 	title:SetText(OBJECTIVES_TRACKER_LABEL)
-	title:SetPoint("RIGHT", ObjectiveTrackerFrame.Header.MinimizeButton, "LEFT", -2, 1)
+	title:SetPoint("RIGHT", ObjectiveTrackerFrame.Header.MinimizeButton, "LEFT", -3, 0)
 
 	SetCollapsed(ObjectiveTrackerFrame.Header, _G.ObjectiveTrackerFrame.isCollapsed)
 	hooksecurefunc(ObjectiveTrackerFrame.Header, 'SetCollapsed', SetCollapsed)
