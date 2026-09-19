@@ -558,34 +558,6 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 
 		TimeManagerClockTicker:ClearAllPoints()
 		TimeManagerClockTicker:SetPoint("CENTER", TimeManagerClockButton, "CENTER", 3, 1)
-
-		if (ExpansionLandingPageMinimapButton:GetNormalTexture():GetAtlas() == "midnight-landingbutton-up") then
-			ExpansionLandingPageMinimapButton:SetScale(0.85)
-			ExpansionLandingPageMinimapButton:ClearAllPoints()
-			ExpansionLandingPageMinimapButton:SetPoint("TOPLEFT", 42, -144)
-		end
-
-		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIcon", function(self)
-			if (self:GetNormalTexture():GetAtlas() == "midnight-landingbutton-up") then
-				self:SetScale(0.85)
-				self:ClearAllPoints()
-				self:SetPoint("TOPLEFT", 42, -144)
-			end
-		end)
-
-		hooksecurefunc(ExpansionLandingPageMinimapButton, "UpdateIconForGarrison", function(self)
-			local garrisonType = C_Garrison.GetLandingPageGarrisonType()
-
-			self:SetScale(1)
-
-			if (garrisonType == Enum.GarrisonType.Type_9_0_Garrison) then
-				self:ClearAllPoints()
-				self:SetPoint("TOPLEFT", 32, -106)
-			else
-				self:ClearAllPoints()
-				self:SetPoint("TOPLEFT", 32, -118)
-			end
-		end)
 	end
 end)
 
