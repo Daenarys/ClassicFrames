@@ -26,7 +26,6 @@ skins\Communities.lua
 skins\CooldownViewer.lua
 skins\DeathRecap.lua
 skins\DebugTools.lua
-skins\Deprecated.lua
 skins\DressingRoom.lua
 skins\EditMode.lua
 skins\FlightMap.lua
