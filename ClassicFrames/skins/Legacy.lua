@@ -14,5 +14,10 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(LegacySystemFrame)
 		ApplyNineSlicePortrait(LegacySystemFrame)
+
+		ApplyScrollBarHybrid(LegacySystemFrame.ChallengesPage.CategoryList.ScrollBar, true)
+		ApplyScrollBarThumb(LegacySystemFrame.ChallengesPage.CategoryList.ScrollBar.Track.Thumb)
+
+		ApplyFilterDropDown(LegacySystemFrame.ChallengesPage.CategoryList.FilterDropdown)
 	end
 end)
