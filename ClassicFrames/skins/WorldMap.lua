@@ -57,6 +57,15 @@ if WorldMapFrame.WorldMapTrackingOptionsButton then
 	WorldMapFrame.WorldMapTrackingOptionsButton:ClearAllPoints()
 	WorldMapFrame.WorldMapTrackingOptionsButton:SetPoint("TOPRIGHT", WorldMapFrame.ScrollContainer, "TOPRIGHT", -4, -2)
 	WorldMapFrame.WorldMapTrackingOptionsButton:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight", "ADD")
+	WorldMapFrame.WorldMapTrackingOptionsButton:GetHighlightTexture():SetAllPoints()
+	WorldMapFrame.WorldMapTrackingOptionsButton:GetHighlightTexture():SetAlpha(1)
+
+	if (WorldMapFrame.WorldMapTrackingOptionsButton.Shadow == nil) then
+		WorldMapFrame.WorldMapTrackingOptionsButton.Shadow = WorldMapFrame.WorldMapTrackingOptionsButton:CreateTexture(nil, "BACKGROUND", nil, -1)
+		WorldMapFrame.WorldMapTrackingOptionsButton.Shadow:SetAtlas("MapCornerShadow-Right", true)
+		WorldMapFrame.WorldMapTrackingOptionsButton.Shadow:SetTexCoord(0, 1, 1, 0)
+		WorldMapFrame.WorldMapTrackingOptionsButton.Shadow:SetPoint("TOPRIGHT", 4, 1)
+	end
 
 	if (WorldMapFrame.WorldMapTrackingOptionsButton.Background == nil) then
 		WorldMapFrame.WorldMapTrackingOptionsButton.Background = WorldMapFrame.WorldMapTrackingOptionsButton:CreateTexture(nil, "BACKGROUND")
@@ -66,17 +75,10 @@ if WorldMapFrame.WorldMapTrackingOptionsButton then
 	end
 
 	if (WorldMapFrame.WorldMapTrackingOptionsButton.Border == nil) then
-		WorldMapFrame.WorldMapTrackingOptionsButton.Border = WorldMapFrame.WorldMapTrackingOptionsButton:CreateTexture(nil, "OVERLAY")
+		WorldMapFrame.WorldMapTrackingOptionsButton.Border = WorldMapFrame.WorldMapTrackingOptionsButton:CreateTexture(nil, "OVERLAY", nil, 1)
 		WorldMapFrame.WorldMapTrackingOptionsButton.Border:SetSize(54, 54)
 		WorldMapFrame.WorldMapTrackingOptionsButton.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 		WorldMapFrame.WorldMapTrackingOptionsButton.Border:SetPoint("TOPLEFT")
-	end
-
-	if (WorldMapFrame.WorldMapTrackingOptionsButton.Shadow == nil) then
-		WorldMapFrame.WorldMapTrackingOptionsButton.Shadow = WorldMapFrame.WorldMapTrackingOptionsButton:CreateTexture(nil, "BACKGROUND")
-		WorldMapFrame.WorldMapTrackingOptionsButton.Shadow:SetAtlas("MapCornerShadow-Right", true)
-		WorldMapFrame.WorldMapTrackingOptionsButton.Shadow:SetTexCoord(0, 1, 1, 0)
-		WorldMapFrame.WorldMapTrackingOptionsButton.Shadow:SetPoint("TOPRIGHT", 4, 1)
 	end
 
 	WorldMapFrame.WorldMapTrackingOptionsButton.Icon:SetSize(20, 20)
