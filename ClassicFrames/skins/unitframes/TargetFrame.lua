@@ -290,6 +290,18 @@ local function SkinFrame(frame)
 		highLevelTexture:SetPoint("CENTER", 81, -21)
 	end)
 
+	hooksecurefunc(frame, "ShowPvPIcon", function(self, parentFrame, factionGroup)
+		local pvpBG = parentFrame.PvpBackgroundCircle
+		local pvpIcon = parentFrame.PvpBackgroundIcon
+
+		pvpBG:SetAlpha(0)
+		pvpBG:SetPoint("TOP", pvpBG:GetParent(), "TOPRIGHT", -11, -50)
+
+		pvpIcon:SetScale(1)
+		pvpIcon:SetSize(64, 64)
+		pvpIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-"..factionGroup)
+	end)
+
 	hooksecurefunc(frame, "AnchorAuraContainer", function(self)
 		local auraContainer = self:GetAuraContainer()
 		auraContainer:ClearAllPoints()
