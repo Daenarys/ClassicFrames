@@ -50,10 +50,72 @@ hooksecurefunc(WorldMapFrame, "Maximize", function(self)
 	ApplyNineSliceNoPortrait(self.BorderFrame)
 end)
 
-local Dropdown, Tracking, Pin = unpack(WorldMapFrame.overlayFrames)
-ApplyDropDown(Dropdown)
-Dropdown:SetWidth(145)
-Dropdown:SetPoint("TOPLEFT", WorldMapFrame.ScrollContainer, "TOPLEFT", 3, 1)
-Dropdown.Text:SetJustifyH("RIGHT")
-Dropdown.Text:SetPoint("TOPLEFT", 9, -7)
-Pin:Hide()
+WorldMapFrame.NavBar:SetPoint("TOPLEFT", WorldMapFrame.TitleCanvasSpacerFrame, "TOPLEFT", 64, -25)
+WorldMapFrame.NavBar:SetPoint("BOTTOMRIGHT", WorldMapFrame.TitleCanvasSpacerFrame, "BOTTOMRIGHT", -4, 9)
+
+if WorldMapFrame.WorldMapTrackingOptionsButton then
+	WorldMapFrame.WorldMapTrackingOptionsButton:ClearAllPoints()
+	WorldMapFrame.WorldMapTrackingOptionsButton:SetPoint("TOPRIGHT", WorldMapFrame.ScrollContainer, "TOPRIGHT", -4, -2)
+	WorldMapFrame.WorldMapTrackingOptionsButton:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight", "ADD")
+
+	if (WorldMapFrame.WorldMapTrackingOptionsButton.Background == nil) then
+		WorldMapFrame.WorldMapTrackingOptionsButton.Background = WorldMapFrame.WorldMapTrackingOptionsButton:CreateTexture(nil, "BACKGROUND")
+		WorldMapFrame.WorldMapTrackingOptionsButton.Background:SetSize(25, 25)
+		WorldMapFrame.WorldMapTrackingOptionsButton.Background:SetTexture("Interface\\Minimap\\UI-Minimap-Background")
+		WorldMapFrame.WorldMapTrackingOptionsButton.Background:SetPoint("TOPLEFT", 2, -4)
+	end
+
+	if (WorldMapFrame.WorldMapTrackingOptionsButton.Border == nil) then
+		WorldMapFrame.WorldMapTrackingOptionsButton.Border = WorldMapFrame.WorldMapTrackingOptionsButton:CreateTexture(nil, "OVERLAY")
+		WorldMapFrame.WorldMapTrackingOptionsButton.Border:SetSize(54, 54)
+		WorldMapFrame.WorldMapTrackingOptionsButton.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
+		WorldMapFrame.WorldMapTrackingOptionsButton.Border:SetPoint("TOPLEFT")
+	end
+
+	if (WorldMapFrame.WorldMapTrackingOptionsButton.Shadow == nil) then
+		WorldMapFrame.WorldMapTrackingOptionsButton.Shadow = WorldMapFrame.WorldMapTrackingOptionsButton:CreateTexture(nil, "BACKGROUND")
+		WorldMapFrame.WorldMapTrackingOptionsButton.Shadow:SetAtlas("MapCornerShadow-Right", true)
+		WorldMapFrame.WorldMapTrackingOptionsButton.Shadow:SetTexCoord(0, 1, 1, 0)
+		WorldMapFrame.WorldMapTrackingOptionsButton.Shadow:SetPoint("TOPRIGHT", 4, 1)
+	end
+
+	WorldMapFrame.WorldMapTrackingOptionsButton.Icon:SetSize(20, 20)
+	WorldMapFrame.WorldMapTrackingOptionsButton.Icon:SetTexture("Interface\\Minimap\\Tracking\\None")
+	WorldMapFrame.WorldMapTrackingOptionsButton.Icon:SetPoint("TOPLEFT", 6, -6)
+
+	if (WorldMapFrame.WorldMapTrackingOptionsButton.IconOverlay == nil) then
+		WorldMapFrame.WorldMapTrackingOptionsButton.IconOverlay = WorldMapFrame.WorldMapTrackingOptionsButton:CreateTexture(nil, "OVERLAY")
+		WorldMapFrame.WorldMapTrackingOptionsButton.IconOverlay:SetPoint("TOPLEFT", WorldMapFrame.WorldMapTrackingOptionsButton.Icon)
+		WorldMapFrame.WorldMapTrackingOptionsButton.IconOverlay:SetPoint("BOTTOMRIGHT", WorldMapFrame.WorldMapTrackingOptionsButton.Icon)
+		WorldMapFrame.WorldMapTrackingOptionsButton.IconOverlay:SetColorTexture(0, 0, 0, 0.5)
+		WorldMapFrame.WorldMapTrackingOptionsButton.IconOverlay:Hide()
+	end
+
+	WorldMapFrame.WorldMapTrackingOptionsButton:HookScript("OnMouseDown", function(self)
+		self.Icon:SetTexture("Interface\\Minimap\\Tracking\\None")
+		self.Icon:SetPoint("TOPLEFT", 8, -8)
+		self.IconOverlay:Show()
+	end)
+
+	WorldMapFrame.WorldMapTrackingOptionsButton:HookScript("OnMouseUp", function(self)
+		self.Icon:SetTexture("Interface\\Minimap\\Tracking\\None")
+		self.Icon:SetPoint("TOPLEFT", 6, -6)
+		self.IconOverlay:Hide()
+	end)
+end
+
+if WorldMapFrame.WorldMapTrackingPinButton then
+	WorldMapFrame.WorldMapTrackingPinButton:ClearAllPoints()
+	WorldMapFrame.WorldMapTrackingPinButton:SetPoint("TOPRIGHT", WorldMapFrame.ScrollContainer, "TOPRIGHT", -36, -2)
+
+	WorldMapFrame.WorldMapTrackingPinButton.Border:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
+	WorldMapFrame.WorldMapTrackingPinButton.Icon:SetPoint("TOPLEFT", 6, -6)
+
+	WorldMapFrame.WorldMapTrackingPinButton:HookScript("OnMouseDown", function(self)
+		self.Icon:SetPoint("TOPLEFT", 8, -8)
+	end)
+
+	WorldMapFrame.WorldMapTrackingPinButton:HookScript("OnMouseUp", function(self)
+		self.Icon:SetPoint("TOPLEFT", 6, -6)
+	end)
+end
