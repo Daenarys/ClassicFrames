@@ -108,26 +108,6 @@ healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 
-healthBar.MyHealPredictionBar.Fill:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.OtherHealPredictionBar.Fill:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.HealAbsorbBar.Fill:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.HealAbsorbBar.LeftShadow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.HealAbsorbBar.RightShadow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.TotalAbsorbBar.Fill:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.TotalAbsorbBar.TiledFillOverlay:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.OverAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBar.OverHealAbsorbGlow:RemoveMaskTexture(healthBarContainer.HealthBarMask)
-healthBarContainer.PlayerFrameHealthBarAnimatedLoss:GetStatusBarTexture():RemoveMaskTexture(healthBarContainer.HealthBarMask)
-
-healthBar.MyHealPredictionBar.Fill:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
-healthBar.OtherHealPredictionBar.Fill:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
-healthBar.HealAbsorbBar.Fill:SetTexture("Interface\\RaidFrame\\Absorb-Fill", true, true)
-healthBar.TotalAbsorbBar.Fill:SetTexture("Interface\\RaidFrame\\Shield-Fill")
-healthBarContainer.PlayerFrameHealthBarAnimatedLoss:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-
-healthBar.OverAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
-healthBar.OverHealAbsorbGlow:SetParent(PlayerFrame.PlayerFrameContainer)
-
 manaBarContainer:SetAlpha(0)
 
 manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
@@ -263,34 +243,6 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	healthBar.LeftText:SetPoint("LEFT", healthBarContainer, "LEFT", 6, 0)
 	healthBar.RightText:SetPoint("RIGHT", healthBarContainer, "RIGHT", -4, 0)
 
-	healthBar.MyHealPredictionBar:SetParent(CfPlayerFrame.HealthBar)
-	healthBar.MyHealPredictionBar:ClearAllPoints()
-	healthBar.MyHealPredictionBar:SetAllPoints(CfPlayerFrame.HealthBar)
-
-	healthBar.OtherHealPredictionBar:SetParent(CfPlayerFrame.HealthBar)
-	healthBar.OtherHealPredictionBar:ClearAllPoints()
-	healthBar.OtherHealPredictionBar:SetAllPoints(CfPlayerFrame.HealthBar)
-
-	healthBar.HealAbsorbBar:SetParent(CfPlayerFrame.HealthBar)
-	healthBar.HealAbsorbBar:ClearAllPoints()
-	healthBar.HealAbsorbBar:SetAllPoints(CfPlayerFrame.HealthBar)
-
-	healthBar.TotalAbsorbBar:SetParent(CfPlayerFrame.HealthBar)
-	healthBar.TotalAbsorbBar:ClearAllPoints()
-	healthBar.TotalAbsorbBar:SetAllPoints(CfPlayerFrame.HealthBar)
-
-	healthBar.OverAbsorbGlow:ClearAllPoints()
-	healthBar.OverAbsorbGlow:SetPoint("TOPLEFT", CfPlayerFrame.HealthBar, "TOPRIGHT", -7, 0)
-	healthBar.OverAbsorbGlow:SetPoint("BOTTOMLEFT", CfPlayerFrame.HealthBar, "BOTTOMRIGHT", -7, 0)
-
-	healthBar.OverHealAbsorbGlow:ClearAllPoints()
-	healthBar.OverHealAbsorbGlow:SetPoint("BOTTOMRIGHT", CfPlayerFrame.HealthBar, "BOTTOMLEFT", 7, 0)
-	healthBar.OverHealAbsorbGlow:SetPoint("TOPRIGHT", CfPlayerFrame.HealthBar, "TOPLEFT", 7, 0)
-
-	healthBarContainer.PlayerFrameHealthBarAnimatedLoss:SetParent(CfPlayerFrame.HealthBar)
-	healthBarContainer.PlayerFrameHealthBarAnimatedLoss:ClearAllPoints()
-	healthBarContainer.PlayerFrameHealthBarAnimatedLoss:SetAllPoints(CfPlayerFrame.HealthBar)
-
 	manaBar.TextString:SetPoint("CENTER", manaBar, "CENTER", 0, 3)
 	manaBar.LeftText:SetPoint("LEFT", manaBar, "LEFT", 6, 3)
 	manaBar.RightText:SetPoint("RIGHT", manaBar, "RIGHT", -4, 3)
@@ -422,6 +374,23 @@ hooksecurefunc("PlayerFrame_UpdateRolesAssigned", function()
 	else
 		PlayerLevelText:Show()
 	end
+end)
+
+hooksecurefunc("PlayerFrame_ShowPvPIcon", function(factionGroup)
+	local playerFrameTargetMain = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain
+	local pvpBG = playerFrameTargetMain.PvpBackgroundCircle
+	local pvpIcon = playerFrameTargetMain.PvpBackgroundIcon
+
+	pvpBG:SetAlpha(0)
+	pvpBG:SetPoint("TOP", pvpBG:GetParent(), "TOPLEFT", 39, -50)
+
+	pvpIcon:SetParent(PlayerFrame.PlayerFrameContainer)
+	pvpIcon:SetScale(1)
+	pvpIcon:SetSize(64, 64)
+	pvpIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-"..factionGroup)
+
+	PlayerPVPTimerText:ClearAllPoints()
+	PlayerPVPTimerText:SetPoint("CENTER", pvpBG, "TOPLEFT", 4, 22)
 end)
 
 local PlayerRestIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
