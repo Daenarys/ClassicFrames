@@ -14,5 +14,10 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(ProfessionsFrame)
 		ApplyNineSlicePortrait(ProfessionsFrame)
+
+		ApplyScrollBarHybrid(ProfessionsFrame.CraftingPage.RecipeList.ScrollBar, true)
+		ApplyScrollBarThumb(ProfessionsFrame.CraftingPage.RecipeList.ScrollBar.Track.Thumb)
+
+		ApplyFilterDropDown(ProfessionsFrame.CraftingPage.RecipeList.FilterDropdown)
 	end
 end)
