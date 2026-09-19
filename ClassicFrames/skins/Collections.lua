@@ -15,10 +15,20 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(CollectionsJournal)
 		ApplyNineSlicePortrait(CollectionsJournal)
 
-		ApplyTopTab(WardrobeCollectionFrameTab1)
-		WardrobeCollectionFrameTab1:HookScript("OnShow", function(self)
-			self:SetWidth(58 + self:GetFontString():GetStringWidth())
-		end)
+		WardrobeCollectionFrameTab2:ClearAllPoints()
+		WardrobeCollectionFrameTab2:SetPoint("LEFT", WardrobeCollectionFrameTab1, "RIGHT")
+
+		for i = 1, 2 do
+			ApplyTopTab(_G['WardrobeCollectionFrameTab'..i])
+
+			_G["WardrobeCollectionFrameTab"..i]:HookScript("OnShow", function(self)
+				if _G["WardrobeCollectionFrameTab"..i] == WardrobeCollectionFrameTab1 then
+					self:SetWidth(58 + self:GetFontString():GetStringWidth())
+				elseif _G["WardrobeCollectionFrameTab"..i] == WardrobeCollectionFrameTab2 then
+					self:SetWidth(66 + self:GetFontString():GetStringWidth())
+				end
+			end)
+		end
 
 		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:ClearAllPoints()
 		WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBar:SetPoint("TOPLEFT", WardrobeCollectionFrame.SetsCollectionFrame.ListContainer.ScrollBox, "TOPRIGHT", 10, 34)
