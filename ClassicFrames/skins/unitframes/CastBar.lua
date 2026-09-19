@@ -33,8 +33,6 @@ local function SkinPlayerCastbar(frame)
 		self.Spark:SetSize(32, 32)
 		self.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
 		self.Spark:SetBlendMode("ADD")
-		self.Spark:ClearAllPoints()
-		self.Spark:SetPoint("CENTER")
 		if self.channeling then
 			self.Spark:Hide()
 		end
