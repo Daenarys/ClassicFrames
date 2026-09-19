@@ -31,7 +31,6 @@ skins\EditMode.lua
 skins\FlightMap.lua
 skins\Friends.lua
 skins\GameMenu.lua
-skins\GenericTrait.lua
 skins\Gossip.lua
 skins\GroupLoot.lua
 skins\GuildBank.lua
