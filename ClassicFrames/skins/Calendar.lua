@@ -4,7 +4,7 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_Calendar" then
 		ApplyCloseButton(CalendarCloseButton, true)
 		CalendarCloseButton:ClearAllPoints()
-		CalendarCloseButton:SetPoint("TOPRIGHT", 5, -14)
+		CalendarCloseButton:SetPoint("TOPRIGHT", 1, -14)
 
 		ApplyCloseButton(CalendarViewHolidayCloseButton, true)
 		CalendarViewHolidayCloseButton:ClearAllPoints()
