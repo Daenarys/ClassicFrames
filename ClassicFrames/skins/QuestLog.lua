@@ -1,5 +1,13 @@
 if not _G.QuestScrollFrame then return end
 
+QuestScrollFrame:SetPoint("TOPLEFT")
+QuestScrollFrame.SearchBox:Hide()
+QuestScrollFrame.SettingsDropdown:Hide()
+
+hooksecurefunc("QuestLogQuests_ShowQuestCount", function()
+	QuestLogCount:Hide()
+end)
+
 hooksecurefunc(QuestMapFrame, "ValidateTabs", function(self)
 	self.QuestsTab:Hide()
 	self.EventsTab:Hide()
