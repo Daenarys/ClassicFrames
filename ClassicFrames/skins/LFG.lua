@@ -19,6 +19,9 @@ f:SetScript("OnEvent", function(self, event, name)
 			LFGListingFrame:HookScript("OnShow", function()
 				LFGListingFramePortrait:SetTexture("Interface\\LFGFrame\\UI-LFG-PORTRAIT")
 			end)
+
+			ApplyScrollBarHybrid(LFGListingFrameActivityViewScrollBar, true)
+			ApplyScrollBarThumb(LFGListingFrameActivityViewScrollBar.Track.Thumb)
 		end
 		if LFGBrowseFrame then
 			LFGBrowseFramePortrait:SetSize(61, 61)
