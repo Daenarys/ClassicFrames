@@ -89,7 +89,6 @@ hooksecurefunc(MinimapCluster, "SetRotateMinimap", function(self, rotateMinimap)
 	end
 end)
 
-GameTimeFrame:SetParent(MinimapCluster)
 GameTimeFrame:SetSize(50, 50)
 GameTimeFrame:ClearAllPoints()
 GameTimeFrame:SetPoint("TOPRIGHT", 4, -19)
@@ -512,13 +511,16 @@ MinimapToggleButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButto
 MinimapToggleButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
 MinimapToggleButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
 
-MinimapToggleButton:SetScript("OnEnter", function(self)
-	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-	GameTooltip:SetText(self.tooltipText, 1, 1, 1)
-	GameTooltip:Show()
-end)
+MinimapToggleButton:HookScript("OnEnter", GameTooltip_Hide)
+MinimapToggleButton:SetScript("OnClick", function(self)
+	ToggleMinimap()
 
-MinimapToggleButton:SetScript("OnLeave", GameTooltip_Hide)
+	if Minimap:IsShown() then
+		GameTimeFrame:SetAlpha(1)
+	else
+		GameTimeFrame:SetAlpha(0)
+	end
+end)
 
 Minimap:HookScript("OnEvent", function(self, event, ...)
 	if ( event == "PLAYER_ENTERING_WORLD" ) then
