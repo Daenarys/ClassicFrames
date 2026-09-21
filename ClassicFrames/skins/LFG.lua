@@ -41,6 +41,9 @@ f:SetScript("OnEvent", function(self, event, name)
 				LFGBrowseFramePortrait:SetTexture("Interface\\LFGFrame\\UI-LFG-PORTRAIT")
 			end)
 
+			ApplyScrollBarHybrid(LFGBrowseFrameScrollBar, true)
+			ApplyScrollBarThumb(LFGBrowseFrameScrollBar.Track.Thumb)
+
 			ApplyDropDown(LFGBrowseFrameActivityDropdown)
 			ApplyDropDown(LFGBrowseFrameCategoryDropdown)
 		end
