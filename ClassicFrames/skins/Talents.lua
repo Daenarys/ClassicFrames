@@ -25,7 +25,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			PlayerSpellsFrame.ButtonFrameEdge:SetPoint("CENTER", PlayerSpellsFrame.MaximizeMinimizeButton, "LEFT", 6, 0)
 		end
 
-		ApplyTitleBg(PlayerSpellsFrame)
+		ApplyTitleBg(PlayerSpellsFrame.NineSlice, false, true)
 		ApplyNineSlicePortrait(PlayerSpellsFrame)
 	end
 end)
