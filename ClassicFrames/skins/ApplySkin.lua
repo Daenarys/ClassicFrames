@@ -11,12 +11,15 @@ function ApplyCloseButton(frame, defaultPos)
 	end
 end
 
-function ApplyTitleBg(frame, noPortrait)
+function ApplyTitleBg(frame, noPortrait, nineSlice)
 	if (frame.TitleBg == nil) then
 		frame.TitleBg = frame:CreateTexture(nil, "BACKGROUND", "_UI-Frame-TitleTileBg")
 		frame.TitleBg:ClearAllPoints()
 		if noPortrait then
 			frame.TitleBg:SetPoint("TOPLEFT", 6, -3)
+			frame.TitleBg:SetPoint("TOPRIGHT", -25, -3)
+		elseif nineSlice then
+			frame.TitleBg:SetPoint("TOPLEFT", 54, -3)
 			frame.TitleBg:SetPoint("TOPRIGHT", -25, -3)
 		else
 			frame.TitleBg:SetPoint("TOPLEFT", 2, -3)

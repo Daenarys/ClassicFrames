@@ -10,13 +10,7 @@ CatalogShopFrame.TitleContainer:ClearAllPoints()
 CatalogShopFrame.TitleContainer:SetPoint("TOPLEFT", CatalogShopFrame, "TOPLEFT", 58, 0)
 CatalogShopFrame.TitleContainer:SetPoint("TOPRIGHT", CatalogShopFrame, "TOPRIGHT", -58, 0)
 
-if (CatalogShopFrame.NineSlice.TitleBg == nil) then
-	CatalogShopFrame.NineSlice.TitleBg = CatalogShopFrame.NineSlice:CreateTexture(nil, "BACKGROUND", "_UI-Frame-TitleTileBg")
-	CatalogShopFrame.NineSlice.TitleBg:ClearAllPoints()
-	CatalogShopFrame.NineSlice.TitleBg:SetPoint("TOPLEFT", 54, -3)
-	CatalogShopFrame.NineSlice.TitleBg:SetPoint("TOPRIGHT", -25, -3)
-end
-
+ApplyTitleBg(CatalogShopFrame.NineSlice, false, true)
 ApplyNineSlicePortrait(CatalogShopFrame)
 
 CatalogShopFrame.ProductContainerFrame.ProductsScrollBoxContainer.ScrollBar.Track.Begin:Hide()
