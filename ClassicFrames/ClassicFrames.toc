@@ -55,7 +55,6 @@ skins\NameplateTutorial.lua
 skins\ObjectiveTracker.lua
 skins\Opacity.lua
 skins\PingTutorial.lua
-skins\PlayerChoice.lua
 skins\Professions.lua
 skins\QuestLog.lua
 skins\Quests.lua
