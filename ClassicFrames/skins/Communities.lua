@@ -7,7 +7,7 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 
 		self.MaximizeMinimizeFrame:SetSize(32, 32)
 		self.MaximizeMinimizeFrame:ClearAllPoints()
-		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 8.5, 0)
+		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
 
 		ApplyMaxMinButton(self.MaximizeMinimizeFrame)
 
@@ -38,7 +38,7 @@ CommunitiesFrame:HookScript("OnUpdate", function(self)
 
 		self.MaximizeMinimizeFrame:SetSize(32, 32)
 		self.MaximizeMinimizeFrame:ClearAllPoints()
-		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 8.5, 0)
+		self.MaximizeMinimizeFrame:SetPoint("RIGHT", CommunitiesFrameCloseButton, "LEFT", 10, 0)
 
 		ApplyMaxMinButton(self.MaximizeMinimizeFrame)
 

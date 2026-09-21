@@ -5,7 +5,7 @@ hooksecurefunc(WorldMapFrame, "Minimize", function(self)
 
 	self.BorderFrame.MaximizeMinimizeFrame:SetSize(32, 32)
 	self.BorderFrame.MaximizeMinimizeFrame:ClearAllPoints()
-	self.BorderFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", WorldMapFrameCloseButton, "LEFT", 8.5, 0)
+	self.BorderFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", WorldMapFrameCloseButton, "LEFT", 10, 0)
 
 	ApplyMaxMinButton(self.BorderFrame.MaximizeMinimizeFrame)
 
@@ -35,7 +35,7 @@ hooksecurefunc(WorldMapFrame, "Maximize", function(self)
 
 	self.BorderFrame.MaximizeMinimizeFrame:SetSize(32, 32)
 	self.BorderFrame.MaximizeMinimizeFrame:ClearAllPoints()
-	self.BorderFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", WorldMapFrameCloseButton, "LEFT", 8.5, 0)
+	self.BorderFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", WorldMapFrameCloseButton, "LEFT", 10, 0)
 
 	ApplyMaxMinButton(self.BorderFrame.MaximizeMinimizeFrame)
 
