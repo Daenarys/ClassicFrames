@@ -4,7 +4,6 @@
 ## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
 ## Version: 1.06
-## OptionalDeps: SexyMap
 embeds.xml
 skins\ApplySkin.lua
 skins\ActionBars.lua

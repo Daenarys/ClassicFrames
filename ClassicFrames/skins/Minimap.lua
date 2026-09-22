@@ -1,4 +1,4 @@
-if (C_AddOns.IsAddOnLoaded("SexyMap")) then return end
+if not _G.MinimapCluster then return end
 
 local ldbi = LibStub ~= nil and LibStub:GetLibrary("LibDBIcon-1.0")
 if (ldbi ~= nil) then
@@ -7,9 +7,12 @@ if (ldbi ~= nil) then
 	end
 end
 
-MinimapCluster:SetSize(192, 192)
+GameTimeFrame:Hide()
 MinimapCluster.BorderTop:Hide()
 MinimapCluster.DielFrame:Hide()
+MinimapCompassTexture:Hide()
+
+MinimapCluster:SetSize(192, 192)
 
 MinimapCluster:CreateTexture("MinimapBorderTop", "ARTWORK")
 MinimapBorderTop:SetSize(192, 32)
@@ -32,18 +35,6 @@ MinimapBorder:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Minimap-Bo
 MinimapBorder:SetTexCoord(0.25, 1, 0.125, 0.875)
 MinimapBorder:ClearAllPoints()
 MinimapBorder:SetAllPoints()
-
-MinimapBackdrop:CreateTexture("MinimapNorthTag", "OVERLAY")
-MinimapNorthTag:SetSize(16, 16)
-MinimapNorthTag:SetTexture("Interface\\Minimap\\CompassNorthTag")
-MinimapNorthTag:ClearAllPoints()
-MinimapNorthTag:SetPoint("CENTER", Minimap, "CENTER", 0, 67)
-
-MinimapCompassTexture:SetSize(256, 256)
-MinimapCompassTexture:SetTexture("Interface\\Minimap\\CompassRing")
-MinimapCompassTexture:ClearAllPoints()
-MinimapCompassTexture:SetPoint("CENTER", Minimap, "CENTER", -2, 0)
-MinimapCompassTexture:SetDrawLayer("OVERLAY")
 
 Minimap.ZoomIn:SetParent(MinimapBackdrop)
 Minimap.ZoomIn:SetSize(32, 32)
@@ -78,18 +69,6 @@ end)
 hooksecurefunc(MinimapCluster, "Layout", function(self)
 	self:SetSize(192, 192)
 end)
-
-hooksecurefunc(MinimapCluster, "SetRotateMinimap", function(self, rotateMinimap)
-	if (rotateMinimap) then
-		MinimapCompassTexture:Show()
-		MinimapNorthTag:Hide()
-	else
-		MinimapCompassTexture:Hide()
-		MinimapNorthTag:Show()
-	end
-end)
-
-GameTimeFrame:Hide()
 
 MinimapCluster.Tracking:SetParent(MinimapBackdrop)
 MinimapCluster.Tracking:SetSize(32, 32)
