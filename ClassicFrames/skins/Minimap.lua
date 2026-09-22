@@ -9,6 +9,7 @@ end
 
 MinimapCluster:SetSize(192, 192)
 MinimapCluster.BorderTop:Hide()
+MinimapCluster.DielFrame:Hide()
 
 MinimapCluster:CreateTexture("MinimapBorderTop", "ARTWORK")
 MinimapBorderTop:SetSize(192, 32)
@@ -16,32 +17,6 @@ MinimapBorderTop:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Minimap
 MinimapBorderTop:SetTexCoord(0.25, 1, 0, 0.125)
 MinimapBorderTop:ClearAllPoints()
 MinimapBorderTop:SetPoint("TOPRIGHT")
-
-MinimapCluster.DielFrame:SetSize(50, 50)
-MinimapCluster.DielFrame:ClearAllPoints()
-MinimapCluster.DielFrame:SetPoint("TOPRIGHT", 4, -19)
-
-select(2, MinimapCluster.DielFrame:GetRegions()):SetAlpha(0)
-
-MinimapCluster.DielFrame.Background:SetSize(50, 50)
-MinimapCluster.DielFrame.Background:SetTexture("Interface\\Minimap\\UI-TOD-Indicator")
-if C_DateAndTime.IsDayTime() then
-	MinimapCluster.DielFrame.Background:SetTexCoord(0, 50/128, 0, 50/64)
-else
-	MinimapCluster.DielFrame.Background:SetTexCoord(0 + 0.5, 50/128 + 0.5, 0, 50/64)
-end
-
-MinimapCluster.DielFrame:SetScript("OnEvent", function(self, event, ...)
-	if event == "DIEL_CYCLE_CHANGED" then
-		self.Background:SetSize(50, 50)
-		self.Background:SetTexture("Interface\\Minimap\\UI-TOD-Indicator")
-		if C_DateAndTime.IsDayTime() then
-			self.Background:SetTexCoord(0, 50/128, 0, 50/64)
-		else
-			self.Background:SetTexCoord(0 + 0.5, 50/128 + 0.5, 0, 50/64)
-		end
-	end
-end)
 
 Minimap:SetParent(MinimapCluster)
 Minimap:SetSize(140, 140)
@@ -524,32 +499,26 @@ MinimapToggleButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeBu
 MinimapToggleButton:HookScript("OnEnter", GameTooltip_Hide)
 MinimapToggleButton:SetScript("OnClick", function(self)
 	ToggleMinimap()
-	if Minimap:IsShown() then
-		MinimapCluster.DielFrame:SetAlpha(1)
-	else
-		MinimapCluster.DielFrame:SetAlpha(0)
-	end
 end)
 
 Minimap:HookScript("OnEvent", function(self, event, ...)
-	if ( event == "PLAYER_ENTERING_WORLD" ) then
-		TimeManagerClockButton:SetParent(self)
-		TimeManagerClockButton:SetSize(60, 28)
+	if event == "PLAYER_ENTERING_WORLD" then
+		TimeManagerClockButton:SetSize(50, 50)
 		TimeManagerClockButton:ClearAllPoints()
-		TimeManagerClockButton:SetPoint("CENTER", 0, -75)
-		TimeManagerClockButton:SetFrameStrata("LOW")
-		TimeManagerClockButton:SetFrameLevel(5)
+		TimeManagerClockButton:SetPoint("TOPRIGHT", 4, -19)
+		TimeManagerClockTicker:SetAlpha(0)
 
-		if (TimeManagerClockButtonBackground == nil) then
-			TimeManagerClockButtonBackground = TimeManagerClockButton:CreateTexture("TimeManagerClockButtonBackground", "BORDER")
-			TimeManagerClockButtonBackground:SetTexture("Interface\\TimeManager\\ClockBackground")
-			TimeManagerClockButtonBackground:SetTexCoord(0.015625, 0.8125, 0.015625, 0.390625)
-			TimeManagerClockButtonBackground:ClearAllPoints()
-			TimeManagerClockButtonBackground:SetAllPoints()
+		if (GameTimeTexture == nil) then
+			GameTimeTexture = TimeManagerClockButton:CreateTexture("GameTimeTexture", "ARTWORK")
+			GameTimeTexture:SetTexture("Interface\\Minimap\\UI-TOD-Indicator")
+			GameTimeTexture:SetAllPoints()
 		end
 
-		TimeManagerClockTicker:ClearAllPoints()
-		TimeManagerClockTicker:SetPoint("CENTER", TimeManagerClockButton, "CENTER", 3, 1)
+		if C_DateAndTime.IsDayTime() then
+			GameTimeTexture:SetTexCoord(0, 50/128, 0, 50/64)
+		else
+			GameTimeTexture:SetTexCoord(0 + 0.5, 50/128 + 0.5, 0, 50/64)
+		end
 	end
 end)
 
