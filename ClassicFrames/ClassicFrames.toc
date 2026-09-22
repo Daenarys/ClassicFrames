@@ -7,6 +7,7 @@
 ## OptionalDeps: SexyMap
 embeds.xml
 skins\ApplySkin.lua
+skins\ActionBars.lua
 skins\AddOnList.lua
 skins\AuctionHouse.lua
 skins\Bags.lua
@@ -46,7 +47,6 @@ skins\LFG.lua
 skins\Loot.xml
 skins\Macro.lua
 skins\Mail.lua
-skins\MainActionBar.lua
 skins\Menu.lua
 skins\Merchant.lua
 skins\Minimap.lua

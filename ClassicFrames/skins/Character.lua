@@ -45,7 +45,3 @@ ApplyScrollBarThumb(GearManagerPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 
 ApplyDropDown(GearManagerPopupFrame.BorderBox.IconTypeDropdown)
 GearManagerPopupFrame.BorderBox.IconTypeDropdown.Text:SetJustifyH("RIGHT")
-
-PaperDollFrame:HookScript("OnShow", function()
-	CharacterModelScene.ControlFrame:Hide()
-end)
