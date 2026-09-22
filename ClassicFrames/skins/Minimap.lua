@@ -20,6 +20,7 @@ MinimapBorderTop:SetTexCoord(0.25, 1, 0, 0.125)
 MinimapBorderTop:ClearAllPoints()
 MinimapBorderTop:SetPoint("TOPRIGHT")
 
+Minimap:SetParent(MinimapCluster)
 Minimap:SetSize(140, 140)
 Minimap:ClearAllPoints()
 Minimap:SetPoint("CENTER", MinimapCluster, "TOP", 9, -92)
@@ -66,6 +67,10 @@ end)
 
 hooksecurefunc(MinimapCluster, "Layout", function(self)
 	self:SetSize(192, 192)
+end)
+
+hooksecurefunc(MinimapCluster, "SetEditModeScale", function(self, scale)
+	self:SetScale(scale)
 end)
 
 GameTimeFrame:SetSize(50, 50)
