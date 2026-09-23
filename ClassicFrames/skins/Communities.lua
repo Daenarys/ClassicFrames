@@ -127,6 +127,13 @@ ApplyScrollBarArrow(CommunitiesFrameGuildDetailsFrameNews.ScrollBar)
 ApplyScrollBarTrack(CommunitiesFrameGuildDetailsFrameNews.ScrollBar.Track)
 ApplyScrollBarThumb(CommunitiesFrameGuildDetailsFrameNews.ScrollBar.Track.Thumb)
 
+CommunitiesFrameGuildDetailsFrameInfo.DetailsFrame.ScrollBar.Track.Begin:Hide()
+CommunitiesFrameGuildDetailsFrameInfo.DetailsFrame.ScrollBar.Track.End:Hide()
+CommunitiesFrameGuildDetailsFrameInfo.DetailsFrame.ScrollBar.Track.Middle:Hide()
+
+ApplyScrollBarArrow(CommunitiesFrameGuildDetailsFrameInfo.DetailsFrame.ScrollBar, true)
+ApplyScrollBarThumb(CommunitiesFrameGuildDetailsFrameInfo.DetailsFrame.ScrollBar.Track.Thumb)
+
 CommunitiesGuildLogFrame.Container.ScrollFrame.ScrollBar.Track.Begin:Hide()
 CommunitiesGuildLogFrame.Container.ScrollFrame.ScrollBar.Track.End:Hide()
 CommunitiesGuildLogFrame.Container.ScrollFrame.ScrollBar.Track.Middle:Hide()
