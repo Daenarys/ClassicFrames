@@ -32,6 +32,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyCheckBox(TransmogFrame.CharacterPreview.ToggleOptions.HideIgnoredToggle.Checkbox)
 		ApplyCheckBox(TransmogFrame.CharacterPreview.ToggleOptions.SheatheWeaponToggle.Checkbox)
+		ApplyCheckBox(TransmogFrame.CharacterPreview.ToggleOptions.PreviewedWeaponToggle.Checkbox)
 		ApplyCheckBox(TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.SecondaryAppearanceToggle.Checkbox)
 		ApplyCheckBox(TransmogFrame.WardrobeCollection.TabContent.SituationsFrame.EnabledToggle.Checkbox)
 
