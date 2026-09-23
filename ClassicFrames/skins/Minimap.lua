@@ -238,6 +238,7 @@ MiniMapWorldMapButton:SetParent(MinimapBackdrop)
 MiniMapWorldMapButton:SetSize(33, 33)
 MiniMapWorldMapButton:ClearAllPoints()
 MiniMapWorldMapButton:SetPoint("TOPRIGHT", -21, -1)
+MiniMapWorldMapButton:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight", "ADD")
 
 if (MiniMapWorldMapButtonIcon == nil) then
 	MiniMapWorldMapButton:CreateTexture("MiniMapWorldMapButtonIcon", "BORDER")
