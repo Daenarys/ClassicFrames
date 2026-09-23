@@ -256,9 +256,8 @@ if (MiniMapWorldMapButtonBorder == nil) then
 end
 
 MiniMapWorldMapButton:SetScript("OnEnter", function(self)
-	GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+	GameTooltip:SetOwner(self, "ANCHOR_LEFT")
 	GameTooltip:SetText(self.tooltipText, 1, 1, 1)
-	GameTooltip:Show()
 end)
 
 MiniMapWorldMapButton:SetScript("OnLeave", GameTooltip_Hide)
