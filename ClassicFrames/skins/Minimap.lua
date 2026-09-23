@@ -157,14 +157,12 @@ MinimapCluster.IndicatorFrame:SetFrameLevel(4)
 MinimapCluster.IndicatorFrame.MailFrame:SetSize(33, 33)
 MinimapCluster.IndicatorFrame.MailFrame:ClearAllPoints()
 MinimapCluster.IndicatorFrame.MailFrame:SetPoint("TOPRIGHT", Minimap, "TOPRIGHT", 21, -53)
-MinimapCluster.IndicatorFrame.MailFrame:SetFrameStrata("LOW")
-MinimapCluster.IndicatorFrame.MailFrame:SetFrameLevel(6)
 
 MiniMapMailIcon:SetSize(18, 18)
 MiniMapMailIcon:SetTexture("Interface\\Icons\\INV_Letter_15")
-MiniMapMailIcon:SetDrawLayer("ARTWORK", 0)
+MiniMapMailIcon:SetDrawLayer("ARTWORK")
 MiniMapMailIcon:ClearAllPoints()
-MiniMapMailIcon:SetPoint("TOPLEFT", MinimapCluster.IndicatorFrame.MailFrame, "TOPLEFT", 7, -6)
+MiniMapMailIcon:SetPoint("TOPLEFT", 7, -6)
 
 MinimapCluster.IndicatorFrame.MailFrame:CreateTexture("MiniMapMailBorder", "OVERLAY")
 MiniMapMailBorder:SetSize(52, 52)
@@ -181,8 +179,6 @@ hooksecurefunc(MinimapCluster.IndicatorFrame.MailFrame, "TryPlayMailNotification
 	self.MailReminderAnim:SetPlaying(false)
 	self.MailIcon:SetShown(true)
 end)
-
-MinimapCluster.InstanceDifficulty:Hide()
 
 local MinimapZoneTextButton = CreateFrame("Button", nil, MinimapCluster)
 MinimapZoneTextButton:SetSize(150, 12)
