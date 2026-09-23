@@ -620,11 +620,6 @@ QueueStatusButton:HookScript("OnMouseDown", MinimapButton_OnMouseDown)
 QueueStatusButton:HookScript("OnMouseUp", MinimapButton_OnMouseUp)
 
 --queuestatusframe
-hooksecurefunc(QueueStatusFrame, "UpdatePosition", function(self)
-	self:ClearAllPoints()
-	self:SetPoint("TOPRIGHT", QueueStatusButton, "TOPLEFT")
-end)
-
 hooksecurefunc(QueueStatusFrame, "Update", function(self)
 	local animateEye
 
