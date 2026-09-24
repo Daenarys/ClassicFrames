@@ -36,7 +36,6 @@ skins\Help.lua
 skins\HelpTip.lua
 skins\Inspect.lua
 skins\ItemRefTooltip.lua
-skins\ItemSocketing.lua
 skins\ItemText.lua
 skins\Legacy.lua
 skins\LFG.lua
@@ -47,7 +46,6 @@ skins\Menu.lua
 skins\Merchant.lua
 skins\Minimap.lua
 skins\MirrorTimers.lua
-skins\NameplateTutorial.lua
 skins\ObjectiveTracker.lua
 skins\Opacity.lua
 skins\PingTutorial.lua
@@ -61,7 +59,6 @@ skins\ScriptError.lua
 skins\SettingsPanel.lua
 skins\Stable.lua
 skins\StaticPopup.lua
-skins\Subscription.lua
 skins\Tabard.lua
 skins\Talents.lua
 skins\TimeManager.lua
@@ -69,7 +66,6 @@ skins\ToolTip.lua
 skins\Trade.lua
 skins\Transmog.lua
 skins\Tutorial.lua
-skins\UIWidget.lua
 skins\WorldMap.lua
 skins\ZoneMap.lua
 skins\unitframes\UnitFrame.lua
