@@ -290,6 +290,8 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 	end
 end)
 
+MinimapCluster.InstanceDifficulty:Hide()
+
 --queuestatusbutton
 QueueStatusButton:SetParent(MinimapBackdrop)
 QueueStatusButton:SetSize(33, 33)
