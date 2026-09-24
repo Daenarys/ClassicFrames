@@ -95,3 +95,18 @@ QuestLogPopupDetailFrameScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestLogPop
 ApplyScrollBarArrow(QuestLogPopupDetailFrameScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestLogPopupDetailFrameScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestLogPopupDetailFrameScrollFrame.ScrollBar.Track.Thumb)
+
+hooksecurefunc(QuestLogPopupDetailFrame, "ShowQuest", function(self)
+	self.Bg:SetSize(510, 620)
+	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
+
+hooksecurefunc("QuestFrame_SetMaterial", function(frame)
+	frame.Bg:SetSize(510, 620)
+	frame.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
+
+QuestFrameProgressPanel:HookScript("OnShow", function(self)
+	self.Bg:SetSize(510, 620)
+	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
