@@ -29,12 +29,7 @@ local function UpdatePower(frame)
 	frame.ManaBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 
 	if info then
-		if info.atlas then
-			frame.ManaBar:SetStatusBarTexture(info.atlas)
-			frame.ManaBar:SetStatusBarColor(1, 1, 1)
-		else
-			frame.ManaBar:SetStatusBarColor(info.r, info.g, info.b)
-		end
+		frame.ManaBar:SetStatusBarColor(info.r, info.g, info.b)
 	else
 		if not altR then
 			info = CfPowerBarColor[powerType] or CfPowerBarColor["MANA"]
@@ -157,11 +152,6 @@ local function SkinFrame(frame)
 	questIcon:SetTexture("Interface\\TargetingFrame\\PortraitQuestBadge")
 	questIcon:ClearAllPoints()
 	questIcon:SetPoint("TOP", 32, -16)
-
-	if ComboFrame then
-		ComboFrame:ClearAllPoints()
-		ComboFrame:SetPoint("TOPRIGHT", TargetFrame, "TOPRIGHT", -24, -13)
-	end
 
 	frame.TargetFrameContent.TargetFrameContentMain.LevelBackgroundCircle:SetAlpha(0)
 
