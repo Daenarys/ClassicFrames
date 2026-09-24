@@ -336,14 +336,6 @@ end
 
 QueueStatusButton:HookScript("OnUpdate", QueueStatusButton_OnUpdate)
 
-QueueStatusButton:HookScript("OnMouseDown", function()
-	QueueStatusButtonIcon:SetPoint("CENTER", 1, -1)
-end)
-
-QueueStatusButton:HookScript("OnMouseUp", function()
-	QueueStatusButtonIcon:SetPoint("CENTER")
-end)
-
 --queuestatusframe
 local LFG_EYE_TEXTURES = { }
 LFG_EYE_TEXTURES["default"] = { file = "Interface\\LFGFrame\\LFG-Eye", width = 512, height = 256, frames = 29, iconSize = 64, delay = 0.1 }
