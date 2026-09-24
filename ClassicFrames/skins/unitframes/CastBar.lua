@@ -68,6 +68,10 @@ local function SkinPlayerCastbar(frame)
 		self.NewFlash:SetVertexColor(self:GetStatusBarColor())
 	end)
 
+	hooksecurefunc(frame, "ShowSpark", function(self)
+		self.Spark.offsetY = 2
+	end)
+
 	hooksecurefunc(frame, "UpdateBarFillTexture", function(self, isFull)
 		self:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 		if UnitCastingInfo(self.unit) then
