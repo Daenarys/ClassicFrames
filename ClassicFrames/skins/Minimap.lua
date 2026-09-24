@@ -308,26 +308,6 @@ hooksecurefunc(QueueStatusButton, "UpdateDefaultAnchor", function(self)
 	self:SetPoint("TOPLEFT", 25, -100)
 end)
 
-local function MinimapButton_OnMouseDown(self, button)
-	if ( self.isDown ) then
-		return
-	end
-	local button = _G[self:GetName().."Icon"]
-	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint()
-	button:SetPoint(point, relativeTo, relativePoint, offsetX+1, offsetY-1)
-	self.isDown = 1
-end
-
-local function MinimapButton_OnMouseUp(self)
-	if ( not self.isDown ) then
-		return
-	end
-	local button = _G[self:GetName().."Icon"]
-	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint()
-	button:SetPoint(point, relativeTo, relativePoint, offsetX-1, offsetY+1)
-	self.isDown = nil
-end
-
 local function QueueStatusButton_OnUpdate(self)
 	if ( self:IsShown() ) then
 		self.Eye.texture:Show()
@@ -355,13 +335,14 @@ local function QueueStatusButton_OnUpdate(self)
 end
 
 QueueStatusButton:HookScript("OnUpdate", QueueStatusButton_OnUpdate)
-QueueStatusButton:HookScript("OnHide", function(self)
-	if (self.isDown) then
-		MinimapButton_OnMouseUp(self)
-	end
+
+QueueStatusButton:HookScript("OnMouseDown", function()
+	QueueStatusButtonIcon:SetPoint("CENTER", 1, -1)
 end)
-QueueStatusButton:HookScript("OnMouseDown", MinimapButton_OnMouseDown)
-QueueStatusButton:HookScript("OnMouseUp", MinimapButton_OnMouseUp)
+
+QueueStatusButton:HookScript("OnMouseUp", function()
+	QueueStatusButtonIcon:SetPoint("CENTER")
+end)
 
 --queuestatusframe
 local LFG_EYE_TEXTURES = { }
