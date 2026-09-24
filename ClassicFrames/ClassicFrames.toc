@@ -13,7 +13,6 @@ skins\Bank.lua
 skins\Buffs.lua
 skins\Calendar.lua
 skins\CatalogShop.lua
-skins\Channel.lua
 skins\Character.lua
 skins\Chat.lua
 skins\Cinematic.lua
