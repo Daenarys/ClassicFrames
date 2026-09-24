@@ -1,15 +1,27 @@
 if not _G.MinimapCluster then return end
 
-local ldbi = LibStub ~= nil and LibStub:GetLibrary("LibDBIcon-1.0")
-if (ldbi ~= nil) then
-	for _, v in pairs(ldbi:GetButtonList()) do
-		ldbi:Refresh(v)
+local function MinimapButton_OnMouseDown(self, button)
+	if ( self.isDown ) then
+		return
 	end
+	local button = _G[self:GetName().."Icon"]
+	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint()
+	button:SetPoint(point, relativeTo, relativePoint, offsetX+1, offsetY-1)
+	self.isDown = 1
+end
+
+local function MinimapButton_OnMouseUp(self)
+	if ( not self.isDown ) then
+		return
+	end
+	local button = _G[self:GetName().."Icon"]
+	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint()
+	button:SetPoint(point, relativeTo, relativePoint, offsetX-1, offsetY+1)
+	self.isDown = nil
 end
 
 MinimapCluster.BorderTop:Hide()
 MinimapCluster.DielFrame:Hide()
-MinimapCompassTexture:SetAlpha(0)
 
 MinimapCluster:SetSize(192, 192)
 
@@ -40,6 +52,11 @@ MinimapNorthTag:SetSize(16, 16)
 MinimapNorthTag:SetTexture("Interface\\Minimap\\CompassNorthTag")
 MinimapNorthTag:ClearAllPoints()
 MinimapNorthTag:SetPoint("CENTER", Minimap, "CENTER", 0, 67)
+
+MinimapCompassTexture:SetScale(0.7)
+MinimapCompassTexture:ClearAllPoints()
+MinimapCompassTexture:SetPoint("CENTER", Minimap, "CENTER", -2, 0)
+MinimapCompassTextureUnderlay:SetAlpha(0)
 
 Minimap.ZoomIn:SetParent(MinimapBackdrop)
 Minimap.ZoomIn:SetSize(32, 32)
@@ -77,6 +94,22 @@ end)
 
 hooksecurefunc(MinimapCluster, "SetEditModeScale", function(self, scale)
 	self:SetScale(scale)
+end)
+
+hooksecurefunc(MinimapCluster, "SetRotateMinimap", function(self)
+	local rotateMinimap = CVarCallbackRegistry:GetCVarValueBool("rotateMinimap")
+	
+	MinimapBackdrop:SetSize(192, 192)
+	MinimapCompassTexture:SetSize(365, 365)
+	MinimapCompassTexture:SetTexture("Interface\\Minimap\\CompassRing")
+
+	if rotateMinimap then
+		MinimapCompassTexture:Show()
+		MinimapNorthTag:Hide()
+	else
+		MinimapCompassTexture:Hide()
+		MinimapNorthTag:Show()
+	end
 end)
 
 MinimapCluster.Tracking:SetParent(MinimapBackdrop)
@@ -197,7 +230,6 @@ MinimapZoneTextButton:SetScript("OnEnter", function(self)
 	end
 	GameTooltip:Show()
 end)
-
 MinimapZoneTextButton:SetScript("OnLeave", GameTooltip_Hide)
 
 MinimapZoneText:SetParent(MinimapZoneTextButton)
@@ -233,7 +265,6 @@ MiniMapWorldMapButton:SetScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_LEFT")
 	GameTooltip:SetText(self.tooltipText, 1, 1, 1)
 end)
-
 MiniMapWorldMapButton:SetScript("OnLeave", GameTooltip_Hide)
 
 GameTimeFrame:SetParent(Minimap)
@@ -280,26 +311,6 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 end)
 
 --queuestatusbutton
-local function MinimapButton_OnMouseDown(self, button)
-	if ( self.isDown ) then
-		return
-	end
-	local button = _G[self:GetName().."Icon"]
-	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint()
-	button:SetPoint(point, relativeTo, relativePoint, offsetX+1, offsetY-1)
-	self.isDown = 1
-end
-
-local function MinimapButton_OnMouseUp(self)
-	if ( not self.isDown ) then
-		return
-	end
-	local button = _G[self:GetName().."Icon"]
-	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint()
-	button:SetPoint(point, relativeTo, relativePoint, offsetX-1, offsetY+1)
-	self.isDown = nil
-end
-
 hooksecurefunc(QueueStatusButton, "UpdateDefaultAnchor", function(self)
 	self:SetParent(MinimapBackdrop)
 	self:SetScale(1)
