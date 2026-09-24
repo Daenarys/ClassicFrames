@@ -1,25 +1,5 @@
 if not _G.MinimapCluster then return end
 
-local function MinimapButton_OnMouseDown(self, button)
-	if ( self.isDown ) then
-		return
-	end
-	local button = _G[self:GetName().."Icon"]
-	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint()
-	button:SetPoint(point, relativeTo, relativePoint, offsetX+1, offsetY-1)
-	self.isDown = 1
-end
-
-local function MinimapButton_OnMouseUp(self)
-	if ( not self.isDown ) then
-		return
-	end
-	local button = _G[self:GetName().."Icon"]
-	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint()
-	button:SetPoint(point, relativeTo, relativePoint, offsetX-1, offsetY+1)
-	self.isDown = nil
-end
-
 MinimapCluster.BorderTop:Hide()
 MinimapCluster.DielFrame:Hide()
 
@@ -311,14 +291,9 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 end)
 
 --queuestatusbutton
-hooksecurefunc(QueueStatusButton, "UpdateDefaultAnchor", function(self)
-	self:SetParent(MinimapBackdrop)
-	self:SetScale(1)
-	self:SetSize(33, 33)
-	self:ClearAllPoints()
-	self:SetPoint("TOPLEFT", 25, -100)
-	self:SetFrameLevel(6)
-end)
+QueueStatusButton:SetParent(MinimapBackdrop)
+QueueStatusButton:SetSize(33, 33)
+QueueStatusButton:SetFrameLevel(6)
 
 if (QueueStatusButtonBorder == nil) then
 	QueueStatusButton:CreateTexture("QueueStatusButtonBorder")
@@ -328,27 +303,29 @@ if (QueueStatusButtonBorder == nil) then
 	QueueStatusButtonBorder:SetPoint("TOPLEFT", 1, -1)
 end
 
-local LFG_EYE_TEXTURES = { }
-LFG_EYE_TEXTURES["default"] = { file = "Interface\\LFGFrame\\LFG-Eye", width = 512, height = 256, frames = 29, iconSize = 64, delay = 0.1 }
-LFG_EYE_TEXTURES["raid"] = { file = "Interface\\LFGFrame\\LFR-Anim", width = 256, height = 256, frames = 16, iconSize = 64, delay = 0.05 }
-LFG_EYE_TEXTURES["unknown"] = { file = "Interface\\LFGFrame\\WaitAnim", width = 128, height = 128, frames = 4, iconSize = 64, delay = 0.25 }
+hooksecurefunc(QueueStatusButton, "UpdateDefaultAnchor", function(self)
+	self:ClearAllPoints()
+	self:SetPoint("TOPLEFT", 25, -100)
+end)
 
-local function EyeTemplate_OnUpdate(self, elapsed)
-	local textureInfo = LFG_EYE_TEXTURES[self.queueType or "default"]
-	TextureUtil.AnimateTexCoords(self.texture, textureInfo.width, textureInfo.height, textureInfo.iconSize, textureInfo.iconSize, textureInfo.frames, elapsed, textureInfo.delay)
-end
-
-local function EyeTemplate_StartAnimating(eye)
-	eye:SetScript("OnUpdate", EyeTemplate_OnUpdate)
-end
-
-local function EyeTemplate_StopAnimating(eye)
-	eye:SetScript("OnUpdate", nil)
-	if ( eye.texture.frame ) then
-		eye.texture.frame = 1 --To start the animation over.
+local function MinimapButton_OnMouseDown(self, button)
+	if ( self.isDown ) then
+		return
 	end
-	local textureInfo = LFG_EYE_TEXTURES[eye.queueType or "default"]
-	eye.texture:SetTexCoord(0, textureInfo.iconSize / textureInfo.width, 0, textureInfo.iconSize / textureInfo.height)
+	local button = _G[self:GetName().."Icon"]
+	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint()
+	button:SetPoint(point, relativeTo, relativePoint, offsetX+1, offsetY-1)
+	self.isDown = 1
+end
+
+local function MinimapButton_OnMouseUp(self)
+	if ( not self.isDown ) then
+		return
+	end
+	local button = _G[self:GetName().."Icon"]
+	local point, relativeTo, relativePoint, offsetX, offsetY = button:GetPoint()
+	button:SetPoint(point, relativeTo, relativePoint, offsetX-1, offsetY+1)
+	self.isDown = nil
 end
 
 local function QueueStatusButton_OnUpdate(self)
@@ -387,6 +364,29 @@ QueueStatusButton:HookScript("OnMouseDown", MinimapButton_OnMouseDown)
 QueueStatusButton:HookScript("OnMouseUp", MinimapButton_OnMouseUp)
 
 --queuestatusframe
+local LFG_EYE_TEXTURES = { }
+LFG_EYE_TEXTURES["default"] = { file = "Interface\\LFGFrame\\LFG-Eye", width = 512, height = 256, frames = 29, iconSize = 64, delay = 0.1 }
+LFG_EYE_TEXTURES["raid"] = { file = "Interface\\LFGFrame\\LFR-Anim", width = 256, height = 256, frames = 16, iconSize = 64, delay = 0.05 }
+LFG_EYE_TEXTURES["unknown"] = { file = "Interface\\LFGFrame\\WaitAnim", width = 128, height = 128, frames = 4, iconSize = 64, delay = 0.25 }
+
+local function EyeTemplate_OnUpdate(self, elapsed)
+	local textureInfo = LFG_EYE_TEXTURES[self.queueType or "default"]
+	TextureUtil.AnimateTexCoords(self.texture, textureInfo.width, textureInfo.height, textureInfo.iconSize, textureInfo.iconSize, textureInfo.frames, elapsed, textureInfo.delay)
+end
+
+local function EyeTemplate_StartAnimating(eye)
+	eye:SetScript("OnUpdate", EyeTemplate_OnUpdate)
+end
+
+local function EyeTemplate_StopAnimating(eye)
+	eye:SetScript("OnUpdate", nil)
+	if ( eye.texture.frame ) then
+		eye.texture.frame = 1 --To start the animation over.
+	end
+	local textureInfo = LFG_EYE_TEXTURES[eye.queueType or "default"]
+	eye.texture:SetTexCoord(0, textureInfo.iconSize / textureInfo.width, 0, textureInfo.iconSize / textureInfo.height)
+end
+
 hooksecurefunc(QueueStatusFrame, "Update", function(self)
 	local animateEye
 
@@ -442,8 +442,4 @@ hooksecurefunc(QueueStatusFrame, "Update", function(self)
 	else
 		EyeTemplate_StopAnimating(QueueStatusButton.Eye)
 	end
-end)
-
-hooksecurefunc(AddonCompartmentFrame, "UpdateDisplay", function(self)
-	self:SetShown(false)
 end)
