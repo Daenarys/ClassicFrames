@@ -14,7 +14,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		PlayerSpellsFrame.MaximizeMinimizeButton:SetSize(32, 32)
 		PlayerSpellsFrame.MaximizeMinimizeButton:ClearAllPoints()
-		PlayerSpellsFrame.MaximizeMinimizeButton:SetPoint("RIGHT", PlayerSpellsFrameCloseButton, "LEFT", 8.5, 0)
+		PlayerSpellsFrame.MaximizeMinimizeButton:SetPoint("RIGHT", PlayerSpellsFrameCloseButton, "LEFT", 10, 0)
 
 		ApplyMaxMinButton(PlayerSpellsFrame.MaximizeMinimizeButton)
 
