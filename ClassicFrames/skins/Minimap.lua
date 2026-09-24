@@ -177,7 +177,7 @@ MinimapZoneTextButton:SetPoint("CENTER", 7, 83)
 MinimapZoneText:SetParent(MinimapZoneTextButton)
 MinimapZoneText:SetSize(150, 12)
 MinimapZoneText:ClearAllPoints()
-MinimapZoneText:SetPoint("CENTER", MinimapZoneTextButton, "TOP", 0, -5)
+MinimapZoneText:SetPoint("CENTER", MinimapZoneTextButton, "TOP", 0, -6)
 MinimapZoneText:SetJustifyH("CENTER")
 
 MinimapZoneTextButton:SetScript("OnEnter", function(self)
