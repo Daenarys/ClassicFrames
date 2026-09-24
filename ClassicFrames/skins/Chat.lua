@@ -64,22 +64,13 @@ for i = 1, NUM_CHAT_WINDOWS do
 				self:GetParent():GetParent():ScrollToBottom()
 			end
 		end)
-	   
-		ChatFrameButtonFrameBottomButton.OnUpdate = function(self, elapsedSec) 
+		ChatFrameButtonFrameBottomButton.OnUpdate = function(self)
 			local oldflash = ChatFrameButtonFrameBottomButtonFlash
 			local flash = self.ScrollToBottomButton.Flash
 			if oldflash and flash then
-				if (self:AtBottom()) then
-					if (oldflash:IsShown()) then
-						oldflash:Hide()
-					end
-				end
-				if flash:IsShown() then
-					oldflash:SetAlpha(flash:GetAlpha())
-					if (not oldflash:IsShown()) then
-						oldflash:Show()
-					end
-				elseif (oldflash:IsShown()) then
+				if flash.FlashAnim:IsPlaying() then
+					oldflash:Show()
+				else
 					oldflash:Hide()
 				end
 			end
