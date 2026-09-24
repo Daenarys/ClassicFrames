@@ -67,7 +67,6 @@ for _, tracker in pairs(trackers) do
 	tracker.Header.Background:Hide()
 	tracker.Header.Text:SetFontObject(GameFontNormal)
 	tracker.Header.Text:SetText(OBJECTIVES_TRACKER_LABEL)
-	tracker.Header.Text:SetPoint("LEFT", 14, 0)
 	hooksecurefunc(tracker, 'AddBlock', HandleQuestIcons)
 end
 
