@@ -194,6 +194,12 @@ local MinimapZoneTextButton = CreateFrame("Button", nil, MinimapCluster)
 MinimapZoneTextButton:SetSize(150, 12)
 MinimapZoneTextButton:SetPoint("CENTER", 7, 83)
 
+MinimapZoneText:SetParent(MinimapZoneTextButton)
+MinimapZoneText:SetSize(150, 12)
+MinimapZoneText:ClearAllPoints()
+MinimapZoneText:SetPoint("CENTER", MinimapZoneTextButton, "TOP", 0, -5)
+MinimapZoneText:SetJustifyH("CENTER")
+
 MinimapZoneTextButton:SetScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_LEFT")
 	local pvpType, isSubZonePvP, factionName = C_PvP.GetZonePVPInfo()
@@ -231,12 +237,6 @@ MinimapZoneTextButton:SetScript("OnEnter", function(self)
 	GameTooltip:Show()
 end)
 MinimapZoneTextButton:SetScript("OnLeave", GameTooltip_Hide)
-
-MinimapZoneText:SetParent(MinimapZoneTextButton)
-MinimapZoneText:SetSize(150, 12)
-MinimapZoneText:ClearAllPoints()
-MinimapZoneText:SetPoint("CENTER", MinimapZoneTextButton, "TOP", 0, -5)
-MinimapZoneText:SetJustifyH("CENTER")
 
 MiniMapWorldMapButton = MinimapCluster.ZoneTextButton
 MiniMapWorldMapButton:SetParent(MinimapBackdrop)
