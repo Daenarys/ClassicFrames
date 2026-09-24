@@ -3,7 +3,7 @@
 ## Title: Classic Frames
 ## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
-## Version: 1.07
+## Version: 1.08
 skins\ApplySkin.lua
 skins\ActionBars.lua
 skins\AddOnList.lua
