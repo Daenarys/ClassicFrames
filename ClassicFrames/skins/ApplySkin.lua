@@ -669,6 +669,9 @@ function ApplyRedButton(frame)
 		frame.CfMiddle:SetPoint("BOTTOMRIGHT", frame.CfRight, "BOTTOMLEFT")
 	end
 
+	frame:SetHighlightTexture("Interface\\Buttons\\UI-Panel-Button-Highlight", "ADD")
+	frame:GetHighlightTexture():SetTexCoord(0, 0.625, 0, 0.6875)
+
 	frame:HookScript("OnUpdate", function()
 		local buttonState = frame:GetButtonState()
 
