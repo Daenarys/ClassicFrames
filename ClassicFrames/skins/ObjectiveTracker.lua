@@ -49,17 +49,7 @@ local function HandleQuestIcons(_, block)
 end
 
 local trackers = {
-	_G.AchievementObjectiveTracker,
-	_G.AdventureObjectiveTracker,
-	_G.BonusObjectiveTracker,
-	_G.CampaignQuestObjectiveTracker,
-	_G.InitiativeTasksObjectiveTracker,
-	_G.MonthlyActivitiesObjectiveTracker,
-	_G.ProfessionsRecipeTracker,
-	_G.QuestObjectiveTracker,
-	_G.ScenarioObjectiveTracker,
-	_G.UIWidgetObjectiveTracker,
-	_G.WorldQuestObjectiveTracker
+	_G.QuestObjectiveTracker
 }
 
 for _, tracker in pairs(trackers) do
@@ -89,15 +79,6 @@ hooksecurefunc(ObjectiveTrackerContainerMixin, "Update", function(self)
 		if module.Header.Text then
     		local num = C_QuestLog.GetNumQuestWatches()
     		module.Header.Text:SetText(OBJECTIVES_TRACKER_LABEL.." ("..num..")")
-		end
-	end
-end)
-
-hooksecurefunc(QuestObjectiveItemButtonMixin, "UpdateInsideBlob", function(self, questID, inside)
-	if questID == self:GetAttribute("questID") then
-		if inside then
-			self.Glow:Hide()
-			self.GlowAnim:Stop()
 		end
 	end
 end)
