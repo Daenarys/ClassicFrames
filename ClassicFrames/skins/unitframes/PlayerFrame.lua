@@ -351,7 +351,7 @@ hooksecurefunc("PlayerFrame_UpdatePvPStatus", function()
 	end
 
 	PlayerPVPTimerText:ClearAllPoints()
-	PlayerPVPTimerText:SetPoint("CENTER", pvpBG, "TOPLEFT", 4, 22)
+	PlayerPVPTimerText:SetPoint("CENTER", pvpBG, "TOPLEFT", 4, 25)
 end)
 
 hooksecurefunc("PlayerFrame_UpdateRolesAssigned", function()
