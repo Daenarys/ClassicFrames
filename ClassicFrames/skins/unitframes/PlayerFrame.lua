@@ -346,7 +346,7 @@ hooksecurefunc("PlayerFrame_UpdatePvPStatus", function()
 
 	if (UnitIsPVPFreeForAll("player")) then
 		pvpIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-FFA")
-	elseif ( factionGroup and factionGroup ~= "Neutral" and UnitIsPVP("player") ) then
+	elseif (factionGroup and factionGroup ~= "Neutral") then
 		pvpIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-"..factionGroup)
 	end
 

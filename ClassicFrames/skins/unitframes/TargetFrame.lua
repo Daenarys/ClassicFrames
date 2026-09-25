@@ -279,7 +279,7 @@ local function SkinFrame(frame)
 
 			if (UnitIsPVPFreeForAll(self.unit)) then
 				pvpIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-FFA")
-			elseif (factionGroup and factionGroup ~= "Neutral" and UnitIsPVP(self.unit)) then
+			elseif (factionGroup and factionGroup ~= "Neutral") then
 				pvpIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-"..factionGroup)
 			end
 		end
