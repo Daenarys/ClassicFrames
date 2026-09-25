@@ -3,7 +3,7 @@
 ## Title: Classic Frames
 ## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
-## Version: 1.09
+## Version: 1.10
 skins\ApplySkin.lua
 skins\AddOnList.lua
 skins\AuctionHouse.lua
