@@ -18,7 +18,7 @@ if ObjectiveTrackerFrame.Header then
 	ObjectiveTrackerFrame.Header.Background:Hide()
 	ObjectiveTrackerFrame.Header.Text:Hide()
 	ObjectiveTrackerFrame.Header.MinimizeButton:SetSize(15, 14)
-	ObjectiveTrackerFrame.Header.MinimizeButton:SetPoint("RIGHT", -8, 3)
+	ObjectiveTrackerFrame.Header.MinimizeButton:SetPoint("RIGHT", -8, 2)
 	ObjectiveTrackerFrame.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Red-Highlight", "ADD")
 
 	local title = ObjectiveTrackerFrame.Header:CreateFontString(nil, "ARTWORK", "GameFontNormal")
@@ -53,11 +53,11 @@ local trackers = {
 }
 
 for _, tracker in pairs(trackers) do
-	tracker.ContentsFrame:SetPoint("LEFT", 44, 0)
+	tracker.ContentsFrame:SetPoint("LEFT", 41, 0)
 	tracker.ContentsFrame:SetPoint("RIGHT", -8, 0)
 	tracker.Header.Background:Hide()
 	tracker.Header.Text:SetFontObject(GameFontNormal)
-	tracker.Header.Text:SetPoint("LEFT", 61, 0)
+	tracker.Header.Text:SetPoint("LEFT", 59, 0)
 	hooksecurefunc(tracker, 'AddBlock', HandleQuestIcons)
 end
 
