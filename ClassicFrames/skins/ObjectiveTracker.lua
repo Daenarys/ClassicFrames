@@ -53,11 +53,11 @@ local trackers = {
 }
 
 for _, tracker in pairs(trackers) do
-	tracker.ContentsFrame:SetPoint("LEFT", 41, 0)
+	tracker.ContentsFrame:SetPoint("LEFT", 40, 0)
 	tracker.ContentsFrame:SetPoint("RIGHT", -8, 0)
 	tracker.Header.Background:Hide()
 	tracker.Header.Text:SetFontObject(GameFontNormal)
-	tracker.Header.Text:SetPoint("LEFT", 59, 0)
+	tracker.Header.Text:SetPoint("LEFT", 60, 0)
 	hooksecurefunc(tracker, 'AddBlock', HandleQuestIcons)
 end
 
