@@ -265,6 +265,26 @@ local function SkinFrame(frame)
 		end
 	end)
 
+	hooksecurefunc(frame, "CheckFaction", function(self)
+		if (self.showPVP) then
+			local factionGroup = UnitFactionGroup(self.unit)
+			local pvpBG = contextual.PvpBackgroundCircle
+			local pvpIcon = contextual.PvpBackgroundIcon
+
+			pvpBG:SetAlpha(0)
+			pvpBG:SetPoint("TOP", pvpBG:GetParent(), "TOPRIGHT", -11, -50)
+
+			pvpIcon:SetScale(1)
+			pvpIcon:SetSize(64, 64)
+
+			if (UnitIsPVPFreeForAll(self.unit)) then
+				pvpIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-FFA")
+			elseif (factionGroup and factionGroup ~= "Neutral" and UnitIsPVP(self.unit)) then
+				pvpIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-"..factionGroup)
+			end
+		end
+	end)
+
 	hooksecurefunc(frame, "CheckLevel", function(self)
 		local levelText = self.TargetFrameContent.TargetFrameContentMain.LevelText
 		local highLevelTexture = contextual.HighLevelTexture
@@ -278,18 +298,6 @@ local function SkinFrame(frame)
 		highLevelTexture:SetTexture("Interface\\TargetingFrame\\UI-TargetingFrame-Skull")
 		highLevelTexture:ClearAllPoints()
 		highLevelTexture:SetPoint("CENTER", 81, -21)
-	end)
-
-	hooksecurefunc(frame, "ShowPvPIcon", function(self, parentFrame, factionGroup)
-		local pvpBG = parentFrame.PvpBackgroundCircle
-		local pvpIcon = parentFrame.PvpBackgroundIcon
-
-		pvpBG:SetAlpha(0)
-		pvpBG:SetPoint("TOP", pvpBG:GetParent(), "TOPRIGHT", -11, -50)
-
-		pvpIcon:SetScale(1)
-		pvpIcon:SetSize(64, 64)
-		pvpIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-"..factionGroup)
 	end)
 
 	hooksecurefunc(frame, "AnchorAuraContainer", function(self)

@@ -332,6 +332,28 @@ hooksecurefunc("PlayerFrame_UpdatePlayerRestLoop", function()
 	playerRestLoop.PlayerRestLoopAnim:Stop()
 end)
 
+hooksecurefunc("PlayerFrame_UpdatePvPStatus", function()
+	local factionGroup = UnitFactionGroup("player")
+	local pvpBG = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.PvpBackgroundCircle
+	local pvpIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.PvpBackgroundIcon
+
+	pvpBG:SetAlpha(0)
+	pvpBG:SetPoint("TOP", pvpBG:GetParent(), "TOPLEFT", 39, -50)
+
+	pvpIcon:SetParent(PlayerFrame.PlayerFrameContainer)
+	pvpIcon:SetScale(1)
+	pvpIcon:SetSize(64, 64)
+
+	if (UnitIsPVPFreeForAll("player")) then
+		pvpIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-FFA")
+	elseif ( factionGroup and factionGroup ~= "Neutral" and UnitIsPVP("player") ) then
+		pvpIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-"..factionGroup)
+	end
+
+	PlayerPVPTimerText:ClearAllPoints()
+	PlayerPVPTimerText:SetPoint("CENTER", pvpBG, "TOPLEFT", 4, 22)
+end)
+
 hooksecurefunc("PlayerFrame_UpdateRolesAssigned", function()
 	local roleIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual.RoleIcon
 	local role = UnitGroupRolesAssignedEnum("player")
@@ -357,23 +379,6 @@ hooksecurefunc("PlayerFrame_UpdateRolesAssigned", function()
 	else
 		PlayerLevelText:Show()
 	end
-end)
-
-hooksecurefunc("PlayerFrame_ShowPvPIcon", function(factionGroup)
-	local playerFrameTargetMain = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain
-	local pvpBG = playerFrameTargetMain.PvpBackgroundCircle
-	local pvpIcon = playerFrameTargetMain.PvpBackgroundIcon
-
-	pvpBG:SetAlpha(0)
-	pvpBG:SetPoint("TOP", pvpBG:GetParent(), "TOPLEFT", 39, -50)
-
-	pvpIcon:SetParent(PlayerFrame.PlayerFrameContainer)
-	pvpIcon:SetScale(1)
-	pvpIcon:SetSize(64, 64)
-	pvpIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-"..factionGroup)
-
-	PlayerPVPTimerText:ClearAllPoints()
-	PlayerPVPTimerText:SetPoint("CENTER", pvpBG, "TOPLEFT", 4, 22)
 end)
 
 local PlayerRestIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentContextual:CreateTexture(nil, "OVERLAY")
