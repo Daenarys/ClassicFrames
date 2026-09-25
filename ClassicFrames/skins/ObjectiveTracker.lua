@@ -67,13 +67,8 @@ for _, tracker in pairs(trackers) do
 	tracker.ContentsFrame:SetPoint("RIGHT", -8, 0)
 	tracker.Header.Background:Hide()
 	tracker.Header.Text:SetFontObject(GameFontNormal)
-	tracker.Header.Text:SetText(OBJECTIVES_TRACKER_LABEL)
 	tracker.Header.Text:SetPoint("LEFT", 61, 0)
 	hooksecurefunc(tracker, 'AddBlock', HandleQuestIcons)
-
-	local count = tracker.Header:CreateFontString(nil, "ARTWORK", "GameFontNormal")
-	tracker.Header.Count = count
-	count:SetPoint("LEFT", 131, 0)
 end
 
 hooksecurefunc(ObjectiveTrackerContainerMixin, "Update", function(self)
@@ -91,9 +86,9 @@ hooksecurefunc(ObjectiveTrackerContainerMixin, "Update", function(self)
 		if module.Header.MinimizeButton then
 			module.Header.MinimizeButton:Hide()
 		end
-		if module.Header.Count then
+		if module.Header.Text then
     		local num = C_QuestLog.GetNumQuestWatches()
-    		module.Header.Count:SetText(("(%d)"):format(num))
+    		module.Header.Text:SetText(OBJECTIVES_TRACKER_LABEL.." ("..num..")")
 		end
 	end
 end)
