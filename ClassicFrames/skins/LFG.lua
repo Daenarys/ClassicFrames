@@ -16,10 +16,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyTitleBg(LFGListingFrame)
 			ApplyNineSlicePortrait(LFGListingFrame)
 
-			LFGListingFrame:HookScript("OnShow", function()
-				LFGListingFramePortrait:SetTexture("Interface\\LFGFrame\\UI-LFG-PORTRAIT")
-			end)
-
 			ApplyScrollBarHybrid(LFGListingFrameActivityViewScrollBar, true)
 			ApplyScrollBarThumb(LFGListingFrameActivityViewScrollBar.Track.Thumb)
 
@@ -36,10 +32,6 @@ f:SetScript("OnEvent", function(self, event, name)
 
 			ApplyTitleBg(LFGBrowseFrame)
 			ApplyNineSlicePortrait(LFGBrowseFrame)
-
-			LFGBrowseFrame:HookScript("OnShow", function()
-				LFGBrowseFramePortrait:SetTexture("Interface\\LFGFrame\\UI-LFG-PORTRAIT")
-			end)
 
 			ApplyScrollBarHybrid(LFGBrowseFrameScrollBar, true)
 			ApplyScrollBarThumb(LFGBrowseFrameScrollBar.Track.Thumb)
@@ -59,12 +51,10 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyTitleBg(LFGWhoListFrame)
 			ApplyNineSlicePortrait(LFGWhoListFrame)
 
-			LFGWhoListFrame:HookScript("OnShow", function()
-				LFGWhoListFramePortrait:SetTexture("Interface\\LFGFrame\\UI-LFG-PORTRAIT")
-			end)
-
 			ApplyScrollBarHybrid(LFGWhoListFrame.ScrollBar, true)
 			ApplyScrollBarThumb(LFGWhoListFrame.ScrollBar.Track.Thumb)
+
+			ApplyFilterDropDown(LFGWhoListFrame.FilterDropdown)
 		end
 	end
 end)
