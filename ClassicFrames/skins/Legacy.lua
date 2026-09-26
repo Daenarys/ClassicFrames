@@ -18,6 +18,9 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarHybrid(LegacySystemFrame.ChallengesPage.CategoryList.ScrollBar, true)
 		ApplyScrollBarThumb(LegacySystemFrame.ChallengesPage.CategoryList.ScrollBar.Track.Thumb)
 
+		ApplyScrollBarHybrid(LegacySystemFrame.ChallengesPage.DetailPane.ScrollBar, true)
+		ApplyScrollBarThumb(LegacySystemFrame.ChallengesPage.DetailPane.ScrollBar.Track.Thumb)
+
 		ApplyFilterDropDown(LegacySystemFrame.ChallengesPage.CategoryList.FilterDropdown)
 	end
 end)
