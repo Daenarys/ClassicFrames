@@ -50,7 +50,9 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarThumb(LFGBrowseFrameScrollBar.Track.Thumb)
 
 			ApplyDropDown(LFGBrowseFrameActivityDropdown)
+			LFGBrowseFrameActivityDropdown.Text:SetJustifyH("RIGHT")
 			ApplyDropDown(LFGBrowseFrameCategoryDropdown)
+			LFGBrowseFrameCategoryDropdown.Text:SetJustifyH("RIGHT")
 		end
 		if LFGWhoListFrame then
 			LFGWhoListFramePortrait:SetSize(61, 61)
