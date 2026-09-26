@@ -4,10 +4,13 @@ f:SetScript("OnEvent", function(self, event, name)
 	if name == "Blizzard_GroupFinder_VanillaStyle" then
 		ApplyCloseButton(LFGParentFrameCloseButton)
 
+		LFGParentFramePortrait:SetAlpha(0)
+
 		if LFGListingFrame then
 			LFGListingFramePortrait:SetSize(61, 61)
 			LFGListingFramePortrait:ClearAllPoints()
 			LFGListingFramePortrait:SetPoint("TOPLEFT", -6, 8)
+			LFGListingFramePortrait:SetTexture("Interface\\LFGFrame\\UI-LFG-PORTRAIT")
 
 			LFGListingFrame.TitleContainer:ClearAllPoints()
 			LFGListingFrame.TitleContainer:SetPoint("TOPLEFT", LFGListingFrame, "TOPLEFT", 58, 0)
@@ -25,6 +28,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			LFGBrowseFramePortrait:SetSize(61, 61)
 			LFGBrowseFramePortrait:ClearAllPoints()
 			LFGBrowseFramePortrait:SetPoint("TOPLEFT", -6, 8)
+			LFGBrowseFramePortrait:SetTexture("Interface\\LFGFrame\\UI-LFG-PORTRAIT")
 
 			LFGBrowseFrame.TitleContainer:ClearAllPoints()
 			LFGBrowseFrame.TitleContainer:SetPoint("TOPLEFT", LFGBrowseFrame, "TOPLEFT", 58, 0)
@@ -43,6 +47,7 @@ f:SetScript("OnEvent", function(self, event, name)
 			LFGWhoListFramePortrait:SetSize(61, 61)
 			LFGWhoListFramePortrait:ClearAllPoints()
 			LFGWhoListFramePortrait:SetPoint("TOPLEFT", -6, 8)
+			LFGWhoListFramePortrait:SetTexture("Interface\\LFGFrame\\UI-LFG-PORTRAIT")
 
 			LFGWhoListFrame.TitleContainer:ClearAllPoints()
 			LFGWhoListFrame.TitleContainer:SetPoint("TOPLEFT", LFGWhoListFrame, "TOPLEFT", 58, 0)
