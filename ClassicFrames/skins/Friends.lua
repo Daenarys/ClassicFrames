@@ -29,13 +29,6 @@ FriendsFrameTab3:HookScript("OnShow", function(self)
 	self:SetWidth(51 + self:GetFontString():GetStringWidth())
 end)
 
-ApplyBottomTab(FriendsFrameTab4)
-FriendsFrameTab4:ClearAllPoints()
-FriendsFrameTab4:SetPoint("LEFT", FriendsFrameTab3, "RIGHT", -15, 0)
-FriendsFrameTab4:HookScript("OnShow", function(self)
-	self:SetWidth(52 + self:GetFontString():GetStringWidth())
-end)
-
 FriendsTabHeader.TabSystem:SetPoint("TOPLEFT", 18, -54)
 
 for i = 1, FriendsTabHeader.TabSystem:GetNumChildren() do
@@ -49,9 +42,6 @@ hooksecurefunc(FriendsTabHeader.TabSystem, 'Layout', function(self)
 	self.tabs[2]:SetWidth(29 + self.tabs[2]:GetFontString():GetStringWidth())
 	self.tabs[2]:ClearAllPoints()
 	self.tabs[2]:SetPoint("LEFT", self.tabs[1], "RIGHT")
-	self.tabs[3]:SetWidth(32 + self.tabs[3]:GetFontString():GetStringWidth())
-	self.tabs[3]:ClearAllPoints()
-	self.tabs[3]:SetPoint("LEFT", self.tabs[2], "RIGHT")
 end)
 
 FriendsListFrame.ScrollBar:ClearAllPoints()
@@ -87,32 +77,6 @@ RecentAlliesFrame.List.ScrollBar:SetPoint("BOTTOMLEFT", RecentAlliesFrame.List.S
 
 ApplyScrollBarHybrid(RecentAlliesFrame.List.ScrollBar, true, true)
 ApplyScrollBarThumb(RecentAlliesFrame.List.ScrollBar.Track.Thumb)
-
-RecruitAFriendFrame.RecruitList.ScrollBar:ClearAllPoints()
-RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("TOPLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "TOPRIGHT", 6, -2)
-RecruitAFriendFrame.RecruitList.ScrollBar:SetPoint("BOTTOMLEFT", RecruitAFriendFrame.RecruitList.ScrollBox, "BOTTOMRIGHT", 6, 0)
-
-ApplyScrollBarHybrid(RecruitAFriendFrame.RecruitList.ScrollBar, true, true)
-ApplyScrollBarThumb(RecruitAFriendFrame.RecruitList.ScrollBar.Track.Thumb)
-
-ApplyCloseButton(RecruitAFriendRecruitmentFrame.CloseButton, true)
-RecruitAFriendRecruitmentFrame.CloseButton:ClearAllPoints()
-RecruitAFriendRecruitmentFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
-
-ApplyDialogBorder(RecruitAFriendRecruitmentFrame.Border)
-
-ApplyCloseButton(RecruitAFriendRewardsFrame.CloseButton, true)
-RecruitAFriendRewardsFrame.CloseButton:ClearAllPoints()
-RecruitAFriendRewardsFrame.CloseButton:SetPoint("TOPRIGHT", -5, -5)
-
-ApplyDialogBorder(RecruitAFriendRewardsFrame.Border)
-
-QuickJoinFrame.ScrollBar:ClearAllPoints()
-QuickJoinFrame.ScrollBar:SetPoint("TOPLEFT", QuickJoinFrame.ScrollBox, "TOPRIGHT", 7, -1)
-QuickJoinFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuickJoinFrame.ScrollBox, "BOTTOMRIGHT", 7, 0)
-
-ApplyScrollBarHybrid(QuickJoinFrame.ScrollBar, true, true)
-ApplyScrollBarThumb(QuickJoinFrame.ScrollBar.Track.Thumb)
 
 ApplyCloseButton(AddFriendFrame.CloseButton, true)
 AddFriendFrame.CloseButton:ClearAllPoints()
