@@ -1,7 +1,5 @@
 if not _G.AddonList then return end
 
-AddonList:SetSize(500, 478)
-
 ApplyCloseButton(AddonListCloseButton)
 
 AddonList.TitleContainer:ClearAllPoints()
@@ -20,17 +18,11 @@ ApplyScrollBarArrow(AddonList.ScrollBar)
 ApplyScrollBarTrack(AddonList.ScrollBar.Track)
 ApplyScrollBarThumb(AddonList.ScrollBar.Track.Thumb)
 
-AddonList.SearchBox:Hide()
-
 ApplyCheckBox(AddonList.ForceLoad)
 AddonList.ForceLoad:SetSize(32, 32)
-AddonList.ForceLoad:SetPoint("TOP", 75, -30)
 
 ApplyDropDown(AddonList.Dropdown)
-AddonList.Dropdown:SetWidth(130)
-AddonList.Dropdown:SetPoint("TOPLEFT", 18, -31)
 AddonList.Dropdown.Text:SetJustifyH("RIGHT")
-AddonList.Dropdown.Text:SetPoint("TOPLEFT", 9, -7)
 
 ApplyRedButton(AddonList.EnableAllButton)
 ApplyRedButton(AddonList.DisableAllButton)
