@@ -23,13 +23,17 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyFilterDropDown(LegacySystemFrame.ChallengesPage.CategoryList.FilterDropdown)
 
-		ApplySideTab(LegacySystemFrame.LegacyRewardTrackTab)
-		LegacySystemFrame.LegacyRewardTrackTab:SetPoint("TOPLEFT", LegacySystemFrame, "TOPRIGHT", 0, -36)
+		local prevTab
+		for _, tab in ipairs(LegacySystemFrame.Tabs) do
+			ApplySideTab(tab)
 
-		ApplySideTab(LegacySystemFrame.LegacyChallengeTab)
-		LegacySystemFrame.LegacyChallengeTab:SetPoint("TOPLEFT", LegacySystemFrame.LegacyRewardTrackTab, "BOTTOMLEFT", 0, -20)
-
-		ApplySideTab(LegacySystemFrame.LegacyTreeTab)
-		LegacySystemFrame.LegacyTreeTab:SetPoint("TOPLEFT", LegacySystemFrame.LegacyChallengeTab, "BOTTOMLEFT", 0, -20)
+			tab:ClearAllPoints()
+			if prevTab then
+				tab:SetPoint("TOPLEFT", prevTab, "BOTTOMLEFT", 0, -20)
+			else
+				tab:SetPoint("TOPLEFT", LegacySystemFrame, "TOPRIGHT", 0, -36)
+			end
+			prevTab = tab
+		end
 	end
 end)
