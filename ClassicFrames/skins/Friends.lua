@@ -1,7 +1,5 @@
 if not _G.FriendsFrame then return end
 
-FriendsFrame:SetWidth(338)
-
 ApplyCloseButton(FriendsFrameCloseButton)
 
 FriendsFramePortrait:SetSize(61, 61)
@@ -14,9 +12,6 @@ FriendsFrame.TitleContainer:SetPoint("TOPRIGHT", FriendsFrame, "TOPRIGHT", -58, 
 
 ApplyTitleBg(FriendsFrame)
 ApplyNineSlicePortrait(FriendsFrame)
-
-FriendsFrameBattlenetFrame:ClearAllPoints()
-FriendsFrameBattlenetFrame:SetPoint("TOPLEFT", FriendsTabHeader, "TOPLEFT", 109, -26)
 
 FriendsFrameBattlenetFrame.ContactsMenuButton.Icon:Hide()
 FriendsFrameBattlenetFrame.ContactsMenuButton:SetNormalTexture("Interface\\FriendsFrame\\broadcast-normal")
