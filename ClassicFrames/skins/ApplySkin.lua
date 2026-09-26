@@ -482,6 +482,42 @@ function ApplyBottomTab(frame)
 	frame:GetHighlightTexture():SetPoint("BOTTOMRIGHT", -3, 0)
 end
 
+function ApplySideTab(frame)
+	frame:SetSize(32, 32)
+
+	frame.Background:SetSize(64, 64)
+	frame.Background:SetTexture("Interface\\SpellBook\\SpellBook-SkillLineTab")
+	frame.Background:ClearAllPoints()
+	frame.Background:SetPoint("TOPLEFT", -3, 11)
+
+	frame.Icon:ClearAllPoints()
+	frame.Icon:SetPoint("CENTER")
+
+	frame.HighlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
+	frame.HighlightTexture:SetBlendMode("ADD")
+	frame.HighlightTexture:ClearAllPoints()
+	frame.HighlightTexture:SetAllPoints()
+
+	frame.SelectedTexture:SetTexture("Interface\\Buttons\\CheckButtonHilight")
+	frame.SelectedTexture:SetBlendMode("ADD")
+	frame.SelectedTexture:ClearAllPoints()
+	frame.SelectedTexture:SetAllPoints()
+
+	frame.Mask:SetAlpha(0)
+
+	frame:HookScript("OnMouseDown", function(self)
+		self.Icon:SetPoint("CENTER")
+	end)
+
+	frame:HookScript("OnMouseUp", function(self)
+		self.Icon:SetPoint("CENTER")
+	end)
+
+	hooksecurefunc(frame, "UpdateIconInterior", function(self)
+		self.Icon:SetSize(30, 30)
+	end)
+end
+
 function ApplyDropDown(frame)
 	frame.Background:Hide()
 
