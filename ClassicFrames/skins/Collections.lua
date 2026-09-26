@@ -53,5 +53,20 @@ f:SetScript("OnEvent", function(self, event, name)
 			end
 			self.ClassDropdown:Hide()
 		end)
+
+		hooksecurefunc("CollectionsJournal_CheckAndDisplayTabs", function()
+			local prevTab
+			for _, tab in ipairs(CollectionsJournal.TabContainer.Tabs) do
+				ApplySideTab(tab)
+
+				tab:ClearAllPoints()
+				if prevTab then
+					tab:SetPoint("TOPLEFT", prevTab, "BOTTOMLEFT", 0, -20)
+				else
+					tab:SetPoint("TOPLEFT", CollectionsJournal.TabContainer, "TOPLEFT", 0, -36)
+				end
+				prevTab = tab
+			end
+		end)
 	end
 end)

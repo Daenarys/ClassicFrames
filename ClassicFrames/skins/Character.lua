@@ -45,3 +45,16 @@ ApplyScrollBarThumb(GearManagerPopupFrame.IconSelector.ScrollBar.Track.Thumb)
 
 ApplyDropDown(GearManagerPopupFrame.BorderBox.IconTypeDropdown)
 GearManagerPopupFrame.BorderBox.IconTypeDropdown.Text:SetJustifyH("RIGHT")
+
+local prevTab
+for _, tab in ipairs(CharacterFrame.ModeTabs.Tabs) do
+	ApplySideTab(tab)
+
+	tab:ClearAllPoints()
+	if prevTab then
+		tab:SetPoint("TOPLEFT", prevTab, "BOTTOMLEFT", 0, -20)
+	else
+		tab:SetPoint("TOPLEFT", CharacterFrameModeTabs, "TOPLEFT", 0, -6)
+	end
+	prevTab = tab
+end

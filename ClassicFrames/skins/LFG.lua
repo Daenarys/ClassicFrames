@@ -6,6 +6,15 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		LFGParentFramePortrait:SetAlpha(0)
 
+		ApplySideTab(LFGParentFrame.ListingTab)
+		LFGParentFrame.ListingTab:SetPoint("TOPLEFT", LFGParentFrame, "TOPRIGHT", 0, -36)
+
+		ApplySideTab(LFGParentFrame.BrowsingTab)
+		LFGParentFrame.BrowsingTab:SetPoint("TOPLEFT", LFGParentFrame.ListingTab, "BOTTOMLEFT", 0, -20)
+
+		ApplySideTab(LFGParentFrame.WhoListingTab)
+		LFGParentFrame.WhoListingTab:SetPoint("TOPLEFT", LFGParentFrame.BrowsingTab, "BOTTOMLEFT", 0, -20)
+
 		if LFGListingFrame then
 			LFGListingFramePortrait:SetSize(61, 61)
 			LFGListingFramePortrait:ClearAllPoints()

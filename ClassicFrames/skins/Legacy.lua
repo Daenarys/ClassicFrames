@@ -22,5 +22,14 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(LegacySystemFrame.ChallengesPage.DetailPane.ScrollBar.Track.Thumb)
 
 		ApplyFilterDropDown(LegacySystemFrame.ChallengesPage.CategoryList.FilterDropdown)
+
+		ApplySideTab(LegacySystemFrame.LegacyRewardTrackTab)
+		LegacySystemFrame.LegacyRewardTrackTab:SetPoint("TOPLEFT", LegacySystemFrame, "TOPRIGHT", 0, -36)
+
+		ApplySideTab(LegacySystemFrame.LegacyChallengeTab)
+		LegacySystemFrame.LegacyChallengeTab:SetPoint("TOPLEFT", LegacySystemFrame.LegacyRewardTrackTab, "BOTTOMLEFT", 0, -20)
+
+		ApplySideTab(LegacySystemFrame.LegacyTreeTab)
+		LegacySystemFrame.LegacyTreeTab:SetPoint("TOPLEFT", LegacySystemFrame.LegacyChallengeTab, "BOTTOMLEFT", 0, -20)
 	end
 end)

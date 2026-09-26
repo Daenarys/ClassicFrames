@@ -14,5 +14,20 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyTitleBg(InspectFrame)
 		ApplyNineSlicePortrait(InspectFrame)
+
+		hooksecurefunc(InspectFrame, "UpdateTabLayout", function(self)
+			local prevTab
+			for _, tab in ipairs(self.ModeTabs.Tabs) do
+				ApplySideTab(tab)
+
+				tab:ClearAllPoints()
+				if prevTab then
+					tab:SetPoint("TOPLEFT", prevTab, "BOTTOMLEFT", 0, -20)
+				else
+					tab:SetPoint("TOPLEFT", self.ModeTabs, "TOPLEFT", 0, -6)
+				end
+				prevTab = tab
+			end
+		end)
 	end
 end)

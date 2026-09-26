@@ -19,5 +19,21 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyScrollBarThumb(ProfessionsFrame.CraftingPage.RecipeList.ScrollBar.Track.Thumb)
 
 		ApplyFilterDropDown(ProfessionsFrame.CraftingPage.RecipeList.FilterDropdown)
+
+		ApplySideTab(ProfessionsFrame.ProfessionsOverviewTab)
+		ProfessionsFrame.ProfessionsOverviewTab:SetPoint("TOPLEFT", ProfessionsFrame, "TOPRIGHT", 0, -36)
+
+		local prevTab
+		for _, tab in ipairs(ProfessionsFrame.rightProfessionTabs) do
+			ApplySideTab(tab)
+
+			tab:ClearAllPoints()
+			if prevTab then
+				tab:SetPoint("TOPLEFT", prevTab, "BOTTOMLEFT", 0, -20)
+			else
+				tab:SetPoint("TOPLEFT", ProfessionsFrame.ProfessionsOverviewTab, "BOTTOMLEFT", 0, -20)
+			end
+			prevTab = tab
+		end
 	end
 end)
