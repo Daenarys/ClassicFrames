@@ -490,6 +490,7 @@ function ApplySideTab(frame)
 	frame.Background:ClearAllPoints()
 	frame.Background:SetPoint("TOPLEFT", -3, 11)
 
+	frame.Icon:SetSize(30, 30)
 	frame.Icon:ClearAllPoints()
 	frame.Icon:SetPoint("CENTER")
 
