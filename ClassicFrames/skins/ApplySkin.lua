@@ -483,93 +483,39 @@ function ApplyBottomTab(frame)
 end
 
 function ApplySideTab(frame)
-	frame:SetHeight(32)
+	frame:SetSize(32, 32)
 
-	frame.Background:SetAlpha(0)
-	frame.Icon:SetAlpha(0)
-	frame.SelectedTexture:SetAlpha(0)
+	frame.Background:SetSize(64, 64)
+	frame.Background:SetTexture("Interface\\SpellBook\\SpellBook-SkillLineTab")
+	frame.Background:ClearAllPoints()
+	frame.Background:SetPoint("TOPLEFT", -3, 11)
 
-	if (frame.LeftActive == nil) then
-		frame.LeftActive = frame:CreateTexture(nil, "ARTWORK")
-		frame.LeftActive:SetSize(20, 35)
-		frame.LeftActive:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
-		frame.LeftActive:SetTexCoord(0, 0.15625, 0, 0.546875)
-		frame.LeftActive:SetPoint("TOPLEFT")
-	end
+	frame.Icon:SetSize(30, 30)
+	frame.Icon:ClearAllPoints()
+	frame.Icon:SetPoint("CENTER")
 
-	if (frame.RightActive == nil) then
-		frame.RightActive = frame:CreateTexture(nil, "ARTWORK")
-		frame.RightActive:SetSize(20, 35)
-		frame.RightActive:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
-		frame.RightActive:SetTexCoord(0.84375, 1, 0, 0.546875)
-		frame.RightActive:SetPoint("TOPRIGHT")
-	end
-
-	if (frame.Middle == nil) then
-		frame.MiddleActive = frame:CreateTexture(nil, "ARTWORK")
-		frame.MiddleActive:SetSize(88, 35)
-		frame.MiddleActive:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-ActiveTab")
-		frame.MiddleActive:SetTexCoord(0.15625, 0.84375, 0, 0.546875)
-		frame.MiddleActive:SetPoint("LEFT", frame.LeftActive, "RIGHT")
-		frame.MiddleActive:SetPoint("RIGHT", frame.RightActive, "LEFT")
-	end
-
-	if (frame.Left == nil) then
-		frame.Left = frame:CreateTexture(nil, "ARTWORK")
-		frame.Left:SetSize(20, 32)
-		frame.Left:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InActiveTab")
-		frame.Left:SetTexCoord(0, 0.15625, 0, 1)
-		frame.Left:SetPoint("TOPLEFT", 0, -1)
-	end
-
-	if (frame.Right == nil) then
-		frame.Right = frame:CreateTexture(nil, "ARTWORK")
-		frame.Right:SetSize(20, 32)
-		frame.Right:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InActiveTab")
-		frame.Right:SetTexCoord(0.84375, 1, 0, 1)
-		frame.Right:SetPoint("TOPRIGHT", 0, -1)
-	end
-
-	if (frame.Middle == nil) then
-		frame.Middle = frame:CreateTexture(nil, "ARTWORK")
-		frame.Middle:SetSize(88, 32)
-		frame.Middle:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-InActiveTab")
-		frame.Middle:SetTexCoord(0.15625, 0.84375, 0, 1)
-		frame.Middle:SetPoint("LEFT", frame.Left, "RIGHT")
-		frame.Middle:SetPoint("RIGHT", frame.Right, "LEFT")
-	end
-
-	local text = frame:CreateFontString(nil, "ARTWORK", "GameFontNormalSmall")
-	text:SetText(frame.tooltipText)
-	frame.Text = text
-
-	frame:SetWidth(40 + text:GetWidth())
-
-	frame.HighlightTexture:SetTexture("Interface\\PaperDollInfoFrame\\UI-Character-Tab-RealHighlight")
+	frame.HighlightTexture:SetTexture("Interface\\Buttons\\ButtonHilight-Square")
 	frame.HighlightTexture:SetBlendMode("ADD")
 	frame.HighlightTexture:ClearAllPoints()
-	frame.HighlightTexture:SetPoint("TOPLEFT", 3, 5)
-	frame.HighlightTexture:SetPoint("BOTTOMRIGHT", -3, 0)
+	frame.HighlightTexture:SetAllPoints()
 
-	frame:HookScript("OnEnter", GameTooltip_Hide)
+	frame.SelectedTexture:SetTexture("Interface\\Buttons\\CheckButtonHilight")
+	frame.SelectedTexture:SetBlendMode("ADD")
+	frame.SelectedTexture:ClearAllPoints()
+	frame.SelectedTexture:SetAllPoints()
 
-	hooksecurefunc(frame, "SetChecked", function(self, checked)
-		self.HighlightTexture:SetShown(not checked)
-		self.Left:SetShown(not checked)
-		self.Middle:SetShown(not checked)
-		self.Right:SetShown(not checked)
-		self.LeftActive:SetShown(checked)
-		self.MiddleActive:SetShown(checked)
-		self.RightActive:SetShown(checked)
+	frame.Mask:SetAlpha(0)
 
-		text:ClearAllPoints()
-		if checked then
-			text:SetFontObject(GameFontHighlightSmall)
-			text:SetPoint("CENTER", 0, -3)
-		else
-			text:SetFontObject(GameFontNormalSmall)
-			text:SetPoint("CENTER", 0, 2)
-		end
+	frame:HookScript("OnMouseDown", function(self)
+		self.Icon:SetPoint("CENTER")
+	end)
+
+	frame:HookScript("OnMouseUp", function(self)
+		self.Icon:SetPoint("CENTER")
+	end)
+
+	hooksecurefunc(frame, "UpdateIconInterior", function(self)
+		self.Icon:SetSize(30, 30)
 	end)
 end
 
