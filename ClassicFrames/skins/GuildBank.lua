@@ -24,7 +24,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		GuildBankFrame.Log.ScrollBar:SetSize(25, 560)
 		GuildBankFrame.Log.ScrollBar:ClearAllPoints()
-		GuildBankFrame.Log.ScrollBar:SetPoint("TOPLEFT", GuildBankMessageFrame, "TOPRIGHT", -3, 5)
+		GuildBankFrame.Log.ScrollBar:SetPoint("TOPLEFT", GuildBankMessageFrame, "TOPRIGHT", -4, 4)
 		GuildBankFrame.Log.ScrollBar:SetPoint("BOTTOMLEFT", GuildBankMessageFrame, "BOTTOMRIGHT", 0, -3)
 
 		ApplyScrollBarArrow(GuildBankFrame.Log.ScrollBar)
@@ -33,8 +33,8 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		GuildBankInfoScrollFrame.ScrollBar:SetSize(25, 560)
 		GuildBankInfoScrollFrame.ScrollBar:ClearAllPoints()
-		GuildBankInfoScrollFrame.ScrollBar:SetPoint("TOPLEFT", GuildBankInfoScrollFrame, "TOPRIGHT", -5, 3)
-		GuildBankInfoScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", GuildBankInfoScrollFrame, "BOTTOMRIGHT", -2, -3)
+		GuildBankInfoScrollFrame.ScrollBar:SetPoint("TOPLEFT", GuildBankInfoScrollFrame, "TOPRIGHT", -6, 3)
+		GuildBankInfoScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", GuildBankInfoScrollFrame, "BOTTOMRIGHT", 0, -4)
 
 		ApplyScrollBarArrow(GuildBankInfoScrollFrame.ScrollBar)
 		ApplyScrollBarTrack(GuildBankInfoScrollFrame.ScrollBar.Track)
