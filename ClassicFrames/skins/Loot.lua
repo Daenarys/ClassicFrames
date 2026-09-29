@@ -7,12 +7,6 @@ function LootFrame_OnLoad(self)
 	self:RegisterEvent("LOOT_SLOT_CLEARED")
 	self:RegisterEvent("LOOT_SLOT_CHANGED")
 	self:RegisterEvent("LOOT_CLOSED")
-	--hide button bar
-	ButtonFrameTemplate_HideButtonBar(self)
-
-	ApplyCloseButton(self.CloseButton)
-	ApplyTitleBg(self)
-	ApplyNineSlicePortrait(self)
 end
 
 function LootFrame_OnEvent(self, event, ...)
