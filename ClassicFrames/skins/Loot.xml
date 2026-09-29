@@ -56,71 +56,62 @@
 			</OnClick>
 		</Scripts>
 	</ItemButton>
-	<Frame name="CfLootFrame" frameStrata="HIGH" toplevel="true" movable="true" enableMouse="true" clampedToScreen="true" hidden="true" parent="UIParent">
-		<Size x="256" y="256"/>
+	<Frame name="CfLootFrame" frameStrata="HIGH" toplevel="true" movable="true" enableMouse="true" clampedToScreen="true" hidden="true" parent="UIParent" inherits="ButtonFrameTemplate">
+		<Size x="170" y="240"/>
 		<Layers>
-			<Layer level="BORDER">
+			<Layer level="OVERLAY" textureSubLevel="-1">
 				<Texture name="LootFramePortraitOverlay" file="Interface\TargetingFrame\TargetDead">
 					<Size x="58" y="58"/>
 					<Anchors>
-						<Anchor point="TOPLEFT" x="10" y="-8"/>
+						<Anchor point="TOPLEFT" x="-5" y="5"/>
 					</Anchors>
 				</Texture>
 			</Layer>
 			<Layer level="ARTWORK">
-				<Texture file="Interface\LootFrame\UI-LootPanel"/>
 				<FontString inherits="GameFontNormal" text="ITEMS">
 					<Anchors>
-						<Anchor point="CENTER" x="-12" y="102"/>
+						<Anchor point="CENTER" x="12" y="108"/>
 					</Anchors>
 				</FontString>
 				<FontString name="LootFramePrev" inherits="GameFontNormal" text="PREV">
 					<Anchors>
-						<Anchor point="BOTTOMLEFT" x="57" y="27"/>
+						<Anchor point="BOTTOMLEFT" x="45" y="18"/>
 
 					</Anchors>
 				</FontString>
 				<FontString name="LootFrameNext" inherits="GameFontNormal" text="NEXT">
 					<Anchors>
-						<Anchor point="BOTTOMRIGHT" relativeTo="CfLootFrame" relativePoint="BOTTOMLEFT" x="142" y="27"/>
+						<Anchor point="BOTTOMRIGHT" relativeTo="CfLootFrame" relativePoint="BOTTOMLEFT" x="127" y="18"/>
 					</Anchors>
 				</FontString>
 			</Layer>
 		</Layers>
 		<Frames>
-			<Button name="LootCloseButton">
-				<Size x="32" y="32"/>
-				<Anchors>
-					<Anchor point="CENTER" relativePoint="TOPRIGHT" x="-81" y="-26"/>
-				</Anchors>
-				<NormalTexture file="Interface\Buttons\UI-Panel-MinimizeButton-Up"/>
-				<PushedTexture file="Interface\Buttons\UI-Panel-MinimizeButton-Down"/>
-				<HighlightTexture file="Interface\Buttons\UI-Panel-MinimizeButton-Highlight" alphaMode="ADD"/>
-			</Button>
 			<ItemButton name="LootButton1" inherits="LootButtonTemplate" id="1">
 				<Anchors>
-					<Anchor point="TOPLEFT" x="24" y="-80"/>
+					<Anchor point="TOPLEFT" x="9" y="-68"/>
 				</Anchors>
 			</ItemButton>
+			<!-- anchors not relative - see bug 266687 -->
 			<ItemButton name="LootButton2" inherits="LootButtonTemplate" id="2">
 				<Anchors>
-					<Anchor point="TOP" relativeTo="LootButton1" relativePoint="BOTTOM" x="0" y="-4"/>
+					<Anchor point="TOPLEFT" x="9" y="-109"/>
 				</Anchors>
 			</ItemButton>
 			<ItemButton name="LootButton3" inherits="LootButtonTemplate" id="3">
 				<Anchors>
-					<Anchor point="TOP" relativeTo="LootButton2" relativePoint="BOTTOM" x="0" y="-4"/>
+					<Anchor point="TOPLEFT" x="9" y="-150"/>
 				</Anchors>
 			</ItemButton>
 			<ItemButton name="LootButton4" inherits="LootButtonTemplate" id="4">
 				<Anchors>
-					<Anchor point="TOP" relativeTo="LootButton3" relativePoint="BOTTOM" x="0" y="-4"/>
+					<Anchor point="TOPLEFT" x="9" y="-193"/>
 				</Anchors>
 			</ItemButton>
 			<Button name="LootFrameUpButton">
 				<Size x="32" y="32"/>
 				<Anchors>
-					<Anchor point="BOTTOMLEFT" relativeTo="CfLootFrame" relativePoint="BOTTOMLEFT" x="25" y="16"/>
+					<Anchor point="BOTTOMLEFT" relativeTo="CfLootFrame" relativePoint="BOTTOMLEFT" x="8" y="6"/>
 				</Anchors>
 				<Scripts>
 					<OnClick function="LootFrame_PageUp"/>
@@ -133,7 +124,7 @@
 			<Button name="LootFrameDownButton">
 				<Size x="32" y="32"/>
 				<Anchors>
-					<Anchor point="BOTTOMLEFT" relativeTo="CfLootFrame" relativePoint="BOTTOMLEFT" x="143" y="16"/>
+					<Anchor point="BOTTOMLEFT" relativeTo="CfLootFrame" relativePoint="BOTTOMLEFT" x="130" y="6"/>
 				</Anchors>
 				<Scripts>
 					<OnClick function="LootFrame_PageDown"/>
