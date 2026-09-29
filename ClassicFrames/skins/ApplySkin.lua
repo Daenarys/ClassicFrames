@@ -487,7 +487,7 @@ function ApplySideTab(frame)
 	frame:SetFrameLevel(510)
 
 	frame.Background:SetSize(64, 64)
-	frame.Background:SetTexture("Interface\\SpellBook\\SpellBook-SkillLineTab")
+	frame.Background:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\SpellBook-SkillLineTab")
 	frame.Background:ClearAllPoints()
 	frame.Background:SetPoint("TOPLEFT", -3, 11)
 
