@@ -192,3 +192,8 @@ ApplyDropDown(GuildControlUINavigationDropdown)
 
 ClubFinderGuildFinderFrame.OptionsList.ClubSizeDropdown.Text:SetJustifyH("RIGHT")
 ClubFinderCommunityAndGuildFinderFrame.OptionsList.SortByDropdown.Text:SetJustifyH("RIGHT")
+
+select(1, CommunitiesFrame.ChatTab:GetRegions()):SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\SpellBook-SkillLineTab")
+select(1, CommunitiesFrame.RosterTab:GetRegions()):SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\SpellBook-SkillLineTab")
+select(1, CommunitiesFrame.GuildInfoTab:GetRegions()):SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\SpellBook-SkillLineTab")
+select(1, CommunitiesFrame.GuildPreferredPlaySettingsTab:GetRegions()):SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\SpellBook-SkillLineTab")
