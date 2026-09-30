@@ -14,7 +14,7 @@ hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
 	self.topPadding = 33
 	self.leftPadding = 26
 	self.rightPadding = 26
-	self.bottomPadding = 10
+	self.bottomPadding = -20
 
 	for button in self.buttonPool:EnumerateActive() do
 		if not button.IsSkinned then
@@ -35,22 +35,20 @@ hooksecurefunc(GameMenuFrame, "Layout", function(self)
 		local text = button:GetText()
 		if (text == _G["GAMEMENU_SUPPORT"]) then
 			button:SetPoint("TOPLEFT", 26, -32)
-		elseif (text == _G["BLIZZARD_STORE"]) then
-			button:SetPoint("TOPLEFT", 26, -54)
 		elseif (text == _G["GAMEMENU_OPTIONS"]) then
-			button:SetPoint("TOPLEFT", 26, -69)
+			button:SetPoint("TOPLEFT", 26, -54)
 		elseif (text == _G["HUD_EDIT_MODE_MENU"]) then
-			button:SetPoint("TOPLEFT", 26, -91)
+			button:SetPoint("TOPLEFT", 26, -76)
 		elseif (text == _G["MACROS"]) then
-			button:SetPoint("TOPLEFT", 26, -113)
+			button:SetPoint("TOPLEFT", 26, -98)
 		elseif (text == _G["ADDONS"]) then
-			button:SetPoint("TOPLEFT", 26, -135)
+			button:SetPoint("TOPLEFT", 26, -120)
 		elseif (text == _G["LOG_OUT"]) then
-			button:SetPoint("TOPLEFT", 26, -172)
+			button:SetPoint("TOPLEFT", 26, -142)
 		elseif (text == _G["EXIT_GAME"]) then
-			button:SetPoint("TOPLEFT", 26, -194)
+			button:SetPoint("TOPLEFT", 26, -164)
 		elseif (text == _G["RETURN_TO_GAME"]) then
-			button:SetPoint("TOPLEFT", 26, -231)
+			button:SetPoint("TOPLEFT", 26, -201)
 		end
 	end
 end)

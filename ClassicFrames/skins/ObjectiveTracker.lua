@@ -18,13 +18,13 @@ if ObjectiveTrackerFrame.Header then
 	ObjectiveTrackerFrame.Header.Background:Hide()
 	ObjectiveTrackerFrame.Header.Text:Hide()
 	ObjectiveTrackerFrame.Header.MinimizeButton:SetSize(15, 14)
-	ObjectiveTrackerFrame.Header.MinimizeButton:SetPoint("RIGHT", -10, 3)
+	ObjectiveTrackerFrame.Header.MinimizeButton:SetPoint("RIGHT", -8, 2)
 	ObjectiveTrackerFrame.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Red-Highlight", "ADD")
 
 	local title = ObjectiveTrackerFrame.Header:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 	ObjectiveTrackerFrame.Header.Title = title
 	title:SetText(OBJECTIVES_TRACKER_LABEL)
-	title:SetPoint("RIGHT", ObjectiveTrackerFrame.Header.MinimizeButton, "LEFT", -3, 0)
+	title:SetPoint("RIGHT", ObjectiveTrackerFrame.Header.MinimizeButton, "LEFT", -5, 2)
 
 	SetCollapsed(ObjectiveTrackerFrame.Header, _G.ObjectiveTrackerFrame.isCollapsed)
 	hooksecurefunc(ObjectiveTrackerFrame.Header, 'SetCollapsed', SetCollapsed)
@@ -49,15 +49,16 @@ local function HandleQuestIcons(_, block)
 end
 
 local trackers = {
-	_G.QuestObjectiveTracker,
+	_G.QuestObjectiveTracker
 }
 
 for _, tracker in pairs(trackers) do
+	tracker.ContentsFrame:SetPoint("LEFT", 40, 0)
 	tracker.ContentsFrame:SetPoint("RIGHT", -8, 0)
-	tracker.Header.Background:SetAtlas("Objective-Header", true)
-	tracker.Header.Background:SetPoint("TOPLEFT", -19, 14)
-	tracker.Header.Text:SetPoint("LEFT", 14, 0)
-	hooksecurefunc(tracker, "AddBlock", HandleQuestIcons)
+	tracker.Header.Background:Hide()
+	tracker.Header.Text:SetFontObject(GameFontNormal)
+	tracker.Header.Text:SetPoint("LEFT", 60, 0)
+	hooksecurefunc(tracker, 'AddBlock', HandleQuestIcons)
 end
 
 hooksecurefunc(ObjectiveTrackerContainerMixin, "Update", function(self)
@@ -74,6 +75,10 @@ hooksecurefunc(ObjectiveTrackerContainerMixin, "Update", function(self)
 		end
 		if module.Header.MinimizeButton then
 			module.Header.MinimizeButton:Hide()
+		end
+		if module.Header.Text then
+    		local num = C_QuestLog.GetNumQuestWatches()
+    		module.Header.Text:SetText(OBJECTIVES_TRACKER_LABEL.." ("..num..")")
 		end
 	end
 end)

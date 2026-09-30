@@ -7,7 +7,7 @@ if _G.QuestFrame then
 
 	QuestFrame.TitleContainer:ClearAllPoints()
 	QuestFrame.TitleContainer:SetPoint("TOPLEFT", QuestFrame, "TOPLEFT", 60, -1)
-	QuestFrame.TitleContainer:SetPoint("TOPRIGHT", QuestFrame, "TOPRIGHT", -32, 1)
+	QuestFrame.TitleContainer:SetPoint("TOPRIGHT", QuestFrame, "TOPRIGHT", -58, 1)
 
 	QuestFrameTitleText:SetTextColor(255, 255, 255, 1)
 
@@ -95,3 +95,18 @@ QuestLogPopupDetailFrameScrollFrame.ScrollBar:SetPoint("BOTTOMLEFT", QuestLogPop
 ApplyScrollBarArrow(QuestLogPopupDetailFrameScrollFrame.ScrollBar)
 ApplyScrollBarTrack(QuestLogPopupDetailFrameScrollFrame.ScrollBar.Track)
 ApplyScrollBarThumb(QuestLogPopupDetailFrameScrollFrame.ScrollBar.Track.Thumb)
+
+hooksecurefunc(QuestLogPopupDetailFrame, "ShowQuest", function(self)
+	self.Bg:SetSize(510, 620)
+	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
+
+hooksecurefunc("QuestFrame_SetMaterial", function(frame)
+	frame.Bg:SetSize(510, 620)
+	frame.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
+
+QuestFrameProgressPanel:HookScript("OnShow", function(self)
+	self.Bg:SetSize(510, 620)
+	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
