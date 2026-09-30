@@ -14,18 +14,20 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		PlayerSpellsFrame.MaximizeMinimizeButton:SetSize(32, 32)
 		PlayerSpellsFrame.MaximizeMinimizeButton:ClearAllPoints()
-		PlayerSpellsFrame.MaximizeMinimizeButton:SetPoint("RIGHT", PlayerSpellsFrameCloseButton, "LEFT", 10, 0)
+		PlayerSpellsFrame.MaximizeMinimizeButton:SetPoint("RIGHT", PlayerSpellsFrameCloseButton, "LEFT", 8.5, 0)
+		PlayerSpellsFrame.MaximizeMinimizeButton:SetFrameLevel(2)
 
 		ApplyMaxMinButton(PlayerSpellsFrame.MaximizeMinimizeButton)
 
-		if (PlayerSpellsFrame.ButtonFrameEdge == nil) then
-			PlayerSpellsFrame.ButtonFrameEdge = PlayerSpellsFrame.MaximizeMinimizeButton:CreateTexture(nil, "OVERLAY")
-			PlayerSpellsFrame.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
-			PlayerSpellsFrame.ButtonFrameEdge:ClearAllPoints()
-			PlayerSpellsFrame.ButtonFrameEdge:SetPoint("CENTER", PlayerSpellsFrame.MaximizeMinimizeButton, "LEFT", 6, 0)
-		end
-
-		ApplyTitleBg(PlayerSpellsFrame.NineSlice, false, true)
+		ApplyTitleBg(PlayerSpellsFrame)
 		ApplyNineSlicePortrait(PlayerSpellsFrame)
+
+		PlayerSpellsFrame.SpellBookFrame:HookScript("OnShow", function()
+			ApplyNineSlicePortraitMinimizable(PlayerSpellsFrame)
+		end)
+
+		PlayerSpellsFrame.SpellBookFrame:HookScript("OnHide", function()
+			ApplyNineSlicePortrait(PlayerSpellsFrame)
+		end)
 	end
 end)

@@ -12,7 +12,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		LegacySystemFrame.TitleContainer:SetPoint("TOPLEFT", LegacySystemFrame, "TOPLEFT", 58, 0)
 		LegacySystemFrame.TitleContainer:SetPoint("TOPRIGHT", LegacySystemFrame, "TOPRIGHT", -58, 0)
 
-		ApplyTitleBg(LegacySystemFrame.NineSlice, false, true)
+		ApplyTitleBg(LegacySystemFrame)
 		ApplyNineSlicePortrait(LegacySystemFrame)
 
 		ApplyScrollBarHybrid(LegacySystemFrame.ChallengesPage.CategoryList.ScrollBar, true)
