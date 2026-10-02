@@ -152,10 +152,11 @@ function ApplyDialogBorder(frame)
 	frame.LeftEdge:SetAlpha(0)
 	frame.RightEdge:SetAlpha(0)
 
-	local backdrop = CreateFrame("Frame", nil, frame, "BackdropTemplate")
-	backdrop:SetBackdrop(BACKDROP_DIALOG_EDGE_32)
-	backdrop:SetAllPoints()
-	backdrop:SetFrameLevel(frame:GetFrameLevel())
+	if (frame.BG == nil) then
+		frame.BG = frame:CreateTexture(nil, "BACKGROUND")
+		frame.BG:SetAtlas("UI-DiamondDialogBox-ClassicBorder")
+		frame.BG:SetAllPoints()
+	end
 end
 
 function ApplyDialogHeader(frame)

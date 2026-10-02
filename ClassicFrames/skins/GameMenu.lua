@@ -13,8 +13,8 @@ end
 
 hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
 	self.topPadding = 33
-	self.leftPadding = 25
-	self.rightPadding = 25
+	self.leftPadding = 26
+	self.rightPadding = 26
 	self.bottomPadding = -20
 
 	for button in self.buttonPool:EnumerateActive() do
