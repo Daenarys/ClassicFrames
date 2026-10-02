@@ -31,6 +31,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyScrollBarHybrid(LFGListingFrameActivityViewScrollBar, true)
 			ApplyScrollBarThumb(LFGListingFrameActivityViewScrollBar.Track.Thumb)
 
+			ApplyDropDown(LFGListingFrameActivityView.PlayStyleDropdown)
+			LFGListingFrameActivityView.PlayStyleDropdown.Text:SetJustifyH("RIGHT")
 			ApplyDropDown(LFGListingFrameGroupRoleButtonsRoleDropdown)
 			LFGListingFrameGroupRoleButtonsRoleDropdown.Text:SetJustifyH("RIGHT")
 		end
