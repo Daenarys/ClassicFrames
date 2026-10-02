@@ -162,18 +162,14 @@ function ApplyDialogHeader(frame)
 	frame.LeftBG:SetSize(14, 40)
 	frame.LeftBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
 	frame.LeftBG:SetTexCoord(0.2265625, 0.28125, 0, 0.625)
-	frame.LeftBG:SetTexelSnappingBias(1)
 
 	frame.RightBG:SetSize(14, 40)
 	frame.RightBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
 	frame.RightBG:SetTexCoord(0.71484375, 0.76953125, 0, 0.625)
-	frame.RightBG:SetTexelSnappingBias(1)
-	frame.RightBG:SetPoint("RIGHT", -1, 0)
 
 	frame.CenterBG:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-DialogBox-Header")
 	frame.CenterBG:SetTexCoord(0.28125, 0.71484375, 0, 0.625)
 	frame.CenterBG:SetHorizTile(false)
-	frame.CenterBG:SetTexelSnappingBias(1)
 end
 
 function ApplyScrollBarArrow(frame, defaultPos)
@@ -685,27 +681,13 @@ function ApplyRedButton(frame)
 	frame.Center:SetAlpha(0)
 	frame.Right:SetAlpha(0)
 
+	if (frame.Background == nil) then
+		frame.Background = frame:CreateTexture(nil, "BACKGROUND")
+		frame.Background:SetTexCoord(0, 0.625, 0, 0.6875)
+		frame.Background:SetAllPoints()
+	end
+
 	frame:SetPushedTextOffset(1.57, -1.57)
-
-	if (frame.CfLeft == nil) then
-		frame.CfLeft = frame:CreateTexture(nil, "BACKGROUND")
-		frame.CfLeft:SetSize(12, 22)
-		frame.CfLeft:SetPoint("TOPLEFT")
-		frame.CfLeft:SetPoint("BOTTOMLEFT")
-	end
-
-	if (frame.CfRight == nil) then
-		frame.CfRight = frame:CreateTexture(nil, "BACKGROUND")
-		frame.CfRight:SetSize(12, 22)
-		frame.CfRight:SetPoint("TOPRIGHT")
-		frame.CfRight:SetPoint("BOTTOMRIGHT")
-	end
-
-	if (frame.CfMiddle == nil) then
-		frame.CfMiddle = frame:CreateTexture(nil, "BACKGROUND")
-		frame.CfMiddle:SetPoint("TOPLEFT", frame.CfLeft, "TOPRIGHT")
-		frame.CfMiddle:SetPoint("BOTTOMRIGHT", frame.CfRight, "BOTTOMLEFT")
-	end
 
 	frame:SetHighlightTexture("Interface\\Buttons\\UI-Panel-Button-Highlight", "ADD")
 	frame:GetHighlightTexture():SetTexCoord(0, 0.625, 0, 0.6875)
@@ -713,22 +695,12 @@ function ApplyRedButton(frame)
 	frame:HookScript("OnUpdate", function()
 		local buttonState = frame:GetButtonState()
 
-		frame.CfLeft:SetTexCoord(0, 0.09375, 0, 0.6875)
-		frame.CfRight:SetTexCoord(0.53125, 0.625, 0, 0.6875)
-		frame.CfMiddle:SetTexCoord(0.09375, 0.53125, 0, 0.6875)
-
 		if buttonState == "DISABLED" then
-			frame.CfLeft:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
-			frame.CfMiddle:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
-			frame.CfRight:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
+			frame.Background:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
 		elseif buttonState == "PUSHED" then
-			frame.CfLeft:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
-			frame.CfMiddle:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
-			frame.CfRight:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
+			frame.Background:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
 		else
-			frame.CfLeft:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
-			frame.CfMiddle:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
-			frame.CfRight:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
+			frame.Background:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
 		end
 	end)
 end
