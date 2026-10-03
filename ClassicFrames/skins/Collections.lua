@@ -84,6 +84,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyDropDown(HeirloomsJournal.ClassDropdown)
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
+		ApplyDropDown(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
 
 		HeirloomsJournal.ClassDropdown:SetWidth(155)
 		HeirloomsJournal.ClassDropdown:SetPoint("TOPLEFT", 72, -31)
@@ -97,10 +98,6 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyFilterDropDown(ToyBox.FilterDropdown)
 		ApplyFilterDropDown(HeirloomsJournal.FilterDropdown)
 		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
-
-		ApplyStretchButton(WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
-
-		WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown:SetWidth(108)
 
 		hooksecurefunc(WardrobeCollectionFrame, "SetTab", function(self, tabID)
 			if tabID == WARDROBE_TAB_ITEMS then
