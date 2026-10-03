@@ -1,14 +1,8 @@
-if (C_AddOns.IsAddOnLoaded("SexyMap")) then return end
+if not _G.MinimapCluster then return end
 
-local ldbi = LibStub ~= nil and LibStub:GetLibrary("LibDBIcon-1.0")
-if (ldbi ~= nil) then
-	for _, v in pairs(ldbi:GetButtonList()) do
-		ldbi:Refresh(v)
-	end
-end
+MinimapCluster.BorderTop:Hide()
 
 MinimapCluster:SetSize(192, 192)
-MinimapCluster.BorderTop:Hide()
 
 MinimapCluster:CreateTexture("MinimapBorderTop", "ARTWORK")
 MinimapBorderTop:SetSize(192, 32)
@@ -25,10 +19,6 @@ Minimap:SetPoint("CENTER", MinimapCluster, "TOP", 9, -92)
 MinimapBackdrop:SetSize(192, 192)
 MinimapBackdrop:ClearAllPoints()
 MinimapBackdrop:SetPoint("CENTER", MinimapCluster, "CENTER", 0, -20)
-MinimapBackdrop.StaticOverlayTexture:SetSize(153, 153)
-MinimapBackdrop.StaticOverlayTexture:ClearAllPoints()
-MinimapBackdrop.StaticOverlayTexture:SetPoint("CENTER", MinimapCluster, "TOP", 9, -92)
-MinimapBackdrop.StaticOverlayTexture:SetDrawLayer("BACKGROUND")
 
 MinimapBackdrop:CreateTexture("MinimapBorder", "ARTWORK")
 MinimapBorder:SetTexture("Interface\\Minimap\\UI-Minimap-Border")
@@ -46,7 +36,6 @@ MinimapCompassTexture:SetSize(256, 256)
 MinimapCompassTexture:SetTexture("Interface\\Minimap\\CompassRing")
 MinimapCompassTexture:ClearAllPoints()
 MinimapCompassTexture:SetPoint("CENTER", Minimap, "CENTER", -2, 0)
-MinimapCompassTexture:SetDrawLayer("OVERLAY")
 
 hooksecurefunc(MinimapCluster, "Layout", function(self)
 	self:SetSize(192, 192)
