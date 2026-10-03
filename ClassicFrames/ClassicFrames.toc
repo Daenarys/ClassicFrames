@@ -4,6 +4,7 @@
 ## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
 ## Version: 3.83
+embeds.xml
 skins\ApplySkin.lua
 skins\Achievements.lua
 skins\AddOnList.lua

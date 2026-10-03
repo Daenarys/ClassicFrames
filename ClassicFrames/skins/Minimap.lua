@@ -1,5 +1,12 @@
 if not _G.MinimapCluster then return end
 
+local ldbi = LibStub ~= nil and LibStub:GetLibrary("LibDBIcon-1.0")
+if (ldbi ~= nil) then
+	for _, v in pairs(ldbi:GetButtonList()) do
+		ldbi:Refresh(v)
+	end
+end
+
 MinimapCluster.BorderTop:Hide()
 
 MinimapCluster:SetSize(192, 192)
