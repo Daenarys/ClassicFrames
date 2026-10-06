@@ -36,3 +36,20 @@ ApplyDialogBorder(SocialUIFrame.RaidInfoFrame.Border)
 ApplyDropDown(SocialUIFrame.BattleNetBar.ControlsContainer.OnlineStatusDropdown)
 ApplyFilterDropDown(SocialUIFrame.FriendsList.FilterBar.SearchFilterDropdown)
 ApplyFilterDropDown(SocialUIFrame.RecentAlliesList.FilterBar.SearchFilterDropdown)
+
+hooksecurefunc(SocialUIFrame, "RefreshTabs", function()
+	for tab in SocialUIFrame.socialTabPool:EnumerateActive() do
+		ApplySideTab(tab)
+
+		tab:ClearAllPoints()
+		if (tab.tabData.tabName == SOCIAL_UI_FRIENDS_TAB_NAME) then
+			tab:SetPoint("TOPLEFT", SocialUIFrame, "TOPRIGHT", 0, -36)
+		elseif (tab.tabData.tabName == SOCIAL_UI_RECENT_ALLIES_TAB_NAME) then
+			tab:SetPoint("TOPLEFT", SocialUIFrame, "TOPRIGHT", 0, -88)
+		elseif (tab.tabData.tabName == SOCIAL_UI_FRIEND_REQUESTS_TAB_NAME) then
+			tab:SetPoint("TOPLEFT", SocialUIFrame, "TOPRIGHT", 0, -140)
+		elseif (tab.tabData.tabName == SOCIAL_UI_RAID_TAB_NAME) then
+			tab:SetPoint("TOPLEFT", SocialUIFrame, "TOPRIGHT", 0, -192)
+		end
+	end
+end)
