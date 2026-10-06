@@ -682,26 +682,50 @@ function ApplyRedButton(frame)
 	frame.Center:SetAlpha(0)
 	frame.Right:SetAlpha(0)
 
-	if (frame.Background == nil) then
-		frame.Background = frame:CreateTexture(nil, "BACKGROUND")
-		frame.Background:SetTexCoord(0, 0.625, 0, 0.6875)
-		frame.Background:SetAllPoints()
+	if (frame.CfLeft == nil) then
+		frame.CfLeft = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfLeft:SetSize(12, 22)
+		frame.CfLeft:SetPoint("TOPLEFT")
+		frame.CfLeft:SetPoint("BOTTOMLEFT")
 	end
 
-	frame:SetPushedTextOffset(1.57, -1.57)
+	if (frame.CfRight == nil) then
+		frame.CfRight = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfRight:SetSize(12, 22)
+		frame.CfRight:SetPoint("TOPRIGHT")
+		frame.CfRight:SetPoint("BOTTOMRIGHT")
+	end
+
+	if (frame.CfMiddle == nil) then
+		frame.CfMiddle = frame:CreateTexture(nil, "BACKGROUND")
+		frame.CfMiddle:SetPoint("TOPLEFT", frame.CfLeft, "TOPRIGHT")
+		frame.CfMiddle:SetPoint("BOTTOMRIGHT", frame.CfRight, "BOTTOMLEFT")
+	end
 
 	frame:SetHighlightTexture("Interface\\Buttons\\UI-Panel-Button-Highlight", "ADD")
 	frame:GetHighlightTexture():SetTexCoord(0, 0.625, 0, 0.6875)
 
+	frame:SetPushedTextOffset(1.57, -1.57)
+
 	frame:HookScript("OnUpdate", function()
 		local buttonState = frame:GetButtonState()
 
+		frame.CfLeft:SetTexCoord(0, 0.09375, 0, 0.6875)
+		frame.CfRight:SetTexCoord(0.53125, 0.625, 0, 0.6875)
+		frame.CfMiddle:SetTexCoord(0.09375, 0.53125, 0, 0.6875)
+
 		if buttonState == "DISABLED" then
-			frame.Background:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
+			frame.CfLeft:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
+			frame.CfMiddle:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
+			frame.CfRight:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
 		elseif buttonState == "PUSHED" then
-			frame.Background:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
+			frame.CfLeft:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
+			frame.CfMiddle:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
+			frame.CfRight:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
 		else
-			frame.Background:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
+			frame.CfLeft:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
+			frame.CfMiddle:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
+			frame.CfRight:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
 		end
 	end)
 end

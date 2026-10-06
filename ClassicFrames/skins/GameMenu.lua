@@ -7,10 +7,6 @@ GameMenuFrame.Header:SetWidth(139.3777)
 GameMenuFrame.Header.Text:SetFontObject("GameFontNormal")
 GameMenuFrame.Header.Text:SetText(MAIN_MENU)
 
-if GameMenuFrame.EditModeNotification then
-	GameMenuFrame.EditModeNotification:SetAlpha(0)
-end
-
 hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
 	self.topPadding = 33
 	self.leftPadding = 26
@@ -24,7 +20,33 @@ hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
 			button:SetHighlightFontObject("GameFontHighlight")
 			button:SetDisabledFontObject("GameFontDisable")
 
-			ApplyRedButton(button)
+			button.Left:SetAlpha(0)
+			button.Center:SetAlpha(0)
+			button.Right:SetAlpha(0)
+
+			button:SetHighlightTexture("Interface\\Buttons\\UI-Panel-Button-Highlight", "ADD")
+			button:GetHighlightTexture():SetTexCoord(0, 0.625, 0, 0.6875)
+
+			button:SetPushedTextOffset(1.57, -1.57)
+
+			if (button.Background == nil) then
+				button.Background = button:CreateTexture(nil, "BACKGROUND")
+				button.Background:SetAllPoints()
+			end
+
+			button:HookScript("OnUpdate", function()
+				local buttonState = button:GetButtonState()
+
+				button.Background:SetTexCoord(0, 0.625, 0, 0.6875)
+
+				if buttonState == "DISABLED" then
+					button.Background:SetTexture("Interface\\Buttons\\UI-Panel-Button-Disabled")
+				elseif buttonState == "PUSHED" then
+					button.Background:SetTexture("Interface\\Buttons\\UI-Panel-Button-Down")
+				else
+					button.Background:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
+				end
+			end)
 
 			button.IsSkinned = true
 		end
