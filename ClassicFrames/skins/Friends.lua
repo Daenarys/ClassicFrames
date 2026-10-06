@@ -37,6 +37,12 @@ ApplyDropDown(SocialUIFrame.BattleNetBar.ControlsContainer.OnlineStatusDropdown)
 ApplyFilterDropDown(SocialUIFrame.FriendsList.FilterBar.SearchFilterDropdown)
 ApplyFilterDropDown(SocialUIFrame.RecentAlliesList.FilterBar.SearchFilterDropdown)
 
+ApplyRedButton(SocialUIFrame.FriendsList.ActionButton)
+ApplyRedButton(SocialUIFrame.RecentAlliesList.ActionButton)
+ApplyRedButton(SocialUIFrame.FriendRequestsList.ActionButton)
+ApplyRedButton(SocialUIFrame.RaidFrame.RaidInfoButton)
+ApplyRedButton(SocialUIFrame.RaidFrame.ConvertToRaidButton)
+
 hooksecurefunc(SocialUIFrame, "RefreshTabs", function()
 	for tab in SocialUIFrame.socialTabPool:EnumerateActive() do
 		ApplySideTab(tab)
