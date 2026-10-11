@@ -52,6 +52,7 @@ hooksecurefunc("MerchantFrame_UpdateMerchantInfo", function()
 	MerchantSellAllJunkButton:Hide()
 	MerchantFrameBottomRightBorder:Show()
 	MerchantBuyBackItemNameFrame:Show()
+	MerchantFrame.FilterDropdown:Show()
 
 	local numBuybackItems = GetNumBuybackItems()
 	local buybackName = GetBuybackItemInfo(numBuybackItems)
