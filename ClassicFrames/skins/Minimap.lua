@@ -76,9 +76,7 @@ hooksecurefunc(MinimapCluster, "SetEditModeScale", function(self, scale)
 	self:SetScale(scale)
 end)
 
-hooksecurefunc(MinimapCluster, "SetRotateMinimap", function(self)
-	local rotateMinimap = CVarCallbackRegistry:GetCVarValueBool("rotateMinimap")
-	
+hooksecurefunc(MinimapCluster, "SetRotateMinimap", function(self, rotateMinimap)
 	MinimapBackdrop:SetSize(192, 192)
 	MinimapCompassTexture:SetSize(365, 365)
 	MinimapCompassTexture:SetTexture("Interface\\Minimap\\CompassRing")
