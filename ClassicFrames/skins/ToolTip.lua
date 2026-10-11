@@ -74,7 +74,3 @@ end
 
 hooksecurefunc(ShoppingTooltip1, "SetPoint", AnchorShoppingTooltips)
 hooksecurefunc(ShoppingTooltip2, "SetPoint", AnchorShoppingTooltips)
-
-GameTooltip:HookScript("OnShow", function()
-	ApplyTooltipBorder(GameTooltip.NineSlice)
-end)
