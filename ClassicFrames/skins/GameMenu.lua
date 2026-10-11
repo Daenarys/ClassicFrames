@@ -5,7 +5,10 @@ ApplyDialogHeader(GameMenuFrame.Header)
 
 GameMenuFrame.Header:SetWidth(139.3777)
 GameMenuFrame.Header.Text:SetFontObject("GameFontNormal")
-GameMenuFrame.Header.Text:SetText(MAIN_MENU)
+
+if GameMenuFrame.NewOptionsFrame then
+	GameMenuFrame.NewOptionsFrame:SetAlpha(0)
+end
 
 hooksecurefunc(GameMenuFrame, "InitButtons", function(self)
 	self.topPadding = 33
