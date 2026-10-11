@@ -7,9 +7,11 @@ ApplyDialogBorder(SubDialogSkin)
 SubDialogSkin:Hide()
 
 local TooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
+ApplyTooltipBorder(TooltipSkin.NineSlice)
 TooltipSkin:Hide()
 
 local SubTooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
+ApplyTooltipBorder(SubTooltipSkin.NineSlice)
 SubTooltipSkin:Hide()
 
 local function IsDialogMenu(owner)
