@@ -35,6 +35,8 @@ f:SetScript("OnEvent", function(self, event, name)
 			LFGListingFrameActivityView.PlayStyleDropdown.Text:SetJustifyH("RIGHT")
 			ApplyDropDown(LFGListingFrameGroupRoleButtonsRoleDropdown)
 			LFGListingFrameGroupRoleButtonsRoleDropdown.Text:SetJustifyH("RIGHT")
+			ApplyDropDown(LFGListingFrameActivityViewVoiceChatDropdown)
+			LFGListingFrameActivityViewVoiceChatDropdown.Text:SetJustifyH("RIGHT")
 		end
 		if LFGBrowseFrame then
 			LFGBrowseFramePortrait:SetSize(61, 61)
