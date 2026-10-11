@@ -75,4 +75,3 @@ skins\unitframes\BossFrame.lua
 skins\unitframes\CastBar.lua
 skins\unitframes\PartyFrame.lua
 skins\unitframes\PetFrame.lua
-skins\unitframes\TotemFrame.lua
