@@ -147,7 +147,7 @@ hooksecurefunc(QuestObjectiveItemButtonMixin, "UpdateInsideBlob", function(self,
 	end
 end)
 
-hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block, _, _, _, _, flags)
+hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block, _, _, _, flags)
 	if (block.NormalBG:GetAtlas() == "evergreen-scenario-trackerheader") then
 		block.NormalBG:SetAtlas("ScenarioTrackerToast", true)
 	elseif (block.NormalBG:GetAtlas() == "thewarwithin-scenario-trackerheader") then
