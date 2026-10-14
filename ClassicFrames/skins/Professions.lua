@@ -87,8 +87,6 @@ f:SetScript("OnEvent", function(self, event, name)
 			ApplyNineSlicePortraitMinimizable(ProfessionsFrame)
 		end)
 
-		ApplySquareButton(ProfessionsFrame.CraftingPage.RankBar.ExpansionDropdownButton)
-
 		ApplyFilterDropDown(ProfessionsFrame.CraftingPage.RecipeList.FilterDropdown)
 		ApplyFilterDropDown(ProfessionsFrame.OrdersPage.BrowseFrame.RecipeList.FilterDropdown)
 

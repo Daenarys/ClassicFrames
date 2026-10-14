@@ -765,25 +765,6 @@ function ApplyRedButton(frame)
 	end)
 end
 
-function ApplySquareButton(frame)
-	frame.Texture:SetAlpha(0)
-
-	if (frame.Button == nil) then
-		frame.Button = frame:CreateTexture(nil, "BACKGROUND")
-		frame.Button:SetSize(26, 26)
-		frame.Button:SetTexture("Interface\\Buttons\\UI-SquareButton-Up")
-		frame.Button:SetPoint("CENTER")
-	end
-
-	if (frame.Icon == nil) then
-		frame.Icon = frame:CreateTexture(nil, "ARTWORK")
-		frame.Icon:SetSize(12, 12)
-		frame.Icon:SetTexture("Interface\\Buttons\\SquareButtonTextures")
-		frame.Icon:SetTexCoord(0.45312500, 0.64062500, 0.20312500, 0.01562500)
-		frame.Icon:SetPoint("CENTER")
-	end
-end
-
 function ApplyStretchButton(frame)
 	frame:SetHeight(22)
 	frame.Background:Hide()
