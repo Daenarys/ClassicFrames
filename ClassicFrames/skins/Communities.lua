@@ -150,6 +150,7 @@ ApplyCloseButton(CommunitiesGuildNewsFiltersFrame.CloseButton, true)
 ApplyCloseButton(CommunitiesGuildTextEditFrameCloseButton, true)
 ApplyCloseButton(GuildControlUICloseButton, true)
 
+ApplyDialogBorder(CommunitiesFrame.EditStreamDialog.BG)
 ApplyDialogBorder(CommunitiesFrame.GuildMemberDetailFrame.Border)
 ApplyDialogBorder(CommunitiesFrame.RecruitmentDialog.BG)
 ApplyDialogBorder(CommunitiesFrame.ClubFinderInvitationFrame.RequestToJoinFrame.BG)
