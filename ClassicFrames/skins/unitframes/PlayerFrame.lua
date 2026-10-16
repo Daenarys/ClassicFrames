@@ -334,15 +334,12 @@ end)
 
 hooksecurefunc("PlayerFrame_UpdatePvPStatus", function()
 	local factionGroup = UnitFactionGroup("player")
-	local pvpBG = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.PvpBackgroundCircle
 	local pvpIcon = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.PvpBackgroundIcon
-
-	pvpBG:SetAlpha(0)
-	pvpBG:SetPoint("TOP", pvpBG:GetParent(), "TOPLEFT", 39, -50)
 
 	pvpIcon:SetParent(PlayerFrame.PlayerFrameContainer)
 	pvpIcon:SetScale(1)
 	pvpIcon:SetSize(64, 64)
+	pvpIcon:SetPoint("TOP", pvpIcon:GetParent(), "TOPLEFT", 31, -24)
 
 	if (UnitIsPVPFreeForAll("player")) then
 		pvpIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-FFA")

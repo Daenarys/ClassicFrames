@@ -268,14 +268,11 @@ local function SkinFrame(frame)
 	hooksecurefunc(frame, "CheckFaction", function(self)
 		if (self.showPVP) then
 			local factionGroup = UnitFactionGroup(self.unit)
-			local pvpBG = contextual.PvpBackgroundCircle
 			local pvpIcon = contextual.PvpBackgroundIcon
-
-			pvpBG:SetAlpha(0)
-			pvpBG:SetPoint("TOP", pvpBG:GetParent(), "TOPRIGHT", -11, -50)
 
 			pvpIcon:SetScale(1)
 			pvpIcon:SetSize(64, 64)
+			pvpIcon:SetPoint("TOP", pvpIcon:GetParent(), "TOPRIGHT", -9, -24)
 
 			if (UnitIsPVPFreeForAll(self.unit)) then
 				pvpIcon:SetTexture("Interface\\TargetingFrame\\UI-PVP-FFA")
