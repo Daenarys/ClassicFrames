@@ -7,7 +7,6 @@ if (ldbi ~= nil) then
 	end
 end
 
-MinimapCluster.BorderTop:Hide()
 MinimapCluster.DielFrame:Hide()
 
 MinimapCluster:SetSize(192, 192)
@@ -83,6 +82,11 @@ hooksecurefunc(MinimapCluster, "SetEditModeScale", function(self, scale)
 	self:SetScale(scale)
 end)
 
+hooksecurefunc(MinimapCluster, "SetHeaderUnderneath", function(self)
+	self.ZoneTextButton:ClearAllPoints();
+	self.ZoneTextButton:SetPoint("TOPRIGHT", MinimapBackdrop, "TOPRIGHT", -21, -1)
+end)
+
 hooksecurefunc(MinimapCluster, "SetRotateMinimap", function(self, rotateMinimap)
 	MinimapBackdrop:SetSize(192, 192)
 	MinimapCompassTexture:SetSize(365, 365)
@@ -123,15 +127,18 @@ MinimapCluster.Tracking.MiniMapTrackingIconOverlay:Hide()
 MinimapCluster.Tracking.Button:SetSize(32, 32)
 MinimapCluster.Tracking.Button:ClearAllPoints()
 MinimapCluster.Tracking.Button:SetPoint("TOPLEFT")
-MinimapCluster.Tracking.Button:GetNormalTexture():SetAlpha(0)
-MinimapCluster.Tracking.Button:GetPushedTexture():SetAlpha(0)
 MinimapCluster.Tracking.Button:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight", "ADD")
+MinimapCluster.Tracking.Button.StateTexture:SetAlpha(0)
 MinimapCluster.Tracking.Button:CreateTexture("MiniMapTrackingButtonBorder", "BORDER")
 MinimapCluster.Tracking.ButtonBorder = MiniMapTrackingButtonBorder
 MinimapCluster.Tracking.ButtonBorder:SetSize(54, 54)
 MinimapCluster.Tracking.ButtonBorder:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
 MinimapCluster.Tracking.ButtonBorder:ClearAllPoints()
 MinimapCluster.Tracking.ButtonBorder:SetPoint("TOPLEFT")
+
+hooksecurefunc(MinimapCluster.Tracking.Button, "OnButtonStateChanged", function(self)
+	self.AddTexture:SetAlpha(0)
+end)
 
 MinimapCluster.Tracking.Button:HookScript("OnMouseDown", function()
 	MinimapCluster.Tracking.MiniMapTrackingIcon:SetPoint("TOPLEFT", MinimapCluster.Tracking, "TOPLEFT", 8, -8)
@@ -181,6 +188,7 @@ MinimapZoneTextButton:SetPoint("CENTER", 7, 83)
 
 MinimapZoneText:SetParent(MinimapZoneTextButton)
 MinimapZoneText:SetSize(150, 12)
+MinimapZoneText:SetFontObject(GameFontNormal)
 MinimapZoneText:ClearAllPoints()
 MinimapZoneText:SetPoint("CENTER", MinimapZoneTextButton, "TOP", 0, -6)
 MinimapZoneText:SetJustifyH("CENTER")
@@ -226,9 +234,8 @@ MinimapZoneTextButton:SetScript("OnLeave", GameTooltip_Hide)
 MiniMapWorldMapButton = MinimapCluster.ZoneTextButton
 MiniMapWorldMapButton:SetParent(MinimapBackdrop)
 MiniMapWorldMapButton:SetSize(33, 33)
-MiniMapWorldMapButton:ClearAllPoints()
-MiniMapWorldMapButton:SetPoint("TOPRIGHT", -21, -1)
 MiniMapWorldMapButton:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight", "ADD")
+MiniMapWorldMapButton.StateTexture:SetAlpha(0)
 
 if (MiniMapWorldMapButtonIcon == nil) then
 	MiniMapWorldMapButton:CreateTexture("MiniMapWorldMapButtonIcon", "BORDER")
@@ -245,6 +252,10 @@ if (MiniMapWorldMapButtonBorder == nil) then
 	MiniMapWorldMapButtonBorder:ClearAllPoints()
 	MiniMapWorldMapButtonBorder:SetPoint("TOPLEFT")
 end
+
+hooksecurefunc(MiniMapWorldMapButton, "OnButtonStateChanged", function(self)
+	self.AddTexture:SetAlpha(0)
+end)
 
 MiniMapWorldMapButton:SetScript("OnEnter", function(self)
 	GameTooltip:SetOwner(self, "ANCHOR_LEFT")
@@ -263,14 +274,16 @@ GameTimeFrame:SetNormalFontObject("GameFontBlack")
 GameTimeFrame:SetFontString(GameTimeFrame:CreateFontString(nil, "BACKGROUND", "GameFontBlack"))
 GameTimeFrame:GetFontString():ClearAllPoints()
 GameTimeFrame:GetFontString():SetPoint("CENTER", -1, -1)
+GameTimeFrame:SetNormalTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Calendar-Button")
+GameTimeFrame:GetNormalTexture():SetTexCoord(0, 0.390625, 0, 0.78125)
+GameTimeFrame:SetPushedTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Calendar-Button")
+GameTimeFrame:GetPushedTexture():SetTexCoord(0.5, 0.890625, 0, 0.78125)
+GameTimeFrame:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight", "ADD")
+GameTimeFrame.StateTexture:SetAlpha(0)
 
-hooksecurefunc("GameTimeFrame_SetDate", function()
-	GameTimeFrame:SetText(C_DateAndTime.GetCurrentCalendarTime().monthDay)
-	GameTimeFrame:SetNormalTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Calendar-Button")
-	GameTimeFrame:GetNormalTexture():SetTexCoord(0, 0.390625, 0, 0.78125)
-	GameTimeFrame:SetPushedTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Calendar-Button")
-	GameTimeFrame:GetPushedTexture():SetTexCoord(0.5, 0.890625, 0, 0.78125)
-	GameTimeFrame:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight", "ADD")
+hooksecurefunc(GameTimeFrame, "OnButtonStateChanged", function(self)
+	self:SetText(C_DateAndTime.GetCurrentCalendarTime().monthDay)
+	self.AddTexture:SetAlpha(0)
 end)
 
 Minimap:HookScript("OnEvent", function(self, event, ...)
@@ -294,8 +307,6 @@ Minimap:HookScript("OnEvent", function(self, event, ...)
 		TimeManagerClockTicker:SetPoint("CENTER", 1, -1)
 	end
 end)
-
-MinimapCluster.InstanceDifficulty:Hide()
 
 --queuestatusbutton
 QueueStatusButton:SetParent(MinimapBackdrop)
