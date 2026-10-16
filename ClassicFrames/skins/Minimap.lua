@@ -14,7 +14,7 @@ MinimapCluster:SetSize(192, 192)
 
 MinimapCluster:CreateTexture("MinimapBorderTop", "ARTWORK")
 MinimapBorderTop:SetSize(192, 32)
-MinimapBorderTop:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Minimap-Border")
+MinimapBorderTop:SetTexture("Interface\\Minimap\\UI-Minimap-Border")
 MinimapBorderTop:SetTexCoord(0.25, 1, 0, 0.125)
 MinimapBorderTop:ClearAllPoints()
 MinimapBorderTop:SetPoint("TOPRIGHT")
@@ -29,10 +29,21 @@ MinimapBackdrop:ClearAllPoints()
 MinimapBackdrop:SetPoint("CENTER", MinimapCluster, "CENTER", 0, -20)
 
 MinimapBackdrop:CreateTexture("MinimapBorder", "ARTWORK")
-MinimapBorder:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Minimap-Border")
+MinimapBorder:SetTexture("Interface\\Minimap\\UI-Minimap-Border")
 MinimapBorder:SetTexCoord(0.25, 1, 0.125, 0.875)
 MinimapBorder:ClearAllPoints()
 MinimapBorder:SetAllPoints()
+
+MinimapBackdrop:CreateTexture("MinimapNorthTag", "OVERLAY")
+MinimapNorthTag:SetSize(16, 16)
+MinimapNorthTag:SetTexture("Interface\\Minimap\\CompassNorthTag")
+MinimapNorthTag:ClearAllPoints()
+MinimapNorthTag:SetPoint("CENTER", Minimap, "CENTER", 0, 67)
+
+MinimapCompassTexture:SetScale(0.7)
+MinimapCompassTexture:ClearAllPoints()
+MinimapCompassTexture:SetPoint("CENTER", Minimap, "CENTER", -2, 0)
+MinimapCompassTextureUnderlay:SetAlpha(0)
 
 Minimap.ZoomIn:SetParent(MinimapBackdrop)
 Minimap.ZoomIn:SetSize(32, 32)
@@ -43,7 +54,7 @@ Minimap.ZoomIn:GetDisabledTexture():SetDesaturated(false)
 Minimap.ZoomIn:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight", "ADD")
 Minimap.ZoomIn:SetHitRectInsets(4, 4, 2, 6)
 Minimap.ZoomIn:ClearAllPoints()
-Minimap.ZoomIn:SetPoint("CENTER", 77, -13)
+Minimap.ZoomIn:SetPoint("CENTER", 71, -20)
 
 Minimap.ZoomOut:SetParent(MinimapBackdrop)
 Minimap.ZoomOut:SetSize(32, 32)
@@ -54,7 +65,7 @@ Minimap.ZoomOut:GetDisabledTexture():SetDesaturated(false)
 Minimap.ZoomOut:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight", "ADD")
 Minimap.ZoomOut:SetHitRectInsets(4, 4, 2, 6)
 Minimap.ZoomOut:ClearAllPoints()
-Minimap.ZoomOut:SetPoint("CENTER", 51, -41)
+Minimap.ZoomOut:SetPoint("CENTER", 51, -39)
 
 Minimap.ZoomIn:Show()
 Minimap.ZoomOut:Show()
@@ -72,10 +83,18 @@ hooksecurefunc(MinimapCluster, "SetEditModeScale", function(self, scale)
 	self:SetScale(scale)
 end)
 
-hooksecurefunc(MinimapCluster, "SetRotateMinimap", function(self)
+hooksecurefunc(MinimapCluster, "SetRotateMinimap", function(self, rotateMinimap)
 	MinimapBackdrop:SetSize(192, 192)
-	MinimapCompassTexture:SetAlpha(0)
-	MinimapCompassTextureUnderlay:SetAlpha(0)
+	MinimapCompassTexture:SetSize(365, 365)
+	MinimapCompassTexture:SetTexture("Interface\\Minimap\\CompassRing")
+
+	if rotateMinimap then
+		MinimapCompassTexture:Show()
+		MinimapNorthTag:Hide()
+	else
+		MinimapCompassTexture:Hide()
+		MinimapNorthTag:Show()
+	end
 end)
 
 MinimapCluster.Tracking:SetParent(MinimapBackdrop)
@@ -132,7 +151,7 @@ MinimapCluster.IndicatorFrame:SetFrameLevel(4)
 
 MinimapCluster.IndicatorFrame.MailFrame:SetSize(33, 33)
 MinimapCluster.IndicatorFrame.MailFrame:ClearAllPoints()
-MinimapCluster.IndicatorFrame.MailFrame:SetPoint("TOPRIGHT", Minimap, "TOPRIGHT", 21, -38)
+MinimapCluster.IndicatorFrame.MailFrame:SetPoint("TOPRIGHT", Minimap, "TOPRIGHT", 21, -53)
 
 MiniMapMailIcon:SetSize(18, 18)
 MiniMapMailIcon:SetTexture("Interface\\Icons\\INV_Letter_15")
@@ -157,13 +176,13 @@ hooksecurefunc(MinimapCluster.IndicatorFrame.MailFrame, "TryPlayMailNotification
 end)
 
 local MinimapZoneTextButton = CreateFrame("Button", nil, MinimapCluster)
-MinimapZoneTextButton:SetSize(128, 12)
-MinimapZoneTextButton:SetPoint("CENTER", -3, 83)
+MinimapZoneTextButton:SetSize(150, 12)
+MinimapZoneTextButton:SetPoint("CENTER", 7, 83)
 
 MinimapZoneText:SetParent(MinimapZoneTextButton)
-MinimapZoneText:SetSize(128, 12)
+MinimapZoneText:SetSize(150, 12)
 MinimapZoneText:ClearAllPoints()
-MinimapZoneText:SetPoint("TOP")
+MinimapZoneText:SetPoint("CENTER", MinimapZoneTextButton, "TOP", 0, -6)
 MinimapZoneText:SetJustifyH("CENTER")
 
 MinimapZoneTextButton:SetScript("OnEnter", function(self)
@@ -204,35 +223,54 @@ MinimapZoneTextButton:SetScript("OnEnter", function(self)
 end)
 MinimapZoneTextButton:SetScript("OnLeave", GameTooltip_Hide)
 
-MinimapToggleButton = MinimapCluster.ZoneTextButton
-MinimapToggleButton:SetSize(32, 32)
-MinimapToggleButton:ClearAllPoints()
-MinimapToggleButton:SetPoint("CENTER", MinimapCluster, "TOPRIGHT", -15, -13)
-MinimapToggleButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Up")
-MinimapToggleButton:SetPushedTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Down")
-MinimapToggleButton:SetHighlightTexture("Interface\\Buttons\\UI-Panel-MinimizeButton-Highlight")
+MiniMapWorldMapButton = MinimapCluster.ZoneTextButton
+MiniMapWorldMapButton:SetParent(MinimapBackdrop)
+MiniMapWorldMapButton:SetSize(33, 33)
+MiniMapWorldMapButton:ClearAllPoints()
+MiniMapWorldMapButton:SetPoint("TOPRIGHT", -21, -1)
+MiniMapWorldMapButton:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight", "ADD")
 
-MinimapToggleButton:HookScript("OnEnter", GameTooltip_Hide)
-MinimapToggleButton:SetScript("OnClick", function(self)
-	ToggleMinimap()
+if (MiniMapWorldMapButtonIcon == nil) then
+	MiniMapWorldMapButton:CreateTexture("MiniMapWorldMapButtonIcon", "BORDER")
+	MiniMapWorldMapButtonIcon:SetSize(20, 20)
+	MiniMapWorldMapButtonIcon:SetTexture("Interface\\WorldMap\\UI-World-Icon")
+	MiniMapWorldMapButtonIcon:ClearAllPoints()
+	MiniMapWorldMapButtonIcon:SetPoint("CENTER", -2, 2)
+end
+
+if (MiniMapWorldMapButtonBorder == nil) then
+	MiniMapWorldMapButton:CreateTexture("MiniMapWorldMapButtonBorder", "OVERLAY")
+	MiniMapWorldMapButtonBorder:SetSize(52, 52)
+	MiniMapWorldMapButtonBorder:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\MiniMap-TrackingBorder")
+	MiniMapWorldMapButtonBorder:ClearAllPoints()
+	MiniMapWorldMapButtonBorder:SetPoint("TOPLEFT")
+end
+
+MiniMapWorldMapButton:SetScript("OnEnter", function(self)
+	GameTooltip:SetOwner(self, "ANCHOR_LEFT")
+	GameTooltip:SetText(self.tooltipText, 1, 1, 1)
 end)
+MiniMapWorldMapButton:SetScript("OnLeave", GameTooltip_Hide)
 
-GameTimeFrame:SetSize(50, 50)
+GameTimeFrame:SetParent(Minimap)
+GameTimeFrame:SetSize(40, 40)
 GameTimeFrame:ClearAllPoints()
-GameTimeFrame:SetPoint("TOPRIGHT", 4, -19)
+GameTimeFrame:SetPoint("TOPRIGHT", 20, -17)
+GameTimeFrame:SetFrameStrata("LOW")
+GameTimeFrame:SetFrameLevel(5)
+GameTimeFrame:SetHitRectInsets(6, 0, 5, 10)
+GameTimeFrame:SetNormalFontObject("GameFontBlack")
+GameTimeFrame:SetFontString(GameTimeFrame:CreateFontString(nil, "BACKGROUND", "GameFontBlack"))
+GameTimeFrame:GetFontString():ClearAllPoints()
+GameTimeFrame:GetFontString():SetPoint("CENTER", -1, -1)
 
 hooksecurefunc("GameTimeFrame_SetDate", function()
-	GameTimeFrame:SetNormalTexture("Interface\\Minimap\\UI-TOD-Indicator")
-	GameTimeFrame:SetPushedTexture("Interface\\Minimap\\UI-TOD-Indicator")
-	GameTimeFrame:GetHighlightTexture():SetAlpha(0)
-
-	if C_DateAndTime.IsDayTime() then
-		GameTimeFrame:GetNormalTexture():SetTexCoord(0, 50/128, 0, 50/64)
-		GameTimeFrame:GetPushedTexture():SetTexCoord(0, 50/128, 0, 50/64)
-	else
-		GameTimeFrame:GetNormalTexture():SetTexCoord(0 + 0.5, 50/128 + 0.5, 0, 50/64)
-		GameTimeFrame:GetPushedTexture():SetTexCoord(0 + 0.5, 50/128 + 0.5, 0, 50/64)
-	end
+	GameTimeFrame:SetText(C_DateAndTime.GetCurrentCalendarTime().monthDay)
+	GameTimeFrame:SetNormalTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Calendar-Button")
+	GameTimeFrame:GetNormalTexture():SetTexCoord(0, 0.390625, 0, 0.78125)
+	GameTimeFrame:SetPushedTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Calendar-Button")
+	GameTimeFrame:GetPushedTexture():SetTexCoord(0.5, 0.890625, 0, 0.78125)
+	GameTimeFrame:SetHighlightTexture("Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight", "ADD")
 end)
 
 Minimap:HookScript("OnEvent", function(self, event, ...)
