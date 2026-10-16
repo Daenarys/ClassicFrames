@@ -58,6 +58,7 @@ skins\Loot.xml
 skins\LossOfControl.lua
 skins\Macro.lua
 skins\Mail.lua
+skins\Menu.lua
 skins\Merchant.lua
 skins\Minimap.lua
 skins\MirrorTimers.lua
