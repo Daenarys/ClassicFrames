@@ -179,15 +179,15 @@ local function SkinFrame(frame)
 		CfFocusFrameBackground:SetSize(119, 25)
 		CfFocusFrameBackground:SetPoint("BOTTOMLEFT", 7, 35)
 
-		FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBarContainer, "CENTER")
-		FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBarContainer, "LEFT", 5, -1)
-		FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBarContainer, "RIGHT", -7, -1)
-		FrameHealthBarContainer.DeadText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -1)
-		FrameHealthBarContainer.UnconsciousText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, -1)
+		FrameHealthBar.TextString:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, 1)
+		FrameHealthBarContainer.LeftText:SetPoint("LEFT", FrameHealthBarContainer, "LEFT", 7, 1)
+		FrameHealthBarContainer.RightText:SetPoint("RIGHT", FrameHealthBarContainer, "RIGHT", -5, 1)
+		FrameHealthBarContainer.DeadText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, 1)
+		FrameHealthBarContainer.UnconsciousText:SetPoint("CENTER", FrameHealthBarContainer, "CENTER", 0, 1)
 
-		FrameManaBar.TextString:SetPoint("CENTER", FrameManaBar, "CENTER", -4, 3)
-		FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 5, 3)
-		FrameManaBar.RightText:SetPoint("RIGHT", FrameManaBar, "RIGHT", -15, 3)
+		FrameManaBar.TextString:SetPoint("CENTER", FrameManaBar, "CENTER", 0, 2)
+		FrameManaBar.LeftText:SetPoint("LEFT", FrameManaBar, "LEFT", 11, 2)
+		FrameManaBar.RightText:SetPoint("RIGHT", FrameManaBar, "RIGHT", -9, 2)
 
 		self.haveElite = nil
 

@@ -86,13 +86,11 @@ local manaBarContainer = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.M
 local manaBar = PlayerFrame.PlayerFrameContent.PlayerFrameContentMain.ManaBarArea.ManaBar
 
 healthBarContainer:SetAlpha(0)
-
 healthBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 healthBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
 
 manaBarContainer:SetAlpha(0)
-
 manaBar.TextString:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.LeftText:SetParent(PlayerFrame.PlayerFrameContainer)
 manaBar.RightText:SetParent(PlayerFrame.PlayerFrameContainer)
@@ -222,13 +220,13 @@ hooksecurefunc("PlayerFrame_ToPlayerArt", function(self)
 	CfPlayerFrame.ManaBar:SetWidth(119)
 	CfPlayerFrame.ManaBar:SetPoint("TOPLEFT",106,-52)
 
-	healthBar.TextString:SetPoint("CENTER", healthBarContainer, "CENTER")
-	healthBar.LeftText:SetPoint("LEFT", healthBarContainer, "LEFT", 6, 0)
-	healthBar.RightText:SetPoint("RIGHT", healthBarContainer, "RIGHT", -4, 0)
+	healthBar.TextString:SetPoint("CENTER", healthBarContainer, "CENTER", 0, 3)
+	healthBar.LeftText:SetPoint("LEFT", healthBarContainer, "LEFT", 4, 3)
+	healthBar.RightText:SetPoint("RIGHT", healthBarContainer, "RIGHT", -6, 3)
 
 	manaBar.TextString:SetPoint("CENTER", manaBar, "CENTER", 0, 3)
-	manaBar.LeftText:SetPoint("LEFT", manaBar, "LEFT", 6, 3)
-	manaBar.RightText:SetPoint("RIGHT", manaBar, "RIGHT", -4, 3)
+	manaBar.LeftText:SetPoint("LEFT", manaBar, "LEFT", 4, 3)
+	manaBar.RightText:SetPoint("RIGHT", manaBar, "RIGHT", -6, 3)
 
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:ClearAllPoints()
 	self.PlayerFrameContent.PlayerFrameContentContextual.GroupIndicator:SetPoint("BOTTOMLEFT", CfPlayerFrame, "TOPLEFT", 97, -20)
