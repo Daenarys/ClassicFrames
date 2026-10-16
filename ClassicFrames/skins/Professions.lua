@@ -95,6 +95,9 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(ProfessionsFrame.CraftingPage.CraftingOutputLog, true)
 		ApplyNineSliceNoPortrait(ProfessionsFrame.CraftingPage.CraftingOutputLog, true)
 
+		ApplyScrollBarHybrid(ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar, true)
+		ApplyScrollBarThumb(ProfessionsFrame.CraftingPage.CraftingOutputLog.ScrollBar.Track.Thumb)
+
 		ApplyCloseButton(InspectRecipeFrame.CloseButton)
 		ApplyTitleBg(InspectRecipeFrame)
 		ApplyNineSlicePortrait(InspectRecipeFrame)
