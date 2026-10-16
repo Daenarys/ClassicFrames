@@ -346,7 +346,8 @@ local function SkinFrame(frame)
 
 		frame.totFrame.Name:SetWidth(100)
 		frame.totFrame.Name:ClearAllPoints()
-		frame.totFrame.Name:SetPoint("BOTTOMLEFT", 42, 7)
+		frame.totFrame.Name:SetPoint("BOTTOMLEFT", 42, 6)
+		frame.totFrame.Name:SetJustifyH("LEFT")
 		
 		frame.totFrame.HealthBar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 		frame.totFrame.HealthBar:SetStatusBarColor(0, 1, 0)
