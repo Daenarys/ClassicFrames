@@ -39,7 +39,7 @@ f:SetScript("OnEvent", function(self, event, name)
 
 		ApplyDropDown(WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
 
-		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown:SetWidth(155)
+		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown:SetWidth(140)
 		WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown.Text:SetJustifyH("RIGHT")
 
 		ApplyFilterDropDown(WardrobeCollectionFrame.FilterButton)
@@ -60,7 +60,7 @@ f:SetScript("OnEvent", function(self, event, name)
 				ApplySideTab(tab)
 
 				tab:ClearAllPoints()
-				if prevTab then
+				if prevTab and prevTab:IsShown() then
 					tab:SetPoint("TOPLEFT", prevTab, "BOTTOMLEFT", 0, -20)
 				else
 					tab:SetPoint("TOPLEFT", CollectionsJournal.TabContainer, "TOPLEFT", 0, -36)
