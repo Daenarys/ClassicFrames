@@ -26,6 +26,10 @@ function ApplyTitleBg(frame, noPortrait)
 end
 
 function ApplyNineSlicePortrait(frame)
+	if frame.Bg and frame.Bg:GetTexture() == 374155 then
+		frame.Bg:SetTexture("Interface\\AddOns\\ClassicFrames\\icons\\UI-Background-Rock", true, true)
+	end
+
 	frame.NineSlice.TopLeftCorner:SetSize(78, 78)
 	frame.NineSlice.TopLeftCorner:SetTexture("Interface\\FrameGeneral\\UI-Frame")
 	frame.NineSlice.TopLeftCorner:SetTexCoord(0.00781250, 0.61718750, 0.00781250, 0.61718750)
