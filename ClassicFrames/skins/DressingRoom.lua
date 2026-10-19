@@ -4,16 +4,10 @@ ApplyCloseButton(DressUpFrameCloseButton)
 
 DressUpFrame.MaximizeMinimizeFrame:SetSize(32, 32)
 DressUpFrame.MaximizeMinimizeFrame:ClearAllPoints()
-DressUpFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", DressUpFrameCloseButton, "LEFT", 10, 0)
+DressUpFrame.MaximizeMinimizeFrame:SetPoint("RIGHT", DressUpFrameCloseButton, "LEFT", 8.5, 0)
+DressUpFrame.MaximizeMinimizeFrame:SetFrameLevel(2)
 
 ApplyMaxMinButton(DressUpFrame.MaximizeMinimizeFrame)
-
-if (DressUpFrame.ButtonFrameEdge == nil) then
-	DressUpFrame.ButtonFrameEdge = DressUpFrame.MaximizeMinimizeFrame:CreateTexture(nil, "OVERLAY")
-	DressUpFrame.ButtonFrameEdge:SetAtlas("UI-OuterBorderButtonPatch", true)
-	DressUpFrame.ButtonFrameEdge:ClearAllPoints()
-	DressUpFrame.ButtonFrameEdge:SetPoint("CENTER", DressUpFrame.MaximizeMinimizeFrame, "LEFT", 6, 0)
-end
 
 DressUpFramePortrait:SetSize(61, 61)
 DressUpFramePortrait:ClearAllPoints()
@@ -24,7 +18,7 @@ DressUpFrame.TitleContainer:SetPoint("TOPLEFT", DressUpFrame, "TOPLEFT", 58, 0)
 DressUpFrame.TitleContainer:SetPoint("TOPRIGHT", DressUpFrame, "TOPRIGHT", -58, 0)
 
 ApplyTitleBg(DressUpFrame)
-ApplyNineSlicePortrait(DressUpFrame)
+ApplyNineSlicePortraitMinimizable(DressUpFrame)
 
 DressUpFrame.SetSelectionPanel.ScrollBar.Track.Begin:Hide()
 DressUpFrame.SetSelectionPanel.ScrollBar.Track.End:Hide()
