@@ -219,3 +219,18 @@ if _G.QuestModelScene then
 
 	QuestNPCModelTextScrollFrame.ScrollBar:SetAlpha(0)
 end
+
+hooksecurefunc("QuestLogPopupDetailFrame_Show", function()
+	QuestLogPopupDetailFrame.Bg:SetSize(510, 620)
+	QuestLogPopupDetailFrame.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
+
+hooksecurefunc("QuestFrame_SetMaterial", function(frame)
+	frame.Bg:SetSize(510, 620)
+	frame.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
+
+QuestFrameProgressPanel:HookScript("OnShow", function(self)
+	self.Bg:SetSize(510, 620)
+	self.Bg:SetTexture("Interface\\QuestFrame\\QuestBG")
+end)
