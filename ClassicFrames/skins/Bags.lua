@@ -14,8 +14,8 @@ local CONTAINER_WIDTH = 192
 local CONTAINER_SPACING = 0
 local VISIBLE_CONTAINER_SPACING = 3
 local CONTAINER_SCALE = 0.75
-local BACKPACK_BASE_HEIGHT = 256
-local BACKPACK_DEFAULT_TOPHEIGHT = 256
+local BACKPACK_BASE_HEIGHT = 255
+local BACKPACK_DEFAULT_TOPHEIGHT = 255
 local BACKPACK_EXTENDED_TOPHEIGHT = 226
 local BACKPACK_BASE_SIZE = 16
 local BACKPACK_TOKENFRAME_HEIGHT = 22
@@ -98,8 +98,6 @@ for i = 1, _G.NUM_CONTAINER_FRAMES do
 
 	hooksecurefunc(_G['ContainerFrame'..i], "UpdateItemLayout", function(self)
 		for i, itemButton in self:EnumerateValidItems() do
-			itemButton.Cooldown:SetBlingTexture("Interface\\Cooldown\\star4", 0.3, 0.6, 1, 0.8)
-			itemButton.Cooldown:SetSwipeColor(0, 0, 0, 0.8)
 			itemButton.Cooldown:SetHideCountdownNumbers(true)
 			itemButton.emptyBackgroundAtlas = nil
 		end
@@ -328,7 +326,7 @@ local function GetRightActionBarWidth()
 		offset = MultiBarLeft:GetWidth() - offsetX
 	end
 
-	return offset + 10
+	return offset
 end
 
 hooksecurefunc("UpdateContainerFrameAnchors", function()
