@@ -20,6 +20,8 @@ end
 if _G.CinematicFrame then
 	ApplyCinematicButton(CinematicFrameCloseDialogConfirmButton)
 	ApplyCinematicButton(CinematicFrameCloseDialogResumeButton)
+
+	ApplyDialogBorder(CinematicFrame.closeDialog.Border)
 end
 
 if _G.MovieFrame then
@@ -32,6 +34,8 @@ if _G.MovieFrame then
 
 	ApplyCinematicButton(MovieFrame.CloseDialog.Buttons.ConfirmButton)
 	ApplyCinematicButton(MovieFrame.CloseDialog.Buttons.ResumeButton)
+
+	ApplyDialogBorder(MovieFrame.CloseDialog.Border)
 
 	hooksecurefunc(MovieFrame, "ShowCloseDialog", function(self)
 		self.CloseDialog.Buttons:ClearAllPoints()
