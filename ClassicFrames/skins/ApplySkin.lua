@@ -173,32 +173,6 @@ function ApplyDialogHeader(frame)
 	frame.CenterBG:SetHorizTile(false)
 end
 
-function ApplyTooltipBorder(frame)
-	frame.TopLeftCorner:SetTexture("Interface\\Tooltips\\UIFrameTooltip")
-	frame.TopLeftCorner:SetTexCoord(0.062500, 0.5, 0.578125, 0.687500)
-
-	frame.TopRightCorner:SetTexture("Interface\\Tooltips\\UIFrameTooltip")
-	frame.TopRightCorner:SetTexCoord(0.062500, 0.5, 0.718750, 0.828125)
-
-	frame.BottomLeftCorner:SetTexture("Interface\\Tooltips\\UIFrameTooltip")
-	frame.BottomLeftCorner:SetTexCoord(0.062500, 0.5, 0.296875, 0.406250)
-
-	frame.BottomRightCorner:SetTexture("Interface\\Tooltips\\UIFrameTooltip")
-	frame.BottomRightCorner:SetTexCoord(0.062500, 0.5, 0.437500, 0.546875)
-
-	frame.TopEdge:SetTexture("Interface\\Tooltips\\UIFrameTooltip")
-	frame.TopEdge:SetTexCoord(0, 1, 0.15625, 0.265625)
-
-	frame.BottomEdge:SetTexture("Interface\\Tooltips\\UIFrameTooltip")
-	frame.BottomEdge:SetTexCoord(0, 1, 0.015625, 0.125)
-
-	frame.LeftEdge:SetTexture("Interface\\Tooltips\\UIFrameTooltipVertical")
-	frame.LeftEdge:SetTexCoord(0.03125, 0.25, 0, 1)
-
-	frame.RightEdge:SetTexture("Interface\\Tooltips\\UIFrameTooltipVertical")
-	frame.RightEdge:SetTexCoord(0.3125, 0.53125, 0, 1)
-end
-
 function ApplyScrollBarArrow(frame, defaultPos)
 	frame.Back:SetSize(18, 16)
 	frame.Back:SetNormalTexture("Interface\\Buttons\\UI-ScrollBar-ScrollUpButton-Up")
