@@ -1,16 +1,10 @@
 if not _G.ObjectiveTrackerFrame then return end
 
 local function SetCollapsedHeader(self, collapsed)
-	self.MinimizeButton:SetNormalTexture("Interface\\Buttons\\QuestTrackerButtons")
-	self.MinimizeButton:SetPushedTexture("Interface\\Buttons\\QuestTrackerButtons")
 	if collapsed then
 		self.Title:Show()
-		self.MinimizeButton:GetNormalTexture():SetTexCoord(0.273438, 0.390625, 0.765625, 0.984375)
-		self.MinimizeButton:GetPushedTexture():SetTexCoord(0.273438, 0.390625, 0.515625, 0.734375)
 	else
 		self.Title:Hide()
-		self.MinimizeButton:GetNormalTexture():SetTexCoord(0.140625, 0.257812, 0.546875, 0.765625)
-		self.MinimizeButton:GetPushedTexture():SetTexCoord(0.0078125, 0.125, 0.546875, 0.765625)
 	end
 end
 
@@ -31,7 +25,6 @@ if ObjectiveTrackerFrame.Header then
 	ObjectiveTrackerFrame.Header.Text:Hide()
 	ObjectiveTrackerFrame.Header.MinimizeButton:SetSize(15, 14)
 	ObjectiveTrackerFrame.Header.MinimizeButton:SetPoint("RIGHT", -10, 3)
-	ObjectiveTrackerFrame.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Red-Highlight", "ADD")
 
 	local title = ObjectiveTrackerFrame.Header:CreateFontString(nil, "ARTWORK", "GameFontNormal")
 	ObjectiveTrackerFrame.Header.Title = title
@@ -39,7 +32,7 @@ if ObjectiveTrackerFrame.Header then
 	title:SetPoint("RIGHT", ObjectiveTrackerFrame.Header.MinimizeButton, "LEFT", -3, 0)
 
 	SetCollapsedHeader(ObjectiveTrackerFrame.Header, _G.ObjectiveTrackerFrame.isCollapsed)
-	hooksecurefunc(ObjectiveTrackerFrame.Header, 'SetCollapsed', SetCollapsedHeader)
+	hooksecurefunc(ObjectiveTrackerFrame.Header, "SetCollapsed", SetCollapsedHeader)
 end
 
 local function ReskinQuestIcon(button)
@@ -49,8 +42,6 @@ local function ReskinQuestIcon(button)
 		button:SetNormalTexture("Interface\\Buttons\\UI-Quickslot2")
 		button:SetPushedTexture("Interface\\Buttons\\UI-Quickslot-Depress")
 		if button.Cooldown then
-			button.Cooldown:SetBlingTexture("Interface\\Cooldown\\star4", 0.3, 0.6, 1, 0.8)
-			button.Cooldown:SetSwipeColor(0, 0, 0, 0.8)
 			button.Cooldown:SetHideCountdownNumbers(true)
 		end
 		button.IsSkinned = true
@@ -84,9 +75,9 @@ for _, tracker in pairs(trackers) do
 	tracker.Header.MinimizeButton:SetSize(15, 14)
 	tracker.Header.MinimizeButton:SetPoint("RIGHT", -35, 0)
 	tracker.Header.MinimizeButton:SetHighlightAtlas("UI-QuestTrackerButton-Red-Highlight", "ADD")
-	hooksecurefunc(tracker, 'AddBlock', HandleQuestIcons)
+	hooksecurefunc(tracker, "AddBlock", HandleQuestIcons)
 	SetCollapsedModule(tracker.Header, _G.ObjectiveTrackerFrame.isCollapsed)
-	hooksecurefunc(tracker.Header, 'SetCollapsed', SetCollapsedModule)
+	hooksecurefunc(tracker.Header, "SetCollapsed", SetCollapsedModule)
 end
 
 local seen = {}
@@ -150,9 +141,9 @@ end)
 hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function(block, _, _, _, flags)
 	if (block.NormalBG:GetAtlas() == "evergreen-scenario-trackerheader") then
 		block.NormalBG:SetAtlas("ScenarioTrackerToast", true)
-	elseif (block.NormalBG:GetAtlas() == "thewarwithin-scenario-trackerheader") then
-		block.NormalBG:SetAtlas("dragonflight-scenario-TrackerHeader", true)
 	elseif (block.NormalBG:GetAtlas() == "delves-scenario-TrackerHeader") then
+		block.NormalBG:SetAtlas("dragonflight-scenario-TrackerHeader", true)
+	elseif (block.NormalBG:GetAtlas() == "thewarwithin-scenario-trackerheader") then
 		block.NormalBG:SetAtlas("dragonflight-scenario-TrackerHeader", true)
 	elseif (block.NormalBG:GetAtlas() == "midnight-scenario-trackerheader") then
 		block.NormalBG:SetAtlas("dragonflight-scenario-TrackerHeader", true)
@@ -170,26 +161,6 @@ hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateStageBlock", function
 			block.Stage:SetPoint("TOPLEFT", 14, -11)
 		else
 			block.Stage:SetPoint("TOPLEFT", 14, -19)
-		end
-	end
-end)
-
-hooksecurefunc(ScenarioObjectiveTracker.StageBlock, "UpdateWidgetRegistration", function(block)
-	if block.WidgetContainer.widgetFrames then
-		for _, widgetFrame in pairs(block.WidgetContainer.widgetFrames) do
-			if widgetFrame.Frame then
-				if (widgetFrame.Frame:GetAtlas() == "evergreen-scenario-frame") then
-					block.WidgetContainer:SetPoint("TOPLEFT", -2, 0)
-				elseif (widgetFrame.Frame:GetAtlas() == "thewarwithin-scenario-frame") then
-					block.WidgetContainer:SetPoint("TOPLEFT", -7, 2)
-				elseif (widgetFrame.Frame:GetAtlas() == "midnight-scenario-frame") then
-					block.WidgetContainer:SetPoint("TOPLEFT", 0, -2)
-				elseif (widgetFrame.Frame:GetAtlas() == "delves-scenario-frame") then
-					block.WidgetContainer:SetPoint("TOPLEFT", -7, 2)
-				else
-					block.WidgetContainer:SetPoint("TOPLEFT", 0, -1)
-				end
-			end
 		end
 	end
 end)

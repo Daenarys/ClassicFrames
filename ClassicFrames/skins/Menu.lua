@@ -1,17 +1,3 @@
-local DialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
-ApplyDialogBorder(DialogSkin)
-DialogSkin:Hide()
-
-local SubDialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
-ApplyDialogBorder(SubDialogSkin)
-SubDialogSkin:Hide()
-
-local TooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
-TooltipSkin:Hide()
-
-local SubTooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
-SubTooltipSkin:Hide()
-
 local function IsDialogMenu(owner)
 	if not owner then return false end
 
@@ -46,6 +32,12 @@ local function IsDialogMenu(owner)
 		or (owner == AddonList.Dropdown)
 		or (owner == BankPanel.TabSettingsMenu.BorderBox.IconTypeDropdown)
 		or (owner == BankPanel.TabSettingsMenu.DepositSettingsMenu.ExpansionFilterDropdown)
+		or (owner == ClubFinderGuildFinderFrame.OptionsList.ClubFilterDropdown)
+		or (owner == ClubFinderGuildFinderFrame.OptionsList.ClubSizeDropdown)
+		or (owner == ClubFinderCommunityAndGuildFinderFrame.OptionsList.ClubFilterDropdown)
+		or (owner == ClubFinderCommunityAndGuildFinderFrame.OptionsList.SortByDropdown)
+		or (owner == CommunitiesFrame.GuildMemberListDropdown)
+		or (owner == CommunitiesFrame.StreamDropdown)
 		or (owner == CooldownViewerSettings.LayoutDropdown)
 		or (owner == DelvesCompanionAbilityListFrame.DelvesCompanionRoleDropdown)
 		or (owner == EditModeManagerFrame.LayoutDropdown)
@@ -65,20 +57,28 @@ local function IsDialogMenu(owner)
 		or (CalendarCreateEventFrame and owner == CalendarCreateEventFrame.AMPMDropdown)
 		or (DelvesDifficultyPickerFrame and owner == DelvesDifficultyPickerFrame.Dropdown)
 		or (EncounterJournal and owner == EncounterJournalInstanceSelect.ExpansionDropdown)
-		or (EncounterJournal and owner == EncounterJournalEncounterFrameInfo.LootContainer.filter)
-		or (EncounterJournal and owner == EncounterJournalEncounterFrameInfo.LootContainer.slotFilter)
-		or (EncounterJournal and owner == EncounterJournalEncounterFrameInfoDifficulty)
 		or (HeirloomsJournal and owner == HeirloomsJournal.ClassDropdown)
+		or (HousingDashboardFrame and owner == HousingDashboardFrame.HouseInfoContent.HouseDropdown)
 		or (ItemUpgradeFrame and owner == ItemUpgradeFrame.ItemInfo.Dropdown)
 		or (MacroPopupFrame and owner == MacroPopupFrame.BorderBox.IconTypeDropdown)
 		or (PlayerSpellsFrame and owner == PlayerSpellsFrame.TalentsFrame.LoadSystem.Dropdown)
 		or (TransmogFrame and owner == TransmogFrame.OutfitPopup.BorderBox.IconTypeDropdown)
 		or (TransmogFrame and owner == TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponDropdown)
 		or (TransmogFrame and owner == TransmogFrame.WardrobeCollection.TabContent.ItemsFrame.WeaponSheatheDropdown)
-		or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.ClassDropdown)
 		or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.ItemsCollectionFrame.WeaponDropdown)
-		or (WardrobeCollectionFrame and owner == WardrobeCollectionFrame.SetsCollectionFrame.DetailsFrame.VariantSetsDropdown)
 end
+
+local DialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
+DialogSkin:Hide()
+
+local SubDialogSkin = CreateFrame("Frame", nil, UIParent, "DialogBorderDarkTemplate")
+SubDialogSkin:Hide()
+
+local TooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
+TooltipSkin:Hide()
+
+local SubTooltipSkin = CreateFrame("Frame", nil, UIParent, "TooltipBackdropTemplate")
+SubTooltipSkin:Hide()
 
 local function SkinMenu(manager, owner, menuDescription)
 	local menu = manager:GetOpenMenu()

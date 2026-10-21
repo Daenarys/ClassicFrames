@@ -1,16 +1,13 @@
 if not _G.GameMenuFrame then return end
 
-ApplyDialogBorder(GameMenuFrame.Border)
-ApplyDialogHeader(GameMenuFrame.Header)
-
-GameMenuFrame.Header:SetWidth(139.3777)
+GameMenuFrame.Header:SetWidth(141)
 GameMenuFrame.Header.Text:SetFontObject("GameFontNormal")
 
 GameMenuFrame:HookScript("OnShow", function(self)
 	self.topPadding = 33
 	self.leftPadding = 26
 	self.rightPadding = 26
-	self.bottomPadding = 10
+	self.bottomPadding = 17
 
 	for button in self.buttonPool:EnumerateActive() do
 		if not button.IsSkinned then
