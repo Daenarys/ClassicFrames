@@ -3,7 +3,7 @@
 ## Title: Classic Frames
 ## Notes: Restores the classic UI and Unit Frames
 ## Author: luckfore
-## Version: 3.89
+## Version: 3.90
 embeds.xml
 skins\ApplySkin.lua
 skins\Achievements.lua
