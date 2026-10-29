@@ -52,6 +52,16 @@ castbarColors.Interrupted = CreateColor(1, 0, 0, 1)
 local function SkinTargetCastbar(frame)
 	SetLook(frame)
 
+	hooksecurefunc(frame, "HandleInterruptOrSpellFailed", function(self, _, event)
+		if self.Text then
+			if event == "UNIT_SPELLCAST_FAILED" then
+				self.Text:SetText(FAILED)
+			elseif event == "UNIT_SPELLCAST_INTERRUPTED" then
+				self.Text:SetText(INTERRUPTED)
+			end
+		end
+	end)
+
 	hooksecurefunc(frame, "UpdateShownState", function(self)
 		self.Spark:SetSize(32, 32)
 		self.Spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
