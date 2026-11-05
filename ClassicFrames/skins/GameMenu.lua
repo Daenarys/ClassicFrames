@@ -61,20 +61,22 @@ hooksecurefunc(GameMenuFrame, "Layout", function(self)
 		local text = button:GetText()
 		if (text == _G["GAMEMENU_SUPPORT"]) then
 			button:SetPoint("TOPLEFT", 26, -28)
-		elseif (text == _G["GAMEMENU_OPTIONS"]) then
+		elseif (text == _G["BLIZZARD_STORE"]) then
 			button:SetPoint("TOPLEFT", 26, -50)
-		elseif (text == _G["HUD_EDIT_MODE_MENU"]) then
+		elseif (text == _G["GAMEMENU_OPTIONS"]) then
 			button:SetPoint("TOPLEFT", 26, -72)
-		elseif (text == _G["MACROS"]) then
+		elseif (text == _G["HUD_EDIT_MODE_MENU"]) then
 			button:SetPoint("TOPLEFT", 26, -94)
-		elseif (text == _G["ADDONS"]) then
+		elseif (text == _G["MACROS"]) then
 			button:SetPoint("TOPLEFT", 26, -116)
-		elseif (text == _G["LOG_OUT"]) then
+		elseif (text == _G["ADDONS"]) then
 			button:SetPoint("TOPLEFT", 26, -138)
-		elseif (text == _G["EXIT_GAME"]) then
+		elseif (text == _G["LOG_OUT"]) then
 			button:SetPoint("TOPLEFT", 26, -160)
+		elseif (text == _G["EXIT_GAME"]) then
+			button:SetPoint("TOPLEFT", 26, -182)
 		elseif (text == _G["RETURN_TO_GAME"]) then
-			button:SetPoint("TOPLEFT", 26, -197)
+			button:SetPoint("TOPLEFT", 26, -219)
 		end
 	end
 end)
