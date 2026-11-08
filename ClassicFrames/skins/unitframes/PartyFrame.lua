@@ -27,8 +27,6 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 	frame.PartyMemberOverlay.PVPIcon:ClearAllPoints()
 	frame.PartyMemberOverlay.PVPIcon:SetPoint("TOPLEFT", -9, -23)
 	frame.PartyMemberOverlay.RoleIcon:SetSize(19, 19)
-	frame.PartyMemberOverlay.RoleIcon:ClearAllPoints()
-	frame.PartyMemberOverlay.RoleIcon:SetPoint("TOPLEFT", 7, -41)
 	frame.PartyMemberOverlay.Disconnect:ClearAllPoints()
 	frame.PartyMemberOverlay.Disconnect:SetPoint("LEFT", -7, -10)
 	frame.HealthBarContainer:SetFrameLevel(2)
@@ -56,6 +54,9 @@ for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
 		self.Flash:SetTexture("Interface\\TargetingFrame\\UI-PartyFrame-Flash")
 		self.Flash:SetPoint("TOPLEFT", -3, -6)
 		self.Flash:SetDrawLayer("BACKGROUND", 0)
+
+		self.PartyMemberOverlay.RoleIcon:ClearAllPoints()
+		self.PartyMemberOverlay.RoleIcon:SetPoint("TOPLEFT", 7, -41)
 
 		self.PartyMemberOverlay.Status:SetSize(36, 36)
 		self.PartyMemberOverlay.Status:SetTexture("Interface\\Buttons\\UI-Debuff-Overlays")
