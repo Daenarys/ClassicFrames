@@ -57,15 +57,17 @@ f:SetScript("OnEvent", function(self, event, name)
 		hooksecurefunc("CollectionsJournal_CheckAndDisplayTabs", function()
 			local prevTab
 			for _, tab in ipairs(CollectionsJournal.TabContainer.Tabs) do
-				ApplySideTab(tab)
+				if CollectionsJournal_ValidateTab(tab:GetID()) then
+					ApplySideTab(tab)
 
-				tab:ClearAllPoints()
-				if prevTab and prevTab:IsShown() then
-					tab:SetPoint("TOPLEFT", prevTab, "BOTTOMLEFT", 0, -20)
-				else
-					tab:SetPoint("TOPLEFT", CollectionsJournal.TabContainer, "TOPLEFT", 0, -36)
+					tab:ClearAllPoints()
+					if prevTab then
+						tab:SetPoint("TOPLEFT", prevTab, "BOTTOMLEFT", 0, -20)
+					else
+						tab:SetPoint("TOPLEFT", CollectionsJournal.TabContainer, "TOPLEFT", 0, -36)
+					end
+					prevTab = tab
 				end
-				prevTab = tab
 			end
 		end)
 	end
