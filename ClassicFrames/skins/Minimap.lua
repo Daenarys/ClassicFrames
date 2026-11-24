@@ -177,8 +177,12 @@ hooksecurefunc(MinimapCluster.IndicatorFrame.MailFrame, "ResetMailIcon", functio
 end)
 
 hooksecurefunc(MinimapCluster.IndicatorFrame.MailFrame, "TryPlayMailNotification", function(self)
-	self.NewMailAnim:SetPlaying(false)
-	self.MailReminderAnim:SetPlaying(false)
+	if self.NewMailAnim then
+		self.NewMailAnim:SetPlaying(false)
+	end
+	if self.MailReminderAnim then
+		self.MailReminderAnim:SetPlaying(false)
+	end
 	self.MailIcon:SetShown(true)
 end)
 
