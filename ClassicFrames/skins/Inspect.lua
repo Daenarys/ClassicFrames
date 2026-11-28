@@ -15,7 +15,7 @@ f:SetScript("OnEvent", function(self, event, name)
 		ApplyTitleBg(InspectFrame)
 		ApplyNineSlicePortrait(InspectFrame)
 
-		hooksecurefunc(InspectFrame, "UpdateTabLayout", function(self)
+		hooksecurefunc(InspectFrame, "SetupModeTabs", function(self)
 			local prevTab
 			for _, tab in ipairs(self.ModeTabs.Tabs) do
 				ApplySideTab(tab)
