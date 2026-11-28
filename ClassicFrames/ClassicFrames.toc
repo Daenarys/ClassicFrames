@@ -41,6 +41,7 @@ skins\ItemText.lua
 skins\Legacy.lua
 skins\LFG.lua
 skins\Loot.xml
+skins\LossOfControl.lua
 skins\Macro.lua
 skins\Mail.lua
 skins\Menu.lua
